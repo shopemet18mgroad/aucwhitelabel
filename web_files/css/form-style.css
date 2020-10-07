@@ -1,0 +1,24 @@
+/*form*/
+.inpt{
+	padding: 1px 1px;
+	margin: 8px 0;
+	background-color:#f0eeed;
+	border: none;
+	border-bottom: 1px solid black;
+	}
+
+.table{
+	background-color:#f0eeed;
+}
+
+.cinpt{	
+	overflow:hidden;
+	position:auto;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:15px;
+	text-align:left;
+	padding-left:10px;
+    padding-right:10px;
+	margin:2px;
+
+}
