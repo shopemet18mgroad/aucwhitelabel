@@ -90,8 +90,8 @@
 						  Registration
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						  <a class="dropdown-item" href="./sellersregisteration.php">Seller's Registration</a>
-						  <a class="dropdown-item" href="./buyersregisteration.php">Buyer's Registration</a>
+						  <a class="dropdown-item" href="./sellersregisteration">Seller's Registration</a>
+						  <a class="dropdown-item" href="./buyersregisteration">Buyer's Registration</a>
 						</div>
 					  </li>
 					   <li class="nav-item">
