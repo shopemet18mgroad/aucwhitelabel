@@ -7,9 +7,9 @@
     
 		<div class= "content w-100">
 		<div class="middleboxtnc w-75">
-							<div class="middle w-100">
-								<h2 style="text-align:center"><b>AUCJUNCTION</b><h2>
-									<h6 style="text-align:center">Partner Agreement - Seller</h6> 
+			<div class="middle w-100  text-white">
+				<h2 style="text-align:center"><b>AUCJUNCTION</b><h2>
+					<h6 style="text-align:center">Partner Agreement - Seller</h6> 
 										
 							</div>
 		<div class="blnkspc w-100">

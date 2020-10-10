@@ -57,7 +57,7 @@
 				</div>
 			
 			</form>
-		<table class="table table-striped table-bordered table-sm" id="dataTable" width="100%" cellspacing="0">
+		<table class="table table-striped table-bordered table-sm text-center" id="dataTable" width="100%" cellspacing="0">
 				<thead class="bg-primary text-white">
 				<tr>
 					<th width="60%">Auction Id</th>
@@ -68,22 +68,22 @@
 				<tbody>
 				<tr>												
 					<td><a href="forthcomingauc_2.php">EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</a></td>
-					<td><a href="#"><u>Download PDF</u></a></td>
+					<td><i class="fa fa-download" style="color:blue"></i></td>
 					<td>23-03-2020 23:00:00</td>
 				</tr>
 				<tr>
 					<td><a href="forthcomingauc_2.php">BHEL/BBR/ISG LTD/2/Adarsh Vihar/25087/20-20</a></td>
-					<td><a href="#"><u>Download PDF</u></a></td>
+					<td><i class="fa fa-download" style="color:blue"></i></td>
 					<td>24-11-2019 16:17:00</td>
 				</tr>  
 				<tr>
 					<td><a href="forthcomingauc_2.php">EEMT/BBR/ONGC LTD/3/Orissa Vidyut Nagar/465895/18-20</a></td>
-					<td><a href="#"><u>Download PDF</u></a></td>
+					<td><i class="fa fa-download" style="color:blue"></i></td>
 					<td>14-07-2020 18:12:07</td>
 				</tr>  
 				<tr>												
 					<td><a href="forthcomingauc_2.php">EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</a></td>
-					<td><a href="#"><u>Download PDF</u></a></td>
+					<td><i class="fa fa-download" style="color:blue"></i></td>
 					<td>23-03-2020 23:00:00</td>
 				</tr>
 				</tbody>

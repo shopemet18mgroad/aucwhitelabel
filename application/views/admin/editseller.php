@@ -153,7 +153,7 @@
 									
 						</tbody>
 					</table>					
-				<a href="#"><button type="button" class="btn btn-info offset-sm-4 mt-2">Submit</button></a>
+				<a href="#"><button type="button" class="btn btn-info offset-sm-4 mt-2">Update</button></a>
 												
 				<a href="#"><button type="button" class="btn btn-info offset-sm-1 mt-2">Cancel</button></a>
 												

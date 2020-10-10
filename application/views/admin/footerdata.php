@@ -33,7 +33,9 @@
 
   <!-- Page level plugins -->
   <script src="../../vendor/chart.js/Chart.min.js"></script>
+  <script src="../../weblib/aucbuyreg.js" type="text/javascript" charset="utf-8"></script>
 
   <!-- Page level custom scripts -->
   <script src="../../js/demo/chart-area-demo.js"></script>
   <script src="../../js/demo/chart-pie-demo.js"></script>
+   <script src="../js/vseller.js" type="text/javascript" charset="utf-8"></script>

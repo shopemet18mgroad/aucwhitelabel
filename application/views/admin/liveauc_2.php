@@ -60,9 +60,7 @@
 					<th>Quantity</th>
 					<th>Unit</th>
 					<th>Start Price</th>
-					<th>Final Bid</th>					
-					<th>Bid</th>
-					<th>Autobid</th>
+					<th>Final Bid</th>
 				</tr>
 				</thead>
 
@@ -76,8 +74,6 @@
 					<td>MT</td>
 					<td>40,000</td>
 					<td>2,00,000</td>
-					<td><a href="Biddinglivestatus.php"><button type="button" class="btn btn-info">Bid</button></a></td>
-					<td><a href="autobid.php"><button type="button" class="btn btn-info">AutoBid</button></a></td>
 				</tr>
 				<tr>												
 					<td>Horizontal Boring Machine</td>
@@ -88,8 +84,6 @@
 					<td>info</td>
 					<td>80,000</td>
 					<td>1,45,000</td>
-					<td><a href="Biddinglivestatus.php"><button type="button" class="btn btn-info">Bid</button></a></td>
-					<td><a href="autobid.php"><button type="button" class="btn btn-info">AutoBid</button></a></td>
 				</tr>
 				</tbody>
 		 </table>

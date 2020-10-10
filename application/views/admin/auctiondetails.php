@@ -44,18 +44,17 @@
 	</tr>
 
       <tr>
-        <th>Auction No</th>
+        <th>Auction Id</th>
 		<th>Lot No</th>
 		<th>Lot Name</th>
-        <th>Product Name</th>
         <th>Qty</th>
 		<th>Expected Price</th>
 		<th>Starting Bid Price</th>
 		<th>Inspection Date</th>
 		<th>Description</th>
-		<th>Status</th>
+		<th>Seller Approval</th>
 		<th>Download</th>
-		<th>Option</th>
+		<th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -63,7 +62,6 @@
 		<td style="color:blue;">AJ256458/BHEL/IRON/102</td> 
 		<td>1</td>
         <td>Iron</td>
-		<td>Ferrous</td>
 		<td>Pig Iron</td>
 		<td>5</td>
 		<td>1,000</td>
@@ -80,7 +78,6 @@
 		<td style="color:blue;">AJ256458/BHEL/IRON/102</td> 
 		<td>1</td>
         <td>Iron</td>
-		<td>Ferrous</td>
 		<td>Pig Iron</td>
 		<td>5</td>
 		<td>1,000</td>
@@ -97,7 +94,6 @@
 		<td style="color:blue;">AJ256458/BHEL/IRON/102</td> 
 		<td>1</td>
         <td>Iron</td>
-		<td>Ferrous</td>
 		<td>Pig Iron</td>
 		<td>5</td>
 		<td>1,000</td>
@@ -114,7 +110,6 @@
 		<td style="color:blue;">AJ256458/BHEL/IRON/102</td>
 		<td>1</td>
         <td>Iron</td>
-		<td>Ferrous</td>
 		<td>Pig Iron</td>
 		<td>5</td>
 		<td>1,000</td>
@@ -131,7 +126,6 @@
 		<td style="color:blue;">AJ256458/BHEL/IRON/102</td> 
 		<td>1</td>
         <td>Iron</td>
-		<td>Ferrous</td>
 		<td>Pig Iron</td>
 		<td>5</td>
 		<td>1,000</td>

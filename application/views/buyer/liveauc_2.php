@@ -20,18 +20,18 @@
             <div class="card-body">
               <div class="table-responsive">
 
-		<table class="table table-striped table-bordered table-sm" id="dataTable" width="100%" cellspacing="0">
+		<table class="table table-striped table-bordered table-sm text-center w-auto small" id="dataTable" width="100%" cellspacing="0">
 				<thead class="bg-info text-white text-center">
 					<th colspan="7">Auction Details</th>
 				</thead>
 				<thead class="bg-primary text-white">
 				<tr>
 				
-					<th>Auction Id</th>
+					<th width="22%">Auction Id</th>
 					<th>Seller / Company Name</th>
 					<th>Auction Start Date</th>
 					<th>Auction Close Date</th>
-					<th>Auction Terms</th>
+					<th>Seller Terms & Condition</th>
 				</tr>
 				</thead>
 
@@ -46,29 +46,32 @@
 				</tr>
 				</tbody>
 			</table>
-				<table class="table table-striped table-sm table-bordered mt-4" id="dataTable" width="100%" cellspacing="0">
+				<table class="table table-striped table-sm w-auto small table-bordered mt-4 text-center" id="dataTable" width="100%" cellspacing="0">
 				<thead class="bg-warning  text-white text-center">
 					<tr>
-						<th colspan="12">Open LOT Number</th>
+						<th colspan="14">Open LOT Number</th>
 					</tr>
 				</thead>
 				<thead class="bg-primary text-white">
 				<tr>
-					<th>Auction Id</th>
+					<th width="8%">Lot No</th>
+					<th>Lot Name</th>
 					<th>Location</th>
 					<th>Close Time</th>
 					<th>Time Left</th>
 					<th>Quantity</th>
 					<th>Unit</th>
 					<th>Start Price</th>
-					<th>Final Bid</th>					
-					<th>Bid</th>
+					<th>My Bid</th>
+					<th>Live Status</th>					
+					<th width="18%">Bid</th>
 					<th>Autobid</th>
+					<th width="10%">Status</th>
 				</tr>
 				</thead>
 
 				<tbody>
-				<tr>												
+				<tr><td>M-129</td>												
 					<td><a href="#">EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</a> </td>
 					<td>Bangalore-KA</td>
 					<td>20:14:03</td>
@@ -76,24 +79,42 @@
 					<td>1.9</td>
 					<td>MT</td>
 					<td>40,000</td>
+					<td>20,000</td>
 					<td>2,00,000</td>
-					<td><a href="Biddinglivestatus.php"><button type="button" class="btn btn-info">Bid</button></a></td>
+					<td><div class="form-group row ml-2">
+					<input class="form-control col-sm-7 mr-2" type="number" value="100" min="0" step="100" id="bid" name="bid">
+					<a href="" data-toggle="modal" data-target="#myModal"><button type="submit" class="btn btn-info">Bid</button></a></div>
+							
+					<div class="modal" id="myModal">
+					<div class="modal-dialog modal-sm">
+					  <div class="modal-content">
+					  
+						<!-- Modal Header -->
+						
+						
+						<!-- Modal body -->
+						<div class="modal-body">
+						<center><p class="text-primary">You are going to bid for five hundered Rupees</p></center>
+						</div>
+						
+						<!-- Modal footer -->
+						<div class="modal-footer">
+						  <button type="button" class="btn btn-danger" data-dismiss="modal">OK</button>
+						  <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+						</div>
+						
+					  </div>
+					</div>
+				  </div>
+				  </td>
 					<td><a href="autobid.php"><button type="button" class="btn btn-info">AutoBid</button></a></td>
+					<td><a href="Biddinglivestatus.php"><button type="button" class="btn btn-info btn-sm p-2"><b>Live Status</b></button></a></td>
 				</tr>
-				<tr>												
-					<td><a href="#">EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</a> </td>
-					<td>Delhi</td>
-					<td>16:14:03</td>
-					<td>55 min</td>
-					<td>1.9</td>
-					<td>info</td>
-					<td>80,000</td>
-					<td>1,45,000</td>
-					<td><a href="Biddinglivestatus.php"><button type="button" class="btn btn-info">Bid</button></a></td>
-					<td><a href="autobid.php"><button type="button" class="btn btn-info">AutoBid</button></a></td>
-				</tr>
+				
 				</tbody>
 		 </table>
+
+
 		</div>
 		</div>
 		</div>
@@ -118,6 +139,9 @@
   <!-- End of Page Wrapper -->
 
   <!-- Scroll to Top Button-->
+ 
+
+
   <?php 
 	include('./footer.php');
 ?>

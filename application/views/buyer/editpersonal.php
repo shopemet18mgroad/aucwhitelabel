@@ -24,7 +24,7 @@
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Personal Info</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Edit Personal Info</h6>
                
                 </div>
                 <!-- Card Body -->
@@ -35,11 +35,8 @@
 					 
 					 </thead>
 						<tbody>
-						<tr><td><img class="img-fluid" src="manimg.jpg" alt="Chania" width="40" height="35"></td></tr>
-							<tr>
-								<td class="btxt">Change Photo</td>
-								<td><form action="/action_page.php"> <input type="file" id="myFile" name="filename1"></form></td>
-							</tr> 
+						<tr><td><img class="img-fluid" src="../../img/manimg.jpg" alt="Chania" width="40" height="35"></td></tr>
+							
 							<tr>
 								<td>Buyer Name</td>
 								<td>John</td>
@@ -54,12 +51,8 @@
 							</tr> 	
 							<tr>
 								<td>Postal Address</td>
-								<td><input class="form-control w-50" type="text" id="baddress" name="baddress" ></td>
+								<td><textarea class="form-control w-50" type="text" id="baddress" name="baddress" ></textarea></td>
 							</tr> 
-							<tr>
-								<td>City</td>
-								<td><input class="form-control w-50" type="text" id="bcity" name="bcity"></td>
-							</tr>
 							<tr>
 								<td>Pincode</td>
 								<td><input class="form-control w-50" type="text" id="bpin" name="bpin" ></td>
@@ -68,11 +61,19 @@
 								<td>State /Union Ter.</td>
 								<td>Chandigarh</td>
 							</tr>
+
 							<tr>
 								<td>Country</td>
 								<td>India</td>
 							</tr>
-															
+							<tr>
+								<td>PCB</td>
+								<td>EFTGG54564655612</td>
+							</tr>
+							<tr>
+								<td class="btxt">Upload Profile Pic</td>
+								<td><form action="/action_page.php"> <input type="file" id="myFile" name="filename1"></form></td>
+							</tr> 								
 						</tbody>
 					</table>			
 

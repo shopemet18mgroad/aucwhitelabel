@@ -29,7 +29,7 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-					 <table class="table table-sm table-borderless">
+					 <table class="table table-sm table-borderless" id="section1">
 					 <thead><th width="45%">Profile</th>
 					 <th style="text-align:right"><a href="editpersonal.php"><u>Edit Personal Info</u></a></th>
 					 
@@ -53,10 +53,7 @@
 								<td>Postal Address</td>
 								<td>Indra Palace, Gandhi Nagar</td>
 							</tr> 
-							<tr>
-								<td>City</td>
-								<td>Amritsar</td>
-							</tr>
+							
 							<tr>
 								<td>Pincode</td>
 								<td>555230</td>
@@ -69,11 +66,19 @@
 								<td>Country</td>
 								<td>India</td>
 							</tr>
+							<tr>
+								<td>GST</td>
+								<td>18%</td>
+							</tr> 
+							<tr>
+								<td>PCB</td>
+								<td>EFTGG54564655612</td>
+							</tr>
 													
 						</tbody>
 					</table>			
 
-				<table class="table table-sm table-borderless">
+				<table class="table table-sm table-borderless" id="section2">
 					 <thead><th width="45%">Contact Info</th>
 					 <th style="text-align:right"><a href="editcontact.php"><u>Edit Contact Info</u></a></th>
 					 </thead>
@@ -98,7 +103,7 @@
 						</tbody>
 					</table>	
 
-				<table class="table table-sm table-borderless">
+				<table class="table table-sm table-borderless" id="section3">
 					 <thead><th width="45%">Password</th>
 					 <th style="text-align:right"><a href="editpassword.php"><u>Edit Password</u></a></th>
 					 </thead>
@@ -119,7 +124,7 @@
 						</tbody>
 					</table>
 
-				<table class="table table-sm table-borderless">
+				<table class="table table-sm table-borderless" id="section4">
 					 <thead><th width="45%">Account</th>
 					 <th style="text-align:right"><a href="editaccount.php"><u>Edit Account</u></a></th>
 					 </thead>
@@ -145,25 +150,14 @@
 					</table>
 
 
-				<table class="table table-sm table-borderless">
+				<table class="table table-sm table-borderless" id="section5">
 					 <thead><th width="45%">Documents</th>
 					 <th style="text-align:right"><a href="editdocument.php"><u>Edit documents</u></a></th>
 					 </thead>
 						<tbody>
+						
 							<tr>
-								<td class="btxt">Upload Image1:</td>
-								<td>XYZ.pdf</td>
-							</tr> 
-							<tr>
-								<td class="btxt">Upload Image2:</td>
-								<td>XYZ.pdf</td>
-							</tr> 
-							<tr>
-								<td class="btxt">Upload Image3:</td>
-								<td>XYZ.pdf</td>
-							</tr>
-							<tr>
-								<td class="btxt">Signed Documents:</td>
+								<td class="btxt">Upload Documents:</td>
 								<td>XYZ.pdf</td>
 							</tr>							
 											

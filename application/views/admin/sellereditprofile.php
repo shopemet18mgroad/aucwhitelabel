@@ -46,7 +46,7 @@
 					<th>Location</th>
 					<th>City</th>
 					<th>Status</th>
-					<th>Option</th>
+					<th>Action</th>
 				</tr>
 				</thead>
 				<tbody>
@@ -57,7 +57,7 @@
 					<td>Bangalore</td>
 					<td>Shada Shiv Nagar</td>
 					<td>Active</td>
-					<td><a href="selllerreg.php">
+					<td><a href="editseller.php">
 						<i class="fa fa-edit"></i> 
 						</a>
 						<a href="" >
@@ -75,7 +75,7 @@
 					<td>Bangalore</td>
 					<td>Shada Shiv Nagar</td>
 					<td>Active</td>
-					<td><a href="selllerreg.php">
+					<td><a href="editseller.php">
 						<i class="fa fa-edit"></i> 
 						</a>
 						<a href="" >
@@ -92,7 +92,7 @@
 					<td>Bangalore</td>
 					<td>Shada Shiv Nagar</td>
 					<td>Inactive</td>
-					<td><a href="selllerreg.php">
+					<td><a href="editseller.php">
 						<i class="fa fa-edit"></i> 
 						</a>
 						<a href="" >
@@ -108,7 +108,7 @@
 					<td>Bangalore</td>
 					<td>Shada Shiv Nagar</td>
 					<td>Active</td>
-					<td><a href="selllerreg.php">
+					<td><a href="editseller.php">
 						<i class="fa fa-edit"></i> 
 						</a>
 						<a href="" >

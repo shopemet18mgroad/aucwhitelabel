@@ -24,31 +24,20 @@
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Personal Info</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Documents</h6>
                
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
 
 					<table class="table table-sm table-borderless">
-					 <thead><th width="45%">Documents</th>
+					 <thead><th width="45%">Edit Documents</th>
 					 
 					 </thead>
 						<tbody>
+							
 							<tr>
-								<td class="btxt">Upload Image1:</td>
-								<td><form action="/action_page.php"> <input type="file" id="buploadimage1" name="buploadimage1"></form></td>
-							</tr> 
-							<tr>
-								<td class="btxt">Upload Image2:</td>
-								<td><form action="/action_page.php"> <input type="file" id="buploadimage2" name="buploadimage2"></form></td>
-							</tr> 
-							<tr>
-								<td class="btxt">Upload Image3:</td>
-								<td><form action="/action_page.php"> <input type="file" id="buploadimage3" name="buploadimage3"></form></td>
-							</tr>
-							<tr>
-								<td class="btxt">Signed Documents:</td>
+								<td class="btxt">Upload Documents:</td>
 								<td>
 								<div class="input_fields_wrap">
 								<input type="file" id="bsigneddocument" name="bsigneddocument">

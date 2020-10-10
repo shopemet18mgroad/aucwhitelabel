@@ -35,19 +35,12 @@
 					 </thead>
 						<tbody>
 							<tr>
-								<td class="btxt">Upload Image1:</td>
+								<td class="btxt">Upload Profile Pic</td>
 								<td><input type="file" id="suploadimage1" name="suploadimage1"></td>
 							</tr> 
+							
 							<tr>
-								<td class="btxt">Upload Image2:</td>
-								<td><input type="file" id="suploadimage2" name="suploadimage2"></td>
-							</tr> 
-							<tr>
-								<td class="btxt">Upload Image3:</td>
-								<td><input type="file" id="suploadimage3" name="suploadimage3"></td>
-							</tr>
-							<tr>
-								<td class="btxt">Signed Documents:</td>
+								<td class="btxt">Upload Documents:</td>
 								<td>
 								<div class="input_fields_wrap">
 								<input type="file" id="ssigneddocument" name="ssigneddocument">
@@ -78,7 +71,7 @@
       </div>
 	   <script>
  $(document).ready(function() {
- var max_fields  = 10;
+ var max_fields  = 20;
  var wrapper     = $(".input_fields_wrap");
  var add_button  = $(".add_field_button");
 
@@ -88,7 +81,7 @@
    e.preventDefault();
    if(x < max_fields){
 			x++;
-			$(wrapper).append('<div><input class="mt-2" type="file" id="myFile" name="filename4"><a href="#" class="remove_field"><button type="button" class="btn btn-sm btn-primary ml-1">  <i class="fa fa-minus text-white"></i></button></a></div>');
+			$(wrapper).append('<div><input class="mt-2" type="file" id="ssigneddocument" name="ssigneddocument"><a href="#" class="remove_field"><button type="button" class="btn btn-sm btn-primary ml-1">  <i class="fa fa-minus text-white"></i></button></a></div>');
    }	
 			});
 			

@@ -30,7 +30,7 @@
 					<th>Auction Id</th>
 					<th>Opening Date/Time</th>
 					<th>Closing Date/Time</th>
-					<th>EMD Type</th>
+					<th>EMD Amount</th>
 				</tr>
 				</thead>
 
@@ -39,7 +39,7 @@
 					<td><a href="#">EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</a></</td>
 					<td>23-03-2020 23:00:00</td>
 					<td>24-11-2019 16:17:00</td>
-					<td>No EMD</td>
+					<td>20,000</td>
 				</tr>
 				</tbody>
 		 </table>
@@ -74,29 +74,42 @@
 				</tbody>
 		 </table>
 		
-		<table class="table table-striped table-sm table-bordered mt-4" id="dataTable" width="100%" cellspacing="0">
+		<table class="table table-striped table-sm table-bordered mt-4 w-auto" id="dataTable" width="100%" cellspacing="0">
 				<thead class="bg-primary text-white">
 				<tr>
 					<th>Lot No</th>
 					<th>Lot Name</th>
-					<th width="50%">Lot Description</th>
+					<th width="30%">Lot Description</th>
 					<th>Quantity</th>
 					<th>GST</th>
 					<th>Location</th>
+					<th>Action</th>
 				</tr>
 				</thead>
 
 				<tbody>
-			<tr><td>101</td>												
-				<td>Horizontal Boring Machine</td>
-				<td>In machining, boring is the process of enlarging a hole that has already been drilled (or cast) by means of a single-point cutting tool (or of a boring head containing several such tools), such as in boring a gun barrel or an engine cylinder. </td>
+				<tr><td>101</td>												
+					<td>Horizontal Boring Machine</td>
+					<td>In machining, boring is the process of enlarging a hole that has already been drilled.</td>
+					<td>1.0 Lot</td>
+					<td>18.0</td>
+					<td>Bangalore-KA</td>
+					<td><a href="#"><button type="button" class="btn btn-info btn-sm mt-2">Accept</button></a>
+						<a href="#"><button type="button" class="btn btn-info btn-sm offset-sm-1 mt-2">Reject</button></a></td>
+			</tr>
+			<tr><td>102</td>												
+				<td>Cast Iron</td>
+				<td>In machining, boring is the process of enlarging a hole that has already been drilled.</td>
 				<td>1.0 Lot</td>
-				<td>18.0</td>
+				<td>20.0</td>
 				<td>Bangalore-KA</td>
+				<td><a href="#"><button type="button" class="btn btn-info btn-sm mt-2">Accept</button></a>
+					<a href="#"><button type="button" class="btn btn-info btn-sm offset-sm-1 mt-2">Reject</button></a></td>
 			</tr>
 		
 				</tbody>
-		 </table>
+			 </table>
+			
 		</div>
 		</div>
 		</div>

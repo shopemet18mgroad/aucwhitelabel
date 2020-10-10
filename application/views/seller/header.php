@@ -19,9 +19,20 @@
   <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
   <link href="../../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 		<script src="../../js/js.js"></script>
+<style>
+ body {
+    position: relative;
+  }
+  ul.nav-pills {
+    top: 20px;
+    position: fixed;
+  }
+  div.col-8 div {
+    height: 500px;
+  }</style>
 </head>
 
-<body id="page-top">
+<body id="page-top" data-spy="scroll" data-target="#myScrollspy" data-offset="1">
 
   <!-- Page Wrapper -->
   <div id="wrapper">
@@ -55,17 +66,17 @@
 
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#profile" aria-expanded="true" aria-controls="collapseUtilities">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#myScrollspy" aria-expanded="true" aria-controls="collapseUtilities">
           <i class="fas fa-fw fa-user"></i>
           <span>Profile Update</span>
         </a>
-		<div id="profile" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+		<div id="myScrollspy" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
              <a class="collapse-item" href="index.php">Profile</a>
-            <a class="collapse-item" href="index.php">contact</a>
-			<a class="collapse-item" href="index.php">Account</a>
-			<a class="collapse-item" href="index.php">Password</a>
-			<a class="collapse-item" href="index.php">Document</a>
+            <a class="collapse-item" href="#section2">contact</a>
+			<a class="collapse-item" href="#section3">Account</a>
+			<a class="collapse-item" href="#section4">Password</a>
+			<a class="collapse-item" href="#section5">Document</a>
           </div>
         </div>
       </li>

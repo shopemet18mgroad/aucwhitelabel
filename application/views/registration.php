@@ -6,7 +6,7 @@
     
 <div class= "content w-100">
 	<div class="middleboxtnc w-75">
-		<div class="middle w-100">
+		<div class="middle w-100 text-white">
 			<h2 style="text-align:center"><b>TERMS AND CONDITIONS</b><h2>
 			<h6 style="text-align:center">Welcome to AucJunction.com website (hereinafter referred to as &quot;the website&quot;).
 </h6> 
@@ -325,16 +325,43 @@ only an E-Commerce Service Provider and has minimal knowledge arising out of any
 in applicable tax rates that are promulgated by the Government from time to time.
 </p>
 
-
+ <div class="form-check para">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">I have read and agree with the terms and conditions. </label>
+  </div>
 			
 				</div>
 			</table>
 
 			<div class="text-center" style="position:relative;">
-				<a href='#'><button  type="button" class="btn btn-primary mt-2">Agree</button></a>
+				<button  type="button" class="btn btn-primary mt-2" data-toggle="modal" data-target="#myModal">Agree</button>
 				<a href='index.php'><button type="button" class="btn btn-primary mt-2">Disagree</button></a>
-
 			</div>
+			
+			<!-- The Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Thank you For Registration...</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+       <!-- <div class="modal-body">
+          Modal body..
+        </div> -->
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
 
 		</div>
   

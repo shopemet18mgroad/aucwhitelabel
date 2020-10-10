@@ -44,7 +44,11 @@
 							<tr>
 								<td>Contact Person</td>
 								<td>M.R.Venkatesh</td>
-							</tr>  
+							</tr> 
+							<tr>
+								<td>CIN</td>
+								<td>2354766895234654</td>
+							</tr>	
 							<tr>
 								<td>Company Type:</td>
 								<td>Industry</td>
@@ -69,6 +73,14 @@
 								<td>Country</td>
 								<td>India</td>
 							</tr>
+							<tr>
+								<td>GST</td>
+								<td>18%</td>
+							</tr> 
+							<tr>
+								<td>PCB</td>
+								<td>EFTGG54564655612</td>
+							</tr>
 													
 						</tbody>
 					</table>			
@@ -90,10 +102,7 @@
 								<td>Pan Number</td>
 								<td>JCDB245555</td>
 							</tr> 	
-							<tr>
-								<td>GST</td>
-								<td>18%</td>
-							</tr> 
+							
 													
 						</tbody>
 					</table>	

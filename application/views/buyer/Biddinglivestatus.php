@@ -16,25 +16,17 @@
           <div class="row">
 
             <!-- Earnings (Monthly) Card Example -->
-			<div class="col-xl-12 col-lg-7">
+			<div class="col-xl-9 offset-sm-1">
           <div class="card shadow mb-4">
             <div class="card-body">
 			
 			<form class="user">
 				
 				<div class="row ">
-				<div class="col-sm-5">
-					<div class="caption p-3 ml-5">
-					<div class="form-group">
-					<label>Bid Here</label>
-						<input class="form-control col-sm-8" type="number" value="100" min="0" step="100" id="bid" name="bid">
-						<a href="#" class="btn btn-info w-auto small mt-2 offset-sm-3" role="button" data-toggle="modal" data-target="#myModal">Bid</a>
-				</div>
-				</div>
-				</div>
+			
 
 
-				<div class="caption mt-3 col-sm-7">
+				<div class="caption mt-3 col-sm-5 offset-sm-3">
 					<table class="table table-sm text-center table-borderless" id="dataTable" width="100%" cellspacing="0">
 				<thead class="bg-info text-white">
 				<tr>

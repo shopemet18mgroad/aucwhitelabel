@@ -48,7 +48,7 @@
 					<th>City</th>
 					<th>Subscription</th>
 					<th>Status</th>
-					<th>Option</th>
+					<th>Action</th>
 				</tr>
 				</thead>
 				<tbody>
@@ -60,7 +60,7 @@
 														<td>Shiv Nagar</td>
 														<td>Premium</td>
 														<td>Active</td>
-														<td><a href="buyerreg.php">
+														<td><a href="editbuyer.php">
 															<i class="fa fa-edit"></i> 
 															</a>
 															<a href="" >
@@ -78,7 +78,7 @@
 														<td>Shiv Nagar</td>
 														<td>Premium</td>
 														<td>Inactive</td>
-														<td><a href="buyerreg.php">
+														<td><a href="editbuyer.php">
 															<i class="fa fa-edit"></i> 
 															</a>
 															<a href="" >
@@ -96,7 +96,7 @@
 														<td>Shiv Nagar</td>
 														<td>Standard</td>
 														<td>Inactive</td>
-														<td><a href="buyerreg.php">
+														<td><a href="editbuyer.php">
 															<i class="fa fa-edit"></i> 
 															</a>
 															<a href="" >
@@ -114,7 +114,7 @@
 														<td>Shiv Nagar</td>
 														<td>Standard</td>
 														<td>Active</td>
-														<td><a href="buyerreg.php">
+														<td><a href="editbuyer.php">
 															<i class="fa fa-edit"></i> 
 															</a>
 															<a href="" >
@@ -132,7 +132,7 @@
 														<td>Shiv Nagar</td>
 														<td>Premium</td>
 														<td>Active</td>
-														<td><a href="a-buyerreg.php">
+														<td><a href="editbuyer.php">
 															<i class="fa fa-edit"></i> 
 															</a>
 															<a href="" >

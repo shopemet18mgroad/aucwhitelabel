@@ -57,17 +57,18 @@
 				</div>
 			
 			</form>
-			<table class="table table-striped table-bordered table-sm text-center mt-5" id="dataTable" width="100%" cellspacing="0">
+			<table class="table table-striped table-bordered table-sm text-center mt-5 w-auto small" id="dataTable" width="100%" cellspacing="0">
 				<thead class="bg-primary text-white">
-				<tr><th class="bg-info" colspan="10">EMD</th></tr>
+				<tr><th class="bg-info" colspan="12">EMD</th></tr>
 					<tr>
-						<th>Auction Id</th>
+						<th width="40%">Auction Id</th>
 						<th>Company Name</th>
 						<th>Location</th>
 						<th>Date/Time</th>
 						<th>Status</th>
-						<th>Details</th>
-						<th>EMD Payment</th>
+						<th>View Auction</th>
+						<th width="15%">EMD Payment</th>
+						<th>EMD Pay By DD</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -78,8 +79,11 @@
 						<td>Bangalore</td>
 						<td>23-03-2020 23:00:00</td>
 						<td>Paid</td>
-						<td><a href="#"><button type="button" class="btn btn-primary btn-sm">View Auction</button></a></td>
+						<td><a href="#"><button type="submit" class="btn btn-primary btn-sm w-50">
+					<i class="fa fa-eye" aria-hidden="true"></i>
+					</button></a></td>
 						<td>-</td>
+						<td></td>
 					</tr>
 					<tr>												
 					
@@ -88,8 +92,11 @@
 						<td>Uttrakhand</td>
 						<td>23-03-2020 23:00:00</td>
 						<td>Not Paid</td>
-						<td class="up"><a href="#"><button type="button" class="btn btn-primary btn-sm" disabled>View Auction</button></a></td>
+						<td><a href="#"><button type="submit" class="btn btn-primary btn-sm w-50">
+					<i class="fa fa-eye" aria-hidden="true"></i>
+					</button></a></td>
 						<td><a href="#"><button type="button" class="btn btn-primary btn-sm" disabled>Pay</button></a><br><a class="w-auto small" href="#"><strong>Process Without EMD</strong></a></td>
+						<td></td>
 					</tr>
 					<tr>												
 						
@@ -98,8 +105,11 @@
 						<td>Gujarat</td>
 						<td>23-03-2020 23:00:00</td>
 						<td>Request</a></td>
-						<td class="up"><a href="#"><button type="button" class="btn btn-primary btn-sm">View Auction</button></a></td>
+						<td><a href="#"><button type="submit" class="btn btn-primary btn-sm w-50">
+					<i class="fa fa-eye" aria-hidden="true"></i>
+					</button></a></td>
 						<td><a href="#"><button type="button" class="btn btn-primary btn-sm">Pay</button></a></td>
+						<td><input class="form-group w-auto " type="file" id="bemd_dd" name="bemd_dd"></td>
 					</tr>
 					<tr>												
 						
@@ -108,8 +118,11 @@
 						<td>Orrisa</td>
 						<td>23-03-2020 23:00:00</td>
 						<td>Request</td>
-						<td><a href="#"><button type="button" class="btn btn-primary btn-sm">View Auction</button></a></td>
+						<td><a href="#"><button type="submit" class="btn btn-primary btn-sm w-50">
+					<i class="fa fa-eye" aria-hidden="true"></i>
+					</button></a></td>
 						<td><a href="#"><button type="button" class="btn btn-primary btn-sm">Pay</button></a></td>
+						<td><input class="form-group w-auto" type="file" id="bemd_dd" name="bemd_dd"></td>
 					</tr>
 					<tr>												
 					
@@ -118,8 +131,11 @@
 						<td>Chhattisgarh</td>
 						<td>23-03-2020 23:00:00</td>
 						<td>Not Paid</td>
-						<td class="up"><a href="#"><button type="button" class="btn btn-primary btn-sm"disabled>View Auction</button></a></td>
+						<td><a href="#"><button type="submit" class="btn btn-primary btn-sm w-50">
+					<i class="fa fa-eye" aria-hidden="true"></i>
+					</button></a></td>
 							<td><a href="#"><button type="button" class="btn btn-primary btn-sm" disabled>Pay</button></a><br><a  class="w-auto small" href="#"><strong>Process Without EMD</strong></a></td>
+							<td></td>
 					</tr>
 				</tbody>
 		 </table>

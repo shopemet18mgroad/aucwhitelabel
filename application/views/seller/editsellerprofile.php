@@ -127,7 +127,7 @@
    e.preventDefault();
    if(x < max_fields){
 			x++;
-			$(wrapper).append('<div><tr><td><select class="tos float-left p-1 " id="category" name="category"><option value="one" selected>Corporate Office</option><option value="two">Headquarter</option><option value="three" >.....</option><option value="four">.....</option><option value="five">......</option><option value="six">.....</option></select></td><td><textarea class="name ml-5 p-2 w-50" type="text" name="mytext[]"/></textarea><a href="#" class="remove_field">  <button type="button" class="btn btn-sm btn-primary ml-1 mb-5">  <i class="fa fa-minus text-white"></i></button></a></td></tr></div>');
+			$(wrapper).append('<div><tr><td><select class="tos float-left p-1 " id="saddress" name="saddress"><option value="one" selected>Corporate Office</option><option value="two">Headquarter</option><option value="three" >.....</option><option value="four">.....</option><option value="five">......</option><option value="six">.....</option></select></td><td><textarea class="name ml-5 p-2 w-50" type="text" name="mytext[]"/></textarea><a href="#" class="remove_field">  <button type="button" class="btn btn-sm btn-primary ml-1 mb-5">  <i class="fa fa-minus text-white"></i></button></a></td></tr></div>');
    }	
 	
 			});

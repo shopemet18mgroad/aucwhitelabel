@@ -29,7 +29,7 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-					 <table class="table table-sm table-borderless">
+					 <table class="table table-sm table-borderless" id="section1">
 					 <thead><th width="45%">Profile</th>
 					 <th style="text-align:right"><a href="editsellerprofile.php"><u>Edit Personal Info</u></a></th>
 					 
@@ -78,7 +78,7 @@
 					</table>	
 
 
-<table class="table table-sm table-borderless">
+<table class="table table-sm table-borderless" id="section2">
 					 <thead><th width="45%">Contact Info</th>
 					 <th style="text-align:right"><a href="editsellercontact.php"><u>Edit Contact Info</u></a></th>
 					 </thead>
@@ -103,7 +103,7 @@
 						</tbody>
 					</table>					
 					
-					<table class="table table-sm table-borderless">
+					<table class="table table-sm table-borderless" id="section3">
 					 <thead><th width="45%">Password</th>
 					 <th style="text-align:right"><a href="editsellerpassword.php"><u>Edit Password</u></a></th>
 					 </thead>
@@ -124,7 +124,7 @@
 						</tbody>
 					</table>
 							
-					<table class="table table-sm table-borderless">
+					<table class="table table-sm table-borderless" id="section4">
 					 <thead><th width="45%">Account</th>
 					<th style="text-align:right"><a href="editselleraccount.php"><u>Edit Account Info</u></a></th>
 					 </thead>
@@ -149,7 +149,7 @@
 						</tbody>
 					</table>
 					
-						<table class="table table-sm table-borderless">
+						<table class="table table-sm table-borderless" id="section5">
 					 <thead><th width="45%">Documents</th>
 					 <th style="text-align:right"><a href="editsellerdocument.php"><u>Edit documents</u></a></th>
 					 </thead>

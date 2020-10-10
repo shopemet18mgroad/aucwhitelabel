@@ -78,7 +78,7 @@
 				<td>Uttrakhand</td>
 				<td>20-07-2019</td>
 				<td>21-07-2019</td>
-				<td><i class="fa fa-download"></i></td>
+				<td><i class="fa fa-download" style="color:blue"></i></td>
 			</tr>
 			<tr>
 				<td><a href="#">EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</a> </td>
@@ -88,7 +88,7 @@
 				<td>Bhilai</td>
 				<td>16-03-2020</td>
 				<td>17-03-2020</td>
-				<td><i class="fa fa-download"></i></td>
+				<td><i class="fa fa-download" style="color:blue"></i></td>
 			</tr>
 			<tr>
 				<td><a href="#">EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</a> </td>
@@ -98,7 +98,7 @@
 				<td>Gandhi</td>
 				<td>14-01-2020</td>
 				<td>15-01-2020</td>
-				<td><i class="fa fa-download"></i></td>
+				<td><i class="fa fa-download" style="color:blue"></i></td>
 			</tr>
 			<tr>
 				<td><a href="#">EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</a> </td>
@@ -108,7 +108,7 @@
 				<td>Gandhi</td>
 				<td>14-01-2020</td>
 				<td>15-01-2020</td>
-				<td><i class="fa fa-download"></i></td>
+				<td><i class="fa fa-download" style="color:blue"></i></td>
 			</tr>
 		</tbody>
 		 </table>

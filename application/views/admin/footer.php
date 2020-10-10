@@ -37,6 +37,7 @@
   <!-- Page level custom scripts -->
   <script src="../../js/demo/chart-area-demo.js"></script>
   <script src="../../js/demo/chart-pie-demo.js"></script>
+  <script src="../../weblib/aucbuyreg.js" type="text/javascript" charset="utf-8"></script>
   
   <!--data table-->
   <script src="../../vendor/datatables/jquery.dataTables.min.js"></script>

@@ -47,7 +47,7 @@
 					<th>Location</th>
 					<th>City</th>
 					<th>Status</th>
-					<th>Option</th>
+					<th>Action</th>
 				</tr>
 				</thead>
 				<tbody>

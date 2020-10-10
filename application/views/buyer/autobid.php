@@ -38,8 +38,8 @@
 			<tr>												
 				<td><a href="#">EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</a> </td>
 				<td>2,50,000</td>
-				<td><input  type="text" id="bidperunit" name="bidperunit" ></td>
-				<td><input  type="text" id="bidmax" name="bidmax"></td>
+				<td><input class="form-control" type="text" id="bidperunit" name="bidperunit" ></td>
+				<td><input class="form-control" type="text" id="bidmax" name="bidmax"></td>
 				<td><a href=""><button type="button" class="btn btn-info">AutoBid</button></a></td>
 			</tr>
 													

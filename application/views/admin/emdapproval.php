@@ -8,7 +8,7 @@
 
           <!-- Page Heading -->
       <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Sales Report</h1>
+            <h1 class="h3 mb-0 text-gray-800">EMD Approval</h1>
             
           </div>
 
@@ -21,14 +21,9 @@
             <div class="card-body">
               <div class="table-responsive">
 			   <form class="form-inline">
-					<div class="form-group mr-4 offset-sm-1">
+					<div class="form-group mr-4 offset-sm-4">
 						<td colspan="5">
 						<form action="/action_page.php">
-												<div class="form-group">
-							<label>Date</label>
-								<input class="form-control col-sm-5" type="Date" id="sdate" name="sdate">
-								<input class="form-control col-sm-5 ml-2" type="Date" id="ldate" name="ldate">
-							</div>
 							<div class="form-check">
 								<label class="form-check-label" for="check1">
 									<input type="checkbox" class="form-check-input" id="check1" name="option1" value="something" checked>Search by Company
@@ -47,45 +42,50 @@
 			</form>
 		
 		<table class="table table-striped table-bordered table-sm text-center mt-5" id="dataTable" width="100%" cellspacing="0">
+				
 				<thead class="bg-primary text-white">
+				 <tr>
+		<th class="bg-info" colspan="12" style="Text-align:center;">EMD</th>
+	</tr>
 				<tr>
+					<th>Auction ID</th>
 					<th>Company Name</th>
-					<th>From-Date</th>
-					<th>To-Date</th>
-					<th>Total Amount</th>
-					<th>View Details</th>
+					<th>Location</th>
+					<th>Date/Time</th>
 				</tr>
 				</thead>
 				<tbody>
-					<tr>
-					<td>BHEL</td>
-						<td>18-05-2020</td>
-						<td>20-05-2020</td>
-						<td>5,00,000</td>
-						<td><a href="salesdata.php">View Details</a></td>
-					</tr>
-					<tr>
-						<td>SAIL</td>
-						<td>18-05-2020</td>
-						<td>20-05-2020</td>
-						<td>5,00,000</td>
-						<td><a href="salesdata.php">View Details</a></td>
-					</tr>
-					<tr>
-						<td>GAIL</td>
-						<td>18-05-2020</td>
-						<td>20-05-2020</td>
-						<td>5,00,000</td>
-						<td><a href="salesdata.php">View Details</a></td>
-					</tr>
-					<tr>
-						<td>NSPCL</td>
-						<td>18-05-2020</td>
-						<td>20-05-2020</td>
-						<td>5,00,000</td>
-						<td><a href="salesdata.php">View Details</a></td>
-					</tr>
-													
+				<tr>
+														<td><a href="eapprove.php">BHEL/BBR/ISG LTD/2/Adarsh Vihar/25087/20-20</a></td>
+														<td>BHEL</td>
+														<td>Bangalore</td>
+														<td>23-03-2020 23:00:00</td>
+														</tr>
+													<tr>
+														<td><a href="eapprove.php">MSTC/BBR/ISG LTD/2/Adarsh Vihar/25087/20-20</a></td>
+														<td>ISG LTD</td>
+														<td>Uttrakhand</td>
+														<td>23-03-2020 23:00:00</td>
+														</tr>
+													<tr>
+														<td><a href="eapprove.php">MSTC/BBR/BHRL LTD/2/Vihar/25087/20-20</a></td>
+														<td>BHRL LTD</td>
+														<td>Gujarat</td>
+														<td>23-03-2020 23:00:00</td>
+														</tr>
+													<tr>
+														<td><a href="eapprove.php">MSTC/BBR/ONGC LTD/2/Vidyut Nagar/25087/20-20</a></td>
+														<td>ONGC LTD</td>
+														<td>Orrisa</td>
+														<td>23-03-2020 23:00:00</td>
+														</tr>
+													<tr>
+														<td><a href="eapprove.php">MSTC/BBR/BSP LTD/2/Nehru Vihar/25087/20-20</a></td>
+														<td>BSP</td>
+														<td>Chhattisgarh</td>
+														<td>23-03-2020 23:00:00</td>
+													</tr>
+													</tr>
 				</tbody>
 		 </table>
 		</div>

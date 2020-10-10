@@ -82,7 +82,7 @@
 							<td class="btxt">Postal Address:</td>
 							<td><textarea class="form-control w-50" type="text" id="baddress" 	name="baddress"></textarea></td>
 						</tr> 
-						 
+						
 						<tr>
 							<td class="btxt">Pincode:</td>
 							<td><input class="form-control w-50" type="text" id="bpin" name="bpin" ></td>
@@ -126,20 +126,20 @@
 					 <thead><th width="45%">Documents</th>
 					 </thead>
 						<tbody>
-							<tr>
+						<tr>
 								<td class="btxt">Upload Profile Picture</td>
-								<td><input type="file" id="buploadprofilepic" name="buploadprofilepic"></td>
+								<td><form action="/action_page.php"> <input type="file" id="suploadimage1" name="suploadimage1"></form></td>
 							</tr> 
 							<tr>
 								<td class="btxt">Upload Document</td>
 								<td><div class="input_fields_wrap">
-								<input type="file" id="bsigneddocument" name="bsigneddocument">
+								<input type="file" id="ssigneddocument" name="ssigneddocument">
 								<a class="add_field_button "><button type="button" class="btn btn-sm btn-primary"> <i class="fa fa-plus text-white"></i></button></a>
 								</div></td>
 							</tr> 				
 						</tbody>
 					</table>					
-				<a href="#"><button type="button" class="btn btn-info offset-sm-3 mt-2">Submit</button></a>
+				<a href="#"><button type="button" class="btn btn-info offset-sm-4 mt-2">Update</button></a>
 												
 				<a href="#"><button type="button" class="btn btn-info offset-sm-1 mt-2">Cancel</button></a>
 												
