@@ -4,21 +4,21 @@
 				<div class="col-xs-12 col-sm-4 col-md-4">
 					<h5>WHAT WE DO</h5>
 					<ul class="list-unstyled quick-links">
-						<li><a href="./bidders-guide.php"><i class="fa fa-angle-double-right"></i>Buyer's Guide</a></li>
-						<li><a href="./sellers-guide.php"><i class="fa fa-angle-double-right"></i>Seller's Guide</a></li>
-						<li><a href="./testimonials.php"><i class="fa fa-angle-double-right"></i>Testimonial</a></li>
-						<li><a href="./e-auction.php"><i class="fa fa-angle-double-right"></i>E-Auction Documents</a></li>
-						<li><a href="./auctioning-concept.php"><i class="fa fa-angle-double-right"></i>Auctioning Concept</a></li>
+						<li><a href="<?php echo base_url();?>bidders_guide"><i class="fa fa-angle-double-right"></i>Buyer's Guide</a></li>
+						<li><a href="<?php echo base_url();?>sellers_guide"><i class="fa fa-angle-double-right"></i>Seller's Guide</a></li>
+						<li><a href="<?php echo base_url();?>testimonials"><i class="fa fa-angle-double-right"></i>Testimonial</a></li>
+						<li><a href="<?php echo base_url();?>e_auction"><i class="fa fa-angle-double-right"></i>E-Auction Documents</a></li>
+						<li><a href="<?php echo base_url();?>auctioning_concept"><i class="fa fa-angle-double-right"></i>Auctioning Concept</a></li>
 					</ul>
 				</div>
 				<div class="col-xs-12 col-sm-4 col-md-4">
 					<h5>QUICK LINKS</h5>
 					<ul class="list-unstyled quick-links">
-						<li><a href="./index.php"><i class="fa fa-angle-double-right"></i>Home</a></li>
-						<li><a href="./about-us.php"><i class="fa fa-angle-double-right"></i>About Us</a></li>
-						<li><a href="./contact-us.php"><i class="fa fa-angle-double-right"></i>Contact Us</a></li>
-						<li><a href="./faq.php"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
-						<li><a href="./terms-and-condition.php"><i class="fa fa-angle-double-right"></i>Terms & Condition</a></li>
+						<li><a href="<?php echo base_url();?>home"><i class="fa fa-angle-double-right"></i>Home</a></li>
+						<li><a href="<?php echo base_url();?>about_us"><i class="fa fa-angle-double-right"></i>About Us</a></li>
+						<li><a href="<?php echo base_url();?>contact_us"><i class="fa fa-angle-double-right"></i>Contact Us</a></li>
+						<li><a href="<?php echo base_url();?>faq"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+						<li><a href="<?php echo base_url();?>terms_and_condition"><i class="fa fa-angle-double-right"></i>Terms & Condition</a></li>
 					</ul>
 				</div>
 				<div class="col-xs-12 col-sm-4 col-md-4">

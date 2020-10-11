@@ -35,7 +35,7 @@
 		<div class="container">
 			<div class="row branding">
 				<div class="col-md-6 col-sm-12 pt-4">
-					<a href="" title="Aucjunction Logo">
+					<a href="./home" title="Aucjunction Logo">
 					<img class="img-fluid" alt="Aucjunction"  src="<?php echo base_url()."web_files/";?>images/aucjunction.jpg">
 					</a>
 				</div>
@@ -80,18 +80,18 @@
 				  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav mr-auto">
 					  <li class="nav-item active">
-						<a class="nav-link" href="./home">Home <span class="sr-only">(current)</span></a>
+						<a class="nav-link" href="<?php echo base_url();?>home">Home <span class="sr-only">(current)</span></a>
 					  </li>
 					  <li class="nav-item">
-						<a class="nav-link" href="./contact_us">Contact Us</a>
+						<a class="nav-link" href="<?php echo base_url();?>contact_us">Contact Us</a>
 					  </li>
 					 <li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						  Registration
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						  <a class="dropdown-item" href="./sellersregisteration">Seller's Registration</a>
-						  <a class="dropdown-item" href="./buyersregisteration">Buyer's Registration</a>
+						  <a class="dropdown-item" href="<?php echo base_url();?>sellers_registeration">Seller's Registration</a>
+						  <a class="dropdown-item" href="<?php echo base_url();?>buyers_registeration">Buyer's Registration</a>
 						</div>
 					  </li>
 					   <li class="nav-item">
@@ -102,18 +102,17 @@
 						  Popular Categories
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						  <a class="dropdown-item" href="#">Ferrous</a>
-						  <a class="dropdown-item" href="#">Non Ferrous</a>
-						  <a class="dropdown-item" href="#">Machinery &amp; Equipments</a>
-						  <a class="dropdown-item" href="#">Hazardous</a>
-						   <a class="dropdown-item" href="#">Electronic Items</a>
-						  <a class="dropdown-item" href="#">Packaging Items</a>
-						  <a class="dropdown-item" href="#">Uncleared Cargo</a>
-						  <a class="dropdown-item" href="#">Spares</a>
-						   <a class="dropdown-item" href="#">Vehicals</a>
-						  <a class="dropdown-item" href="#">Properties</a>
-						  <a class="dropdown-item" href="#">PCB</a>
-						  <a class="dropdown-item" href="#">RA</a>
+						  <a class="dropdown-item" href="<?php echo base_url();?>categories/type/Ferrous">Ferrous</a>
+						  <a class="dropdown-item" href="<?php echo base_url();?>categories/type/Non_ferrous">Non Ferrous</a>
+						  <a class="dropdown-item" href="<?php echo base_url();?>categories/type/Machinery_and_Equipments">Machinery &amp; Equipments</a>
+						  <a class="dropdown-item" href="<?php echo base_url();?>categories/type/Hazardous">Hazardous</a>
+						   <a class="dropdown-item" href="<?php echo base_url();?>categories/type/Electronic_Items">Electronic Items</a>
+						  <a class="dropdown-item" href="<?php echo base_url();?>categories/type/Packaging_Items">Packaging Items</a>
+						  <a class="dropdown-item" href="<?php echo base_url();?>categories/type/Uncleared_Cargo">Uncleared Cargo</a>
+						  <a class="dropdown-item" href="<?php echo base_url();?>categories/type/Spares">Spares</a>
+						   <a class="dropdown-item" href="<?php echo base_url();?>categories/type/Vehicles">Vehicles</a>
+						  <a class="dropdown-item" href="<?php echo base_url();?>categories/type/PCB">PCB</a>
+						  <a class="dropdown-item" href="<?php echo base_url();?>categories/type/RA">RA</a>
 						</div>
 					  </li>
 					 

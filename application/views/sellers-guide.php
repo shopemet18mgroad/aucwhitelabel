@@ -1,5 +1,5 @@
 <?php 
-	include('./header.php');
+	//include('./header.php');
 ?>
 		<div class="container">
 		  <div class="row">
@@ -169,5 +169,5 @@ notification to the winner and seller needs appreciation.</br></br>
 		</div>
 		
 		<?php 
-	include('./footer.php');
+	//include('./footer.php');
 ?>

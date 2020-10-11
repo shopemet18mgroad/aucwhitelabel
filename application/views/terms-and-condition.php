@@ -1,5 +1,5 @@
 <?php 
-	include('./header.php');
+	//include('./header.php');
 ?>
 		<div class="container">
 		  <div class="row">
@@ -249,5 +249,5 @@ in applicable tax rates that are promulgated by the Government from time to time
 		</div>
 		
 		<?php 
-	include('./footer.php');
+	//include('./footer.php');
 ?>

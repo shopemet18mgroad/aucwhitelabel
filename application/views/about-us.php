@@ -1,5 +1,5 @@
 <?php 
-	include('./header.php');
+	//include('./header.php');
 ?>
 		<div class="container">
 		  <div class="row">
@@ -86,5 +86,5 @@ We are committed to finding ways to innovate, grow, and overcome obstacles in or
 		</div>
 		
 		<?php 
-	include('./footer.php');
+	//include('./footer.php');
 ?>

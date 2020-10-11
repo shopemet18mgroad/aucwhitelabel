@@ -1,5 +1,5 @@
 <?php 
-	include('./header.php');
+	//include('./header.php');
 ?>
     <!---  body  design  -->
 	     <div class="container-fluid">
@@ -156,5 +156,5 @@
         <!---  footer  -->
 
 <?php 
-	include('./footer.php');
+	//include('./footer.php');
 ?>
