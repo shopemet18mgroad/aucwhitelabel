@@ -66,18 +66,18 @@
 				</thead>
 				<tbody>
 				<tr>												
-					<td><a href="liveauc_2">EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</a></td>
+					<td><a href="<?php echo base_url();?>buyer_liveauc_2">EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</a></td>
 				</tr>
 				<tr>
-					<td><a href="liveauc_2">BHEL/BBR/ISG LTD/2/Adarsh Vihar/25087/20-20</a></td>
+					<td><a href="<?php echo base_url();?>buyer_liveauc_2">BHEL/BBR/ISG LTD/2/Adarsh Vihar/25087/20-20</a></td>
 				</tr>  
 				<tr>
-					<td><a href="liveauc_2">REMT/BBR/ONGC LTD/3/Tamil Nadu/Vellore Dist/465895/18-20</a></td>
+					<td><a href="<?php echo base_url();?>buyer_liveauc_2">REMT/BBR/ONGC LTD/3/Tamil Nadu/Vellore Dist/465895/18-20</a></td>
 				</tr>  
 				<tr>												
-					<td><a href="liveauc_2">HMT/BBR/Adnani logistic Ltd/4/Vidyut Nagar/99087/19-20</a></td>
+					<td><a href="<?php echo base_url();?>buyer_liveauc_2">HMT/BBR/Adnani logistic Ltd/4/Vidyut Nagar/99087/19-20</a></td>
 				<tr>												
-					<td><a href="liveauc_2">BEL/BBR/ONGC LTD/5/Nehru Nagar/99087/19-20</a></td>
+					<td><a href="<?php echo base_url();?>buyer_liveauc_2">BEL/BBR/ONGC LTD/5/Nehru Nagar/99087/19-20</a></td>
 				</tr>
 				</tbody>
 		 </table>
@@ -100,8 +100,8 @@
 
     </div>
     <!-- End of Content Wrapper -->
+</div>
 
-  </div>
   <!-- End of Page Wrapper -->
 
   <!-- Scroll to Top Button-->

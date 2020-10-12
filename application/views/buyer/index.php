@@ -31,7 +31,7 @@
                 <div class="card-body">
 					 <table class="table table-sm table-borderless" id="section1">
 					 <thead><th width="45%">Profile</th>
-					 <th style="text-align:right"><a href="editpersonal"><u>Edit Personal Info</u></a></th>
+					 <th style="text-align:right"><a href="<?php echo base_url();?>buyer_editpersonal"><u>Edit Personal Info</u></a></th>
 					 
 					 </thead>
 						<tbody>
@@ -80,7 +80,7 @@
 
 				<table class="table table-sm table-borderless" id="section2">
 					 <thead><th width="45%">Contact Info</th>
-					 <th style="text-align:right"><a href="editcontact"><u>Edit Contact Info</u></a></th>
+					 <th style="text-align:right"><a href="<?php echo base_url();?>buyer_editcontact"><u>Edit Contact Info</u></a></th>
 					 </thead>
 						<tbody>
 							<tr>
@@ -105,7 +105,7 @@
 
 				<table class="table table-sm table-borderless" id="section3">
 					 <thead><th width="45%">Password</th>
-					 <th style="text-align:right"><a href="editpassword"><u>Edit Password</u></a></th>
+					 <th style="text-align:right"><a href="<?php echo base_url();?>buyer_editpassword"><u>Edit Password</u></a></th>
 					 </thead>
 						<tbody>
 							<tr>
@@ -126,7 +126,7 @@
 
 				<table class="table table-sm table-borderless" id="section4">
 					 <thead><th width="45%">Account</th>
-					 <th style="text-align:right"><a href="editaccount"><u>Edit Account</u></a></th>
+					 <th style="text-align:right"><a href="<?php echo base_url();?>buyer_editaccount"><u>Edit Account</u></a></th>
 					 </thead>
 						<tbody>
 							<tr>
@@ -152,7 +152,7 @@
 
 				<table class="table table-sm table-borderless" id="section5">
 					 <thead><th width="45%">Documents</th>
-					 <th style="text-align:right"><a href="editdocument"><u>Edit documents</u></a></th>
+					 <th style="text-align:right"><a href="<?php echo base_url();?>buyer_editdocument"><u>Edit documents</u></a></th>
 					 </thead>
 						<tbody>
 						
