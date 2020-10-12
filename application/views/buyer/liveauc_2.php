@@ -1,5 +1,5 @@
  <?php 
-	include('./header.php');
+	//include('./header.php');
 ?>
         <!-- End of Topbar -->
 
@@ -107,8 +107,8 @@
 					</div>
 				  </div>
 				  </td>
-					<td><a href="autobid.php"><button type="button" class="btn btn-info">AutoBid</button></a></td>
-					<td><a href="Biddinglivestatus.php"><button type="button" class="btn btn-info btn-sm p-2"><b>Live Status</b></button></a></td>
+					<td><a href="autobid"><button type="button" class="btn btn-info">AutoBid</button></a></td>
+					<td><a href="biddinglivestatus"><button type="button" class="btn btn-info btn-sm p-2"><b>Live Status</b></button></a></td>
 				</tr>
 				
 				</tbody>
@@ -143,7 +143,7 @@
 
 
   <?php 
-	include('./footer.php');
+	//include('./footer.php');
 ?>
 </body>
 

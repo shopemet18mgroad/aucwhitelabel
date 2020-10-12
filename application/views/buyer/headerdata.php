@@ -12,12 +12,12 @@
   <title>Dashboard</title>
 
   <!-- Custom fonts for this template-->
-  <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="<?php echo base_url()."web_files/";?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
- <!-- <link href="../../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">-->
+  <link href="<?php echo base_url()."web_files/";?>css/sb-admin-2.min.css" rel="stylesheet">
+ <!-- <link href="<?php echo base_url()."web_files/";?>vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">-->
 <style>
 .blinking{
     animation:blinkingText 1.2s infinite;
@@ -73,13 +73,13 @@ body {
 
       <!-- Divider -->
 		<li class="nav-item">
-        <a class="nav-link collapsed" href="index.php" data-toggle="collapse" data-target="#myScrollspy" aria-expanded="true" aria-controls="collapseProduct">
+        <a class="nav-link collapsed" href="buyer_dashboard" data-toggle="collapse" data-target="#myScrollspy" aria-expanded="true" aria-controls="collapseProduct">
           <i class="fas fa-fw fa-user"></i>
           <span>Update Profile</span>
         </a>
         <div id="myScrollspy" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="index.php">Personal</a>
+            <a class="collapse-item" href="buyer_dashboard">Personal</a>
             <a class="collapse-item" href="#section2">Contact</a>
             <a class="collapse-item" href="#section3">Password</a>
             <a class="collapse-item" href="#section4">Account</a>
@@ -98,33 +98,33 @@ body {
       </div>
 	  
 	   <li class="nav-item">
-        <a class="nav-link collapsed" href="forthcomingauc.php" data-toggle="collapse" data-target="#auction" aria-expanded="true" aria-controls="collapseProduct">
+        <a class="nav-link collapsed" href="forthcomingauc" data-toggle="collapse" data-target="#auction" aria-expanded="true" aria-controls="collapseProduct">
           <i class="fas fa-fw fa-gavel"></i>
           <span>Auction</span>
         </a>
         <div id="auction" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="forthcomingauc.php">Forthcoming Auction</a>
+            <a class="collapse-item" href="forthcomingauc">Forthcoming Auction</a>
             <a class="collapse-item" href="closedauc.php">Closed Auction</a>
            </div>
         </div>
       </li>
 	  
 	  	  <li class="nav-item">
-        <a class="nav-link" href="detailedauc.php">
+        <a class="nav-link" href="detailedauc">
           <i class="fas fa-chart-bar"></i>
           <span>Bidding Details</span></a>
       </li>
 
 	 <li class="nav-item">
-        <a class="nav-link collapsed" href="occupied.php" data-toggle="collapse" data-target="#history" aria-expanded="true" aria-controls="collapseProduct">
+        <a class="nav-link collapsed" href="occupied" data-toggle="collapse" data-target="#history" aria-expanded="true" aria-controls="collapseProduct">
           <i class="fa fa-file"></i>
           <span>History</span>
         </a>
         <div id="history" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="occupied.php">Occupied Product</a>
-            <a class="collapse-item" href="lostproduct.php">Lost Product</a>
+            <a class="collapse-item" href="occupied">Occupied Product</a>
+            <a class="collapse-item" href="lostproduct">Lost Product</a>
            </div>
         </div>
       </li>
@@ -132,7 +132,7 @@ body {
 
 	  
 	   <li class="nav-item">
-        <a class="nav-link" href="mylist.php">
+        <a class="nav-link" href="mylist">
           <i class="fas fa-fw fa-shopping-cart"></i>
           <span>My List</span></a>
       </li>
@@ -158,7 +158,7 @@ body {
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 			<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-img rotate-n-20 ">
-         <img src="../../img/aucjunction.jpg" class="img-fluid" alt="" width="40%;">
+         <img src="<?php echo base_url()."web_files/";?>img/aucjunction.jpg" class="img-fluid" alt="" width="40%;">
         </div>
         
       </a>
@@ -179,7 +179,7 @@ body {
             </div>
           </form>-->
 		<div class="col-sm-5 w-auto">
-			<a href="liveauc.php"><span class="blinking"><b>Live Auction</b></span></a>
+			<a href="liveauc"><span class="blinking"><b>Live Auction</b></span></a>
 		</div>
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
