@@ -1,5 +1,5 @@
 <?php 
-	include('./header.php');
+	//include('./header.php');
 ?>
 		<div class="container">
 		  <div class="row">
@@ -31,5 +31,5 @@ Auction sites have their own guidelines, for example, whether merchants require 
 		</div>
 		
 		<?php 
-	include('./footer.php');
+	//include('./footer.php');
 ?>
