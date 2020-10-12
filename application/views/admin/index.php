@@ -30,37 +30,37 @@
                 <div class="card-body">
 					 <table class="table table-sm table-borderless">
 					 <thead><th width="45%">Basic Info</th>
-					 
+					 <form>
 					 </thead>
 						<tbody>
 						<tr><td><img class="img-fluid" src="<?php echo base_url()."web_files/";?>img/manimg.jpg" alt="Chania" width="40" height="35"></td></tr>
 						<tr>
 							<td class="btxt">Seller Name:</td>
-							<td><input class="form-control w-50" type="text" id="sname" name="sname"></td>
+							<td><input class="form-control w-50" type="text" id="sname" name="sname" required></td>
 	 							 </tr>
 						<tr>												
 							<td class="btxt">Company Name:</td>
-							<td><input class="form-control w-50" type="text" id="scomapnyname" name="scomapnyname" ></td>
+							<td><input class="form-control w-50" type="text" id="scomapnyname" name="scomapnyname" required></td>
 							</tr>
 						<tr>
 							<td class="btxt">Company Type:</td>
-							<td><input class="form-control w-50" type="text" id="scompanytype" name="scompanytype" ></td>
+							<td><input class="form-control w-50" type="text" id="scompanytype" name="scompanytype" required></td>
 						</tr>  
 						<tr>
 							<td class="btxt">Contact Person:</td>
-							<td><input class="form-control w-50" type="text" id="scontactperson" name="scontactperson" ></td>
+							<td><input class="form-control w-50" type="text" id="scontactperson" name="scontactperson" required></td>
 						</tr>
 						<tr>
 							<td class="btxt">CIN Number:</td>
-							<td><input class="form-control w-50" type="text" id="scin" name="scin" ></td>
+							<td><input class="form-control w-50" type="text" id="scin" name="scin" required></td>
 						</tr>  
 						<tr>
 							<td class="btxt">GST:</td>
-							<td><input class="form-control w-50" type="text" id="sgst" name="sgst" ></td>
+							<td><input class="form-control w-50" type="text" id="sgst" name="sgst" required></td>
 						</tr> 
 						<tr>
 							<td class="btxt">PCB Licence NO:</td>
-							<td><input class="form-control w-50" type="text" id="spcb" name="spcb" ></td>
+							<td><input class="form-control w-50" type="text" id="spcb" name="spcb" required></td>
 						</tr> 
 					</tbody>
 					</table>			
@@ -71,26 +71,24 @@
 						<tbody>
 						<tr>
 							<td class="btxt">Email:</td>
-							<td><input class="form-control w-50" type="text" id="semail" name="semail"></td>
+							<td><input class="form-control w-50" type="text" id="semail" name="semail" required></td>
 						</tr>
 						<tr>
 							<td class="btxt">Phone:</td>
-							<td><input class="form-control w-50" type="text" id="sphone" name="sphone"></td>
+							<td><input class="form-control w-50" type="text" id="sphone" name="sphone" required></td>
 						</tr>
 						<tr>
 								<td>Address</td>
 								<td>
 								<div class="input_fields_wrap1">
-								<select class="form-control w-50  p-1" id="saddress" name="saddress">
-									<option value="one" selected>Corporate Office</option>
-									<option value="two">Headquarter</option>
-									<option value="three" >.....</option>
-									<option value="four">.....</option>
-									<option value="five">......</option>
-									<option value="six">.....</option>
+								<select class="form-control w-50  p-1" id="saddress" name="saddress[]">
+									<option value="select" selected>SELECT</option>
+									<option value="Corporate Office">Corporate Office</option>
+									<option value="Headquarter">Headquarter</option>
+								
 									</select>
 									
-									<textarea class="form-control float-left mt-2 p-2 w-50" type="text" id="saddresscount" name="saddresscount"></textarea>
+									<textarea class="form-control float-left mt-2 p-2 w-50" type="text" id="saddresscount" name="saddresscount[]" ></textarea>
 								<a class="add_field_button1"><button type="button" class="btn btn-sm btn-primary ml-1 mb-5 mt-3"> <i class="fa fa-plus text-white"></i></button></a>
 									</div>
 									</td>
@@ -98,11 +96,11 @@
 							</tr>
 							<tr>
 							<td class="btxt">Pin:</td>
-							<td><input class="form-control w-50" type="text" id="spin" name="spin" ></td>
+							<td><input class="form-control w-50" type="text" id="spin" name="spin" required></td>
 							</tr>
 							<tr>
 							<td class="btxt">State:</td>
-							<td><input class="form-control w-50" type="text" id="sstate" name="sstate" ></td>
+							<td><input class="form-control w-50" type="text" id="sstate" name="sstate" required></td>
 							</tr>
 						<tr>
 							<td class="btxt">Country:</td>
@@ -117,19 +115,19 @@
 					<tbody>
 						<tr>
 							<td class="btxt">Banker's Name:</td>
-							<td><input class="form-control w-50" type="text" id="sbankername" name="sbankername" ></td>
+							<td><input class="form-control w-50" type="text" id="sbankername" name="sbankername" required></td>
 						</tr> 
 						<tr>
 							<td class="btxt">Account Number:</td>
-							<td><input class="form-control w-50" type="text" id="saccountnumber" name="saccountnumber" ></td>
+							<td><input class="form-control w-50" type="text" id="saccountnumber" name="saccountnumber" required></td>
 						</tr> 
 						<tr>
 							<td class="btxt">Branch:</td>
-							<td><input class="form-control w-50" type="text" id="sbranch" name="sbranch" ></td>
+							<td><input class="form-control w-50" type="text" id="sbranch" name="sbranch" required></td>
 						</tr> 
 						<tr>
 							<td class="btxt">IFSC Code:</td>
-							<td><input class="form-control w-50" type="text" id="sifsccode" name="sifsccode" ></td>
+							<td><input class="form-control w-50" type="text" id="sifsccode" name="sifsccode" required></td>
 						</tr> 
 						</tbody>
 					</table>
@@ -141,23 +139,23 @@
 						<tbody>
 							<tr>
 								<td class="btxt">Upload Profile Pic</td>
-								<td><input type="file" id="suploadprofilepic" name="suploadprofilepic"></td>
+								<td><input type="file" id="suploadprofilepic" name="suploadprofilepic" required></td>
 							</tr> 
 							<tr>
 								<td class="btxt">Upload Document</td>
 								<td><div class="input_fields_wrap">
-								<input  type="file" id="ssigneddocument" name="ssigneddocument">
+								<input  type="file" id="ssigneddocument" name="ssigneddocument[]" >
 								<a class="add_field_button "><button type="button" class="btn btn-sm btn-primary"> <i class="fa fa-plus text-white"></i></button></a>
 								</div></td>
 							</tr> 
 									
 						</tbody>
 					</table>					
-				<a href="#"><button type="button" class="btn btn-info offset-sm-4 mt-2">Submit</button></a>
+				<a href="#"><button type="submit" name="sbt2" onclick="return validatearry()"class="btn btn-info offset-sm-4 mt-2">Submit</button></a>
 												
-				<a href="#"><button type="button" class="btn btn-info offset-sm-1 mt-2">Cancel</button></a>
+				<a href="#"><button type="submit" name="sbt3" class="btn btn-info offset-sm-1 mt-2">Cancel</button></a>
 												
-				
+				</form>
               </div>
             </div>
 
@@ -198,7 +196,7 @@
    e.preventDefault();
    if(x < max_fields){
 			x++;
-			$(wrapper).append('<div><input class="mt-2" type="file" id="ssigneddocument" name="ssigneddocument"><a href="#" class="remove_field"><button type="button" class="btn btn-sm btn-primary ml-1">  <i class="fa fa-minus text-white"></i></button></a></div>');
+			$(wrapper).append('<div><input class="mt-2" type="file" id="ssigneddocument" name="ssigneddocument[]" ><a href="#" class="remove_field"><button type="button" class="btn btn-sm btn-primary ml-1">  <i class="fa fa-minus text-white"></i></button></a></div>');
    
    }	
 			});
@@ -228,7 +226,7 @@
    e.preventDefault();
    if(x < max_fields){
 			x++;
-			$(wrapper).append('<div><tr><td><select class="form-control w-50  p-1 " id="saddress" name="saddress"><option value="one" selected>Corporate Office</option><option value="two">Headquarter</option><option value="three" >.....</option><option value="four">.....</option><option value="five">......</option><option value="six">.....</option></select></td><td><textarea class="form-control float-left mt-2 p-2 w-50" type="text" name="mytext[]"/></textarea><a href="#" class="remove_field">  <button type="button" class="btn btn-sm btn-primary ml-1 mb-5 mt-3">  <i class="fa fa-minus text-white"></i></button></a></td></tr></div>');
+			$(wrapper).append('<div><tr><td><select class="form-control w-50  p-1 " id="saddress" name="saddress[]"><option value="select" selected>SELECT</option><option value="Corporate Office" >Corporate Office</option><option value="Headquarter">Headquarter</option></select></td><td><textarea class="form-control float-left mt-2 p-2 w-50" type="text" name="saddresscount[]" ></textarea><a href="#" class="remove_field">  <button type="button" class="btn btn-sm btn-primary ml-1 mb-5 mt-3">  <i class="fa fa-minus text-white"></i></button></a></td></tr></div>');
    }	
 	
 			});
@@ -244,6 +242,31 @@
 			
 			});
  
+ </script>
+ <script>
+ function validatearry(){
+	 	var selectname = document.getElementsByName('saddress[]');
+		var textareablselect = document.getElementsByName('saddresscount[]');
+		var signeddoc = document.getElementsByName('ssigneddocument[]');
+		for(var ab = 0; ab<selectname.length; ab++){
+			if(selectname[ab].value == ""){
+				alert("Please Select Address Type");
+				return false;
+			}
+		}
+		for(var ab = 0; ab<textareablselect.length; ab++){
+			if(textareablselect[ab].value == ""){
+				alert("Address Cannot Be left Blank");
+				return false;
+			}
+		}
+		for(var ab = 0; ab<signeddoc.length; ab++){
+			if(signeddoc[ab].value == ""){
+				alert("Please Select Files To Upload");
+				return false;
+			}
+		}
+ }
  </script>
  
   <?php 
