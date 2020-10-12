@@ -1,5 +1,5 @@
 <?php 
-	include('./header.php');
+	//include('./header.php');
 ?>
     
     <!---  body  design  -->
@@ -152,7 +152,7 @@ Signature and Seal.
 
 
 		<div class="text-center" style="position:relative;">
-		<a href="registration.php"><button type="button" class="btn btn-primary mt-2">Agree</button></a>
+		<a href="<?php echo base_url();?>registration"><button type="button" class="btn btn-primary mt-2">Agree</button></a>
 		<a href="index.php"><button type="button" class="btn btn-primary mt-2">Disagree</button></a>
 	</div>
 
@@ -163,5 +163,5 @@ Signature and Seal.
         <!---  footer  -->
 
    <?php 
-	include('./footer.php');
+	//include('./footer.php');
 ?>

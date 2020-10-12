@@ -33,7 +33,7 @@
 
   <!-- Page level plugins -->
   <script src="<?php echo base_url()."web_files/";?>vendor/chart.js/Chart.min.js"></script>
-  <script src="<?php echo base_url()."web_files/";?>weblib/aucbuyreg.js" type="text/javascript" charset="utf-8"></script>
+  <script src="<?php echo base_url()."web_files/";?>js/aucseller.js" type="text/javascript" charset="utf-8"></script>
 
   <!-- Page level custom scripts -->
   <script src="<?php echo base_url()."web_files/";?>js/demo/chart-area-demo.js"></script>

@@ -37,7 +37,7 @@
   <!-- Page level custom scripts -->
   <script src="<?php echo base_url()."web_files/";?>js/demo/chart-area-demo.js"></script>
   <script src="<?php echo base_url()."web_files/";?>js/demo/chart-pie-demo.js"></script>
-  <script src="<?php echo base_url()."web_files/";?>weblib/aucbuyreg.js" type="text/javascript" charset="utf-8"></script>
+  <script src="<?php echo base_url()."web_files/";?>js/aucseller.js" type="text/javascript" charset="utf-8"></script>
   
   <!--data table-->
   <script src="<?php echo base_url()."web_files/";?>vendor/datatables/jquery.dataTables.min.js"></script>

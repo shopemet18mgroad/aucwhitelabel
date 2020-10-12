@@ -1,5 +1,5 @@
 <?php 
-	include('./header.php');
+	//include('./header.php');
 ?>
     <!---  body  design  -->
     
@@ -372,5 +372,5 @@ in applicable tax rates that are promulgated by the Government from time to time
         <!---  footer  -->
 
     <?php 
-	include('./footer.php');
+	//include('./footer.php');
 ?>
