@@ -39,7 +39,7 @@
 							
 							<tr>
 								<td>Buyer Name</td>
-								<td>John</td><?php echo base_url()."web_files/";?>
+								<td>John</td>
 							</tr> 
 							<tr>
 								<td>Contact Person</td>

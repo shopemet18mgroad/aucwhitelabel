@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Editaccount extends CI_Controller {
+class Buyer_lostproduct extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -22,7 +22,7 @@ class Editaccount extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$this->load->view('buyer/header');
-		$this->load->view('buyer/editaccount');
+		$this->load->view('buyer/lostproduct');
 		$this->load->view('buyer/footer');
 		
 	}

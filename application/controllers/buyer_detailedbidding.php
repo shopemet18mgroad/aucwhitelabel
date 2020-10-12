@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Liveauc extends CI_Controller {
+class Buyer_detailedbidding extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -21,15 +21,9 @@ class Liveauc extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper('url');
-<<<<<<< HEAD
 		$this->load->view('buyer/header');
-		$this->load->view('buyer/liveauc');
+		$this->load->view('buyer/detailedbidding');
 		$this->load->view('buyer/footer');
-=======
-		$this->load->view('admin/header');
-		$this->load->view('admin/liveauc');
-		$this->load->view('admin/footer');
->>>>>>> 843ca034dcfab55cb759e4e775bdf28ee7316b96
 		
 	}
 	

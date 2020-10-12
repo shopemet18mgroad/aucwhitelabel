@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Bidders_guide extends CI_Controller {
+class Buyer_forthcomingauc extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -21,9 +21,10 @@ class Bidders_guide extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper('url');
-		$this->load->view('header');
-		$this->load->view('bidders-guide');
-		$this->load->view('footer');
+		$this->load->view('buyer/header');
+		$this->load->view('buyer/forthcomingauc');
+		$this->load->view('buyer/footer');
+
 		
 	}
 	

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Editcontact extends CI_Controller {
+class Buyer_detailedauc extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -22,7 +22,7 @@ class Editcontact extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$this->load->view('buyer/header');
-		$this->load->view('buyer/editcontact');
+		$this->load->view('buyer/detailedauc');
 		$this->load->view('buyer/footer');
 		
 	}

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Editauction extends CI_Controller {
+class Buyer_forthcomingauc_2 extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -21,9 +21,10 @@ class Editauction extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper('url');
-		$this->load->view('admin/header');
-		$this->load->view('admin/editauction');
-		$this->load->view('admin/footer');
+		$this->load->view('buyer/header');
+		$this->load->view('buyer/forthcomingauc_2');
+		$this->load->view('buyer/footer');
+
 		
 	}
 	

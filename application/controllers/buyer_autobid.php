@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Occupied extends CI_Controller {
+class Buyer_autobid extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -22,7 +22,7 @@ class Occupied extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$this->load->view('buyer/header');
-		$this->load->view('buyer/occupied');
+		$this->load->view('buyer/autobid');
 		$this->load->view('buyer/footer');
 		
 	}

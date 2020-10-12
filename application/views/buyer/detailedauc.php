@@ -71,7 +71,7 @@
 			</tr>
 		<tbody>
 			<tr>
-				<td><a href="viewdetail">EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</a> </td>
+				<td><a href="<?php echo base_url();?>buyer_viewdetail">EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</a> </td>
 				<td><a href="">BHEL Ltd.</a></td>
 				<td>M293</td>
 				<td>Horizontal Boring Machine</td>
@@ -81,7 +81,7 @@
 				<td><i class="fa fa-download" style="color:blue"></i></td>
 			</tr>
 			<tr>
-				<td><a href="viewdetail">EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</a> </td>
+				<td><a href="<?php echo base_url();?>buyer_viewdetail">EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</a> </td>
 				<td><a href="">BSP</a></td>
 				<td>E687</td>
 				<td>SS Iron rod</td>
@@ -91,7 +91,7 @@
 				<td><i class="fa fa-download" style="color:blue"></i></td>
 			</tr>
 			<tr>
-				<td><a href="viewdetail">EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</a> </td>
+				<td><a href="<?php echo base_url();?>buyer_viewdetail">EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</a> </td>
 				<td><a href="">Paradip port  trust</a></td>
 				<td>E689</td>
 				<td>Jig Boring Machine</td>
@@ -101,7 +101,7 @@
 				<td><i class="fa fa-download" style="color:blue"></i></td>
 			</tr>
 			<tr>
-				<td><a href="viewdetail">EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</a> </td>
+				<td><a href="<?php echo base_url();?>buyer_viewdetail">EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</a> </td>
 				<td><a href="">Paradip</a> </td>
 				<td>E689</td>
 				<td>Boring Machine</td>

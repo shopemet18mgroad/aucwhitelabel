@@ -74,7 +74,7 @@
 				</thead>
 				<tbody>
 					<tr>												
-						<td><a href="detailedbidding">BHEL/BBR/ISG LTD/2/Adarsh Vihar/25087/20-20</a></td>
+						<td><a href="<?php echo base_url();?>buyer_detailedbidding">BHEL/BBR/ISG LTD/2/Adarsh Vihar/25087/20-20</a></td>
 						<td>BHEL</td>
 						<td>Bangalore</td>
 						<td>8.0</td>
@@ -83,7 +83,7 @@
 						<td>23-03-2020 23:00:00</td>
 					</tr>
 					<tr>												
-						<td><a href="detailedbidding">BHEL/BBR/ISG LTD/2/Adarsh Vihar/25087/20-20</a></td>
+						<td><a href="<?php echo base_url();?>buyer_detailedbidding">BHEL/BBR/ISG LTD/2/Adarsh Vihar/25087/20-20</a></td>
 						<td>BHEL</td>
 						<td>Bangalore</td>
 						<td>8.0</td>

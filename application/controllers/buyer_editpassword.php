@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Viewdetail extends CI_Controller {
+class Buyer_editpassword extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -22,7 +22,7 @@ class Viewdetail extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$this->load->view('buyer/header');
-		$this->load->view('buyer/viewdetail');
+		$this->load->view('buyer/editpassword');
 		$this->load->view('buyer/footer');
 		
 	}

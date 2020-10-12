@@ -107,8 +107,8 @@
 					</div>
 				  </div>
 				  </td>
-					<td><a href="autobid"><button type="button" class="btn btn-info">AutoBid</button></a></td>
-					<td><a href="biddinglivestatus"><button type="button" class="btn btn-info btn-sm p-2"><b>Live Status</b></button></a></td>
+					<td><a href="<?php echo base_url();?>buyer_autobid"><button type="button" class="btn btn-info">AutoBid</button></a></td>
+					<td><a href="<?php echo base_url();?>buyer_biddinglivestatus"><button type="button" class="btn btn-info btn-sm p-2"><b>Live Status</b></button></a></td>
 				</tr>
 				
 				</tbody>

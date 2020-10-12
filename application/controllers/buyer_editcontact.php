@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Eapprove extends CI_Controller {
+class Buyer_editcontact extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -21,9 +21,9 @@ class Eapprove extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper('url');
-		$this->load->view('admin/header');
-		$this->load->view('admin/eapprove');
-		$this->load->view('admin/footer');
+		$this->load->view('buyer/header');
+		$this->load->view('buyer/editcontact');
+		$this->load->view('buyer/footer');
 		
 	}
 	

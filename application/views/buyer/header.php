@@ -75,13 +75,13 @@
 
       <!-- Divider -->
 <li class="nav-item">
-        <a class="nav-link collapsed" href="buyer_dashboard" data-toggle="collapse" data-target="#myScrollspy" aria-expanded="true" aria-controls="collapseProduct">
+        <a class="nav-link collapsed" href="<?php echo base_url();?>buyer_dashboard" data-toggle="collapse" data-target="#myScrollspy" aria-expanded="true" aria-controls="collapseProduct">
           <i class="fas fa-fw fa-user"></i>
           <span>Update Profile</span>
         </a>
         <div id="myScrollspy" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="buyer_dashboard">Personal</a>
+            <a class="collapse-item" href="<?php echo base_url();?>buyer_dashboard">Personal</a>
             <a class="collapse-item" href="#section2">Contact</a>
             <a class="collapse-item" href="#section3">Password</a>
             <a class="collapse-item" href="#section4">Account</a>
@@ -100,33 +100,33 @@
       </div> 	
 	  
 	   <li class="nav-item">
-        <a class="nav-link collapsed" href="forthcomingauc" data-toggle="collapse" data-target="#auction" aria-expanded="true" aria-controls="collapseProduct">
+        <a class="nav-link collapsed" href="<?php echo base_url();?>buyer_forthcomingauc" data-toggle="collapse" data-target="#auction" aria-expanded="true" aria-controls="collapseProduct">
           <i class="fas fa-fw fa-gavel"></i>
           <span>Auction</span>
         </a>
         <div id="auction" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="forthcomingauc">Forthcoming Auction</a>
-            <a class="collapse-item" href="closedauc">Closed Auction</a>
+            <a class="collapse-item" href="<?php echo base_url();?>buyer_forthcomingauc">Forthcoming Auction</a>
+            <a class="collapse-item" href="<?php echo base_url();?>buyer_closedauc">Closed Auction</a>
            </div>
         </div>
       </li>
 	  
 	  	  <li class="nav-item">
-        <a class="nav-link" href="detailedauc">
+        <a class="nav-link" href="<?php echo base_url();?>buyer_detailedauc">
           <i class="fas fa-chart-bar"></i>
           <span>Bidding Details</span></a>
       </li>
 
 	 <li class="nav-item">
-        <a class="nav-link collapsed" href="occupied" data-toggle="collapse" data-target="#history" aria-expanded="true" aria-controls="collapseProduct">
+        <a class="nav-link collapsed" href="<?php echo base_url();?>buyer_occupied" data-toggle="collapse" data-target="#history" aria-expanded="true" aria-controls="collapseProduct">
           <i class="fa fa-file"></i>
           <span>History</span>
         </a>
         <div id="history" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="occupied">Occupied Product</a>
-            <a class="collapse-item" href="lostproduct">Lost Product</a>
+            <a class="collapse-item" href="<?php echo base_url();?>buyer_occupied">Occupied Product</a>
+            <a class="collapse-item" href="<?php echo base_url();?>buyer_lostproduct">Lost Product</a>
            </div>
         </div>
       </li>
@@ -134,7 +134,7 @@
 
 	  
 	   <li class="nav-item">
-        <a class="nav-link" href="mylist">
+        <a class="nav-link" href="<?php echo base_url();?>buyer_mylist">
           <i class="fas fa-fw fa-shopping-cart"></i>
           <span>My List</span></a>
       </li>
@@ -181,7 +181,7 @@
             </div>
           </form>-->
 		<div class="col-sm-5 w-auto">
-			<a href="liveauc"><span class="blinking"><b>Live Auction</b></span></a>
+			<a href="<?php echo base_url();?>buyer_liveauc"><span class="blinking"><b>Live Auction</b></span></a>
 		</div>
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">

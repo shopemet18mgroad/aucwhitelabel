@@ -66,9 +66,9 @@
 						<th>Location</th>
 						<th>Date/Time</th>
 						<th>Status</th>
-						<th>View Auction</th>
+						<th width="10%">View Auction</th>
 						<th width="15%">EMD Payment</th>
-						<th>EMD Pay By DD</th>
+						<th >EMD Pay By DD</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -109,7 +109,7 @@
 					<i class="fa fa-eye" aria-hidden="true"></i>
 					</button></a></td>
 						<td><a href="#"><button type="button" class="btn btn-primary btn-sm">Pay</button></a></td>
-						<td><input class="form-group w-auto " type="file" id="bemd_dd" name="bemd_dd"></td>
+						<td><input class="form-group w-auto" type="file" id="bemd_dd" name="bemd_dd"></td>
 					</tr>
 					<tr>												
 						
