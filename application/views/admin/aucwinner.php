@@ -1,5 +1,5 @@
 <?php 
-	include('./headerdata.php');
+	//include('./headerdata.php');
 ?>
         <!-- End of Topbar -->
 
@@ -35,7 +35,7 @@
 				<tbody>
 				<tr>
 					
-					<td><a href="aucwinner.php"><u>AJ256458/BHEL/IRON/102</u></a></td>
+					<td><a href=""><u>AJ256458/BHEL/IRON/102</u></a></td>
 					<td>M-265</td>
 					<td>Paper</td>
 				</tr>
@@ -109,7 +109,7 @@
 
   <!-- Scroll to Top Button-->
 <?php 
-	include('./footerdata.php');
+	//include('./footerdata.php');
 ?>
 </body>
 

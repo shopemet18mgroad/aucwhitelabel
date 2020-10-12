@@ -157,7 +157,7 @@ From:
   
   <center>
   <a type="reset" class="btn btn-info text-white" data-dismiss="modal">Add Another Lot</a>
-  <a type="button" class="btn btn-info text-white" href="auctiondetails" data-dismiss="modal">Submit</a>
+  <a type="button" class="btn btn-info text-white" href="<?php echo base_url();?>admin_auctiondetails" data-dismiss="modal">Submit</a>
   </center>
 			</div>
             </div>

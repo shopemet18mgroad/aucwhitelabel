@@ -68,7 +68,7 @@
 				</thead>
 				<tbody>
 				<tr>
-					<td><a href="aucwinner.php"><u>AJ256458/BHEL/IRON/102</u></a></td>
+					<td><a href="<?php echo base_url();?>admin_aucwinner"><u>AJ256458/BHEL/IRON/102</u></a></td>
 					 <td>Paper</td>
 					 <td>5</td>
 					 <td>80%</td>
@@ -82,7 +82,7 @@
 					</a></td>
 				</tr>
 				<tr>
-					 <td><a href="aucwinner.php"><u>AJ256458/BHEL/IRON/102</u></a></td>
+					 <td><a href="<?php echo base_url();?>admin_aucwinner"><u>AJ256458/BHEL/IRON/102</u></a></td>
 					 <td>Paper</td>
 					 <td>5</td>
 					 <td>80%</td>
@@ -96,7 +96,7 @@
 					</a></td>
 				</tr>
 				<tr>
-					 <td><a href="aucwinner.php"><u>AJ256458/BHEL/IRON/102</u></a></td>
+					 <td><a href="<?php echo base_url();?>admin_aucwinner"><u>AJ256458/BHEL/IRON/102</u></a></td>
 					 <td>Paper</td>
 					 <td>5</td>
 					 <td>80%</td>

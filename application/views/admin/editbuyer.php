@@ -1,5 +1,5 @@
 <?php 
-	include('./header.php');
+	//include('./header.php');
 ?>
         <!-- End of Topbar -->
 
@@ -34,7 +34,7 @@
 					 
 					 </thead>
 						<tbody>
-						<tr><td><img class="img-fluid" src="../../img/manimg.jpg" alt="Chania" width="40" height="35"></td></tr>
+						<tr><td><img class="img-fluid" src="<?php echo base_url()."web_files/";?>img/manimg.jpg" alt="Chania" width="40" height="35"></td></tr>
 						<tr>
 							<td class="btxt">Buyer Name:</td>
 							<td><input class="form-control w-50" type="text" id="bname" name="bname"></td>
@@ -201,7 +201,7 @@
  
  </script>
  <?php 
-	include('./footerdata.php');
+	//include('./footerdata.php');
 ?>
 </body>
 

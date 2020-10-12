@@ -51,19 +51,19 @@
 				</thead>
 				<tbody>
 					<tr>												
-						<td><a href="bidhistory">EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</a></td>
+						<td><a href="<?php echo base_url();?>admin_bidhistory">EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</a></td>
 					</tr>
 					<tr>
-						<td><a href="bidhistory">BHEL/BBR/ISG LTD/2/Adarsh Vihar/25087/20-20</a></td>
+						<td><a href="<?php echo base_url();?>admin_bidhistory">BHEL/BBR/ISG LTD/2/Adarsh Vihar/25087/20-20</a></td>
 					</tr>  
 					<tr>
-						<td><a href="bidhistory">REMT/BBR/ONGC LTD/3/Tamil Nadu/Vellore Dist/465895/18-20</a></td>
+						<td><a href="<?php echo base_url();?>admin_bidhistory">REMT/BBR/ONGC LTD/3/Tamil Nadu/Vellore Dist/465895/18-20</a></td>
 					</tr>  
 					<tr>												
-						<td><a href="bidhistory">HMT/BBR/Adnani logistic Ltd/4/Vidyut Nagar/99087/19-20</a></td>
+						<td><a href="<?php echo base_url();?>admin_bidhistory">HMT/BBR/Adnani logistic Ltd/4/Vidyut Nagar/99087/19-20</a></td>
 					</tr>
 					<tr>												
-						<td><a href="bidhistory">BEL/BBR/ONGC LTD/5/Nehru Nagar/99087/19-20</a></td>
+						<td><a href="<?php echo base_url();?>admin_bidhistory">BEL/BBR/ONGC LTD/5/Nehru Nagar/99087/19-20</a></td>
 					</tr>
 				</tbody>
 		 </table>

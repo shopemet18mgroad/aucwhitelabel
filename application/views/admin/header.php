@@ -52,93 +52,93 @@
 
       <!-- Divider -->
 			<li class="nav-item">
-        <a class="nav-link collapsed" href="admin_dashboard" data-toggle="collapse" data-target="#collapseProduct" aria-expanded="true" aria-controls="collapseProduct">
+        <a class="nav-link collapsed" href="<?php echo base_url();?>admin_dashboard" data-toggle="collapse" data-target="#collapseProduct" aria-expanded="true" aria-controls="collapseProduct">
           <i class="fas fa-fw fa-user"></i>
           <span>Seller</span>
         </a>
         <div id="collapseProduct" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="admin_dashboard">Seller Profile</i></a>
-            <a class="collapse-item" href="sellereditprofile">Edit Profile</a>
-			 <a class="collapse-item" href="sellerapproval">Seller Approval</a>
+            <a class="collapse-item" href="<?php echo base_url();?>admin_dashboard">Seller Profile</i></a>
+            <a class="collapse-item" href="<?php echo base_url();?>admin_sellereditprofile">Edit Profile</a>
+			 <a class="collapse-item" href="<?php echo base_url();?>admin_sellerapproval">Seller Approval</a>
           </div>
         </div>
       </li>
 	  
 	  	<li class="nav-item">
-        <a class="nav-link collapsed" href="buyerreg" data-toggle="collapse" data-target="#buyer" aria-expanded="true" aria-controls="collapseProduct">
+        <a class="nav-link collapsed" href="<?php echo base_url();?>admin_buyerreg" data-toggle="collapse" data-target="#buyer" aria-expanded="true" aria-controls="collapseProduct">
           <i class="fas fa-fw fa-user"></i>
           <span>Buyer</span>
         </a>
         <div id="buyer" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="buyerreg">Buyer Profile</a>
-            <a class="collapse-item" href="buyereditprofile">Edit Profile</a>
-			<a class="collapse-item" href="buyerapproval">Buyer Approval</a>
+            <a class="collapse-item" href="<?php echo base_url();?>admin_buyerreg">Buyer Profile</a>
+            <a class="collapse-item" href="<?php echo base_url();?>admin_buyereditprofile">Edit Profile</a>
+			<a class="collapse-item" href="<?php echo base_url();?>admin_buyerapproval">Buyer Approval</a>
           </div>
         </div>
       </li>
 	  
 	  <li class="nav-item">
-        <a class="nav-link" href="startauction">
+        <a class="nav-link" href="<?php echo base_url();?>admin_startauction">
           <i class="fas fa-hand-point-up"></i>
           <span>Start Auction</span></a>
       </li>
 	  
 	    <li class="nav-item">
-        <a class="nav-link collapsed" href="liveauc" data-toggle="collapse" data-target="#auction" aria-expanded="true" aria-controls="collapseProduct">
+        <a class="nav-link collapsed" href="<?php echo base_url();?>admin_liveauc" data-toggle="collapse" data-target="#auction" aria-expanded="true" aria-controls="collapseProduct">
           <i class="fas fa-fw fa-gavel"></i>
           <span>Auction</span>
         </a>
         <div id="auction" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="liveauc">Live Auction</a>
-            <a class="collapse-item" href="forthcomingauc">Forthcoming Auction<br> Approval</a>
-			 <a class="collapse-item" href="editforthcom">Edit Forthcoming Auction</a>
+            <a class="collapse-item" href="<?php echo base_url();?>admin_liveauc">Live Auction</a>
+            <a class="collapse-item" href="<?php echo base_url();?>admin_forthcomingauc">Forthcoming Auction<br> Approval</a>
+			 <a class="collapse-item" href="<?php echo base_url();?>admin_editforthcom">Edit Forthcoming Auction</a>
            </div>
         </div>
       </li>
 	  
 	   <li class="nav-item">
-        <a class="nav-link collapsed" href="emdprofile" data-toggle="collapse" data-target="#emd" aria-expanded="true" aria-controls="collapseProduct">
+        <a class="nav-link collapsed" href="<?php echo base_url();?>admin_emdprofile" data-toggle="collapse" data-target="#emd" aria-expanded="true" aria-controls="collapseProduct">
           <i class="fas fa-money-bill-alt"></i>
           <span>EMD</span>
         </a>
         <div id="emd" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="emdprofile">EMD Paid</a>
-            <a class="collapse-item" href="emdrequest">NP-EMD Request</a>
-			<a class="collapse-item" href="emdapproval">EMD Approval</a>
+            <a class="collapse-item" href="<?php echo base_url();?>admin_emdprofile">EMD Paid</a>
+            <a class="collapse-item" href="<?php echo base_url();?>admin_emdrequest">NP-EMD Request</a>
+			<a class="collapse-item" href="<?php echo base_url();?>admin_emdapproval">EMD Approval</a>
            </div>
         </div>
       </li>
 	  
 	   <li class="nav-item">
-        <a class="nav-link collapsed" href="closedauc.php" data-toggle="collapse" data-target="#report" aria-expanded="true" aria-controls="collapseProduct">
+        <a class="nav-link collapsed" href="<?php echo base_url();?>admin_closedauc.php" data-toggle="collapse" data-target="#report" aria-expanded="true" aria-controls="collapseProduct">
           <i class="fa fa-file"></i>
           <span>Report</span>
         </a>
         <div id="report" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="closedauc">Closed Auction</a>
-            <a class="collapse-item" href="bidsummary">Bid Summary</a>
-			<a class="collapse-item" href="salesreport">Sales Report</a>
-            <a class="collapse-item" href="unsoldproduct">Unsold Products</a>
-			<a class="collapse-item" href="bidwinner">Bid Winner</a>
+            <a class="collapse-item" href="<?php echo base_url();?>admin_closedauc">Closed Auction</a>
+            <a class="collapse-item" href="<?php echo base_url();?>admin_bidsummary">Bid Summary</a>
+			<a class="collapse-item" href="<?php echo base_url();?>admin_salesreport">Sales Report</a>
+            <a class="collapse-item" href="<?php echo base_url();?>admin_unsoldproduct">Unsold Products</a>
+			<a class="collapse-item" href="<?php echo base_url();?>admin_bidwinner">Bid Winner</a>
            </div>
         </div>
       </li>
 	  
 	   <li class="nav-item">
-        <a class="nav-link collapsed" href="bestbuyer" data-toggle="collapse" data-target="#performance" aria-expanded="true" aria-controls="collapseProduct">
+        <a class="nav-link collapsed" href="<?php echo base_url();?>admin_bestbuyer" data-toggle="collapse" data-target="#performance" aria-expanded="true" aria-controls="collapseProduct">
           <i class="fas fa-chart-bar"></i>
           <span>Performance</span>
         </a>
         <div id="performance" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-        <a class="collapse-item" href="bestbuyer">Best Buyer</a>
+        <a class="collapse-item" href="<?php echo base_url();?>admin_bestbuyer">Best Buyer</a>
             <!--<a class="collapse-item" href="nonperfbuyer.php">Non Performing Buyer</a>-->
-			 <a class="collapse-item" href="bestseller">Best Seller</a>
+			 <a class="collapse-item" href="<?php echo base_url();?>admin_bestseller">Best Seller</a>
             <!--<a class="collapse-item" href="nonperfseller.php">Non Performing Seller</a>-->
            </div>
         </div>

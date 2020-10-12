@@ -57,7 +57,7 @@
 					<td>Bangalore</td>
 					<td>Shada Shiv Nagar</td>
 					<td>Active</td>
-					<td><a href="editseller.php">
+					<td><a href="<?php echo base_url();?>admin_editseller">
 						<i class="fa fa-edit"></i> 
 						</a>
 						<a href="" >
@@ -75,7 +75,7 @@
 					<td>Bangalore</td>
 					<td>Shada Shiv Nagar</td>
 					<td>Active</td>
-					<td><a href="editseller.php">
+					<td><a href="<?php echo base_url();?>admin_editseller">
 						<i class="fa fa-edit"></i> 
 						</a>
 						<a href="" >
@@ -92,7 +92,7 @@
 					<td>Bangalore</td>
 					<td>Shada Shiv Nagar</td>
 					<td>Inactive</td>
-					<td><a href="editseller.php">
+					<td><a href="<?php echo base_url();?>admin_editseller">
 						<i class="fa fa-edit"></i> 
 						</a>
 						<a href="" >
@@ -108,7 +108,7 @@
 					<td>Bangalore</td>
 					<td>Shada Shiv Nagar</td>
 					<td>Active</td>
-					<td><a href="editseller.php">
+					<td><a href="<?php echo base_url();?>admin_editseller">
 						<i class="fa fa-edit"></i> 
 						</a>
 						<a href="" >
@@ -126,7 +126,7 @@
 						<td>Bangalore</td>
 						<td>Shada Shiv Nagar</td>
 						<td>Inactive</td>
-						<td><a href="selllerreg.php">
+						<td><a href="<?php echo base_url();?>admin_editseller">
 							<i class="fa fa-edit"></i> 
 							</a>
 							<a href="" >

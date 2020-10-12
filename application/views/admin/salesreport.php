@@ -62,28 +62,28 @@
 						<td>18-05-2020</td>
 						<td>20-05-2020</td>
 						<td>5,00,000</td>
-						<td><a href="salesdata">View Details</a></td>
+						<td><a href="<?php echo base_url();?>admin_salesdata">View Details</a></td>
 					</tr>
 					<tr>
 						<td>SAIL</td>
 						<td>18-05-2020</td>
 						<td>20-05-2020</td>
 						<td>5,00,000</td>
-						<td><a href="salesdata">View Details</a></td>
+						<td><a href="<?php echo base_url();?>admin_salesdata">View Details</a></td>
 					</tr>
 					<tr>
 						<td>GAIL</td>
 						<td>18-05-2020</td>
 						<td>20-05-2020</td>
 						<td>5,00,000</td>
-						<td><a href="salesdata">View Details</a></td>
+						<td><a href="<?php echo base_url();?>admin_salesdata">View Details</a></td>
 					</tr>
 					<tr>
 						<td>NSPCL</td>
 						<td>18-05-2020</td>
 						<td>20-05-2020</td>
 						<td>5,00,000</td>
-						<td><a href="salesdata">View Details</a></td>
+						<td><a href="<?php echo base_url();?>admin_salesdata">View Details</a></td>
 					</tr>
 													
 				</tbody>

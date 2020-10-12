@@ -60,7 +60,7 @@
 														<td>Shiv Nagar</td>
 														<td>Premium</td>
 														<td>Active</td>
-														<td><a href="editbuyer.php">
+														<td><a href="<?php echo base_url();?>admin_editbuyer">
 															<i class="fa fa-edit"></i> 
 															</a>
 															<a href="" >
@@ -78,7 +78,7 @@
 														<td>Shiv Nagar</td>
 														<td>Premium</td>
 														<td>Inactive</td>
-														<td><a href="editbuyer.php">
+														<td><a href="<?php echo base_url();?>admin_editbuyer">
 															<i class="fa fa-edit"></i> 
 															</a>
 															<a href="" >
@@ -96,7 +96,7 @@
 														<td>Shiv Nagar</td>
 														<td>Standard</td>
 														<td>Inactive</td>
-														<td><a href="editbuyer.php">
+														<td><a href="<?php echo base_url();?>admin_editbuyer.php">
 															<i class="fa fa-edit"></i> 
 															</a>
 															<a href="" >
@@ -114,7 +114,7 @@
 														<td>Shiv Nagar</td>
 														<td>Standard</td>
 														<td>Active</td>
-														<td><a href="editbuyer.php">
+														<td><a href="<?php echo base_url();?>admin_editbuyer">
 															<i class="fa fa-edit"></i> 
 															</a>
 															<a href="" >
@@ -132,7 +132,7 @@
 														<td>Shiv Nagar</td>
 														<td>Premium</td>
 														<td>Active</td>
-														<td><a href="editbuyer.php">
+														<td><a href="<?php echo base_url();?>admin_editbuyer">
 															<i class="fa fa-edit"></i> 
 															</a>
 															<a href="" >
