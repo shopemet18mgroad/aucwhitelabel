@@ -1,5 +1,5 @@
 <?php 
-	include('./header.php');
+	//include('./header.php');
 ?>
 		<div class="container py-3">
 		 <h2 class="aboutus-title tspace">FREQUENTLY ASKED QUESTIONS</h2>
@@ -66,5 +66,5 @@
 </div>
 		
 		<?php 
-	include('./footer.php');
+	//include('./footer.php');
 ?>

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Sellersregisteration extends CI_Controller {
+class Salesreport extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -21,9 +21,9 @@ class Sellersregisteration extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper('url');
-		$this->load->view('header');
-		$this->load->view('sellersregisteration');
-		$this->load->view('footer');
+		$this->load->view('admin/header');
+		$this->load->view('admin/salesreport');
+		$this->load->view('admin/footer');
 		
 	}
 	

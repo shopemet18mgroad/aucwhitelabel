@@ -1,5 +1,5 @@
 <?php 
-	include('./header.php');
+	//include('./header.php');
 ?>       <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -171,7 +171,7 @@
 
   <!-- Scroll to Top Button-->
 <?php 
-	include('./footer.php');
+	//include('./footer.php');
 ?>
 </body>
 

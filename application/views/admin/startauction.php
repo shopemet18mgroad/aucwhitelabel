@@ -1,5 +1,5 @@
 <?php 
-	include('./header.php');
+	//include('./header.php');
 ?>
         <!-- End of Topbar -->
 
@@ -239,7 +239,7 @@ Bidders participating in AucJunction Auctions should verify with the selling com
     </tbody>
   </table>
   
-  <center><a type="button" class="btn btn-info" href="addlot.php" data-dismiss="modal">Start Auction</a></center>
+  <center><a type="button" class="btn btn-info" href="addlot" data-dismiss="modal">Start Auction</a></center>
 			</div>
             </div>
 			</div>
@@ -290,7 +290,7 @@ function myFunction2() {
 
 
 <?php 
-	include('./footer.php');
+	//include('./footer.php');
 ?>
 </body>
 

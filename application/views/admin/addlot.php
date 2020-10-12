@@ -1,5 +1,5 @@
 <?php 
-	include('./header.php');
+	//include('./header.php');
 ?>
         <!-- End of Topbar -->
 
@@ -157,7 +157,7 @@ From:
   
   <center>
   <a type="reset" class="btn btn-info text-white" data-dismiss="modal">Add Another Lot</a>
-  <a type="button" class="btn btn-info text-white" href="auctiondetails.php" data-dismiss="modal">Submit</a>
+  <a type="button" class="btn btn-info text-white" href="auctiondetails" data-dismiss="modal">Submit</a>
   </center>
 			</div>
             </div>
@@ -185,7 +185,7 @@ From:
   <!-- Scroll to Top Button-->
 	
 <?php 
-	include('./footer.php');
+	//include('./footer.php');
 ?>
 
 </body>

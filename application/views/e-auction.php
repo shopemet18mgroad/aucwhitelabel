@@ -1,5 +1,5 @@
 <?php 
-	include('./header.php');
+	//include('./header.php');
 ?>
 		<div class="container">
 		  <div class="row">
@@ -74,5 +74,5 @@ days otherwise your details will be deleted from our database.</p>
 		</div>
 		
 		<?php 
-	include('./footer.php');
+	//include('./footer.php');
 ?>

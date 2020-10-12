@@ -1,5 +1,5 @@
 <?php 
-	include('./header.php');
+	//include('./header.php');
 ?>        <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -30,22 +30,22 @@
 				</thead>
 				<tbody>
 				<tr>												
-					<td><a href="forthcomingauc_2.php">EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</a></td>
+					<td><a href="forthcomingauc_2">EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</a></td>
 					<td><center><a href="#"><i class="fa fa-download"></i></a></center></td>
 					<td>23-03-2020 23:00:00</td>
 				</tr>
 				<tr>
-					<td><a href="forthcomingauc_2.php">BHEL/BBR/ISG LTD/2/Adarsh Vihar/25087/20-20</a></td>
+					<td><a href="forthcomingauc_2">BHEL/BBR/ISG LTD/2/Adarsh Vihar/25087/20-20</a></td>
 					<td><center><a href="#"><i class="fa fa-download"></i></a></center></td>
 					<td>24-11-2019 16:17:00</td>
 				</tr>  
 				<tr>
-					<td><a href="forthcomingauc_2.php">EEMT/BBR/ONGC LTD/3/Orissa Vidyut Nagar/465895/18-20</a></td>
+					<td><a href="forthcomingauc_2">EEMT/BBR/ONGC LTD/3/Orissa Vidyut Nagar/465895/18-20</a></td>
 					<td><center><a href="#"><i class="fa fa-download"></i></a></center></td>
 					<td>14-07-2020 18:12:07</td>
 				</tr>  
 				<tr>												
-					<td><a href="forthcomingauc_2.php">EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</a></td>
+					<td><a href="forthcomingauc_2">EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</a></td>
 					<td><center><a href="#"><i class="fa fa-download"></i></a></center></td>
 					<td>23-03-2020 23:00:00</td>
 				</tr>
@@ -76,7 +76,7 @@
 
   <!-- Scroll to Top Button-->
 <?php 
-	include('./footer.php');
+	//include('./footer.php');
 ?>
 </body>
 

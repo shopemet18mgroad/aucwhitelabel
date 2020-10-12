@@ -1,5 +1,5 @@
  <?php 
-	include('./headerdata.php');
+	//include('./headerdata.php');
 ?>
         <!-- End of Topbar -->
 
@@ -64,7 +64,7 @@
 					<td>Horizontal Boring Machine</td>
 					<td>1.0 Lot</td>
 					<td>18.0</td>
-					<td><a href="editlot.php" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a>
+					<td><a href="editlot" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a>
 						<a class="btn btn-danger btn-sm text-white"><i class="fa fa-trash fa-sm"></i></a></td>
 				</tr>
 				<tr>
@@ -72,7 +72,7 @@
 					<td>Cast Iron</td>
 					<td>1.0 Lot</td>
 					<td>20.0</td>
-					<td><a href="editlot.php" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a>
+					<td><a href="editlot" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a>
 						<a class="btn btn-danger btn-sm text-white"><i class="fa fa-trash fa-sm"></i></a></td>
 				</tr>
 				<tr>
@@ -80,7 +80,7 @@
 					<td>Pig Iron</td>
 					<td>1 MT</td>
 					<td>20.0</td>
-					<td><a href="editlot.php" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a>
+					<td><a href="editlot" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a>
 						<a class="btn btn-danger btn-sm text-white"><i class="fa fa-trash fa-sm"></i></a></td>
 				</tr>
 				<tr>
@@ -88,7 +88,7 @@
 					<td>SS Aluminum</td>
 					<td>1.0 Lot</td>
 					<td>20.0</td>
-					<td><a href="editlot.php" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a>
+					<td><a href="editlot" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a>
 						<a class="btn btn-danger btn-sm text-white"><i class="fa fa-trash fa-sm"></i></a></td>
 				</tr>
 				</tbody>
@@ -119,7 +119,7 @@
 
   <!-- Scroll to Top Button-->
  <?php 
-	include('./footerdata.php');
+	//include('./footerdata.php');
 ?>
 </body>
 

@@ -1,5 +1,5 @@
 <?php 
-	include('./header.php');
+	//include('./header.php');
 ?>
         <!-- End of Topbar -->
 
@@ -57,39 +57,39 @@
 				</thead>
 				<tbody>
 				<tr>
-														<td><a href="editforthcom_2.php">BHEL/BBR/ISG LTD/2/Adarsh Vihar/25087/20-20</a></td>
+														<td><a href="editforthcom_2">BHEL/BBR/ISG LTD/2/Adarsh Vihar/25087/20-20</a></td>
 														<td>BHEL</td>
 														<td>Bangalore</td>
 														<td>23-03-2020</td>
-														<td><a href="editauction.php" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a>
+														<td><a href="editauction" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a>
 															<a class="btn btn-danger btn-sm text-white"><i class="fa fa-trash fa-sm"></i></a></td>
 														</tr>
 													<tr>
-														<td><a href="editforthcom_2.php">MSTC/BBR/ISG LTD/2/Adarsh Vihar/25087/20-20</a></td>
+														<td><a href="editforthcom_2">MSTC/BBR/ISG LTD/2/Adarsh Vihar/25087/20-20</a></td>
 														<td>ISG LTD</td>
 														<td>Uttrakhand</td>
 														<td>23-03-2020</td>
-														<td><a href="editauction.php" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a>
+														<td><a href="editauction" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a>
 															<a class="btn btn-danger btn-sm text-white"><i class="fa fa-trash fa-sm"></i></a></td>
 														</tr>
 													<tr>
-														<td><a href="editforthcom_2.php">MSTC/BBR/BHRL LTD/2/Vihar/25087/20-20</a></td>
+														<td><a href="editforthcom_2">MSTC/BBR/BHRL LTD/2/Vihar/25087/20-20</a></td>
 														<td>BHRL LTD</td>
 														<td>Gujarat</td>
 														<td>23-03-2020</td>
-														<td><a href="editauction.php" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a>
+														<td><a href="editauction" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a>
 															<a class="btn btn-danger btn-sm text-white"><i class="fa fa-trash fa-sm"></i></a></td>
 													</tr>
 													<tr>
-														<td><a href="editforthcom_2.php">MSTC/BBR/ONGC LTD/2/Vidyut Nagar/25087/20-20</a></td>
+														<td><a href="editforthcom_2">MSTC/BBR/ONGC LTD/2/Vidyut Nagar/25087/20-20</a></td>
 														<td>ONGC LTD</td>
 														<td>Orrisa</td>
 														<td>23-03-2020</td>
-														<td><a href="editauction.php" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a>
+														<td><a href="editauction" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a>
 															<a class="btn btn-danger btn-sm text-white"><i class="fa fa-trash fa-sm"></i></a></td>
 														</tr>
 													<tr>
-														<td><a href="editforthcom_2.php">MSTC/BBR/BSP LTD/2/Nehru Vihar/25087/20-20</a></td>
+														<td><a href="editforthcom_2">MSTC/BBR/BSP LTD/2/Nehru Vihar/25087/20-20</a></td>
 														<td>BSP</td>
 														<td>Chhattisgarh</td>
 														<td>23-03-2020 23:00:00</td>
@@ -124,7 +124,7 @@
 
   <!-- Scroll to Top Button-->
 <?php 
-	include('./footer.php');
+	//include('./footer.php');
 ?>
 </body>
 

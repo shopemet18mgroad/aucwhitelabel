@@ -21,9 +21,15 @@ class Liveauc extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper('url');
+<<<<<<< HEAD
 		$this->load->view('buyer/header');
 		$this->load->view('buyer/liveauc');
 		$this->load->view('buyer/footer');
+=======
+		$this->load->view('admin/header');
+		$this->load->view('admin/liveauc');
+		$this->load->view('admin/footer');
+>>>>>>> 843ca034dcfab55cb759e4e775bdf28ee7316b96
 		
 	}
 	
