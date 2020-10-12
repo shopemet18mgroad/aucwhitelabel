@@ -21,7 +21,7 @@
             <div class="card-body">
               <div class="table-responsive">
 
-		<table class="table table-striped table-sm text-center table-bordered" id="dataTable" width="100%" cellspacing="0">
+		<table class="table table-striped table-sm text-center table-bordered"  width="100%" cellspacing="0">
 				<thead class="bg-primary text-white">
 				<tr>
 					<th colspan="10">Enter Autobid info</th>

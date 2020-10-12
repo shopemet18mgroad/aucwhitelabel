@@ -27,7 +27,7 @@
 
 
 				<div class="caption mt-3 col-sm-5 offset-sm-3">
-					<table class="table table-sm text-center table-borderless" id="dataTable" width="100%" cellspacing="0">
+					<table class="table table-sm text-center table-borderless"  width="100%" cellspacing="0">
 				<thead class="bg-info text-white">
 				<tr>
 					<th>Live Status</th>
