@@ -1,5 +1,5 @@
 <?php 
-	include('./header.php');
+	//include('./header.php');
 ?>
     <!-- End of Topbar -->
 
@@ -46,7 +46,7 @@
 		
 			</form>
 		
-		<table class="table table-striped table-bordered table-sm text-center mt-5 w-auto small" id="dataTable" width="100%" cellspacing="0">
+		<table class="table table-striped table-bordered table-sm text-center mt-5 w-auto" id="dataTable" width="100%" cellspacing="0">
 				<thead class="bg-primary text-white">
 					<tr>
 					<tr><th>Auction Id</th>
@@ -125,7 +125,7 @@
   <!-- Scroll to Top Button-->
 	
 <?php 
-	include('./footer.php');
+	//include('./footer.php');
 ?>
 
 </body>

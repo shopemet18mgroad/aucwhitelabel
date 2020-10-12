@@ -1,5 +1,5 @@
 <?php 
-	include('./header.php');
+	//include('./header.php');
 ?>
         <!-- End of Topbar -->
 
@@ -51,19 +51,19 @@
 				</thead>
 				<tbody>
 					<tr>												
-						<td><a href="bidhistory.php">EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</a></td>
+						<td><a href="bidhistory">EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</a></td>
 					</tr>
 					<tr>
-						<td><a href="bidhistory.php">BHEL/BBR/ISG LTD/2/Adarsh Vihar/25087/20-20</a></td>
+						<td><a href="bidhistory">BHEL/BBR/ISG LTD/2/Adarsh Vihar/25087/20-20</a></td>
 					</tr>  
 					<tr>
-						<td><a href="bidhistory.php">REMT/BBR/ONGC LTD/3/Tamil Nadu/Vellore Dist/465895/18-20</a></td>
+						<td><a href="bidhistory">REMT/BBR/ONGC LTD/3/Tamil Nadu/Vellore Dist/465895/18-20</a></td>
 					</tr>  
 					<tr>												
-						<td><a href="bidhistory.php">HMT/BBR/Adnani logistic Ltd/4/Vidyut Nagar/99087/19-20</a></td>
+						<td><a href="bidhistory">HMT/BBR/Adnani logistic Ltd/4/Vidyut Nagar/99087/19-20</a></td>
 					</tr>
 					<tr>												
-						<td><a href="bidhistory.php">BEL/BBR/ONGC LTD/5/Nehru Nagar/99087/19-20</a></td>
+						<td><a href="bidhistory">BEL/BBR/ONGC LTD/5/Nehru Nagar/99087/19-20</a></td>
 					</tr>
 				</tbody>
 		 </table>
@@ -92,7 +92,7 @@
 
   <!-- Scroll to Top Button-->
 <?php 
-	include('./footer.php');
+	//include('./footer.php');
 ?>
 </body>
 

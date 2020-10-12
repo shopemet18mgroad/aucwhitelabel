@@ -1,5 +1,5 @@
  <?php 
-	include('./header.php');
+	//include('./header.php');
 ?>
         <!-- End of Topbar -->
 
@@ -80,7 +80,7 @@
 						
 						<!-- Modal body -->
 						<div class="modal-body">
-						<img src="../../img/dd.png" class="img-fluid" alt="Responsive image">
+						<img src="<?php echo base_url()."web_files/";?>img/dd.png" class="img-fluid" alt="Responsive image">
 						</div>
 						
 						<!-- Modal footer -->
@@ -116,7 +116,7 @@
 						
 						<!-- Modal body -->
 						<div class="modal-body">
-						<img src="../../images/dd.png" class="img-fluid" alt="Responsive image">
+						<img src="<?php echo base_url()."web_files/";?>images/dd.png" class="img-fluid" alt="Responsive image">
 						</div>
 						
 						<!-- Modal footer -->
@@ -152,7 +152,7 @@
 						
 						<!-- Modal body -->
 						<div class="modal-body">
-						<img src="../../img/dd.png" class="img-fluid" alt="Responsive image">
+						<img src="<?php echo base_url()."web_files/";?>img/dd.png" class="img-fluid" alt="Responsive image">
 						</div>
 						
 						<!-- Modal footer -->
@@ -195,7 +195,7 @@
 
   <!-- Scroll to Top Button-->
  <?php 
-	include('./footer.php');
+	//include('./footer.php');
 ?>
 </body>
 
