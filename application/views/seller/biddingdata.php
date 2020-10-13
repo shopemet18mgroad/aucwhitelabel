@@ -46,22 +46,22 @@
          <table class="table table-striped text-center table-bordered table-sm" id="dataTable" width="100%" cellspacing="0">		
     <thead class="bg-primary text-white">
       <tr>
-		<th colspan="12" style="Text-align:center;">Bidding Data</th></thead>
+		<th width="60%">Bidding Data</th></thead>
 		<tbody>
 			<tr>
-			<td class="bdata" style="Text-align:center;"><a href="<?php echo base_url();?>seller_biddingdatadetail"><u>Adani Logistic Ltd/2345/xcd/ongoing</a></u></td>
+			<td><a href="<?php echo base_url();?>seller_biddingdatadetail"><u>Adani Logistic Ltd/2345/xcd/ongoing</a></u></td>
 			</tr>
 			<tr>
-			<td class="bdata" style="Text-align:center;"><a href="<?php echo base_url();?>seller_biddingdatadetail"><u>Adani Logistic Ltd/2345/xcd/ongoing</a></u></td>
+			<td><a href="<?php echo base_url();?>seller_biddingdatadetail"><u>Adani Logistic Ltd/2345/xcd/ongoing</a></u></td>
 			</tr>
 			<tr>
-			<td class="bdata" style="Text-align:center;"><a href="<?php echo base_url();?>seller_biddingdatadetail"><u>Adani Logistic Ltd/2345/xcd/ongoing</u></a></td>
+			<td><a href="<?php echo base_url();?>seller_biddingdatadetail"><u>Adani Logistic Ltd/2345/xcd/ongoing</u></a></td>
 			</tr>
 			<tr>
-			<td class="bdata" style="Text-align:center;"><a href="<?php echo base_url();?>seller_biddingdatadetail"><u>Adani Logistic Ltd/2345/xcd/ongoing</u></a></td>
+			<td><a href="<?php echo base_url();?>seller_biddingdatadetail"><u>Adani Logistic Ltd/2345/xcd/ongoing</u></a></td>
 			</tr>
 			<tr>
-			<td class="bdata" style="Text-align:center;"><a href="<?php echo base_url();?>seller_biddingdatadetail"><u>Adani Logistic Ltd/2345/xcd/ongoing</u></a></td>
+			<td><a href="<?php echo base_url();?>seller_biddingdatadetail"><u>Adani Logistic Ltd/2345/xcd/ongoing</u></a></td>
 			</tr> 
       
     </tbody>
