@@ -1,5 +1,5 @@
 <?php
-  //  include('./header.php');
+  //  include('./header');
 	?>
         <!-- End of Topbar -->
 
@@ -208,7 +208,23 @@ Bidders participating in AucJunction Auctions should verify with the selling com
   
   <tr>
 		<td>Upload Terms & Conditions</td>
-		<td><input class="tos" type="file" id="sterms&condiupload" name="sterms&condiupload"></td>
+		<td><div class="form-check form-check-inline">
+			<input type="checkbox" class="form-check-input" id="myCheck" onclick="myFunction()" name="adexampleCheck1">
+			<label class="form-check-label" for="myCheck">Yes</label>
+			</div>
+			<div class="form-group" id="text" style="display:none">
+				<input type="file" class="form-control-file" id="sterms_condiupload" name="sterms_condiupload">
+			</div>
+			
+			
+			<div class="form-check form-check-inline">
+			<input type="checkbox" class="form-check-input" id="idCheck" onclick="myFunction2()" name="adexampleCheck1">
+			<label class="form-check-label" for="idCheck">No</label>
+			</div>
+			<div class="form-group" id="text2" style="display:none">
+			<textarea class="form-control w-50" type="text" id="sterms_conditype" name="sterms_conditype"></textarea>
+			</div>
+			</td>
   </tr>
   
  
@@ -216,7 +232,7 @@ Bidders participating in AucJunction Auctions should verify with the selling com
     </tbody>
   </table>
   
-  <center><a type="button" class="btn btn-info" href="addlot.php">Start Auction</a></center>
+  <center><a type="button" class="btn btn-info" href="<?php echo base_url();?>seller_addlot">Start Auction</a></center>
 			</div>
             </div>
 			</div>
@@ -239,8 +255,29 @@ Bidders participating in AucJunction Auctions should verify with the selling com
 
   </div>
   <!-- End of Page Wrapper -->
-
+  <script>
+function myFunction() {
+  var checkBox = document.getElementById("myCheck");
+  var text = document.getElementById("text");
+  if (checkBox.checked == true){
+    text.style.display = "block";
+  } else {
+     text.style.display = "none";
+  }
+}
+</script>
+ <script>
+function myFunction2() {
+  var checkBox = document.getElementById("idCheck");
+  var text = document.getElementById("text2");
+  if (checkBox.checked == true){
+    text.style.display = "block";
+  } else {
+     text.style.display = "none";
+  }
+}
+</script>
   <!-- Scroll to Top Button-->
   <?php
- //   include('./footer.php');
+ //   include('./footer');
 	?>

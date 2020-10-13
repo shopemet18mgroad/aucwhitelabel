@@ -1,5 +1,5 @@
 <?php
-   // include('./header.php');
+   // include('./header');
 	?>
         <!-- End of Topbar -->
 
@@ -22,7 +22,7 @@
 			  
 			  <div class="form-group mr-4 offset-sm-2">
 			  <td colspan="5">
-			  <form action="/action_page.php">
+			  <form action="/action_page">
 			  <div class="form-group">
 			  <label>Date</label>
 			
@@ -74,7 +74,7 @@
 		<tbody>
 			
 			<tr>
-			<td style="color:blue;"><a href="closedauction.php">AJ256458/BHEL/IRON/102</a></td> 
+			<td style="color:blue;"><a href="<?php echo base_url();?>seller_closedauction">AJ256458/BHEL/IRON/102</a></td> 
 			<td>M-5</td>
 			<td>Iron</td>
 			<td>BHUBANESWAR</td>
@@ -89,7 +89,7 @@
 			<td><a href=""><i class="fa fa-download"></i></a></td>
 			</tr>
 			<tr>
-			<td style="color:blue;"><a href="closedauction.php">AJ256458/BHEL/IRON/102</a></td> 
+			<td style="color:blue;"><a href="<?php echo base_url();?>seller_closedauction">AJ256458/BHEL/IRON/102</a></td> 
 			<td>M-8</td>
 			<td>Plastic</td>
 			<td>BHUBANESWAR</td>
@@ -154,5 +154,5 @@
 
   <!-- Scroll to Top Button-->
   <?php
-   // include('./footer.php');
+   // include('./footer');
 	?>

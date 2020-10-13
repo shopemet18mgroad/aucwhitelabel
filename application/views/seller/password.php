@@ -1,5 +1,5 @@
 <?php
-   // include('./header.php');
+   // include('./header');
 	?>
         <!-- End of Topbar -->
 
@@ -31,7 +31,7 @@
                 <div class="card-body">
 				<table class="table table-sm table-borderless">
 					 <thead><th width="45%">Password</th>
-					 <th style="text-align:right"><a href="editsellerpassword.php"><u>Edit Password</u></a></th>
+					 <th style="text-align:right"><a href="<?php echo base_url();?>seller_editsellerpassword"><u>Edit Password</u></a></th>
 					 </thead>
 						<tbody>
 							<tr>
@@ -67,5 +67,5 @@
 
       <!-- Footer -->
      <?php
- //   include('./footer.php');
+ //   include('./footer');
 	?>

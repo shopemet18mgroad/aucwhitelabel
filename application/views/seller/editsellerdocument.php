@@ -1,5 +1,5 @@
  <?php
-   // include('./header.php');
+   // include('./header');
 	?>
         <!-- End of Topbar -->
 
@@ -56,7 +56,7 @@
 												
 				<a href="#"><button type="button" class="btn btn-primary offset-sm-1 mt-2">Reset</button></a>
 												
-				<a href='index.php'><button type="button" class="btn btn-primary offset-sm-1 mt-2">Cancel</button></a>
+				<a href='<?php echo base_url();?>seller_dashboard'><button type="button" class="btn btn-primary offset-sm-1 mt-2">Cancel</button></a>
 						
               </div>
             </div>
@@ -102,6 +102,6 @@
 
       <!-- Footer -->
   <?php
-  //  include('./footer.php');
+  //  include('./footer');
 	?>
 

@@ -1,5 +1,5 @@
 <?php
-   // include('./header.php');
+   // include('./header');
 	?>
         <!-- End of Topbar -->
 
@@ -31,11 +31,11 @@
                 <div class="card-body">
 					 <table class="table table-sm table-borderless" id="section1">
 					 <thead><th width="45%">Profile</th>
-					 <th style="text-align:right"><a href="editsellerprofile.php"><u>Edit Personal Info</u></a></th>
+					 <th style="text-align:right"><a href="<?php echo base_url();?>seller_editsellerprofile"><u>Edit Personal Info</u></a></th>
 					 
 					 </thead>
 						<tbody>
-						<tr><td><img class="img-fluid" src="../../img/manimg.jpg" alt="Chania" width="40" height="35"></td></tr>
+						<tr><td><img class="img-fluid" src="<?php echo base_url()."web_files/";?>img/manimg.jpg" alt="Chania" width="40" height="35"></td></tr>
 							<tr>
 								
 								<td>Seller Name:</td>
@@ -80,7 +80,7 @@
 
 <table class="table table-sm table-borderless" id="section2">
 					 <thead><th width="45%">Contact Info</th>
-					 <th style="text-align:right"><a href="editsellercontact.php"><u>Edit Contact Info</u></a></th>
+					 <th style="text-align:right"><a href="<?php echo base_url();?>seller_editsellercontact"><u>Edit Contact Info</u></a></th>
 					 </thead>
 						<tbody>
 							<tr>
@@ -105,7 +105,7 @@
 					
 					<table class="table table-sm table-borderless" id="section3">
 					 <thead><th width="45%">Password</th>
-					 <th style="text-align:right"><a href="editsellerpassword.php"><u>Edit Password</u></a></th>
+					 <th style="text-align:right"><a href="<?php echo base_url();?>seller_editsellerpassword"><u>Edit Password</u></a></th>
 					 </thead>
 						<tbody>
 							<tr>
@@ -126,7 +126,7 @@
 							
 					<table class="table table-sm table-borderless" id="section4">
 					 <thead><th width="45%">Account</th>
-					<th style="text-align:right"><a href="editselleraccount.php"><u>Edit Account Info</u></a></th>
+					<th style="text-align:right"><a href="<?php echo base_url();?>seller_editselleraccount"><u>Edit Account Info</u></a></th>
 					 </thead>
 						<tbody>
 							<tr>
@@ -151,7 +151,7 @@
 					
 						<table class="table table-sm table-borderless" id="section5">
 					 <thead><th width="45%">Documents</th>
-					 <th style="text-align:right"><a href="editsellerdocument.php"><u>Edit documents</u></a></th>
+					 <th style="text-align:right"><a href="<?php echo base_url();?>seller_editsellerdocument"><u>Edit documents</u></a></th>
 					 </thead>
 						<tbody>
 							<tr>
@@ -189,5 +189,5 @@
 
       <!-- Footer -->
 <?php
-  //  include('./footer.php');
+  //  include('./footer');
 	?>

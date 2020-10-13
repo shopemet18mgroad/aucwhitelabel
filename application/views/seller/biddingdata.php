@@ -1,5 +1,5 @@
  <?php
-   // include('./header.php');
+   // include('./header');
 	?>
         <!-- End of Topbar -->
 
@@ -49,19 +49,19 @@
 		<th colspan="12" style="Text-align:center;">Bidding Data</th></thead>
 		<tbody>
 			<tr>
-			<td class="bdata" style="Text-align:center;"><a href="biddingdatadetail.php"><u>Adani Logistic Ltd/2345/xcd/ongoing</a></u></td>
+			<td class="bdata" style="Text-align:center;"><a href="<?php echo base_url();?>seller_biddingdatadetail"><u>Adani Logistic Ltd/2345/xcd/ongoing</a></u></td>
 			</tr>
 			<tr>
-			<td class="bdata" style="Text-align:center;"><a href="biddingdatadetail.php"><u>Adani Logistic Ltd/2345/xcd/ongoing</a></u></td>
+			<td class="bdata" style="Text-align:center;"><a href="<?php echo base_url();?>seller_biddingdatadetail"><u>Adani Logistic Ltd/2345/xcd/ongoing</a></u></td>
 			</tr>
 			<tr>
-			<td class="bdata" style="Text-align:center;"><a href="biddingdatadetail.php"><u>Adani Logistic Ltd/2345/xcd/ongoing</u></a></td>
+			<td class="bdata" style="Text-align:center;"><a href="<?php echo base_url();?>seller_biddingdatadetail"><u>Adani Logistic Ltd/2345/xcd/ongoing</u></a></td>
 			</tr>
 			<tr>
-			<td class="bdata" style="Text-align:center;"><a href="biddingdatadetail.php"><u>Adani Logistic Ltd/2345/xcd/ongoing</u></a></td>
+			<td class="bdata" style="Text-align:center;"><a href="<?php echo base_url();?>seller_biddingdatadetail"><u>Adani Logistic Ltd/2345/xcd/ongoing</u></a></td>
 			</tr>
 			<tr>
-			<td class="bdata" style="Text-align:center;"><a href="biddingdatadetail.php"><u>Adani Logistic Ltd/2345/xcd/ongoing</u></a></td>
+			<td class="bdata" style="Text-align:center;"><a href="<?php echo base_url();?>seller_biddingdatadetail"><u>Adani Logistic Ltd/2345/xcd/ongoing</u></a></td>
 			</tr> 
       
     </tbody>
@@ -78,5 +78,5 @@
 
   <!-- Scroll to Top Button-->
  <?php
-   // include('./footer.php');
+   // include('./footer');
 	?>
