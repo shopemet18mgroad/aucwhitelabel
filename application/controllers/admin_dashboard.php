@@ -21,6 +21,12 @@ class Admin_dashboard extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper('url');
+		if($this->uri->segment(3)){
+			$errormsg = $this->uri->segment(3);
+			echo '<script language="javascript">';
+			echo 'alert("'.$errormsg.'")';
+			echo '</script>';
+		}
 		$this->load->view('admin/header');
 		$this->load->view('admin/index');
 		$this->load->view('admin/footer');

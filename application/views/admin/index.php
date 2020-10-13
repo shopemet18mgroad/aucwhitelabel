@@ -30,7 +30,7 @@
                 <div class="card-body">
 					 <table class="table table-sm table-borderless">
 					 <thead><th width="45%">Basic Info</th>
-					 <form>
+					 <form action="./admin_seller_basicinfo_add" method="POST" enctype="multipart/form-data">
 					 </thead>
 						<tbody>
 						<tr><td><img class="img-fluid" src="<?php echo base_url()."web_files/";?>img/manimg.jpg" alt="Chania" width="40" height="35"></td></tr>
@@ -243,31 +243,7 @@
 			});
  
  </script>
- <script>
- function validatearry(){
-	 	var selectname = document.getElementsByName('saddress[]');
-		var textareablselect = document.getElementsByName('saddresscount[]');
-		var signeddoc = document.getElementsByName('ssigneddocument[]');
-		for(var ab = 0; ab<selectname.length; ab++){
-			if(selectname[ab].value == ""){
-				alert("Please Select Address Type");
-				return false;
-			}
-		}
-		for(var ab = 0; ab<textareablselect.length; ab++){
-			if(textareablselect[ab].value == ""){
-				alert("Address Cannot Be left Blank");
-				return false;
-			}
-		}
-		for(var ab = 0; ab<signeddoc.length; ab++){
-			if(signeddoc[ab].value == ""){
-				alert("Please Select Files To Upload");
-				return false;
-			}
-		}
- }
- </script>
+ 
  
   <?php 
 	//include('./footerdata.php');

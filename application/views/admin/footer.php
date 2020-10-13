@@ -43,3 +43,32 @@
   <script src="<?php echo base_url()."web_files/";?>vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="<?php echo base_url()."web_files/";?>vendor/datatables/dataTables.bootstrap4.min.js"></script>
  <script src="<?php echo base_url()."web_files/";?>js/demo/datatables-demo.js"></script>
+ <script>
+ function validatearry(){
+	 
+	 	var selectname = document.getElementsByName('saddress[]');
+		var textareablselect = document.getElementsByName('saddresscount[]');
+		var signeddoc = document.getElementsByName('ssigneddocument[]');
+		for(var ab = 0; ab<selectname.length; ab++){
+			if(selectname[ab].value == "select"){
+				swal("Alert!", "Please Select Address Type!", "error")
+				//alert("Please Select Address Type");
+				return false;
+			}
+		}
+		for(var ab = 0; ab<textareablselect.length; ab++){
+			if(textareablselect[ab].value == ""){
+				swal("Alert!", "Address Cannot Be left Blank!", "error")
+				//alert("Address Cannot Be left Blank");
+				return false;
+			}
+		}
+		for(var ab = 0; ab<signeddoc.length; ab++){
+			if(signeddoc[ab].value == ""){
+				swal("Alert!", "Please Select File to Upload!", "error")
+				//alert("Please Select Files To Upload");
+				return false;
+			}
+		}
+ }
+ </script>
