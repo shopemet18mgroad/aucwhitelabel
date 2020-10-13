@@ -1,5 +1,5 @@
 <?php
-    include('./header.php');
+  //  include('./header.php');
 	?>
         <!-- End of Topbar -->
 
@@ -146,5 +146,5 @@
  </script>
 
   <?php
-    include('./footer.php');
+    //include('./footer.php');
 	?>

@@ -1,5 +1,5 @@
 <?php
-    include('./header.php');
+  //  include('./header.php');
 	?>
         <!-- End of Topbar -->
 
@@ -242,5 +242,5 @@ Bidders participating in AucJunction Auctions should verify with the selling com
 
   <!-- Scroll to Top Button-->
   <?php
-    include('./footer.php');
+ //   include('./footer.php');
 	?>
