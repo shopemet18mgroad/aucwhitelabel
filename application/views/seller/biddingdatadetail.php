@@ -1,5 +1,5 @@
  <?php
-    include('./header.php');
+   // include('./header');
 	?>
         <!-- End of Topbar -->
 
@@ -22,7 +22,7 @@
 			  
 			  <div class="form-group mr-4 offset-sm-2">
 			  <td colspan="5">
-			  <form action="/action_page.php">
+			  <form action="/action_page">
 			  <div class="form-group">
 			  <label>Date</label>
 			
@@ -181,5 +181,5 @@
 
   <!-- Scroll to Top Button-->
    <?php
-    include('./footer.php');
+  //  include('./footer');
 	?>

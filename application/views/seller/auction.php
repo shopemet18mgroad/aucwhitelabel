@@ -1,5 +1,5 @@
 <?php
-    include('./header.php');
+  //  include('./header');
 	?>
         <!-- End of Topbar -->
 
@@ -13,13 +13,12 @@
           </div>
 
           <!-- Content Row -->
-         <div class="col-sm-12 col-md-12">
+		  <div class="row">
+         <div class="col-xl-12 col-lg-7">
           <div class="card shadow mb-4">
             <div class="card-body">
 			<div class="table-responsive">
-			
 			<form class="form-inline mb-3">
-			  
 			  <div class="form-group ml-5">
 			  <label>Date</label>
 			
@@ -46,22 +45,22 @@
          <table class="table table-striped text-center table-bordered table-sm" id="dataTable" width="100%" cellspacing="0">		
     <thead class="bg-primary text-white">
       <tr>
-		<th colspan="12" style="Text-align:center;">Auctions</th></tr></thead>
+		<th width="60%">Click For Auctions</th></tr></thead>
 		<tbody>
 			<tr>
-			<td class="bdata" style="Text-align:center;"><a href="viewauctiondetail.php"><u>Adani Logistic Ltd/2345/xcd/ongoing</a></u></td>
+			<td><a href="<?php echo base_url();?>seller_viewauctiondetail"><u>Adani Logistic Ltd/2345/xcd/ongoing/xcd</a></u></td>
 			</tr>
 			<tr>
-			<td class="bdata" style="Text-align:center;"><a href="viewauctiondetail.php"><u>Adani Logistic Ltd/2345/xcd/ongoing</a></u></td>
+			<td><a href="<?php echo base_url();?>seller_viewauctiondetail"><u>Adani Logistic Ltd/2345/xcd/ongoing/xcd</a></u></td>
 			</tr>
 			<tr>
-			<td class="bdata" style="Text-align:center;"><a href="viewauctiondetail.php"><u>Adani Logistic Ltd/2345/xcd/ongoing</u></a></td>
+			<td><a href="<?php echo base_url();?>seller_viewauctiondetail"><u>Adani Logistic Ltd/2345/xcd/ongoing/xcd</u></a></td>
 			</tr>
 			<tr>
-			<td class="bdata" style="Text-align:center;"><a href="viewauctiondetail.php"><u>Adani Logistic Ltd/2345/xcd/ongoing</u></a></td>
+			<td><a href="<?php echo base_url();?>seller_viewauctiondetail"><u>Adani Logistic Ltd/2345/xcd/ongoing/xcd/xcd/xcd</u></a></td>
 			</tr>
 			<tr>
-			<td class="bdata" style="Text-align:center;"><a href="viewauctiondetail.php"><u>Adani Logistic Ltd/2345/xcd/ongoing</u></a></td>
+			<td><a href="<?php echo base_url();?>seller_viewauctiondetail"><u>Adani Logistic Ltd/2345/xcd/ongoing/xcd/xcd/xcd</u></a></td>
 			</tr> 
       
     </tbody>
@@ -72,13 +71,13 @@
           </div>
 		</div>
         </div>
-	
+		</div>
           <!-- Content Row -->
 
           
         <!-- /.container-fluid -->
 
-      
+   
       <!-- End of Main Content -->
 
       <!-- Footer -->
@@ -92,5 +91,5 @@
   <!-- End of Page Wrapper -->
 
   <?php
-    include('./footer.php');
+  //  include('./footer');
 	?>

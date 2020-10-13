@@ -12,13 +12,13 @@
   <title>Aucjunction Dashboard</title>
 
   <!-- Custom fonts for this template-->
-  <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="../https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link href="<?php echo base_url()."web_files/";?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
-  <link href="../../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-		<script src="../../js/js.js"></script>
+  <link href="<?php echo base_url()."web_files/";?>css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="<?php echo base_url()."web_files/";?>vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+		<script src="<?php echo base_url()."web_files/";?>js/js.js"></script>
 <style>
  body {
     position: relative;
@@ -48,7 +48,7 @@
 
       <!-- Nav Item - Dashboard -->
        <li class="nav-item active">
-        <a class="nav-link" href="index.php">
+        <a class="nav-link" href="<?php echo base_url();?>seller_dashboard">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Seller Dashboard</span></a>
       </li>
@@ -72,11 +72,11 @@
         </a>
 		<div id="myScrollspy" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-             <a class="collapse-item" href="index.php">Profile</a>
-            <a class="collapse-item" href="#section2">contact</a>
-			<a class="collapse-item" href="#section3">Account</a>
-			<a class="collapse-item" href="#section4">Password</a>
-			<a class="collapse-item" href="#section5">Document</a>
+             <a class="collapse-item" href="<?php echo base_url();?>seller_dashboard">Profile</a>
+            <a class="collapse-item" href="<?php echo base_url();?>#section2">contact</a>
+			<a class="collapse-item" href="<?php echo base_url();?>#section3">Account</a>
+			<a class="collapse-item" href="<?php echo base_url();?>#section4">Password</a>
+			<a class="collapse-item" href="<?php echo base_url();?>#section5">Document</a>
           </div>
         </div>
       </li>
@@ -90,14 +90,14 @@
       </div>
 	  
 	   <li class="nav-item">
-        <a class="nav-link" href="startauction.php">
+        <a class="nav-link" href="<?php echo base_url();?>seller_startauction">
           <i class="fas fa-hand-point-up"></i>
           <span>Start Auction</span></a>
       </li>
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="auctionapproval.php">
+        <a class="nav-link collapsed" href="<?php echo base_url();?>seller_auctionapproval">
           <i class="fas fa-thumbs-up"  aria-hidden="true"></i>
           <span>Auction Approvals</span>
         </a>
@@ -106,12 +106,12 @@
 
       <!-- Nav Item - Tables -->
        <li class="nav-item">
-        <a class="nav-link collapsed" href="auction.php">
+        <a class="nav-link collapsed" href="<?php echo base_url();?>seller_auction">
           <i class="fa fa-gavel"></i>
           <span>Auctions</span></a>
       </li>
 	  <li class="nav-item">
-        <a class="nav-link" href="biddingdata.php">
+        <a class="nav-link" href="<?php echo base_url();?>seller_biddingdata">
           <i class="fas fa-chart-bar"></i>
           <span>Bidding Data Details</span></a>
       </li>
@@ -121,14 +121,14 @@
           <span>History</span></a>
 		  <div id="history" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 		  <div class="bg-white py-2 collapse-inner rounded">
-             <a class="collapse-item" href="viewrecentsoldproduct.php">View Recent Sold Product</a>
-            <a class="collapse-item" href="unsoldproduct.php">Unsold Product</a>
+             <a class="collapse-item" href="<?php echo base_url();?>seller_viewrecentsoldproduct">View Recent Sold Product</a>
+            <a class="collapse-item" href="<?php echo base_url();?>seller_unsoldproduct">Unsold Product</a>
           </div>
 		  </div>
       </li>
 	  
 	   <!-- Divider -->
-      <hr class="sidebar-divider d-none d-md-block">
+      <hr class="<?php echo base_url();?>sidebar-divider d-none d-md-block">
 
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
@@ -147,9 +147,9 @@
 
         <!-- Topbar -->
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-			<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+			<a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url();?>seller_dashboard">
         <div class="sidebar-brand-img rotate-n-20 ">
-         <img src="../../img/aucjunction.jpg" class="img-fluid" alt="" width="20%;">
+         <img src="<?php echo base_url()."web_files/";?>img/aucjunction.jpg" class="img-fluid" alt="" width="20%;">
         </div>
         
       </a>
@@ -195,7 +195,7 @@
             </li>
 
             <!-- Nav Item - Alerts -->
-            <li class="nav-item dropdown no-arrow mx-1">
+             <li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw"></i>
                 <!-- Counter - Alerts -->
@@ -213,8 +213,8 @@
                     </div>
                   </div>
                   <div>
-                    <div class="small text-gray-500">December 12, 2019</div>
-                    <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                    <div class="small text-gray-500"></div>
+                    <span class="font-weight-bold">No Alert.</span>
                   </div>
                 </a>
                 <a class="dropdown-item d-flex align-items-center" href="#">
@@ -224,8 +224,8 @@
                     </div>
                   </div>
                   <div>
-                    <div class="small text-gray-500">December 7, 2019</div>
-                    $290.29 has been deposited into your account!
+                    <div class="small text-gray-500"></div>
+                    No Alert.
                   </div>
                 </a>
                 <a class="dropdown-item d-flex align-items-center" href="#">
@@ -235,8 +235,8 @@
                     </div>
                   </div>
                   <div>
-                    <div class="small text-gray-500">December 2, 2019</div>
-                    Spending Alert: We've noticed unusually high spending for your account.
+                    <div class="small text-gray-500"></div>
+                    No Alert.
                   </div>
                 </a>
                 <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
@@ -244,60 +244,7 @@
             </li>
 
             <!-- Nav Item - Messages -->
-            <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-envelope fa-fw"></i>
-                <!-- Counter - Messages -->
-                <span class="badge badge-danger badge-counter">7</span>
-              </a>
-              <!-- Dropdown - Messages -->
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
-                <h6 class="dropdown-header">
-                  Message Center
-                </h6>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
-                    <div class="status-indicator bg-success"></div>
-                  </div>
-                  <div class="font-weight-bold">
-                    <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
-                    <div class="small text-gray-500">Emily Fowler · 58m</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
-                    <div class="status-indicator"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
-                    <div class="small text-gray-500">Jae Chun · 1d</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
-                    <div class="status-indicator bg-warning"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
-                    <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
-                    <div class="status-indicator bg-success"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
-                    <div class="small text-gray-500">Chicken the Dog · 2w</div>
-                  </div>
-                </a>
-                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
-              </div>
-            </li>
+            
 
             <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -305,23 +252,12 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">John Doe</span>
-                <img class="img-profile rounded-circle" src="../../img/manimg.jpg">
+                <img class="img-profile rounded-circle" src="<?php echo base_url()."web_files/";?>img/manimg.jpg">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Profile
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Settings
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Activity Log
-                </a>
-                <div class="dropdown-divider"></div>
+               
+      
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
