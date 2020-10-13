@@ -21,9 +21,9 @@ class Admin_dashboard extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper('url');
-		$this->load->view('admin/headerdata');
+		$this->load->view('admin/header');
 		$this->load->view('admin/index');
-		$this->load->view('admin/footerdata');
+		$this->load->view('admin/footer');
 		
 	}
 	

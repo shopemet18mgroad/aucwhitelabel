@@ -21,9 +21,9 @@ class Admin_editforthcom_2 extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper('url');
-		$this->load->view('admin/headerdata');
+		$this->load->view('admin/header');
 		$this->load->view('admin/editforthcom_2');
-		$this->load->view('admin/footerdata');
+		$this->load->view('admin/footer');
 		
 	}
 	
