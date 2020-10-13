@@ -48,7 +48,7 @@
 
       <!-- Nav Item - Dashboard -->
        <li class="nav-item active">
-        <a class="nav-link" href="index.php">
+        <a class="nav-link" href="<?php echo base_url();?>index.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Seller Dashboard</span></a>
       </li>
@@ -72,11 +72,11 @@
         </a>
 		<div id="myScrollspy" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-             <a class="collapse-item" href="index.php">Profile</a>
-            <a class="collapse-item" href="#section2">contact</a>
-			<a class="collapse-item" href="#section3">Account</a>
-			<a class="collapse-item" href="#section4">Password</a>
-			<a class="collapse-item" href="#section5">Document</a>
+             <a class="collapse-item" href="<?php echo base_url();?>index.php">Profile</a>
+            <a class="collapse-item" href="<?php echo base_url();?>#section2">contact</a>
+			<a class="collapse-item" href="<?php echo base_url();?>#section3">Account</a>
+			<a class="collapse-item" href="<?php echo base_url();?>#section4">Password</a>
+			<a class="collapse-item" href="<?php echo base_url();?>#section5">Document</a>
           </div>
         </div>
       </li>
@@ -90,14 +90,14 @@
       </div>
 	  
 	   <li class="nav-item">
-        <a class="nav-link" href="startauction.php">
+        <a class="nav-link" href="<?php echo base_url();?>startauction.php">
           <i class="fas fa-hand-point-up"></i>
           <span>Start Auction</span></a>
       </li>
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="auctionapproval.php">
+        <a class="nav-link collapsed" href="<?php echo base_url();?>auctionapproval.php">
           <i class="fas fa-thumbs-up"  aria-hidden="true"></i>
           <span>Auction Approvals</span>
         </a>
@@ -106,12 +106,12 @@
 
       <!-- Nav Item - Tables -->
        <li class="nav-item">
-        <a class="nav-link collapsed" href="auction.php">
+        <a class="nav-link collapsed" href="<?php echo base_url();?>auction.php">
           <i class="fa fa-gavel"></i>
           <span>Auctions</span></a>
       </li>
 	  <li class="nav-item">
-        <a class="nav-link" href="biddingdata.php">
+        <a class="nav-link" href="<?php echo base_url();?>biddingdata.php">
           <i class="fas fa-chart-bar"></i>
           <span>Bidding Data Details</span></a>
       </li>
@@ -121,14 +121,14 @@
           <span>History</span></a>
 		  <div id="history" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 		  <div class="bg-white py-2 collapse-inner rounded">
-             <a class="collapse-item" href="viewrecentsoldproduct.php">View Recent Sold Product</a>
-            <a class="collapse-item" href="unsoldproduct.php">Unsold Product</a>
+             <a class="collapse-item" href="<?php echo base_url();?>viewrecentsoldproduct.php">View Recent Sold Product</a>
+            <a class="collapse-item" href="<?php echo base_url();?>unsoldproduct.php">Unsold Product</a>
           </div>
 		  </div>
       </li>
 	  
 	   <!-- Divider -->
-      <hr class="sidebar-divider d-none d-md-block">
+      <hr class="<?php echo base_url();?>sidebar-divider d-none d-md-block">
 
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
@@ -147,9 +147,9 @@
 
         <!-- Topbar -->
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-			<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+			<a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url();?>index.html">
         <div class="sidebar-brand-img rotate-n-20 ">
-         <img src="../../img/aucjunction.jpg" class="img-fluid" alt="" width="20%;">
+         <img src=""<?php echo base_url()."web_files/";?>img/aucjunction.jpg" class="img-fluid" alt="" width="20%;">
         </div>
         
       </a>
@@ -305,7 +305,7 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">John Doe</span>
-                <img class="img-profile rounded-circle" src="../../img/manimg.jpg">
+                <img class="img-profile rounded-circle" src=""<?php echo base_url()."web_files/";?>img/manimg.jpg">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
