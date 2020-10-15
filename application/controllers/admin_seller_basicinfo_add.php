@@ -42,7 +42,11 @@ class Admin_seller_basicinfo_add extends CI_Controller {
 		$sbranch  = $this->input->post('sbranch');
 		$sifsccode  = $this->input->post('sifsccode');
 		$suploadprofilepic  = $this->input->post('suploadprofilepic');
+<<<<<<< HEAD
 		$path = base_url()."web_files/upload/"; 
+=======
+		$path = base_url()."web_files/upload/";
+>>>>>>> 587984a6552f95f9db4292d3a877d44b76a804ef
 		$title = "uploaded";
 		self::upload_files($path, $title, $suploadprofilepic);
 		$ssigneddocument  = $this->input->post('ssigneddocument');

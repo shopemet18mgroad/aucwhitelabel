@@ -31,7 +31,7 @@
                 <div class="card-body">
 					 <table class="table table-sm table-borderless">
 					 <thead><th width="45%">Personal Info</th>
-					 
+					  <form action="<link href="<?php echo base_url();?>admin_buyer_basicinfo_add" method="POST" enctype="multipart/form-data">
 					 </thead>
 						<tbody>
 						<tr><td><img class="img-fluid" src="<?php echo base_url()."web_files/";?>img/manimg.jpg" alt="Chania" width="40" height="35"></td></tr>
@@ -142,7 +142,7 @@
 				<a href="#"><button type="button" class="btn btn-info offset-sm-3 mt-2">Submit</button></a>
 												
 				<a href="#"><button type="button" class="btn btn-info offset-sm-1 mt-2">Cancel</button></a>
-												
+				</form>								
 				
               </div>
             </div>
