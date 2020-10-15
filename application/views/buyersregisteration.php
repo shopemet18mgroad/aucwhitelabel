@@ -14,12 +14,13 @@
 		<div class="card-body bg-info">
 		
 		<table class="table table-sm table-striped table-info justify-content-right w-auto small text-secondary table-borderless table-responsive text-center float-right">
- <form action="./action" method="post">
+		
+		<form action="./action" method="POST" enctype="multipart/form-data">
     <tbody>
 		
 		<tr>
 		  <td width="20%"><b>Company *</b></td>
-		  <td width="20%"><input class="form-control w-75" type="text" id="bcompany" name="bcompany" size="50" required></td>
+		  <td width="20%"><input class="form-control w-75" type="text" id="bcompany" name="bcompany" size="50" ></td>
 		</tr>
 	  
       <tr>
@@ -47,7 +48,7 @@
 		</tr>
 	   <tr>
 	  <td><b>Contact Person *</b></td>
-	  <td><input  class="form-control w-75" type="text" id="bcontactperson" name="bcontactperson" size="50" required></td>
+	  <td><input  class="form-control w-75" type="text" id="bcontactperson" name="bcontactperson" size="50"></td>
 	  </tr>
 	  <tr>
 	  <td><b>Postal Address</b></td>
@@ -103,11 +104,11 @@
       </tr>
 	  <tr>
 	  <td><b>E-Mail *</b></td>
-	  <td><input  class="form-control w-75" type="text" id="bemail" name="bemail" size="50"     required></td>
+	  <td><input  class="form-control w-75" type="email" id="bemail" name="bemail" size="50"></td>
 	  </tr>
 	  <tr>
 	  <td><b>Phone No. *</b></td>
-	  <td><input  class="form-control w-75" type="text" id="bphone" name="bphone" size="50" required></td>
+	  <td><input  class="form-control w-75" type="text" id="bphone" name="bphone" size="50"></td>
 	  </tr>
 	  <tr>
 	  <td><b>Pan No.</b></td>
@@ -115,15 +116,15 @@
 	  </tr>
 	  <tr>
 	  <td><b>User Name *</b></td>
-	  <td><input  class="form-control w-75" type="text" id="busername" name="busername" size="50"required></td>
+	  <td><input  class="form-control w-75" type="text" id="busername" name="busername" size="50"></td>
 	  </tr>
 	  <tr>
         <td><b>Password *</b></td>
-        <td><input class="form-control w-75" type="password" id="bpassword" name="bpassword" size="50" required></td>       
+        <td><input class="form-control w-75" type="password" id="bpassword" name="bpassword" size="50" ></td>       
       </tr>
 	  <tr>
         <td><b>Confirm Password *</b></td>
-        <td><input class="form-control w-75" type="password" id="bconfirmpassword" name="bconfirmpassword" size="50" required></td>       
+        <td><input class="form-control w-75" type="password" id="bconfirmpassword" name="bconfirmpassword" size="50"></td>       
       </tr>
 	  
 	  <tr>
@@ -132,14 +133,14 @@
         </tr>
 		<tr>
         <td><b>Security Code *</b></td>
-        <td><input  class="form-control w-75" type="text" name="bcapcha" id="bcapcha" size="50" required></td>
+        <td><input  class="form-control w-75" type="text" name="bcapcha" id="bcapcha" size="50"></td>
         </tr>
 		</tbody>
 		</table>
 		
-		<a href="#"><button type="submit" class="btn btn-primary offset-sm-3 mt-2">Submit</button></a>
+		<a href="#"><button type="submit" onclick="return validate()" class="btn btn-primary offset-sm-3 mt-2">Submit</button></a>
 												
-		<a href="#"><button type="button" class="btn btn-primary offset-sm-1 mt-2">Reset</button></a>
+		<a href="#"><button type="reset" class="btn btn-primary offset-sm-1 mt-2">Reset</button></a>
 												
 		<a href="<?php echo base_url();?>agreementforbuyer"><button type="button" class="btn btn-primary offset-sm-1 mt-2">Proceed</button></a>
 			</form>

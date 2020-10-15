@@ -14,11 +14,12 @@
 		<div class="card-body bg-info">
 		
 		<table class="table table-sm table-striped table-info justify-content-right w-auto small text-secondary table-borderless table-responsive text-center float-right">
+   
    <form action="./action" method="post">
     <tbody>
       <tr>
         <td width="20%"><b>Company Name *</b></td>
-        <td width="20%"><input class="form-control w-75" type="text" id="scomapnyname" name="scomapnyname" size="50" required></td>       
+        <td width="20%"><input class="form-control w-75" type="text" id="scomapnyname" name="scomapnyname" size="50" ></td>       
       </tr>
       <tr>
         <td><b>Type of seller</b></td>
@@ -32,7 +33,7 @@
       </tr>
 	  <tr>
         <td><b>Contact Person *</b></td>
-        <td><input class="form-control w-75" type="text" id="scontactperson" name="scontactperson" size="50" required></td>
+        <td><input class="form-control w-75" type="text" id="scontactperson" name="scontactperson" size="50" ></td>
       </tr>
 
 	  <tr>
@@ -83,7 +84,7 @@
 			<option value="twentyfive">Telangana</option>
 			<option value="twentysix" >Tripura</option>
 			<option value="twentyseven">Uttar Pradesh</option>
-			<option value="twentyeight">Uttarakhand</option>
+			<option value="twentyeight">Uttarascountrykhand</option>
 			<option value="twentynine" >West Bengal</option>
 			</select></td>      
       </tr>	
@@ -98,23 +99,23 @@
 	 
       <tr>
         <td><b>Email Id *</b></td>
-        <td><input class="form-control w-75" type="text" id="semail" name="semail" size="50" required></td>       
+        <td><input class="form-control w-75" type="email" id="semail" name="semail" size="50" required ></td>       
       </tr>
 	   <tr>
         <td><b>Phone *</b></td>
-        <td><input class="form-control w-75" type="text" id="sphone" name="sphone" size="50" required></td>      
+        <td><input class="form-control w-75" type="text" id="sphone" name="sphone" size="50" ></td>      
       </tr>
 	 <tr>
 	  <td><b>User Name *</b></td>
-	  <td><input  class="form-control w-75" type="text" id="susername" name="susername" size="50" required></td>
+	  <td><input  class="form-control w-75" type="text" id="susername" name="susername" size="50" ></td>
 	  </tr>
 	  <tr>
         <td><b>Password *</b></td>
-        <td><input class="form-control w-75" type="password" id="spassword" name="spassword" size="50" required></td>       
+        <td><input class="form-control w-75" type="password" id="spassword" name="spassword" size="50" ></td>       
       </tr>
 	  <tr>
         <td><b>Confirm Password *</b></td>
-        <td><input class="form-control w-75" type="password" id="sconfirmpassword" name="sconfirmpassword" size="50" required></td>       
+        <td><input class="form-control w-75" type="password" id="sconfirmpassword" name="sconfirmpassword" size="50"></td>       
       </tr>
 	  <tr>
         <td><b>GST No.</b></td>
@@ -122,16 +123,16 @@
         </tr>
 		<tr>
         <td><b>Security Code *</b></td>
-        <td><input  class="form-control w-75" type="text" name="scapcha" id="scapcha" size="50" required></td>
+        <td><input  class="form-control w-75" type="text" name="scapcha" id="scapcha" size="50"></td>
         </tr>
 	   </tbody>
 	   </table>
 		
-    <a href="#"><button type="submit" class="btn btn-primary offset-sm-3 mt-2">Submit</button></a>
+    <a href="#"><button type="submit" name="submit1" onclick="return validate1()" class="btn btn-primary offset-sm-3 mt-2">Submit</button></a>
 												
-				<a href="#"><button type="button" class="btn btn-primary offset-sm-1 mt-2">Reset</button></a>
+				<a href="#"><button type="reset" class="btn btn-primary offset-sm-1 mt-2">Reset</button></a>
 												
-				<a href="<?php echo base_url();?>agreementforseller"><button type="button" class="btn btn-primary offset-sm-1 mt-2">Proceed</button></a>
+				<a href="<?php echo base_url();?>agreementforseller"><button type="submit" name="submit2" class="btn btn-primary offset-sm-1 mt-2">Proceed</button></a>
 		</form>
 		</div>
 		</div>

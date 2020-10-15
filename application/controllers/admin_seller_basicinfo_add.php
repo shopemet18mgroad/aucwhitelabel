@@ -50,11 +50,15 @@ class Admin_seller_basicinfo_add extends CI_Controller {
 		$sifsccode  = $this->input->post('sifsccode');
 		//$suploadprofilepic  = $this->input->post('suploadprofilepic');
 		//echo $countfiles = count($_FILES['ssigneddocument']['name']);
-		//$suploadprofilepic = $_FILES['ssigneddocument']['name'];
-		
+		//$suploadprofilepic = $_FILES['ssigneddocument']['name'];	
 		//die;
-		print_r(self::upload_files('ssigneddocument'));
+		self::upload_files('ssigneddocument'));
 		die;
+		$suploadprofilepic  = $this->input->post('suploadprofilepic');
+		self::upload_files($path, $title, $suploadprofilepic);
+		$ssigneddocument  = $this->input->post('ssigneddocument');
+		self::upload_files($path, $title, $ssigneddocument);
+		//$count = count($ssigneddocument);
 		$data = array(sname => $sname, scomapnyname => $scomapnyname, scontactperson => $scontactperson, scin => $scin, sgst => $sgst, spcb => $spcb, semail => $semail, sphone => $sphone , saddress => $saddress2, saddresscount => $saddresscount, spin => $spin, sstate => $sstate, scountry => $scountry, sbankername => $sbankername, saccountnumber => $saccountnumber, sbranch => $sbranch, sifsccode => $sifsccode, suploadprofilepic => $suploadprofilepic, ssigneddocument => $ssigneddocument );
 		$this->load->view('xya', $data);
 		$status = $this->Admin_model->insert('auction', $data);
