@@ -68,7 +68,7 @@
 						<th>Status</th>
 						<th width="10%">View Auction</th>
 						<th width="15%">EMD Payment</th>
-						<th >EMD Pay By DD</th>
+						<th>EMD Pay By DD</th>
 					</tr>
 				</thead>
 				<tbody>

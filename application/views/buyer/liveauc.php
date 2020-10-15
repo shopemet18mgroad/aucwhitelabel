@@ -56,7 +56,6 @@
 					<a href="#"><button type="button" class="btn btn-primary btn-sm ml-4 mt-2 mb-2">Search</button></a>
 				</div>
 			
-		
 			</form>
 		<table class="table table-striped table-sm text-center table-bordered " id="dataTable" width="100%" cellspacing="0">
 				<thead class="bg-primary text-white">
