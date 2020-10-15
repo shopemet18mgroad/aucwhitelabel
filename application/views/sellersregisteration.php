@@ -122,17 +122,15 @@
         <td><input  class="form-control w-75" type="text" name="sgst" id="sgst" size="50"></td>
         </tr>
 		<tr>
-        <td><b>Security Code *</b></td>
-        <td><input  class="form-control w-75" type="text" name="scapcha" id="scapcha" size="50"></td>
+        <td><b>CAPATCHA : </b><span id="captImg" class="captImg" style="background-color:yellow;color:blue;font-weight:bold;font-size:20px;">&nbsp;<?php echo $captchaImg; ?></span><a href="javascript:void(0);" class="refreshCaptcha">&nbsp;&nbsp;Refresh Captacha</a></td>
+        <td><input  class="form-control w-75" type="text" name="captcha" id="captcha" size="50"></td>
         </tr>
 	   </tbody>
 	   </table>
-		
-    <a href="#"><button type="submit" name="submit1" onclick="return validate1()" class="btn btn-primary offset-sm-3 mt-2">Submit</button></a>
-												
-				<a href="#"><button type="reset" class="btn btn-primary offset-sm-1 mt-2">Reset</button></a>
-												
-				<a href="<?php echo base_url();?>agreementforseller"><button type="submit" name="submit2" class="btn btn-primary offset-sm-1 mt-2">Proceed</button></a>
+		<div class="text-center">
+    <button type="submit" name="submit1" onclick="return validate1()" class="btn btn-primary col-2 mt-2">Proceed</button>
+	<button type="reset" class="btn btn-primary col-2 mt-2">Reset</button>
+		</div>
 		</form>
 		</div>
 		</div>
