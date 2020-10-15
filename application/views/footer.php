@@ -75,8 +75,80 @@
   <script src="<?php echo base_url()."web_files/";?>js/bootstrap.bundle.min.js"></script>
   <script src="<?php echo base_url()."web_files/";?>js/jquery.easy-ticker.js"></script> 
    <script src="<?php echo base_url()."web_files/";?>weblib/auclib.js" type="text/javascript" charset="utf-8"></script>
+  
   <!--  <script src="./js/jquery.autoscroll.js" type="text/javascript" charset="utf-8"></script> Core plugin JavaScript-->
+  
+  <script>
+  
+function validate(){
 
+	var bcompany = document.getElementById("bcompany").value;
+	var bcomptype = document.getElementById("bcomptype").value;
+	var bbuyertype = document.getElementById("bbuyertype").value;
+	var bbuyerlocation = document.getElementById("bbuyerlocation").value;
+	var bcontactperson = document.getElementById("bcontactperson").value;
+	var baddress = document.getElementById("baddress").value;
+	var bcity = document.getElementById("bcity").value;
+	var bpin = document.getElementById("bpin").value;
+	var bstate = document.getElementById("bstate").value;
+
+	var bcountry = document.getElementById("bcountry").value;
+	
+	var bemail = document.getElementById("bemail").value;
+	
+	var bphone = document.getElementById("bphone").value;
+	var bpan = document.getElementById("bpan").value;
+	var busername = document.getElementById("busername").value;
+	var bpassword = document.getElementById("bpassword").value;
+	var bconfirmpassword = document.getElementById("bconfirmpassword").value;
+	var bgst = document.getElementById("bgst").value;
+	var bcapcha = document.getElementById("bcapcha").value; 
+	//var saddress = document.getElementsByName("saddress");
+	//var ssigneddocument = document.getElementsByName("ssigneddocument");
+	//var AnswerInput = document.getElementsByName("saddresscount");
+	
+if(bcompany == '' || bcomptype == '' || bbuyertype == '' || bbuyerlocation == '' || bcontactperson == '' || baddress == '' || bcity == '' || bpin == '' || bstate == '' || bcountry == '' || bemail == '' || bphone == '' || bpan == '' || busername == '' || bpassword == '' || bconfirmpassword == '' || bgst == ''|| bcapcha == '' ){
+		swal("Alert!",  "Company, Company Type, Buyer Type, Buyer's Location, Contact Person, Postal Address, City, Pin, State/Union Ter, E-Mail, Phone No, Pan No, User Name, Password , Confirm Password , GST No, Security Code  cannot leave any feild blank!", "error");
+		return false;
+	}
+}
+  </script>
+  
+ <script>
+  
+function validate1(){
+
+	var scomapnyname = document.getElementById("scomapnyname").value;
+	var ssellertype = document.getElementById("ssellertype").value;
+	var scontactperson = document.getElementById("scontactperson").value;
+	var span = document.getElementById("span").value;
+	var sstreet = document.getElementById("sstreet").value;
+	var scity = document.getElementById("scity").value;
+	var spin = document.getElementById("spin").value;
+	var sstate = document.getElementById("sstate").value;
+	var scountry = document.getElementById("scountry").value;
+
+	var slocation = document.getElementById("slocation").value;
+	
+	var semail = document.getElementById("semail").value;
+	sphone
+	var sphone = document.getElementById("sphone").value;
+	var susername = document.getElementById("susername").value;
+	var spassword = document.getElementById("spassword").value;
+	var sconfirmpassword = document.getElementById("sconfirmpassword").value;
+	var sgst = document.getElementById("sgst").value;
+	var scapcha = document.getElementById("scapcha").value;
+	
+	//var saddress = document.getElementsByName("saddress");
+	//var ssigneddocument = document.getElementsByName("ssigneddocument");
+	//var AnswerInput = document.getElementsByName("saddresscount");
+	
+if(scomapnyname == '' || ssellertype == '' || scontactperson == '' || span == '' || sstreet == '' || scity == '' || spin == '' || sstate == '' || scountry == '' || slocation == '' || semail == '' || sphone == '' || susername == '' || spassword == '' || sconfirmpassword == '' || sgst == '' || scapcha == '' ){
+		swal("Alert!",  "Company Name, Type of seller, Contact Person, Pan, Street, City, Pin, State/Union Ter., Location, E-Mail, Phone No, User Name, Password , Confirm Password , GST No, Security Code  cannot leave any feild blank!", "error");
+		return false;
+	}
+}
+  </script>
 </body>
 
 </html>
