@@ -14,7 +14,12 @@
   <link href="<?php echo base_url()."web_files/";?>css/style.css" rel="stylesheet" type="text/css">
   <!-- Custom styles for this template-->
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+<<<<<<< HEAD
+   <script src='https://www.google.com/recaptcha/api.js'></script>
+
+=======
    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+>>>>>>> 3be8201051122340cef9c8866aa5d26ff354a550
 </head>
 	<body class="">
 	<div class="container-fluid top-header">

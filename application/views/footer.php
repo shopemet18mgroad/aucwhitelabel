@@ -68,6 +68,7 @@
 
 	
   <!-- Bootstrap core JavaScript-->	
+   
   <script src="<?php echo base_url()."web_files/";?>js/jquery.min.js"></script> 
    <!--<script src="./js/jquery-3.2.2.js"></script>-->	
   <script src="<?php echo base_url()."web_files/";?>js/popper.min.js"></script>
