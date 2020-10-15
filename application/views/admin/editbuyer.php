@@ -128,15 +128,9 @@
 						<tbody>
 						<tr>
 								<td class="btxt">Upload Profile Picture</td>
-								<td><form action="/action_page.php"> <input type="file" id="suploadimage1" name="suploadimage1"></form></td>
+								<td><form action="/action_page.php"> <input type="file" multiple="multiple" id="suploadimage1" name="suploadimage1"></form></td>
 							</tr> 
-							<tr>
-								<td class="btxt">Upload Document</td>
-								<td><div class="input_fields_wrap">
-								<input type="file" id="ssigneddocument" name="ssigneddocument">
-								<a class="add_field_button "><button type="button" class="btn btn-sm btn-primary"> <i class="fa fa-plus text-white"></i></button></a>
-								</div></td>
-							</tr> 				
+											
 						</tbody>
 					</table>					
 				<a href="#"><button type="button" class="btn btn-info offset-sm-4 mt-2">Update</button></a>
