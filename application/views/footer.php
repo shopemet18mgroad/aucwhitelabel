@@ -157,7 +157,26 @@ if(scomapnyname == '' || ssellertype == '' || scontactperson == '' || span == ''
         });
     });
   </script>
-  
+   <script>
+  function validate_cap(){
+	  var captcha = document.getElementById("captcha").value;
+		if(captcha.length == 4){
+			$.get('<?php echo base_url() .'sellers_registeration/validate_capatcha/'; ?>'+captcha, function(data){
+            //$('#captImg').html(data);
+				if(data == "Bye"){
+					swal("Alert!",  "Invalid Captcha", "error");
+					return false;
+				}else{
+					return true;
+				}
+			});
+		}
+	 
+	  //var b = document.getElementById("spassword").value;
+
+	}
+   
+  </script>
 </body>
 
 </html>
