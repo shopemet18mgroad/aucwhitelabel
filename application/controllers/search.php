@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Categories extends CI_Controller {
+class Search extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -22,27 +22,9 @@ class Categories extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$this->load->view('header');
-		//$this->load->view('testimonials');
+		$this->load->view('search');
 		$this->load->view('footer');
 		
 	}
-	public function type()
-	{
-		$this->load->helper('url');
-		$this->load->view('header');
-		$data = array('metal_type' => $this->uri->segment(3));
-		if($data['metal_type'] == 'Ferrous'){
-			$this->load->view('dummy-ferrous');
-		}else if($data['metal_type'] == 'PCB'){
-			$this->load->view('dummy-pcb');
-		}else{
-			$this->load->view('dummy-others');
-		}
-		//$metal_type = $this->uri->segment(3);
-		
-		$this->load->view('footer');
-		
-	}
-	
 	
 }

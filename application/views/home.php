@@ -1,6 +1,7 @@
 <?php 
 	//include('./header.php');
 ?>
+
 		<div class="container">
 		  <div class="row">
 			<div class="col-md-3">
@@ -37,14 +38,14 @@
 							<div class="">
 								<div class="nw newswrapper">
 								<ul>
-								<li><a href="">BHEL ACTION ON 26-12-20</a>
-								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+								<li><a href="">Aucjunction10200001</a>
+								<p>FERROUS CR Steel Scrap – BENGALURU, KARNATAKA on October 2020</p>
 								</li>
-								<li class="odd"><a href="">BHEL ACTION ON 27-12-20</a>
-								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+								<li class="odd"><a href="">Aucjunction10200002 </a>
+								<p>FERROUS SS 304 Scrap SS 304 Pipe – BENGALURU, KARNATAKA on October 2020</p>
 								</li>
-								<li><a href="">BHEL ACTION ON 28-12-20</a>
-								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+								<li><a href="">Aucjunction10200003</a>
+								<p>FERROUS Mild Steel ( MS) Scrap Stainless Steel ( SS) Scrap – BENGALURU, KARNATAKA on October 2020</p>
 								</li>
 								</ul>
 								</div>
@@ -72,15 +73,15 @@
 							</ul>
 
 							<div class="tab-content w-100">
-								<div class="tab-pane h-100 p-3 active border border-primary" id="home" role="tabpanel" aria-labelledby="home-tab">
+								<div class="tab-pane h-100 p-3 active border border-primary" id="home" role="tabpanel" aria-labelledby="home-tab" onclick="one()">
 										<div class="table-holder"> 
 											<table class="table table-bordered">
 												<thead class="thead-auc">
 													<tr>
 														<th width="10%">SL No</th>
-														<th width="30%">Company Name</th>
-														<th width="30%">Description </th>
-														<th width="30%">Date & Time</th>
+														<th width="30%">AUCTION ID</th>
+														<th width="30%">DESCRIPTION</th>
+														<th width="30%">DATE & TIME</th>
 														
 														
 													</tr>
@@ -89,45 +90,226 @@
 													<tr>
 													
 														<td>1</td>
-														<td>Aucjunction555CA - Maharashtra</td>
-														<td>Miscellaneous Electrical, HVAC, Plumbing, Tool & Tackles Items, Batteries, etc. available at Noida</td>
-														<td>10/08/2020 11:00 AM To 12:00 PM</td>
+														<td>Aucjunction10200001 – BENGALURU, KARNATAKA</td>
+														<td>FERROUS CR Steel Scrap</td>
+														<td>October 2020</td>
 														
 													</tr>
 													<tr>
 													
 														<td>2</td>
-														<td>Aucjunction555CA - Maharashtra</td>
-														<td>Miscellaneous Electrical, HVAC, Plumbing, Tool & Tackles Items, Batteries, etc. available at Noida</td>
-														<td>10/08/2020 11:00 AM To 12:00 PM</td>
+														<td>Aucjunction10200002 – BENGALURU, KARNATAKA</td>
+														<td>FERROUS SS 304 Scrap SS 304 Pipe</td>
+														<td>October 2020</td>
 														
 													</tr>
 													<tr>
 														
-														<td>2</td>
-														<td>Aucjunction555CA - Maharashtra</td>
-														<td>Miscellaneous Electrical, HVAC, Plumbing, Tool & Tackles Items, Batteries, etc. available at Noida</td>
-														<td>10/08/2020 11:00 AM To 12:00 PM</td>
+														<td>3</td>
+														<td>Aucjunction10200003 – BENGALURU, KARNATAKA</td>
+														<td>FERROUS Mild Steel ( MS) Scrap Stainless Steel ( SS) Scrap</td>
+														<td>October 2020</td>
 														
 													</tr>  
 													<tr>
-														<td>2</td>
-														<td>Aucjunction555CA - Maharashtra</td>
-														<td>Miscellaneous Electrical, HVAC, Plumbing, Tool & Tackles Items, Batteries, etc. available at Noida</td>
-														<td>10/08/2020 11:00 AM To 12:00 PM</td>
-														
-													</tr>  													
+														<td>4</td>
+														<td>Aucjunction10200004 – BENGALURU, KARNATAKA</td>
+														<td>Binding Wires</td>
+														<td>October 2020</td>
+													</tr>
+														<tr>
+														<td>5</td>
+														<td>Aucjunction10200005 – BENGALURU, KARNATAKA</td>
+														<td>FERROUS CR and HR Punching Laser Scrap SS Aluminium Scrap</td>
+														<td>October 2020</td>
+													</tr>
+													<tr>
+														<td>6</td>
+														<td>Aucjunction10200006 – BENGALURU, KARNATAKA</td>
+														<td>FERROUS MS Scrap</td>
+														<td>October 2020</td>
+													</tr>									
 												</tbody>
 											</table>
-										</div>    		
+										</div> 
+			<div class="row mt-1">
+			<div class="col-sm-12 col-md-9">
+				<div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+				<ul class="pagination offset-lg-11">
+				<li class="paginate_button page-item previous disabled" id="dataTable_previous">
+				<a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
+				</li>
+				<li class="paginate_button page-item active">
+				<a href="#home" aria-controls="dataTable" id="home" data-dt-idx="1" tabindex="0" class="page-link">1</a>
+				</li>
+				<li class="paginate_button page-item">
+				<a href="#home2" aria-controls="dataTable" id="home2" data-dt-idx="1" tabindex="0" class="page-link">2</a>
+				</li>
+				<li class="paginate_button page-item next disabled" id="dataTable_next">
+				<a href="#" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page-link">Next</a>
+				</li>
+				</ul>
+				</div>
+				</div>
+			</div>										
 								</div>
-								<div class="tab-pane h-100 p-3 border border-primary" id="profile" role="tabpanel" aria-labelledby="profile-tab">Upcoming Events 2</div>
+								
+								
+								
+								
+					<div class="tab-pane h-100 p-3 border border-primary" id="home2" role="tabpanel" aria-labelledby="home-tab">
+										<div class="table-holder"> 
+											<table class="table table-bordered">
+												<thead class="thead-auc">
+													<tr>
+														<th width="10%">SL No</th>
+														<th width="30%">AUCTION ID</th>
+														<th width="30%">DESCRIPTION</th>
+														<th width="30%">DATE & TIME</th>
+														
+														
+													</tr>
+												</thead>
+												<tbody>
+													
+													
+													<tr>
+														<td>7</td>
+														<td>Aucjunction10200007 – BENGALURU, KARNATAKA</td>
+														<td>PCB Cut sheets, Rejected PCBs, Acrylic Material Boards, FR4 Copper Clad Laminated Cut Sheets, PCB Scrap Aluminium, </td>
+														<td>October 2020</td>
+													</tr>
+													<tr>
+														<td>8</td>
+														<td>Aucjunction10200008 – BENGALURU, KARNATAKA</td>
+														<td>Bimetal Scrap, Cu 70%, Ni 30%</td>
+														<td>October 2020</td>
+													</tr> <tr>
+														<td>9</td>
+														<td>Aucjunction10200009 – BENGALURU,  KARNATAKA</td>
+														<td>UPS Batteries , Running Condition</td>
+														<td>October 2020</td>
+													</tr>													
+												</tbody>
+											</table>
+										</div> 			
+								
+									</div>
+								
+								
+								
+								
+								
+								<div class="tab-pane h-100 p-3 border border-primary" id="profile" role="tabpanel" aria-labelledby="profile-tab">No Records Found</div>
 								<div class="tab-pane h-100 p-3 border border-primary" id="messages" role="tabpanel" aria-labelledby="messages-tab">Upcoming Events 3</div>
 								<div class="tab-pane h-100 p-3 border border-primary" id="settings" role="tabpanel" aria-labelledby="settings-tab">Upcoming Events 4</div>
-								<div class="tab-pane h-100 p-3 border border-primary" id="all" role="tabpanel" aria-labelledby="all-tab">ALL</div>
-							</div>
+								
+								
+								<div class="tab-pane h-100 p-3 border border-primary" id="all" role="tabpanel" aria-labelledby="all-tab">
+								
+										
+											<table class="table table-bordered">
+												<thead class="thead-auc">
+													<tr>
+														<th width="10%">SL No</th>
+														<th width="30%">AUCTION ID</th>
+														<th width="30%">DESCRIPTION</th>
+														<th width="30%">DATE & TIME</th>
+														
+														
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+													
+														<td>1</td>
+														<td>Aucjunction10200001 – BENGALURU, KARNATAKA</td>
+														<td>FERROUS CR Steel Scrap</td>
+														<td>October 2020</td>
+														
+													</tr>
+													<tr>
+													
+														<td>2</td>
+														<td>Aucjunction10200002 – BENGALURU, KARNATAKA</td>
+														<td>FERROUS SS 304 Scrap SS 304 Pipe</td>
+														<td>October 2020</td>
+														
+													</tr>
+													<tr>
+														
+														<td>3</td>
+														<td>Aucjunction10200003 – BENGALURU, KARNATAKA</td>
+														<td>FERROUS Mild Steel ( MS) Scrap Stainless Steel ( SS) Scrap</td>
+														<td>October 2020</td>
+														
+													</tr>  
+													<tr>
+														<td>4</td>
+														<td>Aucjunction10200004 – BENGALURU, KARNATAKA</td>
+														<td>Binding Wires</td>
+														<td>October 2020</td>
+													</tr>
+														<tr>
+														<td>5</td>
+														<td>Aucjunction10200005 – BENGALURU, KARNATAKA</td>
+														<td>FERROUS CR and HR Punching Laser Scrap SS Aluminium Scrap</td>
+														<td>October 2020</td>
+													</tr>
+													<tr>
+														<td>6</td>
+														<td>Aucjunction10200006 – BENGALURU, KARNATAKA</td>
+														<td>FERROUS MS Scrap</td>
+														<td>October 2020</td>
+													</tr>
 
+													<tr>
+														<td>7</td>
+														<td>Aucjunction10200007 – BENGALURU, KARNATAKA</td>
+														<td>PCB Cut sheets, Rejected PCBs, Acrylic Material Boards, FR4 Copper Clad Laminated Cut Sheets, PCB Scrap Aluminium, </td>
+														<td>October 2020</td>
+													</tr>
+													<tr>
+														<td>8</td>
+														<td>Aucjunction10200008 – BENGALURU, KARNATAKA</td>
+														<td>Bimetal Scrap, Cu 70%, Ni 30%</td>
+														<td>October 2020</td>
+													</tr> <tr>
+														<td>9</td>
+														<td>Aucjunction10200009 – BENGALURU,  KARNATAKA</td>
+														<td>UPS Batteries , Running Condition</td>
+														<td>October 2020</td>
+													</tr>															
+												</tbody>
+											</table>
+									
+			<div class="row mt-1">
+			<div class="col-sm-12 col-md-9">
+				<div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+				<ul class="pagination offset-lg-11">
+				<li class="paginate_button page-item previous disabled" id="dataTable_previous">
+				<a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
+				</li>
+				<li class="paginate_button page-item active">
+				<a href="#home" aria-controls="dataTable" id="home" data-dt-idx="1" tabindex="0" class="page-link">1</a>
+				</li>
+				
+				<li class="paginate_button page-item next disabled" id="dataTable_next">
+				<a href="#" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page-link">Next</a>
+				</li>
+				</ul>
+				</div>
+			
+			</div>										
+								</div>
+								</div>
+							
+							
+							</div>
+		 
 						</div>
+				
+			
 					</div>
 					
 			</div>
@@ -154,7 +336,8 @@
 							</ul>
 
 							<div class="tab-content w-100">
-								<div class="tab-pane h-100 p-3 active border border-primary" id="hvd" role="tabpanel" aria-labelledby="hvd-tab">
+							<div class="tab-pane h-100 p-3 active border border-primary" id="hvd" role="tabpanel" aria-labelledby="hvd-tab">No Records Found</div>
+							<!--	<div class="tab-pane h-100 p-3 active border border-primary" id="hvd" role="tabpanel" aria-labelledby="hvd-tab">
 										<div class="table-holder"> 
 											<table class="table table-bordered">
 												<thead class="thead-auc">
@@ -198,14 +381,22 @@
 												</tbody>
 											</table>
 										</div>    		
-								</div>
-								<div class="tab-pane h-100 p-3 border border-primary" id="deals" role="tabpanel" aria-labelledby="hvd-tab">Upcoming Events 2</div>
+								</div> -->
+								<div class="tab-pane h-100 p-3 border border-primary" id="deals" role="tabpanel" aria-labelledby="hvd-tab">No Records Found</div>
 								
 							</div>
 						</div>
 				</div>
 			 </div>	
 		</div>
+		
+		
+		<script>
+function one(){
+	var x= document.getElementByID("home");
+	x.id="home2";
+	
+}</script>
 		<?php 
 	//include('./footer.php');
 	?>
