@@ -30,7 +30,7 @@
                 <div class="card-body">
 					 <table class="table table-sm table-borderless">
 					 <thead><th width="45%">Basic Info</th>
-					 <form action="<link href="<?php echo base_url();?>admin_seller_basicinfo_add" method="POST" enctype="multipart/form-data">
+					 <form action = "<?php echo base_url();?>admin_seller_basicinfo_add" method="POST" enctype="multipart/form-data">
 					 </thead>
 						<tbody>
 						<tr><td><img class="img-fluid" src="<?php echo base_url()."web_files/";?>img/manimg.jpg" alt="Chania" width="40" height="35"></td></tr>
@@ -139,15 +139,20 @@
 						<tbody>
 							<tr>
 								<td class="btxt">Upload Profile Pic</td>
+<<<<<<< HEAD
+								<td><input type="file" multiple="multiple" id="suploadprofilepic" name="suploadprofilepic" required></td>
+=======
 								<td><input type="file" id="suploadprofilepic" name="suploadprofilepic" required></td>
 							</tr> 
 							<tr>
 								<td class="btxt">Upload Document</td>
 								<td><div class="input_fields_wrap">
-								<input  type="file" id="ssigneddocument" name="ssigneddocument[]" >
-								<a class="add_field_button "><button type="button" class="btn btn-sm btn-primary"> <i class="fa fa-plus text-white"></i></button></a>
+								<input  type="file" id="ssigneddocument" name="ssigneddocument[]" multiple="multiple">
 								</div></td>
+								
+>>>>>>> 3be8201051122340cef9c8866aa5d26ff354a550
 							</tr> 
+							
 									
 						</tbody>
 					</table>					
@@ -184,7 +189,7 @@
 
   </div>
   
-  <script>
+  <!--<script>
  $(document).ready(function() {
  var max_fields  = 20;
  var wrapper     = $(".input_fields_wrap");
@@ -212,7 +217,7 @@
 			
 			});
  
- </script>
+ </script> -->
  
   <script>
  $(document).ready(function() {
@@ -226,7 +231,7 @@
    e.preventDefault();
    if(x < max_fields){
 			x++;
-			$(wrapper).append('<div><tr><td><select class="form-control w-50  p-1 " id="saddress" name="saddress[]"><option value="select" selected>SELECT</option><option value="Corporate Office" >Corporate Office</option><option value="Headquarter">Headquarter</option></select></td><td><textarea class="form-control float-left mt-2 p-2 w-50" type="text" name="saddresscount[]" ></textarea><a href="#" class="remove_field">  <button type="button" class="btn btn-sm btn-primary ml-1 mb-5 mt-3">  <i class="fa fa-minus text-white"></i></button></a></td></tr></div>');
+			$(wrapper).append('<div><tr><td><select class="form-control w-50  p-1 " name="saddress[]"><option value="select" selected>SELECT</option><option value="Corporate Office" >Corporate Office</option><option value="Headquarter">Headquarter</option></select></td><td><textarea class="form-control float-left mt-2 p-2 w-50" type="text" name="saddresscount[]" ></textarea><a href="#" class="remove_field">  <button type="button" class="btn btn-sm btn-primary ml-1 mb-5 mt-3">  <i class="fa fa-minus text-white"></i></button></a></td></tr></div>');
    }	
 	
 			});

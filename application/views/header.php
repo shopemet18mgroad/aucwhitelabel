@@ -14,7 +14,10 @@
   <link href="<?php echo base_url()."web_files/";?>css/style.css" rel="stylesheet" type="text/css">
   <!-- Custom styles for this template-->
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+   <script src=" https://github.com/superRaytin/paginationjs"></script>
+   <script src=" http://pagination.js.org"></script>
    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 </head>
 	<body class="">
 	<div class="container-fluid top-header">
@@ -115,14 +118,15 @@
 						   <a class="dropdown-item" href="<?php echo base_url();?>categories/type/Vehicles">Vehicles</a>
 						  <a class="dropdown-item" href="<?php echo base_url();?>categories/type/PCB">PCB</a>
 						  <a class="dropdown-item" href="<?php echo base_url();?>categories/type/RA">RA</a>
+						   <a class="dropdown-item" href="<?php echo base_url();?>categories/type/Others">Others</a>
 						</div>
 					  </li>
 					 
 					</ul>
 					<div class="srmfldnav">
-						<form class="form-inline my-2 my-lg-0">
-						  <input class="form-control mr-sm-2" type="search" placeholder="Search For the product here" aria-label="Search For the product here" size="50">
-						  <button class="btn btn-outline-light my-2 my-sm-0" type="submit"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+						<form method="post" action="<?php echo base_url();?>search" class="form-inline my-2 my-lg-0">
+						  <input class="form-control mr-sm-2" type="search" placeholder="Search For the product here" aria-label="Search For the product here" size="50" required>
+						  <button href="#" class="btn btn-outline-light my-2 my-sm-0" type="submit" ><i class="fa fa-search" aria-hidden="true"></i> Search</button>
 						</form>
 					</div>	
 				  </div>

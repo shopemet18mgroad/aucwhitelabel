@@ -128,15 +128,9 @@
 						<tbody>
 							<tr>
 								<td class="btxt">Upload Profile Picture</td>
-								<td><input type="file" id="buploadprofilepic" name="buploadprofilepic"></td>
+								<td><input type="file" multiple="multiple" id="buploadprofilepic" name="buploadprofilepic"></td>
 							</tr> 
-							<tr>
-								<td class="btxt">Upload Document</td>
-								<td><div class="input_fields_wrap">
-								<input type="file" id="bsigneddocument" name="bsigneddocument">
-								<a class="add_field_button "><button type="button" class="btn btn-sm btn-primary"> <i class="fa fa-plus text-white"></i></button></a>
-								</div></td>
-							</tr> 				
+										
 						</tbody>
 					</table>					
 				<a href="#"><button type="button" class="btn btn-info offset-sm-3 mt-2">Submit</button></a>

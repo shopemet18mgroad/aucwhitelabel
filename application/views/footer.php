@@ -68,6 +68,7 @@
 
 	
   <!-- Bootstrap core JavaScript-->	
+   
   <script src="<?php echo base_url()."web_files/";?>js/jquery.min.js"></script> 
    <!--<script src="./js/jquery-3.2.2.js"></script>-->	
   <script src="<?php echo base_url()."web_files/";?>js/popper.min.js"></script>
@@ -136,7 +137,7 @@ function validate1(){
 	var spassword = document.getElementById("spassword").value;
 	var sconfirmpassword = document.getElementById("sconfirmpassword").value;
 	var sgst = document.getElementById("sgst").value;
-	var scapcha = document.getElementById("scapcha").value;
+	var scapcha = document.getElementById("captcha").value;
 	
 	//var saddress = document.getElementsByName("saddress");
 	//var ssigneddocument = document.getElementsByName("ssigneddocument");
@@ -148,6 +149,15 @@ if(scomapnyname == '' || ssellertype == '' || scontactperson == '' || span == ''
 	}
 }
   </script>
+  <script>
+  
+    $('.refreshCaptcha').on('click', function(){
+        $.get('<?php echo base_url() .'sellers_registeration/refresh'; ?>', function(data){
+            $('#captImg').html(data);
+        });
+    });
+  </script>
+  
 </body>
 
 </html>

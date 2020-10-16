@@ -18,13 +18,90 @@ class Sellers_registeration extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
-	{
+	function __construct() {
+        parent::__construct();
+        
+        // Load session library
+        $this->load->library('session');
+        
+        // Load the captcha helper
+		$this->load->helper('captcha');
 		$this->load->helper('url');
+    }
+    
+    public function index(){
+        // If captcha form is submitted
+        if($this->input->post('submit')){
+            $inputCaptcha = $this->input->post('captcha');
+            $sessCaptcha = $this->session->userdata('captchaCode');
+            if($inputCaptcha === $sessCaptcha){
+                echo 'Captcha code matched.';
+            }else{
+                echo 'Captcha code does not match, please try again.';
+            }
+        }
+        
+        // Captcha configuration
+        $config = array(
+            'img_path'      => 'web_files/captcha_images/',
+            'img_url'       => 'web_files/captcha_images/',
+            'font_path'     => base_url().'system/fonts/texb.ttf',
+            'img_width'     => '160',
+            'img_height'    => 50,
+            'word_length'   => 8,
+            'font_size'     => 18
+        );
+        $captcha = create_captcha($config);
+        // Unset previous captcha and set new captcha word
+        $this->session->unset_userdata('captchaCode');
+        $this->session->set_userdata('captchaCode', $captcha['word']);
+        // Pass captcha image to view
+        $data['captchaImg'] = $captcha['word'];
+        // Load the view
+		//$this->load->helper('url');
 		$this->load->view('header');
-		$this->load->view('sellersregisteration');
+		$this->load->view('sellersregisteration',$data);
 		$this->load->view('footer');
-		
-	}
+        
+    }
+    
+    public function refresh(){
+        // Captcha configuration
+        $config = array(
+            'img_path'      => 'web_files/captcha_images/',
+            'img_url'       => 'web_files/captcha_images/',
+            'font_path'     => base_url().'system/fonts/texb.ttf',
+            'img_width'     => '160',
+            'img_height'    => 50,
+            'word_length'   => 8,
+            'font_size'     => 18
+        );
+        $captcha = create_captcha($config);
+        // Unset previous captcha and set new captcha word
+        $this->session->unset_userdata('captchaCode');
+        $this->session->set_userdata('captchaCode',$captcha['word']);
+        
+        // Display captcha image
+		echo $captcha['word'];
+    }
+	public function validate_capatcha(){
+        // Captcha configuration
+        $config = array(
+            'img_path'      => 'web_files/captcha_images/',
+            'img_url'       => 'web_files/captcha_images/',
+            'font_path'     => base_url().'system/fonts/texb.ttf',
+            'img_width'     => '160',
+            'img_height'    => 50,
+            'word_length'   => 8,
+            'font_size'     => 18
+        );
+        $captcha = create_captcha($config);
+        // Unset previous captcha and set new captcha word
+        $this->session->unset_userdata('captchaCode');
+        $this->session->set_userdata('captchaCode',$captcha['word']);
+        
+        // Display captcha image
+		echo $captcha['word'];
+    }
 	
 }
