@@ -33,7 +33,7 @@ function validateformb(){
 	
 	
 	if(ah == '' || a == '' || c == '' || d == '' || e == '' || f == '' || g == '' || h == '' || i == ''){
-		swal("Alert!",  "heading, address, company website, company telephone, company email, concern person, concern person designation, concern personnumber ,concern personemail cannot leave any feild blank!", "error");
+		swal("Alert!",  "Name, Address, Company website, Company Telephone, Company Email, Concern Person, Concern Person Designation, Concern Personnumber ,Concern Personemail Cannot leave any feild blank!", "error");
 		return false;
 	}
 	

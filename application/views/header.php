@@ -42,13 +42,15 @@
 				<div class="col-md-6 col-sm-12 p-2">
 					<div class="input-feild">
 							<div class="form-group p-1">
-								<input type="email" class="form-control" id="exampleInputEmail1" placeholder="User Name" size="50">
+							<form action="/action_page.php">
+								<input type="email" name="usrname" class="form-control" id="exampleInputEmail1" placeholder="User Name" size="50" required>
 							</div>
 						  <div class="form-group p-1">
-							<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" size="50">
+							<input type="password" name="psw" class="form-control" id="exampleInputPassword1" placeholder="Password" size="50" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
 						  </div>
 						  <div class="form-group p-1">
-							<button type="button" class="btn btn-primary"><i class="fa fa-sign-in"></i> Login</button>
+							<button type="submit" onclick="return validate4()" class="btn btn-primary"><i class="fa fa-sign-in"></i> Login</button>
+							</form>
 						  </div>
 					 </div>
 					 <div class="row ml-3 ">
@@ -137,3 +139,18 @@
 			 <marquee><p>BHEL Aution are Sceduled on 15 Aug&nbsp;|&nbsp;BEL Aution are Sceduled on 15 Aug!</p><p></p></marquee>
 			</div>
 		</div>
+		
+ <script>
+		function validate4(){
+		if( $('input[name="ltype[]"]:checked').length == 0 )
+   
+	{
+        swal("Alert!", "You Must Select Auctioner Or Bidder ","error");
+        return false;
+    }
+		
+    else
+        return true;
+		}
+	</script>
+		
