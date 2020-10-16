@@ -45,11 +45,11 @@
 				<div class="col-md-6 col-sm-12 p-2">
 					<div class="input-feild">
 							<div class="form-group p-1">
-							<form action="/action_page.php">
-								<input type="email" name="usrname" class="form-control" id="exampleInputEmail1" placeholder="User Name" size="50" required>
+							<form action="">
+								<input type="email" name="username"  id="username" class="form-control" id="exampleInputEmail1" placeholder="User Name" size="50" required>
 							</div>
 						  <div class="form-group p-1">
-							<input type="password" name="psw" class="form-control" id="exampleInputPassword1" placeholder="Password" size="50" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+							<input type="password" name="psw" id="psw" class="form-control" id="exampleInputPassword1" placeholder="Password" size="50">
 						  </div>
 						  <div class="form-group p-1">
 							<button type="submit" onclick="return validate4()" class="btn btn-primary"><i class="fa fa-sign-in"></i> Login</button>
@@ -144,17 +144,28 @@
 			</div>
 		</div>
 		
- <script>
-		function validate4(){
-		if( $('input[name="ltype[]"]:checked').length == 0 )
+	<script>
+	function validate4(){
+			var username = document.getElementById("username").value;
+			var psw = document.getElementById("psw").value;
+			
+			if( $('input[name="ltype[]"]:checked').length == 0 )
    
 	{
         swal("Alert!", "You Must Select Auctioner Or Bidder ","error");
         return false;
     }
-		
-    else
+			if(psw.length > 0)
+			{
+		swal("Alert!",  "Invalid Password!", "error");
+		return false;
+	}
+	else
         return true;
 		}
-	</script>
+	</script>	
 		
+		
+
+	
+	
