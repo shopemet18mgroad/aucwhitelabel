@@ -31,13 +31,33 @@ class Sellers_registeration extends CI_Controller {
     
     public function index(){
         // If captcha form is submitted
-        if($this->input->post('submit')){
-            $inputCaptcha = $this->input->post('captcha');
+        if($this->input->post('submit2')){
+			$scomapnyname = $this->input->post('scomapnyname');
+			$ssellertype = $this->input->post('ssellertype');
+			$scontactperson = $this->input->post('scontactperson');
+			$span = $this->input->post('span');
+			$sstreet = $this->input->post('sstreet');
+			$scity = $this->input->post('scity');
+			$sgst = $this->input->post('sgst');
+			//echo $spcb = $this->input->post('spcb');
+			$semail = $this->input->post('semail');
+			$sphone = $this->input->post('sphone');
+			$slocation = $this->input->post('slocation');
+			$saddresscount = $this->input->post('saddresscount');
+			$spin = $this->input->post('spin');
+			$sstate = $this->input->post('sstate');
+			$scountry = $this->input->post('scountry');
+			$susername = $this->input->post('susername');
+			$spassword = $this->input->post('spassword');
+            $captcha = $this->input->post('captcha');
             $sessCaptcha = $this->session->userdata('captchaCode');
-            if($inputCaptcha === $sessCaptcha){
-                echo 'Captcha code matched.';
+            if($captcha === $sessCaptcha){
+              $this->load->model('Admin_model');
+			  $data = array('scomapnyname' => $scomapnyname, 'ssellertype' => $ssellertype, 'scontactperson' => $scontactperson, 'span' => $span, 'sstreet' => $sstreet, 'scity' => $scity, 'sgst' => $sgst, 'semail' => $semail, 'sphone' => $sphone, 'slocation' => $slocation, 'saddresscount' => $saddresscount, 'spin' => $spin, 'sstate' => $sstate, 'scountry' => $scountry, 'susername' => $susername, 'spassword' => $spassword);
+			  $status = $this->Admin_model->insert('sellerprofile', $data);
+			  print_r($status);die;
             }else{
-                echo 'Captcha code does not match, please try again.';
+                header('location: ./sellers_registeration/error/false');//echo 'Captcha code does not match, please try again.';
             }
         }
         

@@ -131,11 +131,8 @@ function validate1(){
 	var spin = document.getElementById("spin").value;
 	var sstate = document.getElementById("sstate").value;
 	var scountry = document.getElementById("scountry").value;
-
 	var slocation = document.getElementById("slocation").value;
-	
 	var semail = document.getElementById("semail").value;
-	sphone
 	var sphone = document.getElementById("sphone").value;
 	var susername = document.getElementById("susername").value;
 	var spassword = document.getElementById("spassword").value;
@@ -147,8 +144,13 @@ function validate1(){
 	//var ssigneddocument = document.getElementsByName("ssigneddocument");
 	//var AnswerInput = document.getElementsByName("saddresscount");
 	
+	
 if(scomapnyname == '' || ssellertype == '' || scontactperson == '' || span == '' || sstreet == '' || scity == '' || spin == '' || sstate == '' || scountry == '' || slocation == '' || semail == '' || sphone == '' || susername == '' || spassword == '' || sconfirmpassword == '' || sgst == '' || scapcha == '' ){
 		swal("Alert!",  "Company Name, Type of seller, Contact Person, Pan, Street, City, Pin, State/Union Ter., Location, E-Mail, Phone No, User Name, Password , Confirm Password , GST No, Security Code  cannot leave any feild blank!", "error");
+		return false;
+	}
+	if(spassword != sconfirmpassword){
+		swal("Alert!",  "Password and Confirm Password Should Match!", "error");
 		return false;
 	}
 }
@@ -164,11 +166,12 @@ if(scomapnyname == '' || ssellertype == '' || scontactperson == '' || span == ''
    <script>
   function validate_cap(){
 	  var captcha = document.getElementById("captcha").value;
-		if(captcha.length == 4){
+		if(captcha.length >= 4){
 			$.get('<?php echo base_url() .'sellers_registeration/validate_capatcha/'; ?>'+captcha, function(data){
             //$('#captImg').html(data);
 				if(data == "Bye"){
 					swal("Alert!",  "Invalid Captcha", "error");
+					document.getElementById("captcha").value = "";
 					return false;
 				}else{
 					return true;
