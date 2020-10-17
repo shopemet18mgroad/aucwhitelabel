@@ -132,7 +132,7 @@
 		</div>
 		<div class="container-fluid">
 			 <div class="row">
-					<img class="imgsize-header" src="<?php echo base_url()."web_files/";?>images/jumboron-image-2.jpg"></img>
+					<img class="imgsize-header" src="<?php echo base_url()."web_files/";?>images/aucjuntionbanner.png"></img>
 			 </div>	
 		</div>
 		<div class="container-fluid noticeboard">
