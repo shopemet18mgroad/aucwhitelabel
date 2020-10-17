@@ -25,7 +25,7 @@
                         <h2 class="aboutus-title">About Us</h2>
                         <p class="aboutus-text">Our Product is the Most reputed private online auction portal operating in the specialized space of buying and selling surplus inventory. We will provide a comprehensive online marketplace for companies to buy and sell residual and superfluous inventory - from raw material, machinery and industrial by-products to non-performing and stressed assets. Our service offerings include tender management, Purchase and Sale of Industrial Scrap as well as purchase and sale of repossessed vehicles and machineries</p>
 						<div class="about-us-img">
-							<img src="images/about-img.jpg"></img>
+							<img src="<?php echo base_url()."web_files/";?>images/about-img.jpg"></img>
 						</div>
                     </div>
                 </div>

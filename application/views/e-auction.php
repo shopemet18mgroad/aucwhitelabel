@@ -25,7 +25,7 @@ Bank&#39;s Letter-head. If such verification is done on Customer&#39;s Letter-he
 of the Branch of the Bank must be mentioned.
 </br></br>
 <span class="fontbld">5.</span> Two Passport size Color Photographs of the Proprietor / Partner / Director ( for issue of
-Photo ID card by MSTC) - The Proprietor / Partner / Director ( or a person authorized by the
+Photo ID card by AUCJUNCTION) - The Proprietor / Partner / Director ( or a person authorized by the
 Director in case of Public / Private limited Company) of the Customer&#39;s Firm will be required to
 put his specimen signature on the ID Card. In case of Proprietorship / Partnership Firm, the
 Proprietor / Partner will be required to sign the impanelment agreement executive visiting your
