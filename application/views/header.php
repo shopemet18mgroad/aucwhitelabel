@@ -25,7 +25,7 @@
 				<div class="col-md-12 contact-header">
 					<div class="social pull-right">
 						<ul>
-							<li><i class="fa fa-phone" aria-hidden="true"></i>&nbsp Helpline No: 1800-161-1000</li>
+							<li><i class="fa fa-phone" aria-hidden="true"></i>&nbsp Helpline No: +91 9980596460</li>
 							<li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
 							<li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
 							<li><a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
