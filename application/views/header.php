@@ -25,7 +25,7 @@
 				<div class="col-md-12 contact-header">
 					<div class="social pull-right">
 						<ul>
-							<li><i class="fa fa-phone" aria-hidden="true"></i>&nbsp Helpline No: 1800-161-1000</li>
+							<li><i class="fa fa-phone" aria-hidden="true"></i>&nbsp Helpline No: +91 9980596460</li>
 							<li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
 							<li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
 							<li><a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
@@ -45,15 +45,13 @@
 				<div class="col-md-6 col-sm-12 p-2">
 					<div class="input-feild">
 							<div class="form-group p-1">
-							<form action="">
-								<input type="email" name="username"  id="username" class="form-control" id="exampleInputEmail1" placeholder="User Name" size="50" required>
+								<input type="email" class="form-control" id="exampleInputEmail1" placeholder="User Name" size="50">
 							</div>
 						  <div class="form-group p-1">
-							<input type="password" name="psw" id="psw" class="form-control" id="exampleInputPassword1" placeholder="Password" size="50">
+							<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" size="50">
 						  </div>
 						  <div class="form-group p-1">
-							<button type="submit" onclick="return validate4()" class="btn btn-primary"><i class="fa fa-sign-in"></i> Login</button>
-							</form>
+							<button type="button" class="btn btn-primary"><i class="fa fa-sign-in"></i> Login</button>
 						  </div>
 					 </div>
 					 <div class="row ml-3 ">
@@ -134,38 +132,12 @@
 		</div>
 		<div class="container-fluid">
 			 <div class="row">
-					<img class="imgsize-header" src="<?php echo base_url()."web_files/";?>images/jumboron-image-2.jpg"></img>
+					<img class="imgsize-header" src="<?php echo base_url()."web_files/";?>images/aucjuntionbanner.png"></img>
 			 </div>	
 		</div>
 		<div class="container-fluid noticeboard">
 			<div class="noticeboard-icon"><i class="fa fa-bell" aria-hidden="true"></i></div>
 			<div class="row marqueebox">
-			 <marquee><p>BHEL Aution are Sceduled on 15 Aug&nbsp;|&nbsp;BEL Aution are Sceduled on 15 Aug!</p><p></p></marquee>
+			 <marquee><p>Aucjunction10200001 are Scheduled on October 2020&nbsp;|&nbsp;Aucjunction10200002 are Scheduled on October 2020&nbsp;|&nbsp;Aucjunction10200003 are Scheduled on October 2020</p><p></p></marquee>
 			</div>
 		</div>
-		
-	<script>
-	function validate4(){
-			var username = document.getElementById("username").value;
-			var psw = document.getElementById("psw").value;
-			
-			if( $('input[name="ltype[]"]:checked').length == 0 )
-   
-	{
-        swal("Alert!", "You Must Select Auctioner Or Bidder ","error");
-        return false;
-    }
-			if(psw.length > 0)
-			{
-		swal("Alert!",  "Invalid Password!", "error");
-		return false;
-	}
-	else
-        return true;
-		}
-	</script>	
-		
-		
-
-	
-	
