@@ -138,6 +138,6 @@
 		<div class="container-fluid noticeboard">
 			<div class="noticeboard-icon"><i class="fa fa-bell" aria-hidden="true"></i></div>
 			<div class="row marqueebox">
-			 <marquee><p>Aucjunction10200001 are Sceduled on 15 Aug&nbsp;|&nbsp;BEL Aution are Sceduled on 15 Aug!</p><p></p></marquee>
+			 <marquee><p>Aucjunction10200001 are Scheduled on October 2020&nbsp;|&nbsp;Aucjunction10200002 are Scheduled on October 2020&nbsp;|&nbsp;Aucjunction10200003 are Scheduled on October 2020</p><p></p></marquee>
 			</div>
 		</div>
