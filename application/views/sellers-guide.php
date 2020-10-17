@@ -82,7 +82,7 @@ present in your email client you are using.</br></br>
 
 <span class="fontbld">My auction closed with a winner. What do I do next?</span></br></br>
 On closing of the auction you will be intimated about the winner. The winner will also get an
-email stating what he has to do. He will contact MSTC and MSTC will handover him the Delivery
+email stating what he has to do. He will contact AUCJUNCTION and AUCJUNCTION will handover him the Delivery
 Order after getting the requisite material value. The winner will approach you with the Delivery
 Order for allowing him to lift the material.</br></br>
 
@@ -92,7 +92,7 @@ following reasons.</span></br></br>
 <span class="fontbld">i)</span> Nobody submitted any bid.</br>
 <span class="fontbld">ii)</span> The highest bid amount is lower than the reserve price.</br>
 <span class="fontbld">iii)</span> Withdrawal of an item prior to auction.</br>
-On your request MSTC will arrange for re-auctioning.</br></br>
+On your request AUCJUNCTION will arrange for re-auctioning.</br></br>
 
 <span class="fontbld">How do I contact the winning bidder?</span></br></br>
 On closing of the auction the winner will get an email stating that he has won the item and what
