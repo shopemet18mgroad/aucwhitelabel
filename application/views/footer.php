@@ -31,7 +31,7 @@
 									<p class="pl-0 ml-0 mb-5 ">Find out what we can do for your business.</p>
 									<div class="row text-center justify-content-center">
 										<div class="col-auto">
-										<form method="post" action="<?php echo base_url();?>action">
+										<form method="post" action="<?php echo base_url();?>#">
 											<div class="input-group-lg input-group mb-3 "><input type="text" class="form-control" placeholder="Enter your e-mail Address" aria-label="Recipient's username" aria-describedby="button-addon2" required>
 												
 												<div class="input-group-append"><button class="btn btn-success" type="submit" id="button-addon2"> <b>Subscribe</b></button></div>
