@@ -45,11 +45,17 @@ class Sellers_registeration extends CI_Controller {
         $config = array(
             'img_path'      => 'web_files/captcha_images/',
             'img_url'       => 'web_files/captcha_images/',
-            'font_path'     => base_url().'system/fonts/texb.ttf',
-            'img_width'     => '160',
+            'font_path'     => base_url().'system/fonts/textb.ttf',
+            'img_width'     => '200',
             'img_height'    => 50,
-            'word_length'   => 8,
-            'font_size'     => 18
+            'word_length'   => 4,
+			'font_size' => 20,
+			'colors' => array(
+			'background' => array(255, 255, 255),
+			'border' => array(255, 255, 255),
+			'text' => array(0, 0, 0),
+			'grid' => array(255, 200, 255)
+			)
         );
         $captcha = create_captcha($config);
         // Unset previous captcha and set new captcha word
@@ -57,6 +63,7 @@ class Sellers_registeration extends CI_Controller {
         $this->session->set_userdata('captchaCode', $captcha['word']);
         // Pass captcha image to view
         $data['captchaImg'] = $captcha['word'];
+		$data['ImgFileName'] = $captcha['filename'];
         // Load the view
 		//$this->load->helper('url');
 		$this->load->view('header');
@@ -70,11 +77,17 @@ class Sellers_registeration extends CI_Controller {
         $config = array(
             'img_path'      => 'web_files/captcha_images/',
             'img_url'       => 'web_files/captcha_images/',
-            'font_path'     => base_url().'system/fonts/texb.ttf',
-            'img_width'     => '160',
+            'font_path'     => base_url().'system/fonts/textb.ttf',
+            'img_width'     => '200',
             'img_height'    => 50,
-            'word_length'   => 8,
-            'font_size'     => 18
+            'word_length'   => 4,
+			'font_size' => 20,
+			'colors' => array(
+			'background' => array(255, 255, 255),
+			'border' => array(255, 255, 255),
+			'text' => array(0, 0, 0),
+			'grid' => array(255, 200, 255)
+			)
         );
         $captcha = create_captcha($config);
         // Unset previous captcha and set new captcha word
@@ -82,26 +95,21 @@ class Sellers_registeration extends CI_Controller {
         $this->session->set_userdata('captchaCode',$captcha['word']);
         
         // Display captcha image
-		echo $captcha['word'];
+		echo "<img src='".base_url()."web_files/captcha_images/".$captcha['filename']."'>";
+		//echo $captcha['filename'];
     }
 	public function validate_capatcha(){
         // Captcha configuration
-        $config = array(
-            'img_path'      => 'web_files/captcha_images/',
-            'img_url'       => 'web_files/captcha_images/',
-            'font_path'     => base_url().'system/fonts/texb.ttf',
-            'img_width'     => '160',
-            'img_height'    => 50,
-            'word_length'   => 8,
-            'font_size'     => 18
-        );
-        $captcha = create_captcha($config);
+		$inputCaptcha = $this->uri->segment(3);
+		 $sessCaptcha = $this->session->userdata('captchaCode');
+            if($inputCaptcha === $sessCaptcha){
+				echo "HI";
+			}else{
+				echo "Bye";
+			}
+       
         // Unset previous captcha and set new captcha word
-        $this->session->unset_userdata('captchaCode');
-        $this->session->set_userdata('captchaCode',$captcha['word']);
-        
-        // Display captcha image
-		echo $captcha['word'];
+       
     }
 	
 }
