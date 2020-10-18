@@ -30,6 +30,11 @@ class Sellers_registeration extends CI_Controller {
     }
     
     public function index(){
+		$data = array('alfa'=>'beta');
+		$this->session->set_flashdata('data_name', $data);
+		$message = $this->session->flashdata('data_name');
+		redirect('../Seller_account');
+		die;// t
         // If captcha form is submitted
         if($this->input->post('submit2')){
 			$scomapnyname = $this->input->post('scomapnyname');
@@ -55,7 +60,7 @@ class Sellers_registeration extends CI_Controller {
               $this->load->model('Admin_model');
 			  $data = array('scomapnyname' => $scomapnyname, 'ssellertype' => $ssellertype, 'scontactperson' => $scontactperson, 'span' => $span, 'sstreet' => $sstreet, 'scity' => $scity, 'sgst' => $sgst, 'semail' => $semail, 'sphone' => $sphone, 'slocation' => $slocation, 'saddresscount' => $saddresscount, 'spin' => $spin, 'sstate' => $sstate, 'scountry' => $scountry, 'susername' => $susername, 'spassword' => $spassword);
 			  $status = $this->Admin_model->insert('sellerprofile', $data);
-			  print_r($status);die;
+			  
             }else{
                 header('location: ./sellers_registeration/error/false');//echo 'Captcha code does not match, please try again.';
             }
