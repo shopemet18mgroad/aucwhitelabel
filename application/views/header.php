@@ -39,7 +39,7 @@
 			<div class="row branding">
 				<div class="col-md-6 col-sm-12 pt-4">
 					<a href="./home" title="Aucjunction Logo">
-					<img class="img-fluid" alt="Aucjunction"  src="<?php echo base_url()."web_files/";?>images/aucjunction.jpg">
+					<img class="img-fluid" alt="Aucjunction"  src="<?php echo base_url()."web_files/";?>images/aucjuntn.jpg">
 					</a>
 				</div>
 				<div class="col-md-6 col-sm-12 p-2">

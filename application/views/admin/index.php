@@ -137,14 +137,27 @@
 					 <thead><th width="45%">Documents</th>
 					 </thead>
 						<tbody>
+<<<<<<< HEAD
 						
+=======
+							<tr>
+								<td class="btxt">Upload Profile Pic</td>
+
+								<td><input type="file" multiple="multiple" id="suploadprofilepic" name="suploadprofilepic" required></td>
+
+								<td><input type="file" id="suploadprofilepic" name="suploadprofilepic" required></td>
+							</tr> 
+>>>>>>> bd70c817ec369ef4c1f63c194b155cd8e3138dce
 							<tr>
 								<td class="btxt">Upload Document</td>
 								<td><div class="input_fields_wrap">
 								<input  type="file" id="ssigneddocument" name="ssigneddocument[]" multiple="multiple">
 								</div></td>
 								
+<<<<<<< HEAD
 
+=======
+>>>>>>> bd70c817ec369ef4c1f63c194b155cd8e3138dce
 							</tr> 
 							
 									
