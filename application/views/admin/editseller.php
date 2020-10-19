@@ -140,7 +140,7 @@
 					 </thead>
 						<tbody>
 							<tr>
-								<td class="btxt">Upload Profile Pic</td>
+								<td class="btxt">Upload Documents</td>
 								<td><input type="file" multiple="multiple" id="suploadprofilepic" name="suploadprofilepic"></td>
 							</tr> 
 						

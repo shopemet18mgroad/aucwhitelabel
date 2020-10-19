@@ -59,7 +59,7 @@
 	  
 	  
 		<td>Online Auction Date</td>
-		<td><input class="form-control w-50" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
+		<td><input class="form-control w-75" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
   </td>
 	</tr>
 	<tr>

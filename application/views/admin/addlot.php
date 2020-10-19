@@ -71,9 +71,9 @@
 		<td>Inspection Date & Time</td>
 		<td>
 From: 	
-    <input class="form-control w-50" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
+    <input class="form-control w-75" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
  To:
-    <input class="form-control w-50" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
+    <input class="form-control w-75" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
 </td>
 	</tr>
 	
@@ -137,7 +137,7 @@ From:
     </tr>	
 	<tr>
 		<td>Lifting Period</td>
-		<td><input class="form-control w-50" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
+		<td><input class="form-control w-75" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
 		<input class="form-control w-50 mt-2" type="text" id="onlineaucdate" name="onlineaucdate" placeholder="15 days"></td>
     </tr>
 	<tr>
