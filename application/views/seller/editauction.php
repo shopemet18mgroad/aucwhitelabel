@@ -8,7 +8,7 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Start Auction</h1>
+            <h1 class="h3 mb-0 text-gray-800">Update Auction</h1>
            
           </div>
 
@@ -23,14 +23,14 @@
                <table class="table table-striped text-left table-sm p-4" id="dataTable" width="100%" cellspacing="0">
     <thead class="bg-info text-white">
       <tr>
-		<th colspan="10"><center>Start Auction</center></th>  
+		<th colspan="10"><center>Edit Auction</center></th>  
       </tr>
     </thead>
     <tbody>
 	  
 	  <tr>
 		  <td width="11%">Category</td>
-		  <td width="4%"><select class="form-control w-50" id="scategory" name="scategory">
+		  <td width="4%"><select class="form-control w-50" id="adcategory" name="adcategory">
 				<option value="one" selected>Ferrous</option>
 				<option value="two">Non Ferrous</option>
 				<option value="three" >Minor Metals</option>
@@ -41,7 +41,12 @@
 			</td>
 	  </tr>
 	  
-	  	  
+	  	  <tr>
+		  <td>Seller</td>
+		  <td><input class="form-control w-50" type="text" placeholder="Search" aria-label="Search">
+			</td>
+	  </tr>
+      
 	  <tr>
 		  <td>Auction Id</td>
 		  <td style="color:blue;">AJ256458/BHEL/IRON/102</td>
@@ -49,15 +54,14 @@
 	  
 	  <tr>											
 		  <td>Venue Of Inspection</td>
-		  <td><textarea class="form-control w-50" type="text" id="svinspection" name="svinspection"></textarea></td>
+		  <td><textarea class="form-control w-50" type="text" id="advinsp" name="advinsp"></textarea></td>
 	  </tr>
 	  
-	  <tr>
+	  
 		<td>Online Auction Date</td>
-		<td><input class="form-control w-75" id="sonlineaucdate_time" name="sonlineaucdate_time" type="datetime-local" >
-		</td>
+		<td><input class="form-control w-75" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
+  </td>
 	</tr>
-	
 	<tr>
 	<td>Aucjunction Terms & Conditions</td>
 	<td>
@@ -204,11 +208,10 @@ Bidders participating in AucJunction Auctions should verify with the selling com
   </div>
   <br><br>
   <div class="form-check form-check-inline ">
-			<input type="checkbox" class="form-check-input" id="sterms_condiaccept" name="sterms_condiaccept">
+			<input type="checkbox" class="form-check-input" id="adexampleCheck1" name="adexampleCheck1">
 			<label class="form-check-label" for="exampleCheck1">I agree to the Terms and Conditions</label>
 			</div></td>
   </tr>
-  
   <tr>
 		<td>Upload Terms & Conditions</td>
 		<td><div class="form-check form-check-inline">
@@ -216,7 +219,7 @@ Bidders participating in AucJunction Auctions should verify with the selling com
 			<label class="form-check-label" for="myCheck">Yes</label>
 			</div>
 			<div class="form-group" id="text" style="display:none">
-				<input type="file" class="form-control-file" id="sterms_condiupload" name="sterms_condiupload">
+				<input type="file" class="form-control-file" id="exampleFormControlFile1">
 			</div>
 			
 			
@@ -225,17 +228,16 @@ Bidders participating in AucJunction Auctions should verify with the selling com
 			<label class="form-check-label" for="idCheck">No</label>
 			</div>
 			<div class="form-group" id="text2" style="display:none">
-			<textarea class="form-control w-50" type="text" id="sterms_conditype" name="sterms_conditype"></textarea>
+			<textarea class="form-control w-50" type="text" id="adonlineaucdate" name="adonlineaucdate"></textarea>
 			</div>
 			</td>
   </tr>
-  
  
   
     </tbody>
   </table>
   
-  <center><a type="button" class="btn btn-info" href="<?php echo base_url();?>seller_addlot" data-dismiss="modal">Start Auction</a></center>
+  <center><a type="button" class="btn btn-info" href="" data-dismiss="modal">Submit</a></center>
 			</div>
             </div>
 			</div>
@@ -260,8 +262,7 @@ Bidders participating in AucJunction Auctions should verify with the selling com
   <!-- End of Page Wrapper -->
 
   <!-- Scroll to Top Button-->
-  
-  <script>
+ <script>
 function myFunction() {
   var checkBox = document.getElementById("myCheck");
   var text = document.getElementById("text");
@@ -283,8 +284,6 @@ function myFunction2() {
   }
 }
 </script>
-
-
 <?php 
 	//include('./footer.php');
 ?>

@@ -57,11 +57,12 @@
 		  <td><textarea class="form-control w-50" type="text" id="svinspection" name="svinspection"></textarea></td>
 	  </tr>
 	  
-	  
+	  <tr>
 		<td>Online Auction Date</td>
 		<td><input class="form-control w-75" id="sonlineaucdate_time" name="sonlineaucdate_time" type="datetime-local" >
-  </td>
+		</td>
 	</tr>
+	
 	<tr>
 	<td>Aucjunction Terms & Conditions</td>
 	<td>

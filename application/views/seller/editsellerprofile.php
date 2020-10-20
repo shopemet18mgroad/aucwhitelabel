@@ -84,7 +84,10 @@
 								<td>Country</td>
 								<td>India</td>
 							</tr>
-													
+							<tr>
+								<td class="btxt">Upload Profile Pic</td>
+								<td><form action="/action_page.php"> <input type="file" id="myFile" name="filename1"></form></td>
+							</tr>						
 						</tbody>
 					</table>			
 

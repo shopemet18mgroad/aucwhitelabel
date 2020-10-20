@@ -8,7 +8,7 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Start Auction</h1>
+            <h1 class="h3 mb-0 text-gray-800">Update Lot</h1>
            
           </div>
 
@@ -23,7 +23,7 @@
                <table class="table table-striped table-sm text-left p-4" id="dataTable" width="100%" cellspacing="0">
     <thead class="bg-info text-white">
       <tr>
-		<th colspan="10"><center>Add Lot</center></th>  
+		<th colspan="10"><center>Edit Lot</center></th>  
       </tr>
     </thead>
     <tbody>
@@ -72,9 +72,9 @@
 		<td>
 From: 	
     <input class="form-control w-75" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
- To:
+To:
     <input class="form-control w-75" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
-</td>
+  </td>
 	</tr>
 	
 	<tr>
@@ -138,7 +138,7 @@ From:
 	<tr>
 		<td>Lifting Period</td>
 		<td><input class="form-control w-75" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
-		<input class="form-control w-50 mt-2" type="text" id="onlineaucdate" name="onlineaucdate" placeholder="15 days"></td>
+		<input class="form-control w-50 mt-2" type="text" id="onlineaucdate" name="onlineaucdate" placeholder="15 Days"></td>
     </tr>
 	<tr>
 		<td>PCB Certificate</td>
@@ -156,8 +156,7 @@ From:
   </table>
   
   <center>
-  <a type="reset" class="btn btn-info text-white" data-dismiss="modal">Add Another Lot</a>
-  <a type="button" class="btn btn-info text-white" href="<?php echo base_url();?>seller_auctiondetails" data-dismiss="modal">Submit</a>
+  <a type="button" class="btn btn-info text-white" href="" data-dismiss="modal">Submit</a>
   </center>
 			</div>
             </div>
