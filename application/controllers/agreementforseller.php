@@ -21,13 +21,14 @@ class Agreementforseller extends CI_Controller {
 	public function index()
 	{	
 		
-	}
-		
 		$this->load->helper('url');
+		 $this->load->library('session');
+		$data = $this->session->flashdata('txdata');
 		$this->load->view('header');
-		$this->load->view('agreementforseller');
+		$this->load->view('agreementforseller',$data);
 		$this->load->view('footer');
-		
 	}
+		
+		
 	
 }

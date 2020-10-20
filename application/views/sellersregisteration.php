@@ -35,7 +35,10 @@
         <td><b>Contact Person *</b></td>
         <td><input class="form-control w-75" type="text" id="scontactperson" name="scontactperson" size="50" ></td>
       </tr>
-
+		<tr>
+        <td><b>Contact Person Designation *</b></td>
+        <td><input class="form-control w-75" type="text" id="sdesignation" name="sdesignation" size="50" ></td>
+      </tr>
 	  <tr>
         <td><b>Pan</b></td>
         <td><input class="form-control w-75" type="text" id="span" name="span" size="50"></td>

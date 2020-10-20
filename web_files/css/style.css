@@ -348,7 +348,7 @@ overflow-y:scroll;
 
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 #footer {
-	margin-top:10px;
+	margin-top:5px;
     padding: 60px 0;
 }
 
@@ -566,7 +566,7 @@ a:hover, a:active {
     height:auto;
 	width: 900px;
 	padding-right: 1px;
-    background-color: #F9F9F9;
+    background-color: #2e3192;
     margin-left: auto;
     margin-right: auto;
     top: 50%;
@@ -606,10 +606,8 @@ a:hover, a:active {
 
 .blnkspc {
     background-color: #FFFFFF;
-    height: 1350px;
     width: 100%;
-	margin-bottom: -100px;
-	overflow-y:scroll;
+	margin-bottom: -50px;
 	}
 
 .bar{
@@ -617,8 +615,8 @@ a:hover, a:active {
 	padding-top:10px;
 	height: 50px;
 	width:900px;
-	background-color: grey;
-	color: #efeaea;
+	background-color: #f38222;
+	color: #ffffff;
 	}
 .shead{
 	text-align: center;
@@ -641,8 +639,7 @@ a:hover, a:active {
 	}
 	
 .space{
-	background-color: #D3D3D3;
-	
+	background-color: #ffffff;
 	width: 897px;
 	margin:  1px;
 	overflow: hidden;
