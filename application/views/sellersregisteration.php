@@ -114,7 +114,7 @@
 	  </tr>
 	  <tr>
         <td><b>Password *</b></td>
-        <td><input class="form-control w-75" type="password" id="spassword" name="spassword" size="50" ></td>       
+        <td><input class="form-control w-75" type="password" id="spassword" name="spassword" size="50" onkeyup="validate_username()"></td>       
       </tr>
 	  <tr>
         <td><b>Confirm Password *</b></td>
@@ -125,7 +125,7 @@
         <td><input  class="form-control w-75" type="text" name="sgst" id="sgst" size="50"></td>
         </tr>
 		<tr>
-        <td><b>CAPATCHA : </b><span id="captImg" class="captImg">&nbsp; <img src="<?php echo base_url()."web_files/captcha_images/".$ImgFileName?>"></span><a href="javascript:void(0);" class="refreshCaptcha">&nbsp;&nbsp;Refresh Captacha</a></td>
+        <td><b>CAPATCHA : </b><span id="captImg" class="captImg">&nbsp; <img src="<?php echo base_url()."web_files/captcha_images/".$ImgFileName;?>"></span><a href="javascript:void(0);" class="refreshCaptcha">&nbsp;&nbsp;Refresh Captacha</a></td>
         <td><input  class="form-control w-75" type="text" name="captcha" id="captcha" onkeyup="validate_cap()" placeholder="Enter 4 Digit Captcha" size="50"></td>
         </tr>
 	   </tbody>

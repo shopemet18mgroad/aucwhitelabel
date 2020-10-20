@@ -31,11 +31,6 @@ class Sellers_registeration extends CI_Controller {
     }
     
     public function index(){
-		$data = array('alfa'=>'beta');
-		$this->session->set_flashdata('data_name', $data);
-		$message = $this->session->flashdata('data_name');
-		redirect('../Seller_registeration');
-		die;// t
         // If captcha form is submitted
         if($this->input->post('submit2')){
 			$date =  Date('Y-m-d'); 
@@ -61,18 +56,19 @@ class Sellers_registeration extends CI_Controller {
             $sessCaptcha = $this->session->userdata('captchaCode');
             if($captcha === $sessCaptcha){
               $this->load->model('Admin_model');
-			  $data = array('scomapnyname' => $scomapnyname, 'ssellertype' => $ssellertype, 'scontactperson' => $scontactperson, 'span' => $span, 'sstreet' => $sstreet, 'scity' => $scity, 'sgst' => $sgst, 'semail' => $semail, 'sphone' => $sphone, 'slocation' => $slocation, 'saddresscount' => $saddresscount, 'spin' => $spin, 'sstate' => $sstate, 'scountry' => $scountry, 'susername' => $susername, 'spassword' => $spassword);
+			  $data = array('scomapnyname' => $scomapnyname, 'ssellertype' => $ssellertype, 'scontactperson' => $scontactperson, 'sdesignation'=> $sdesignation, 'span' => $span, 'sstreet' => $sstreet, 'scity' => $scity, 'sgst' => $sgst, 'semail' => $semail, 'sphone' => $sphone, 'slocation' => $slocation, 'saddresscount' => $saddresscount, 'spin' => $spin, 'sstate' => $sstate, 'scountry' => $scountry, 'susername' => $susername, 'spassword' => $spassword);
 			  // check if company name exisyt before storing
+			  
 			  $status = $this->Admin_model->insert('sellerprofile', $data);
-			  $transfer = array('company'=> $scomapnyname, 'contactperson'=>$scontactperson,'designation'=>$sdesignation, 'location'=>$slocation, 'date'=>$date);
+			  $transfer = array('company'=> $scomapnyname, 'contactperson'=>$scontactperson,'designation'=>$sdesignation, 'street'=>$sstreet, 'city' => $scity, 'pin'=>$spin, 'username'=>$susername, 'location'=>$slocation, 'date'=>$date);
 			  if($status){
 				  $this->session->set_flashdata('txdata',$transfer);
 				  redirect('../Agreementforseller');
 			  }else{
-				   header('location: ./sellers_registeration/error/Database Insertion Error. Please Try Again');
+				   header('location: ./sellers_registeration/error_handler/Database Insertion Error. Please Try Again');
 			  }
             }else{
-                header('location: ./sellers_registeration/error/Captcha Timed Out. Please Try Later');//echo 'Captcha code does not match, please try again.';
+                header('location: ./sellers_registeration/error_handler/Captcha Timed Out. Please Try Later');//echo 'Captcha code does not match, please try again.';
             }
         }
         
@@ -106,7 +102,17 @@ class Sellers_registeration extends CI_Controller {
 		$this->load->view('footer');
         
     }
-    
+    public function validate_username(){
+		$dat = $this->uri->segment(3);
+		$check_db = array('susername' => $dat);
+		$this->load->model('Admin_model');
+			  if($this->Admin_model->check('sellerprofile', $check_db)){
+				  echo "BYE";
+			  }else{
+				  echo "HI";
+			  }
+		
+	}
     public function refresh(){
         // Captcha configuration
         $config = array(

@@ -140,6 +140,7 @@ function validate1(){
 	var sgst = document.getElementById("sgst").value;
 	var scapcha = document.getElementById("captcha").value;
 	
+	
 	//var saddress = document.getElementsByName("saddress");
 	//var ssigneddocument = document.getElementsByName("ssigneddocument");
 	//var AnswerInput = document.getElementsByName("saddresscount");
@@ -153,6 +154,7 @@ if(scomapnyname == '' || ssellertype == '' || scontactperson == '' || span == ''
 		swal("Alert!",  "Password and Confirm Password Should Match!", "error");
 		return false;
 	}
+	
 }
   </script>
   <script>
@@ -169,7 +171,7 @@ if(scomapnyname == '' || ssellertype == '' || scontactperson == '' || span == ''
 		if(captcha.length >= 4){
 			$.get('<?php echo base_url() .'sellers_registeration/validate_capatcha/'; ?>'+captcha, function(data){
             //$('#captImg').html(data);
-				if(data == "Bye"){
+				if($.trim(data) == "Bye"){
 					swal("Alert!",  "Invalid Captcha", "error");
 					document.getElementById("captcha").value = "";
 					return false;
@@ -183,6 +185,26 @@ if(scomapnyname == '' || ssellertype == '' || scontactperson == '' || span == ''
 
 	}
    
+  </script>
+  <script>
+  function validate_username(){
+	  var val = document.getElementById("susername").value;
+		if(val != ''){
+			 $.get('<?php echo base_url() .'sellers_registeration/validate_username/'; ?>'+val, function(data2){				 
+				 if($.trim(data2) == "BYE"){
+					swal("Alert!",  "Username Already Exists", "error");
+					document.getElementById("susername").value = "";
+					return false;
+				}else{
+					return true;
+				}
+			 });
+			
+		}else{
+			swal("Alert!",  "Please Enter User Name!", "error");
+			return false;
+		}
+  }
   </script>
 </body>
 

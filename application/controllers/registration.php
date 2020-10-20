@@ -21,10 +21,28 @@ class Registration extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper('url');
+		$dataw = $this->uri->segment(3);
+		$datad = $this->uri->segment(4);
+		$update = array('sagreement'=>true,'sagreementdate'=>$datad);
+		$this->load->model('Admin_model');
+		$this->Admin_model->update_custom('sellerprofile',$update,'susername',$dataw);
 		$this->load->view('header');
 		$this->load->view('registration');
 		$this->load->view('footer');
 		
 	}
+	public function tandcok()
+	{
+		$this->load->helper('url');
+		$dataw = $this->uri->segment(3);
+		$update = array('sterms_condi'=>true);
+		$this->load->model('Admin_model');
+		$this->Admin_model->update_custom('sellerprofile',$update,'susername',$dataw);
+		$this->load->view('header');
+		$this->load->view('registration');
+		$this->load->view('footer');
+		
+	}
+	
 	
 }

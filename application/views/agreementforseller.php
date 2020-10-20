@@ -28,7 +28,7 @@ Aucjunction is most reputed private online auction portal operating in the speci
 <p class="para">
 
 This Agreement made on day of&nbsp; <span><b><?php echo $date; ?></b></span>&nbsp; Between 
-M/S  &nbsp; <span><b><?php echo $company;?></b></span><br>having its Registered office at <span><b><?php echo $location;?></b><span>
+M/S  &nbsp; <span><b><?php echo $company;?></b></span><br>having its Registered office at <span><b><?php echo $street.", ".$city.", ".$pin.".";?></b><span>
 herein called “ Partner Seller” AND  Aucjunction  ( Brand/Subsidary of Shopemet Networks Private Limited) having its Registered office at No 179, 2nd Floor, Mysore Road Cross, Bangalore 560002.
 
 The Contract will remain valid for 1 time sale/ 6 months/ 1 year of this Agreement which could be extended for such further period on such terms and conditions as mutually agreed upon by both the parties
@@ -153,7 +153,7 @@ Signature and Seal.
 
 
 		<div class="text-center" style="position:relative;background-color:#2e3192;">
-		<a href="<?php echo base_url()."registration/index/".$company;?>"><button type="button" class="btn btn-primary mt-2">Agree</button></a>
+		<a href="<?php echo base_url()."registration/index/".$username."/".$date;?>"><button type="button" class="btn btn-primary mt-2">Agree</button></a>
 		<a href="<?php echo base_url();?>home"><button type="button" class="btn btn-primary mt-2">Disagree</button></a>
 	</div>
 
