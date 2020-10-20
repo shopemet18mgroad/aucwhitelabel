@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 12, 2020 at 01:31 PM
+-- Generation Time: Oct 20, 2020 at 12:45 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -29,47 +29,47 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `auction` (
   `id` int(11) NOT NULL,
-  `sname` varchar(100) NOT NULL,
-  `scompanyname` varchar(100) NOT NULL,
-  `scompanyid` int(200) NOT NULL,
-  `scategory` varchar(200) NOT NULL,
-  `sauctionid` int(225) NOT NULL,
-  `svinspection` varchar(200) NOT NULL,
-  `sonlineaucdate_time` datetime NOT NULL,
+  `sname` varchar(100) DEFAULT NULL,
+  `scompanyname` varchar(100) DEFAULT NULL,
+  `scompanyid` int(200) DEFAULT NULL,
+  `scategory` varchar(200) DEFAULT NULL,
+  `sauctionid` int(225) DEFAULT NULL,
+  `svinspection` varchar(200) DEFAULT NULL,
+  `sonlineaucdate_time` datetime DEFAULT NULL,
   `sterms_condiaccept` tinyint(1) DEFAULT NULL,
-  `sterms_condiupload` tinyint(1) NOT NULL,
-  `sterms_conditype` varchar(225) NOT NULL,
-  `slotno` int(100) NOT NULL,
-  `slotname` varchar(200) NOT NULL,
-  `sdescription` varchar(225) NOT NULL,
-  `slotlocation` varchar(225) NOT NULL,
-  `sfrominpectdate_time` datetime(6) NOT NULL,
-  `stoinpectdate_time` datetime(6) NOT NULL,
-  `semddetail` varchar(200) NOT NULL,
-  `slastdateemdsub` date NOT NULL,
-  `sprice` int(225) NOT NULL,
-  `sstartbidprice` int(225) NOT NULL,
-  `sqty` int(225) NOT NULL,
-  `sunitmeasurment` int(225) NOT NULL,
-  `sbidbase` int(200) NOT NULL,
-  `sgst` int(200) NOT NULL,
-  `sothertax` varchar(225) NOT NULL,
-  `semdamount` int(255) NOT NULL,
-  `sliftingperiod` varchar(200) NOT NULL,
-  `spcbcertificate` tinyint(1) NOT NULL,
+  `sterms_condiupload` tinyint(1) DEFAULT NULL,
+  `sterms_conditype` varchar(225) DEFAULT NULL,
+  `slotno` int(100) DEFAULT NULL,
+  `slotname` varchar(200) DEFAULT NULL,
+  `sdescription` varchar(225) DEFAULT NULL,
+  `slotlocation` varchar(225) DEFAULT NULL,
+  `sfrominpectdate_time` datetime(6) DEFAULT NULL,
+  `stoinpectdate_time` datetime(6) DEFAULT NULL,
+  `semddetail` varchar(200) DEFAULT NULL,
+  `slastdateemdsub` date DEFAULT NULL,
+  `sprice` int(225) DEFAULT NULL,
+  `sstartbidprice` int(225) DEFAULT NULL,
+  `sqty` int(225) DEFAULT NULL,
+  `sunitmeasurment` int(225) DEFAULT NULL,
+  `sbidbase` int(200) DEFAULT NULL,
+  `sgst` int(200) DEFAULT NULL,
+  `sothertax` varchar(225) DEFAULT NULL,
+  `semdamount` int(255) DEFAULT NULL,
+  `sliftingperiod` varchar(200) DEFAULT NULL,
+  `spcbcertificate` tinyint(1) DEFAULT NULL,
   `adminapprovalstatus` tinyint(1) DEFAULT NULL,
-  `sapproval` varchar(200) NOT NULL,
-  `sdownload` blob NOT NULL,
-  `saction` varchar(1) NOT NULL,
+  `sapproval` varchar(200) DEFAULT NULL,
+  `sdownload` blob DEFAULT NULL,
+  `saction` varchar(1) DEFAULT NULL,
   `sauctionstatus` tinyint(1) DEFAULT NULL,
-  `saucstartdate_time` datetime(6) NOT NULL,
-  `saucclosedate_time` datetime(6) NOT NULL,
+  `saucstartdate_time` datetime(6) DEFAULT NULL,
+  `saucclosedate_time` datetime(6) DEFAULT NULL,
   `adstatus` tinyint(1) DEFAULT NULL,
-  `adaction` tinyint(1) NOT NULL,
-  `reauction` varchar(225) NOT NULL,
-  `stotalauction` int(225) NOT NULL,
-  `bwishlist` tinyint(1) NOT NULL,
-  `bemdstatus` int(225) NOT NULL
+  `adaction` tinyint(1) DEFAULT NULL,
+  `reauction` varchar(225) DEFAULT NULL,
+  `stotalauction` int(225) DEFAULT NULL,
+  `bwishlist` tinyint(1) DEFAULT NULL,
+  `bemdstatus` int(225) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -80,10 +80,10 @@ CREATE TABLE `auction` (
 
 CREATE TABLE `autobid` (
   `id` int(11) NOT NULL,
-  `sauctionid` varchar(225) NOT NULL,
-  `bfinalbid` int(225) NOT NULL,
-  `bidperunit` int(225) NOT NULL,
-  `bidmax` int(225) NOT NULL
+  `sauctionid` varchar(225) DEFAULT NULL,
+  `bfinalbid` int(225) DEFAULT NULL,
+  `bidperunit` int(225) DEFAULT NULL,
+  `bidmax` int(225) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -94,18 +94,18 @@ CREATE TABLE `autobid` (
 
 CREATE TABLE `biddercart` (
   `id` int(11) NOT NULL,
-  `bidderid` int(20) NOT NULL,
+  `bidderid` int(20) DEFAULT NULL,
   `auctiontype` tinyint(1) DEFAULT NULL,
-  `auctionid` varchar(200) NOT NULL,
-  `lotno` varchar(200) NOT NULL,
-  `aucstartdate_time` datetime(6) NOT NULL,
-  `aucclosedate_time` datetime(6) NOT NULL,
-  `bidmaxvalue` int(225) NOT NULL,
-  `bidamount` int(225) NOT NULL,
-  `emdpaid` int(220) NOT NULL,
-  `emdrequest` varchar(225) NOT NULL,
+  `auctionid` varchar(200) DEFAULT NULL,
+  `lotno` varchar(200) DEFAULT NULL,
+  `aucstartdate_time` datetime(6) DEFAULT NULL,
+  `aucclosedate_time` datetime(6) DEFAULT NULL,
+  `bidmaxvalue` int(225) DEFAULT NULL,
+  `bidamount` int(225) DEFAULT NULL,
+  `emdpaid` int(220) DEFAULT NULL,
+  `emdrequest` varchar(225) DEFAULT NULL,
   `bided` tinyint(1) DEFAULT NULL,
-  `emd_paiddd` blob NOT NULL
+  `emd_paiddd` blob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -116,12 +116,12 @@ CREATE TABLE `biddercart` (
 
 CREATE TABLE `biddingdata` (
   `id` int(11) NOT NULL,
-  `bidderid` int(20) NOT NULL,
-  `sauctionid` varchar(200) NOT NULL,
-  `slotno` varchar(200) NOT NULL,
-  `bidvalue` int(225) NOT NULL,
-  `Date_time` datetime(6) NOT NULL,
-  `bidamount` int(225) NOT NULL
+  `bidderid` int(20) DEFAULT NULL,
+  `sauctionid` varchar(200) DEFAULT NULL,
+  `slotno` varchar(200) DEFAULT NULL,
+  `bidvalue` int(225) DEFAULT NULL,
+  `Date_time` datetime(6) DEFAULT NULL,
+  `bidamount` int(225) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -132,42 +132,42 @@ CREATE TABLE `biddingdata` (
 
 CREATE TABLE `buyerprofile` (
   `id` int(11) NOT NULL,
-  `bname` varchar(50) NOT NULL,
-  `bcompany` varchar(100) NOT NULL,
-  `bcomptype` varchar(100) NOT NULL,
-  `bbuyertype` varchar(100) NOT NULL,
-  `bbuyerlocation` varchar(100) NOT NULL,
-  `bcontactperson` varchar(50) NOT NULL,
-  `bcin` varchar(225) NOT NULL,
-  `baddress` varchar(225) NOT NULL,
-  `bcity` varchar(50) NOT NULL,
-  `bpin` int(50) NOT NULL,
-  `bstate` varchar(50) NOT NULL,
-  `bcountry` varchar(11) NOT NULL,
-  `bemail` varchar(100) NOT NULL,
-  `bphone` int(11) NOT NULL,
-  `bpan` int(11) NOT NULL,
-  `busername` int(50) NOT NULL,
-  `bpassword` int(11) NOT NULL,
-  `boldpassword` int(11) NOT NULL,
-  `bnewpassword` int(11) NOT NULL,
-  `bconfirmpassword` int(11) NOT NULL,
-  `bgst` int(11) NOT NULL,
-  `bpcb` varchar(225) NOT NULL,
-  `bcapcha` varchar(50) NOT NULL,
-  `bbankname` varchar(50) NOT NULL,
-  `baccountnumber` int(50) NOT NULL,
-  `bbranch` varchar(50) NOT NULL,
-  `bifsccode` varchar(50) NOT NULL,
-  `buploadimage1` blob NOT NULL,
-  `buploadimage2` blob NOT NULL,
-  `buploadimage3` blob NOT NULL,
-  `bsigneddocument` blob NOT NULL,
-  `bsigneddocument1` blob NOT NULL,
-  `bsigneddocument2` blob NOT NULL,
-  `bsigneddocument3` blob NOT NULL,
-  `bsigneddocument4` blob NOT NULL,
-  `bsigneddocument5` blob NOT NULL,
+  `bname` varchar(50) DEFAULT NULL,
+  `bcompany` varchar(100) DEFAULT NULL,
+  `bcomptype` varchar(100) DEFAULT NULL,
+  `bbuyertype` varchar(100) DEFAULT NULL,
+  `bbuyerlocation` varchar(100) DEFAULT NULL,
+  `bcontactperson` varchar(50) DEFAULT NULL,
+  `bcin` varchar(225) DEFAULT NULL,
+  `baddress` varchar(225) DEFAULT NULL,
+  `bcity` varchar(50) DEFAULT NULL,
+  `bpin` int(50) DEFAULT NULL,
+  `bstate` varchar(50) DEFAULT NULL,
+  `bcountry` varchar(11) DEFAULT NULL,
+  `bemail` varchar(100) DEFAULT NULL,
+  `bphone` int(11) DEFAULT NULL,
+  `bpan` int(11) DEFAULT NULL,
+  `busername` int(50) DEFAULT NULL,
+  `bpassword` int(11) DEFAULT NULL,
+  `boldpassword` int(11) DEFAULT NULL,
+  `bnewpassword` int(11) DEFAULT NULL,
+  `bconfirmpassword` int(11) DEFAULT NULL,
+  `bgst` int(11) DEFAULT NULL,
+  `bpcb` varchar(225) DEFAULT NULL,
+  `bcapcha` varchar(50) DEFAULT NULL,
+  `bbankname` varchar(50) DEFAULT NULL,
+  `baccountnumber` int(50) DEFAULT NULL,
+  `bbranch` varchar(50) DEFAULT NULL,
+  `bifsccode` varchar(50) DEFAULT NULL,
+  `buploadimage1` blob DEFAULT NULL,
+  `buploadimage2` blob DEFAULT NULL,
+  `buploadimage3` blob DEFAULT NULL,
+  `bsigneddocument` blob DEFAULT NULL,
+  `bsigneddocument1` blob DEFAULT NULL,
+  `bsigneddocument2` blob DEFAULT NULL,
+  `bsigneddocument3` blob DEFAULT NULL,
+  `bsigneddocument4` blob DEFAULT NULL,
+  `bsigneddocument5` blob DEFAULT NULL,
   `bemd` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -179,7 +179,7 @@ CREATE TABLE `buyerprofile` (
 
 CREATE TABLE `categories` (
   `id` int(11) NOT NULL,
-  `name` varchar(200) NOT NULL
+  `name` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -202,12 +202,12 @@ INSERT INTO `categories` (`id`, `name`) VALUES
 
 CREATE TABLE `liveauction` (
   `id` int(11) NOT NULL,
-  `sauctionid` varchar(225) NOT NULL,
-  `closetime` time(6) NOT NULL,
-  `timeleft` time(6) NOT NULL,
-  `livestatus` int(225) NOT NULL,
-  `bidvalue` int(225) NOT NULL,
-  `bidamount` int(225) NOT NULL
+  `sauctionid` varchar(225) DEFAULT NULL,
+  `closetime` time(6) DEFAULT NULL,
+  `timeleft` time(6) DEFAULT NULL,
+  `livestatus` int(225) DEFAULT NULL,
+  `bidvalue` int(225) DEFAULT NULL,
+  `bidamount` int(225) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -218,35 +218,41 @@ CREATE TABLE `liveauction` (
 
 CREATE TABLE `sellerprofile` (
   `id` int(11) NOT NULL,
-  `sname` varchar(50) NOT NULL,
-  `scomapnyname` varchar(225) NOT NULL,
-  `ssellertype` int(220) NOT NULL,
-  `scontactperson` varchar(200) NOT NULL,
-  `scin` varchar(225) NOT NULL,
-  `scompanytype` varchar(50) NOT NULL,
-  `saddress` tinytext NOT NULL,
-  `saddresscount` int(2) NOT NULL,
-  `span` int(225) NOT NULL,
-  `spin` int(200) NOT NULL,
-  `sstate` varchar(100) NOT NULL,
-  `scountry` varchar(100) NOT NULL,
-  `slocation` varchar(225) NOT NULL,
-  `semail` varchar(200) NOT NULL,
-  `sphone` int(11) NOT NULL,
-  `susername` varchar(50) NOT NULL,
-  `spassword` varchar(10) NOT NULL,
-  `soldpassword` varchar(50) NOT NULL,
-  `snewpassword` varchar(50) NOT NULL,
-  `sconfirmpassword` varchar(10) NOT NULL,
-  `sgst` int(12) NOT NULL,
-  `spcb` varchar(225) NOT NULL,
-  `scapcha` varchar(12) NOT NULL,
-  `sbankername` varchar(200) NOT NULL,
-  `saccountnumber` int(200) NOT NULL,
-  `sbranch` varchar(100) NOT NULL,
-  `sifsccode` varchar(200) NOT NULL,
-  `suploadprofilepic` varchar(200) NOT NULL,
-  `ssigneddocument` varchar(200) NOT NULL,
+  `sname` varchar(50) DEFAULT NULL,
+  `scomapnyname` varchar(225) DEFAULT NULL,
+  `ssellertype` int(220) DEFAULT NULL,
+  `scontactperson` varchar(200) DEFAULT NULL,
+  `sdesignation` varchar(100) DEFAULT NULL,
+  `sagreement` tinyint(1) DEFAULT NULL,
+  `sagreementdate` date DEFAULT NULL,
+  `sterms_condi` tinyint(1) DEFAULT NULL,
+  `scin` varchar(225) DEFAULT NULL,
+  `scompanytype` varchar(50) DEFAULT NULL,
+  `saddress` tinytext DEFAULT NULL,
+  `saddresscount` int(2) DEFAULT NULL,
+  `sstreet` varchar(100) DEFAULT NULL,
+  `scity` varchar(100) DEFAULT NULL,
+  `span` int(225) DEFAULT NULL,
+  `spin` int(200) DEFAULT NULL,
+  `sstate` varchar(100) DEFAULT NULL,
+  `scountry` varchar(100) DEFAULT NULL,
+  `slocation` varchar(225) DEFAULT NULL,
+  `semail` varchar(200) DEFAULT NULL,
+  `sphone` int(11) DEFAULT NULL,
+  `susername` varchar(50) DEFAULT NULL,
+  `spassword` varchar(10) DEFAULT NULL,
+  `soldpassword` varchar(50) DEFAULT NULL,
+  `snewpassword` varchar(50) DEFAULT NULL,
+  `sconfirmpassword` varchar(10) DEFAULT NULL,
+  `sgst` int(12) DEFAULT NULL,
+  `spcb` varchar(225) DEFAULT NULL,
+  `scapcha` varchar(12) DEFAULT NULL,
+  `sbankername` varchar(200) DEFAULT NULL,
+  `saccountnumber` int(200) DEFAULT NULL,
+  `sbranch` varchar(100) DEFAULT NULL,
+  `sifsccode` varchar(200) DEFAULT NULL,
+  `suploadprofilepic` varchar(200) DEFAULT NULL,
+  `ssigneddocument` varchar(200) DEFAULT NULL,
   `adaction` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -258,8 +264,8 @@ CREATE TABLE `sellerprofile` (
 
 CREATE TABLE `subcategories` (
   `id` int(11) NOT NULL,
-  `name` varchar(200) NOT NULL,
-  `description` varchar(225) NOT NULL
+  `name` varchar(200) DEFAULT NULL,
+  `description` varchar(225) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
