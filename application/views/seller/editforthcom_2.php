@@ -1,5 +1,5 @@
  <?php 
-	//include('./header.php');
+	//include('./headerdata.php');
 ?>
         <!-- End of Topbar -->
 
@@ -8,7 +8,7 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h2 class="h3 mb-0 text-gray-800">EMD Status</h2>
+            <h2 class="h3 mb-0 text-gray-800">Edit Lot</h2>
             
           </div>
 
@@ -23,36 +23,38 @@
 
 		<table class="table table-striped table-bordered table-sm text-center" id="dataTable" width="100%" cellspacing="0">
 				<thead class="bg-info text-white text-center">
-					<th colspan="7">EMD</th>
+					<th colspan="7">Auction Details</th>
 				</thead>
 				<thead class="bg-primary text-white">
 				<tr>
 					<th>Auction Id</th>
-					<th width="60%">Auction Description</th>
-					<th width="10%">EMD Amount</th>
+					<th>Company Name</th>
+					<th>Location</th>
+					<th>Seller Name</th>
 				</tr>
 				</thead>
 
 				<tbody>
 				<tr>
 					<td>EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</td>
-					<td>An iron rod is a length of iron that is mainly used in heavy construction projects. Reinforced concrete is intertwined with iron rods, also called rebar, to strengthen the tension of the build</td>
-					<td>25,000</td>
+					<td>OMFED LTD.</td>
+					<td>Vellore</td>
+					<td>Shashi Kumar</td>
 				</tr>
 				
 				</tbody>
 		 </table>
 				<table class="table table-striped table-sm table-bordered mt-4 text-center" id="dataTable" width="100%" cellspacing="0">
 				<thead class="bg-warning  text-white text-center">
-					<th colspan="8">Buyer Details</th>
+					<th colspan="8">Lot Details</th>
 				</thead>
 				<thead class="bg-primary text-white">
 				<tr>
 					<th>Lot No</th>
 					<th>Lot Name</th>
-					<th>Buyer Name</th>
-					<th>Company Name</th>
-					<th>EMD Type</th>
+					<th>Quantity</th>
+					<th>GST</th>
+					<th>Action</th>
 				</tr>
 				</thead>
 
@@ -60,23 +62,34 @@
 				<tr>
 					<td>M-167</td>
 					<td>Horizontal Boring Machine</td>
-					<td>Shashi Kumar</td>
-					<td>OMFED LTD.</td>
-					<td>DD</td>
+					<td>1.0 Lot</td>
+					<td>18.0</td>
+					<td><a href="<?php echo base_url();?>seller_editlot" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a>
+						<a class="btn btn-danger btn-sm text-white"><i class="fa fa-trash fa-sm"></i></a></td>
+				</tr>
+				<tr>
+					<td>M-163</td>
+					<td>Cast Iron</td>
+					<td>1.0 Lot</td>
+					<td>20.0</td>
+					<td><a href="<?php echo base_url();?>seller_editlot" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a>
+						<a class="btn btn-danger btn-sm text-white"><i class="fa fa-trash fa-sm"></i></a></td>
 				</tr>
 				<tr>
 					<td>M-167</td>
-					<td>Horizontal Boring Machine</td>
-					<td>Shashi Kumar</td>
-					<td>OMFED LTD.</td>
-					<td>Online Payment</td>
+					<td>Pig Iron</td>
+					<td>1 MT</td>
+					<td>20.0</td>
+					<td><a href="<?php echo base_url();?>seller_editlot" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a>
+						<a class="btn btn-danger btn-sm text-white"><i class="fa fa-trash fa-sm"></i></a></td>
 				</tr>
 				<tr>
-					<td>M-167</td>
-					<td>Horizontal Boring Machine</td>
-					<td>Shashi Kumar</td>
-					<td>OMFED LTD.</td>
-					<td>DD</td>
+					<td>M-168</td>
+					<td>SS Aluminum</td>
+					<td>1.0 Lot</td>
+					<td>20.0</td>
+					<td><a href="<?php echo base_url();?>seller_editlot" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a>
+						<a class="btn btn-danger btn-sm text-white"><i class="fa fa-trash fa-sm"></i></a></td>
 				</tr>
 				</tbody>
 		 </table>
@@ -106,7 +119,7 @@
 
   <!-- Scroll to Top Button-->
  <?php 
-	//include('./footer.php');
+	//include('./footerdata.php');
 ?>
 </body>
 

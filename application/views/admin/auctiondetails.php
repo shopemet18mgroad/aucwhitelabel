@@ -18,26 +18,19 @@
 			<div class="table-responsive">
 			
 			   <form class="form-inline">
-					<div class="form-group mr-4 offset-sm-2">
+					<div class="form-group mr-4 offset-sm-4">
 						<td colspan="5">
 						<form action="/action_page.php">
-							<div class="form-group">
-							<label>Date</label>
-								<input class="form-control col-sm-5" type="Date" id="sdate" name="sdate">
-								<input class="form-control col-sm-5 ml-2" type="Date" id="ldate" name="ldate">
-							</div>
-							<div class="form-check">
-								<label class="form-check-label" for="check1">
-									<input type="checkbox" class="form-check-input" id="check1" name="option1" value="something" checked>Search by Company
-								</label>
-						<a href="#"><button type="button" class="btn btn-primary btn-sm offset-sm-4 mt-2 mb-2">Search</button></a>
-						</div>
+							
+								<input type="text" class="form-control" placeholder="Search.." name="search">
+								<button class="form-control" type="submit"><i class="fa fa-search"></i></button>
+					
 						</form>
 					</td>
 				</div>
 			</form>
 		
-         <table class="table table-striped text-center table-sm table-bordered w-auto small" id="dataTable" width="100%" cellspacing="0">		
+         <table class="table table-striped text-center table-sm table-bordered w-auto small mt-5"  width="100%" cellspacing="0">		
     <thead class="bg-primary text-white">
 	  <tr>
 		<th class="bg-info" colspan="12" style="Text-align:center;">Auction Details</th>
@@ -59,7 +52,7 @@
     </thead>
     <tbody>
       <tr>
-		<td style="color:blue;">AJ256458/BHEL/IRON/102</td> 
+		<td style="color:blue;"><a href="<?php echo base_url();?>admin_editforthcom_2">AJ256458/BHEL/IRON/102</a></td> 
 		<td>1</td>
         <td>Iron</td>
 		<td>Pig Iron</td>
@@ -70,12 +63,12 @@
 	 </u></a></td>
 		<td style="color:green;">Approve</td>
 		<td><a href=""><i class="fa fa-download"></i></a></td>
-        <td><a class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a><br><br>
+        <td><a href="<?php echo base_url();?>admin_editauction" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a><br><br>
 			<a class="btn btn-danger btn-sm text-white"><i class="fa fa-trash fa-sm"></i></a></td>
       </tr> 
 
 		<tr>
-		<td style="color:blue;">AJ256458/BHEL/IRON/102</td> 
+		<td style="color:blue;"><a href="<?php echo base_url();?>admin_editforthcom_2">AJ256458/BHEL/IRON/102</a></td> 
 		<td>1</td>
         <td>Iron</td>
 		<td>Pig Iron</td>
@@ -86,12 +79,12 @@
 	 </u></a></td>
 		<td style="color:red;" width="10%">Pending</td>
 		<td><a href=""><i class="fa fa-download"></i></a></td>
-        <td><a class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a><br><br>
+        <td><a href="<?php echo base_url();?>admin_editauction" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a><br><br>
 			<a class="btn btn-danger btn-sm text-white"><i class="fa fa-trash fa-sm"></i></a></td>
       </tr> 
 	  
 	  <tr>
-		<td style="color:blue;">AJ256458/BHEL/IRON/102</td> 
+		<td style="color:blue;"><a href="<?php echo base_url();?>admin_editforthcom_2">AJ256458/BHEL/IRON/102</a></td> 
 		<td>1</td>
         <td>Iron</td>
 		<td>Pig Iron</td>
@@ -101,13 +94,13 @@
 		<td><a href=""><u>Type: Pipes, Sheets, Rods, Blocks & Etc
 	 </u></a></td>
 		<td style="color:green;">Approve</td>
-		<td style="color:Blue;"><a href=""><i class="fa fa-download"></i></a></td>
-        <td><a class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a><br><br>
+		<td style="color:Blue;"><a href="<?php echo base_url();?>admin_editforthcom_2"><i class="fa fa-download"></i></a></td>
+        <td><a href="<?php echo base_url();?>admin_editauction" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a><br><br>
 			<a class="btn btn-danger btn-sm text-white"><i class="fa fa-trash fa-sm"></i></a></td>
       </tr> 
 	  
 	  <tr>
-		<td style="color:blue;">AJ256458/BHEL/IRON/102</td>
+		<td style="color:blue;"><a href="<?php echo base_url();?>admin_editforthcom_2">AJ256458/BHEL/IRON/102</a></td>
 		<td>1</td>
         <td>Iron</td>
 		<td>Pig Iron</td>
@@ -118,12 +111,12 @@
 	 </u></a></td>
 		<td style="color:red;">Pending</td>
 		<td style="color:Blue;"><a href=""><i class="fa fa-download"></i></a></td>
-        <td><a class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a><br><br>
+        <td><a href="<?php echo base_url();?>admin_editauction" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a><br><br>
 			<a class="btn btn-danger btn-sm text-white"><i class="fa fa-trash fa-sm"></i></a></td>
       </tr> 
 	  
 	  <tr>
-		<td style="color:blue;">AJ256458/BHEL/IRON/102</td> 
+		<td style="color:blue;"><a href="<?php echo base_url();?>admin_editforthcom_2">AJ256458/BHEL/IRON/102</a></td> 
 		<td>1</td>
         <td>Iron</td>
 		<td>Pig Iron</td>
@@ -134,7 +127,7 @@
 	 </u></a></td>
 		<td style="color:orange;">Reject</td>
 		<td><a href=""><i class="fa fa-download"></i></a></td>
-        <td><a class="btn btn-primary btn-sm text-white "><i class="fa fa-edit fa-sm"></i></a><br><br>
+        <td><a  href="<?php echo base_url();?>admin_editauction" class="btn btn-primary btn-sm text-white "><i class="fa fa-edit fa-sm"></i></a><br><br>
 			<a class="btn btn-danger btn-sm text-white "><i class="fa fa-trash fa-sm"></i></a></td>
       </tr> 
       
@@ -143,6 +136,27 @@
 
 		  </div>
             </div>
+			
+			<!--Pagination -->
+
+        <div class="row">
+		
+			<div class="col-sm-12 col-md-10">
+				<div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+				<ul class="pagination offset-lg-11">
+				<li class="paginate_button page-item previous disabled" id="dataTable_previous">
+				<a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
+				</li>
+				<li class="paginate_button page-item active">
+				<a href="#" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page-link">1</a>
+				</li>
+				<li class="paginate_button page-item next disabled" id="dataTable_next">
+				<a href="#" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page-link">Next</a>
+				</li>
+				</ul>
+				</div>
+				</div>
+			</div>
           </div>
 		  
 		  

@@ -39,11 +39,11 @@
       
 	  <tr>
 		  <td>Lot Name</td>
-		  <td><input class="form-control w-50" type="text" id="emd" name="emd"></td>
+		  <td><input class="form-control w-50" type="text" id="slotname" name="slotname"></td>
 	  </tr>
 	  <tr>
 		  <td>Category</td>
-		  <td><select class="form-control w-50" id="category" name="category">
+		  <td><select class="form-control w-50" id="scategory" name="scategory">
 				<option value="one" selected>Ferrous</option>
 				<option value="two">Non Ferrous</option>
 				<option value="three" >Minor Metals</option>
@@ -54,11 +54,11 @@
 	  </tr>
 	   <tr>
 		  <td>Description</td>
-		  <td><textarea class="form-control w-75" type="text" id="emd" name="emd"></textarea></td>
+		  <td><textarea class="form-control w-75" type="text" id="sdescription" name="sdescription"></textarea></td>
 	  </tr>
 	  <tr>  												
 		<td>Location Of Lot</td>
-		<td><select class="form-control w-50" id="category" name="category">
+		<td><select class="form-control w-50" id="slotlocation" name="slotlocation">
 				<option value="one" selected>Hydrabad</option>
 				<option value="two">Mangalore</option>
 				<option value="three" >Bangalore</option>
@@ -71,15 +71,15 @@
 		<td>Inspection Date & Time</td>
 		<td>
 From: 	
-    <input class="form-control w-50" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
+    <input class="form-control w-75" type="datetime-local" value="2011-08-19T13:45:00" id="sfrominpectdate_time" name="sfrominpectdate_time">
  To:
-    <input class="form-control w-50" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
+    <input class="form-control w-75" type="datetime-local" value="2011-08-19T13:45:00" id="stoinpectdate_time" name="stoinpectdate_time">
 </td>
 	</tr>
 	
 	<tr>
 		<td>EMD Details</td>
-		<td><textarea class="form-control w-75" type="text" id="emd" name="emd"></textarea></td>
+		<td><textarea class="form-control w-75" type="text" id="semddetail" name="semddetail"></textarea></td>
 	</tr>
 	
 	<tr>
@@ -90,20 +90,20 @@ From:
 	<tr>
 
 		<td>Expected Price</td>
-		<td><input class="form-control w-50" type="text" id="emd" name="emd"></td>
+		<td><input class="form-control w-50" type="text" id="slastdateemdsub" name="slastdateemdsub"></td>
 	</tr>
 	<tr>
 		<td>Starting Bid Price</td>
-		<td><input class="form-control w-50" type="text" id="emd" name="emd"></td>
+		<td><input class="form-control w-50" type="text" id="sstartbidprice" name="sstartbidprice"></td>
 	</tr>
 	</tr>
 		<td>Qty</td>
-		<td><input class="form-control w-50" type="text" id="emd" name="emd"></td>
+		<td><input class="form-control w-50" type="text" id="sqty" name="sqty"></td>
 	</tr>
 	
 	<tr>
 		<td>Unit Of Measurment</td>
-		<td><select class="form-control w-50" id="category" name="category">
+		<td><select class="form-control w-50" id="sunitmeasurment" name="sunitmeasurment">
 				<option value="one" selected>Gram</option>
 				<option value="two">Kilogram</option>
 				<option value="three">Tonne</option>
@@ -114,7 +114,7 @@ From:
 	
 	<tr>
 		<td>Bid Base</td>
-		<td><select class="form-control w-50" id="category" name="category">
+		<td><select class="form-control w-50" id="sbidbase" name="sbidbase">
 				<option value="one" selected>Gram</option>
 				<option value="two">Kilogram</option>
 				<option value="three">Tonne</option>
@@ -124,30 +124,30 @@ From:
 	</tr>
 	<tr>
 	<td>GST</td>
-	<td><input class="form-control w-50" type="text" id="onlineaucdate" name="onlineaucdate"></td>
+	<td><input class="form-control w-50" type="text" id="sgst" name="sgst"></td>
     </tr>
   
      <tr>
 		<td>Other Tax</td>
-		<td><input class="form-control w-50" type="text" id="onlineaucdate" name="onlineaucdate"></td>
+		<td><input class="form-control w-50" type="text" id="sothertax" name="sothertax"></td>
     </tr>
 	<tr>
 		<td>EMD Amount</td>
-		<td><input class="form-control w-50" type="text" id="onlineaucdate" name="onlineaucdate"></td>
+		<td><input class="form-control w-50" type="text" id="semdamount" name="semdamount"></td>
     </tr>	
 	<tr>
 		<td>Lifting Period</td>
-		<td><input class="form-control w-50" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
+		<td><input class="form-control w-75" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
 		<input class="form-control w-50 mt-2" type="text" id="onlineaucdate" name="onlineaucdate" placeholder="15 days"></td>
     </tr>
 	<tr>
 		<td>PCB Certificate</td>
 		<td><div class="form-check form-check-inline ">
-			<input type="checkbox" class="form-check-input" id="exampleCheck1">
+			<input type="checkbox" class="form-check-input" id="sliftingperiod[]" name="sliftingperiod[]">
 			<label class="form-check-label" for="exampleCheck1">Yes</label>
 			</div>
 			<div class="form-check form-check-inline ">
-			<input type="checkbox" class="form-check-input" id="exampleCheck1">
+			<input type="checkbox" class="form-check-input" id="sliftingperiod[]" name="sliftingperiod[]">
 			<label class="form-check-label" for="exampleCheck1">No</label>
 			</div></td>
     </tr>
@@ -156,8 +156,8 @@ From:
   </table>
   
   <center>
-  <a type="reset" class="btn btn-info text-white" data-dismiss="modal">Add Another Lot</a>
-  <a type="button" class="btn btn-info text-white" href="<?php echo base_url();?>admin_auctiondetails" data-dismiss="modal">Submit</a>
+  <a type="submit" onclick="return validatelot()" class="btn btn-info text-white" data-dismiss="modal">Add Another Lot</a>
+  <a type="button" onclick="return validatelot()" class="btn btn-info text-white" href="<?php echo base_url();?>admin_auctiondetails" data-dismiss="modal">Submit</a>
   </center>
 			</div>
             </div>

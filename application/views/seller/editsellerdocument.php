@@ -35,19 +35,11 @@
 					 </thead>
 						<tbody>
 							<tr>
-								<td class="btxt">Upload Profile Pic</td>
+								<td class="btxt">Upload Documents</td>
 								<td><input type="file" id="suploadimage1" name="suploadimage1"></td>
 							</tr> 
 							
-							<tr>
-								<td class="btxt">Upload Documents:</td>
-								<td>
-								<div class="input_fields_wrap">
-								<input type="file" id="ssigneddocument" name="ssigneddocument">
-								<a class="add_field_button "><button type="button" class="btn btn-sm btn-primary"> <i class="fa fa-plus text-white"></i></button></a>
-								</div>
-								</td>
-							</tr>							
+													
 											
 						</tbody>
 					</table>								
@@ -69,7 +61,7 @@
         <!-- /.container-fluid -->
 
       </div>
-	   <script>
+	<!--   <script>
  $(document).ready(function() {
  var max_fields  = 20;
  var wrapper     = $(".input_fields_wrap");
@@ -96,7 +88,7 @@
 			
 			});
  
- </script>
+ </script>-->
 	  
       <!-- End of Main Content -->
 

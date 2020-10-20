@@ -378,7 +378,7 @@
 												</tbody>
 												</table>
 												
-											<a href="#"><button type="submit" name="submit" onclick="return validateformb()"id="submit" class="btn btn-primary" >Submit</button></a>
+											<a href="#"><button type="submit" name="submit" onclick="return validateformb()" id="submit" class="btn btn-primary" >Submit</button></a>
 											</form>
 
 								

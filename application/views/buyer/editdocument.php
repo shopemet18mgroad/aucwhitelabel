@@ -39,10 +39,10 @@
 							<tr>
 								<td class="btxt">Upload Documents:</td>
 								<td>
-								<div class="input_fields_wrap">
-								<input type="file" id="bsigneddocument" name="bsigneddocument">
-								<a class="add_field_button"><button type="button" class="btn btn-sm btn-primary"><i class="fa fa-plus text-white"></i></button></a>
-								</div>
+								
+								<input type="file" multiple="multiple" id="bsigneddocument" name="bsigneddocument">
+								
+								
 								</td>
 							</tr>							
 											
@@ -84,7 +84,7 @@
 
   </div>
   
- <script>
+ <!--<script>
  $(document).ready(function() {
  var max_fields  = 10;
  var wrapper     = $(".input_fields_wrap");
@@ -112,7 +112,7 @@
 			
 			});
  
- </script>
+ </script>-->
  
 <?php 
 	//include('./footer.php');

@@ -23,7 +23,6 @@ class Sellers_registeration extends CI_Controller {
         
         // Load session library
         $this->load->library('session');
-        
         // Load the captcha helper
 		$this->load->helper('captcha');
 		$this->load->helper('url');
@@ -32,6 +31,11 @@ class Sellers_registeration extends CI_Controller {
     }
     
     public function index(){
+		$data = array('alfa'=>'beta');
+		$this->session->set_flashdata('data_name', $data);
+		$message = $this->session->flashdata('data_name');
+		redirect('../Seller_registeration');
+		die;// t
         // If captcha form is submitted
         if($this->input->post('submit2')){
 			$date =  Date('Y-m-d'); 

@@ -20,7 +20,7 @@
             <div class="card-body">
               <div class="table-responsive">
 
-		<table class="table table-striped table-bordered table-sm" id="dataTable" width="100%" cellspacing="0">
+		<table class="table table-striped table-bordered table-sm text-center" id="dataTable" width="100%" cellspacing="0">
 				<thead class="bg-info text-white text-center">
 					<th colspan="7">Auction Details</th>
 				</thead>
@@ -45,7 +45,7 @@
 				</tr>
 				</tbody>
 			</table>
-				<table class="table table-striped table-sm table-bordered mt-4" id="dataTable" width="100%" cellspacing="0">
+				<table class="table table-striped table-sm table-bordered mt-4 text-center" id="dataTable" width="100%" cellspacing="0">
 				<thead class="bg-warning  text-white text-center">
 					<tr>
 						<th colspan="12">Open LOT Number</th>

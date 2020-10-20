@@ -73,10 +73,10 @@
 		<div id="myScrollspy" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
              <a class="collapse-item" href="<?php echo base_url();?>seller_dashboard">Profile</a>
-            <a class="collapse-item" href="<?php echo base_url();?>#section2">contact</a>
-			<a class="collapse-item" href="<?php echo base_url();?>#section3">Account</a>
-			<a class="collapse-item" href="<?php echo base_url();?>#section4">Password</a>
-			<a class="collapse-item" href="<?php echo base_url();?>#section5">Document</a>
+            <a class="collapse-item" href="#section2">contact</a>
+			<a class="collapse-item" href="#section3">Account</a>
+			<a class="collapse-item" href="#section4">Password</a>
+			<a class="collapse-item" href="#section5">Document</a>
           </div>
         </div>
       </li>

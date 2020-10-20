@@ -55,7 +55,7 @@
 					<td>Shada Shiv Nagar</td>
 					<td>Active</td>
 					<td><a href="<?php echo base_url();?>admin_editseller">
-						<i class="fa fa-edit"></i> 
+						 <i class="fa fa-edit"></i> 
 						</a>
 						<a href="" >
 						<i class="fa fa-trash" style="color:black"></i> 

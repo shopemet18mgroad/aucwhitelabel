@@ -21,43 +21,19 @@
             <div class="card-body">
               <div class="table-responsive">
 			     <form class="form-inline">
-			  
-			  <div class="form-group">
-			  <label>Date</label>
-			
-					<input class="form-control col-sm-5 m-2" type="Date" id="sdate" name="sdate">
-					<input class="form-control col-sm-5 ml-2" type="Date" id="ldate" name="ldate">
-				</div>
-				
-				 <div class="form-group col-sm-3 mr-4">
-				<label>Category:</label>
-
-					<select class="form-control col-sm-5 ml-2" id="scategory" name="scategory">
-					<option value="one" selected>Ferrous</option>
-					<option value="two">Non Ferrous</option>
-					<option value="three" >Minor Metals</option>
-					<option value="four">Plain paper</option>
-					<option value="five">Granules</option>
-					<option value="six">All Construction Materials</option>
-					</select>
-				</div>
-
-				<div class="form-group col-sm-3">
-				<label>Seller:</label>
-				 
-					<select class="form-control col-sm-5 ml-1" id="seller" name="seller">
-					<option value="one" selected>BHEL</option>
-					<option value="two">Exide</option>
-					<option value="three" >Hindustan Ltd</option>
-					<option value="four">Aditya Birla Group</option>
-					<option value="five" >JSW Steel</option>
-					<option value="six">Nalco</option>
-					</select>
-					<a href="#"><button type="button" class="btn btn-primary btn-sm ml-4 mt-2 mb-2">Search</button></a>
+			  <div class="form-group mr-4 offset-sm-4">
+						<td colspan="5">
+						<form action="/action_page.php">
+							
+								<input type="text" class="form-control" placeholder="Search.." name="search">
+								<button class="form-control" type="submit"><i class="fa fa-search"></i></button>
+					
+						</form>
+					</td>
 				</div>
 			
 			</form>
-		<table class="table table-striped table-bordered table-sm text-center" id="dataTable" width="100%" cellspacing="0">
+		<table class="table table-striped table-bordered table-sm text-center mt-5"  width="100%" cellspacing="0">
 				<thead class="bg-primary text-white">
 				<tr>
 					<th width="60%">Auction Id</th>
@@ -90,6 +66,28 @@
 		 </table>
 		</div>
 		</div>
+		
+		<!--Pagination -->
+
+        <div class="row">
+		
+			<div class="col-sm-12 col-md-10">
+				<div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+				<ul class="pagination offset-lg-11">
+				<li class="paginate_button page-item previous disabled" id="dataTable_previous">
+				<a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
+				</li>
+				<li class="paginate_button page-item active">
+				<a href="#" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page-link">1</a>
+				</li>
+				<li class="paginate_button page-item next disabled" id="dataTable_next">
+				<a href="#" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page-link">Next</a>
+				</li>
+				</ul>
+				</div>
+				</div>
+			</div>
+		
 		</div>
 		</div>
 		</div>

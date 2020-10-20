@@ -127,7 +127,7 @@
 					 </thead>
 						<tbody>
 							<tr>
-								<td class="btxt">Upload Profile Picture</td>
+								<td class="btxt">Upload Documents</td>
 								<td><input type="file" multiple="multiple" id="buploadprofilepic" name="buploadprofilepic"></td>
 							</tr> 
 										

@@ -1,6 +1,6 @@
-<?php
-  //  include('./header');
-	?>
+<?php 
+	//include('./header.php');
+?>
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -20,45 +20,48 @@
           <div class="card shadow mb-4">
             <div class="card-body">
               <div class="table-responsive">
-               <table class="table table-striped table-sm text-left p-4 " id="dataTable" width="100%" cellspacing="0">
-    <thead class="bg-primary text-white">
+               <table class="table table-striped text-left table-sm p-4" id="dataTable" width="100%" cellspacing="0">
+    <thead class="bg-info text-white">
       <tr>
-		<th colspan="10" class="bg-info"><center>Start Auction</center></th>  
+		<th colspan="10"><center>Start Auction</center></th>  
       </tr>
     </thead>
     <tbody>
 	  
 	  <tr>
-		  <td width="10%" >Select Category</td>
-		  <td width="6%"><select class="form-control w-50" id="sselectcategory" name="sselectcategory">
-				<option value="one" selected>Select</option>
-				<option value="two">Ferrous</option>
+		  <td width="11%">Category</td>
+		  <td width="4%"><select class="form-control w-50" id="scategory" name="scategory">
+				<option value="one" selected>Ferrous</option>
 				<option value="two">Non Ferrous</option>
 				<option value="three" >Minor Metals</option>
 				<option value="four">Plain paper</option>
 				<option value="five">Granules</option>
 				<option value="six">All Construction Materials</option>
-				</select></td>
+				</select>
+			</td>
 	  </tr>
-      
+	  
+	  	  
 	  <tr>
-		  <td>Auction Id.</td>
+		  <td>Auction Id</td>
 		  <td style="color:blue;">AJ256458/BHEL/IRON/102</td>
 	  </tr>
 	  
 	  <tr>											
 		  <td>Venue Of Inspection</td>
-		  <td><textarea class="form-control w-75" type="text" id="svinspection" name="svinspection"></textarea></td>
+		  <td><textarea class="form-control w-50" type="text" id="svinspection" name="svinspection"></textarea></td>
 	  </tr>
 	  
-	  
+	  <tr>
 		<td>Online Auction Date</td>
-		<td><input class="form-control w-50" type="date" id="sonlineaucdate" name="sonlineaucdate"></td>
+		<td><input class="form-control w-75" id="sonlineaucdate_time" name="sonlineaucdate_time" type="datetime-local" >
+		</td>
 	</tr>
+	
 	<tr>
 	<td>Aucjunction Terms & Conditions</td>
 	<td>
-	<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">
+	<button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#myModal">
     Terms & Conditions
   </button>
 
@@ -201,8 +204,8 @@ Bidders participating in AucJunction Auctions should verify with the selling com
   </div>
   <br><br>
   <div class="form-check form-check-inline ">
-			<input type="checkbox" class="form-check-input" id="sterms&condiaccept" name="sterms&condiaccept">
-			<label class="form-check-label" for="sterms&condiaccept">I agree to the Terms and Conditions</label>
+			<input type="checkbox" class="form-check-input" id="sterms_condiaccept" name="sterms_condiaccept">
+			<label class="form-check-label" for="exampleCheck1">I agree to the Terms and Conditions</label>
 			</div></td>
   </tr>
   
@@ -232,7 +235,7 @@ Bidders participating in AucJunction Auctions should verify with the selling com
     </tbody>
   </table>
   
-  <center><a type="button" class="btn btn-info" href="<?php echo base_url();?>seller_addlot">Start Auction</a></center>
+  <center><a type="button" class="btn btn-info" href="<?php echo base_url();?>seller_addlot" data-dismiss="modal">Start Auction</a></center>
 			</div>
             </div>
 			</div>
@@ -255,6 +258,9 @@ Bidders participating in AucJunction Auctions should verify with the selling com
 
   </div>
   <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  
   <script>
 function myFunction() {
   var checkBox = document.getElementById("myCheck");
@@ -277,7 +283,11 @@ function myFunction2() {
   }
 }
 </script>
-  <!-- Scroll to Top Button-->
-  <?php
- //   include('./footer');
-	?>
+
+
+<?php 
+	//include('./footer.php');
+?>
+</body>
+
+</html>

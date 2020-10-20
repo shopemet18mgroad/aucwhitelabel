@@ -39,7 +39,7 @@
 			<div class="row branding">
 				<div class="col-md-6 col-sm-12 pt-4">
 					<a href="./home" title="Aucjunction Logo">
-					<img class="img-fluid" alt="Aucjunction"  src="<?php echo base_url()."web_files/";?>images/aucjunction.jpg">
+					<img class="img-fluid" alt="Aucjunction"  src="<?php echo base_url()."web_files/";?>images/aucjuntn.jpg">
 					</a>
 				</div>
 				<div class="col-md-6 col-sm-12 p-2">
@@ -141,3 +141,6 @@
 			 <marquee><p>Aucjunction10200001 are Scheduled on October 2020&nbsp;|&nbsp;Aucjunction10200002 are Scheduled on October 2020&nbsp;|&nbsp;Aucjunction10200003 are Scheduled on October 2020</p><p></p></marquee>
 			</div>
 		</div>
+		
+		
+		
