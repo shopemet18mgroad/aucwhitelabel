@@ -172,6 +172,7 @@ if(scomapnyname == '' || ssellertype == '' || scontactperson == '' || span == ''
 		}
   }
   </script>
+<<<<<<< HEAD
   
  
  <!-----------------------buyer capcha----------------------------------->
@@ -261,6 +262,27 @@ if(bcompany == '' || bcomptype == '' || bbuyertype == '' || bbuyerlocation == ''
 			swal("Alert!",  "Please Enter User Name!", "error");
 			return false;
 		}
+=======
+   <script>
+  function validate_tanc(){
+	   var agree = document.getElementById('agreement');
+	   var user = document.getElementById('user').value;
+	   if(agree.checked){
+				$.get('<?php echo base_url() .'registeration/complete/'; ?>'+user, function(data2){				 
+				 if($.trim(data2) == "HI"){
+					swal("Thank You!", "Data Stored Successfully", "success");
+				}else{
+					swal("Alert!", "Terms and condition Failed Store", "error");
+					document.getElementById("susername").value = "";
+					return false;
+				}
+			 });
+	   }else{
+		    swal("Alert!", "Please Tick On Accept Agreement To Copmplete Registration", "error");
+			return false;
+	   }
+	  
+>>>>>>> 54f32334269effb6287dfd6ab4904a972b5c6055
   }
   </script>
 </body>
