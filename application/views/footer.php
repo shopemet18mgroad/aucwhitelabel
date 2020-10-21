@@ -82,41 +82,7 @@
   
   <!--  <script src="./js/jquery.autoscroll.js" type="text/javascript" charset="utf-8"></script> Core plugin JavaScript-->
   
-  <script>
-  
-function validate(){
-
-	var bcompany = document.getElementById("bcompany").value;
-	var bcomptype = document.getElementById("bcomptype").value;
-	var bbuyertype = document.getElementById("bbuyertype").value;
-	var bbuyerlocation = document.getElementById("bbuyerlocation").value;
-	var bcontactperson = document.getElementById("bcontactperson").value;
-	var baddress = document.getElementById("baddress").value;
-	var bcity = document.getElementById("bcity").value;
-	var bpin = document.getElementById("bpin").value;
-	var bstate = document.getElementById("bstate").value;
-
-	var bcountry = document.getElementById("bcountry").value;
-	
-	var bemail = document.getElementById("bemail").value;
-	
-	var bphone = document.getElementById("bphone").value;
-	var bpan = document.getElementById("bpan").value;
-	var busername = document.getElementById("busername").value;
-	var bpassword = document.getElementById("bpassword").value;
-	var bconfirmpassword = document.getElementById("bconfirmpassword").value;
-	var bgst = document.getElementById("bgst").value;
-	var bcapcha = document.getElementById("bcapcha").value; 
-	//var saddress = document.getElementsByName("saddress");
-	//var ssigneddocument = document.getElementsByName("ssigneddocument");
-	//var AnswerInput = document.getElementsByName("saddresscount");
-	
-if(bcompany == '' || bcomptype == '' || bbuyertype == '' || bbuyerlocation == '' || bcontactperson == '' || baddress == '' || bcity == '' || bpin == '' || bstate == '' || bcountry == '' || bemail == '' || bphone == '' || bpan == '' || busername == '' || bpassword == '' || bconfirmpassword == '' || bgst == ''|| bcapcha == '' ){
-		swal("Alert!",  "Company, Company Type, Buyer Type, Buyer's Location, Contact Person, Postal Address, City, Pin, State/Union Ter, E-Mail, Phone No, Pan No, User Name, Password , Confirm Password , GST No, Security Code  cannot leave any feild blank!", "error");
-		return false;
-	}
-}
-  </script>
+ 
   
  <script>
   
@@ -194,6 +160,97 @@ if(scomapnyname == '' || ssellertype == '' || scontactperson == '' || span == ''
 				 if($.trim(data2) == "BYE"){
 					swal("Alert!",  "Username Already Exists", "error");
 					document.getElementById("susername").value = "";
+					return false;
+				}else{
+					return true;
+				}
+			 });
+			
+		}else{
+			swal("Alert!",  "Please Enter User Name!", "error");
+			return false;
+		}
+  }
+  </script>
+  
+ 
+ <!-----------------------buyer capcha----------------------------------->
+   <script>
+  
+function validate(){
+
+	var bcompany = document.getElementById("bcompany").value;
+	var bcomptype = document.getElementById("bcomptype").value;
+	var bbuyertype = document.getElementById("bbuyertype").value;
+	var bbuyerlocation = document.getElementById("bbuyerlocation").value;
+	var bcontactperson = document.getElementById("bcontactperson").value;
+	var bdesignation = document.getElementById("bdesignation").value;
+	var baddress = document.getElementById("baddress").value;
+	var bcity = document.getElementById("bcity").value;
+	var bpin = document.getElementById("bpin").value;
+	var bstate = document.getElementById("bstate").value;
+	var bcountry = document.getElementById("bcountry").value;
+	var bemail = document.getElementById("bemail").value;
+	var bphone = document.getElementById("bphone").value;
+	var bpan = document.getElementById("bpan").value;
+	var busername = document.getElementById("busername").value;
+	var bpassword = document.getElementById("bpassword").value;
+	var bconfirmpassword = document.getElementById("bconfirmpassword").value;
+	var bgst = document.getElementById("bgst").value;
+	var bcapcha = document.getElementById("captcha").value; 
+	//var saddress = document.getElementsByName("saddress");
+	//var ssigneddocument = document.getElementsByName("ssigneddocument");
+	//var AnswerInput = document.getElementsByName("saddresscount");
+	
+if(bcompany == '' || bcomptype == '' || bbuyertype == '' || bbuyerlocation == '' || bcontactperson == '' || bdesignation == ''|| baddress == '' || bcity == '' || bpin == '' || bstate == '' || bcountry == '' || bemail == '' || bphone == '' || bpan == '' || busername == '' || bpassword == '' || bconfirmpassword == '' || bgst == ''|| bcapcha == '' ){
+		swal("Alert!",  "Company, Company Type, Buyer Type, Buyer's Location, Contact Person, Postal Address, City, Pin, State/Union Ter, E-Mail, Phone No, Pan No, User Name, Password , Confirm Password , GST No, Security Code  cannot leave any feild blank!", "error");
+		return false;
+	}
+	
+	if(bpassword != bconfirmpassword){
+		swal("Alert!",  "Password and Confirm Password Should Match!", "error");
+		return false;
+	}
+	
+}
+  </script>
+ <script>
+  
+    $('.refreshCaptcha').on('click', function(){
+        $.get('<?php echo base_url() .'Buyers_registeration/refresh'; ?>', function(data){
+            $('#captImg').html(data);
+        });
+    });
+  </script>
+   <script>
+  function validate_cap(){
+	  var captcha = document.getElementById("captcha").value;
+		if(captcha.length >= 4){
+			$.get('<?php echo base_url() .'Buyers_registeration/validate_capatcha1/'; ?>'+captcha, function(data){
+            $('#captImg').html(data);
+				if($.trim(data) == "Bye"){
+					swal("Alert!",  "Invalid Captcha", "error");
+					document.getElementById("captcha").value = "";
+					return false;
+				}else{
+					return true;
+				}
+			});
+		}
+	 
+	 // var b = document.getElementById("bpassword").value;
+
+	}
+   
+  </script>
+  <script>
+  function validate_username(){
+	  var val = document.getElementById("busername").value;
+		if(val != ''){
+			 $.get('<?php echo base_url() .'Buyers_registeration/validate_username/'; ?>'+val, function(data2){				 
+				 if($.trim(data2) == "BYE"){
+					swal("Alert!",  "Username Already Exists", "error");
+					document.getElementById("busername").value = "";
 					return false;
 				}else{
 					return true;

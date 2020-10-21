@@ -30,9 +30,8 @@
 <P class= "para">Welcome to Aucjunction! Auctions related services will be provided on www.aucjunction.com
 AucJunction is most reputed private online auction portal operating in the specialized space of buying and selling surplus inventories. We will provide a comprehensive online marketplace for companies to buy and sell residual and superfluous inventory - from raw material, disposals, machinery and industrial by-products to non-performing and stressed assets. Our service offerings include tender management, Purchase and Sale of Industrial Scraps & disposals.
 </P>
-<P class= "para">This Agreement made this&nbsp;<input class="long-content w-25" type= "text" name="username" id = "username" size="25"> day of &nbsp;<input class="long-content w-25" type= "text" name="date" id = "date" size="25">Between 
-M/S &nbsp;<input class="long-content w-25" type= "text" name="uname" id = "uname" size="25">having its Registered office at &nbsp;<input class="long-content w-25" type= "text" name="office" id = "office" size="25">
-herein called “ Partner Buyer/Bidder” AND  Aucjunction  ( Brand/Subsidary of Shopemet Networks Private Limited) having its Registered office at No 179, 2nd Floor, Mysore Road Cross, Bangalore 560002.
+<P class= "para">This Agreement made this&nbsp; <span><b><?php echo $date; ?></b></span>&nbsp; day of &nbsp;<span><b><?php echo $date; ?></b></span> Between 
+M/S &nbsp; <span><b><?php echo $company;?></b></span><br>having its Registered office at <span><b><?php echo $street.", ".$city.", ".$pin.".";?></b><span> herein called “ Partner Buyer/Bidder” AND  Aucjunction  ( Brand/Subsidary of Shopemet Networks Private Limited) having its Registered office at No 179, 2nd Floor, Mysore Road Cross, Bangalore 560002.
 
 The Contract will remain valid from (Date) of Registration to 1 (One) Year of this Agreement which could be extended for such further period on such terms and conditions as mutually agreed upon by the parties
 </p>
@@ -146,8 +145,8 @@ The Contract will remain valid from (Date) of Registration to 1 (One) Year of th
 <div class="signature">
 <div>
 For and On Behalf of <br>                                                                                               
-M/S&nbsp;<input class="long-content w-75" type= "text" name="username" id = "username" size="25"><br>	                                                                    
-By its  &nbsp;<input class="long-content w-25" type= "text" name="username" id = "username" size="25">Shri &nbsp;<input class="long-content w-50" type= "text" name="username" id = "username" size="25">                      
+M/S&nbsp;<span><b><?php echo $company;?></b></span><br>	                                                                    
+By its  &nbsp;<span><b><?php echo $designation;?>&nbsp;</b></span>Shri &nbsp;<span><b><?php echo $contactperson;?></b></span>                      
 <br><br><br>
 Signature with Seal.
 </div>
@@ -163,8 +162,8 @@ Signature and Seal.
 </div>
 </table>
 <div class="text-center" style="position:relative;">
-<a href="<?php echo base_url();?>registration"><button type="button" class="btn btn-primary mt-2">Agree</button></a>
-<a href="index.php"><button type="button" class="btn btn-primary mt-2">Disagree</button></a>
+<a href="<?php echo base_url()."registration/index/".$username."/".$date;?>"><button type="button" class="btn btn-primary mt-2">Agree</button></a>
+<a href="<?php echo base_url();?>home"><button type="button" class="btn btn-primary mt-2">Disagree</button></a>
 </div>
 
 

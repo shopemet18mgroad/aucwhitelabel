@@ -21,8 +21,10 @@ class Agreementforbuyer extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper('url');
+		$this->load->library('session');
+		$data = $this->session->flashdata('txdata');
 		$this->load->view('header');
-		$this->load->view('agreementforbuyer');
+		$this->load->view('agreementforbuyer',$data);
 		$this->load->view('footer');
 		
 	}

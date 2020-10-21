@@ -44,7 +44,8 @@
   <script src="<?php echo base_url()."web_files/";?>vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="<?php echo base_url()."web_files/";?>vendor/datatables/dataTables.bootstrap4.min.js"></script>
  <script src="<?php echo base_url()."web_files/";?>js/demo/datatables-demo.js"></script>
- <script>
+ 
+  <script>
  function validatearry(){
 	 
 	 	var selectname = document.getElementsByName('saddress[]');

@@ -29,7 +29,7 @@ function validatestart(){
 				
 				
 				if( $('input[name="sterms_condiupload[]"]:checked').length == 0 )
-			{
+			{ 
 				swal("Alert!",  "Upload Terms & Conditions ", "error");
 				return false;
 			}
@@ -47,25 +47,30 @@ function validatelot(){
 	var sfrominpectdate_time = document.getElementById("sfrominpectdate_time").value;
 	var stoinpectdate_time = document.getElementById("stoinpectdate_time").value;
 	var semddetail = document.getElementById("semddetail").value;
-	var emdlastdate = document.getElementById("emdlastdate").value;
 	var slastdateemdsub = document.getElementById("slastdateemdsub").value;
-	var sfrominpectdate_time = document.getElementById("sfrominpectdate_time").value;
-	var sfrominpectdate_time = document.getElementById("sfrominpectdate_time").value;
-	var sfrominpectdate_time = document.getElementById("sfrominpectdate_time").value;
-	var sfrominpectdate_time = document.getElementById("sfrominpectdate_time").value;
-	var sfrominpectdate_time = document.getElementById("sfrominpectdate_time").value;
+	var sprice = document.getElementById("sprice").value;
+	var sstartbidprice = document.getElementById("sstartbidprice").value;
+	var sqty = document.getElementById("sqty").value;
+	var sunitmeasurment = document.getElementById("sunitmeasurment").value;
+	var sbidbase = document.getElementById("sbidbase").value;
+	var sgst = document.getElementById("sgst").value;
+	var sothertax = document.getElementById("sothertax").value;
+	var semdamount = document.getElementById("semdamount").value;
+	var sliftingperiod = document.getElementById("sliftingperiod").value;
+	var spcbcertificate = document.getElementById("spcbcertificate").value;
 	
 	
 	
 	
-	if(scategory == '' || svinspection == '' || sonlineaucdate_time == '' ){
+	
+	if(slotname == '' || scategory == '' || sdescription == '' || slotlocation == '' || sfrominpectdate_time == '' || stoinpectdate_time == '' || semddetail == '' || slastdateemdsub == '' || sprice == '' || sstartbidprice == '' || sqty == '' || sunitmeasurment == '' || sbidbase == '' || sgst == '' || sothertax == '' || semdamount == '' || sliftingperiod == '' ){
 		swal("Alert!",  "Category, Seller, Venue Of Inspection, Online Auction Date cannot leave any field blank!", "error");
 		return false;
 	}
 		
 	
 	
-		if( $('input[name="sliftingperiod[]"]:checked').length == 0 )
+		if( $('input[name="spcbcertificate[]"]:checked').length == 0 )
 		   
 			{
 				swal("Alert!",  "Aucjunction Terms & Conditions Should Be Selected", "error");

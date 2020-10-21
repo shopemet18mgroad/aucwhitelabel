@@ -44,7 +44,8 @@
 	  <tr>
 		  <td>Category</td>
 		  <td><select class="form-control w-50" id="scategory" name="scategory">
-				<option value="one" selected>Ferrous</option>
+				<option value="one" selected>Select</option>
+				<option value="one">Ferrous</option>
 				<option value="two">Non Ferrous</option>
 				<option value="three" >Minor Metals</option>
 				<option value="four">Plain paper</option>
@@ -71,9 +72,9 @@
 		<td>Inspection Date & Time</td>
 		<td>
 From: 	
-    <input class="form-control w-75" type="datetime-local" value="2011-08-19T13:45:00" id="sfrominpectdate_time" name="sfrominpectdate_time">
+    <input class="form-control w-75" type="datetime-local" id="sfrominpectdate_time" name="sfrominpectdate_time">
  To:
-    <input class="form-control w-75" type="datetime-local" value="2011-08-19T13:45:00" id="stoinpectdate_time" name="stoinpectdate_time">
+    <input class="form-control w-75" type="datetime-local"  id="stoinpectdate_time" name="stoinpectdate_time">
 </td>
 	</tr>
 	
@@ -84,13 +85,13 @@ From:
 	
 	<tr>
 		<td>Last Date Of Submiting EMD</td>
-		<td><input class="form-control w-50" type="date" id="emdlastdate" name="emdlastdate"></td>
+		<td><input class="form-control w-50" type="date" id="slastdateemdsub" name="slastdateemdsub"></td>
 	</tr>
 	
 	<tr>
 
 		<td>Expected Price</td>
-		<td><input class="form-control w-50" type="text" id="slastdateemdsub" name="slastdateemdsub"></td>
+		<td><input class="form-control w-50" type="text" id="sprice" name="sprice"></td>
 	</tr>
 	<tr>
 		<td>Starting Bid Price</td>
@@ -137,17 +138,17 @@ From:
     </tr>	
 	<tr>
 		<td>Lifting Period</td>
-		<td><input class="form-control w-75" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
-		<input class="form-control w-50 mt-2" type="text" id="onlineaucdate" name="onlineaucdate" placeholder="15 days"></td>
+		<td><input class="form-control w-75" type="datetime-local" id="sliftingperiod" id="sliftingperiod">
+		<input class="form-control w-50 mt-2" type="text" id="sliftingperiod" name="sliftingperiod" placeholder="Exp.15 days"></td>
     </tr>
 	<tr>
 		<td>PCB Certificate</td>
 		<td><div class="form-check form-check-inline ">
-			<input type="checkbox" class="form-check-input" id="sliftingperiod[]" name="sliftingperiod[]">
+			<input type="checkbox" class="form-check-input" id="spcbcertificate[]" name="spcbcertificate[]">
 			<label class="form-check-label" for="exampleCheck1">Yes</label>
 			</div>
 			<div class="form-check form-check-inline ">
-			<input type="checkbox" class="form-check-input" id="sliftingperiod[]" name="sliftingperiod[]">
+			<input type="checkbox" class="form-check-input" id="spcbcertificate[]" name="spcbcertificate[]">
 			<label class="form-check-label" for="exampleCheck1">No</label>
 			</div></td>
     </tr>
@@ -156,8 +157,8 @@ From:
   </table>
   
   <center>
-  <a type="submit" onclick="return validatelot()" class="btn btn-info text-white" data-dismiss="modal">Add Another Lot</a>
-  <a type="button" onclick="return validatelot()" class="btn btn-info text-white" href="<?php echo base_url();?>admin_auctiondetails" data-dismiss="modal">Submit</a>
+<a type="reset"  class="btn btn-info text-white" data-dismiss="modal">Add Another Lot</a>
+  <a type="submit"  onclick="return validatelot()" class="btn btn-info text-white" href="<?php echo base_url();?>admin_auctiondetails" data-dismiss="modal">Submit</a>
   </center>
 			</div>
             </div>

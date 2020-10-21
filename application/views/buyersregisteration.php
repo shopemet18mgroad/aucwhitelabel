@@ -15,7 +15,7 @@
 		
 		<table class="table table-sm table-striped table-info justify-content-right w-auto small text-secondary table-borderless table-responsive text-center float-right">
 		
-		<form action="./action" method="POST" enctype="multipart/form-data">
+		<form action="./Buyers_registeration" method="POST" >
     <tbody>
 		
 		<tr>
@@ -51,10 +51,14 @@
 	  <td><input  class="form-control w-75" type="text" id="bcontactperson" name="bcontactperson" size="50"></td>
 	  </tr>
 	  <tr>
+        <td><b>Contact Person Designation *</b></td>
+        <td><input class="form-control w-75" type="text" id="bdesignation" name="bdesignation" size="50" ></td>
+      </tr>
+	  <tr>
 	  <td><b>Postal Address</b></td>
 	  <td><input  class="form-control w-75" type="text" id="baddress" name="baddress" size="50"></td>
 	  </tr>
-	  
+	 
 	   <tr>
 	  <td><b>City</b></td>
 	  <td><input  class="form-control w-75" type="text" id="bcity" name="bcity" size="50"></td>
@@ -132,17 +136,15 @@
         <td><input  class="form-control w-75" type="text" name="bgst" id="bgst" size="50"></td>
         </tr>
 		<tr>
-        <td><b>Security Code *</b></td>
-        <td><input  class="form-control w-75" type="text" name="bcapcha" id="bcapcha" size="50"></td>
+        <td><b>CAPATCHA : </b><span id="captImg" class="captImg">&nbsp; <img src="<?php echo base_url()."web_files/captcha_images/".$ImgFileName;?>"></span><a href="javascript:void(0);" class="refreshCaptcha">&nbsp;&nbsp;Refresh Captacha</a></td>
+        <td><input  class="form-control w-75" type="text" name="captcha" id="captcha"  onkeyup="validate_cap()" placeholder="Enter 4 Digit Captcha" size="50"></td>
         </tr>
-		</tbody>
-		</table>
-		
-		<a href="#"><button type="submit" onclick="return validate()" class="btn btn-primary offset-sm-3 mt-2">Submit</button></a>
-												
-		<a href="#"><button type="reset" class="btn btn-primary offset-sm-1 mt-2">Reset</button></a>
-												
-		<a href="<?php echo base_url();?>agreementforbuyer"><button type="button" class="btn btn-primary offset-sm-1 mt-2">Proceed</button></a>
+	   </tbody>
+	   </table>
+		<div class="text-center">
+    <input type="submit" name="submit2" onclick="return validate()" value=" Proceed" class="btn btn-primary col-2 mt-2">
+	<button type="reset" class="btn btn-primary col-2 mt-2">Reset</button>
+		</div>
 			</form>
 		</div>
 		</div>
