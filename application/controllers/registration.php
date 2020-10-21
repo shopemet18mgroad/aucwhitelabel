@@ -36,11 +36,27 @@ class Registration extends CI_Controller {
 		$this->load->helper('url');
 		$dataw = $this->uri->segment(3);
 		$update = array('sterms_condi'=>true);
+		$pass = array('username'=> $dataw);
 		$this->load->model('Admin_model');
 		$this->Admin_model->update_custom('sellerprofile',$update,'susername',$dataw);
 		$this->load->view('header');
-		$this->load->view('registration');
+		$this->load->view('registration', $pass);
 		$this->load->view('footer');
+		
+	}
+	public function complete()
+	{
+		$this->load->helper('url');
+		$dataw = $this->uri->segment(3);
+		$update = array('sterms_condi'=>true);
+		$pass = array('username'=> $dataw);
+		$this->load->model('Admin_model');
+		$sta = $this->Admin_model->update_custom('sellerprofile',$update,'susername',$dataw);
+		if($sta){
+			echo "HI";
+		}else{
+			echo "BYE";
+		}
 		
 	}
 	

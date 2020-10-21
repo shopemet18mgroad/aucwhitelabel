@@ -326,20 +326,21 @@ in applicable tax rates that are promulgated by the Government from time to time
 </p>
 
  <div class="form-check para">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">I have read and agree with the terms and conditions. </label>
+    <input type="checkbox" class="form-check-input" id="agreement">
+	<input type="hidden" id="user" value="<?php echo $username; ?>">
+    <label class="form-check-label" for="agreement">I have read and agree with the terms and conditions. </label>
   </div>
 			
 				</div>
 			</table>
 
 			<div class="text-center" style="position:relative;">
-				<button  type="button" class="btn btn-primary mt-2" data-toggle="modal" data-target="#myModal">Agree</button>
+				<button  type="button" class="btn btn-primary mt-2" onclick="return validate_tanc()" >Agree</button>
 				<a href='index.php'><button type="button" class="btn btn-primary mt-2">Disagree</button></a>
 			</div>
 			
 			<!-- The Modal -->
-  <div class="modal fade" id="myModal">
+  <div class="modal fade" id="myModalThanks">
     <div class="modal-dialog">
       <div class="modal-content">
       
