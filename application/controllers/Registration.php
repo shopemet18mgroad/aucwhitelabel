@@ -64,6 +64,7 @@ class Registration extends CI_Controller {
 		
 	}
 
+
 	public function complete2()
 	{
 		$this->load->helper('url');
@@ -75,5 +76,6 @@ class Registration extends CI_Controller {
 		echo "HI";
 		
 	}
+
 	
 }

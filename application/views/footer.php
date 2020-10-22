@@ -314,6 +314,9 @@ if(bcompany == '' || bcomptype == '' || bbuyertype == '' || bbuyerlocation == ''
 
   }
   </script>
+  
+
+  
 </body>
 
 </html>
