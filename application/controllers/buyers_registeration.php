@@ -104,7 +104,7 @@ class Buyers_registeration extends CI_Controller {
 		$this->load->view('footer');
         
     }
-    public function validate_username(){
+    public function validate_username1(){
 		$dat = $this->uri->segment(3);
 		$check_db = array('busername' => $dat);
 		$this->load->model('Admin_model');

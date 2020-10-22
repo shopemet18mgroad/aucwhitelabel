@@ -31,7 +31,7 @@
 AucJunction is most reputed private online auction portal operating in the specialized space of buying and selling surplus inventories. We will provide a comprehensive online marketplace for companies to buy and sell residual and superfluous inventory - from raw material, disposals, machinery and industrial by-products to non-performing and stressed assets. Our service offerings include tender management, Purchase and Sale of Industrial Scraps & disposals.
 </P>
 <P class= "para">This Agreement made this&nbsp; <span><b><?php echo $date; ?></b></span>&nbsp; day of &nbsp;<span><b><?php echo $date; ?></b></span> Between 
-M/S &nbsp; <span><b><?php echo $company;?></b></span><br>having its Registered office at <span><b><?php echo $street.", ".$city.", ".$pin.".";?></b><span> herein called “ Partner Buyer/Bidder” AND  Aucjunction  ( Brand/Subsidary of Shopemet Networks Private Limited) having its Registered office at No 179, 2nd Floor, Mysore Road Cross, Bangalore 560002.
+M/S &nbsp; <span><b><?php echo $company;?></b></span><br>having its Registered office at <span><b><?php echo $address.", ".$city.", ".$pin.".";?></b><span> herein called “ Partner Buyer/Bidder” AND  Aucjunction  ( Brand/Subsidary of Shopemet Networks Private Limited) having its Registered office at No 179, 2nd Floor, Mysore Road Cross, Bangalore 560002.
 
 The Contract will remain valid from (Date) of Registration to 1 (One) Year of this Agreement which could be extended for such further period on such terms and conditions as mutually agreed upon by the parties
 </p>

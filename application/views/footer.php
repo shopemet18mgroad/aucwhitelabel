@@ -172,7 +172,7 @@ if(scomapnyname == '' || ssellertype == '' || scontactperson == '' || span == ''
 		}
   }
   </script>
-<<<<<<< HEAD
+
   
  
  <!-----------------------buyer capcha----------------------------------->
@@ -224,10 +224,10 @@ if(bcompany == '' || bcomptype == '' || bbuyertype == '' || bbuyerlocation == ''
     });
   </script>
    <script>
-  function validate_cap(){
+  function validate_cap1(){
 	  var captcha = document.getElementById("captcha").value;
 		if(captcha.length >= 4){
-			$.get('<?php echo base_url() .'Buyers_registeration/validate_capatcha1/'; ?>'+captcha, function(data){
+			$.get('<?php echo base_url() .'Buyers_registeration/validate_capatcha/'; ?>'+captcha, function(data){
             $('#captImg').html(data);
 				if($.trim(data) == "Bye"){
 					swal("Alert!",  "Invalid Captcha", "error");
@@ -245,10 +245,10 @@ if(bcompany == '' || bcomptype == '' || bbuyertype == '' || bbuyerlocation == ''
    
   </script>
   <script>
-  function validate_username(){
+  function validate_username1(){
 	  var val = document.getElementById("busername").value;
 		if(val != ''){
-			 $.get('<?php echo base_url() .'Buyers_registeration/validate_username/'; ?>'+val, function(data2){				 
+			 $.get('<?php echo base_url() .'Buyers_registeration/validate_username1/'; ?>'+val, function(data2){				 
 				 if($.trim(data2) == "BYE"){
 					swal("Alert!",  "Username Already Exists", "error");
 					document.getElementById("busername").value = "";
@@ -262,7 +262,9 @@ if(bcompany == '' || bcomptype == '' || bbuyertype == '' || bbuyerlocation == ''
 			swal("Alert!",  "Please Enter User Name!", "error");
 			return false;
 		}
-=======
+  }
+
+   </script>
    <script>
   function validate_tanc(){
 	   var agree = document.getElementById('agreement');
@@ -278,11 +280,11 @@ if(bcompany == '' || bcomptype == '' || bbuyertype == '' || bbuyerlocation == ''
 				}
 			 });
 	   }else{
-		    swal("Alert!", "Please Tick On Accept Agreement To Copmplete Registration", "error");
+		    swal("Alert!", "Please Tick On Accept Agreement To Complete Registration", "error");
 			return false;
 	   }
 	  
->>>>>>> 54f32334269effb6287dfd6ab4904a972b5c6055
+
   }
   </script>
 </body>
