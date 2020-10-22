@@ -23,11 +23,12 @@ class Registration extends CI_Controller {
 		$this->load->helper('url');
 		$dataw = $this->uri->segment(3);
 		$datad = $this->uri->segment(4);
+		$uname = array('username'=>$dataw);
 		$update = array('sagreement'=>true,'sagreementdate'=>$datad);
 		$this->load->model('Admin_model');
 		$this->Admin_model->update_custom('sellerprofile',$update,'susername',$dataw);
 		$this->load->view('header');
-		$this->load->view('registration');
+		$this->load->view('registration',$uname);
 		$this->load->view('footer');
 		
 	}
@@ -49,14 +50,10 @@ class Registration extends CI_Controller {
 		$this->load->helper('url');
 		$dataw = $this->uri->segment(3);
 		$update = array('sterms_condi'=>true);
-		$pass = array('username'=> $dataw);
+		//$pass = array('username'=> $dataw);
 		$this->load->model('Admin_model');
-		$sta = $this->Admin_model->update_custom('sellerprofile',$update,'susername',$dataw);
-		if($sta){
-			echo "HI";
-		}else{
-			echo "BYE";
-		}
+		$this->Admin_model->update_custom('sellerprofile',$update,'susername',$dataw);
+		echo "HI";
 		
 	}
 	

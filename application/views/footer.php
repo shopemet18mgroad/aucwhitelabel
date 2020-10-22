@@ -270,12 +270,12 @@ if(bcompany == '' || bcomptype == '' || bbuyertype == '' || bbuyerlocation == ''
 	   var agree = document.getElementById('agreement');
 	   var user = document.getElementById('user').value;
 	   if(agree.checked){
-				$.get('<?php echo base_url() .'registeration/complete/'; ?>'+user, function(data2){				 
+				$.get('<?php echo base_url() .'registration/complete/'; ?>'+user, function(data2){						
 				 if($.trim(data2) == "HI"){
 					swal("Thank You!", "Data Stored Successfully", "success");
 				}else{
+					alert(data2);
 					swal("Alert!", "Terms and condition Failed Store", "error");
-					document.getElementById("susername").value = "";
 					return false;
 				}
 			 });
