@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Seller_biddingdata extends CI_Controller {
+class Seller_viewauctiondetail extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -23,7 +23,7 @@ class Seller_biddingdata extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$this->load->view('seller/header');
-		$this->load->view('seller/biddingdata');
+		$this->load->view('seller/viewauctiondetail');
 		$this->load->view('seller/footer');
 		
 	}

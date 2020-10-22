@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Seller_account extends CI_Controller {
+class Seller_editsellerdocument extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -19,13 +19,13 @@ class Seller_account extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 		
-
 	public function index()
 	{
 		$this->load->helper('url');
 		$this->load->view('seller/header');
-		$this->load->view('seller/account');
+		$this->load->view('seller/editsellerdocument');
 		$this->load->view('seller/footer');
 		
 	}
+	
 }

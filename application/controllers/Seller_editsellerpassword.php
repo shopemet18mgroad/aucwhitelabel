@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Seller_editsellerprofile extends CI_Controller {
+class Seller_editsellerpassword extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -23,7 +23,7 @@ class Seller_editsellerprofile extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$this->load->view('seller/header');
-		$this->load->view('seller/editsellerprofile');
+		$this->load->view('seller/editsellerpassword');
 		$this->load->view('seller/footer');
 		
 	}

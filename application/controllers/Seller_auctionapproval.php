@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Seller_auction extends CI_Controller {
+class Seller_auctionapproval extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -24,9 +24,8 @@ class Seller_auction extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$this->load->view('seller/header');
-		$this->load->view('seller/auction');
+		$this->load->view('seller/auctionapproval');
 		$this->load->view('seller/footer');
 		
 	}
-	
 }
