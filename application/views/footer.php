@@ -265,6 +265,33 @@ if(bcompany == '' || bcomptype == '' || bbuyertype == '' || bbuyerlocation == ''
   }
 
    </script>
+   
+   
+      <script>
+  function validate_tanc2(){
+	   var agree = document.getElementById('agreement');
+	   var user = document.getElementById('user').value;
+	   if(agree.checked){
+				$.get('<?php echo base_url() .'registration/complete2/'; ?>'+user, function(data2){						
+				 if($.trim(data2) == "HI"){
+					swal("Thank You!", "Data Stored Successfully", "success");
+				}else{
+					alert(data2);
+					swal("Alert!", "Terms and condition Failed Store", "error");
+					return false;
+				}
+			 });
+	   }else{
+		    swal("Alert!", "Please Tick On Accept Agreement To Complete Registration", "error");
+			return false;
+	   }
+	  
+
+  }
+  </script>
+   
+   
+   
    <script>
   function validate_tanc(){
 	   var agree = document.getElementById('agreement');
@@ -287,9 +314,6 @@ if(bcompany == '' || bcomptype == '' || bbuyertype == '' || bbuyerlocation == ''
 
   }
   </script>
-  
-
-  
 </body>
 
 </html>
