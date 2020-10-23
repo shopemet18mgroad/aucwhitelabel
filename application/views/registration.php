@@ -335,21 +335,10 @@ in applicable tax rates that are promulgated by the Government from time to time
 			</table>
 
 			<div class="text-center" style="position:relative;">
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 				<button  type="button" class="btn btn-primary mt-2" onclick="return validate_tanc()" >Agree</button>
-
-	
 				<a href="<?php echo base_url();?>home"><button type="button" class="btn btn-primary mt-2">Disagree</button></a>
-=======
-				<button  type="button" class="btn btn-primary mt-2" onclick="return validate_tanc()" >Agree</button>
-				<a href='index.php'><button type="button" class="btn btn-primary mt-2">Disagree</button></a>
->>>>>>> parent of 3696f2e... registration done by seema
-=======
-				<button  type="button" class="btn btn-primary mt-2" onclick="return validate_tanc()" >Agree</button>
-				<a href='index.php'><button type="button" class="btn btn-primary mt-2">Disagree</button></a>
->>>>>>> parent of 3696f2e... registration done by seema
+
 			</div>
 			
 			<!-- The Modal -->

@@ -26,11 +26,11 @@ class Registration extends CI_Controller {
 		
 		$uname = array('username'=>$dataw);
 		$update = array('sagreement'=>true,'sagreementdate'=>$datad);
-		$update2 = array('bagreement'=>true,'bagreementdate'=>$datad);
+		//$update2 = array('bagreement'=>true,'bagreementdate'=>$datad);
 
 		$this->load->model('Admin_model');
 		$this->Admin_model->update_custom('sellerprofile',$update,'susername',$dataw);
-		$this->Admin_model->update_custom('buyerprofile',$update2,'busername',$dataw);
+		//$this->Admin_model->update_custom('buyerprofile',$update2,'busername',$dataw);
 		$this->load->view('header');
 		$this->load->view('registration',$uname);
 		$this->load->view('footer');
@@ -63,10 +63,7 @@ class Registration extends CI_Controller {
 		echo "HI";
 		
 	}
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-
+<
 	public function complete2()
 	{
 		$this->load->helper('url');
@@ -79,11 +76,5 @@ class Registration extends CI_Controller {
 		
 	}
 
-=======
-	
->>>>>>> parent of 3696f2e... registration done by seema
-=======
-	
->>>>>>> parent of 3696f2e... registration done by seema
-	
+
 }
