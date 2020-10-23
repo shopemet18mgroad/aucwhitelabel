@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Registration extends CI_Controller {
+class Registrationb extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -18,7 +18,7 @@ class Registration extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
+	/* public function index()
 	{
 		$this->load->helper('url');
 		$dataw = $this->uri->segment(3);
@@ -55,11 +55,11 @@ class Registration extends CI_Controller {
 		$this->Admin_model->update_custom('sellerprofile',$update,'susername',$dataw);
 		echo "HI";
 		
-	}
+	} */
 	
 	//////////////////////////////////////////////////////
 	
-	/* public function indexbuyer()
+	public function indexbuyer()
 	{
 		$this->load->helper('url');
 		$dataw = $this->uri->segment(3);
@@ -69,7 +69,7 @@ class Registration extends CI_Controller {
 		$this->load->model('Admin_model');
 		$this->Admin_model->update_custom('buyerprofile',$update,'busername',$dataw);
 		$this->load->view('header');
-		$this->load->view('registration',$uname);
+		$this->load->view('registrationb',$uname);
 		$this->load->view('footer');
 		
 	}
@@ -82,7 +82,7 @@ class Registration extends CI_Controller {
 		$this->load->model('Admin_model');
 		$this->Admin_model->update_custom('buyerprofile',$update,'busername',$dataw);
 		$this->load->view('header');
-		$this->load->view('registration', $pass);
+		$this->load->view('registrationb', $pass);
 		$this->load->view('footer');
 		
 	}
@@ -91,12 +91,12 @@ class Registration extends CI_Controller {
 		$this->load->helper('url');
 		$dataw = $this->uri->segment(3);
 		$update = array('bterms_condi'=>true);
-		$pass = array('username'=> $dataw);
+		//$pass = array('username'=> $dataw);
 		$this->load->model('Admin_model');
 		$this->Admin_model->update_custom('buyerprofile',$update,'busername',$dataw);
 		echo "HI";
 		
-	} */
+	}
 	
 	
 }
