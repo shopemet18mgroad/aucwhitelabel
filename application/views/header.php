@@ -44,15 +44,18 @@
 				</div>
 				<div class="col-md-6 col-sm-12 p-2">
 					<div class="input-feild">
+					
 							<div class="form-group p-1">
-								<input type="email" class="form-control" id="exampleInputEmail1" placeholder="User Name" size="50">
+							<form action="#" method="POST" id="bidder">
+								<input type="email" class="form-control" id="email" placeholder="User Name" size="50">
 							</div>
 						  <div class="form-group p-1">
-							<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" size="50">
+							<input type="password" class="form-control" id="pswd" placeholder="Password" size="50">
 						  </div>
 						  <div class="form-group p-1">
-							<button type="button" class="btn btn-primary"><i class="fa fa-sign-in"></i> Login</button>
+							<button type="button" onclick="return userid4()" class="btn btn-primary"><i class="fa fa-sign-in"></i> Login</button>	
 						  </div>
+						    </form>
 					 </div>
 					 <div class="row ml-3 ">
 						<div class="form-group pl-3">
@@ -66,9 +69,10 @@
 							<input type="checkbox" class="custom-control-input ltype" id="customCheck" name="ltype[]">
 							<label class="custom-control-label" for="customCheck">Bidder</label>
 						  </div>
+						  
 						</div>
 					</div>
-				  
+				
 				</div>
 				
 			</div>
@@ -142,5 +146,30 @@
 			</div>
 		</div>
 		
-		
+<script>
+function userid4(){
+var email = document.getElementById("email").value;	
+var pswd = document.getElementById("pswd").value;	
+
+if( $('input[name="ltype[]"]:checked').length == 0 )
+		   
+			{
+				swal("Alert!",  "Please select at least one option Auctioner Or Bidder", "error");
+				return false;
+			}
+if( email == "" )
+		   
+			{
+				swal("Alert!",  "Please enter User Name", "error");
+				return false;
+			}			
+
+if( pswd.length > 0 )
+		   
+			{
+				swal("Alert!",  "Invalid Password", "error");
+				return false;
+			}			
+}
+</script>		
 		

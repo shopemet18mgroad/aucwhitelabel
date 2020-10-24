@@ -215,6 +215,7 @@ if(bcompany == '' || bcomptype == '' || bbuyertype == '' || bbuyerlocation == ''
 	
 }
   </script>
+ 
  <script>
   
     $('.refreshCaptcha').on('click', function(){
@@ -297,7 +298,9 @@ if(bcompany == '' || bcomptype == '' || bbuyertype == '' || bbuyerlocation == ''
 	   var agree = document.getElementById('agreement');
 	   var user = document.getElementById('user').value;
 	   if(agree.checked){
-				$.get('<?php echo base_url() .'registration/complete/'; ?>'+user, function(data2){						
+				$.get('<?php echo base_url() .'registration/complete/'; ?>'+user,
+				
+				function(data2){						
 				 if($.trim(data2) == "HI"){
 					swal("Thank You!", "Data Stored Successfully", "success");
 				}else{
@@ -310,13 +313,38 @@ if(bcompany == '' || bcomptype == '' || bbuyertype == '' || bbuyerlocation == ''
 		    swal("Alert!", "Please Tick On Accept Agreement To Complete Registration", "error");
 			return false;
 	   }
-	  
+	   
+	   
 
   }
   </script>
   
+  <!------buyer--->
+  <script>
+  function validate_regb(){
+	   var agree = document.getElementById('agreement');
+	   var user = document.getElementById('user').value;
+	   if(agree.checked){
+				$.get('<?php echo base_url() .'registrationb/completebuyer/'; ?>'+user,
+				
+				function(data2){						
+				 if($.trim(data2) == "HI"){
+					swal("Thank You!", "Data Stored Successfully", "success");
+				}else{
+					alert(data2);
+					swal("Alert!", "Terms and condition Failed Store", "error");
+					return false;
+				}
+			 });
+	   }else{
+		    swal("Alert!", "Please Tick On Accept Agreement To Complete Registration", "error");
+			return false;
+	   }
+	   
+	   
 
-  
+  }
+  </script>
 </body>
 
 </html>
