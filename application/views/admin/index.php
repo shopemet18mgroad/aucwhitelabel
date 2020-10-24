@@ -137,7 +137,13 @@
 					 <thead><th width="45%">Documents</th>
 					 </thead>
 						<tbody>
-		
+							<tr>
+								<td class="btxt">Upload Profile Pic</td>
+								<td><div class="input_fields_wrap">
+								<input  type="file" id="suploadprofilepic" name="suploadprofilepic[]">
+								</div></td>
+							</tr> 
+							
 
 							
 

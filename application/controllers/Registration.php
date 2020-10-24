@@ -42,7 +42,6 @@ class Registration extends CI_Controller {
 		$dataw = $this->uri->segment(3);
 		$update = array('sterms_condi'=>true);
 		$update2 = array('bterms_condi'=>true);
-
 		$pass = array('username'=> $dataw);
 		$this->load->model('Admin_model');
 		$this->Admin_model->update_custom('sellerprofile',$update,'susername',$dataw);
