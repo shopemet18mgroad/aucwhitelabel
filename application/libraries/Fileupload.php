@@ -5,6 +5,8 @@ class Fileupload {
 	function __construct()
 	{
 		$this->ci =& get_instance();
+		
+
 	}
 
 	function send_email()

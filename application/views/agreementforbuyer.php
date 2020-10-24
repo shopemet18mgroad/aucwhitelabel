@@ -162,7 +162,7 @@ Signature and Seal.
 </div>
 </table>
 <div class="text-center" style="position:relative;">
-<a href="<?php echo base_url()."registration/index/".$username."/".$date;?>"><button type="button" class="btn btn-primary mt-2">Agree</button></a>
+<a href="<?php echo base_url()."registrationb/indexbuyer/".$username."/".$date;?>"><button type="button" class="btn btn-primary mt-2">Agree</button></a>
 <a href="<?php echo base_url();?>home"><button type="button" class="btn btn-primary mt-2">Disagree</button></a>
 </div>
 

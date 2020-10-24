@@ -56,27 +56,25 @@ function validatelot(){
 	var sgst = document.getElementById("sgst").value;
 	var sothertax = document.getElementById("sothertax").value;
 	var semdamount = document.getElementById("semdamount").value;
+	var sliftingperiod2 = document.getElementById("sliftingperiod2").value;
 	var sliftingperiod = document.getElementById("sliftingperiod").value;
-	var spcbcertificate = document.getElementById("spcbcertificate").value;
 	
 	
+	if(slotname == '' || scategory == '' || sdescription == '' || slotlocation == '' || sfrominpectdate_time == '' || stoinpectdate_time == '' || semddetail == '' || slastdateemdsub == '' || sprice == '' || sstartbidprice == '' || sqty == '' || sunitmeasurment == '' || sbidbase == '' || sgst == '' || sothertax == '' || semdamount == '' || sliftingperiod2 == ''|| sliftingperiod == '' ){
 	
-	
-	
-	if(slotname == '' || scategory == '' || sdescription == '' || slotlocation == '' || sfrominpectdate_time == '' || stoinpectdate_time == '' || semddetail == '' || slastdateemdsub == '' || sprice == '' || sstartbidprice == '' || sqty == '' || sunitmeasurment == '' || sbidbase == '' || sgst == '' || sothertax == '' || semdamount == '' || sliftingperiod == '' ){
-		swal("Alert!",  "Category, Seller, Venue Of Inspection, Online Auction Date cannot leave any field blank!", "error");
+		swal("Alert!","lotname ,Category, lotlocation, description, frominpectdate&time ,toinpectdate_time, Emddetail,lastdateemdsub,price ,startbidprice, Quantity,Unitmeasurment  ,Bidbase ,gst,othertax,liftingperiod,emdamount,cannot leave any field blank!", "error");
 		return false;
 	}
 		
-	
+
 	
 		if( $('input[name="spcbcertificate[]"]:checked').length == 0 )
 		   
 			{
-				swal("Alert!",  "Aucjunction Terms & Conditions Should Be Selected", "error");
+				swal("Alert!",  "PCB Certificate Should Be Selected", "error");
 				return false;
 			}
 				
-		
-	
 }
+	
+

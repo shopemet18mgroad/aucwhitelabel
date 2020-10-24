@@ -27,6 +27,7 @@
       </tr>
     </thead>
     <tbody>
+	
 	<tr>
 		  <td width="11%">Auction Id</td>
 		  <td width="4%" style="color:blue;">AJ256458/BHEL/IRON/102</td>
@@ -38,6 +39,7 @@
 	  </tr>
       
 	  <tr>
+	   <form action="../weblib/postformsurvey.php" method="POST" id="bidder2">
 		  <td>Lot Name</td>
 		  <td><input class="form-control w-50" type="text" id="slotname" name="slotname"></td>
 	  </tr>
@@ -138,7 +140,7 @@ From:
     </tr>	
 	<tr>
 		<td>Lifting Period</td>
-		<td><input class="form-control w-75" type="datetime-local" id="sliftingperiod" id="sliftingperiod">
+		<td><input class="form-control w-75" type="datetime-local" id="sliftingperiod2" id="sliftingperiod2">
 		<input class="form-control w-50 mt-2" type="text" id="sliftingperiod" name="sliftingperiod" placeholder="Exp.15 days"></td>
     </tr>
 	<tr>
@@ -157,9 +159,11 @@ From:
   </table>
   
   <center>
-<a type="reset"  class="btn btn-info text-white" data-dismiss="modal">Add Another Lot</a>
-  <a type="submit"  onclick="return validatelot()" class="btn btn-info text-white" href="<?php echo base_url();?>admin_auctiondetails" data-dismiss="modal">Submit</a>
+	<a type="reset"  class="btn btn-info text-white" data-dismiss="modal">Add Another Lot</a>
+ 
+ <a type="submit"  onclick="return validatelot()" class="btn btn-info text-white" href="<?php echo base_url();?>admin_auctiondetails" data-dismiss="modal">Submit</a>
   </center>
+  </form>
 			</div>
             </div>
 			</div>
