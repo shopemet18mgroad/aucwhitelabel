@@ -142,8 +142,8 @@
 	   </tbody>
 	   </table>
 		<div class="text-center">
-    <input type="submit" name="submit2" onclick="return validate()" value=" Proceed" class="btn btn-primary col-2 mt-2">
-	<button type="reset" class="btn btn-primary col-2 mt-2">Reset</button>
+    <input type="submit" name="submit2" onclick="return validate()" value=" Proceed" class="btn btn-primary col-3 mt-2 w-100">
+	<button type="reset" class="btn btn-primary col-3 mt-2">Reset</button>
 		</div>
 			</form>
 		</div>
