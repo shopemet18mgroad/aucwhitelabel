@@ -12,8 +12,8 @@
   </div>
    
 		<div class="card-body bg-info">
-		
-		<table class="table table-sm table-striped table-info justify-content-right w-auto small text-secondary table-borderless table-responsive text-center float-right">
+			<table class="table table-striped table-info text-center justify-content-center text-secondary table-borderless table-responsive" >
+   
 		
 		<form action="./Buyers_registeration" method="POST" >
     <tbody>

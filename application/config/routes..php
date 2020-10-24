@@ -1,0 +1,1 @@
+$route['email'] = 'Email_Controller';
