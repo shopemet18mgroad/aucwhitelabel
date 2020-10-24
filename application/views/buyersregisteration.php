@@ -20,12 +20,12 @@
 		
 		<tr>
 		  <td width="20%"><b>Company *</b></td>
-		  <td width="20%"><input class="form-control w-75" type="text" id="bcompany" name="bcompany" size="50" ></td>
+		  <td width="20%"><input class="form-control w-100" type="text" id="bcompany" name="bcompany" size="50" ></td>
 		</tr>
 	  
       <tr>
         <td><b>Company Type</b></td>
-        <td><select class="form-control w-75" style="text-align-last:center;" id="bcomptype" name="bcomptype">
+        <td><select class="form-control w-100" style="text-align-last:center;" id="bcomptype" name="bcomptype">
 		
 			<option value="one" selected>--------category1-------</option>
 			<option value="two">category2</option>
@@ -35,7 +35,7 @@
         </tr>
       <tr>
          <td><b>Buyer Type</b></td>
-        <td><select class="form-control w-75" style="text-align-last:center;" id="bbuyertype" name="bbuyertype">
+        <td><select class="form-control w-100" style="text-align-last:center;" id="bbuyertype" name="bbuyertype">
 			<option value="one" selected>-------category1--------</option>
 			<option value="two">category2</option>
 			<option value="three" >category3</option>
@@ -44,33 +44,33 @@
       </tr>
 		<tr>
 		  <td><b>Buyer's Location</b></td>
-		  <td><input class="form-control w-75" type="text" id="bbuyerlocation" name="bbuyerlocation" size="50"></td>
+		  <td><input class="form-control w-100" type="text" id="bbuyerlocation" name="bbuyerlocation" size="50"></td>
 		</tr>
 	   <tr>
 	  <td><b>Contact Person *</b></td>
-	  <td><input  class="form-control w-75" type="text" id="bcontactperson" name="bcontactperson" size="50"></td>
+	  <td><input  class="form-control w-100" type="text" id="bcontactperson" name="bcontactperson" size="50"></td>
 	  </tr>
 	  <tr>
         <td><b>Contact Person Designation *</b></td>
-        <td><input class="form-control w-75" type="text" id="bdesignation" name="bdesignation" size="50" ></td>
+        <td><input class="form-control w-100" type="text" id="bdesignation" name="bdesignation" size="50" ></td>
       </tr>
 	  <tr>
 	  <td><b>Postal Address</b></td>
-	  <td><input  class="form-control w-75" type="text" id="baddress" name="baddress" size="50"></td>
+	  <td><input  class="form-control w-100" type="text" id="baddress" name="baddress" size="50"></td>
 	  </tr>
 	 
 	   <tr>
 	  <td><b>City</b></td>
-	  <td><input  class="form-control w-75" type="text" id="bcity" name="bcity" size="50"></td>
+	  <td><input  class="form-control w-100" type="text" id="bcity" name="bcity" size="50"></td>
 	  </tr>
 	  <tr>
 	  <td><b>Pin</b></td>
-	  <td><input  class="form-control w-75" type="text" id="bpin" name="bpin" size="50"></td>
+	  <td><input  class="form-control w-100" type="text" id="bpin" name="bpin" size="50"></td>
 	  </tr>
 	  
 	  <tr>
         <td><b>State/Union Ter.</b></td>
-        <td><select class="form-control w-75" style="text-align-last:center;" id="bstate" name="bstate" >
+        <td><select class="form-control w-100" style="text-align-last:center;" id="bstate" name="bstate" >
 			<option value="two"  selected>Andra Pradesh</option>
 			<option value="one">Arunachal Pradesh</option>
 			<option value="three">Assam</option>
@@ -104,40 +104,40 @@
       </tr>	
 	  <tr>
         <td><b>Country</b></td>
-        <td><input class="form-control w-75" type="text" id="bcountry" name="bcountry" size="50" style="text-align-last:center;" value="India" disabled></td>       
+        <td><input class="form-control w-100" type="text" id="bcountry" name="bcountry" size="50" style="text-align-last:center;" value="India" disabled></td>       
       </tr>
 	  <tr>
 	  <td><b>E-Mail *</b></td>
-	  <td><input  class="form-control w-75" type="email" id="bemail" name="bemail" size="50"></td>
+	  <td><input  class="form-control w-100" type="email" id="bemail" name="bemail" size="50"></td>
 	  </tr>
 	  <tr>
 	  <td><b>Phone No. *</b></td>
-	  <td><input  class="form-control w-75" type="text" id="bphone" name="bphone" size="50"></td>
+	  <td><input  class="form-control w-100" type="text" id="bphone" name="bphone" size="50"></td>
 	  </tr>
 	  <tr>
 	  <td><b>Pan No.</b></td>
-	  <td><input  class="form-control w-75" type="text" id="bpan" name="bpan" size="50"></td>
+	  <td><input  class="form-control w-100" type="text" id="bpan" name="bpan" size="50"></td>
 	  </tr>
 	  <tr>
 	  <td><b>User Name *</b></td>
-	  <td><input  class="form-control w-75" type="text" id="busername" name="busername" size="50"></td>
+	  <td><input  class="form-control w-100" type="text" id="busername" name="busername" size="50"></td>
 	  </tr>
 	  <tr>
         <td><b>Password *</b></td>
-        <td><input class="form-control w-75" type="password" id="bpassword" name="bpassword" size="50" onkeyup="validate_username1()" ></td>       
+        <td><input class="form-control w-100" type="password" id="bpassword" name="bpassword" size="50" onkeyup="validate_username1()" ></td>       
       </tr>
 	  <tr>
         <td><b>Confirm Password *</b></td>
-        <td><input class="form-control w-75" type="password" id="bconfirmpassword" name="bconfirmpassword" size="50"></td>       
+        <td><input class="form-control w-100" type="password" id="bconfirmpassword" name="bconfirmpassword" size="50"></td>       
       </tr>
 	  
 	  <tr>
         <td><b>GST No.</b></td>
-        <td><input  class="form-control w-75" type="text" name="bgst" id="bgst" size="50"></td>
+        <td><input  class="form-control w-100" type="text" name="bgst" id="bgst" size="50"></td>
         </tr>
 		<tr>
         <td><b>CAPATCHA : </b><span id="captImg" class="captImg">&nbsp; <img src="<?php echo base_url()."web_files/captcha_images/".$ImgFileName;?>"></span><a href="javascript:void(0);" class="refreshCaptcha">&nbsp;&nbsp;Refresh Captacha</a></td>
-        <td><input  class="form-control w-75" type="text" name="captcha" id="captcha"  onkeyup="validate_cap1()" placeholder="Enter 4 Digit Captcha" size="50"></td>
+        <td><input  class="form-control w-100" type="text" name="captcha" id="captcha"  onkeyup="validate_cap1()" placeholder="Enter 4 Digit Captcha" size="50"></td>
         </tr>
 	   </tbody>
 	   </table>
