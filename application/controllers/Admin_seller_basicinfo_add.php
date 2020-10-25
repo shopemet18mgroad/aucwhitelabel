@@ -32,6 +32,8 @@ class Admin_seller_basicinfo_add extends CI_Controller {
 		$scomapnyname = $this->input->post('scomapnyname');
 		$scompanytype = $this->input->post('scompanytype');
 		$scontactperson  = $this->input->post('scontactperson');
+		sdesignation = this->input->post('sdesignation');
+		susername = this->input->post('susername');
 		$scin  = $this->input->post('scin');
 		$sgst  = $this->input->post('sgst');
 		$spcb  = $this->input->post('spcb');
@@ -65,7 +67,7 @@ class Admin_seller_basicinfo_add extends CI_Controller {
 			$doc_array = serialize($doc_array);
 		}
 		//$count = count($ssigneddocument);
-		//=============================check if company name exits before insert and auto genertate username and password all terms and condition and agreement as accepted ===========
+		//=============================check if company name and user name exits before insert and auto genertate username and password all terms and condition and agreement as accepted ===========
 		
 		
 		
