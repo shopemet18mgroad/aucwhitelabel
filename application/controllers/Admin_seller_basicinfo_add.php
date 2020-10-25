@@ -30,6 +30,7 @@ class Admin_seller_basicinfo_add extends CI_Controller {
 		$this->load->model('Admin_model');
 		$sname = $this->input->post('sname');
 		$scomapnyname = $this->input->post('scomapnyname');
+		$scompanytype = $this->input->post('scompanytype');
 		$scontactperson  = $this->input->post('scontactperson');
 		$scin  = $this->input->post('scin');
 		$sgst  = $this->input->post('sgst');
@@ -64,7 +65,16 @@ class Admin_seller_basicinfo_add extends CI_Controller {
 			$doc_array = serialize($doc_array);
 		}
 		//$count = count($ssigneddocument);
-		$data2 = array('sname' => $sname, 'scomapnyname' => $scomapnyname, 'scontactperson' => $scontactperson, 'scin' => $scin, 'sgst' => $sgst, 'spcb' => $spcb, 'semail' => $semail, 'sphone' => $sphone , 'saddress' => $saddress2, 'saddresscount' => $saddresscount, 'spin' => $spin, 'sstate' => $sstate, 'scountry' => $scountry, 'sbankername' => $sbankername, 'saccountnumber' => $saccountnumber, 'sbranch' => $sbranch, 'sifsccode' => $sifsccode, 'suploadprofilepic' => $pic_array, 'ssigneddocument' => $doc_array);
+		//=============================check if company name exits before insert and auto genertate username and password all terms and condition and agreement as accepted ===========
+		
+		
+		
+		//====================================================================================
+		
+		
+		
+		//==================================================================
+		$data2 = array('sname' => $sname, 'scomapnyname' => $scomapnyname, 'scompanytype' => $scompanytype, 'scontactperson' => $scontactperson, 'scin' => $scin, 'sgst' => $sgst, 'spcb' => $spcb, 'semail' => $semail, 'sphone' => $sphone , 'saddress' => $saddress2, 'saddresscount' => $saddresscount, 'spin' => $spin, 'sstate' => $sstate, 'scountry' => $scountry, 'sbankername' => $sbankername, 'saccountnumber' => $saccountnumber, 'sbranch' => $sbranch, 'sifsccode' => $sifsccode, 'suploadprofilepic' => $pic_array, 'ssigneddocument' => $doc_array);
 		//$this->load->view('xya', $data);
 		$datainserr = "Data Inserted Successfully";
 		$status = $this->Admin_model->insert('sellerprofile', $data2);
