@@ -60,11 +60,11 @@
 						</tr>
 						<tr>
 							<td class="btxt">CIN Number:</td>
-							<td><input class="form-control w-50" type="text" id="scin" name="scin" required></td>
+							<td><input class="form-control w-50" type="text" id="scin" name="scin" onkeyup="validate_user()" required></td>
 						</tr>  
 						<tr>
 							<td class="btxt">GST:</td>
-							<td><input class="form-control w-50" type="text" id="sgst" name="sgst" required></td>
+							<td><input class="form-control w-50" type="text" id="sgst" name="sgst" onkeyup="validate_company()" required></td>
 						</tr> 
 						<tr>
 							<td class="btxt">PCB Licence NO:</td>
