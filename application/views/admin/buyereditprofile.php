@@ -63,9 +63,7 @@
 															<a href="" >
 															<i class="fa fa-trash" style="color:black"></i> 
 															</a>
-															<a href="buyerreg.php">
-															<i class="fa fa-check" style="color:green"></i> 
-															</a></td>
+															</td>
 														</tr>
 													<tr>												
 														<td>BHEL</td>
@@ -81,9 +79,7 @@
 															<a href="" >
 															<i class="fa fa-trash" style="color:black"></i> 
 															</a>
-															<a href="" >
-															<i class="fa fa-times" style="color:red"></i> 
-															</a></td>
+															</td>
 														</tr>
 													<tr>												
 														<td>BHEL</td>
@@ -99,9 +95,7 @@
 															<a href="" >
 															<i class="fa fa-trash" style="color:black"></i> 
 															</a>
-															<a href="" >
-															<i class="fa fa-times" style="color:red"></i> 
-															</a></td>
+															</td>
 														</tr>
 													<tr>												
 														<td>BHEL</td>
@@ -116,8 +110,6 @@
 															</a>
 															<a href="" >
 															<i class="fa fa-trash" style="color:black"></i> 
-															</a><a href="" >
-															<i class="fa fa-check" style="color:green"></i> 
 															</a>
 															</td>
 														</tr>
@@ -135,9 +127,7 @@
 															<a href="" >
 															<i class="fa fa-trash"style="color:black"></i> 
 															</a>
-															<a href="" >
-															<i class="fa fa-check" style="color:green"></i> 
-															</a></td>
+															</td>
 														</tr>
 				</tbody>
 		 </table>

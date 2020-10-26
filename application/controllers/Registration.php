@@ -62,7 +62,36 @@ class Registration extends CI_Controller {
 		echo "HI";
 		
 	}
-	
+	public function userverify()
+	{
+		$this->load->helper('url');
+		$dataw = $this->uri->segment(3);
+		$update = array('susername'=>$dataw);
+		//$pass = array('username'=> $dataw);
+		$this->load->model('Admin_model');
+		$scan = $this->Admin_model->check('sellerprofile',$update);
+		if($scan){
+			echo "BYE";
+		}else{
+			echo "HI";
+		}
+		
+	}
+	public function companyverify()
+	{
+		$this->load->helper('url');
+		$dataw = $this->uri->segment(3);
+		$update = array('scomapnyname'=>$dataw);
+		//$pass = array('username'=> $dataw);
+		$this->load->model('Admin_model');
+		$scan = $this->Admin_model->check('sellerprofile',$update);
+		if($scan){
+			echo "BYE";
+		}else{
+			echo "HI";
+		}
+		
+	}
 	//////////////////////////////////////////////////////
 	
 	/* public function indexbuyer()
