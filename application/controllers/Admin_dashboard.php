@@ -22,7 +22,7 @@ class Admin_dashboard extends CI_Controller {
 	{
 		$this->load->helper('url');
 		if($this->uri->segment(3)){
-			$errormsg = $this->uri->segment(3);
+			$errormsg = urldecode($this->uri->segment(3));
 			echo '<script language="javascript">';
 			echo 'alert("'.$errormsg.'")';
 			echo '</script>';

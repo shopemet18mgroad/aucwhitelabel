@@ -42,7 +42,6 @@ class Registration extends CI_Controller {
 		$dataw = $this->uri->segment(3);
 		$update = array('sterms_condi'=>true);
 		$update2 = array('bterms_condi'=>true);
-
 		$pass = array('username'=> $dataw);
 		$this->load->model('Admin_model');
 		$this->Admin_model->update_custom('sellerprofile',$update,'susername',$dataw);
@@ -63,7 +62,36 @@ class Registration extends CI_Controller {
 		echo "HI";
 		
 	}
-	
+	public function userverify()
+	{
+		$this->load->helper('url');
+		$dataw = $this->uri->segment(3);
+		$update = array('susername'=>$dataw);
+		//$pass = array('username'=> $dataw);
+		$this->load->model('Admin_model');
+		$scan = $this->Admin_model->check('sellerprofile',$update);
+		if($scan){
+			echo "BYE";
+		}else{
+			echo "HI";
+		}
+		
+	}
+	public function companyverify()
+	{
+		$this->load->helper('url');
+		$dataw = $this->uri->segment(3);
+		$update = array('scomapnyname'=>$dataw);
+		//$pass = array('username'=> $dataw);
+		$this->load->model('Admin_model');
+		$scan = $this->Admin_model->check('sellerprofile',$update);
+		if($scan){
+			echo "BYE";
+		}else{
+			echo "HI";
+		}
+		
+	}
 	//////////////////////////////////////////////////////
 	
 	/* public function indexbuyer()

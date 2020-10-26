@@ -51,12 +51,20 @@
 							<td><input class="form-control w-50" type="text" id="scontactperson" name="scontactperson" required></td>
 						</tr>
 						<tr>
+							<td class="btxt">Contact Person Designation:</td>
+							<td><input class="form-control w-50" type="text" id="sdesignation" name="sdesignation" required></td>
+						</tr>
+						<tr>
+							<td class="btxt">UserName:</td>
+							<td><input class="form-control w-50" type="text" id="susername" name="susername" required></td>
+						</tr>
+						<tr>
 							<td class="btxt">CIN Number:</td>
-							<td><input class="form-control w-50" type="text" id="scin" name="scin" required></td>
+							<td><input class="form-control w-50" type="text" id="scin" name="scin" onkeyup="validate_user()" required></td>
 						</tr>  
 						<tr>
 							<td class="btxt">GST:</td>
-							<td><input class="form-control w-50" type="text" id="sgst" name="sgst" required></td>
+							<td><input class="form-control w-50" type="text" id="sgst" name="sgst" onkeyup="validate_company()" required></td>
 						</tr> 
 						<tr>
 							<td class="btxt">PCB Licence NO:</td>
@@ -137,7 +145,13 @@
 					 <thead><th width="45%">Documents</th>
 					 </thead>
 						<tbody>
-		
+							<tr>
+								<td class="btxt">Upload Profile Pic</td>
+								<td><div class="input_fields_wrap">
+								<input  type="file" id="suploadprofilepic" name="suploadprofilepic[]">
+								</div></td>
+							</tr> 
+							
 
 							
 

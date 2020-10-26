@@ -47,7 +47,13 @@
  
   <script>
  function validatearry(){
-	 
+	   var company = document.getElementById('scomapnyname').value;
+	   var user = document.getElementById('susername').value;
+	   if(company == '' || user == ''){
+		   swal("Alert!", "Company Name or UserName Cannot Be Left Blank", "error");
+					return false;
+			}
+			
 	 	var selectname = document.getElementsByName('saddress[]');
 		var textareablselect = document.getElementsByName('saddresscount[]');
 		var signeddoc = document.getElementsByName('ssigneddocument[]');
@@ -72,6 +78,43 @@
 				return false;
 			}
 		}
+ }
+ 
+ </script>
+ <script>
+ function validate_user(){
+	 var user = document.getElementById('susername').value;
+	  if(user == ""){
+		 swal("Alert!", "User Name Cannot Be Left Blank","error");
+		 return false; 
+	 }
+	  $.get('<?php echo base_url() .'registration/userverify/'; ?>'+user, function(data2){						
+				 if($.trim(data2) == "HI"){
+					return true;
+				}else{
+					swal("Alert!", "User Name Already Exists", "error");
+					return false;
+				}
+			 });
+ }
+ </script>
+ <script>
+ function validate_company(){
+	 var company = document.getElementById('scomapnyname').value;
+	 if(company == ""){
+		 swal("Alert!", "Company Name Cannot Be Left Blank","error");
+		 return false;
+		 
+		 
+	 }
+	  $.get('<?php echo base_url() .'registration/companyverify/'; ?>'+company, function(data2){						
+				 if($.trim(data2) == "HI"){
+					return true;
+				}else{
+					swal("Alert!", "Company Name Already Exists", "error");
+					return false;
+				}
+			 });
  }
  </script>
  

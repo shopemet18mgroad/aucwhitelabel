@@ -26,13 +26,15 @@ class Admin_seller_basicinfo_add extends CI_Controller {
 	public function index()
 	{
 		$this->load->library('fileupload');
-		echo $this->fileupload->send_email();
-		die;
 		$this->load->helper(array('url','form','file','html'));
 		$this->load->model('Admin_model');
 		$sname = $this->input->post('sname');
 		$scomapnyname = $this->input->post('scomapnyname');
+		$scompanytype = $this->input->post('scompanytype');
 		$scontactperson  = $this->input->post('scontactperson');
+		$sdesignation = $this->input->post('sdesignation');
+		$susername = $this->input->post('susername');
+		$spassword = password_hash('default_auc123',PASSWORD_BCRYPT);
 		$scin  = $this->input->post('scin');
 		$sgst  = $this->input->post('sgst');
 		$spcb  = $this->input->post('spcb');
@@ -41,6 +43,7 @@ class Admin_seller_basicinfo_add extends CI_Controller {
 		$saddress  = $this->input->post('saddress');
 		$saddress2 = serialize($saddress);
 		$saddresscount  = $this->input->post('saddresscount');
+		$saddresscount = serialize($saddresscount);
 		$spin  = $this->input->post('spin');
 		$sstate  = $this->input->post('sstate');
 		$scountry  = $this->input->post('scountry');
@@ -48,32 +51,43 @@ class Admin_seller_basicinfo_add extends CI_Controller {
 		$saccountnumber  = $this->input->post('saccountnumber');
 		$sbranch  = $this->input->post('sbranch');
 		$sifsccode  = $this->input->post('sifsccode');
-		//$suploadprofilepic  = $this->input->post('suploadprofilepic');
-		//echo $countfiles = count($_FILES['ssigneddocument']['name']);
-		//$suploadprofilepic = $_FILES['ssigneddocument']['name'];	
-		//die;
-		self::upload_files('ssigneddocument'));
-		die;
-		$suploadprofilepic  = $this->input->post('suploadprofilepic');
-		self::upload_files($path, $title, $suploadprofilepic);
-		$ssigneddocument  = $this->input->post('ssigneddocument');
-		self::upload_files($path, $title, $ssigneddocument);
-		//$count = count($ssigneddocument);
-		$data = array(sname => $sname, scomapnyname => $scomapnyname, scontactperson => $scontactperson, scin => $scin, sgst => $sgst, spcb => $spcb, semail => $semail, sphone => $sphone , saddress => $saddress2, saddresscount => $saddresscount, spin => $spin, sstate => $sstate, scountry => $scountry, sbankername => $sbankername, saccountnumber => $saccountnumber, sbranch => $sbranch, sifsccode => $sifsccode, suploadprofilepic => $suploadprofilepic, ssigneddocument => $ssigneddocument );
-		$this->load->view('xya', $data);
-		$status = $this->Admin_model->insert('auction', $data);
-		header('location: '.base_url().'admin_dashboard/index/'.$status.'');
+		$pic_array = self::upload_files('suploadprofilepic');
+		$doc_array = self::upload_files('ssigneddocument');
+		if(!count($pic_array)){
+			echo '<script language="javascript">';
+			echo 'alert("Documents Upload Failed")';  //not showing an alert box.
+			echo '</script>';
+		}else{
+			$pic_array = serialize($pic_array);
+		}
+		if(!count($doc_array)){
+			echo '<script language="javascript">';
+			echo 'alert("Documents Upload Failed")';  //not showing an alert box.
+			echo '</script>';
+		}else{
+			$doc_array = serialize($doc_array);
+		}
+		//=================================================================================================
+		
+		
+		
+		//==================================================================
+		$data2 = array('sname' => $sname, 'scomapnyname' => $scomapnyname, 'scompanytype' => $scompanytype, 'scontactperson' => $scontactperson, 'sdesignation' => $sdesignation, 'susername' => $susername, 'spassword'=> $spassword, 'scin' => $scin, 'sgst' => $sgst, 'spcb' => $spcb, 'semail' => $semail, 'sphone' => $sphone , 'saddress' => $saddress2, 'saddresscount' => $saddresscount, 'spin' => $spin, 'sstate' => $sstate, 'scountry' => $scountry, 'sbankername' => $sbankername, 'saccountnumber' => $saccountnumber, 'sbranch' => $sbranch, 'sifsccode' => $sifsccode, 'suploadprofilepic' => $pic_array, 'ssigneddocument' => $doc_array);
+		//$this->load->view('xya', $data);
+		$datainserr = "Data Inserted Successfully";
+		$status = $this->Admin_model->insert('sellerprofile', $data2);
+		header('location: '.base_url().'admin_dashboard/index/'.$datainserr);
 		//$this->load->view('admin/header');
 		//$this->load->view('admin/salesreport');
 		//$this->load->view('admin/footer');
 		
 	}
 	
-	private function upload_file($filenameee,$nameid)
+/*private function upload_file($filenameee,$nameid)
     {
         if(!empty($filenameee)){
                 $config['upload_path'] = 'web_files/uploads/';
-                $config['allowed_types'] = 'doc|docx|pdf|xlsx';
+                $config['allowed_types'] = 'jpg|png';
                 $config['file_name'] = $filenameee;
                 
                 //Load upload library and initialize configuration
@@ -89,14 +103,12 @@ class Admin_seller_basicinfo_add extends CI_Controller {
                 $flname = 'aa';
             }
 			return $flname;
-    }
+    }*/
 	private function upload_files($nameid)
     {	
-		
 	$countfiles = count($_FILES[$nameid]['name']);
       // Looping all files
       for($i=0;$i<$countfiles;$i++){
- 
         if(!empty($_FILES[$nameid]['name'][$i])){
  
           // Define new $_FILES array - $_FILES['file']
@@ -108,26 +120,25 @@ class Admin_seller_basicinfo_add extends CI_Controller {
 
           // Set preference
            $config['upload_path'] = 'web_files/uploads/';
-			$config['allowed_types'] = 'doc|docx|pdf|xlsx';
-          $config['max_size'] = '50000'; // max_size in kb
+			$config['allowed_types'] = 'doc|docx|pdf|xlsx|jpg|png|gif';
+          $config['max_size'] = '50000000'; // max_size in kb
           $config['file_name'] = $_FILES[$nameid]['name'][$i];
  
           //Load upload library
           $this->load->library('upload',$config); 
- 
+		$this->upload->initialize($config);
           // File upload
           if($this->upload->do_upload('file')){
             // Get data about the file
             $uploadData = $this->upload->data();
             $filename = $uploadData['file_name'];
-
             // Initialize array
-            $data[] = $filename;
+            $datar[] = $filename;
           }
         }
  
       }
-	  return $data;
+	  return $datar;
     }
 	
 }
