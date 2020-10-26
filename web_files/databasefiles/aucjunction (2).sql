@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 20, 2020 at 12:45 PM
--- Server version: 10.4.13-MariaDB
--- PHP Version: 7.4.8
+-- Generation Time: Oct 26, 2020 at 12:52 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -228,7 +229,7 @@ CREATE TABLE `sellerprofile` (
   `sterms_condi` tinyint(1) DEFAULT NULL,
   `scin` varchar(225) DEFAULT NULL,
   `scompanytype` varchar(50) DEFAULT NULL,
-  `saddress` tinytext DEFAULT NULL,
+  `saddress` text DEFAULT NULL,
   `saddresscount` int(2) DEFAULT NULL,
   `sstreet` varchar(100) DEFAULT NULL,
   `scity` varchar(100) DEFAULT NULL,
@@ -240,7 +241,7 @@ CREATE TABLE `sellerprofile` (
   `semail` varchar(200) DEFAULT NULL,
   `sphone` int(11) DEFAULT NULL,
   `susername` varchar(50) DEFAULT NULL,
-  `spassword` varchar(10) DEFAULT NULL,
+  `spassword` varchar(500) DEFAULT NULL,
   `soldpassword` varchar(50) DEFAULT NULL,
   `snewpassword` varchar(50) DEFAULT NULL,
   `sconfirmpassword` varchar(10) DEFAULT NULL,
@@ -251,10 +252,20 @@ CREATE TABLE `sellerprofile` (
   `saccountnumber` int(200) DEFAULT NULL,
   `sbranch` varchar(100) DEFAULT NULL,
   `sifsccode` varchar(200) DEFAULT NULL,
-  `suploadprofilepic` varchar(200) DEFAULT NULL,
-  `ssigneddocument` varchar(200) DEFAULT NULL,
+  `suploadprofilepic` text DEFAULT NULL,
+  `ssigneddocument` text DEFAULT NULL,
   `adaction` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `sellerprofile`
+--
+
+INSERT INTO `sellerprofile` (`id`, `sname`, `scomapnyname`, `ssellertype`, `scontactperson`, `sdesignation`, `sagreement`, `sagreementdate`, `sterms_condi`, `scin`, `scompanytype`, `saddress`, `saddresscount`, `sstreet`, `scity`, `span`, `spin`, `sstate`, `scountry`, `slocation`, `semail`, `sphone`, `susername`, `spassword`, `soldpassword`, `snewpassword`, `sconfirmpassword`, `sgst`, `spcb`, `scapcha`, `sbankername`, `saccountnumber`, `sbranch`, `sifsccode`, `suploadprofilepic`, `ssigneddocument`, `adaction`) VALUES
+(11, NULL, 'bmel', 0, 'dsdsd', 'CTO', 1, '2020-10-22', NULL, NULL, NULL, NULL, NULL, 'no 11 crnfje megha ', 'bangalore', 0, 560047, 'Karnataka', NULL, 'bangalore', 'meghasangmesh2@gmail', 2147483647, 'kjhg', '123456', NULL, NULL, NULL, 2345677, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(12, NULL, 'bmel', 0, 'dsdsd', 'CTO', 1, '2020-10-22', 1, NULL, NULL, NULL, NULL, 'no 11 crnfje megha ', 'bangalore', 0, 560047, 'Karnataka', NULL, 'bangalore', 'meghasangmesh2@gmail', 2147483647, 'maehagaba', 'intelp4', NULL, NULL, NULL, 2345677, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(13, NULL, 'epc', 0, 'Charith', 'CTO', 1, '2020-10-23', 1, NULL, NULL, NULL, NULL, 'no-11, 8th cross,postoffice road, ramamurthy nagar,bangalore', 'bangalore', 560016, 560016, 'Karnataka', NULL, 'bangalore', 'nishant@eternalpower.co.in', 2147483647, 'nishant_01', '1234567', NULL, NULL, NULL, 2147483647, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(20, 'megha p', 'be', NULL, 'megha', 'ceo', NULL, NULL, NULL, '112345', 'private limited', 'a:1:{i:0;s:16:\"Corporate Office\";}', 0, NULL, NULL, NULL, 560047, 'Karnataka', NULL, NULL, 'meghasangmesh2@gmail', 2147483647, 'meghasangmes', '$2y$10$sLrQ50unCJyAMxNinDG83epdcsRIUOTGsmGexq2nS3huzOkIU9SnO', NULL, NULL, NULL, 2323232, '1234568', NULL, 'sbi', 12345678, 'audodgpodi', 'aefweede', 'a:1:{i:0;s:12:\"Capture8.PNG\";}', 'a:1:{i:0;s:32:\"Mail_validation_-_Copy_(1)4.xlsx\";}', NULL);
 
 -- --------------------------------------------------------
 
@@ -415,7 +426,7 @@ ALTER TABLE `liveauction`
 -- AUTO_INCREMENT for table `sellerprofile`
 --
 ALTER TABLE `sellerprofile`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `subcategories`
