@@ -29,7 +29,7 @@
     <tbody>
 	  
 	  <tr>
-	  <form action="../weblib/postformsurvey.php" method="POST" id="bidder">
+	  <form action="./Admin_startauction" method="POST">
 		  <td width="11%">Category</td>
 		  <td width="4%"><select class="form-control w-50" id="scategory" name="scategory">
 				<option value="one" selected>Select</option>
@@ -45,13 +45,13 @@
 	  
 	  	  <tr>
 		  <td>Seller</td>
-		  <td><input class="form-control w-50" onkeyup="uniqueid" id="search" type="text" placeholder="Search" aria-label="Search">
+		  <td><input class="form-control w-50" id="search" type="text" placeholder="Search" aria-label="Search">
 			</td>
 	  </tr>
       
 	  <tr>
 		  <td>Auction Id</td>
-		  <td style="color:blue;">AJ256458/BHEL/IRON/102</td>
+		  <td style="color:blue;"><input class="form-control w-50" onkeyup="uniqueid" id="sauctionid" name="sauctionid" type="text"></td>
 	  </tr>
 	  
 	  <tr>											
@@ -242,7 +242,7 @@ Bidders participating in AucJunction Auctions should verify with the selling com
     </tbody>
   </table>
   
-  <center><a type="submit" onclick="return validatestart()" class="btn btn-info" href="<?php echo base_url();?>admin_addlot" data-dismiss="modal">Start Auction</a></center>
+  <center><a type="submit" name="submit2" onclick="return validatestart()" class="btn btn-info" href="<?php echo base_url();?>admin_addlot" data-dismiss="modal">Start Auction</a></center>
   </form>
 			</div>
             </div>
