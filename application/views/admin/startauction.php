@@ -32,26 +32,26 @@
 	  <form action="../weblib/postformsurvey.php" method="POST" id="bidder">
 		  <td width="11%">Category</td>
 		  <td width="4%"><select class="form-control w-50" id="scategory" name="scategory">
-				<option value="one" selected>Select</option>
-				<option value="one">Ferrous</option>
-				<option value="two">Non Ferrous</option>
-				<option value="three" >Minor Metals</option>
-				<option value="four">Plain paper</option>
-				<option value="five">Granules</option>
-				<option value="six">All Construction Materials</option>
+				<option value="Select" selected>Select</option>
+				<option value="Ferrous">Ferrous</option>
+				<option value="Non Ferrous">Non Ferrous</option>
+				<option value="Minor Metals" >Minor Metals</option>
+				<option value="Plain paper">Plain paper</option>
+				<option value="Granules">Granules</option>
+				<option value="All Construction Materials">All Construction Materials</option>
 				</select>
 			</td>
 	  </tr>
 	  
 	  	  <tr>
 		  <td>Seller</td>
-		  <td><input class="form-control w-50"  type="text" placeholder="Search" aria-label="Search">
+		  <td><input class="form-control w-50"  type="text" id="seller" name="seller" placeholder="Search" onkeyup="auction_id()" aria-label="Search">
 			</td>
 	  </tr>
       
 	  <tr>
 		  <td>Auction Id</td>
-		  <td style="color:blue;">AJ256458/BHEL/IRON/102</td>
+		  <td><input class="form-control w-50"  type="text" id="auctionid" name="auctionid" placeholder="Auction ID" aria-label="Search"></td>
 	  </tr>
 	  
 	  <tr>											
