@@ -4,7 +4,7 @@
     <!---  body  design  -->
 	     <div class="container-fluid">
    <div class="row w-100">
-	 <div class="col-sm-10 col-md-11 ml-5 p-2">
+	 <div class="col-md-11 offset-sm-1 p-2">
     <div class="card shadow mb-4 ml-5">
 	
   <div class="card-header py-3 d-flex bg-info flex-row align-items-center justify-content-center">

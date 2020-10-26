@@ -59,8 +59,6 @@
 						</a>
 						<a href="" >
 						<i class="fa fa-trash" style="color:black"></i> 
-						</a><a href="" >
-						<i class="fa fa-check" style="color:green"></i> 
 						</a>
 						</td>
 						</td>
@@ -78,9 +76,7 @@
 						<a href="" >
 						<i class="fa fa-trash" style="color:black"></i> 
 						</a>
-						<a href="" >
-						<i class="fa fa-check" style="color:green"></i> 
-						</a></td>
+						</td>
 					</tr>
 				<tr>												
 					<td>BHEL</td>
@@ -93,9 +89,7 @@
 						<i class="fa fa-edit"></i> 
 						</a>
 						<a href="" >
-						<i class="fa fa-trash" style="color:black"></i> </a><a href="" >
-						<i class="fa fa-times" style="color:red"></i> 
-						</a>
+						<i class="fa fa-trash" style="color:black"></i> </a>
 					</td>
 				</tr>
 				<tr>												
@@ -111,9 +105,7 @@
 						<a href="" >
 						<i class="fa fa-trash"style="color:black"></i> 
 						</a>
-						<a href="" >
-						<i class="fa fa-check" style="color:green"></i> 
-						</a>
+						
 					</td>
 					</tr>
 					<tr>												
@@ -129,9 +121,7 @@
 							<a href="" >
 							<i class="fa fa-trash" style="color:black"></i> 
 							</a>
-							<a href="" >
-							<i class="fa fa-times" style="color:red"></i> 
-							</a>
+							
 						</td>
 					</tr>
 				</tbody>
