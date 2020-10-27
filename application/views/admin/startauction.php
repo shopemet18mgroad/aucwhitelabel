@@ -29,7 +29,7 @@
     <tbody>
 	  
 	  <tr>
-	  <form action="./Admin_startauction" method="POST">
+	  <form action="<?php echo base_url();?>admin_startauction_info" method="POST" enctype="multipart/form-data">
 		  <td width="11%">Category</td>
 		  <td width="4%"><select class="form-control w-50" id="scategory" name="scategory">
 				<option value="Select" selected>Select</option>
@@ -45,18 +45,13 @@
 	  
 	  	  <tr>
 		  <td>Seller</td>
-
-		  <td><input class="form-control w-50" id="search" type="text" placeholder="Search" aria-label="Search">
-		  <td><input class="form-control w-50"  type="text" id="seller" name="seller" placeholder="Search" onkeyup="auction_id()" aria-label="Search">
+		  <td><input class="form-control w-50"  type="text" id="sname" name="sname" placeholder="Search" onkeyup="auction_id()" aria-label="Search">
 
 			</td>
 	  </tr>
       
 	  <tr>
 		  <td>Auction Id</td>
-
-		  <td style="color:blue;"><input class="form-control w-50" onkeyup="uniqueid" id="sauctionid" name="sauctionid" type="text"></td>
-
 		  <td><input class="form-control w-50"  type="text" id="auctionid" name="auctionid" placeholder="Auction ID" aria-label="Search"></td>
 
 	  </tr>
@@ -218,7 +213,7 @@ Bidders participating in AucJunction Auctions should verify with the selling com
   </div>
   <br><br>
   <div class="form-check form-check-inline ">
-			<input type="checkbox" class="form-check-input" id="sterms_condiaccept[]" name="sterms_condiaccept[]">
+			<input type="checkbox" class="form-check-input" id="sterms_condiaccept" name="sterms_condiaccept[]">
 			<label class="form-check-label" for="exampleCheck1">I agree to the Terms and Conditions</label>
 			</div></td>
   </tr>
@@ -226,20 +221,20 @@ Bidders participating in AucJunction Auctions should verify with the selling com
   <tr>
 		<td>Upload Terms & Conditions</td>
 		<td><div class="form-check form-check-inline">
-			<input type="checkbox" class="form-check-input" id="myCheck" onclick="myFunction()" name="sterms_condiupload[]">
+			<input type="checkbox" class="form-check-input" id="myCheck" onclick="myFunction()" name="sterms_condiupload[]" value="1">
 			<label class="form-check-label" for="myCheck">Yes</label>
 			</div>
 			<div class="form-group" id="text" style="display:none">
-				<input type="file" class="form-control-file" id="sterms_condiupload[]" name="sterms_condiupload[]">
+				<input type="file" class="form-control-file" id="sterms_condiupload" name="sterms_condiupload[]">
 			</div>
 			
 			
 			<div class="form-check form-check-inline">
-			<input type="checkbox" class="form-check-input" id="idCheck" onclick="myFunction2()" name="sterms_condiupload[]">
+			<input type="checkbox" class="form-check-input" id="idCheck" onclick="myFunction()" name="sterms_text[]" value="">
 			<label class="form-check-label" for="idCheck">No</label>
 			</div>
 			<div class="form-group" id="text2" style="display:none">
-			<textarea class="form-control w-50" type="text" id="sterms_condiupload[]" name="sterms_condiupload[]"></textarea>
+			<textarea class="form-control w-50" type="text" id="sterms_text" name="sterms_text"></textarea>
 			</div>
 			</td>
   </tr>
@@ -275,50 +270,39 @@ Bidders participating in AucJunction Auctions should verify with the selling com
   <!-- End of Page Wrapper -->
 
   <!-- Scroll to Top Button-->
-  <script>
-  function uniqueid(){
-    // always start with a letter (for DOM friendlyness)
-    var idstr=String.fromCharCode(Math.floor((Math.random()*25)+65));
-    do {                
-        // between numbers and characters (48 is 0 and 90 is Z (42-48 = 90)
-        var ascicode=Math.floor((Math.random()*42)+48);
-        if (ascicode<58 || ascicode>64){
-            // exclude all chars between : (58) and @ (64)
-            idstr+=String.fromCharCode(ascicode);    
-        }                
-    } while (idstr.length<32);
-
-    return (idstr);
-}
   
-  
-  </script>
   
   
   
   <!-----myscript-->
   <script>
 function myFunction() {
-  var checkBox = document.getElementById("myCheck");
-  var text = document.getElementById("text");
-  if (checkBox.checked == true){
-    text.style.display = "block";
-  } else {
-     text.style.display = "none";
-  }
-}
-</script>
- <script>
-function myFunction2() {
+$('input[id="idCheck"]').on('change', function() {
+   $('input[id="myCheck"]').not(this).prop('checked', false);
+});
+
+
+  var checkBox1 = document.getElementById("myCheck");
+  var text1 = document.getElementById("text");
   var checkBox = document.getElementById("idCheck");
   var text = document.getElementById("text2");
+ 
+  
+  
+  if (checkBox1.checked == true){
+    text1.style.display = "block";
+  } else{
+     text1.style.display = "none";
+  }
   if (checkBox.checked == true){
     text.style.display = "block";
   } else {
      text.style.display = "none";
   }
+  
 }
 </script>
+
 
 
 <?php 

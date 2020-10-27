@@ -121,7 +121,7 @@
  <script>
  function auction_id(){
 	 var cat = document.getElementById('scategory').value;
-	  var cat2 = document.getElementById('seller').value;
+	  var cat2 = document.getElementById('sname').value;
 	   var d = new Date();
 	   var m = d.getHours();
 	   var n = d.getMinutes();
