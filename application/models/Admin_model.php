@@ -53,14 +53,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$query = $this->db->get_where($table, array("prod_id"=>$id));
 			return $query->result();
 		  } 
-		  
-		   public function get_distinct_par_2($table,$col,$id,$d2) { 
-			$this->db->select($col);
-			$this->db->distinct();
-			//$query = $this->db->get($table);
-			$query = $this->db->get_where($table, array("prod_id"=>$id,"cat_name"=>$d2));
-			return $query->result();
-		  } 
+		   
+		  public function get_lookalike($table,$col,$query){			  
+			$this->db->from($table);
+			$this->db->like($col,$query);
+			$q = $this->db->get();
+			return $q->result_array();
+		  }
 		  
 		  
    }

@@ -20,136 +20,33 @@
             <div class="card-body">
               <div class="table-responsive">
 			   <form class="form-inline">
-					<div class="form-group mr-4 offset-sm-4">
+					<div class="form-group  offset-sm-2">
 						<td colspan="5">
-						<form action="/action_page.php">
-							
-								<input type="text" class="form-control" placeholder="Search.." name="search">
-								<button class="form-control" type="submit"><i class="fa fa-search"></i></button>
+						<!-- <form action="/action_page.php"> -->
+								<label for="gettable"></label>
+								<input type="text" class="form-control gettable" id="gettable" placeholder="Enter Company Name To Fetch Result"  size="70" name="search">
+								
+								<!--<button class="form-control" type="submit"><i class="fa fa-search"></i></button>-->
 					
-						</form>
+						<!-- </form> -->
 					</td>
 				</div>
 			
 		
 			</form>
-		
-		<table class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">
-				<thead class="bg-primary text-white">
-				<tr>
-					<th>Seller Name</th>
-					<th>Company Type</th>
-					<th>Contact Person</th>
-					<th>Location</th>
-					<th>City</th>
-					<th>Status</th>
-					<th>Action</th>
-				</tr>
-				</thead>
-				<tbody>
-				<tr>												
-					<td>BHEL</td>
-					<td>Steel metal</td>
-					<td>S.R.Venkatesh</td>
-					<td>Bangalore</td>
-					<td>Shada Shiv Nagar</td>
-					<td>Active</td>
-					<td><a href="<?php echo base_url();?>admin_editseller">
-						 <i class="fa fa-edit"></i> 
-						</a>
-						<a href="" >
-						<i class="fa fa-trash" style="color:black"></i> 
-						</a>
-						</td>
-						</td>
-				</tr>
-				<tr>												
-					<td>BHEL</td>
-					<td>Steel metal</td>
-					<td>S.R.Venkatesh</td>
-					<td>Bangalore</td>
-					<td>Shada Shiv Nagar</td>
-					<td>Active</td>
-					<td><a href="<?php echo base_url();?>admin_editseller">
-						<i class="fa fa-edit"></i> 
-						</a>
-						<a href="" >
-						<i class="fa fa-trash" style="color:black"></i> 
-						</a>
-						</td>
-					</tr>
-				<tr>												
-					<td>BHEL</td>
-					<td>Steel metal</td>
-					<td>S.R.Venkatesh</td>
-					<td>Bangalore</td>
-					<td>Shada Shiv Nagar</td>
-					<td>Inactive</td>
-					<td><a href="<?php echo base_url();?>admin_editseller">
-						<i class="fa fa-edit"></i> 
-						</a>
-						<a href="" >
-						<i class="fa fa-trash" style="color:black"></i> </a>
-					</td>
-				</tr>
-				<tr>												
-					<td>BHEL</td>
-					<td>Steel metal</td>
-					<td>S.R.Venkatesh</td>
-					<td>Bangalore</td>
-					<td>Shada Shiv Nagar</td>
-					<td>Active</td>
-					<td><a href="<?php echo base_url();?>admin_editseller">
-						<i class="fa fa-edit"></i> 
-						</a>
-						<a href="" >
-						<i class="fa fa-trash"style="color:black"></i> 
-						</a>
-						
-					</td>
-					</tr>
-					<tr>												
-						<td>BHEL</td>
-						<td>Steel metal</td>
-						<td>S.R.Venkatesh</td>
-						<td>Bangalore</td>
-						<td>Shada Shiv Nagar</td>
-						<td>Inactive</td>
-						<td><a href="<?php echo base_url();?>admin_editseller">
-							<i class="fa fa-edit"></i> 
-							</a>
-							<a href="" >
-							<i class="fa fa-trash" style="color:black"></i> 
-							</a>
-							
-						</td>
-					</tr>
-				</tbody>
-		 </table>
+		<div class="ajaxrslt" id="ajaxrslt">
+			<!----Insert Ajax Table Here------>
+			
+			<!---- ------>
+		</div>
+
 		</div>
 		</div>
 		
 		
           <!--Pagination -->
 
-        <div class="row">
-		
-			<div class="col-sm-12 col-md-10">
-				<div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
-				<ul class="pagination offset-lg-11">
-				<li class="paginate_button page-item previous disabled" id="dataTable_previous">
-				<a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
-				</li>
-				<li class="paginate_button page-item active">
-				<a href="#" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page-link">1</a>
-				</li>
-				<li class="paginate_button page-item next disabled" id="dataTable_next">
-				<a href="#" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page-link">Next</a>
-				</li>
-				</ul>
-				</div>
-				</div>
-			</div>  
+        
         <!-- /.container-fluid -->
 
 </div>
