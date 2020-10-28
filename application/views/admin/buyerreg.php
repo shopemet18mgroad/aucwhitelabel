@@ -31,37 +31,37 @@
                 <div class="card-body">
 					 <table class="table table-sm table-borderless">
 					 <thead><th width="45%">Personal Info</th>
-					  <form action="<link href="<?php echo base_url();?>admin_buyer_basicinfo_add" method="POST" enctype="multipart/form-data">
+					  <form action="<?php echo base_url();?>Admin_buyer_basicinfo_add" method="POST" enctype="multipart/form-data">
 					 </thead>
 						<tbody>
 						<tr><td><img class="img-fluid" src="<?php echo base_url()."web_files/";?>img/manimg.jpg" alt="Chania" width="40" height="35"></td></tr>
 						<tr>
 							<td class="btxt">Buyer Name:</td>
-							<td><input class="form-control w-50" type="text" id="bname" name="bname"></td>
+							<td><input class="form-control w-50" type="text" id="bname" name="bname" required></td>
 	 							 </tr>
 						<tr>												
 							<td class="btxt">Company Name:</td>
-							<td><input class="form-control w-50" type="text" id="bcompany" name="bcompany" ></td>
+							<td><input class="form-control w-50" type="text" id="bcompany" name="bcompany" required></td>
 							</tr>
 						<tr>
 							<td class="btxt">Company Type:</td>
-							<td><input class="form-control w-50" type="text" id="bcomptype" name="bcomptype" ></td>
+							<td><input class="form-control w-50" type="text" id="bcomptype" name="bcomptype" required></td>
 						</tr>  
 						<tr>
 							<td class="btxt">Contact Person:</td>
-							<td><input class="form-control w-50" type="text" id="bcontactperson" name="bcontactperson" ></td>
+							<td><input class="form-control w-50" type="text" id="bcontactperson" name="bcontactperson" required></td>
 						</tr>
 						<tr>
 							<td class="btxt">CIN Number:</td>
-							<td><input class="form-control w-50" type="text" id="bcin" name="bcin" ></td>
+							<td><input class="form-control w-50" type="text" id="bcin" name="bcin" onkeyup="validate_company2()" required></td>
 						</tr>  
 						<tr>
 							<td class="btxt">GST:</td>
-							<td><input class="form-control w-50" type="text" id="bgst" name="bgst" ></td>
+							<td><input class="form-control w-50" type="text" id="bgst" name="bgst" required></td>
 						</tr> 
 						<tr>
 							<td class="btxt">PCB Licence NO:</td>
-							<td><input class="form-control w-50" type="text" id="bpcb" name="bpcb" ></td>
+							<td><input class="form-control w-50" type="text" id="bpcb" name="bpcb" required></td>
 						</tr> 
 					</tbody>
 					</table>
@@ -72,24 +72,24 @@
 						<tbody>
 						<tr>
 							<td class="btxt">Email:</td>
-							<td><input class="form-control w-50" type="text" id="bemail" name="bemail"></td>
+							<td><input class="form-control w-50" type="text" id="bemail" name="bemail" required></td>
 						</tr>
 						<tr>
 							<td class="btxt">Phone:</td>
-							<td><input class="form-control w-50" type="text" id="bphone" name="bphone"></td>
+							<td><input class="form-control w-50" type="text" id="bphone" name="bphone" required></td>
 						</tr>
 						<tr>
 							<td class="btxt">Postal Address:</td>
-							<td><textarea class="form-control w-50" type="text" id="baddress" 	name="baddress"></textarea></td>
+							<td><textarea class="form-control w-50" type="text" id="baddress" 	name="baddress" required></textarea></td>
 						</tr> 
 						 
 						<tr>
 							<td class="btxt">Pincode:</td>
-							<td><input class="form-control w-50" type="text" id="bpin" name="bpin" ></td>
+							<td><input class="form-control w-50" type="text" id="bpin" name="bpin" required></td>
 						</tr> 
 						<tr>
 							<td class="btxt">State /Union Ter.:</td>
-							<td><input class="form-control w-50" type="text" id="bstate" name="bstate" ></td>
+							<td><input class="form-control w-50" type="text" id="bstate" name="bstate" required></td>
 						</tr> 
 						<tr>
 							<td class="btxt">Country:</td>
@@ -104,38 +104,46 @@
 					<tbody>
 							<tr>
 								<td class="btxt">Banker's Name:</td>
-								<td><input class="form-control w-50" type="text" id="bbankname" name="bbankname" ></td>
+								<td><input class="form-control w-50" type="text" id="bbankname" name="bbankname" required></td>
 							</tr> 
 							<tr>
 								<td class="btxt">Account Number:</td>
-								<td><input class="form-control w-50" type="text" id="baccountnumber" name="baccountnumber" ></td>
+								<td><input class="form-control w-50" type="text" id="baccountnumber" name="baccountnumber" required></td>
 							</tr> 
 							<tr>
 								<td class="btxt">Branch:</td>
-								<td><input class="form-control w-50" type="text" id="bbranch" name="bbranch" ></td>
+								<td><input class="form-control w-50" type="text" id="bbranch" name="bbranch" required></td>
 							</tr> 
 							<tr>
 								<td class="btxt">IFSC Code:</td>
-								<td><input class="form-control w-50" type="text" id="bifsccode" name="bifsccode" ></td>
+								<td><input class="form-control w-50" type="text" id="bifsccode" name="bifsccode" required></td>
 							</tr>
 						</tbody>
 					</table>
 
-
-				<table class="table table-sm table-borderless">
+<table class="table table-sm table-borderless">
 					 <thead><th width="45%">Documents</th>
 					 </thead>
 						<tbody>
 							<tr>
-								<td class="btxt">Upload Documents</td>
-								<td><input type="file" multiple="multiple" id="buploadprofilepic" name="buploadprofilepic"></td>
+								<td class="btxt">Upload Profile Pic</td>
+								<td><div class="input_fields_wrap">
+								<input  type="file" id="buploadimage1" name="buploadimage1[]">
+								</div></td>
 							</tr> 
-										
+							<tr>
+								<td class="btxt">Upload Documents</td>
+								<td><div class="input_fields_wrap">
+								<input type="file" multiple="multiple" id="bsigneddocument" name="bsigneddocument[]">
+								</div></td>
+							</tr> 
+								
+									
 						</tbody>
-					</table>					
-				<a href="#"><button type="button" class="btn btn-info offset-sm-3 mt-2">Submit</button></a>
+					</table>				
+				<a href="#"><button type="submit" name="sb3" onclick="return validatearry2()" class="btn btn-info offset-sm-3 mt-2">Submit</button></a>
 												
-				<a href="#"><button type="button" class="btn btn-info offset-sm-1 mt-2">Cancel</button></a>
+				<a href="#"><button type="submit" name="sb4" class="btn btn-info offset-sm-1 mt-2">Cancel</button></a>
 				</form>								
 				
               </div>
@@ -165,7 +173,7 @@
     <!-- End of Content Wrapper -->
 
   </div>
-  <script>
+  <!--<script>
  $(document).ready(function() {
  var max_fields  = 20;
  var wrapper     = $(".input_fields_wrap");
@@ -177,7 +185,7 @@
    e.preventDefault();
    if(x < max_fields){
 			x++;
-			$(wrapper).append('<div><input class="mt-2" type="file" id="ssigneddocument" name="ssigneddocument"><a href="#" class="remove_field"><button type="button" class="btn btn-sm btn-primary ml-1">  <i class="fa fa-minus text-white"></i></button></a></div>');
+			$(wrapper).append('<div><input class="mt-2" type="file" id="bsigneddocument" name="bsigneddocument"><a href="#" class="remove_field"><button type="button" class="btn btn-sm btn-primary ml-1">  <i class="fa fa-minus text-white"></i></button></a></div>');
    
    }	
 			});
@@ -193,7 +201,7 @@
 			
 			});
  
- </script>
+ </script>-->
  <?php 
 	//include('./footerdata.php');
 ?>

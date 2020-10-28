@@ -21,6 +21,12 @@ class Admin_buyerreg extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper('url');
+	if($this->uri->segment(3)){
+			$errormsg = urldecode($this->uri->segment(3));
+			echo '<script language="javascript">';
+			echo 'alert("'.$errormsg.'")';
+			echo '</script>';
+		}
 		$this->load->view('admin/header');
 		$this->load->view('admin/buyerreg');
 		$this->load->view('admin/footer');
