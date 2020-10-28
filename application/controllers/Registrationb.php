@@ -97,6 +97,22 @@ class Registrationb extends CI_Controller {
 		echo "HI";
 		
 	}
+		
+		public function companyverify()
+	{
+		$this->load->helper('url');
+		$dataw = $this->uri->segment(3);
+		$update = array('bcompany'=>$dataw);
+		//$pass = array('username'=> $dataw);
+		$this->load->model('Admin_model');
+		$scan = $this->Admin_model->check('buyerprofile',$update);
+		if($scan){
+			echo "BYE";
+		}else{
+			echo "HI";
+		}
+		
+	}
 	
 	
 }

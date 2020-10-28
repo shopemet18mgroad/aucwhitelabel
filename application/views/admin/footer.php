@@ -119,5 +119,53 @@
  </script>
  
  
+ 
+ 
+  <script>
+ function validatearry2(){
+	   var company = document.getElementById('bcompany').value;
+	   var add = document.getElementById('baddress').value;
+	   if(company == ''  || add == ''){
+		   swal("Alert!", "Company Name or Address Cannot Be Left Blank", "error");
+					return false;
+			}
+			
+
+		var signeddoc2 = document.getElementsByName('bsigneddocument[]');
+		
+		for(var ab = 0; ab<signeddoc2.length; ab++){
+			if(signeddoc2[ab].value == ""){
+				swal("Alert!", "Please Select File to Upload!", "error")
+				//alert("Please Select Files To Upload");
+				return false;
+			}
+		}
+ }
+ 
+ </script>
+ 
+ <script>
+ function validate_company2(){
+	 var company = document.getElementById('bcompany').value;
+	 if(company == ""){
+		 swal("Alert!", "Company Name Cannot Be Left Blank","error");
+		 return false;
+		 
+		 
+	 }
+	  $.get('<?php echo base_url() .'registrationb/companyverify/'; ?>'+company, function(data2){						
+				 if($.trim(data2) == "HI"){
+					return true;
+				}else{
+					swal("Alert!", "Company Name Already Exists", "error");
+					return false;
+				}
+			 });
+ }
+ </script>
+ 
+ 
+ 
+
 
  
