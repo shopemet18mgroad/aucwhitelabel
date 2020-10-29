@@ -35,6 +35,7 @@
 						<tbody>
 						<tr><td><img class="img-fluid" src="<?php echo base_url()."web_files/";?>img/manimg.jpg" alt="Chania" width="40" height="35"></td></tr>
 						<tr>
+						 <form action = "<?php echo base_url();?>admin_seller_basicinfo_add" method="POST" enctype="multipart/form-data">
 							<td class="btxt">Seller Name:</td>
 							<td><input class="form-control w-50" type="text" id="sname" name="sname" value="<?php echo $sqldata[0]->sname; ?>"></td>
 	 							 </tr>
@@ -78,22 +79,36 @@
 							<td><input class="form-control w-50" type="text" id="sphone" name="sphone" value="<?php echo $sqldata[0]->sphone; ?>"></td>
 						</tr>
 						<tr>
-						<?php unserialize($sqldata[0]->sphone) ?>
 								<td>Address</td>
 								<td>
-								<div class="input_fields_wrap1">
+								<?php
+								$companyltype = unserialize($sqldata[0]->saddress);
+								$companyaddress = unserialize($sqldata[0]->saddresscount);
+								 $xj = 0;
+								 $companyltypecnt = count($companyltype);
+								 $companyaddresscnt = count($companyaddress);
+								 for($i=0;$i<$companyltypecnt;$i++){
+									 echo '<div class="input_fields_wrap1">';
+										echo '<select class="form-control w-50  p-1" id="saddress" name="saddress">';
+										echo '<option value="'.$companyltype[$i].'" selected>'.$companyltype[$i].'</option>';
+										echo '<option value="Corporate-Office">Corporate Office</option>';
+										echo '<option value="Headquarter">Headquarter</option>';
+										echo '</select>';
+										echo '';
+										echo '<textarea class="form-control float-left mt-2 p-2 w-50" type="text" id="saddresscount" name="saddresscount">'.$companyaddress[$i].'</textarea>';
+										echo '<a class="add_field_button1"><button type="button" class="btn btn-sm btn-primary ml-1 mb-5 mt-3">  <i class="fa fa-plus text-white"></i></button></a>';
+										echo '</div>';
+								 }
+								?>
+								<!--<div class="input_fields_wrap1">
 								<select class="form-control w-50  p-1" id="saddress" name="saddress">
-									<option value="one" selected>Corporate Office</option>
-									<option value="two">Headquarter</option>
-									<option value="three" >.....</option>
-									<option value="four">.....</option>
-									<option value="five">......</option>
-									<option value="six">.....</option>
+									<option value="Corporate-Office" selected>Corporate Office</option>
+									<option value="Headquarter">Headquarter</option>
 									</select>
 									
-									<textarea class="form-control float-left mt-2 p-2 w-50" type="text" id="saddresscount" name="saddresscount"></textarea>
+									<textarea class="form-control float-left mt-2 p-2 w-50" type="text" id="saddresscount" name="saddresscount" class="remove_field"></textarea>
 								<a class="add_field_button1"><button type="button" class="btn btn-sm btn-primary ml-1 mb-5 mt-3"> <i class="fa fa-plus text-white"></i></button></a>
-									</div>
+									</div> -->
 									</td>
 								
 							</tr>
@@ -141,18 +156,51 @@
 					 </thead>
 						<tbody>
 							<tr>
-								<td class="btxt">Upload Documents</td>
-								<td><input type="file" multiple="multiple" id="suploadprofilepic" name="suploadprofilepic"></td>
+							<td>
+								Profile Pic
+							</td>
+							<td>
+								<img src="<?php $img = unserialize($sqldata[0]->suploadprofilepic); echo base_url()."/web_files/uploads/".$img[0];?>" width="300px" height="100px">
+							</td>
+							</tr>
+							<tr>
+								
+								<td class="btxt">Upload New Profile Pic</td>
+								<td><div class="input_fields_wrap">
+								
+								<input  type="file" id="suploadprofilepic" name="suploadprofilepic[]">
+								</div></td>
 							</tr> 
-						
+
+							<tr>
+								<td class="btxt">Upload Documents</td>
+								<td><div class="input_fields_wrap">
+								<input  type="file" id="ssigneddocument" name="ssigneddocument[]" multiple="multiple">
+								</div></td>
+								
+							</tr> 
+							<?php 
+							$file = unserialize($sqldata[0]->ssigneddocument);
+							  foreach($file as $fl){
+							echo '<tr id="filess">';
+							echo '<td class="btxt">Existing Documents</td>';
+							echo '<td><div class="input_fields_wrap">';
+							echo '<textarea class="form-control float-left mt-2 p-2 w-50" type="text" id="ssigneddocumentex" name="ssigneddocumentex[]" readonly>'.$fl.'</textarea>';
+							echo '<a class="add_field_button1"><button type="button" onclick="$(this).parents(\'#filess\').remove()" class="btn btn-sm btn-primary ml-1 mb-5 mt-3">  <i class="fa fa-minus text-white"></i></button></a>';
+							echo '</div></td>';
+							echo '';
+							echo '</tr>';
+							  }
+							
+							?>
 									
 						</tbody>
-					</table>					
-				<a href="#"><button type="button" class="btn btn-info offset-sm-4 mt-2">Update</button></a>
+					</table>								
+				<a href="#"><button type="submit" class="btn btn-info offset-sm-4 mt-2">Update</button></a>
 												
-				<a href="#"><button type="button" class="btn btn-info offset-sm-1 mt-2">Cancel</button></a>
+				<a href="#"><button type="submit" class="btn btn-info offset-sm-1 mt-2">Cancel</button></a>
 												
-				
+				</form>
               </div>
             </div>
 
