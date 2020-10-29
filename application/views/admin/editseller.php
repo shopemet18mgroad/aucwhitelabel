@@ -30,12 +30,11 @@
                 <div class="card-body">
 					 <table class="table table-sm table-borderless">
 					 <thead><th width="45%">Basic Info</th>
-					 
 					 </thead>
 						<tbody>
 						<tr><td><img class="img-fluid" src="<?php echo base_url()."web_files/";?>img/manimg.jpg" alt="Chania" width="40" height="35"></td></tr>
 						<tr>
-						 <form action = "<?php echo base_url();?>admin_seller_basicinfo_add" method="POST" enctype="multipart/form-data">
+						 <form action = "<?php echo base_url();?>admin_seller_basicinfo_update" method="POST" enctype="multipart/form-data">
 							<td class="btxt">Seller Name:</td>
 							<td><input class="form-control w-50" type="text" id="sname" name="sname" value="<?php echo $sqldata[0]->sname; ?>"></td>
 	 							 </tr>
@@ -45,7 +44,10 @@
 							</tr>
 						<tr>
 							<td class="btxt">Company Type:</td>
-							<td><input class="form-control w-50" type="text" id="scompanytype" name="scompanytype" value="<?php echo $sqldata[0]->scompanytype; ?>"></td>
+		
+
+
+		<td><input class="form-control w-50" type="text" id="scompanytype" name="scompanytype" value="<?php echo $sqldata[0]->scompanytype; ?>"></td>
 						</tr>  
 						<tr>
 							<td class="btxt">Contact Person:</td>
@@ -161,6 +163,7 @@
 							</td>
 							<td>
 								<img src="<?php $img = unserialize($sqldata[0]->suploadprofilepic); echo base_url()."/web_files/uploads/".$img[0];?>" width="300px" height="100px">
+								<input type="hidden" name="profileimage" id="profileimage" value="<?php echo $img[0];?>">
 							</td>
 							</tr>
 							<tr>
@@ -186,6 +189,7 @@
 							echo '<td class="btxt">Existing Documents</td>';
 							echo '<td><div class="input_fields_wrap">';
 							echo '<textarea class="form-control float-left mt-2 p-2 w-50" type="text" id="ssigneddocumentex" name="ssigneddocumentex[]" readonly>'.$fl.'</textarea>';
+							echo '<input type="hidden" id="ssigneddocumentexcom" name="ssigneddocumentexcom[]" value="'.$fl.'">';
 							echo '<a class="add_field_button1"><button type="button" onclick="$(this).parents(\'#filess\').remove()" class="btn btn-sm btn-primary ml-1 mb-5 mt-3">  <i class="fa fa-minus text-white"></i></button></a>';
 							echo '</div></td>';
 							echo '';
