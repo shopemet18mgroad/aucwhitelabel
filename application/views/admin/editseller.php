@@ -196,9 +196,9 @@
 									
 						</tbody>
 					</table>								
-				<a href="#"><button type="submit" class="btn btn-info offset-sm-4 mt-2">Update</button></a>
+				<button type="submit" class="btn btn-info offset-sm-4 mt-2">Update</button>
 												
-				<a href="#"><button type="submit" class="btn btn-info offset-sm-1 mt-2">Cancel</button></a>
+				<button type="submit2" class="btn btn-info offset-sm-1 mt-2">Back</button>
 												
 				</form>
               </div>
