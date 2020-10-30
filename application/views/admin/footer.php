@@ -184,8 +184,6 @@
 	 }
  }
  </script>
-<<<<<<< HEAD
-=======
  <script>
  function auction_id(){
 	 var cat = document.getElementById('scategory').value;
@@ -222,6 +220,4 @@
 		});
 	
  </script>
-
->>>>>>> 0ea466a61559691ae671fd8bbd8f69d6b45a62b5
  

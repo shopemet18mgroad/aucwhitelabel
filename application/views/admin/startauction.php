@@ -244,13 +244,9 @@ Bidders participating in AucJunction Auctions should verify with the selling com
     </tbody>
   </table>
   
-<<<<<<< HEAD
   <center><input type="submit" name="submit" onclick="return validatestart()" class="btn btn-info" value="Start Auction" data-dismiss="modal"></center>
  	 </form>
-=======
-  <center><a type="submit" name="save" value="Save Data" onclick="return validatestart()" class="btn btn-info" href="<?php echo base_url();?>admin_addlot" data-dismiss="modal">Start Auction</a></center>
-  </form>
->>>>>>> 0ea466a61559691ae671fd8bbd8f69d6b45a62b5
+
 			</div>
 		
             </div>
