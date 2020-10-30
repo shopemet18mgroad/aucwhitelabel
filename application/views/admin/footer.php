@@ -135,4 +135,25 @@
 	 }
  }
  </script>
+
+ <script>
+		$('.gettable').on('keyup', function(){
+			var contents = $('#gettable').val(); 
+			$.get('<?php echo base_url() .'admin_sellereditprofile/get_table/'; ?>'+contents, function(data){
+				$('#ajaxrslt').html(data);
+			});
+		});
+	
+ </script>
+ 
+ <script>
+		$('.gettable').on('keyup', function(){
+			var contents = $('#gettable').val(); 
+			$.get('<?php echo base_url() .'admin_buyereditprofile/get_table/'; ?>'+contents, function(data){
+				$('#ajaxrslt').html(data);
+			});
+		});
+	
+ </script>
+
  
