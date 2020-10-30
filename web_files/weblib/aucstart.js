@@ -85,6 +85,14 @@ function validatestart(){
 			 
 			 
 		 	
+
+				
+			 	if( $('input[name="sterms_condiupload1[]"]:checked').length == 0 )  
+			{ 
+				swal("Alert!",  "Please select one checkbox ", "error");
+				return false;
+			} 
+
 				/* else if(sterms_text == ''){
 		 swal("Alert!", "Please write", "error");
 		 return false;

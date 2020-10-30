@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 29, 2020 at 10:19 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.1
+-- Generation Time: Oct 30, 2020 at 11:24 AM
+-- Server version: 10.4.13-MariaDB
+-- PHP Version: 7.4.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,27 +24,19 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `auction`
+-- Table structure for table `addlot`
 --
 
-CREATE TABLE `auction` (
+CREATE TABLE `addlot` (
   `id` int(11) NOT NULL,
-  `sname` varchar(100) DEFAULT NULL,
-  `scompanyname` varchar(100) DEFAULT NULL,
-  `scompanyid` int(200) DEFAULT NULL,
-  `scategory` varchar(200) DEFAULT NULL,
-  `sauctionid` int(225) DEFAULT NULL,
-  `svinspection` varchar(200) DEFAULT NULL,
-  `sonlineaucdate_time` datetime DEFAULT NULL,
-  `sterms_condiaccept` tinyint(1) DEFAULT NULL,
-  `sterms_condiupload` tinyint(1) DEFAULT NULL,
-  `sterms_conditype` varchar(225) DEFAULT NULL,
-  `slotno` int(100) DEFAULT NULL,
+  `sauctionid` varchar(225) DEFAULT NULL,
+  `slotno` varchar(100) DEFAULT NULL,
   `slotname` varchar(200) DEFAULT NULL,
+  `scategory` varchar(200) DEFAULT NULL,
   `sdescription` varchar(225) DEFAULT NULL,
   `slotlocation` varchar(225) DEFAULT NULL,
-  `sfrominpectdate_time` datetime(6) DEFAULT NULL,
-  `stoinpectdate_time` datetime(6) DEFAULT NULL,
+  `sfrominpectdate_time` datetime DEFAULT NULL,
+  `stoinpectdate_time` datetime DEFAULT NULL,
   `semddetail` varchar(200) DEFAULT NULL,
   `slastdateemdsub` date DEFAULT NULL,
   `sprice` int(225) DEFAULT NULL,
@@ -55,9 +46,38 @@ CREATE TABLE `auction` (
   `sbidbase` int(200) DEFAULT NULL,
   `sgst` int(200) DEFAULT NULL,
   `sothertax` varchar(225) DEFAULT NULL,
-  `semdamount` int(255) DEFAULT NULL,
+  `semdamount` int(225) DEFAULT NULL,
   `sliftingperiod` varchar(200) DEFAULT NULL,
-  `spcbcertificate` tinyint(1) DEFAULT NULL,
+  `sliftingperiod2` datetime DEFAULT NULL,
+  `spcbcertificate` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `addlot`
+--
+
+INSERT INTO `addlot` (`id`, `sauctionid`, `slotno`, `slotname`, `scategory`, `sdescription`, `slotlocation`, `sfrominpectdate_time`, `stoinpectdate_time`, `semddetail`, `slastdateemdsub`, `sprice`, `sstartbidprice`, `sqty`, `sunitmeasurment`, `sbidbase`, `sgst`, `sothertax`, `semdamount`, `sliftingperiod`, `sliftingperiod2`, `spcbcertificate`) VALUES
+(1, 'AUC/xxx/Ferrous/15/43/33', 'M/xxx/Ferrous/15/43/55', 'xxx', 'Ferrous', 'xxx', 'five', '2020-10-30 15:45:00', '2020-10-30 15:46:00', 'xxxx', '2020-10-04', 0, 0, 0, 0, 0, 0, 'xxxx', 0, 'xxx', '2020-10-30 15:50:00', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `auction`
+--
+
+CREATE TABLE `auction` (
+  `id` int(11) NOT NULL,
+  `sname` varchar(100) DEFAULT NULL,
+  `scompanyname` varchar(100) DEFAULT NULL,
+  `scompanyid` int(200) DEFAULT NULL,
+  `scategory` varchar(200) DEFAULT NULL,
+  `sauctionid` varchar(225) DEFAULT NULL,
+  `svinspection` varchar(200) DEFAULT NULL,
+  `sonlineaucdate_time` datetime DEFAULT NULL,
+  `sterms_condiaccept` tinyint(1) DEFAULT NULL,
+  `sterms_condiupload` text DEFAULT NULL,
+  `sterms_text` varchar(225) DEFAULT NULL,
+  `sterms_conditype` varchar(225) DEFAULT NULL,
   `adminapprovalstatus` tinyint(1) DEFAULT NULL,
   `sapproval` varchar(200) DEFAULT NULL,
   `sdownload` blob DEFAULT NULL,
@@ -73,19 +93,35 @@ CREATE TABLE `auction` (
   `bemdstatus` int(225) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `autobid`
+-- Dumping data for table `auction`
 --
 
-CREATE TABLE `autobid` (
-  `id` int(11) NOT NULL,
-  `sauctionid` varchar(225) DEFAULT NULL,
-  `bfinalbid` int(225) DEFAULT NULL,
-  `bidperunit` int(225) DEFAULT NULL,
-  `bidmax` int(225) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `auction` (`id`, `sname`, `scompanyname`, `scompanyid`, `scategory`, `sauctionid`, `svinspection`, `sonlineaucdate_time`, `sterms_condiaccept`, `sterms_condiupload`, `sterms_text`, `sterms_conditype`, `adminapprovalstatus`, `sapproval`, `sdownload`, `saction`, `sauctionstatus`, `saucstartdate_time`, `saucclosedate_time`, `adstatus`, `adaction`, `reauction`, `stotalauction`, `bwishlist`, `bemdstatus`) VALUES
+(1, 'asdad', NULL, NULL, 'Minor Metals', 'AUC/asdad/Minor Metals/11/10/28', 'asdasd', '2020-10-30 11:15:00', 1, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 'dsdasd', NULL, NULL, 'Non Ferrous', 'AUC/dsdas/Non Ferrous/11/13/21', 'asdasdad', '2020-10-30 11:18:00', 1, 'a:1:{i:0;s:14:\"Aluminium1.jpg\";}', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(3, 'dddd', NULL, NULL, 'Minor Metals', 'AUC/dddd/Minor Metals/11/14/40', 'dddd', '2020-10-30 11:20:00', 1, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(4, 'ASASA', NULL, NULL, 'Non Ferrous', 'AUC/ASASA/Non Ferrous/11/15/31', 'ASas', '2020-10-30 15:15:00', 1, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(5, 'sadasd', NULL, NULL, 'Minor Metals', 'AUC/sad/Minor Metals/11/16/50', 'asdasd', '2020-10-30 11:21:00', 1, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(6, 'erte', NULL, NULL, 'Minor Metals', 'AUC/erte/Minor Metals/11/17/35', 'ertert', '2020-10-30 11:23:00', 1, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(7, 'see', NULL, NULL, 'Minor Metals', 'AUC/see/Minor Metals/11/48/10', 'eee', '2020-10-30 11:53:00', 1, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(8, 'sasda', NULL, NULL, 'Minor Metals', 'AUC/sasda/Minor Metals/11/49/7', 'asdasd', '2020-10-30 11:54:00', 1, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(9, 'seee', NULL, NULL, 'Minor Metals', 'AUC/seee/Minor Metals/11/53/47', 'seee', '2020-10-30 11:59:00', 1, 'a:1:{i:0;s:13:\"aug_(5)23.pdf\";}', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(10, 'DDD', NULL, NULL, 'Non Ferrous', 'AUC/DDD/Non Ferrous/12/52/26', 'DDD', '2020-10-30 12:58:00', NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(11, 'sss', NULL, NULL, 'Non Ferrous', 'AUC/sss/Non Ferrous/13/12/11', 'sss', '2020-10-30 13:18:00', NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(12, 'www', NULL, NULL, 'Non Ferrous', 'AUC/www/Non Ferrous/13/14/15', 'www', '2020-10-30 13:20:00', 1, 'a:1:{i:0;s:14:\"Aluminium2.jpg\";}', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(13, 'eee', NULL, NULL, 'Non Ferrous', 'AUC/eee/Non Ferrous/13/35/44', 'eee', '2020-10-30 13:40:00', 1, 'a:1:{i:0;s:14:\"Aluminium3.jpg\";}', 'dddd', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(14, 'xxx', NULL, NULL, 'Minor Metals', 'AUC/xxx/Minor Metals/13/40/0', 'xxxx', '2020-10-30 13:45:00', 1, NULL, 'xxxx', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(15, 'ccc', NULL, NULL, 'All Construction Materials', 'AUC/ccc/All Construction Materials/13/46/44', 'ccc', '2020-10-30 13:51:00', 1, NULL, 'cccc', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(16, 'zzzz', NULL, NULL, 'Minor Metals', 'AUC/zzzz/Minor Metals/13/49/16', 'zzzzzzzz', '2020-10-30 13:56:00', 1, NULL, 'sssssss', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(17, 'sss', NULL, NULL, 'Minor Metals', 'AUC/sss/Minor Metals/13/51/37', 'sss', '2020-10-30 13:56:00', 1, NULL, 'gggg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(18, 'qqq', NULL, NULL, 'Non Ferrous', 'AUC/qqq/Non Ferrous/13/56/20', 'qqqq', '2020-10-30 13:02:00', 1, 'a:1:{i:0;s:14:\"Aluminium4.jpg\";}', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(19, 'aaa', NULL, NULL, 'Non Ferrous', 'AUC/aaa/Non Ferrous/15/10/46', 'aaa', '2020-10-30 15:15:00', 1, 'a:1:{i:0;s:13:\"aug_(5)24.pdf\";}', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(20, 'aaa', NULL, NULL, 'Non Ferrous', '', 'aaa', '2020-10-30 15:15:00', 1, 'a:1:{i:0;s:13:\"aug_(5)25.pdf\";}', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(21, 'ccccc', NULL, NULL, 'Non Ferrous', 'AUC/ccccc/Non Ferrous/15/24/52', 'cccc', '2020-10-30 15:31:00', 1, NULL, 'cccc', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(22, 'ccc', NULL, NULL, 'Non Ferrous', 'AUC/ccc/Non Ferrous/15/25/23', 'ccc', '2020-10-30 15:30:00', 1, 'a:1:{i:0;s:13:\"aug_(4)14.pdf\";}', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(23, 'xx', NULL, NULL, 'Non Ferrous', 'AUC/xx/Non Ferrous/15/42/9', 'xxx', '2020-10-30 15:47:00', 1, NULL, 'xxxx', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(24, 'xxx', NULL, NULL, 'Ferrous', 'AUC/xxx/Ferrous/15/43/33', 'xxx', '2020-10-30 15:48:00', 1, NULL, 'xxxx', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -335,15 +371,15 @@ INSERT INTO `subcategories` (`id`, `name`, `description`) VALUES
 --
 
 --
--- Indexes for table `auction`
+-- Indexes for table `addlot`
 --
-ALTER TABLE `auction`
+ALTER TABLE `addlot`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `autobid`
+-- Indexes for table `auction`
 --
-ALTER TABLE `autobid`
+ALTER TABLE `auction`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -387,16 +423,16 @@ ALTER TABLE `subcategories`
 --
 
 --
+-- AUTO_INCREMENT for table `addlot`
+--
+ALTER TABLE `addlot`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `auction`
 --
 ALTER TABLE `auction`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `autobid`
---
-ALTER TABLE `autobid`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `biddercart`
