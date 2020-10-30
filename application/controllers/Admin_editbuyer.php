@@ -27,7 +27,7 @@ class Admin_editbuyer extends CI_Controller {
 		
 	}
 	public function edit_buyer(){
-		$retrivevaltmp = $this->uri->segment(3);
+		$retrivevaltmp =  urldecode($this->uri->segment(3));
 		$retriveval = array('bcompany'=>$retrivevaltmp);
 		$this->load->model('Admin_model');
 		$data['sqldata'] = $this->Admin_model->getdatafromtable('buyerprofile',$retriveval);

@@ -27,7 +27,8 @@ class Admin_editseller extends CI_Controller {
 		
 	}
 	public function edit_seller(){
-		$retrivevaltmp = $this->uri->segment(3);
+		$retrivevaltmp = urldecode($this->uri->segment(3));
+		
 		$retriveval = array('scomapnyname'=>$retrivevaltmp);
 		$this->load->model('Admin_model');
 		$data['sqldata'] = $this->Admin_model->getdatafromtable('sellerprofile',$retriveval);

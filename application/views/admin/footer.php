@@ -170,7 +170,7 @@
  <script>
  function auction_id(){
 	 var cat = document.getElementById('scategory').value;
-	  var cat2 = document.getElementById('seller').value;
+	  var cat2 = document.getElementById('sname').value;
 	   var d = new Date();
 	   var m = d.getHours();
 	   var n = d.getMinutes();
@@ -180,10 +180,12 @@
 		 return false;
 	 }
 	 if(cat2.length<6){
-		  document.getElementById('auctionid').value = "AUC/"+cat2+"/"+cat+"/"+m+"/"+n+"/"+s;
+		  document.getElementById('sauctionid').value = "AUC/"+cat2+"/"+cat+"/"+m+"/"+n+"/"+s;
 	 }
  }
  </script>
+<<<<<<< HEAD
+=======
  <script>
  function auction_id(){
 	 var cat = document.getElementById('scategory').value;
@@ -221,4 +223,5 @@
 	
  </script>
 
+>>>>>>> 0ea466a61559691ae671fd8bbd8f69d6b45a62b5
  

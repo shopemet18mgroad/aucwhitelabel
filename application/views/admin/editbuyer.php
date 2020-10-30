@@ -79,7 +79,7 @@
 							<td><input class="form-control w-50" type="text" id="bphone" name="bphone"value="<?php echo $sqldata[0]->bphone; ?>"></td>
 						</tr>
 						<tr>
-						<?php unserialize($sqldata[0]->sphone) ?>
+					
 							<td class="btxt">Postal Address:</td>
 							<td><textarea class="form-control w-50" type="text" id="baddress" 	name="baddress" value="<?php echo $sqldata[0]->baddress; ?>"></textarea></td>
 						</tr> 

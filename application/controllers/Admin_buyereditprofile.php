@@ -48,7 +48,7 @@ class Admin_buyereditprofile extends CI_Controller {
 			foreach($data as $dat){
 				echo '<tr>';
 				echo '<td>'.$dat['bname'].'</td>';
-				echo '<td>'.$dat['bcompany'].'</td>';
+				echo '<td>'.$dat['bbuyertype'].'</td>';
 				echo '<td>'.$dat['bcontactperson'].'</td>';
 				echo '<td>'.$dat['bbuyerlocation'].'</td>';
 				echo '<td>'.$dat['bcity'].'</td>';

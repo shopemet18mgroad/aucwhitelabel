@@ -18,13 +18,23 @@ class Admin_addlot extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
+ 	public function index()
 	{
 		$this->load->helper('url');
+		if($this->uri->segment(4)){
+			$errormsg = urldecode($this->uri->segment(4));
+			echo '<script language="javascript">';
+			echo 'alert("'.$errormsg.'")';
+			echo '</script>';
+		}
+		$this->load->library('session');
+		$data = $this->session->flashdata('txdata');
 		$this->load->view('admin/header');
-		$this->load->view('admin/addlot');
+		$this->load->view('admin/addlot',$data);
 		$this->load->view('admin/footer');
 		
-	}
+	} 
+	
+	
 	
 }

@@ -1,6 +1,5 @@
 body{
-	overflow-x:hidden;
-	
+	overflow-x:hidden;	
 }
 .container-fluid{
 	width:100%;
@@ -74,6 +73,7 @@ body{
 }
 .branding{
 	background-color:#ffffff;
+
 }
 
 .branding-dashbord{
@@ -150,6 +150,7 @@ body{
 	.navbar .nav-item a {
 		color: #FFF !important;
 		font-size: 7px;
+		
 	}
 	
 }
@@ -419,6 +420,7 @@ overflow-y:scroll;
     border-left: transparent;
     padding-bottom: 0px;
     margin-bottom: 10px;
+	
 }
 }
 .newsletter{
@@ -812,18 +814,24 @@ border: 1px solid black;
 }
 
 
-@media only screen and (max-width: 760px),(min-device-width: 768px) and (max-device-width: 1024px)   {
+ @media only screen and (max-width: 600px) ,(min-device-width: 768px) and (max-device-width: 1024px)  {
 
-	/*Force table to not be like tables anymore*/
-     table, thead, tbody, th, td, tr { 
-		display: block; 
-		width: 100%;
-		 
+
+	/*  Force table to not be like tables anymore  */
+    table, thead, tbody, th, td, tr {  
+		 display: block!important;  
+		 width: 100%;
 	
- }
-body{
-	overflow-x: hidden;
-	
+  } 
+
+ }  
+
+
+
+
+
+<<<<<<< HEAD
+=======
 }
 
-}
+>>>>>>> 0ea466a61559691ae671fd8bbd8f69d6b45a62b5
