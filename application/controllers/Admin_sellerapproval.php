@@ -20,11 +20,21 @@ class Admin_sellerapproval extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->helper('url');
+		$this->load->helper(array('url','html'));
+		$this->load->model('Admin_model');
+		$adaction = array('adaction'=>false);
+		
+		$query = $this->db->get_where('sellerprofile', $adaction);
+		$adac['activestat']= $query->result_array();
+	
+	
+	
+	
 		$this->load->view('admin/header');
-		$this->load->view('admin/sellerapproval');
+		$this->load->view('admin/sellerapproval',$adac);
 		$this->load->view('admin/footer');
 		
 	}
+
 	
 }

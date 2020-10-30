@@ -221,4 +221,13 @@
 	
  </script>
 
- 
+
+<script>
+		$('.gettable2').on('keyup', function(){
+			var contents = $('#gettable2').val(); 
+			$.get_where('<?php echo base_url() .'sellerprofile/getdatafromtable/'; ?>'+contents, function(data){
+				$('#ajaxrslt').html(data);
+			});
+		});
+	
+ </script>
