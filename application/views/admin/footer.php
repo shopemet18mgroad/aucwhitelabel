@@ -131,9 +131,8 @@
 		 return false;
 	 }
 	 if(cat2.length<6){
-		  document.getElementById('auctionid').value = "AUC/"+cat2+"/"+cat+"/"+m+"/"+n+"/"+s;
+		  document.getElementById('sauctionid').value = "AUC/"+cat2+"/"+cat+"/"+m+"/"+n+"/"+s;
 	 }
  }
  </script>
-
  

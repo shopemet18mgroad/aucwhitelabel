@@ -821,9 +821,6 @@ border: 1px solid black;
     table, thead, tbody, th, td, tr {  
 		 display: block!important;  
 		 width: 100%;
-		overflow-x: hidden!important; 
-		 float:center!important; 
-		  align-items: center;
 	
   } 
 
@@ -831,17 +828,5 @@ border: 1px solid black;
 
 
 
-	/*Force table to not be like tables anymore*/
-     table, thead, tbody, th, td, tr { 
-		display: block; 
-		width: 100%;
-		 
-	
- }
-body{
-	overflow-x: hidden;
-	
-}
 
-}
 

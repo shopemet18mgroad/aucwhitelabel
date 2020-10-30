@@ -29,7 +29,8 @@
     <tbody>
 	  
 	  <tr>
-	  <form action="<?php echo base_url();?>admin_startauction_info" method="POST" enctype="multipart/form-data">
+	  <form action="<?php echo base_url();?>Admin_startauction" method="POST" id="upload-form" enctype="multipart/form-data">
+		  
 		  <td width="11%">Category</td>
 		  <td width="4%"><select class="form-control w-50" id="scategory" name="scategory">
 				<option value="Select" selected>Select</option>
@@ -46,13 +47,12 @@
 	  	  <tr>
 		  <td>Seller</td>
 		  <td><input class="form-control w-50"  type="text" id="sname" name="sname" placeholder="Search" onkeyup="auction_id()" aria-label="Search">
-
-			</td>
+		</td>
 	  </tr>
       
 	  <tr>
 		  <td>Auction Id</td>
-		  <td><input class="form-control w-50"  type="text" id="auctionid" name="auctionid" placeholder="Auction ID" aria-label="Search"></td>
+		  <td><input class="form-control w-50"  type="text" id="sauctionid" name="sauctionid" placeholder="Auction ID" aria-label="Search" readonly></td>
 
 	  </tr>
 	  
@@ -213,7 +213,7 @@ Bidders participating in AucJunction Auctions should verify with the selling com
   </div>
   <br><br>
   <div class="form-check form-check-inline ">
-			<input type="checkbox" class="form-check-input" id="sterms_condiaccept" name="sterms_condiaccept[]">
+			<input type="checkbox" class="form-check-input" id="sterms_condiaccept" name="sterms_condiaccept">
 			<label class="form-check-label" for="exampleCheck1">I agree to the Terms and Conditions</label>
 			</div></td>
   </tr>
@@ -221,16 +221,16 @@ Bidders participating in AucJunction Auctions should verify with the selling com
   <tr>
 		<td>Upload Terms & Conditions</td>
 		<td><div class="form-check form-check-inline">
-			<input type="checkbox" class="form-check-input" id="myCheck" onclick="myFunction()" name="sterms_condiupload[]" value="1">
+			<input type="checkbox" class="form-check-input"  id="myCheck" onclick="myFunction()"  name="sterms_condiupload1[]">
 			<label class="form-check-label" for="myCheck">Yes</label>
 			</div>
-			<div class="form-group" id="text" style="display:none">
+			<div class="form-group" id="text"  style="display:none">
 				<input type="file" class="form-control-file" id="sterms_condiupload" name="sterms_condiupload[]">
 			</div>
 			
 			
 			<div class="form-check form-check-inline">
-			<input type="checkbox" class="form-check-input" id="idCheck" onclick="myFunction()" name="sterms_text[]" value="">
+			<input type="checkbox" class="form-check-input" id="idCheck" onclick="myFunction()" name="sterms_condiupload1[]" value="">
 			<label class="form-check-label" for="idCheck">No</label>
 			</div>
 			<div class="form-group" id="text2" style="display:none">
@@ -244,9 +244,10 @@ Bidders participating in AucJunction Auctions should verify with the selling com
     </tbody>
   </table>
   
-  <center><a type="submit" name="submit2" onclick="return validatestart()" class="btn btn-info" href="<?php echo base_url();?>admin_addlot" data-dismiss="modal">Start Auction</a></center>
-  </form>
+  <center><input type="submit" name="submit" onclick="return validatestart()" class="btn btn-info" value="Start Auction" data-dismiss="modal"></center>
+ 	 </form>
 			</div>
+		
             </div>
 			</div>
 			</div>
@@ -275,33 +276,6 @@ Bidders participating in AucJunction Auctions should verify with the selling com
   
   
   <!-----myscript-->
-  <script>
-function myFunction() {
-$('input[id="idCheck"]').on('change', function() {
-   $('input[id="myCheck"]').not(this).prop('checked', false);
-});
-
-
-  var checkBox1 = document.getElementById("myCheck");
-  var text1 = document.getElementById("text");
-  var checkBox = document.getElementById("idCheck");
-  var text = document.getElementById("text2");
- 
-  
-  
-  if (checkBox1.checked == true){
-    text1.style.display = "block";
-  } else{
-     text1.style.display = "none";
-  }
-  if (checkBox.checked == true){
-    text.style.display = "block";
-  } else {
-     text.style.display = "none";
-  }
-  
-}
-</script>
 
 
 

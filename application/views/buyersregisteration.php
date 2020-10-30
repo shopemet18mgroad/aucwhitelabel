@@ -144,8 +144,8 @@
 		<div class="text-center">
     <input type="submit" name="submit2" onclick="return validate()" value=" Proceed" class="btn btn-primary col-3 mt-2 w-100">
 	<button type="reset" class="btn btn-primary col-3 mt-2">Reset</button>
-		</div>
-			</form>
+		</form>
+		</div>	
 		</div>
 		</div>
 </div>
