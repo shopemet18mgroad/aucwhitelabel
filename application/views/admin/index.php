@@ -158,7 +158,7 @@
 							<tr>
 								<td class="btxt">Upload Documents</td>
 								<td><div class="input_fields_wrap">
-								<input  type="file" id="ssigneddocument" name="ssigneddocument[]" multiple="multiple">
+								<input  type="file" id="bsigneddocument" name="bsigneddocument" multiple="multiple">
 								</div></td>
 								
 

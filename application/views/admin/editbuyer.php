@@ -37,31 +37,31 @@
 						<tr><td><img class="img-fluid" src="<?php echo base_url()."web_files/";?>img/manimg.jpg" alt="Chania" width="40" height="35"></td></tr>
 						<tr>
 							<td class="btxt">Buyer Name:</td>
-							<td><input class="form-control w-50" type="text" id="bname" name="bname"></td>
+							<td><input class="form-control w-50" type="text" id="bname" name="bname"value="<?php echo $sqldata[0]->bname; ?>"></td>
 	 							 </tr>
 						<tr>												
 							<td class="btxt">Company Name:</td>
-							<td><input class="form-control w-50" type="text" id="bcompany" name="bcompany" ></td>
+							<td><input class="form-control w-50" type="text" id="bcompany" name="bcompany" value="<?php echo $sqldata[0]->bcompany; ?>"></td>
 							</tr>
 						<tr>
 							<td class="btxt">Company Type:</td>
-							<td><input class="form-control w-50" type="text" id="bcomptype" name="bcomptype" ></td>
+							<td><input class="form-control w-50" type="text" id="bcomptype" name="bcomptype" value="<?php echo $sqldata[0]->bcomptype; ?>"></td>
 						</tr>  
 						<tr>
 							<td class="btxt">Contact Person:</td>
-							<td><input class="form-control w-50" type="text" id="bcontactperson" name="bcontactperson" ></td>
+							<td><input class="form-control w-50" type="text" id="bcontactperson" name="bcontactperson" value="<?php echo $sqldata[0]->bcontactperson; ?>"></td>
 						</tr>
 						<tr>
 							<td class="btxt">CIN Number:</td>
-							<td><input class="form-control w-50" type="text" id="bcin" name="bcin" ></td>
+							<td><input class="form-control w-50" type="text" id="bcin" name="bcin" value="<?php echo $sqldata[0]->bcin; ?>"></td>
 						</tr>  
 						<tr>
 							<td class="btxt">GST:</td>
-							<td><input class="form-control w-50" type="text" id="bgst" name="bgst" ></td>
+							<td><input class="form-control w-50" type="text" id="bgst" name="bgst" value="<?php echo $sqldata[0]->bgst; ?>"></td>
 						</tr> 
 						<tr>
 							<td class="btxt">PCB Licence NO:</td>
-							<td><input class="form-control w-50" type="text" id="bpcb" name="bpcb" ></td>
+							<td><input class="form-control w-50" type="text" id="bpcb" name="bpcb" value="<?php echo $sqldata[0]->bpcb; ?>"></td>
 						</tr> 
 					</tbody>
 					</table>
@@ -72,24 +72,25 @@
 						<tbody>
 						<tr>
 							<td class="btxt">Email:</td>
-							<td><input class="form-control w-50" type="text" id="bemail" name="bemail"></td>
+							<td><input class="form-control w-50" type="text" id="bemail" name="bemail"value="<?php echo $sqldata[0]->bemail; ?>"></td>
 						</tr>
 						<tr>
 							<td class="btxt">Phone:</td>
-							<td><input class="form-control w-50" type="text" id="bphone" name="bphone"></td>
+							<td><input class="form-control w-50" type="text" id="bphone" name="bphone"value="<?php echo $sqldata[0]->bphone; ?>"></td>
 						</tr>
 						<tr>
+					
 							<td class="btxt">Postal Address:</td>
-							<td><textarea class="form-control w-50" type="text" id="baddress" 	name="baddress"></textarea></td>
+							<td><textarea class="form-control w-50" type="text" id="baddress" 	name="baddress" value="<?php echo $sqldata[0]->baddress; ?>"></textarea></td>
 						</tr> 
 						
 						<tr>
 							<td class="btxt">Pincode:</td>
-							<td><input class="form-control w-50" type="text" id="bpin" name="bpin" ></td>
+							<td><input class="form-control w-50" type="text" id="bpin" name="bpin" value="<?php echo $sqldata[0]->bpin; ?>"></td>
 						</tr> 
 						<tr>
 							<td class="btxt">State /Union Ter.:</td>
-							<td><input class="form-control w-50" type="text" id="bstate" name="bstate" ></td>
+							<td><input class="form-control w-50" type="text" id="bstate" name="bstate" value="<?php echo $sqldata[0]->bstate; ?>"></td>
 						</tr> 
 						<tr>
 							<td class="btxt">Country:</td>
@@ -104,19 +105,19 @@
 					<tbody>
 							<tr>
 								<td class="btxt">Banker's Name:</td>
-								<td><input class="form-control w-50" type="text" id="bbankname" name="bbankname" ></td>
+								<td><input class="form-control w-50" type="text" id="bbankname" name="bbankname" value="<?php echo $sqldata[0]->bbankname; ?>"></td>
 							</tr> 
 							<tr>
 								<td class="btxt">Account Number:</td>
-								<td><input class="form-control w-50" type="text" id="baccountnumber" name="baccountnumber" ></td>
+								<td><input class="form-control w-50" type="text" id="baccountnumber" name="baccountnumber" value="<?php echo $sqldata[0]->baccountnumber; ?>"></td>
 							</tr> 
 							<tr>
 								<td class="btxt">Branch:</td>
-								<td><input class="form-control w-50" type="text" id="bbranch" name="bbranch" ></td>
+								<td><input class="form-control w-50" type="text" id="bbranch" name="bbranch" value="<?php echo $sqldata[0]->bbranch; ?>"></td>
 							</tr> 
 							<tr>
 								<td class="btxt">IFSC Code:</td>
-								<td><input class="form-control w-50" type="text" id="bifsccode" name="bifsccode" ></td>
+								<td><input class="form-control w-50" type="text" id="bifsccode" name="bifsccode" value="<?php echo $sqldata[0]->bifsccode; ?>"></td>
 							</tr>
 						</tbody>
 					</table>

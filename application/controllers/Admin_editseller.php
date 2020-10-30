@@ -26,5 +26,16 @@ class Admin_editseller extends CI_Controller {
 		$this->load->view('admin/footer');
 		
 	}
+	public function edit_seller(){
+		$retrivevaltmp = urldecode($this->uri->segment(3));
+		
+		$retriveval = array('scomapnyname'=>$retrivevaltmp);
+		$this->load->model('Admin_model');
+		$data['sqldata'] = $this->Admin_model->getdatafromtable('sellerprofile',$retriveval);
+		$this->load->helper('url');
+		$this->load->view('admin/header');
+		$this->load->view('admin/editseller', $data);
+		$this->load->view('admin/footer');
+	}
 	
 }

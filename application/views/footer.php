@@ -19,8 +19,11 @@
 						<li><a href="<?php echo base_url();?>contact_us"><i class="fa fa-angle-double-right"></i>Contact Us</a></li>
 						<li><a href="<?php echo base_url();?>faq"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
 						<li><a href="<?php echo base_url();?>terms_and_condition"><i class="fa fa-angle-double-right"></i>Terms & Condition</a></li>
+						
 					</ul>
+				
 				</div>
+						
 				<div class="col-xs-12 col-sm-4 col-md-4">
 					<div class="row">
 						<div class="col newsletter">
@@ -37,6 +40,7 @@
 												<div class="input-group-append"><button class="btn btn-success" type="submit" id="button-addon2"> <b>Subscribe</b></button></div>
 												</form>
 											</div>
+						
 										</div>
 									</div>
 								</div>
@@ -47,13 +51,16 @@
 			</div>
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+				
 					<ul class="list-unstyled list-inline social text-center">
 						<li class="list-inline-item"><a href=""><i class="fa fa-facebook"></i></a></li>
 						<li class="list-inline-item"><a href=""><i class="fa fa-twitter"></i></a></li>
 						<li class="list-inline-item"><a href=""><i class="fa fa-instagram"></i></a></li>
 						<li class="list-inline-item"><a href=""><i class="fa fa-google-plus"></i></a></li>
 						<li class="list-inline-item"><a href="" target="_blank"><i class="fa fa-envelope"></i></a></li>
+						
 					</ul>
+						
 				</div>
 				<hr>
 			</div>	

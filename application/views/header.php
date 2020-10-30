@@ -25,7 +25,12 @@
 				<div class="col-md-12 contact-header">
 					<div class="social pull-right">
 						<ul>
-							<li><i class="fa fa-phone" aria-hidden="true"></i>&nbsp Helpline No: +91 9980596460</li>
+
+							<li>
+								
+						<a href="<?php echo base_url();?>login" class=""><i class="fa fa-sign-in" aria-hidden="true"></i>  Dashboard Login</a>
+						
+							<i class="fa fa-phone" aria-hidden="true"></i>&nbsp Helpline No: +91 9980596460</li>
 							<li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
 							<li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
 							<li><a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
@@ -55,6 +60,7 @@
 						  <div class="form-group p-1">
 							<button type="button" onclick="return userid4()" class="btn btn-primary"><i class="fa fa-sign-in"></i> Login</button>	
 						  </div>
+						   
 						    </form>
 					 </div>
 					 <div class="row ml-3 ">
@@ -68,9 +74,10 @@
 						  <div class="custom-control custom-checkbox small">
 							<input type="checkbox" class="custom-control-input ltype" id="customCheck" name="ltype[]">
 							<label class="custom-control-label" for="customCheck">Bidder</label>
+							
 						  </div>
-						  
 						</div>
+						  
 					</div>
 				
 				</div>
@@ -129,8 +136,11 @@
 						<form method="post" action="<?php echo base_url();?>search" class="form-inline my-2 my-lg-0">
 						  <input class="form-control mr-sm-2" type="search" placeholder="Search For the product here" aria-label="Search For the product here" size="50" required>
 						  <button href="#" class="btn btn-outline-light my-2 my-sm-0" type="submit" ><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+						 				   	
+						 
 						</form>
-					</div>	
+					</div>
+ 				
 				  </div>
 				</nav>
 		</div>

@@ -45,15 +45,30 @@ class Admin_seller_basicinfo_add extends CI_Controller {
 		$saddresscount  = $this->input->post('saddresscount');
 		$saddresscount = serialize($saddresscount);
 		$spin  = $this->input->post('spin');
-		$scity = $this->input->post('scity');
 		$sstate  = $this->input->post('sstate');
 		$scountry  = $this->input->post('scountry');
 		$sbankername  = $this->input->post('sbankername');
 		$saccountnumber  = $this->input->post('saccountnumber');
 		$sbranch  = $this->input->post('sbranch');
 		$sifsccode  = $this->input->post('sifsccode');
-		$pic_array = self::upload_files('suploadprofilepic');
-		$doc_array = self::upload_files('ssigneddocument');
+		$profileimage = $this->input->post('profileimage');
+		$dataact = $this->input->post('ssigneddocumentex');
+		$datacomp = $this->input->post('ssigneddocumentexcom');
+		$result = array_diff($dataact,$datacomp);
+		$result2 = array_intersect($dataact,$datacomp);
+		foreach($result as $res){
+			unlink(base_url()."web_files/uploads/".$res);
+		}
+		
+	    if($FILES['suploadprofilepic']['name']){
+			unlink(base_url()."web_files/uploads/".$profileimage);
+			$pic_array = self::upload_files('suploadprofilepic');
+		}
+		if($FILES['ssigneddocument']['name']){
+			$doc_array = self::upload_files('ssigneddocument');
+		}
+		
+		
 		if(!count($pic_array)){
 			echo '<script language="javascript">';
 			echo 'alert("Documents Upload Failed")';  //not showing an alert box.
@@ -66,6 +81,7 @@ class Admin_seller_basicinfo_add extends CI_Controller {
 			echo 'alert("Documents Upload Failed")';  //not showing an alert box.
 			echo '</script>';
 		}else{
+			$doc_array = array_merge($doc_array2,$result2);
 			$doc_array = serialize($doc_array);
 		}
 		//=================================================================================================
@@ -73,10 +89,8 @@ class Admin_seller_basicinfo_add extends CI_Controller {
 		
 		
 		//==================================================================
-		$data2 = array('sname' => $sname, 'scomapnyname' => $scomapnyname, 'scompanytype' => $scompanytype, 'scontactperson' => $scontactperson, 'sdesignation' => $sdesignation, 'susername' => $susername, 'spassword'=> $spassword, 'scin' => $scin, 'sgst' => $sgst, 'spcb' => $spcb, 'semail' => $semail, 'sphone' => $sphone , 'saddress' => $saddress2, 'saddresscount' => $saddresscount, 'spin' => $spin,'scity' => $scity, 'sstate' => $sstate, 'scountry' => $scountry, 'sbankername' => $sbankername, 'saccountnumber' => $saccountnumber, 'sbranch' => $sbranch, 'sifsccode' => $sifsccode, 'suploadprofilepic' => $pic_array, 'ssigneddocument' => $doc_array);
+		$data2 = array('sname' => $sname, 'scomapnyname' => $scomapnyname, 'scompanytype' => $scompanytype, 'scontactperson' => $scontactperson, 'sdesignation' => $sdesignation, 'susername' => $susername, 'spassword'=> $spassword, 'scin' => $scin, 'sgst' => $sgst, 'spcb' => $spcb, 'semail' => $semail, 'sphone' => $sphone , 'saddress' => $saddress2, 'saddresscount' => $saddresscount, 'spin' => $spin, 'sstate' => $sstate, 'scountry' => $scountry, 'sbankername' => $sbankername, 'saccountnumber' => $saccountnumber, 'sbranch' => $sbranch, 'sifsccode' => $sifsccode, 'suploadprofilepic' => $pic_array, 'ssigneddocument' => $doc_array);
 		//$this->load->view('xya', $data);
-		
-		
 		$datainserr = "Data Inserted Successfully";
 		$status = $this->Admin_model->insert('sellerprofile', $data2);
 		header('location: '.base_url().'admin_dashboard/index/'.$datainserr);

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 26, 2020 at 12:52 PM
+-- Generation Time: Oct 29, 2020 at 10:19 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -230,7 +230,7 @@ CREATE TABLE `sellerprofile` (
   `scin` varchar(225) DEFAULT NULL,
   `scompanytype` varchar(50) DEFAULT NULL,
   `saddress` text DEFAULT NULL,
-  `saddresscount` int(2) DEFAULT NULL,
+  `saddresscount` text DEFAULT NULL,
   `sstreet` varchar(100) DEFAULT NULL,
   `scity` varchar(100) DEFAULT NULL,
   `span` int(225) DEFAULT NULL,
@@ -264,8 +264,8 @@ CREATE TABLE `sellerprofile` (
 INSERT INTO `sellerprofile` (`id`, `sname`, `scomapnyname`, `ssellertype`, `scontactperson`, `sdesignation`, `sagreement`, `sagreementdate`, `sterms_condi`, `scin`, `scompanytype`, `saddress`, `saddresscount`, `sstreet`, `scity`, `span`, `spin`, `sstate`, `scountry`, `slocation`, `semail`, `sphone`, `susername`, `spassword`, `soldpassword`, `snewpassword`, `sconfirmpassword`, `sgst`, `spcb`, `scapcha`, `sbankername`, `saccountnumber`, `sbranch`, `sifsccode`, `suploadprofilepic`, `ssigneddocument`, `adaction`) VALUES
 (11, NULL, 'bmel', 0, 'dsdsd', 'CTO', 1, '2020-10-22', NULL, NULL, NULL, NULL, NULL, 'no 11 crnfje megha ', 'bangalore', 0, 560047, 'Karnataka', NULL, 'bangalore', 'meghasangmesh2@gmail', 2147483647, 'kjhg', '123456', NULL, NULL, NULL, 2345677, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (12, NULL, 'bmel', 0, 'dsdsd', 'CTO', 1, '2020-10-22', 1, NULL, NULL, NULL, NULL, 'no 11 crnfje megha ', 'bangalore', 0, 560047, 'Karnataka', NULL, 'bangalore', 'meghasangmesh2@gmail', 2147483647, 'maehagaba', 'intelp4', NULL, NULL, NULL, 2345677, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(13, NULL, 'epc', 0, 'Charith', 'CTO', 1, '2020-10-23', 1, NULL, NULL, NULL, NULL, 'no-11, 8th cross,postoffice road, ramamurthy nagar,bangalore', 'bangalore', 560016, 560016, 'Karnataka', NULL, 'bangalore', 'nishant@eternalpower.co.in', 2147483647, 'nishant_01', '1234567', NULL, NULL, NULL, 2147483647, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(20, 'megha p', 'be', NULL, 'megha', 'ceo', NULL, NULL, NULL, '112345', 'private limited', 'a:1:{i:0;s:16:\"Corporate Office\";}', 0, NULL, NULL, NULL, 560047, 'Karnataka', NULL, NULL, 'meghasangmesh2@gmail', 2147483647, 'meghasangmes', '$2y$10$sLrQ50unCJyAMxNinDG83epdcsRIUOTGsmGexq2nS3huzOkIU9SnO', NULL, NULL, NULL, 2323232, '1234568', NULL, 'sbi', 12345678, 'audodgpodi', 'aefweede', 'a:1:{i:0;s:12:\"Capture8.PNG\";}', 'a:1:{i:0;s:32:\"Mail_validation_-_Copy_(1)4.xlsx\";}', NULL);
+(13, NULL, 'Bmellla', 0, 'Charith', 'CTO', 1, '2020-10-23', 1, NULL, NULL, NULL, NULL, 'no-11, 8th cross,postoffice road, ramamurthy nagar,bangalore', 'bangalore', 560016, 560016, 'Karnataka', NULL, 'bangalore', 'nishant@eternalpower.co.in', 2147483647, 'nishant_01', '1234567', NULL, NULL, NULL, 2147483647, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(20, 'megha p', 'epc', NULL, 'megha', 'ceo', NULL, NULL, NULL, '112345', 'private limited', 'a:1:{i:0;s:16:\"Corporate Office\";}', 'a:1:{i:0;s:16:\"Corporate Office\";}', NULL, NULL, NULL, 560047, 'Karnataka', NULL, 'bangalore', 'meghasangmesh2@gmail', 2147483647, 'meghasangmes', '$2y$10$sLrQ50unCJyAMxNinDG83epdcsRIUOTGsmGexq2nS3huzOkIU9SnO', NULL, NULL, NULL, 2323232, '1234568', NULL, 'sbi', 12345678, 'audodgpodi', 'aefweede', 'a:1:{i:0;s:12:\"Capture8.PNG\";}', 'a:1:{i:0;s:32:\"Mail_validation_-_Copy_(1)4.xlsx\";}', NULL);
 
 -- --------------------------------------------------------
 
