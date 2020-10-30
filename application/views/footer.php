@@ -1,5 +1,5 @@
 <section id="footer">
-		<div class="container">
+		<div class="container-fluid">
 	<div class="row text-center text-xs-center text-sm-left text-md-left">
 				<div class="col-xs-12 col-sm-4 col-md-4">
 					<h5>WHAT WE DO</h5>
@@ -86,6 +86,8 @@
   <script src="<?php echo base_url()."web_files/";?>js/bootstrap.bundle.min.js"></script>
   <script src="<?php echo base_url()."web_files/";?>js/jquery.easy-ticker.js"></script> 
    <script src="<?php echo base_url()."web_files/";?>weblib/auclib.js" type="text/javascript" charset="utf-8"></script>
+   <script src="<?php echo base_url()."web_files/";?>/weblib/homevalidate.js" type="text/javascript" charset="utf-8"></script>
+  
   
   <!--  <script src="./js/jquery.autoscroll.js" type="text/javascript" charset="utf-8"></script> Core plugin JavaScript-->
   

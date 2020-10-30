@@ -1,42 +1,133 @@
-$('.ltype').click(function() {
-  $('.ltype').not(this).prop('checked', false);
+$('input[id="myCheck"]').on('change', function() {
+   $('input[id="idCheck"]').not(this).prop('checked', false);  
+	
 });
+$('input[id="idCheck"]').on('change', function() {
+   $('input[id="myCheck"]').not(this).prop('checked', false);	
+	});
+
+function myFunction() {
+  var checkBox1 = document.getElementById("myCheck");
+  var text1 = document.getElementById("text");
+  var checkBox = document.getElementById("idCheck");
+  var text = document.getElementById("text2");
+ 
+
+  if (checkBox1.checked == true){
+   text1.style.display = "block";
+	
+  } else{
+    text1.style.display = "none"; 
+
+ }
+
+
+  if (checkBox.checked == true){
+    text.style.display = "block";
+
+  } else {
+     text.style.display = "none";
+	
+ }
+  
+}
 
 function validatestart(){
-	var scategory = document.getElementById("scategory").value;
+
 	var svinspection = document.getElementById("svinspection").value;
-	var svinspection = document.getElementById("sonlineaucdate_time").value;
-	var sterms_condiaccept = document.getElementById("sterms_condiaccept[]").value;
-	var sterms_condiupload = document.getElementById("sterms_condiupload[]").value;
+	 var sonlineaucdate_time = document.getElementById("sonlineaucdate_time").value;
+	var sterms_text = document.getElementById("sterms_text").value;
+ var fileInput =  document.getElementById('sterms_condiupload');
+  var Yes =  document.getElementById('myCheck');
+  
+ 
 	
 	
-	
-	
-	if(scategory == '' || svinspection == '' || sonlineaucdate_time == '' ){
+	if(svinspection == '' || sonlineaucdate_time == '' ){
 		swal("Alert!",  "Category, Seller, Venue Of Inspection, Online Auction Date cannot leave any field blank!", "error");
 		return false;
 	}
+	
+	
 		
 	
 	
-		if( $('input[name="sterms_condiaccept[]"]:checked').length == 0 )
-		   
+			if( $('input[name="sterms_condiaccept"]:checked').length == 0 )
 			{
 				swal("Alert!",  "Aucjunction Terms & Conditions Should Be Selected", "error");
 				return false;
 			}
+			 if(Yes.checked){
+					 if (!document.getElementById("sterms_condiupload").value) {
+				event.preventDefault();
+				swal("Alert!","Please choose a file!", "error");
+				return false; 			
+				}else{
+					var filePath = fileInput.value; 
+          
+            // Allowing file type 
+            var allowedExtensions =  /(\.doc|\.docx|\.png|\.pdf|\.jpg|\.xlsx|\.gif)$/i; 
+              
+            if (!allowedExtensions.exec(filePath)) { 
+                swal("Alert!",'Invalid file type',"error"); 
+                fileInput.value = ''; 
+                return false; 
+            }
+				}
 				
+			 }else{
+				  if (!document.getElementById("sterms_text").value) {
+				event.preventDefault();
+				swal("Alert!","Text Area Cannot Be Left Blank!", "error");
+				return false; 			
+				}
+			 }
+			 
+			 
+		 	
+
 				
-				
-				if( $('input[name="sterms_condiupload[]"]:checked').length == 0 )
+			 	if( $('input[name="sterms_condiupload1[]"]:checked').length == 0 )  
 			{ 
-				swal("Alert!",  "Upload Terms & Conditions ", "error");
+				swal("Alert!",  "Please select one checkbox ", "error");
 				return false;
-			}
+			} 
+
+				/* else if(sterms_text == ''){
+		 swal("Alert!", "Please write", "error");
+		 return false;
+	 }
+			else{
+				return true;
+			} */
+				/* if (!document.getElementById("sterms_text").value) {
+            event.preventDefault();
+            swal("Alert!","Please writessss!", "error");
+			return false; 			
+        }  */
+			
+		 
 	
+            
+			 		
+			
 	
+
 	
-}
+	}
+          
+		
+			
+	
+
+$('input[id="spcbcertificate2[]"]').on('change', function() {
+   $('input[id="spcbcertificate1[]"]').not(this).prop('checked', false);	
+	
+});
+$('input[id="spcbcertificate1[]"]').on('change', function() {
+   $('input[id="spcbcertificate2[]"]').not(this).prop('checked', false);	
+	
+});
 
 
 function validatelot(){
@@ -67,14 +158,31 @@ function validatelot(){
 	}
 		
 
-	
-		if( $('input[name="spcbcertificate[]"]:checked').length == 0 )
+	 
+		if( $('input[name="spcbcertificate"]:checked').length == 0 )
 		   
 			{
 				swal("Alert!",  "PCB Certificate Should Be Selected", "error");
 				return false;
-			}
+			} 
 				
 }
 	
+
+
+ function auction_id1(){
+	 var cat = document.getElementById('scategory').value;
+	  var cat2 = document.getElementById('slotname').value;
+	   var d = new Date();
+	   var m = d.getHours();
+	   var n = d.getMinutes();
+	   var s = d.getSeconds();
+	 if(cat == 'Select'){
+		 swal("Alert!", "Please Select Categoery First", "error");
+		 return false;
+	 }
+	 if(cat2.length<6){
+		  document.getElementById('slotno').value = "M/"+cat2+"/"+cat+"/"+m+"/"+n+"/"+s;
+	 }
+ }
 

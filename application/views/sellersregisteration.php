@@ -4,8 +4,8 @@
     <!---  body  design  -->
      <div class="container-fluid">
    <div class="row w-100">
-	 <div class="col-sm-10 col-md-11 p-2 ml-5">
-    <div class="card shadow mb-4 ml-5">
+	 <div class="col-md-10 offset-sm-1 p-2" >
+    <div class="card shadow mb-4 ml-4">
 	
   <div class="card-header py-3 d-flex bg-info flex-row align-items-center justify-content-center ">
       <h6 class="m-0 font-weight-bold text-white text-center">SELLER'S REGISTRATION FORM<br>(All field's marked with * are mandatory)</h6><br>
@@ -131,7 +131,7 @@
 	   </tbody>
 	   </table>
 		<div class="text-center">
-    <input type="submit" name="submit2" onclick="return validate1()" value=" Proceed" class="btn btn-primary col-3 mt-2 w-100">
+    <input type="submit" name="submit2" id="btn1" onclick="return validate1()" value=" Proceed" class="btn btn-primary col-3 mt-2 w-100">
 	<button type="reset" class="btn btn-primary col-3 mt-2">Reset</button>
 		</div>
 		</form>

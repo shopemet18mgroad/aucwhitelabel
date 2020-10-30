@@ -8,7 +8,7 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Start Auction</h1>
+            <h1 class="h3 mb-0 text-gray-800">Add Lot</h1>
            
           </div>
 
@@ -27,32 +27,27 @@
       </tr>
     </thead>
     <tbody>
-	
+	<form action="<?php echo base_url();?>Admin_addlot_info" method="POST" enctype="multipart/form-data">
 	<tr>
 		  <td width="11%">Auction Id</td>
-		  <td width="4%" style="color:blue;">AJ256458/BHEL/IRON/102</td>
+		  <td width="4%" style="text-color:blue;"> <input type="text" class="form-control w-50" id="sauctionid" name="sauctionid" value="<?php echo $auctionid;?>" readonly></td>
 	  </tr>
 	  
 	  <tr>
 		  <td>Lot No.</td>
-		  <td style="color:blue;">M-129</td>
+		  <td style="color:blue;"><input class="form-control w-50"  type="text" id="slotno" name="slotno"  aria-label="Search" readonly></td>
 	  </tr>
       
 	  <tr>
-	   <form action="../weblib/postformsurvey.php" method="POST" id="bidder2">
+	   
 		  <td>Lot Name</td>
-		  <td><input class="form-control w-50" type="text" id="slotname" name="slotname"></td>
+		  <td><input class="form-control w-50" type="text" id="slotname" name="slotname" onkeyup="auction_id1()"></td>
 	  </tr>
 	  <tr>
 		  <td>Category</td>
 		  <td><select class="form-control w-50" id="scategory" name="scategory">
-				<option value="one" selected>Select</option>
-				<option value="one">Ferrous</option>
-				<option value="two">Non Ferrous</option>
-				<option value="three" >Minor Metals</option>
-				<option value="four">Plain paper</option>
-				<option value="five">Granules</option>
-				<option value="six">All Construction Materials</option>
+				<option value="<?php echo $category;?>" selected><?php echo $category;?></option>
+				
 				</select></td>
 	  </tr>
 	   <tr>
@@ -140,17 +135,17 @@ From:
     </tr>	
 	<tr>
 		<td>Lifting Period</td>
-		<td><input class="form-control w-75" type="datetime-local" id="sliftingperiod2" id="sliftingperiod2">
+		<td><input class="form-control w-75" type="datetime-local" id="sliftingperiod2" name="sliftingperiod2">
 		<input class="form-control w-50 mt-2" type="text" id="sliftingperiod" name="sliftingperiod" placeholder="Exp.15 days"></td>
     </tr>
 	<tr>
 		<td>PCB Certificate</td>
-		<td><div class="form-check form-check-inline ">
-			<input type="checkbox" class="form-check-input" id="spcbcertificate[]" name="spcbcertificate[]">
+		<td><div class="form-check form-check-inline">
+			<input type="checkbox" class="form-check-input" id="spcbcertificate1[]" name="spcbcertificate" value="1">
 			<label class="form-check-label" for="exampleCheck1">Yes</label>
 			</div>
-			<div class="form-check form-check-inline ">
-			<input type="checkbox" class="form-check-input" id="spcbcertificate[]" name="spcbcertificate[]">
+			<div class="form-check form-check-inline">
+			<input type="checkbox" class="form-check-input" id="spcbcertificate2[]" name="spcbcertificate" value="0">
 			<label class="form-check-label" for="exampleCheck1">No</label>
 			</div></td>
     </tr>
@@ -159,9 +154,9 @@ From:
   </table>
   
   <center>
-	<a type="reset"  class="btn btn-info text-white" data-dismiss="modal">Add Another Lot</a>
+	<input type="submit" name="submit" onclick="return validatelot()" class="btn btn-info text-white" data-dismiss="modal" value="Add Another Lot">
  
- <a type="submit"  onclick="return validatelot()" class="btn btn-info text-white" href="<?php echo base_url();?>admin_auctiondetails" data-dismiss="modal">Submit</a>
+ <input type="submit"  name="submit" onclick="return validatelot()" class="btn btn-info text-white" value="Submit" data-dismiss="modal">
   </center>
   </form>
 			</div>

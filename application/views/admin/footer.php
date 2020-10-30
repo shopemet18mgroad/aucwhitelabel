@@ -118,59 +118,10 @@
  }
  </script>
  
-
- 
-  <script>
- function validatearry2(){
-	   var company = document.getElementById('bcompany').value;
-	   var add = document.getElementById('baddress').value;
-	   if(company == ''  || add == ''){
-		   swal("Alert!", "Company Name or Address Cannot Be Left Blank", "error");
-					return false;
-			}
-			
-
-		var signeddoc2 = document.getElementsByName('bsigneddocument[]');
-		
-		for(var ab = 0; ab<signeddoc2.length; ab++){
-			if(signeddoc2[ab].value == ""){
-				swal("Alert!", "Please Select File to Upload!", "error")
-				//alert("Please Select Files To Upload");
-				return false;
-			}
-		}
- }
- 
- </script>
- 
- <script>
- function validate_company2(){
-	 var company = document.getElementById('bcompany').value;
-	 if(company == ""){
-		 swal("Alert!", "Company Name Cannot Be Left Blank","error");
-		 return false;
-		 
-		 
-	 }
-	  $.get('<?php echo base_url() .'registrationb/companyverify/'; ?>'+company, function(data2){						
-				 if($.trim(data2) == "HI"){
-					return true;
-				}else{
-					swal("Alert!", "Company Name Already Exists", "error");
-					return false;
-				}
-			 });
- }
- </script>
- 
- 
- 
-
-
  <script>
  function auction_id(){
 	 var cat = document.getElementById('scategory').value;
-	  var cat2 = document.getElementById('seller').value;
+	  var cat2 = document.getElementById('sname').value;
 	   var d = new Date();
 	   var m = d.getHours();
 	   var n = d.getMinutes();
@@ -180,27 +131,11 @@
 		 return false;
 	 }
 	 if(cat2.length<6){
-		  document.getElementById('auctionid').value = "AUC/"+cat2+"/"+cat+"/"+m+"/"+n+"/"+s;
+		  document.getElementById('sauctionid').value = "AUC/"+cat2+"/"+cat+"/"+m+"/"+n+"/"+s;
 	 }
  }
  </script>
- <script>
- function auction_id(){
-	 var cat = document.getElementById('scategory').value;
-	  var cat2 = document.getElementById('seller').value;
-	   var d = new Date();
-	   var m = d.getHours();
-	   var n = d.getMinutes();
-	   var s = d.getSeconds();
-	 if(cat == 'Select'){
-		 swal("Alert!", "Please Select Categoery First", "error");
-		 return false;
-	 }
-	 if(cat2.length<6){
-		  document.getElementById('auctionid').value = "AUC/"+cat2+"/"+cat+"/"+m+"/"+n+"/"+s;
-	 }
- }
- </script>
+
  <script>
 		$('.gettable').on('keyup', function(){
 			var contents = $('#gettable').val(); 
