@@ -221,7 +221,7 @@ Bidders participating in AucJunction Auctions should verify with the selling com
   <tr>
 		<td>Upload Terms & Conditions</td>
 		<td><div class="form-check form-check-inline">
-			<input type="checkbox" class="form-check-input"  id="myCheck" onclick="myFunction()"  name="sterms_condiupload1[]">
+			<input type="checkbox" class="form-check-input" id="myCheck" onclick="myFunction()" name="sterms_condiupload1[]">
 			<label class="form-check-label" for="myCheck">Yes</label>
 			</div>
 			<div class="form-group" id="text"  style="display:none">
@@ -230,8 +230,8 @@ Bidders participating in AucJunction Auctions should verify with the selling com
 			
 			
 			<div class="form-check form-check-inline">
-			<input type="checkbox" class="form-check-input" id="idCheck" onclick="myFunction()" name="sterms_condiupload1[]" value="">
-			<label class="form-check-label" for="idCheck">No</label>
+			<input type="checkbox" class="form-check-input" id="idCheck" onclick="myFunction()" name="sterms_condiupload1[]">
+			<label class="form-check-label" for="idCheck" >No</label>
 			</div>
 			<div class="form-group" id="text2" style="display:none">
 			<textarea class="form-control w-50" type="text" id="sterms_text" name="sterms_text"></textarea>
