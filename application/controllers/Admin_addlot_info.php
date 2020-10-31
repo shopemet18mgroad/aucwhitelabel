@@ -37,7 +37,6 @@ class Admin_addlot_info extends CI_Controller {
 			$this->load->library('fileupload');
 		$this->load->helper(array('url','form','file','html'));
             if($this->input->post('submit')){
-			
 			$sauctionid = $this->input->post('sauctionid'); 
 			$slotno = $this->input->post('slotno');
 			$slotname = $this->input->post('slotname');
@@ -58,7 +57,6 @@ class Admin_addlot_info extends CI_Controller {
 			$semdamount = $this->input->post('semdamount');
 			$sliftingperiod2 = $this->input->post('sliftingperiod2');
 			$sliftingperiod = $this->input->post('sliftingperiod');
-			
 			$spcbcertificate = $this->input->post('spcbcertificate');
 				
 			/* if($this->input->post('spcbcertificate')){
@@ -75,7 +73,7 @@ class Admin_addlot_info extends CI_Controller {
 			
 			
 
-			/* $transfer = array('sauctionid' => $sauctionid,'slotname' => $slotname, 'scategory' => $scategory, 'sdescription' => $sdescription, 'slotlocation'=> $slotlocation, 'sfrominpectdate_time' => $sfrominpectdate_time, 'stoinpectdate_time' => $stoinpectdate_time, 'semddetail' => $semddetail, 'slastdateemdsub' => $slastdateemdsub, 'sprice' => $sprice, 'sstartbidprice' => $sstartbidprice, 'sqty' => $sqty, 'sunitmeasurment' => $sunitmeasurment, 'sbidbase' => $sbidbase, 'sgst' => $sgst, 'sothertax' => $sothertax, 'semdamount' => $semdamount, 'sliftingperiod' => $sliftingperiod, 'spcbcertificate' => $spcbcertificate); */
+			/* $transfer = array('sauctionid' => $sauctionid,'scategory' => $scategory); */
 			   if($status){
 				  $this->session->set_flashdata('txdata',$transfer);
 				  redirect('../admin_auctiondetails');
