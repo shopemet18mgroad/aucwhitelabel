@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin_addlot extends CI_Controller {
+class Admin_addlot1 extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -18,25 +18,24 @@ class Admin_addlot extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
- 	public function index()
+
+public function index()
 	{
 		$this->load->helper('url');
-		if($this->uri->segment(4)){
-			$errormsg = urldecode($this->uri->segment(4));
+		if($this->uri->segment(5)){
+			$errormsg = urldecode($this->uri->segment(5));
 			echo '<script language="javascript">';
 			echo 'alert("'.$errormsg.'")';
 			echo '</script>';
+			
 		}
 		$this->load->library('session');
 		$data = $this->session->flashdata('txdata');
-		print_r($data);
 		$this->load->view('admin/header');
-		$this->load->view('admin/addlot',$data);
+		$this->load->view('admin/addlot',$data5);
 		$this->load->view('admin/footer');
 		
 	} 
-
-
 	
 	
 }
