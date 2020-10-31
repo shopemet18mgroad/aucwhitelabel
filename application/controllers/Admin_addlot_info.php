@@ -91,23 +91,7 @@ class Admin_addlot_info extends CI_Controller {
 		$this->load->view('admin/footer');
 		
 	}
-else{
 		
-			  if($status){
-				  $this->session->set_flashdata('txdata',$transfer);
-				  redirect('../admin_addlot');
-			  }else{
-				   header('location: ./admin_addlot/index/');
-		
-			}
-			
-			
-			
-		$this->load->view('admin/header');
-		$this->load->view('admin/addlot');
-		$this->load->view('admin/footer');
-		
-	}		
 	}	
 		
 	}
