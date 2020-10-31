@@ -37,6 +37,7 @@ class Admin_addlot_info extends CI_Controller {
 			$this->load->library('fileupload');
 		$this->load->helper(array('url','form','file','html'));
             if($this->input->post('submit')){
+			
 			$sauctionid = $this->input->post('sauctionid'); 
 			$slotno = $this->input->post('slotno');
 			$slotname = $this->input->post('slotname');
@@ -72,7 +73,9 @@ class Admin_addlot_info extends CI_Controller {
 			
 			$status = $this->Admin_model->insert('addlot', $data);
 			
-			 $transfer = array('slotname' => $slotname, 'scategory' => $scategory, 'sdescription' => $sdescription, 'slotlocation'=> $slotlocation, 'sfrominpectdate_time' => $sfrominpectdate_time, 'stoinpectdate_time' => $stoinpectdate_time, 'semddetail' => $semddetail, 'slastdateemdsub' => $slastdateemdsub, 'sprice' => $sprice, 'sstartbidprice' => $sstartbidprice, 'sqty' => $sqty, 'sunitmeasurment' => $sunitmeasurment, 'sbidbase' => $sbidbase, 'sgst' => $sgst, 'sothertax' => $sothertax, 'semdamount' => $semdamount, 'sliftingperiod' => $sliftingperiod, 'spcbcertificate' => $spcbcertificate);
+			
+
+			/* $transfer = array('sauctionid' => $sauctionid,'slotname' => $slotname, 'scategory' => $scategory, 'sdescription' => $sdescription, 'slotlocation'=> $slotlocation, 'sfrominpectdate_time' => $sfrominpectdate_time, 'stoinpectdate_time' => $stoinpectdate_time, 'semddetail' => $semddetail, 'slastdateemdsub' => $slastdateemdsub, 'sprice' => $sprice, 'sstartbidprice' => $sstartbidprice, 'sqty' => $sqty, 'sunitmeasurment' => $sunitmeasurment, 'sbidbase' => $sbidbase, 'sgst' => $sgst, 'sothertax' => $sothertax, 'semdamount' => $semdamount, 'sliftingperiod' => $sliftingperiod, 'spcbcertificate' => $spcbcertificate); */
 			   if($status){
 				  $this->session->set_flashdata('txdata',$transfer);
 				  redirect('../admin_auctiondetails');
@@ -80,15 +83,37 @@ class Admin_addlot_info extends CI_Controller {
 				   header('location: ./admin_addlot/index/');
 		
 			}
-			}
-	
+			
+			
+			
 		$this->load->view('admin/header');
 		$this->load->view('admin/addlot');
 		$this->load->view('admin/footer');
 		
+	}
+else{
+		
+			  if($status){
+				  $this->session->set_flashdata('txdata',$transfer);
+				  redirect('../admin_addlot');
+			  }else{
+				   header('location: ./admin_addlot/index/');
+		
+			}
+			
+			
+			
+		$this->load->view('admin/header');
+		$this->load->view('admin/addlot');
+		$this->load->view('admin/footer');
+		
+	}		
 	}	
 		
-			   
+	}
+
+            
+			
 	
 	
-}
+
