@@ -35,6 +35,7 @@
 					 </thead>
 						<tbody>
 						<tr><td><img class="img-fluid" src="<?php echo base_url()."web_files/";?>img/manimg.jpg" alt="Chania" width="40" height="35"></td></tr>
+						 <form action ="<?php echo base_url();?>admin_buyer_basicinfo_update" method="POST" enctype="multipart/form-data">
 						<tr>
 							<td class="btxt">Buyer Name:</td>
 							<td><input class="form-control w-50" type="text" id="bname" name="bname"value="<?php echo $sqldata[0]->bname; ?>"></td>
@@ -127,17 +128,47 @@
 					 <thead><th width="45%">Documents</th>
 					 </thead>
 						<tbody>
+							<tr>
+							<td>
+								Profile Pic
+							</td>
+							<td>
+								<img src="<?php $img = unserialize($sqldata[0]->buploadimage1); echo base_url()."/web_files/uploads/".$img[0];?>" width="300px" height="100px">
+								<input type="hidden" name="profileimage" id="profileimage" value="<?php echo $img[0];?>">
+							</td>
+							</tr>
 						<tr>
 								<td class="btxt">Upload Profile Picture</td>
-								<td><form action="/action_page.php"> <input type="file" multiple="multiple" id="suploadimage1" name="suploadimage1"></form></td>
+								<td><form action="/action_page.php"> <input type="file" multiple="multiple" id="buploadimage1" name="buploadimage1"></form></td>
 							</tr> 
+							<tr>
+								<td class="btxt">Upload Documents</td>
+								<td><div class="input_fields_wrap">
+								<input type="file" multiple="multiple" id="bsigneddocument" name="bsigneddocument[]">
+								</div></td>
+							</tr> 
+									<?php 
+							$file = unserialize($sqldata[0]->bsigneddocument);
+							  foreach($file as $fl){
+							echo '<tr id="filess">';
+							echo '<td class="btxt">Existing Documents</td>';
+							echo '<td><div class="input_fields_wrap">';
+							echo '<textarea class="form-control float-left mt-2 p-2 w-50" type="text" id="bsigneddocumentex" name="bsigneddocumentex[]" readonly>'.$fl.'</textarea>';
+							echo '<input type="hidden" id="bsigneddocumentexcom" name="bsigneddocumentexcom[]" value="'.$fl.'">';
+							echo '<a class="add_field_button1"><button type="button" onclick="$(this).parents(\'#filess\').remove()" class="btn btn-sm btn-primary ml-1 mb-5 mt-3">  <i class="fa fa-minus text-white"></i></button></a>';
+							echo '</div></td>';
+							echo '';
+							echo '</tr>';
+							  }
+							
+							?>
 											
 						</tbody>
 					</table>					
-				<a href="#"><button type="button" class="btn btn-info offset-sm-4 mt-2">Update</button></a>
+			<button type="submit" class="btn btn-info offset-sm-4 mt-2">Update</button>
 												
-				<a href="#"><button type="button" class="btn btn-info offset-sm-1 mt-2">Cancel</button></a>
-												
+				<button type="submit2" class="btn btn-info offset-sm-1 mt-2">Cancel</button>
+					</form>							
 				
               </div>
             </div>

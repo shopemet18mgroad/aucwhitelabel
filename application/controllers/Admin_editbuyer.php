@@ -37,4 +37,20 @@ class Admin_editbuyer extends CI_Controller {
 		$this->load->view('admin/footer');
 	}
 	
+		public function edit_buyer_alert(){
+		$retrivevaltmp = $this->uri->segment(3);
+		$retrivevaltmp2 = urldecode($this->uri->segment(4));
+		echo '<script language="javascript">';
+			echo 'alert("'.$retrivevaltmp2.'")';  //not showing an alert box.
+			echo '</script>';
+		$retriveval = array('bcompany'=>$retrivevaltmp);
+		$this->load->model('Admin_model');
+		$data['sqldata'] = $this->Admin_model->getdatafromtable('buyerprofile',$retriveval);
+		$this->load->helper('url');
+		$this->load->view('admin/header');
+		$this->load->view('admin/editbuyer', $data);
+		$this->load->view('admin/footer');
+	}
+	
+	
 }

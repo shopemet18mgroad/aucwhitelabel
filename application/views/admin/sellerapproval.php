@@ -1,5 +1,7 @@
 <?php 
 	//include('./header.php');
+	print_r($activestat);
+
 ?>
         <!-- End of Topbar -->
 
@@ -25,7 +27,7 @@
 						<td colspan="5">
 						<form action="/action_page.php">
 							
-								<input type="text" class="form-control" placeholder="Search.." name="search">
+								<input type="text" for="gettable2" class="form-control gettable2" id="gettable2" placeholder="Search.." name="search">
 								<button class="form-control" type="submit"><i class="fa fa-search"></i></button>
 					
 						</form>
@@ -35,7 +37,7 @@
 		
 			</form>
 		
-		<table class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">
+		<table class="table table-striped table-bordered table-sm text-center mt-5" id="dataTable" width="100%" cellspacing="0">
 				<thead class="bg-primary text-white">
 				<tr>
 					<th>Seller Name</th>
@@ -49,7 +51,7 @@
 				</thead>
 				<tbody>
 				<tr>												
-					<td>BHEL</td>
+					<td><?php echo $activestat[0]->sname; ?></td>
 					<td>Steel metal</td>
 					<td>S.R.Venkatesh</td>
 					<td>Bangalore</td>
@@ -102,24 +104,7 @@
 		 </table>
 		</div>
 		</div>
-		<div class="row">
-		
-			<div class="col-sm-12 col-md-10">
-				<div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
-				<ul class="pagination offset-lg-11">
-				<li class="paginate_button page-item previous disabled" id="dataTable_previous">
-				<a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
-				</li>
-				<li class="paginate_button page-item active">
-				<a href="#" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page-link">1</a>
-				</li>
-				<li class="paginate_button page-item next disabled" id="dataTable_next">
-				<a href="#" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page-link">Next</a>
-				</li>
-				</ul>
-				</div>
-				</div>
-			</div> 
+
 		</div>
 		</div>
 		</div>

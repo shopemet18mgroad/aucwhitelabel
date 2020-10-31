@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin_buyer_basicinfo_add extends CI_Controller {
+class Admin_buyer_basicinfo_update extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -18,22 +18,26 @@ class Admin_buyer_basicinfo_add extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
+	 
+	 	public function index()
 	{
 		$this->load->library('fileupload');
 		$this->load->helper(array('url','form','file','html'));
 		$this->load->model('Admin_model');
-		
 		$bname = $this->input->post('bname');
-		$bcompany = $this->input->post('bcompany');
-		$bcomptype  = $this->input->post('bcomptype');
+		$scomapnyname = $this->input->post('bcompany');
+		$bcomptype = $this->input->post('bcomptype');
 		$bcontactperson  = $this->input->post('bcontactperson');
-		$bcin  = $this->input->post('bcin');
-		$bgst  = $this->input->post('bgst');
+		$bcin = $this->input->post('bcin');
+		$bgst = $this->input->post('bgst');
+		
 		$bpcb  = $this->input->post('bpcb');
 		$bemail  = $this->input->post('bemail');
 		$bphone  = $this->input->post('bphone');
+		$semail  = $this->input->post('semail');
+		$sphone  = $this->input->post('sphone');
 		$baddress  = $this->input->post('baddress');
+		
 		$bpin  = $this->input->post('bpin');
 		$bstate  = $this->input->post('bstate');
 		$bcountry  = $this->input->post('bcountry');
@@ -41,45 +45,70 @@ class Admin_buyer_basicinfo_add extends CI_Controller {
 		$baccountnumber  = $this->input->post('baccountnumber');
 		$bbranch  = $this->input->post('bbranch');
 		$bifsccode  = $this->input->post('bifsccode');
-		$pic_array1 = self::upload_files('buploadimage1');
-		$doc_array1 = self::upload_files('bsigneddocument');
+		$profileimage = $this->input->post('profileimage');
+		$dataact = array();
+		$datacomp = array();
+		$dataact = $this->input->post('bsigneddocumentex');
+		$datacomp = $this->input->post('bsigneddocumentexcom');
+		if($dataact && $datacomp){
+			$result = array_diff($dataact,$datacomp);
+			$result2 = array_intersect($dataact,$datacomp);
+		}
 		
-			if(!count($pic_array1)){
+		if(count($result)){
+			foreach($result as $res){
+			unlink(base_url()."web_files/uploads/".$res);
+			}
+		}
+		if(!count($result2) && !$_FILES['bsigneddocument']['name']){
+			$datainserr = "Atleast One Signed Document Has To Uploaded";
+			header('location: '.base_url().'admin_editbuyer/edit_buyer_alert/'.$bcompany.'/'.$datainserr);
+		}
+	    if($_FILES['suploadimage1']['name']){
+			unlink("../../web_files/uploads/".$profileimage);
+			$pic_array = self::upload_files('suploadimage1');
+		}
+		if($_FILES['bsigneddocument']['name']){
+			$doc_array = self::upload_files('bsigneddocument');
+		}
+		
+		if(!count($pic_array)){
+			echo '<script language="javascript">';
+			echo 'alert("Image Upload Failed")';  //not showing an alert box.
+			echo '</script>';
+			$pic_array = $profileimage;
+		}else{
+			$pic_array = serialize($pic_array);
+		}
+		if(!count($doc_array)){
 			echo '<script language="javascript">';
 			echo 'alert("Documents Upload Failed")';  //not showing an alert box.
 			echo '</script>';
+			$doc_array = serialize($result2);
 		}else{
-			$pic_array1 = serialize($pic_array1);
+			$doc_array = array_merge($doc_array,$result2);
+			$doc_array = serialize($doc_array);
 		}
-		if(!count($doc_array1)){
-			echo '<script language="javascript">';
-			echo 'alert("Documents Upload Failed")';  //not showing an alert box.
-			echo '</script>';
-		}else{
-			$doc_array1 = serialize($doc_array1);
-		}
-	
-						/* 
-		$path = base_url()."web_files/upload/";
-		$title = "uploaded";
 		
-		self::upload_files($path, $title, $buploadprofilepic);
-		$bsigneddocument  = $this->input->post('bsigneddocument');
-		self::upload_files($path, $title, $bsigneddocument); */
-		//$count = count($bsigneddocument);
+		//=================================================================================================
 		
 		
-		$data = array('bname' => $bname, 'bcompany' => $bcompany, 'bcomptype' => $bcomptype, 'bcontactperson' => $bcontactperson, 'bcin' => $bcin,' bgst' => $bgst, 'bpcb' => $bpcb, 'bemail' => $bemail , 'bphone' => $bphone, 'baddress' => $baddress, 'bpin' => $bpin, 'bstate' => $bstate, 'bcountry' => $bcountry, 'bbankname' => $bbankname, 'baccountnumber' => $baccountnumber, 'bbranch' => $bbranch, 'bifsccode' => $bifsccode, 'buploadimage1' => $pic_array1, 'bsigneddocument' => $doc_array1);
+		
+		//==================================================================
+		$data2 = array('bname' => $bname, 'bcomptype' => $bcomptype, 'bcontactperson' => $bcontactperson, 'bcin' => $bcin, 'bgst' => $bgst, 'spassword'=> $spassword, 'bpcb' => $bpcb, 'bemail' => $bemail, 'bphone' => $bphone, 'semail' => $semail, 'sphone' => $sphone , 'baddress' => $baddress, 'bpin' => $bpin, 'bstate' => $bstate, 'bcountry' => $bcountry, 'bbankname' => $bbankname, 'baccountnumber' => $baccountnumber, 'bbranch' => $bbranch, 'bifsccode' => $bifsccode, 'suploadimage1' => $pic_array, 'bsigneddocument' => $doc_array);
+		//$this->load->view('xya', $data);
 		$datainserr = "Data Inserted Successfully";
-		$status = $this->Admin_model->insert('buyerprofile', $data);
-		header('location: '.base_url().'admin_buyerreg/index/'.$datainserr);
-		
-		
+		$updatech = array('bcompany' => $bcompany);
+		$status = $this->Admin_model->update_custom('buyerprofile',$data2,$updatech,$updatech);
+		// $status = $this->Admin_model->insert('sellerprofile', $data2);
+		header('location: '.base_url().'Admin_buyerreg/index/'.$datainserr);
 		//$this->load->view('admin/header');
 		//$this->load->view('admin/salesreport');
 		//$this->load->view('admin/footer');
 		
 	}
+	
+
 	private function upload_files($nameid)
     {	
 	$countfiles = count($_FILES[$nameid]['name']);
@@ -116,5 +145,4 @@ class Admin_buyer_basicinfo_add extends CI_Controller {
       }
 	  return $datar;
     }
-	
 }
