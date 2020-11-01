@@ -52,6 +52,10 @@
 							<td><input class="form-control w-50" type="text" id="bcontactperson" name="bcontactperson" required></td>
 						</tr>
 						<tr>
+							<td class="btxt">UserName:</td>
+							<td><input class="form-control w-50" type="text" id="busername" name="busername" required></td>
+						</tr>
+						<tr>
 							<td class="btxt">CIN Number:</td>
 							<td><input class="form-control w-50" type="text" id="bcin" name="bcin" onkeyup="validate_company2()" required></td>
 						</tr>  

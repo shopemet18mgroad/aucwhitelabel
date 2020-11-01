@@ -28,6 +28,8 @@ class Admin_buyer_basicinfo_add extends CI_Controller {
 		$bcompany = $this->input->post('bcompany');
 		$bcomptype  = $this->input->post('bcomptype');
 		$bcontactperson  = $this->input->post('bcontactperson');
+		$busername = $this->input->post('busername');
+		
 		$bcin  = $this->input->post('bcin');
 		$bgst  = $this->input->post('bgst');
 		$bpcb  = $this->input->post('bpcb');
@@ -69,7 +71,7 @@ class Admin_buyer_basicinfo_add extends CI_Controller {
 		//$count = count($bsigneddocument);
 		
 		
-		$data = array('bname' => $bname, 'bcompany' => $bcompany, 'bcomptype' => $bcomptype, 'bcontactperson' => $bcontactperson, 'bcin' => $bcin,' bgst' => $bgst, 'bpcb' => $bpcb, 'bemail' => $bemail , 'bphone' => $bphone, 'baddress' => $baddress, 'bpin' => $bpin, 'bstate' => $bstate, 'bcountry' => $bcountry, 'bbankname' => $bbankname, 'baccountnumber' => $baccountnumber, 'bbranch' => $bbranch, 'bifsccode' => $bifsccode, 'buploadimage1' => $pic_array1, 'bsigneddocument' => $doc_array1);
+		$data = array('bname' => $bname, 'bcompany' => $bcompany, 'bcomptype' => $bcomptype, 'bcontactperson' => $bcontactperson,'busername' => $busername, 'bcin' => $bcin,' bgst' => $bgst, 'bpcb' => $bpcb, 'bemail' => $bemail , 'bphone' => $bphone, 'baddress' => $baddress, 'bpin' => $bpin, 'bstate' => $bstate, 'bcountry' => $bcountry, 'bbankname' => $bbankname, 'baccountnumber' => $baccountnumber, 'bbranch' => $bbranch, 'bifsccode' => $bifsccode, 'buploadimage1' => $pic_array1, 'bsigneddocument' => $doc_array1);
 		$datainserr = "Data Inserted Successfully";
 		$status = $this->Admin_model->insert('buyerprofile', $data);
 		header('location: '.base_url().'admin_buyerreg/index/'.$datainserr);

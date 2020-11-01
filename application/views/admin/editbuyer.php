@@ -139,7 +139,7 @@
 							</tr>
 						<tr>
 								<td class="btxt">Upload Profile Picture</td>
-								<td><form action="/action_page.php"> <input type="file" multiple="multiple" id="buploadimage1" name="buploadimage1"></form></td>
+								<td><input type="file" multiple="multiple" id="buploadimage1" name="buploadimage1"></td>
 							</tr> 
 							<tr>
 								<td class="btxt">Upload Documents</td>
@@ -165,7 +165,7 @@
 											
 						</tbody>
 					</table>					
-			<button type="submit" class="btn btn-info offset-sm-4 mt-2">Update</button>
+			<button type="submit" name="submit" class="btn btn-info offset-sm-4 mt-2">Update</button>
 												
 				<button type="submit2" class="btn btn-info offset-sm-1 mt-2">Cancel</button>
 					</form>							
