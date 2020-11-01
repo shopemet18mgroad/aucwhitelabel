@@ -25,7 +25,7 @@ class Admin_buyer_basicinfo_update extends CI_Controller {
 		$this->load->helper(array('url','form','file','html'));
 		$this->load->model('Admin_model');
 		$bname = $this->input->post('bname');
-		$scomapnyname = $this->input->post('bcompany');
+		$bcompany = $this->input->post('bcompany');
 		$bcomptype = $this->input->post('bcomptype');
 		$bcontactperson  = $this->input->post('bcontactperson');
 		$bcin = $this->input->post('bcin');
@@ -34,8 +34,6 @@ class Admin_buyer_basicinfo_update extends CI_Controller {
 		$bpcb  = $this->input->post('bpcb');
 		$bemail  = $this->input->post('bemail');
 		$bphone  = $this->input->post('bphone');
-		$semail  = $this->input->post('semail');
-		$sphone  = $this->input->post('sphone');
 		$baddress  = $this->input->post('baddress');
 		
 		$bpin  = $this->input->post('bpin');
@@ -64,9 +62,9 @@ class Admin_buyer_basicinfo_update extends CI_Controller {
 			$datainserr = "Atleast One Signed Document Has To Uploaded";
 			header('location: '.base_url().'admin_editbuyer/edit_buyer_alert/'.$bcompany.'/'.$datainserr);
 		}
-	    if($_FILES['suploadimage1']['name']){
+	    if($_FILES['buploadimage1']['name']){
 			unlink("../../web_files/uploads/".$profileimage);
-			$pic_array = self::upload_files('suploadimage1');
+			$pic_array = self::upload_files('buploadimage1');
 		}
 		if($_FILES['bsigneddocument']['name']){
 			$doc_array = self::upload_files('bsigneddocument');
@@ -95,7 +93,7 @@ class Admin_buyer_basicinfo_update extends CI_Controller {
 		
 		
 		//==================================================================
-		$data2 = array('bname' => $bname, 'bcomptype' => $bcomptype, 'bcontactperson' => $bcontactperson, 'bcin' => $bcin, 'bgst' => $bgst, 'spassword'=> $spassword, 'bpcb' => $bpcb, 'bemail' => $bemail, 'bphone' => $bphone, 'semail' => $semail, 'sphone' => $sphone , 'baddress' => $baddress, 'bpin' => $bpin, 'bstate' => $bstate, 'bcountry' => $bcountry, 'bbankname' => $bbankname, 'baccountnumber' => $baccountnumber, 'bbranch' => $bbranch, 'bifsccode' => $bifsccode, 'suploadimage1' => $pic_array, 'bsigneddocument' => $doc_array);
+		$data2 = array('bname' => $bname, 'bcomptype' => $bcomptype, 'bcontactperson' => $bcontactperson, 'bcin' => $bcin, 'bgst' => $bgst,'bpcb' => $bpcb, 'bemail' => $bemail, 'bphone' => $bphone,'baddress' => $baddress, 'bpin' => $bpin, 'bstate' => $bstate, 'bcountry' => $bcountry, 'bbankname' => $bbankname, 'baccountnumber' => $baccountnumber, 'bbranch' => $bbranch, 'bifsccode' => $bifsccode, 'buploadimage1' => $pic_array, 'bsigneddocument' => $doc_array);
 		//$this->load->view('xya', $data);
 		$datainserr = "Data Inserted Successfully";
 		$updatech = array('bcompany' => $bcompany);

@@ -165,7 +165,7 @@
 											
 						</tbody>
 					</table>					
-			<button type="submit" class="btn btn-info offset-sm-4 mt-2">Update</button>
+			<button type="submit" name="submit" class="btn btn-info offset-sm-4 mt-2">Update</button>
 												
 				<button type="submit2" class="btn btn-info offset-sm-1 mt-2">Cancel</button>
 					</form>							
