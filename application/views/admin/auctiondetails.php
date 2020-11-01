@@ -20,119 +20,22 @@
 			   <form class="form-inline">
 					<div class="form-group mr-4 offset-sm-4">
 						<td colspan="5">
-						<form action="/action_page.php">
-							
-								<input type="text" class="form-control" placeholder="Search.." name="search">
-								<button class="form-control" type="submit"><i class="fa fa-search"></i></button>
+						<!-- <form action="/action_page.php"> -->
+								<label for="gettable"></label>
+								<input type="text" class="form-control gettable" id="gettable" placeholder="Enter Company Name To Fetch Result"  size="70" name="search">
+								
+								<!--<button class="form-control" type="submit"><i class="fa fa-search"></i></button>-->
 					
-						</form>
+						<!-- </form> -->
 					</td>
 				</div>
 			</form>
-		
-         <table class="table table-striped text-center table-sm table-bordered w-auto small mt-5"  width="100%" cellspacing="0">		
-    <thead class="bg-primary text-white">
-	  <tr>
-		<th class="bg-info" colspan="12" style="Text-align:center;">Auction Details</th>
-	</tr>
-
-      <tr>
-        <th>Auction Id</th>
-		<th>Lot No</th>
-		<th>Lot Name</th>
-        <th>Qty</th>
-		<th>Expected Price</th>
-		<th>Starting Bid Price</th>
-		<th>Inspection Date</th>
-		<th>Description</th>
-		<th>Seller Approval</th>
-		<th>Download</th>
-		<th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-		<td style="color:blue;"><a href="<?php echo base_url();?>admin_editforthcom_2">AJ256458/BHEL/IRON/102</a></td> 
-		<td>1</td>
-        <td>Iron</td>
-		<td>Pig Iron</td>
-		<td>5</td>
-		<td>1,000</td>
-		<td>02-07-2020</td>
-		<td><a href=""><u>Type: Pipes, Sheets, Rods, Blocks & Etc
-	 </u></a></td>
-		<td style="color:green;">Approve</td>
-		<td><a href=""><i class="fa fa-download"></i></a></td>
-        <td><a href="<?php echo base_url();?>admin_editauction" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a><br><br>
-			<a class="btn btn-danger btn-sm text-white"><i class="fa fa-trash fa-sm"></i></a></td>
-      </tr> 
-
-		<tr>
-		<td style="color:blue;"><a href="<?php echo base_url();?>admin_editforthcom_2">AJ256458/BHEL/IRON/102</a></td> 
-		<td>1</td>
-        <td>Iron</td>
-		<td>Pig Iron</td>
-		<td>5</td>
-		<td>1,000</td>
-		<td>02-07-2020</td>
-		<td><a href=""><u>Type: Pipes, Sheets, Rods, Blocks & Etc
-	 </u></a></td>
-		<td style="color:red;" width="10%">Pending</td>
-		<td><a href=""><i class="fa fa-download"></i></a></td>
-        <td><a href="<?php echo base_url();?>admin_editauction" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a><br><br>
-			<a class="btn btn-danger btn-sm text-white"><i class="fa fa-trash fa-sm"></i></a></td>
-      </tr> 
-	  
-	  <tr>
-		<td style="color:blue;"><a href="<?php echo base_url();?>admin_editforthcom_2">AJ256458/BHEL/IRON/102</a></td> 
-		<td>1</td>
-        <td>Iron</td>
-		<td>Pig Iron</td>
-		<td>5</td>
-		<td>1,000</td>
-		<td>02-07-2020</td>
-		<td><a href=""><u>Type: Pipes, Sheets, Rods, Blocks & Etc
-	 </u></a></td>
-		<td style="color:green;">Approve</td>
-		<td style="color:Blue;"><a href="<?php echo base_url();?>admin_editforthcom_2"><i class="fa fa-download"></i></a></td>
-        <td><a href="<?php echo base_url();?>admin_editauction" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a><br><br>
-			<a class="btn btn-danger btn-sm text-white"><i class="fa fa-trash fa-sm"></i></a></td>
-      </tr> 
-	  
-	  <tr>
-		<td style="color:blue;"><a href="<?php echo base_url();?>admin_editforthcom_2">AJ256458/BHEL/IRON/102</a></td>
-		<td>1</td>
-        <td>Iron</td>
-		<td>Pig Iron</td>
-		<td>5</td>
-		<td>1,000</td>
-		<td>02-07-20</td>
-		<td><a href=""><u>Type: Pipes, Sheets, Rods, Blocks & Etc
-	 </u></a></td>
-		<td style="color:red;">Pending</td>
-		<td style="color:Blue;"><a href=""><i class="fa fa-download"></i></a></td>
-        <td><a href="<?php echo base_url();?>admin_editauction" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a><br><br>
-			<a class="btn btn-danger btn-sm text-white"><i class="fa fa-trash fa-sm"></i></a></td>
-      </tr> 
-	  
-	  <tr>
-		<td style="color:blue;"><a href="<?php echo base_url();?>admin_editforthcom_2">AJ256458/BHEL/IRON/102</a></td> 
-		<td>1</td>
-        <td>Iron</td>
-		<td>Pig Iron</td>
-		<td>5</td>
-		<td>1,000</td>
-		<td>02-07-2020</td>
-		<td><a href=""><a href=""><u>Type: Pipes, Sheets, Rods, Blocks & Etc
-	 </u></a></td>
-		<td style="color:orange;">Reject</td>
-		<td><a href=""><i class="fa fa-download"></i></a></td>
-        <td><a  href="<?php echo base_url();?>admin_editauction" class="btn btn-primary btn-sm text-white "><i class="fa fa-edit fa-sm"></i></a><br><br>
-			<a class="btn btn-danger btn-sm text-white "><i class="fa fa-trash fa-sm"></i></a></td>
-      </tr> 
-      
-    </tbody>
-  </table>
+		<div class="ajaxrslt" id="ajaxrslt">
+			<!----Insert Ajax Table Here------>
+			
+			<!---- ------>
+		</div>
+     
 
 		  </div>
             </div>

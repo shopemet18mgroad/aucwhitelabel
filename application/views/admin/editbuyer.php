@@ -35,7 +35,7 @@
 					 </thead>
 						<tbody>
 						<tr><td><img class="img-fluid" src="<?php echo base_url()."web_files/";?>img/manimg.jpg" alt="Chania" width="40" height="35"></td></tr>
-						 <form action ="<?php echo base_url();?>admin_buyer_basicinfo_update" method="POST" enctype="multipart/form-data">
+						 <form action="<?php echo base_url();?>admin_buyer_basicinfo_update" method="POST" enctype="multipart/form-data">
 						<tr>
 							<td class="btxt">Buyer Name:</td>
 							<td><input class="form-control w-50" type="text" id="bname" name="bname"value="<?php echo $sqldata[0]->bname; ?>"></td>

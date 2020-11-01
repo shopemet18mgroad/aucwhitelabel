@@ -27,4 +27,79 @@ class Admin_auctiondetails extends CI_Controller {
 		
 	}
 	
+	public function get_table(){
+		$datatoquerydb = $this->uri->segment(3);
+		$this->load->model('Admin_model');
+		$data = $this->Admin_model->get_lookalike('auction','sauctionid',$datatoquerydb);
+		if(count($data)){
+			echo '<table class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';
+			echo '<thead class="bg-primary text-white">';
+			echo '<tr>';
+			echo '<th>Auction Id</th>';
+			echo '<th>Category</th>';
+			echo '<th>Venue Of Inspection</th>';
+			echo '<th>Online Auction Date</th>';
+			echo '<th>Aucjunction Terms & Conditions</th>';
+			echo '<th>Upload Terms & Conditions	</th>';
+			echo '</tr>';
+			echo '</thead>';
+			echo '<tbody>';
+			foreach($data as $dat){
+				echo '<tr>';
+				echo '<td>'.$dat['sauctionid'].'</td>';
+				echo '<td>'.$dat['scategory'].'</td>';
+				echo '<td>'.$dat['scontactperson'].'</td>';
+				echo '<td>'.$dat['slocation'].'</td>';
+				echo '<td>'.$dat['scity'].'</td>';
+				echo '<td>'.$dat['spin'].'</td>';
+				echo '<td><a href="'.base_url().'admin_editseller/edit_seller/'.$dat['scomapnyname'].'">';
+				echo '<i class="fa fa-edit"></i>';
+				echo '</a>';
+				echo '<a href="'.base_url().'admin_editseller/delete_seller/'.$dat['scomapnyname'].'">';
+				echo '<i class="fa fa-trash" style="color:black"></i>';
+				echo '</a>';
+				echo '</td>';
+				echo '</td>';
+				echo '</tr>';
+			}
+			echo '</tbody>';
+			echo '</table>';
+		}else{
+			echo '<table class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';
+			echo '<thead class="bg-primary text-white">';
+			echo '<tr>';
+			echo '<th>Auction Id</th>';
+			echo '<th>Category</th>';
+			echo '<th>Seller</th>';
+			echo '<th>Venue Of Inspection</th>';
+			echo '<th>Online Auction Date</th>';
+			echo '<th>Aucjunction Terms & Conditions</th>';
+			echo '<th>Upload Terms & Conditions</th>';
+			echo '</tr>';
+			echo '</thead>';
+			echo '<tbody>';
+			echo '<tr>';
+				echo '<td>No Records Found</td>';
+				echo '<td>No Records Found</td>';
+				echo '<td>No Records Found</td>';
+				echo '<td>No Records Found</td>';
+				echo '<td>No Records Found</td>';
+				echo '<td>No Records Found</td>';
+				echo '<td><a href="'.base_url().'#">';
+				echo '<i class="fa fa-edit"></i>';
+				echo '</a>';
+				echo '<a href="'.base_url().'#">';
+				echo '<i class="fa fa-trash" style="color:black"></i>';
+				echo '</a>';
+				echo '</td>';
+				echo '</td>';
+				echo '</tr>';
+			echo '</tbody>';
+			echo '</table>';
+		}
+
+
+
+	}
+	
 }

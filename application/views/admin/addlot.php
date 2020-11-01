@@ -1,7 +1,10 @@
 <?php 
 	//include('./header.php');
+
 ?>
-        <!-- End of Topbar -->
+      
+
+	  <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
@@ -154,7 +157,7 @@ From:
   </table>
   
   <center>
-	<input type="submit" name="submit" onclick="return validatelot()" class="btn btn-info text-white" data-dismiss="modal" value="Add Another Lot">
+	<input type="submit" name="submit2" onclick="return validatelot()" class="btn btn-info text-white" data-dismiss="modal" value="Add Another Lot">
  
  <input type="submit"  name="submit" onclick="return validatelot()" class="btn btn-info text-white" value="Submit" data-dismiss="modal">
   </center>
