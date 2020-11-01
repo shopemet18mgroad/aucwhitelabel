@@ -20,10 +20,22 @@ class Login extends CI_Controller {
 	 */
 	public function index()
 	{
+		
 		$this->load->helper('url');
-		$this->load->view('header');
-		$this->load->view('login');
-		$this->load->view('footer');
+		if($this->input->post('user')){
+			if($this->input->post('optradio')=="Buyer"){
+				
+			}else if($this->input->post('optradio')=="Seller"){
+				
+			}else{
+				
+			}
+		}else{
+			$this->load->view('header');
+			$this->load->view('login');
+			$this->load->view('footer');
+		}
+		
 		
 	}
 	

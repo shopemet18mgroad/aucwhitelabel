@@ -28,13 +28,24 @@ class Admin_sellerapproval extends CI_Controller {
 		$adac['activestat']= $query->result_array();
 	
 	
-	
-	
 		$this->load->view('admin/header');
 		$this->load->view('admin/sellerapproval',$adac);
 		$this->load->view('admin/footer');
 		
 	}
-
+	public function setdeactive_seller(){
+		
+		$compname = $this->uri->segment(3);
+		$this->load->model('Admin_model');
+		$adaction = array('adaction'=>true);
+		$adaction2 = array('scomapnyname'=>$compname);
+		$query = $this->Admin_model->update_custom('sellerprofile', $adaction, $adaction2, $adaction2);
+		if($compname){
+			echo "HI";
+		}else{
+			echo "BYE";
+		}
+	
+	}
 	
 }
