@@ -28,7 +28,7 @@
 
 							<li>
 								
-						<a href="<?php echo base_url();?>login" class=""><i class="fa fa-sign-in" aria-hidden="true"></i>  Dashboard Login</a>
+						<!--<a href=" <?php echo base_url();?> login" class=""><i class="fa fa-sign-in" aria-hidden="true"></i>  Dashboard Login</a>-->
 						
 							<i class="fa fa-phone" aria-hidden="true"></i>&nbsp Helpline No: +91 9980596460</li>
 							<li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
@@ -63,7 +63,7 @@
 						   
 						    </form>
 					 </div>
-					 <div class="row ml-3 ">
+					 <div class="row ml-3">
 						<div class="form-group pl-3">
 						  <div class="custom-control custom-checkbox small ">
 							<input type="checkbox" class="custom-control-input ltype" id="customCheck2" name="ltype[]">
