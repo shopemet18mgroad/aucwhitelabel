@@ -34,7 +34,8 @@ class Admin_seller_basicinfo_add extends CI_Controller {
 		$scontactperson  = $this->input->post('scontactperson');
 		$sdesignation = $this->input->post('sdesignation');
 		$susername = $this->input->post('susername');
-		$spassword = password_hash('default_auc123',PASSWORD_BCRYPT);
+		//$spassword = password_hash('default_auc123',PASSWORD_BCRYPT);
+		$spassword = base64_decode('default_auc123');
 		$scin  = $this->input->post('scin');
 		$sgst  = $this->input->post('sgst');
 		$spcb  = $this->input->post('spcb');
@@ -54,6 +55,7 @@ class Admin_seller_basicinfo_add extends CI_Controller {
 		$sifsccode  = $this->input->post('sifsccode');
 		$pic_array = self::upload_files('suploadprofilepic');
 		$doc_array = self::upload_files('ssigneddocument');
+
 		if(!count($pic_array)){
 			echo '<script language="javascript">';
 			echo 'alert("Documents Upload Failed")';  //not showing an alert box.
@@ -70,17 +72,7 @@ class Admin_seller_basicinfo_add extends CI_Controller {
 		}
 		//=================================================================================================
 		
-		 public function validate_username(){
-		$dat = $this->uri->segment(3);
-		$check_db = array('susername' => $dat);
-		$this->load->model('Admin_model');
-			  if($this->Admin_model->check('sellerprofile', $check_db)){
-				  echo "BYE";
-			  }else{
-				  echo "HI";
-			  }
-		
-	}
+		 
 		
 		//==================================================================
 		$data2 = array('sname' => $sname, 'scomapnyname' => $scomapnyname, 'scompanytype' => $scompanytype, 'scontactperson' => $scontactperson, 'sdesignation' => $sdesignation, 'susername' => $susername, 'spassword'=> $spassword, 'scin' => $scin, 'sgst' => $sgst, 'spcb' => $spcb, 'semail' => $semail, 'sphone' => $sphone , 'saddress' => $saddress2, 'saddresscount' => $saddresscount, 'spin' => $spin,'scity' => $scity, 'sstate' => $sstate, 'scountry' => $scountry, 'sbankername' => $sbankername, 'saccountnumber' => $saccountnumber, 'sbranch' => $sbranch, 'sifsccode' => $sifsccode, 'suploadprofilepic' => $pic_array, 'ssigneddocument' => $doc_array);
@@ -156,5 +148,15 @@ class Admin_seller_basicinfo_add extends CI_Controller {
       }
 	  return $datar;
     }
-	
+	public function validate_username(){
+		$dat = $this->uri->segment(3);
+		$check_db = array('susername' => $dat);
+		$this->load->model('Admin_model');
+			  if($this->Admin_model->check('sellerprofile', $check_db)){
+				  echo "BYE";
+			  }else{
+				  echo "HI";
+			  }
+		
+	}
 }

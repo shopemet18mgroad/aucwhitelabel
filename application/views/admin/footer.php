@@ -202,4 +202,51 @@
 			
 		}
 
+
  </script>
+
+	
+ </script>
+ 
+ <script>
+		function buyer_set_deactive(varab){
+			$.get('<?php echo base_url() .'Admin_buyerapproval/setdeactive_buyer/'; ?>'+varab, function(data2){					
+				 if($.trim(data2) == "HI"){
+					 window.location.href = '<?php echo base_url().'Admin_buyerapproval';?>'
+					return true;
+				}else{
+					swal("Alert!", "Company Name Already Exists", "error");
+					return false;
+				}
+			 });
+			
+		}
+	
+ </script>
+ 
+ 
+   <script>
+ function validatearry2(){
+	   var company = document.getElementById('bcompany').value;
+	   var user = document.getElementById('busername').value;
+	   if(company == '' || user == ''){
+		   swal("Alert!", "Company Name or UserName Cannot Be Left Blank", "error");
+					return false;
+			}
+			
+	 
+		var signeddoc = document.getElementsByName('bsigneddocument[]');
+
+		
+		for(var ab = 0; ab<signeddoc.length; ab++){
+			if(signeddoc[ab].value == ""){
+				swal("Alert!", "Please Select File to Upload!", "error")
+				//alert("Please Select Files To Upload");
+				return false;
+			}
+		}
+ }
+ 
+ </script>
+ 
+

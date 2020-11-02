@@ -11,8 +11,10 @@ body{
 }
 .contact-header{
 	float:right;
+
 }
 .social ul li {
+	
 	color:#ffffff;
 	display: inline;
 	padding-left:10px;
@@ -21,6 +23,7 @@ body{
 	padding:5px;
 }
 .social ul li i{
+
 	color:#ffffff;
 	padding-left:10px;
 }
@@ -832,4 +835,3 @@ border: 1px solid black;
   } 
 
  }  
-
