@@ -28,10 +28,10 @@ class Admin_editauction extends CI_Controller {
 	}
 	
 	
-	public function edit_auction(){
+	public function editauction(){
 		$retrivevaltmp = urldecode($this->uri->segment(3));
 		
-		$retriveval = array('sauctionid'=>$retrivevaltmp);
+		$retriveval = array('sname'=>$retrivevaltmp);
 		$this->load->model('Admin_model');
 		$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
 		$this->load->helper('url');
@@ -39,13 +39,13 @@ class Admin_editauction extends CI_Controller {
 		$this->load->view('admin/editauction', $data);
 		$this->load->view('admin/footer');
 	}
-	public function edit_auction_alert(){
+	public function editauction_alert(){
 		$retrivevaltmp = $this->uri->segment(3);
 		$retrivevaltmp2 = urldecode($this->uri->segment(4));
 		echo '<script language="javascript">';
 			echo 'alert("'.$retrivevaltmp2.'")';  //not showing an alert box.
 			echo '</script>';
-		$retriveval = array('sauctionid'=>$retrivevaltmp);
+		$retriveval = array('sname'=>$retrivevaltmp);
 		$this->load->model('Admin_model');
 		$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
 		$this->load->helper('url');

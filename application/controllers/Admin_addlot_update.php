@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin_startauction_update extends CI_Controller {
+class Admin_addlot_update extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -25,17 +25,31 @@ class Admin_startauction_update extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->library('fileupload');
-		$this->load->helper(array('url','form','file','html'));
+		//$this->load->library('fileupload');
+		//$this->load->helper(array('url','form','file','html'));
 		$this->load->model('Admin_model');
-		$scategory = $this->input->post('scategory');
 		$sauctionid = $this->input->post('sauctionid');
-		$sname = $this->input->post('sname');
-		$svinspection  = $this->input->post('svinspection');
-		$sonlineaucdate_time = $this->input->post('sonlineaucdate_time');
-		$sterms_condiaccept = $this->input->post('sterms_condiaccept');
-		
-		$dataact = array();
+		$slotno = $this->input->post('slotno');
+		$slotname = $this->input->post('slotname');
+		$scategory  = $this->input->post('scategory');
+		$sdescription = $this->input->post('sdescription');
+		$slotlocation = $this->input->post('slotlocation');
+		$sfrominpectdate_time = $this->input->post('sfrominpectdate_time');
+		$stoinpectdate_time = $this->input->post('stoinpectdate_time');
+		$semddetail = $this->input->post('semddetail');
+		$slastdateemdsub = $this->input->post('slastdateemdsub');
+		$sprice  = $this->input->post('sprice');
+		$sstartbidprice = $this->input->post('sstartbidprice');
+		$sqty = $this->input->post('sqty');
+		$sunitmeasurment = $this->input->post('sunitmeasurment');
+		$sbidbase  = $this->input->post('sbidbase');
+		$sgst = $this->input->post('sgst');
+		$sothertax = $this->input->post('sothertax');
+		$semdamount = $this->input->post('semdamount');
+		$sliftingperiod2 = $this->input->post('sliftingperiod2');
+		$sliftingperiod = $this->input->post('sliftingperiod');
+		$spcbcertificate = $this->input->post('spcbcertificate');
+		/* $dataact = array();
 		$datacomp = array();
 		$dataact = $this->input->post('ssigneddocumentex');
 		$datacomp = $this->input->post('ssigneddocumentexcom');
@@ -53,13 +67,23 @@ class Admin_startauction_update extends CI_Controller {
 			$datainserr = "Atleast One Signed Document Has To Uploaded";
 			header('location: '.base_url().'admin_editauction/editauction_alert/'.$sauctionid.'/'.$datainserr);
 		}
-	   
-		 if($_FILES['sterms_condiupload']['tmp_name'][0]){
-			$doc_array = self::upload_files('sterms_condiupload');
+	    if($_FILES['suploadprofilepic']['name']){
+			unlink("../../web_files/uploads/".$sterms_condiupload);
+			$pic_array1 = self::upload_files('suploadprofilepic');
 		}
+		 if($_FILES['sterms_condiupload']['name']){
+			$doc_array = self::upload_files('sterms_condiupload');
+		} 
 		
-		
-		 if(!count($doc_array)){
+		if(!count($pic_array1)){
+			echo '<script language="javascript">';
+			echo 'alert("Image Upload Failed")';  //not showing an alert box.
+			echo '</script>';
+			$pic_array1 = $sterms_condiupload;
+		}else{
+			$pic_array1 = serialize($pic_array1);
+		} */
+		/* if(!count($doc_array)){
 			echo '<script language="javascript">';
 			echo 'alert("Documents Upload Failed")';  //not showing an alert box.
 			echo '</script>';
@@ -67,20 +91,22 @@ class Admin_startauction_update extends CI_Controller {
 		}else{
 			$doc_array = array_merge($doc_array,$result2);
 			$doc_array = serialize($doc_array);
-		} 
+		} */
 		
 		//=================================================================================================
 		
 		
 		
 		//==================================================================
-		$data2 = array('scategory' => $scategory, 'sauctionid' => $sauctionid, 'sname' => $sname, 'svinspection' => $svinspection, 'sonlineaucdate_time' => $sonlineaucdate_time, 'sterms_condiaccept'=> $sterms_condiaccept, 'sterms_condiupload' => $doc_array);
+		$data2 = array('sauctionid' => $sauctionid, 'slotno' => $slotno, 'slotname' => $slotname, 'scategory' => $scategory, 'sdescription' => $sdescription, 'slotlocation'=> $slotlocation, 'sfrominpectdate_time' => $sfrominpectdate_time,  'stoinpectdate_time' => $stoinpectdate_time,  'semddetail' => $semddetail,  'slastdateemdsub' => $slastdateemdsub,  'sprice' => $sprice,  'sstartbidprice' => $sstartbidprice,  'sqty' => $sqty,  'sunitmeasurment' => $sunitmeasurment,  'sbidbase' => $sbidbase,  'sgst' => $sgst,  'sothertax' => $sothertax,  'semdamount' => $semdamount,  'sliftingperiod2' => $sliftingperiod2,  'sliftingperiod' => $sliftingperiod, 'spcbcertificate' => $spcbcertificate,);
 		//$this->load->view('xya', $data);
 		$datainserr = "Data Inserted Successfully";
-		$updatech = array('sname' => $sname);
-		$status = $this->Admin_model->update_custom('auction',$data2,$updatech,$updatech);
-		// $status = $this->Admin_model->insert('sellerprofile', $data2);
-		header('location: '.base_url().'admin_startauction/index/'.$datainserr);
+		$updatech = array('slotname' => $slotname );
+		$status = $this->Admin_model->update_custom('addlot',$data2,$updatech,$updatech);
+		
+		
+			
+		header('location: '.base_url().'admin_auctiondetails/index/'.$datainserr);
 		//$this->load->view('admin/header');
 		//$this->load->view('admin/salesreport');
 		//$this->load->view('admin/footer');
@@ -108,7 +134,7 @@ class Admin_startauction_update extends CI_Controller {
             }
 			return $flname;
     }*/
-	private function upload_files($nameid)
+	/* private function upload_files($nameid)
     {	
 	$countfiles = count($_FILES[$nameid]['name']);
       // Looping all files
@@ -143,6 +169,6 @@ class Admin_startauction_update extends CI_Controller {
  
       }
 	  return $datar;
-    }
+    } */
 	
 }

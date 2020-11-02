@@ -1,7 +1,7 @@
-/* 
+
 function userid4(){
 var email = document.getElementById("email").value;	
-var pswd = document.getElementById("pswd").value;	
+//var pswd = document.getElementById("pswd").value;	
 var x=document.myform.email.value;  
 var atposition=x.indexOf("@");  
 var dotposition=x.lastIndexOf(".");  
@@ -19,10 +19,10 @@ if (atposition<1 || dotposition<atposition+2 || dotposition+2>=x.length){
   return false;
   }  			
 
-if( pswd.length == 0 )
+/* if( pswd.length == 0 )
 		   
 			{
 				swal("Alert!",  "Invalid Password", "error");
 				return false;
-			}			
-} */
+			} */			
+} 

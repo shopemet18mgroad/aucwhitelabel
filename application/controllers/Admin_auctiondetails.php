@@ -30,12 +30,13 @@ class Admin_auctiondetails extends CI_Controller {
 	public function get_table(){
 		$datatoquerydb = $this->uri->segment(3);
 		$this->load->model('Admin_model');
-		$data = $this->Admin_model->get_lookalike('auction','sauctionid',$datatoquerydb);
+		$data = $this->Admin_model->get_lookalike('auction','sname',$datatoquerydb);
 		if(count($data)){
 			echo '<table class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';
 			echo '<thead class="bg-primary text-white">';
 			echo '<tr>';
 			echo '<th>Auction Id</th>';
+			echo '<th>Seller</th>';
 			echo '<th>Category</th>';
 			echo '<th>Venue Of Inspection</th>';
 			echo '<th>Online Auction Date</th>';
@@ -48,24 +49,25 @@ class Admin_auctiondetails extends CI_Controller {
 			echo '<tbody>';
 			foreach($data as $dat){
 				echo '<tr>';
-				echo '<td><a href="'.base_url().'admin_editforthcom_2/editforthcom_2/'.$dat['sauctionid'].
+				echo '<td><a href="'.base_url().'admin_editforthcom_2/editforthcom_2/'.$dat['sname'].
 				'">';
 				echo $dat['sauctionid'];
 				echo '</a>';
 				echo '</td>';
+				echo '<td>'.$dat['sname'].'</td>';
 				echo '<td>'.$dat['scategory'].'</td>';
 				echo '<td>'.$dat['svinspection'].'</td>';
 				echo '<td>'.$dat['sonlineaucdate_time'].'</td>';
 				echo '<td>'.$dat['sterms_condiaccept'].'</td>';
 				echo '<td>'.$dat['sterms_condiupload'].'</td>';
-				echo '<td><a href="'.base_url().'Admin_editauction/editauction/'.$dat['sauctionid'].'">';
+				echo '<td><a href="'.base_url().'Admin_editauction/editauction/'.$dat['sname'].'">';
 				echo '<i class="fa fa-download"></i>';
 				echo '</a>';
 				echo '</td>';
-				echo '<td><a href="'.base_url().'Admin_editauction/editauction/'.$dat['sauctionid'].'">';
+				echo '<td><a href="'.base_url().'Admin_editauction/editauction/'.$dat['sname'].'">';
 				echo '<i class="fa fa-edit"></i>';
 				echo '</a>';
-				echo '<a href="'.base_url().'Admin_editauction/delete_auction/'.$dat['sauctionid'].'">';
+				echo '<a href="'.base_url().'Admin_editauction/delete_auction/'.$dat['sname'].'">';
 				echo '<i class="fa fa-trash" style="color:black"></i>';
 				echo '</a>';
 				echo '</td>';

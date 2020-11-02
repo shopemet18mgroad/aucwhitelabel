@@ -27,4 +27,31 @@ class Admin_editlot extends CI_Controller {
 		
 	}
 	
+	public function editlot(){
+		$retrivevaltmp = urldecode($this->uri->segment(3));
+		
+		$retriveval = array('slotname'=>$retrivevaltmp);
+		$this->load->model('Admin_model');
+		$data['sqldata'] = $this->Admin_model->getdatafromtable('addlot',$retriveval);
+						
+	
+		$this->load->helper('url');
+		$this->load->view('admin/header');
+		$this->load->view('admin/editlot', $data);
+		$this->load->view('admin/footer');
+	}
+	public function editlot_alert(){
+		$retrivevaltmp = $this->uri->segment(3);
+		$retrivevaltmp2 = urldecode($this->uri->segment(4));
+		echo '<script language="javascript">';
+			echo 'alert("'.$retrivevaltmp2.'")';  //not showing an alert box.
+			echo '</script>';
+		$retriveval = array('slotname'=>$retrivevaltmp);
+		$this->load->model('Admin_model');
+		$data['sqldata'] = $this->Admin_model->getdatafromtable('addlot',$retriveval);
+		$this->load->helper('url');
+		$this->load->view('admin/header');
+		$this->load->view('admin/editlot', $data);
+		$this->load->view('admin/footer');
+	}
 }

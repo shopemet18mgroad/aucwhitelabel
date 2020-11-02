@@ -1,5 +1,6 @@
 <?php 
 	//include('./header.php');
+	
 ?>
         <!-- End of Topbar -->
 
@@ -46,13 +47,13 @@
 	  
 	  	  <tr>
 		  <td>Seller</td>
-		  <td><input class="form-control w-50"  type="text" id="sname" name="sname" placeholder="Search" onkeyup="auction_id()" aria-label="Search">
+		  <td><input class="form-control w-50"  type="text" id="sname" name="sname" placeholder="Search" value="<?php echo $sqldata[0]->sname; ?>" onkeyup="auction_id()" aria-label="Search">
 		</td>
 	  </tr>
       
 	  <tr>
 		  <td>Auction Id</td>
-		  <td><input class="form-control w-50"  type="text" id="sauctionid" name="sauctionid" placeholder="Auction ID" aria-label="Search" readonly></td>
+		  <td><input class="form-control w-50"  type="text" id="sauctionid" name="sauctionid" placeholder="Auction ID" value="<?php echo $sqldata[0]->sauctionid; ?>" aria-label="Search" readonly></td>
 
 	  </tr>
 	  
@@ -218,17 +219,17 @@ Bidders participating in AucJunction Auctions should verify with the selling com
 			</div></td>
   </tr>
   
-  <!--<tr>
+  <tr>
 		<td>Upload Terms & Conditions</td>
 		<td><div class="form-check form-check-inline">
 			<input type="checkbox" class="form-check-input" id="myCheck" onclick="myFunction()" name="sterms_condiupload1[]">
 			<label class="form-check-label" for="myCheck">Yes</label>
 			</div>
 			<div class="form-group" id="text"  style="display:none">
-				<input type="file" class="form-control-file" id="sterms_condiupload" name="sterms_condiupload[]">
+				<input type="file" class="form-control-file" id="sterms_condiupload" name="sterms_condiupload[]" multiple= "multiple">
 			</div>
 			<?php 
-							$file = unserialize($sqldata[0]->sterms_condiupload);
+ 							  $file = unserialize($sqldata[0]->sterms_condiupload);
 							  foreach($file as $fl){
 							echo '<tr id="filess">';
 							echo '<td class="btxt">Existing Documents</td>';
@@ -238,7 +239,7 @@ Bidders participating in AucJunction Auctions should verify with the selling com
 							echo '<a class="add_field_button1"><button type="button" onclick="$(this).parents(\'#filess\').remove()" class="btn btn-sm btn-primary ml-1 mb-5 mt-3">  <i class="fa fa-minus text-white"></i></button></a>';
 							echo '</div></td>';
 							echo '';
-							echo '</tr>';
+							echo '</tr>'; 
 							  }
 							
 							?>
@@ -248,10 +249,10 @@ Bidders participating in AucJunction Auctions should verify with the selling com
 			<label class="form-check-label" for="idCheck" >No</label>
 			</div>
 			<div class="form-group" id="text2" style="display:none">
-			<textarea class="form-control w-50" type="text" id="sterms_text" name="sterms_text"></textarea>
+			<textarea class="form-control w-50" type="text" id="sterms_text" name="sterms_text" <?php echo $sqldata[0]->sterms_text; ?>"></textarea>
 			</div>
 			</td>
-  </tr>-->
+  </tr>
   
  
   

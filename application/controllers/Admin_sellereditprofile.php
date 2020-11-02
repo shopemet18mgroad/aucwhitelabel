@@ -52,7 +52,7 @@ class Admin_sellereditprofile extends CI_Controller {
 				echo '<td>'.$dat['slocation'].'</td>';
 				echo '<td>'.$dat['scity'].'</td>';
 				echo '<td>'.$dat['spin'].'</td>';
-				echo '<td><a href="'.base_url().'admin_editseller/edit_seller/'.$dat['scomapnyname'].'">';
+				echo '<td><a href="'.base_url().'admin_editseller/edit_seller/'.$dat['scomapnyname'].'">';	
 				echo '<i class="fa fa-edit"></i>';
 				echo '</a>';
 				echo '<a href="'.base_url().'admin_editseller/delete_seller/'.$dat['scomapnyname'].'">';
