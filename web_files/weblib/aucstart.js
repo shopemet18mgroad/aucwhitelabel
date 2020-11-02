@@ -131,6 +131,7 @@ $('input[id="spcbcertificate1[]"]').on('change', function() {
 
 
 function validatelot(){
+	
 	var slotname = document.getElementById("slotname").value;
 	var scategory = document.getElementById("scategory").value;
 	var sdescription = document.getElementById("sdescription").value;
@@ -165,12 +166,11 @@ function validatelot(){
 				swal("Alert!",  "PCB Certificate Should Be Selected", "error");
 				return false;
 			} 
-				
-}
+	}			
+
 	
 
-
- function auction_id1(){
+  function auction_id1(){
 	 var cat = document.getElementById('scategory').value;
 	  var cat2 = document.getElementById('slotname').value;
 	   var d = new Date();
@@ -182,7 +182,8 @@ function validatelot(){
 		 return false;
 	 }
 	 if(cat2.length<6){
-		  document.getElementById('slotno').value = "M/"+cat2+"/"+cat+"/"+m+"/"+n+"/"+s;
+		  document.getElementById('slotno').value = "A-"+m+-+s
+		  ;
 	 }
- }
+ } 
 

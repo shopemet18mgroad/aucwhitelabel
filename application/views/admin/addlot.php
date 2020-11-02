@@ -1,6 +1,5 @@
 <?php 
 	//include('./header.php');
-
 ?>
       
 
@@ -33,18 +32,18 @@
 	<form action="<?php echo base_url();?>Admin_addlot_info" method="POST" enctype="multipart/form-data">
 	<tr>
 		  <td width="11%">Auction Id</td>
-		  <td width="4%" style="text-color:blue;"> <input type="text" class="form-control w-50" id="sauctionid" name="sauctionid" value="<?php echo $auctionid;?>" readonly></td>
+		  <td width="4%" style="text-color:blue;"> <input type="text" class="form-control w-50" id="sauctionid" name="sauctionid" value="<?php echo $auctionid; ?>" readonly></td>
 	  </tr>
 	  
 	  <tr>
 		  <td>Lot No.</td>
-		  <td style="color:blue;"><input class="form-control w-50"  type="text" id="slotno" name="slotno"  aria-label="Search" readonly></td>
+		  <td style="color:blue;"><input class="form-control w-50"  type="text" id="slotno" name="slotno" aria-label="Search" readonly></td>
 	  </tr>
       
 	  <tr>
 	   
 		  <td>Lot Name</td>
-		  <td><input class="form-control w-50" type="text" id="slotname" name="slotname" onkeyup="auction_id1()"></td>
+		  <td><input class="form-control w-50" type="text" id="slotname" name="slotname" onclick="auction_id1()"></td>
 	  </tr>
 	  <tr>
 		  <td>Category</td>

@@ -27,38 +27,36 @@
       </tr>
     </thead>
     <tbody>
+	 <form action="<?php echo base_url();?>Admin_addlot_update" method="POST" enctype="multipart/form-data">
 	<tr>
 		  <td width="11%">Auction Id</td>
-		  <td width="4%" style="color:blue;">AJ256458/BHEL/IRON/102</td>
+		  <td width="4%" style="text-color:blue;"> <input type="text" class="form-control w-50" id="sauctionid" name="sauctionid" value="<?php echo $sqldata[0]->sauctionid; ?>" readonly></td>
 	  </tr>
 	  
 	  <tr>
 		  <td>Lot No.</td>
-		  <td style="color:blue;">M-129</td>
+		  <td style="color:blue;"><input class="form-control w-50"  type="text" id="slotno" name="slotno" value="<?php echo $sqldata[0]->slotno; ?>"  aria-label="Search" readonly></td>
 	  </tr>
       
 	  <tr>
+	   
 		  <td>Lot Name</td>
-		  <td><input class="form-control w-50" type="text" id="emd" name="emd"></td>
+		  <td><input class="form-control w-50" type="text" id="slotname" name="slotname" value="<?php echo $sqldata[0]->slotname; ?>" onkeyup="auction_id1()"></td>
 	  </tr>
 	  <tr>
 		  <td>Category</td>
-		  <td><select class="form-control w-50" id="category" name="category">
-				<option value="one" selected>Ferrous</option>
-				<option value="two">Non Ferrous</option>
-				<option value="three" >Minor Metals</option>
-				<option value="four">Plain paper</option>
-				<option value="five">Granules</option>
-				<option value="six">All Construction Materials</option>
+		  <td><select class="form-control w-50" id="scategory" name="scategory">
+				<option value="<?php echo $sqldata[0]->scategory; ?>"selected><?php echo $sqldata[0]->scategory; ?></option>
+				
 				</select></td>
 	  </tr>
 	   <tr>
 		  <td>Description</td>
-		  <td><textarea class="form-control w-75" type="text" id="emd" name="emd"></textarea></td>
+		  <td><textarea class="form-control w-75" type="text" id="sdescription" name="sdescription" value="<?php echo $sqldata[0]->sdescription; ?>"></textarea></td>
 	  </tr>
 	  <tr>  												
 		<td>Location Of Lot</td>
-		<td><select class="form-control w-50" id="category" name="category">
+		<td><select class="form-control w-50" id="slotlocation" name="slotlocation" value="<?php echo $sqldata[0]->slotlocation; ?>">
 				<option value="one" selected>Hydrabad</option>
 				<option value="two">Mangalore</option>
 				<option value="three" >Bangalore</option>
@@ -71,39 +69,39 @@
 		<td>Inspection Date & Time</td>
 		<td>
 From: 	
-    <input class="form-control w-75" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
-To:
-    <input class="form-control w-75" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
-  </td>
+    <input class="form-control w-75" type="datetime-local" id="sfrominpectdate_time" name="sfrominpectdate_time" value="<?php echo $sqldata[0]->sfrominpectdate_time; ?>">
+ To:
+    <input class="form-control w-75" type="datetime-local"  id="stoinpectdate_time" name="stoinpectdate_time" value="<?php echo $sqldata[0]->stoinpectdate_time; ?>">
+</td>
 	</tr>
 	
 	<tr>
 		<td>EMD Details</td>
-		<td><textarea class="form-control w-75" type="text" id="emd" name="emd"></textarea></td>
+		<td><textarea class="form-control w-75" type="text" id="semddetail" name="semddetail" value="<?php echo $sqldata[0]->semddetail; ?>"></textarea></td>
 	</tr>
 	
 	<tr>
 		<td>Last Date Of Submiting EMD</td>
-		<td><input class="form-control w-50" type="date" id="emdlastdate" name="emdlastdate"></td>
+		<td><input class="form-control w-50" type="date" id="slastdateemdsub" name="slastdateemdsub" value="<?php echo $sqldata[0]->slastdateemdsub; ?>"></td>
 	</tr>
 	
 	<tr>
 
 		<td>Expected Price</td>
-		<td><input class="form-control w-50" type="text" id="emd" name="emd"></td>
+		<td><input class="form-control w-50" type="text" id="sprice" name="sprice" value="<?php echo $sqldata[0]->sprice; ?>"></td>
 	</tr>
 	<tr>
 		<td>Starting Bid Price</td>
-		<td><input class="form-control w-50" type="text" id="emd" name="emd"></td>
+		<td><input class="form-control w-50" type="text" id="sstartbidprice" name="sstartbidprice" value="<?php echo $sqldata[0]->sstartbidprice; ?>"></td>
 	</tr>
 	</tr>
 		<td>Qty</td>
-		<td><input class="form-control w-50" type="text" id="emd" name="emd"></td>
+		<td><input class="form-control w-50" type="text" id="sqty" name="sqty" value="<?php echo $sqldata[0]->sqty; ?>"></td>
 	</tr>
 	
 	<tr>
 		<td>Unit Of Measurment</td>
-		<td><select class="form-control w-50" id="category" name="category">
+		<td><select class="form-control w-50" id="sunitmeasurment" name="sunitmeasurment" value="<?php echo $sqldata[0]->sunitmeasurment; ?>">
 				<option value="one" selected>Gram</option>
 				<option value="two">Kilogram</option>
 				<option value="three">Tonne</option>
@@ -114,7 +112,7 @@ To:
 	
 	<tr>
 		<td>Bid Base</td>
-		<td><select class="form-control w-50" id="category" name="category">
+		<td><select class="form-control w-50" id="sbidbase" name="sbidbase" value="<?php echo $sqldata[0]->sbidbase; ?>">
 				<option value="one" selected>Gram</option>
 				<option value="two">Kilogram</option>
 				<option value="three">Tonne</option>
@@ -124,30 +122,30 @@ To:
 	</tr>
 	<tr>
 	<td>GST</td>
-	<td><input class="form-control w-50" type="text" id="onlineaucdate" name="onlineaucdate"></td>
+	<td><input class="form-control w-50" type="text" id="sgst" name="sgst" value="<?php echo $sqldata[0]->sgst; ?>"></td>
     </tr>
   
      <tr>
 		<td>Other Tax</td>
-		<td><input class="form-control w-50" type="text" id="onlineaucdate" name="onlineaucdate"></td>
+		<td><input class="form-control w-50" type="text" id="sothertax" name="sothertax" value="<?php echo $sqldata[0]->sothertax; ?>"></td>
     </tr>
 	<tr>
 		<td>EMD Amount</td>
-		<td><input class="form-control w-50" type="text" id="onlineaucdate" name="onlineaucdate"></td>
+		<td><input class="form-control w-50" type="text" id="semdamount" name="semdamount" value="<?php echo $sqldata[0]->semdamount; ?>"></td>
     </tr>	
 	<tr>
 		<td>Lifting Period</td>
-		<td><input class="form-control w-75" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
-		<input class="form-control w-50 mt-2" type="text" id="onlineaucdate" name="onlineaucdate" placeholder="15 Days"></td>
+		<td><input class="form-control w-75" type="datetime-local" id="sliftingperiod2" name="sliftingperiod2" value="<?php echo $sqldata[0]->sliftingperiod2; ?>">
+		<input class="form-control w-50 mt-2" type="text" id="sliftingperiod" name="sliftingperiod" placeholder="Exp.15 days" value="<?php echo $sqldata[0]->sliftingperiod; ?>"></td>
     </tr>
 	<tr>
 		<td>PCB Certificate</td>
-		<td><div class="form-check form-check-inline ">
-			<input type="checkbox" class="form-check-input" id="exampleCheck1">
+		<td><div class="form-check form-check-inline">
+			<input type="checkbox" class="form-check-input" id="spcbcertificate1[]" name="spcbcertificate" value="<?php echo $sqldata[0]->spcbcertificate; ?>">
 			<label class="form-check-label" for="exampleCheck1">Yes</label>
 			</div>
-			<div class="form-check form-check-inline ">
-			<input type="checkbox" class="form-check-input" id="exampleCheck1">
+			<div class="form-check form-check-inline">
+			<input type="checkbox" class="form-check-input" id="spcbcertificate2[]" name="spcbcertificate" value="<?php echo $sqldata[0]->spcbcertificate; ?>">
 			<label class="form-check-label" for="exampleCheck1">No</label>
 			</div></td>
     </tr>
@@ -156,8 +154,11 @@ To:
   </table>
   
   <center>
-  <a type="button" class="btn btn-info text-white" href="" data-dismiss="modal">Submit</a>
+	<input type="submit" name="submit2" onclick="return validatelot()" class="btn btn-info text-white" data-dismiss="modal" value="Add Another Lot">
+ 
+ <input type="submit"  name="submit" onclick="return validatelot()" class="btn btn-info text-white" value="Submit" data-dismiss="modal">
   </center>
+  </form>
 			</div>
             </div>
 			</div>

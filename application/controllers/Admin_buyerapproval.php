@@ -20,11 +20,32 @@ class Admin_buyerapproval extends CI_Controller {
 	 */
 	public function index()
 	{
+		$this->load->helper(array('url','html'));
+		$this->load->model('Admin_model');
+		$adaction = array('adaction'=>false);
+		
+		$query = $this->db->get_where('buyerprofile', $adaction);
+		$adac['activestat']= $query->result_array();
+		
 		$this->load->helper('url');
 		$this->load->view('admin/header');
-		$this->load->view('admin/buyerapproval');
+		$this->load->view('admin/buyerapproval',$adac);
 		$this->load->view('admin/footer');
 		
+	}
+		public function setdeactive_buyer(){
+		
+		$compname = $this->uri->segment(3);
+		$this->load->model('Admin_model');
+		$adaction = array('adaction'=>true);
+		$adaction2 = array('bcompany'=>$compname);
+		$query = $this->Admin_model->update_custom('buyerprofile', $adaction, $adaction2, $adaction2);
+		if($compname){
+			echo "HI";
+		}else{
+			echo "BYE";
+		}
+	
 	}
 	
 }

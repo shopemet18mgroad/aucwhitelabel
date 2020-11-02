@@ -1,5 +1,6 @@
 <?php 
 	//include('./header.php');
+	
 ?>
         <!-- End of Topbar -->
 
@@ -29,43 +30,48 @@
     <tbody>
 	  
 	  <tr>
+		    <form action="<?php echo base_url();?>Admin_startauction_update" method="POST"  enctype="multipart/form-data">
+		  
 		  <td width="11%">Category</td>
-		  <td width="4%"><select class="form-control w-50" id="adcategory" name="adcategory">
-				<option value="one" selected>Ferrous</option>
-				<option value="two">Non Ferrous</option>
-				<option value="three" >Minor Metals</option>
-				<option value="four">Plain paper</option>
-				<option value="five">Granules</option>
-				<option value="six">All Construction Materials</option>
+		  <td width="4%"><select class="form-control w-50" id="scategory" name="scategory" value="<?php echo $sqldata[0]->scategory; ?>">
+				<option value="Select" selected>Select</option>
+				<option value="Ferrous">Ferrous</option>
+				<option value="Non Ferrous">Non Ferrous</option>
+				<option value="Minor Metals" >Minor Metals</option>
+				<option value="Plain paper">Plain paper</option>
+				<option value="Granules">Granules</option>
+				<option value="All Construction Materials">All Construction Materials</option>
 				</select>
 			</td>
 	  </tr>
 	  
 	  	  <tr>
 		  <td>Seller</td>
-		  <td><input class="form-control w-50" type="text" placeholder="Search" aria-label="Search">
-			</td>
+		  <td><input class="form-control w-50"  type="text" id="sname" name="sname" placeholder="Search" value="<?php echo $sqldata[0]->sname; ?>" onkeyup="auction_id()" aria-label="Search">
+		</td>
 	  </tr>
       
 	  <tr>
 		  <td>Auction Id</td>
-		  <td style="color:blue;">AJ256458/BHEL/IRON/102</td>
+		  <td><input class="form-control w-50"  type="text" id="sauctionid" name="sauctionid" placeholder="Auction ID" value="<?php echo $sqldata[0]->sauctionid; ?>" aria-label="Search" readonly></td>
+
 	  </tr>
 	  
 	  <tr>											
 		  <td>Venue Of Inspection</td>
-		  <td><textarea class="form-control w-50" type="text" id="advinsp" name="advinsp"></textarea></td>
+		  <td><textarea class="form-control w-50" type="text" id="svinspection" name="svinspection" value="<?php echo $sqldata[0]->svinspection; ?>"></textarea></td>
 	  </tr>
 	  
-	  
+	  <tr>
 		<td>Online Auction Date</td>
-		<td><input class="form-control w-75" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
-  </td>
+		<td><input class="form-control w-75" id="sonlineaucdate_time" name="sonlineaucdate_time" type="datetime-local" value="<?php echo $sqldata[0]->sonlineaucdate_time; ?>">
+		</td>
 	</tr>
+	
 	<tr>
 	<td>Aucjunction Terms & Conditions</td>
 	<td>
-	<button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#myModal">
+	<button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#myModal" >
     Terms & Conditions
   </button>
 
@@ -208,36 +214,53 @@ Bidders participating in AucJunction Auctions should verify with the selling com
   </div>
   <br><br>
   <div class="form-check form-check-inline ">
-			<input type="checkbox" class="form-check-input" id="adexampleCheck1" name="adexampleCheck1">
+			<input type="checkbox" class="form-check-input" id="sterms_condiaccept" name="sterms_condiaccept" value="<?php echo $sqldata[0]->sterms_condiaccept; ?>">
 			<label class="form-check-label" for="exampleCheck1">I agree to the Terms and Conditions</label>
 			</div></td>
   </tr>
+  
   <tr>
 		<td>Upload Terms & Conditions</td>
 		<td><div class="form-check form-check-inline">
-			<input type="checkbox" class="form-check-input" id="myCheck" onclick="myFunction()" name="adexampleCheck1">
+			<input type="checkbox" class="form-check-input" id="myCheck" onclick="myFunction()" name="sterms_condiupload1[]">
 			<label class="form-check-label" for="myCheck">Yes</label>
 			</div>
-			<div class="form-group" id="text" style="display:none">
-				<input type="file" class="form-control-file" id="exampleFormControlFile1">
+			<div class="form-group" id="text"  style="display:none">
+				<input type="file" class="form-control-file" id="sterms_condiupload" name="sterms_condiupload[]" multiple= "multiple">
 			</div>
-			
+			<?php 
+ 							  $file = unserialize($sqldata[0]->sterms_condiupload);
+							  foreach($file as $fl){
+							echo '<tr id="filess">';
+							echo '<td class="btxt">Existing Documents</td>';
+							echo '<td><div class="input_fields_wrap">';
+							echo '<textarea class="form-control float-left mt-2 p-2 w-50" type="text" id="ssigneddocumentex" name="ssigneddocumentex[]" readonly>'.$fl.'</textarea>';
+							echo '<input type="hidden" id="ssigneddocumentexcom" name="ssigneddocumentexcom[]" value="'.$fl.'">';
+							echo '<a class="add_field_button1"><button type="button" onclick="$(this).parents(\'#filess\').remove()" class="btn btn-sm btn-primary ml-1 mb-5 mt-3">  <i class="fa fa-minus text-white"></i></button></a>';
+							echo '</div></td>';
+							echo '';
+							echo '</tr>'; 
+							  }
+							
+							?>
 			
 			<div class="form-check form-check-inline">
-			<input type="checkbox" class="form-check-input" id="idCheck" onclick="myFunction2()" name="adexampleCheck1">
-			<label class="form-check-label" for="idCheck">No</label>
+			<input type="checkbox" class="form-check-input" id="idCheck" onclick="myFunction()" name="sterms_condiupload1[]">
+			<label class="form-check-label" for="idCheck" >No</label>
 			</div>
 			<div class="form-group" id="text2" style="display:none">
-			<textarea class="form-control w-50" type="text" id="adonlineaucdate" name="adonlineaucdate"></textarea>
+			<textarea class="form-control w-50" type="text" id="sterms_text" name="sterms_text" <?php echo $sqldata[0]->sterms_text; ?>"></textarea>
 			</div>
 			</td>
   </tr>
+  
  
   
     </tbody>
   </table>
   
-  <center><a type="button" class="btn btn-info" href="" data-dismiss="modal">Submit</a></center>
+  <center><input type="submit" name="submit" onclick="return validatestart()" class="btn btn-info" value="Start Auction" data-dismiss="modal"></center>
+ 	 </form>
 			</div>
             </div>
 			</div>

@@ -51,7 +51,9 @@ class Sellers_registeration extends CI_Controller {
 			$sstate = $this->input->post('sstate');
 			$scountry = $this->input->post('scountry');
 			$susername = $this->input->post('susername');
-			$spassword = $this->input->post('spassword');
+			//$spassword = $this->input->post('spassword');
+			$spassword = base64_decode($this->input->post('spassword'));
+
             $captcha = $this->input->post('captcha');
             $sessCaptcha = $this->session->userdata('captchaCode');
             if($captcha === $sessCaptcha){

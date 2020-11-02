@@ -41,8 +41,8 @@ class Admin_addlot_info extends CI_Controller {
 		$this->load->library('fileupload');
 		$this->load->helper(array('url','form','file','html'));
             if($this->input->post('submit')){
-			$sauctionid = $this->input->post('sauctionid'); 
-			$slotno = $this->input->post('slotno');
+			$sauctionid = $this->input->post('sauctionid');
+			 $slotno = $this->input->post('slotno'); 
 			$slotname = $this->input->post('slotname');
 			$scategory = $this->input->post('scategory');
 			$sdescription = $this->input->post('sdescription');
@@ -123,7 +123,7 @@ class Admin_addlot_info extends CI_Controller {
 			 $data5 = array('sauctionid' => $sauctionid, 'slotno' => $slotno, 'slotname' => $slotname, 'scategory' => $scategory, 'sdescription' => $sdescription, 'slotlocation'=> $slotlocation, 'sfrominpectdate_time' => $sfrominpectdate_time, 'stoinpectdate_time' => $stoinpectdate_time, 'semddetail' => $semddetail, 'slastdateemdsub' => $slastdateemdsub, 'sprice' => $sprice, 'sstartbidprice' => $sstartbidprice, 'sqty' => $sqty, 'sunitmeasurment' => $sunitmeasurment, 'sbidbase' => $sbidbase, 'sgst' => $sgst, 'sothertax' => $sothertax, 'semdamount' => $semdamount,'sliftingperiod2' => $sliftingperiod2, 'sliftingperiod' => $sliftingperiod,  'spcbcertificate' => $spcbcertificate);
 			 $status1 = $this->Admin_model->insert('addlot', $data5);
 			 
-			 	 $transfer1 = array('auctionid' => $sauctionid, 'category' => $scategory);
+			 	 $transfer1 = array('auctionid' => $sauctionid, 'category' => $scategory, 'lotno' => $slotno);
 				 
 						  if($status1){
 				  $this->session->set_flashdata('txdata',$transfer1);

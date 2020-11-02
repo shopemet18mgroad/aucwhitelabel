@@ -82,7 +82,7 @@
 						<tr>
 					
 							<td class="btxt">Postal Address:</td>
-							<td><textarea class="form-control w-50" type="text" id="baddress" 	name="baddress" value="<?php echo $sqldata[0]->baddress; ?>"></textarea></td>
+							<td><textarea class="form-control w-50" type="text" id="baddress" 	name="baddress" value="<?php echo $sqldata[0]->baddress; ?>"><?php echo $sqldata[0]->baddress; ?></textarea></td>
 						</tr> 
 						
 						<tr>
@@ -134,12 +134,12 @@
 							</td>
 							<td>
 								<img src="<?php $img = unserialize($sqldata[0]->buploadimage1); echo base_url()."/web_files/uploads/".$img[0];?>" width="300px" height="100px">
-								<input type="hidden" name="profileimage" id="profileimage" value="<?php echo $img[0];?>">
+								<input type="hidden" name="profileimage2" id="profileimage2" value="<?php echo $img[0];?>">
 							</td>
 							</tr>
 						<tr>
 								<td class="btxt">Upload Profile Picture</td>
-								<td><input type="file" multiple="multiple" id="buploadimage1" name="buploadimage1"></td>
+								<td><input type="file" multiple="multiple" id="buploadimage1" name="buploadimage1[]"></td>
 							</tr> 
 							<tr>
 								<td class="btxt">Upload Documents</td>
