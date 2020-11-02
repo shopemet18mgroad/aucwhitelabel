@@ -51,8 +51,9 @@ class Buyers_registeration extends CI_Controller {
 			$bphone = $this->input->post('bphone');
 			$bpan = $this->input->post('bpan');
 			$busername = $this->input->post('busername');
-			$bpassword = $this->input->post('bpassword');
+			//$bpassword = $this->input->post('bpassword');
 			//$bconfirmpassword = $this->input->post('bconfirmpassword');
+			$bpassword = base64_decode($this->input->post('bpassword'));
 			$bgst = $this->input->post('bgst');
             $captcha = $this->input->post('captcha');
             $sessCaptcha = $this->session->userdata('captchaCode');

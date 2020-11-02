@@ -113,6 +113,20 @@ class Registrationb extends CI_Controller {
 		}
 		
 	}
-	
+	public function userverify()
+	{
+		$this->load->helper('url');
+		$dataw = $this->uri->segment(3);
+		$update = array('busername'=>$dataw);
+		//$pass = array('username'=> $dataw);
+		$this->load->model('Admin_model');
+		$scan = $this->Admin_model->check('buyerprofile',$update);
+		if($scan){
+			echo "BYE";
+		}else{
+			echo "HI";
+		}
+		
+	}
 	
 }

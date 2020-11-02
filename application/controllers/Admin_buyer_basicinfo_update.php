@@ -28,6 +28,10 @@ class Admin_buyer_basicinfo_update extends CI_Controller {
 		$bcompany = $this->input->post('bcompany');
 		$bcomptype = $this->input->post('bcomptype');
 		$bcontactperson  = $this->input->post('bcontactperson');
+		$busername = $this->input->post('busername');
+		//$bpassword = password_hash('default_auc123',PASSWORD_BCRYPT);
+		$bpassword = base64_decode('default_auc123');
+
 		$bcin = $this->input->post('bcin');
 		$bgst = $this->input->post('bgst');
 		
@@ -43,7 +47,8 @@ class Admin_buyer_basicinfo_update extends CI_Controller {
 		$baccountnumber  = $this->input->post('baccountnumber');
 		$bbranch  = $this->input->post('bbranch');
 		$bifsccode  = $this->input->post('bifsccode');
-		$profileimage = $this->input->post('profileimage');
+		$profileimage2[] = $this->input->post('profileimage2');
+		$profileimage3 = $this->input->post('profileimage2');
 		$dataact = array();
 		$datacomp = array();
 		$dataact = $this->input->post('bsigneddocumentex');
@@ -61,20 +66,23 @@ class Admin_buyer_basicinfo_update extends CI_Controller {
 		if(!count($result2) && !$_FILES['bsigneddocument']['name']){
 			$datainserr = "Atleast One Signed Document Has To Uploaded";
 			header('location: '.base_url().'admin_editbuyer/edit_buyer_alert/'.$bcompany.'/'.$datainserr);
+			die;
 		}
-	    if($_FILES['buploadimage1']['name']){
-			unlink("../../web_files/uploads/".$profileimage);
+		
+		 if($_FILES['buploadimage1']['tmp_name'][0]){
+			unlink(base_url()."web_files/uploads/".$profileimage2[0]);
 			$pic_array = self::upload_files('buploadimage1');
 		}
-		if($_FILES['bsigneddocument']['name']){
+		if($_FILES['bsigneddocument']['tmp_name'][0]){
 			$doc_array = self::upload_files('bsigneddocument');
 		}
+	
 		
 		if(!count($pic_array)){
 			echo '<script language="javascript">';
 			echo 'alert("Image Upload Failed")';  //not showing an alert box.
 			echo '</script>';
-			$pic_array = $profileimage;
+			$pic_array = $profileimage3;
 		}else{
 			$pic_array = serialize($pic_array);
 		}
@@ -93,7 +101,7 @@ class Admin_buyer_basicinfo_update extends CI_Controller {
 		
 		
 		//==================================================================
-		$data2 = array('bname' => $bname, 'bcomptype' => $bcomptype, 'bcontactperson' => $bcontactperson, 'bcin' => $bcin, 'bgst' => $bgst,'bpcb' => $bpcb, 'bemail' => $bemail, 'bphone' => $bphone,'baddress' => $baddress, 'bpin' => $bpin, 'bstate' => $bstate, 'bcountry' => $bcountry, 'bbankname' => $bbankname, 'baccountnumber' => $baccountnumber, 'bbranch' => $bbranch, 'bifsccode' => $bifsccode, 'buploadimage1' => $pic_array, 'bsigneddocument' => $doc_array);
+		$data2 = array('bname' => $bname, 'bcomptype' => $bcomptype, 'bcontactperson' => $bcontactperson,'busername' => $busername, 'bpassword'=> $bpassword, 'bcin' => $bcin, 'bgst' => $bgst,'bpcb' => $bpcb, 'bemail' => $bemail, 'bphone' => $bphone,'baddress' => $baddress, 'bpin' => $bpin, 'bstate' => $bstate, 'bcountry' => $bcountry, 'bbankname' => $bbankname, 'baccountnumber' => $baccountnumber, 'bbranch' => $bbranch, 'bifsccode' => $bifsccode, 'buploadimage1' => $pic_array, 'bsigneddocument' => $doc_array);
 		//$this->load->view('xya', $data);
 		$datainserr = "Data Inserted Successfully";
 		$updatech = array('bcompany' => $bcompany);
