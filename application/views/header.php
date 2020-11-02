@@ -20,17 +20,13 @@
 
 </head>
 	<body class="">
-	<div class="container-fluid ">
+	<div class="container-fluid top-header">
 		<div class="row">
 				<div class="col-md-12 contact-header">
 					<div class="social pull-right">
 						<ul>
-
-							<li>
-								
-						<!--<a href=" <?php echo base_url();?> login" class=""><i class="fa fa-sign-in" aria-hidden="true"></i>  Dashboard Login</a>-->
-						
-							<i class="fa fa-phone" aria-hidden="true"></i>&nbsp Helpline No: +91 9980596460</li>
+							<li><a href="<?php echo base_url()."login"?>"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp Dashboard Login</a></li>
+							<li><i class="fa fa-phone" aria-hidden="true"></i>&nbsp Helpline No: +91 9980596460</li>
 							<li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
 							<li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
 							<li><a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>

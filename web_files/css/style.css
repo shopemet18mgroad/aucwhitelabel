@@ -817,12 +817,6 @@ border: 1px solid black;
 }
 
 
-.col-md-12{
-	background-color: #2e3192;
-    height: 20px;
-	
-}
-
 
  @media only screen and (max-width: 600px) ,(min-device-width: 768px) and (max-device-width: 1024px)  {
 

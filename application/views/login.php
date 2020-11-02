@@ -23,7 +23,7 @@
                       <input type="text" name="user" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..." required>
                     </div>
                     <div class="form-group">
-                      <input type="password" name="pass" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                      <input type="password" name="pass" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password" required>
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">

@@ -19,7 +19,8 @@ class Admin_dashboard extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index()
-	{
+	{	
+		$this->load->library('session');
 		$this->load->helper('url');
 		if($this->uri->segment(3)){
 			$errormsg = urldecode($this->uri->segment(3));
@@ -27,9 +28,16 @@ class Admin_dashboard extends CI_Controller {
 			echo 'alert("'.$errormsg.'")';
 			echo '</script>';
 		}
-		$this->load->view('admin/header');
-		$this->load->view('admin/index');
-		$this->load->view('admin/footer');
+		if(!$this->session->has_userdata('username')){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
+			$sess = array('sessi'=>$this->session->userdata('username'));
+			$this->load->view('admin/header',$sess);
+			$this->load->view('admin/index');
+			$this->load->view('admin/footer');
+		}
 		
 	}
 	

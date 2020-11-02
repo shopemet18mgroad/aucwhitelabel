@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Seller_dashboard extends CI_Controller {
+class Logout extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -22,18 +22,12 @@ class Seller_dashboard extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$this->load->library('session');
-		if(!$this->session->has_userdata('username')){
-			$datainserr = "Invalid Login Session";
-			header('location: '.base_url().'login/index_error/'.$datainserr);
-			die;
-		}else{
-			$sess = array('sessi'=>$this->session->userdata('username'));
-			$this->load->view('seller/header',$sess);
-			$this->load->view('seller/index');
-			$this->load->view('seller/footer');
-		}
-		
-		
+		$sessiname = $this->uri->segment(3);
+		$newdata = array('username'  => $sessiname,'logged_in' => TRUE);
+		$this->session->unset_userdata($newdata);
+		$this->session->sess_destroy();
+		  header('location: '.base_url().'Login');
+		 die;
 	}
 	
 }
