@@ -70,7 +70,17 @@ class Admin_seller_basicinfo_add extends CI_Controller {
 		}
 		//=================================================================================================
 		
+		 public function validate_username(){
+		$dat = $this->uri->segment(3);
+		$check_db = array('susername' => $dat);
+		$this->load->model('Admin_model');
+			  if($this->Admin_model->check('sellerprofile', $check_db)){
+				  echo "BYE";
+			  }else{
+				  echo "HI";
+			  }
 		
+	}
 		
 		//==================================================================
 		$data2 = array('sname' => $sname, 'scomapnyname' => $scomapnyname, 'scompanytype' => $scompanytype, 'scontactperson' => $scontactperson, 'sdesignation' => $sdesignation, 'susername' => $susername, 'spassword'=> $spassword, 'scin' => $scin, 'sgst' => $sgst, 'spcb' => $spcb, 'semail' => $semail, 'sphone' => $sphone , 'saddress' => $saddress2, 'saddresscount' => $saddresscount, 'spin' => $spin,'scity' => $scity, 'sstate' => $sstate, 'scountry' => $scountry, 'sbankername' => $sbankername, 'saccountnumber' => $saccountnumber, 'sbranch' => $sbranch, 'sifsccode' => $sifsccode, 'suploadprofilepic' => $pic_array, 'ssigneddocument' => $doc_array);
@@ -107,6 +117,9 @@ class Admin_seller_basicinfo_add extends CI_Controller {
             }
 			return $flname;
     }*/
+	
+	
+	
 	private function upload_files($nameid)
     {	
 	$countfiles = count($_FILES[$nameid]['name']);
