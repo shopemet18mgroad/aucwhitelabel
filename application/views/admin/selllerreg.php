@@ -51,6 +51,10 @@
 							<td><input class="form-control w-50" type="text" id="scontactperson" name="scontactperson" ></td>
 						</tr>
 						<tr>
+							<td class="btxt">UserName:</td>
+							<td><input class="form-control w-50" type="text" id="susername" name="susername" required></td>
+						</tr>
+						<tr>
 							<td class="btxt"> CIN Number:</td>
 							<td><input class="form-control w-50" type="text" id="scin" name="scin" ></td>
 						</tr>  

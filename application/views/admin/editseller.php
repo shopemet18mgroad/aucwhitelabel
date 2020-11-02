@@ -91,26 +91,18 @@
 								 $companyaddresscnt = count($companyaddress);
 								 for($i=0;$i<$companyltypecnt;$i++){
 									 echo '<div class="input_fields_wrap1">';
-										echo '<select class="form-control w-50  p-1" id="saddress" name="saddress">';
-										echo '<option value="'.$companyltype[$i].'" selected>'.$companyltype[$i].'</option>';
+										echo '<select class="form-control w-50  p-1" name="saddress[]">';
+										echo '<option value="'.$companyltype[$i].'">'.$companyltype[$i].'</option>';
 										echo '<option value="Corporate-Office">Corporate Office</option>';
 										echo '<option value="Headquarter">Headquarter</option>';
 										echo '</select>';
 										echo '';
-										echo '<textarea class="form-control float-left mt-2 p-2 w-50" type="text" id="saddresscount" name="saddresscount">'.$companyaddress[$i].'</textarea>';
+										echo '<textarea class="form-control float-left mt-2 p-2 w-50" type="text" name="saddresscount[]">'.$companyaddress[$i].'</textarea>';
 										echo '<a class="add_field_button1"><button type="button" class="btn btn-sm btn-primary ml-1 mb-5 mt-3">  <i class="fa fa-plus text-white"></i></button></a>';
 										echo '</div>';
 								 }
 								?>
-								<!--<div class="input_fields_wrap1">
-								<select class="form-control w-50  p-1" id="saddress" name="saddress">
-									<option value="Corporate-Office" selected>Corporate Office</option>
-									<option value="Headquarter">Headquarter</option>
-									</select>
-									
-									<textarea class="form-control float-left mt-2 p-2 w-50" type="text" id="saddresscount" name="saddresscount" class="remove_field"></textarea>
-								<a class="add_field_button1"><button type="button" class="btn btn-sm btn-primary ml-1 mb-5 mt-3"> <i class="fa fa-plus text-white"></i></button></a>
-									</div> -->
+								
 									</td>
 								
 							</tr>
@@ -191,13 +183,13 @@
 							echo '<textarea class="form-control float-left mt-2 p-2 w-50" type="text" id="ssigneddocumentex" name="ssigneddocumentex[]" readonly>'.$fl.'</textarea>';
 							echo '<input type="hidden" id="ssigneddocumentexcom" name="ssigneddocumentexcom[]" value="'.$fl.'">';
 							echo '<a class="add_field_button1"><button type="button" onclick="$(this).parents(\'#filess\').remove()" class="btn btn-sm btn-primary ml-1 mb-5 mt-3">  <i class="fa fa-minus text-white"></i></button></a>';
+							
 							echo '</div></td>';
 							echo '';
 							echo '</tr>';
 							  }
 							
 							?>
-									
 						</tbody>
 					</table>								
 				<button type="submit" class="btn btn-info offset-sm-4 mt-2">Update</button>
@@ -275,7 +267,7 @@
    e.preventDefault();
    if(x < max_fields){
 			x++;
-			$(wrapper).append('<div><tr><td><select class="form-control w-50  p-1 " id="saddress" name="saddress"><option value="one" selected>Corporate Office</option><option value="two">Headquarter</option><option value="three" >.....</option><option value="four">.....</option><option value="five">......</option><option value="six">.....</option></select></td><td><textarea class="form-control float-left mt-2 p-2 w-50" type="text" name="mytext[]"/></textarea><a href="#" class="remove_field">  <button type="button" class="btn btn-sm btn-primary ml-1 mb-5 mt-3">  <i class="fa fa-minus text-white"></i></button></a></td></tr></div>');
+			$(wrapper).append('<select class="form-control w-50  p-1 " name="saddress[]"><option value="Corporate Office">Corporate Office</option><option value="Headquarter">Headquarter</option></select></td><td><textarea class="form-control float-left mt-2 p-2 w-50" type="text" name="saddresscount[]"/></textarea><a href="#" class="remove_field">  <button type="button" class="btn btn-sm btn-primary ml-1 mb-5 mt-3">  <i class="fa fa-minus text-white"></i></button></a>');
    }	
 	
 			});

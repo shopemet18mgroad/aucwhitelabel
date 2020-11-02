@@ -51,14 +51,14 @@
 					<div class="input-feild">
 					
 							<div class="form-group p-1">
-							<form action="#" method="POST" id="bidder" name="myform">
+							<form action="#" method="POST" id="bidder" >
 								<input type="email" class="form-control" id="email" name="email" placeholder="User Name" size="50">
 							</div>
 						  <div class="form-group p-1">
 							<input type="password" class="form-control" id="pswd" name="pswd" placeholder="Password" size="50">
 						  </div>
 						  <div class="form-group p-1">
-							<button type="button" onclick="return userid4()" class="btn btn-primary"><i class="fa fa-sign-in"></i> Login</button>	
+							<button type="button"  class="btn btn-primary"><i class="fa fa-sign-in"></i> Login</button>	
 						  </div>
 						   
 						    </form>

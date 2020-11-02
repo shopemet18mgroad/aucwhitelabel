@@ -29,6 +29,7 @@ class Admin_addlot extends CI_Controller {
 		}
 		$this->load->library('session');
 		$data = $this->session->flashdata('txdata');
+		print_r($data);
 		$this->load->view('admin/header');
 		$this->load->view('admin/addlot',$data);
 		$this->load->view('admin/footer');

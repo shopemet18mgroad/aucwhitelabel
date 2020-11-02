@@ -51,7 +51,8 @@ class Admin_seller_basicinfo_update extends CI_Controller {
 		$saccountnumber  = $this->input->post('saccountnumber');
 		$sbranch  = $this->input->post('sbranch');
 		$sifsccode  = $this->input->post('sifsccode');
-		$profileimage = $this->input->post('profileimage');
+		$profileimage[] = $this->input->post('profileimage');
+		$profileimage2 = serialize($profileimage);
 		$dataact = array();
 		$datacomp = array();
 		$dataact = $this->input->post('ssigneddocumentex');
@@ -60,29 +61,29 @@ class Admin_seller_basicinfo_update extends CI_Controller {
 			$result = array_diff($dataact,$datacomp);
 			$result2 = array_intersect($dataact,$datacomp);
 		}
-		
 		if(count($result)){
 			foreach($result as $res){
 			unlink(base_url()."web_files/uploads/".$res);
 			}
 		}
-		if(!count($result2) && !$_FILES['ssigneddocument']['name']){
+		if(!count($result2) && !$_FILES['ssigneddocument']['name'][0]){
 			$datainserr = "Atleast One Signed Document Has To Uploaded";
 			header('location: '.base_url().'admin_editseller/edit_seller_alert/'.$scomapnyname.'/'.$datainserr);
+			die;
 		}
-	    if($_FILES['suploadprofilepic']['name']){
-			unlink("../../web_files/uploads/".$profileimage);
+	    if($_FILES['suploadprofilepic']['tmp_name'][0]){
+			unlink(base_url()."web_files/uploads/".$profileimage[0]);
 			$pic_array = self::upload_files('suploadprofilepic');
 		}
-		if($_FILES['ssigneddocument']['name']){
+		if($_FILES['ssigneddocument']['tmp_name'][0]){
 			$doc_array = self::upload_files('ssigneddocument');
 		}
 		
 		if(!count($pic_array)){
 			echo '<script language="javascript">';
-			echo 'alert("Image Upload Failed")';  //not showing an alert box.
+			echo 'alert("No Image Upload Failed")';  //not showing an alert box.
 			echo '</script>';
-			$pic_array = $profileimage;
+			$pic_array = $profileimage2;
 		}else{
 			$pic_array = serialize($pic_array);
 		}

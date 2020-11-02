@@ -1,6 +1,6 @@
 <?php 
 	//include('./header.php');
-	print_r($activestat);
+	
 
 ?>
         <!-- End of Topbar -->
@@ -22,20 +22,6 @@
           <div class="card shadow mb-4">
             <div class="card-body">
               <div class="table-responsive">
-			   <form class="form-inline">
-					<div class="form-group mr-4 offset-sm-4">
-						<td colspan="5">
-						<form action="/action_page.php">
-							
-								<input type="text" for="gettable2" class="form-control gettable2" id="gettable2" placeholder="Search.." name="search">
-								<button class="form-control" type="submit"><i class="fa fa-search"></i></button>
-					
-						</form>
-					</td>
-				</div>
-			
-		
-			</form>
 		
 		<table class="table table-striped table-bordered table-sm text-center mt-5" id="dataTable" width="100%" cellspacing="0">
 				<thead class="bg-primary text-white">
@@ -44,62 +30,25 @@
 					<th>Company Type</th>
 					<th>Contact Person</th>
 					<th>Location</th>
-					<th>City</th>
+					<th>Company Name</th>
 					<th>Status</th>
 					<th>Action</th>
 				</tr>
 				</thead>
 				<tbody>
+				
+				<?php foreach($activestat as $activesta){?>
 				<tr>												
-					<td><?php echo $activestat[0]->sname; ?></td>
-					<td>Steel metal</td>
-					<td>S.R.Venkatesh</td>
-					<td>Bangalore</td>
-					<td>Shada Shiv Nagar</td>
-					<td>Active</td>
-					<td><a href=""><button type="button" class="btn btn-info btn-sm">Approve</button></a>
-					<a href=""><button type="button" class="btn btn-info btn-sm">Reject</button></a></td>	
+					<td><?php echo $activesta['sname']; ?></td>
+					<td><?php echo $activesta['scompanytype']; ?></td>
+					<td><?php echo $activesta['scontactperson']; ?></td>
+					<td><?php echo $activesta['slocation']; ?></td>
+					<td><?php echo $activesta['scomapnyname']; ?></td>
+					<td><?php echo "DEACTIVE";?></td>
+					<td><button type="submit" name="submit" id="<?php echo $activesta['scomapnyname']?>" onclick="seller_set_deactive(this.id)" class="btn btn-info btn-sm">Approve</button></td>	
 				</tr>
-				<tr>												
-					<td>BHEL</td>
-					<td>Steel metal</td>
-					<td>S.R.Venkatesh</td>
-					<td>Bangalore</td>
-					<td>Shada Shiv Nagar</td>
-					<td>Active</td>
-					<td><a href=""><button type="button" class="btn btn-info btn-sm">Approve</button></a>
-					<a href=""><button type="button" class="btn btn-info btn-sm">Reject</button></a></td>
-				</tr>
-				<tr>												
-					<td>BHEL</td>
-					<td>Steel metal</td>
-					<td>S.R.Venkatesh</td>
-					<td>Bangalore</td>
-					<td>Shada Shiv Nagar</td>
-					<td>Inactive</td>
-					<td><a href=""><button type="button" class="btn btn-info btn-sm">Approve</button></a>
-					<a href=""><button type="button" class="btn btn-info btn-sm">Reject</button></a></td>
-				</tr>
-				<tr>												
-					<td>BHEL</td>
-					<td>Steel metal</td>
-					<td>S.R.Venkatesh</td>
-					<td>Bangalore</td>
-					<td>Shada Shiv Nagar</td>
-					<td>Active</td>
-					<td><a href=""><button type="button" class="btn btn-info btn-sm">Approve</button></a>
-					<a href=""><button type="button" class="btn btn-info btn-sm">Reject</button></a></td>
-					</tr>
-					<tr>												
-						<td>BHEL</td>
-						<td>Steel metal</td>
-						<td>S.R.Venkatesh</td>
-						<td>Bangalore</td>
-						<td>Shada Shiv Nagar</td>
-						<td>Inactive</td>
-						<td><a href=""><button type="button" class="btn btn-info btn-sm">Approve</button></a>
-						<a href=""><button type="button" class="btn btn-info btn-sm">Reject</button></a></td>
-					</tr>
+				<?php }?>
+	
 				</tbody>
 		 </table>
 		</div>

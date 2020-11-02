@@ -166,6 +166,7 @@
 		});
 	
  </script>
+
  
  <!--------------start auction--------------------------->
  <script>
@@ -185,5 +186,20 @@
 				$('#ajaxrslt').html(data);
 			});
 		});
-	
+
+ </script>
+ <script>
+		function seller_set_deactive(varab){
+			$.get('<?php echo base_url() .'Admin_sellerapproval/setdeactive_seller/'; ?>'+varab, function(data2){					
+				 if($.trim(data2) == "HI"){
+					 window.location.href = '<?php echo base_url().'Admin_sellerapproval';?>'
+					return true;
+				}else{
+					swal("Alert!", "Company Name Already Exists", "error");
+					return false;
+				}
+			 });
+			
+		}
+
  </script>
