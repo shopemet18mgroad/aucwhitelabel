@@ -36,43 +36,44 @@
 					 </thead>
 						<tbody>
 						<tr><td><img class="img-fluid" src="<?php echo base_url()."web_files/";?>img/manimg.jpg" alt="Chania" width="40" height="35"></td></tr>
+						
+						 <form action = "<?php echo base_url();?>" method="POST" enctype="multipart/form-data">
+						 
 							<tr>
-								
 								<td>Buyer Name:</td>
-								<td>John</td>
+								
+								<td><?php echo $sqldata[0]->bname; ?></td>
+							
 							</tr> 
 							<tr>
 								<td>Contact Person</td>
-								<td>M.R.Venkatesh</td>
+								<td><?php echo $sqldata[0]->bcontactperson; ?></td>
 							</tr>  
 							<tr>
 								<td>Company Type:</td>
-								<td>Industry</td>
+								<td><?php echo $sqldata[0]->bcomptype; ?></td>
 							</tr> 	
 							<tr>
 								<td>Postal Address</td>
-								<td>Indra Palace, Gandhi Nagar</td>
+								<td><?php echo $sqldata[0]->baddress; ?></td>
 							</tr> 
 							
 							<tr>
 								<td>Pincode</td>
-								<td>555230</td>
+								<td><?php echo $sqldata[0]->bpin; ?></td>
 							</tr>
 							<tr>
 								<td>State /Union Ter.</td>
-								<td>Chandigarh</td>
+								<td><?php echo $sqldata[0]->bstate; ?></td>
 							</tr>
 							<tr>
 								<td>Country</td>
-								<td>India</td>
+								<td><?php echo $sqldata[0]->bcountry; ?></td>
 							</tr>
-							<tr>
-								<td>GST</td>
-								<td>18%</td>
-							</tr> 
+							
 							<tr>
 								<td>PCB</td>
-								<td>EFTGG54564655612</td>
+								<td><?php echo $sqldata[0]->bpcb; ?></td>
 							</tr>
 													
 						</tbody>
@@ -85,19 +86,19 @@
 						<tbody>
 							<tr>
 								<td>Email</td>
-								<td>abc@gmail.com</td>
+								<td><?php echo $sqldata[0]->bemail; ?></td>
 							</tr> 
 							<tr>
 								<td>Phone Number</td>
-								<td>4475142122</td>
+								<td><?php echo $sqldata[0]->bphone; ?></td>
 							</tr> 
 							<tr>
 								<td>Pan Number</td>
-								<td>JCDB245555</td>
+								<td><?php echo $sqldata[0]->bpan; ?></td>
 							</tr> 	
 							<tr>
 								<td>GST</td>
-								<td>18%</td>
+								<td><?php echo $sqldata[0]->bgst; ?></td>
 							</tr> 
 													
 						</tbody>
@@ -110,16 +111,16 @@
 						<tbody>
 							<tr>
 								<td>Old Password</td>
-								<td>*******</td>
+								<td><?php echo $sqldata[0]->bpassword; ?></td>
 							</tr> 
-							<tr>
+							<!--<tr>
 								<td>New Password</td>
-								<td>*****</td>
-							</tr> 
-							<tr>
+								<td></td>
+							</tr> -->
+							<!--<tr>
 								<td>Confirm Password</td>
-								<td>*****</td>
-							</tr> 	
+								<td></td>
+							</tr> -->	
 											
 						</tbody>
 					</table>
@@ -131,21 +132,21 @@
 						<tbody>
 							<tr>
 								<td>Banker's Name</td>
-								<td>PNB</td>
+								<td><?php echo $sqldata[0]->bbankname; ?></td>
 							</tr> 
 							<tr>
 								<td>Account Number</td>
-								<td>256356852036</td>
+								<td><?php echo $sqldata[0]->baccountnumber; ?></td>
 							</tr> 
 							<tr>
 								<td>Branch</td>
-								<td>Indra Palace</td>
+								<td><?php echo $sqldata[0]->bbranch; ?></td>
 							</tr> 
 							<tr>
 								<td>IFSC Code</td>
-								<td>154221485245555</td>
+								<td><?php echo $sqldata[0]->bifsccode; ?></td>
 							</tr> 							
-											
+										
 						</tbody>
 					</table>
 
@@ -158,9 +159,9 @@
 						
 							<tr>
 								<td class="btxt">Upload Documents:</td>
-								<td>XYZ.pdf</td>
+								<td><?php echo $sqldata[0]->buploadimage1; ?></td>
 							</tr>							
-											
+							</form>					
 						</tbody>
 					</table>					
               
