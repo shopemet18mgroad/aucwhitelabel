@@ -20,11 +20,49 @@ class Buyer_liveauc_2 extends CI_Controller {
 	 */
 	public function index()
 	{
+		
 		$this->load->helper('url');
+		$this->load->library('session');
+		$this->load->model('Admin_model');
+		
+		$sess = "AUC/seema/Minor Metals/20/4/32";
+		
+		$active = array('sauctionid' => $sess);
+		
+		$query = $this->Admin_model->getdatafromtable('auction',   $active);
+		$data['sqldata'] = $query;
+		
 		$this->load->view('buyer/header');
-		$this->load->view('buyer/liveauc_2');
+		$this->load->view('buyer/liveauc_2', $data);
 		$this->load->view('buyer/footer');
 		
 	}
+	
+	
+	
+	 public function liveauc_2(){
+		$retrivevaltmp = urldecode($this->uri->segment(3));
+		$retriveval = array('sauctionid'=>$retrivevaltmp);
+		$this->load->model('Admin_model');
+		$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
+		$this->load->helper('url');
+		$this->load->view('buyer/header');
+		$this->load->view('buyer/liveauc_2', $data);
+		$this->load->view('buyer/footer');
+	}
+	 public function liveauc_2_alert(){
+		$retrivevaltmp = $this->uri->segment(3);
+		$retrivevaltmp2 = urldecode($this->uri->segment(4));
+		echo '<script language="javascript">';
+			echo 'alert("'.$retrivevaltmp2.'")';  //not showing an alert box.
+			echo '</script>';
+		$retriveval = array('sauctionid'=>$retrivevaltmp);
+		$this->load->model('Admin_model');
+		$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
+		$this->load->helper('url');
+		$this->load->view('buyer/header');
+		$this->load->view('buyer/liveauc_2', $data);
+		$this->load->view('buyer/footer');
+	} 
 	
 }

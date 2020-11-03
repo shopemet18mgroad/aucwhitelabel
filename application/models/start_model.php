@@ -1,10 +1,16 @@
 <?php
 class Start_model extends CI_Model 
 {
-	function multisave($user_id,$category)
+	function saverecords($sauctionid,$sname,$scategory)
 	{
-		$query="insert into user_cat values($user_id,$category)";
-		$this->db->query($query);
+	$query="insert into users values('','$sauctionid','$sname','$scategory')";
+	$this->db->query($query);
+	}
+	
+	function displayrecords()
+	{
+	$query=$this->db->query("select * from auction");
+	return $query->result();
 	}
 	
 }

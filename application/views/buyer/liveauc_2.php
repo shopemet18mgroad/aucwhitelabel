@@ -1,5 +1,6 @@
  <?php 
 	//include('./header.php');
+	
 ?>
         <!-- End of Topbar -->
 
@@ -19,8 +20,11 @@
           <div class="card shadow mb-4">
             <div class="card-body">
               <div class="table-responsive">
+			  
+			  
 
-		<table class="table table-striped table-bordered table-sm text-center w-auto small" id="dataTable" width="100%" cellspacing="0">
+
+		<table class="table table-striped table-bordered table-sm text-center w-auto small" width="100%" cellspacing="0">
 				<thead class="bg-info text-white text-center">
 					<th colspan="7">Auction Details</th>
 				</thead>
@@ -36,16 +40,20 @@
 				</thead>
 
 				<tbody>
+				<form action="<?php echo base_url();?>" method="POST"  enctype="multipart/form-data">
 				<tr>
 				
-					<td><a href="#">EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</a> </td>
-					<td>EEMT OMFED LTD</td>
+					<td><a href="#"><?php echo $sauctionid; ?></a> </td>
+				
+					<td>asfFDfsdfsdf</td>
+					
 					<td>20-03-2020 11:00:00</td>
 					<td>21-03-20202</td>
 					<td><a href="#"><u>Click here</u></a></td>
 				</tr>
 				</tbody>
 			</table>
+			</form>
 				<table class="table table-striped table-sm w-auto small table-bordered mt-4 text-center" id="dataTable" width="100%" cellspacing="0">
 				<thead class="bg-warning  text-white text-center">
 					<tr>

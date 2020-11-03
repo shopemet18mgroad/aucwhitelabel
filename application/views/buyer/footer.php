@@ -44,3 +44,24 @@
   
  <script src="<?php echo base_url()."web_files/";?>js/demo/datatables-demo.js"></script>
 
+
+<!---------------------------------------------------------->
+<script>
+		$('.gettable').on('keyup', function(){
+			var contents = $('#gettable').val(); 
+			$.get('<?php echo base_url() .'buyer_liveauc/get_table/'; ?>'+contents, function(data){
+				$('#ajaxrslt').html(data);
+			});
+		});
+
+ </script>
+ 
+ <script>
+		$('.gettable').on('keyup', function(){
+			var contents = $('#gettable').val(); 
+			$.get('<?php echo base_url() .'buyer_liveauc2/get_table/'; ?>'+contents, function(data){
+				$('#ajaxrslt').html(data);
+			});
+		});
+
+ </script>
