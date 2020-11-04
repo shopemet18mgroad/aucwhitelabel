@@ -65,3 +65,13 @@
 		});
 
  </script>
+ 
+  <script>
+		$('.gettable').on('keyup', function(){
+			var contents = $('#gettable').val(); 
+			$.get('<?php echo base_url() .'buyer_detailedauc/get_table/'; ?>'+contents, function(data){
+				$('#ajaxrslt').html(data);
+			});
+		});
+
+ </script>
