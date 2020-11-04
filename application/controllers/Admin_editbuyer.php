@@ -21,7 +21,9 @@ class Admin_editbuyer extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper('url');
-		$this->load->view('admin/header');
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('admin/header',$sess);
 		$this->load->view('admin/editbuyer');
 		$this->load->view('admin/footer');
 		
@@ -32,7 +34,9 @@ class Admin_editbuyer extends CI_Controller {
 		$this->load->model('Admin_model');
 		$data['sqldata'] = $this->Admin_model->getdatafromtable('buyerprofile',$retriveval);
 		$this->load->helper('url');
-		$this->load->view('admin/header');
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('admin/header',$sess);
 		$this->load->view('admin/editbuyer', $data);
 		$this->load->view('admin/footer');
 	}
@@ -47,6 +51,10 @@ class Admin_editbuyer extends CI_Controller {
 		$this->load->model('Admin_model');
 		$data['sqldata'] = $this->Admin_model->getdatafromtable('buyerprofile',$retriveval);
 		$this->load->helper('url');
+
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+			$this->load->view('admin/header',$sess);
 		$this->load->view('admin/header');
 		$this->load->view('admin/editbuyer', $data);
 		$this->load->view('admin/footer');

@@ -137,20 +137,20 @@
  </script>
 
  <script>
-		$('.gettable').on('keyup', function(){
-			var contents = $('#gettable').val(); 
+		$('#gettable_seller').on('keyup', function(){
+			var contents = $('#gettable_seller').val(); 
 			$.get('<?php echo base_url() .'admin_sellereditprofile/get_table/'; ?>'+contents, function(data){
-				$('#ajaxrslt').html(data);
+				$('#ajaxrslt_seller').html(data);
 			});
 		});
 	
  </script>
  
  <script>
-		$('.gettable').on('keyup', function(){
-			var contents = $('#gettable').val(); 
+		$('#gettable_buyer').on('keyup', function(){
+			var contents = $('#gettable_buyer').val(); 
 			$.get('<?php echo base_url() .'admin_buyereditprofile/get_table/'; ?>'+contents, function(data){
-				$('#ajaxrslt').html(data);
+				$('#ajaxrslt_buyer').html(data);
 			});
 		});
 	
@@ -158,10 +158,10 @@
 
 
 <script>
-		$('.gettable2').on('keyup', function(){
+		$('#gettable2').on('keyup', function(){
 			var contents = $('#gettable2').val(); 
 			$.get_where('<?php echo base_url() .'sellerprofile/getdatafromtable/'; ?>'+contents, function(data){
-				$('#ajaxrslt').html(data);
+				$('#ajaxrslt_auction').html(data);
 			});
 		});
 	
@@ -170,15 +170,14 @@
  
  <!--------------start auction--------------------------->
  <script>
-		$('.gettable').on('keyup', function(){
-			var contents = $('#gettable').val(); 
+		$('#gettable_auction').on('keyup', function(){
+			var contents = $('#gettable_auction').val(); 
 			$.get('<?php echo base_url() .'admin_auctiondetails/get_table/'; ?>'+contents, function(data){
-				$('#ajaxrslt').html(data);
+				$('#ajaxrslt_auction').html(data);
 			});
 		});
 	
  </script>
- 
  <script>
 		$('#gettable_editauction').on('keyup', function(){
 			var contents = $('#gettable_editauction').val(); 
@@ -188,6 +187,29 @@
 		});
 	
  </script>
+ 
+ 
+ 
+ <script>
+		$('#gettable_aliveauction').on('keyup', function(){
+			var contents = $('#gettable_aliveauction').val(); 
+			$.get('<?php echo base_url() .'admin_liveauc/get_table/'; ?>'+contents, function(data){
+				$('#ajaxrslt_aliveauction').html(data);
+			});
+		});
+	
+ </script>
+ 
+ <script>
+		$('#gettable_forthcomingauc').on('keyup', function(){
+			var contents = $('#gettable_forthcomingauc').val(); 
+			$.get('<?php echo base_url() .'admin_forthcomingauc/get_table/'; ?>'+contents, function(data){
+				$('#ajaxrslt_forthcomingauc').html(data);
+			});
+		});
+	
+ </script>
+ 
  
  <script>
 		$('.gettable').on('keyup', function(){

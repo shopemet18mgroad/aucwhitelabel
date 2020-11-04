@@ -22,10 +22,43 @@ class Admin_forthcomingauc_2 extends CI_Controller {
 	{
 		$this->load->helper('url');
 
-		$this->load->view('admin/header');
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('admin/header',$sess);
 		$this->load->view('admin/forthcomingauc_2');
 		$this->load->view('admin/footer');
 		
+	}
+	
+	public function forthcomingauc_2(){
+		$retrivevaltmp = urldecode($this->uri->segment(3));
+		
+		$retriveval = array('sname'=>$retrivevaltmp);
+		$this->load->model('Admin_model');
+		$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
+		
+		$this->load->helper('url');
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('admin/header',$sess);
+		$this->load->view('admin/forthcomingauc_2', $data);
+		$this->load->view('admin/footer');
+	}
+	public function forthcomingauc_2_alert(){
+		$retrivevaltmp = $this->uri->segment(3);
+		$retrivevaltmp2 = urldecode($this->uri->segment(4));
+		echo '<script language="javascript">';
+			echo 'alert("'.$retrivevaltmp2.'")';  //not showing an alert box.
+			echo '</script>';
+		$retriveval = array('sname'=>$retrivevaltmp);
+		$this->load->model('Admin_model');
+		$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
+		$this->load->helper('url');
+	$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('admin/header',$sess);
+		$this->load->view('admin/forthcomingauc_2', $data);
+		$this->load->view('admin/footer');
 	}
 	
 }

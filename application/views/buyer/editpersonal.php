@@ -35,52 +35,56 @@
 					 
 					 </thead>
 						<tbody>
+						
 						<tr><td><img class="img-fluid" src="<?php echo base_url()."web_files/";?>img/manimg.jpg" alt="Chania" width="40" height="35"></td></tr>
 							
+							<form action = "<?php echo base_url();?>Buyer_basicinfo_update" method="POST" enctype="multipart/form-data">
+						 
 							<tr>
 								<td>Buyer Name</td>
-								<td>John</td>
+								<td><?php echo $sqldata[0]->bname; ?></td>
 							</tr> 
 							<tr>
 								<td>Contact Person</td>
-								<td>M.R.Venkatesh</td>
+								<td><?php echo $sqldata[0]->bcontactperson; ?></td>
 							</tr>  
 							<tr>
 								<td>Company Type:</td>
-								<td>Industry</td>
+								<td><?php echo $sqldata[0]->bcomptype; ?></td>
 							</tr> 	
 							<tr>
 								<td>Postal Address</td>
-								<td><textarea class="form-control w-50" type="text" id="baddress" name="baddress" ></textarea></td>
+								<td><textarea class="form-control w-50" type="text" id="baddress" name="baddress" value="<?php echo $sqldata[0]->baddress; ?>"><?php echo $sqldata[0]->baddress; ?></textarea></td>
 							</tr> 
 							<tr>
 								<td>Pincode</td>
-								<td><input class="form-control w-50" type="text" id="bpin" name="bpin" ></td>
+								<td><input class="form-control w-50" type="text" id="bpin" name="bpin" value="<?php echo $sqldata[0]->bpin; ?>" ></td>
 							</tr>
 							<tr>
 								<td>State /Union Ter.</td>
-								<td>Chandigarh</td>
+								<td><?php echo $sqldata[0]->bstate; ?></td>
 							</tr>
 
 							<tr>
 								<td>Country</td>
-								<td>India</td>
+								<td><?php echo $sqldata[0]->bcountry; ?></td>
 							</tr>
 							<tr>
 								<td>PCB</td>
-								<td>EFTGG54564655612</td>
+								<td><?php echo $sqldata[0]->bpcb; ?></td>
 							</tr>
+							
 							<tr>
 								<td class="btxt">Upload Profile Pic</td>
-								<td><form action="/action_page.php"> <input type="file" id="myFile" name="filename1"></form></td>
+								<td><input type="file" id="myFile" name="filename1"></td>
 							</tr> 								
 						</tbody>
 					</table>			
 
-				<a href="#"><button type="button" class="btn btn-primary offset-sm-3 mt-2">Update</button></a>
+				<input type="submit" class="btn btn-primary offset-sm-3 mt-2"value="Update">
 												
-				<a href="#"><button type="button" class="btn btn-primary offset-sm-1 mt-2">Reset</button></a>
-												
+				<input type="submit" class="btn btn-primary offset-sm-1 mt-2" value="Reset">
+					</form>							
 				<a href="buyer_dashboard"><button type="button" class="btn btn-primary offset-sm-1 mt-2">Cancel</button></a>
 				
 				

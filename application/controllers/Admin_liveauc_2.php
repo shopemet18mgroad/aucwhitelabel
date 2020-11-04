@@ -28,4 +28,34 @@ class Admin_liveauc_2 extends CI_Controller {
 		
 	}
 	
+	public function liveauc_2(){
+		$retrivevaltmp = urldecode($this->uri->segment(3));
+		
+		$retriveval = array('sauctionid'=>$retrivevaltmp);
+		$this->load->model('Admin_model');
+		$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
+		
+	
+		$this->load->helper('url');
+		$this->load->view('admin/header');
+		$this->load->view('admin/liveauc_2', $data);
+		$this->load->view('admin/footer');
+	}
+	public function liveauc_2_alert(){
+		$retrivevaltmp = $this->uri->segment(3);
+		$retrivevaltmp2 = urldecode($this->uri->segment(4));
+		echo '<script language="javascript">';
+			echo 'alert("'.$retrivevaltmp2.'")';  //not showing an alert box.
+			echo '</script>';
+		$retriveval = array('sauctionid'=>$retrivevaltmp);
+		$this->load->model('Admin_model');
+		$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
+		
+	
+				
+		$this->load->helper('url');
+		$this->load->view('admin/header');
+		$this->load->view('admin/liveauc_2', $data);
+		$this->load->view('admin/footer');
+	}
 }

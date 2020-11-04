@@ -44,11 +44,11 @@ class Admin_startauction_update extends CI_Controller {
 			$result2 = array_intersect($dataact,$datacomp);
 		}
 		
-		if(count($result)){
+		 /* if(count($result)){
 			foreach($result as $res){
 			unlink(base_url()."web_files/uploads/".$res);
-			}
-		}
+			} */
+	 
 		if(!count($result2) && !$_FILES['sterms_condiupload']['name']){
 			$datainserr = "Atleast One Signed Document Has To Uploaded";
 			header('location: '.base_url().'admin_editauction/editauction_alert/'.$sauctionid.'/'.$datainserr);
@@ -80,13 +80,13 @@ class Admin_startauction_update extends CI_Controller {
 		$updatech = array('sname' => $sname);
 		$status = $this->Admin_model->update_custom('auction',$data2,$updatech,$updatech);
 		// $status = $this->Admin_model->insert('sellerprofile', $data2);
-		header('location: '.base_url().'admin_startauction/index/'.$datainserr);
+		header('location: '.base_url().'admin_editforthcom/index/'.$datainserr);
 		//$this->load->view('admin/header');
 		//$this->load->view('admin/salesreport');
 		//$this->load->view('admin/footer');
 		
 	}
-	
+
 /*private function upload_file($filenameee,$nameid)
     {
         if(!empty($filenameee)){

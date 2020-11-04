@@ -229,18 +229,24 @@ Bidders participating in AucJunction Auctions should verify with the selling com
 				<input type="file" class="form-control-file" id="sterms_condiupload" name="sterms_condiupload[]" multiple= "multiple">
 			</div>
 			<?php 
- 							  $file = unserialize($sqldata[0]->sterms_condiupload);
-							  foreach($file as $fl){
-							echo '<tr id="filess">';
-							echo '<td class="btxt">Existing Documents</td>';
-							echo '<td><div class="input_fields_wrap">';
-							echo '<textarea class="form-control float-left mt-2 p-2 w-50" type="text" id="ssigneddocumentex" name="ssigneddocumentex[]" readonly>'.$fl.'</textarea>';
-							echo '<input type="hidden" id="ssigneddocumentexcom" name="ssigneddocumentexcom[]" value="'.$fl.'">';
-							echo '<a class="add_field_button1"><button type="button" onclick="$(this).parents(\'#filess\').remove()" class="btn btn-sm btn-primary ml-1 mb-5 mt-3">  <i class="fa fa-minus text-white"></i></button></a>';
-							echo '</div></td>';
-							echo '';
-							echo '</tr>'; 
-							  }
+ 							  if(unserialize($sqldata[0]->sterms_condiupload) != NULL){
+								$file = unserialize($sqldata[0]->ssigneddocument);
+								  foreach($file as $fl){
+								echo '<tr id="filess">';
+								echo '<td class="btxt">Existing Documents</td>';
+								echo '<td><div class="input_fields_wrap">';
+								echo '<textarea class="form-control float-left mt-2 p-2 w-50" type="text" id="ssigneddocumentex" name="ssigneddocumentex[]" readonly>'.$fl.'</textarea>';
+								echo '<input type="hidden" id="ssigneddocumentexcom" name="ssigneddocumentexcom[]" value="'.$fl.'">';
+								echo '<a class="add_field_button1"><button type="button" onclick="$(this).parents(\'#filess\').remove()" class="btn btn-sm btn-primary ml-1 mb-5 mt-3">  <i class="fa fa-minus text-white"></i></button></a>';
+								
+								echo '</div></td>';
+								echo '';
+								echo '</tr>';
+								  }
+							}else{
+								
+							}
+							
 							
 							?>
 			
@@ -249,7 +255,7 @@ Bidders participating in AucJunction Auctions should verify with the selling com
 			<label class="form-check-label" for="idCheck" >No</label>
 			</div>
 			<div class="form-group" id="text2" style="display:none">
-			<textarea class="form-control w-50" type="text" id="sterms_text" name="sterms_text" <?php echo $sqldata[0]->sterms_text; ?>"></textarea>
+			<textarea class="form-control w-50" type="text" id="sterms_text" name="sterms_text" <?php echo $sqldata[0]->sterms_text;?> ></textarea>
 			</div>
 			</td>
   </tr>
@@ -259,7 +265,7 @@ Bidders participating in AucJunction Auctions should verify with the selling com
     </tbody>
   </table>
   
-  <center><input type="submit" name="submit" onclick="return validatestart()" class="btn btn-info" value="Start Auction" data-dismiss="modal"></center>
+  <center><input  type="submit" name="submit" onclick="return validatestart()" class="btn btn-info" value="Start Auction" data-dismiss="modal"></center>
  	 </form>
 			</div>
             </div>

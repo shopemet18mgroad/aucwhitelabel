@@ -21,7 +21,9 @@ class Admin_auctiondetails extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper(array('url','html'));
-		$this->load->view('admin/header');
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('admin/header',$sess);
 		$this->load->view('admin/auctiondetails');
 		$this->load->view('admin/footer');
 		

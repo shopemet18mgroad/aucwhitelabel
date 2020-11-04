@@ -132,7 +132,7 @@
 							<tr>
 								<td class="btxt">Upload Profile Pic</td>
 								<td><div class="input_fields_wrap">
-								<input  type="file" id="buploadimage1" name="buploadimage1[]">
+								<input  type="file" id="buploadimagepic" name="buploadimagepic[]">
 								</div></td>
 							</tr> 
 							<tr>

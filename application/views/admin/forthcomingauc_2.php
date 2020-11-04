@@ -36,10 +36,10 @@
 
 				<tbody>
 				<tr>
-					<td><a href="#">EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</a></</td>
-					<td>23-03-2020 23:00:00</td>
-					<td>24-11-2019 16:17:00</td>
-					<td>20,000</td>
+					<td><a href="#"><?php echo $sqldata[0]->sauctionid; ?></a></</td>
+					<td><?php echo $sqldata[0]->saucstartdate_time; ?></td>
+					<td><?php echo $sqldata[0]->saucclosedate_time; ?></td>
+					<td><?php echo $sqldata[0]->scategory; ?></td>
 				</tr>
 				</tbody>
 		 </table>
@@ -62,8 +62,8 @@
 
 				<tbody>
 				<tr>
-					<td>010</td>
-					<td>OMFED LTD</td>
+					<td><?php echo $sqldata[0]->scompanyid; ?></td>
+					<td><?php echo $sqldata[0]->sname; ?></td>
 					<td>Bangalore</td>
 					<td>Shashi Nagar</td>
 					<td>Bangalore-560013</td>
