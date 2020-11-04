@@ -133,13 +133,20 @@
 								Profile Pic
 							</td>
 							<td>
-								<img src="<?php $img = unserialize($sqldata[0]->buploadimage1); echo base_url()."/web_files/uploads/".$img[0];?>" width="300px" height="100px">
+								<img src="<?php if(unserialize($sqldata[0]->buploadimagepic) != NULL){
+									$img = unserialize($sqldata[0]->buploadimagepic);
+									echo base_url()."/web_files/uploads/".$img[0];}else{echo base_url()."#";} ?>" width="300px" height="100px">
+									<?php 
+									if(unserialize($sqldata[0]->buploadimagepic) != NULL){?>
 								<input type="hidden" name="profileimage2" id="profileimage2" value="<?php echo $img[0];?>">
+									<?php
+									}
+								?>
 							</td>
 							</tr>
 						<tr>
 								<td class="btxt">Upload Profile Picture</td>
-								<td><input type="file" multiple="multiple" id="buploadimage1" name="buploadimage1[]"></td>
+								<td><input type="file" multiple="multiple" id="buploadimagepic" name="buploadimagepic[]"></td>
 							</tr> 
 							<tr>
 								<td class="btxt">Upload Documents</td>

@@ -48,7 +48,7 @@ class Admin_buyer_basicinfo_update extends CI_Controller {
 		$bbranch  = $this->input->post('bbranch');
 		$bifsccode  = $this->input->post('bifsccode');
 		$profileimage2[] = $this->input->post('profileimage2');
-		$profileimage3 = $this->input->post('profileimage2');
+		$profileimage3 = serialize('profileimage2');
 		$dataact = array();
 		$datacomp = array();
 		$dataact = $this->input->post('bsigneddocumentex');
@@ -63,7 +63,7 @@ class Admin_buyer_basicinfo_update extends CI_Controller {
 			unlink(base_url()."web_files/uploads/".$res);
 			}
 		}
-		if(!count($result2) && !$_FILES['bsigneddocument']['name']){
+		if(!count($result2) && !$_FILES['bsigneddocument']['name'][0]){
 			$datainserr = "Atleast One Signed Document Has To Uploaded";
 			header('location: '.base_url().'admin_editbuyer/edit_buyer_alert/'.$bcompany.'/'.$datainserr);
 			die;
