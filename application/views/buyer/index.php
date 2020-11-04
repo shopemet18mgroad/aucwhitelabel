@@ -113,14 +113,14 @@
 								<td>Old Password</td>
 								<td><?php echo $sqldata[0]->bpassword; ?></td>
 							</tr> 
-							<!--<tr>
+							<tr>
 								<td>New Password</td>
 								<td></td>
-							</tr> -->
-							<!--<tr>
+							</tr> 
+						<tr>
 								<td>Confirm Password</td>
 								<td></td>
-							</tr> -->	
+							</tr>
 											
 						</tbody>
 					</table>

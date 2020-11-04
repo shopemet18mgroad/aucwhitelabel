@@ -37,15 +37,15 @@
 						<tbody>
 							<tr>
 								<td>Email</td>
-								<td><input class="form-control w-50" type="text" id="bemail" name="bemail"></td>
+								<td><input class="form-control w-50" type="text" id="bemail" name="bemail"  value="<?php echo $sqldata[0]->bemail; ?>"></td>
 							</tr> 
 							<tr>
 								<td>Phone Number</td>
-								<td><input class="form-control w-50" type="text" id="bphone" name="bphone" ></td>
+								<td><input class="form-control w-50" type="text" id="bphone" name="bphone"  value="<?php echo $sqldata[0]->bphone; ?>"></td>
 							</tr> 
 							<tr>
 								<td>Pan Number</td>
-								<td>JCDB245555</td>
+								<td><?php echo $sqldata[0]->bpan; ?></td>
 							</tr> 	
 													
 						</tbody>
