@@ -30,7 +30,7 @@ class Admin_buyer_basicinfo_add extends CI_Controller {
 		$bcontactperson  = $this->input->post('bcontactperson');
 		$busername = $this->input->post('busername');
 		//$bpassword = password_hash('default_auc123',PASSWORD_BCRYPT);
-		$bpassword = base64_decode('default_auc123');
+		$bpassword = base64_encode('default_auc123');
 
 		$bcin  = $this->input->post('bcin');
 		$bgst  = $this->input->post('bgst');

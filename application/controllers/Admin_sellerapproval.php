@@ -24,11 +24,11 @@ class Admin_sellerapproval extends CI_Controller {
 		$this->load->model('Admin_model');
 		$adaction = array('adaction'=>false);
 		
-		$query = $this->db->get_where('sellerprofile', $adaction);
+		$query = $this->Admin_model->getdatafromtable('sellerprofile', $adaction);
 		$adac['activestat']= $query->result_array();
-	
-	
-		$this->load->view('admin/header');
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('admin/header',$sess);
 		$this->load->view('admin/sellerapproval',$adac);
 		$this->load->view('admin/footer');
 		

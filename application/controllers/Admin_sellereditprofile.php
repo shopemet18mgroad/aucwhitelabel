@@ -2,6 +2,10 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin_sellereditprofile extends CI_Controller {
+	function __construct() {
+        parent::__construct();
+        $this->output->delete_cache();
+    }
 
 	/**
 	 * Index Page for this controller.
@@ -21,7 +25,10 @@ class Admin_sellereditprofile extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper(array('url','html'));
-		$this->load->view('admin/header');
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('admin/header',$sess);
+		//$this->load->view('admin/header');
 		$this->load->view('admin/sellereditprofile');
 		$this->load->view('admin/footer');
 		
@@ -29,7 +36,7 @@ class Admin_sellereditprofile extends CI_Controller {
 	public function get_table(){
 		$datatoquerydb = $this->uri->segment(3);
 		$this->load->model('Admin_model');
-		$data = $this->Admin_model->get_lookalike('sellerprofile','scomapnyname',$datatoquerydb);
+		$data = $this->Admin_model->get_lookalike('sellerprofil','scomapnyname',$datatoquerydb);
 		if(count($data)){
 			echo '<table class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';
 			echo '<thead class="bg-primary text-white">';

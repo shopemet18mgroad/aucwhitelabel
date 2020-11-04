@@ -23,12 +23,14 @@ class Admin_buyerapproval extends CI_Controller {
 		$this->load->helper(array('url','html'));
 		$this->load->model('Admin_model');
 		$adaction = array('adaction'=>false);
-		
-		$query = $this->db->get_where('buyerprofile', $adaction);
+		$query = $this->Admin_model->getdatafromtable('buyerprofile', $adaction);
 		$adac['activestat']= $query->result_array();
+		// $query = $this->db->get_where('buyerprofile', $adaction);
+		// $adac['activestat']= $query->result_array();
 		
-		$this->load->helper('url');
-		$this->load->view('admin/header');
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('admin/header',$sess);
 		$this->load->view('admin/buyerapproval',$adac);
 		$this->load->view('admin/footer');
 		

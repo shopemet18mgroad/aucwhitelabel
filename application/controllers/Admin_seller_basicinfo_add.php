@@ -35,7 +35,7 @@ class Admin_seller_basicinfo_add extends CI_Controller {
 		$sdesignation = $this->input->post('sdesignation');
 		$susername = $this->input->post('susername');
 		//$spassword = password_hash('default_auc123',PASSWORD_BCRYPT);
-		$spassword = base64_decode('default_auc123');
+		$spassword = base64_encode('default_auc123');
 		$scin  = $this->input->post('scin');
 		$sgst  = $this->input->post('sgst');
 		$spcb  = $this->input->post('spcb');
