@@ -1,5 +1,6 @@
  <?php 
 	//include('./header.php');
+	print_r($sqldata);
 ?>
         <!-- End of Topbar -->
 
@@ -22,7 +23,7 @@
               <div class="table-responsive">
 		
 		
-		<table class="table table-striped table-bordered table-sm text-center mt-5" id="dataTable" width="100%" cellspacing="0">
+		<table class="table table-striped table-bordered table-sm text-center mt-5"  width="100%" cellspacing="0">
 		<thead class="bg-primary text-white">
 			<tr>
 				<th>Lot No <br>/Lot Name</th>
@@ -37,7 +38,7 @@
 		</thead>
 		<tbody>
 			<tr>												
-				<td ><b>Lot No:</b> M189<br><b>Lot Name:</b> Horizontal Boring Machine</td>
+				<td ><?php echo $sqldata[0]->slotname; ?></td>
 				<td >Bangalore-KA</td>
 				<td>16:00:00</td>
 				<td>20:14:03</td>

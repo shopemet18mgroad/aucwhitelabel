@@ -20,11 +20,52 @@ class Buyer_viewdetail extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->helper('url');
+			$this->load->helper('url');
+		$this->load->library('session');
+		$this->load->model('Admin_model');
+			
+		$sess = "Alluminium";//$this->session->userdata('username');
+		
+		$active = array('slotname'=>$sess);
+		//load model library use get_where func from tablename buyerprofile
+		
+		$query = $this->Admin_model->getdatafromtable('addlot', $active);
+		$data['sqldata']= $query;
+		
+		$this->load->model('Admin_model');
+		$data['sqldata'] = $this->Admin_model->getdatafromtable('addlot',$retriveval);
+		
 		$this->load->view('buyer/header');
-		$this->load->view('buyer/viewdetail');
+		$this->load->view('buyer/viewdetail',$data);
 		$this->load->view('buyer/footer');
 		
 	}
 	
+	
+	
+	
+	  public function viewdetail(){
+		$retrivevaltmp = urldecode($this->uri->segment(3));
+		$retriveval = array('slotname'=>$retrivevaltmp);
+		$this->load->model('Admin_model');
+		$data['sqldata'] = $this->Admin_model->getdatafromtable('addlot',$retriveval);
+		$this->load->helper('url');
+		$this->load->view('buyer/header');
+		$this->load->view('buyer/viewdetail', $data);
+		$this->load->view('buyer/footer');
+	}
+	 public function viewdetail_alert(){
+		$retrivevaltmp = $this->uri->segment(3);
+		$retrivevaltmp2 = urldecode($this->uri->segment(4));
+		echo '<script language="javascript">';
+			echo 'alert("'.$retrivevaltmp2.'")';  //not showing an alert box.
+			echo '</script>';
+		$retriveval = array('slotname'=>$retrivevaltmp);
+		$this->load->model('Admin_model');
+		$data['sqldata'] = $this->Admin_model->getdatafromtable('addlot',$retriveval);
+		$this->load->helper('url');
+		$this->load->view('buyer/header');
+		$this->load->view('buyer/viewdetail', $data);
+		$this->load->view('buyer/footer');
+	} 
 }

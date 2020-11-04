@@ -46,14 +46,13 @@ class Buyer_detailedauc extends CI_Controller {
 			echo '<tbody>';
 			foreach($data as $dat){
 				echo '<tr>';
-				echo '<td><a href="'.base_url().'buyer_liveauc_2/liveauc_2/'.$dat['sauctionid'].
+				echo '<td><a href="'.base_url().'buyer_viewdetail/viewdetail/'.$dat['sauctionid'].
 				'">';
 				echo  $dat['sauctionid'];
 				echo '</a>';
 				echo '</td>';
-				echo '<td>'.$dat['sauctionid'].'</td>';
 				echo '<td>'.$dat['scompanyname'].'</td>';
-				echo '<td>'.$dat['slotlocation'].'</td>';
+				echo '<td>'.$dat['svinspection'].'</td>';
 				echo '<td>'.$dat['saucstartdate_time'].'</td>';
 				echo '<td>'.$dat['saucclosedate_time'].'</td>';
 				echo '<td>'.$dat['sdownload'].'</td>';

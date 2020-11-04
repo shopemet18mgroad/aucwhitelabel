@@ -180,6 +180,16 @@
  </script>
  
  <script>
+		$('#gettable_editauction').on('keyup', function(){
+			var contents = $('#gettable_editauction').val(); 
+			$.get('<?php echo base_url() .'admin_auctiondetails/get_table/'; ?>'+contents, function(data){
+				$('#ajaxrslt_editauction').html(data);
+			});
+		});
+	
+ </script>
+ 
+ <script>
 		$('.gettable').on('keyup', function(){
 			var contents = $('#gettable').val(); 
 			$.get('<?php echo base_url() .'admin_editforthcom_2/get_table/'; ?>'+contents, function(data){
