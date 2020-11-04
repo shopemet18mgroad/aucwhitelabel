@@ -83,7 +83,8 @@ class Admin_startauction extends CI_Controller {
 			}
 			
 
-		$this->load->view('admin/header');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('admin/header',$sess);
 		$this->load->view('admin/startauction');
 		$this->load->view('admin/footer');
 		

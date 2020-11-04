@@ -27,7 +27,9 @@ class Admin_buyerreg extends CI_Controller {
 			echo 'alert("'.$errormsg.'")';
 			echo '</script>';
 		}
-		$this->load->view('admin/header');
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('admin/header',$sess);
 		$this->load->view('admin/buyerreg');
 		$this->load->view('admin/footer');
 		
