@@ -250,4 +250,41 @@
  
  </script>
  
+ <script>
+ function validate_user2(){
+	 var user = document.getElementById('busername').value;
+	  if(user == ""){
+		 swal("Alert!", "User Name Cannot Be Left Blank","error");
+		 return false; 
+	 }
+	  $.get('<?php echo base_url() .'registrationb/userverify/'; ?>'+user, function(data2){						
+				 if($.trim(data2) == "HI"){
+					return true;
+				}else{
+					swal("Alert!", "User Name Already Exists", "error");
+					return false;
+				}
+			 });
+ }
+ </script>
+ <script>
+ function validate_company2(){
+	 var company = document.getElementById('bcompany').value;
+	 if(company == ""){
+		 swal("Alert!", "Company Name Cannot Be Left Blank","error");
+		 return false;
+		 
+		 
+	 }
+	  $.get('<?php echo base_url() .'registrationb/companyverify/'; ?>'+company, function(data2){						
+				 if($.trim(data2) == "HI"){
+					return true;
+				}else{
+					swal("Alert!", "Company Name Already Exists", "error");
+					return false;
+				}
+			 });
+ }
+ </script>
+ 
 

@@ -24,7 +24,7 @@ class buyer_editaccount extends CI_Controller {
 		$this->load->library('session');
 		$this->load->model('Admin_model');
 			
-		$sess = "Bharath Steels";//$this->session->userdata('username');
+		$sess = "Sidra Steels";//$this->session->userdata('username');
 		
 		$active = array('busername'=>$sess);
 		//load model library use get_where func from tablename buyerprofile
