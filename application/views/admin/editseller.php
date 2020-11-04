@@ -87,20 +87,36 @@
 								$companyltype = unserialize($sqldata[0]->saddress);
 								$companyaddress = unserialize($sqldata[0]->saddresscount);
 								 $xj = 0;
-								 $companyltypecnt = count($companyltype);
-								 $companyaddresscnt = count($companyaddress);
-								 for($i=0;$i<$companyltypecnt;$i++){
-									 echo '<div class="input_fields_wrap1">';
-										echo '<select class="form-control w-50  p-1" name="saddress[]">';
-										echo '<option value="'.$companyltype[$i].'">'.$companyltype[$i].'</option>';
-										echo '<option value="Corporate-Office">Corporate Office</option>';
-										echo '<option value="Headquarter">Headquarter</option>';
-										echo '</select>';
-										echo '';
-										echo '<textarea class="form-control float-left mt-2 p-2 w-50" type="text" name="saddresscount[]">'.$companyaddress[$i].'</textarea>';
-										echo '<a class="add_field_button1"><button type="button" class="btn btn-sm btn-primary ml-1 mb-5 mt-3">  <i class="fa fa-plus text-white"></i></button></a>';
-										echo '</div>';
+								 if($companyltype != NULL || $companyaddress != NULL){
+									  $companyltypecnt = count($companyltype);
+										$companyaddresscnt = count($companyaddress);
 								 }
+								
+									 if($companyltype != NULL){
+										 for($i=0;$i<$companyltypecnt;$i++){
+										 echo '<div class="input_fields_wrap1">';
+											echo '<select class="form-control w-50  p-1" name="saddress[]">';
+											echo '<option value="'.$companyltype[$i].'">'.$companyltype[$i].'</option>';
+											echo '<option value="Corporate-Office">Corporate Office</option>';
+											echo '<option value="Headquarter">Headquarter</option>';
+											echo '</select>';
+											echo '';
+											echo '<textarea class="form-control float-left mt-2 p-2 w-50" type="text" name="saddresscount[]">'.$companyaddress[$i].'</textarea>';
+											echo '<a class="add_field_button1"><button type="button" class="btn btn-sm btn-primary ml-1 mb-5 mt-3">  <i class="fa fa-plus text-white"></i></button></a>';
+											echo '</div>';
+									 }
+								 }else{
+											echo '<div class="input_fields_wrap1">';
+											echo '<select class="form-control w-50  p-1" name="saddress[]">';
+											echo '<option value="Corporate-Office">Corporate Office</option>';
+											echo '<option value="Headquarter">Headquarter</option>';
+											echo '</select>';
+											echo '';
+											echo '<textarea class="form-control float-left mt-2 p-2 w-50" type="text" name="saddresscount[]"></textarea>';
+											echo '<a class="add_field_button1"><button type="button" class="btn btn-sm btn-primary ml-1 mb-5 mt-3">  <i class="fa fa-plus text-white"></i></button></a>';
+											echo '</div>';
+								 }
+								 
 								?>
 								
 									</td>
@@ -154,8 +170,15 @@
 								Profile Pic
 							</td>
 							<td>
-								<img src="<?php $img = unserialize($sqldata[0]->suploadprofilepic); echo base_url()."/web_files/uploads/".$img[0];?>" width="300px" height="100px">
+								<img src="<?php if(unserialize($sqldata[0]->suploadprofilepic) != NULL){
+									$img = unserialize($sqldata[0]->suploadprofilepic);
+									echo base_url()."/web_files/uploads/".$img[0];}else{echo base_url()."#";} ?>" width="300px" height="100px">
+									<?php 
+									if(unserialize($sqldata[0]->suploadprofilepic) != NULL){?>
 								<input type="hidden" name="profileimage" id="profileimage" value="<?php echo $img[0];?>">
+								<?php
+									}
+								?>
 							</td>
 							</tr>
 							<tr>
@@ -175,19 +198,24 @@
 								
 							</tr> 
 							<?php 
-							$file = unserialize($sqldata[0]->ssigneddocument);
-							  foreach($file as $fl){
-							echo '<tr id="filess">';
-							echo '<td class="btxt">Existing Documents</td>';
-							echo '<td><div class="input_fields_wrap">';
-							echo '<textarea class="form-control float-left mt-2 p-2 w-50" type="text" id="ssigneddocumentex" name="ssigneddocumentex[]" readonly>'.$fl.'</textarea>';
-							echo '<input type="hidden" id="ssigneddocumentexcom" name="ssigneddocumentexcom[]" value="'.$fl.'">';
-							echo '<a class="add_field_button1"><button type="button" onclick="$(this).parents(\'#filess\').remove()" class="btn btn-sm btn-primary ml-1 mb-5 mt-3">  <i class="fa fa-minus text-white"></i></button></a>';
+							if(unserialize($sqldata[0]->ssigneddocument) != NULL){
+								$file = unserialize($sqldata[0]->ssigneddocument);
+								  foreach($file as $fl){
+								echo '<tr id="filess">';
+								echo '<td class="btxt">Existing Documents</td>';
+								echo '<td><div class="input_fields_wrap">';
+								echo '<textarea class="form-control float-left mt-2 p-2 w-50" type="text" id="ssigneddocumentex" name="ssigneddocumentex[]" readonly>'.$fl.'</textarea>';
+								echo '<input type="hidden" id="ssigneddocumentexcom" name="ssigneddocumentexcom[]" value="'.$fl.'">';
+								echo '<a class="add_field_button1"><button type="button" onclick="$(this).parents(\'#filess\').remove()" class="btn btn-sm btn-primary ml-1 mb-5 mt-3">  <i class="fa fa-minus text-white"></i></button></a>';
+								
+								echo '</div></td>';
+								echo '';
+								echo '</tr>';
+								  }
+							}else{
+								
+							}
 							
-							echo '</div></td>';
-							echo '';
-							echo '</tr>';
-							  }
 							
 							?>
 						</tbody>
