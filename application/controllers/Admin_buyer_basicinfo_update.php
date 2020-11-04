@@ -48,7 +48,7 @@ class Admin_buyer_basicinfo_update extends CI_Controller {
 		$bbranch  = $this->input->post('bbranch');
 		$bifsccode  = $this->input->post('bifsccode');
 		$profileimage2[] = $this->input->post('profileimage2');
-		$profileimage3 = $this->input->post('profileimage2');
+		$profileimage3 = serialize('profileimage2');
 		$dataact = array();
 		$datacomp = array();
 		$dataact = $this->input->post('bsigneddocumentex');
@@ -63,15 +63,15 @@ class Admin_buyer_basicinfo_update extends CI_Controller {
 			unlink(base_url()."web_files/uploads/".$res);
 			}
 		}
-		if(!count($result2) && !$_FILES['bsigneddocument']['name']){
+		if(!count($result2) && !$_FILES['bsigneddocument']['name'][0]){
 			$datainserr = "Atleast One Signed Document Has To Uploaded";
 			header('location: '.base_url().'admin_editbuyer/edit_buyer_alert/'.$bcompany.'/'.$datainserr);
 			die;
 		}
 		
-		 if($_FILES['buploadimage1']['tmp_name'][0]){
+		 if($_FILES['buploadimagepic']['tmp_name'][0]){
 			unlink(base_url()."web_files/uploads/".$profileimage2[0]);
-			$pic_array = self::upload_files('buploadimage1');
+			$pic_array = self::upload_files('buploadimagepic');
 		}
 		if($_FILES['bsigneddocument']['tmp_name'][0]){
 			$doc_array = self::upload_files('bsigneddocument');
@@ -101,7 +101,7 @@ class Admin_buyer_basicinfo_update extends CI_Controller {
 		
 		
 		//==================================================================
-		$data2 = array('bname' => $bname, 'bcomptype' => $bcomptype, 'bcontactperson' => $bcontactperson,'busername' => $busername, 'bpassword'=> $bpassword, 'bcin' => $bcin, 'bgst' => $bgst,'bpcb' => $bpcb, 'bemail' => $bemail, 'bphone' => $bphone,'baddress' => $baddress, 'bpin' => $bpin, 'bstate' => $bstate, 'bcountry' => $bcountry, 'bbankname' => $bbankname, 'baccountnumber' => $baccountnumber, 'bbranch' => $bbranch, 'bifsccode' => $bifsccode, 'buploadimage1' => $pic_array, 'bsigneddocument' => $doc_array);
+		$data2 = array('bname' => $bname, 'bcomptype' => $bcomptype, 'bcontactperson' => $bcontactperson,'busername' => $busername, 'bpassword'=> $bpassword, 'bcin' => $bcin, 'bgst' => $bgst,'bpcb' => $bpcb, 'bemail' => $bemail, 'bphone' => $bphone,'baddress' => $baddress, 'bpin' => $bpin, 'bstate' => $bstate, 'bcountry' => $bcountry, 'bbankname' => $bbankname, 'baccountnumber' => $baccountnumber, 'bbranch' => $bbranch, 'bifsccode' => $bifsccode, 'buploadimagepic' => $pic_array, 'bsigneddocument' => $doc_array);
 		//$this->load->view('xya', $data);
 		$datainserr = "Data Inserted Successfully";
 		$updatech = array('bcompany' => $bcompany);

@@ -37,19 +37,19 @@
 						<tbody>
 							<tr>
 								<td>Banker's Name</td>
-								<td><input class="form-control w-50" type="text" id="bbankname"name="bbankname"></td>
+								<td><input class="form-control w-50" type="text" id="bbankname"name="bbankname" value="<?php echo $sqldata[0]->bbankname; ?>"></td>
 							</tr> 
 							<tr>
 								<td>Account Number</td>
-								<td><input class="form-control w-50" type="text" id="baccountnumber"name="baccountnumber"></td>
+								<td><input class="form-control w-50" type="text" id="baccountnumber"name="baccountnumber"  value="<?php echo $sqldata[0]->baccountnumber; ?>"></td>
 							</tr> 
 							<tr>
 								<td>Branch</td>
-								<td><input class="form-control w-50" type="text" id="bbranch"name="bbranch"></td>
+								<td><input class="form-control w-50" type="text" id="bbranch"name="bbranch"  value="<?php echo $sqldata[0]->bbranch; ?>"></td>
 							</tr> 
 							<tr>
 								<td>IFSC Code</td>
-								<td><input class="form-control w-50" type="text" id="bifsccode"name="bifsccode"></td>
+								<td><input class="form-control w-50" type="text" id="bifsccode"name="bifsccode" value="<?php echo $sqldata[0]->bifsccode; ?>"></td>
 							</tr> 							
 											
 						</tbody>

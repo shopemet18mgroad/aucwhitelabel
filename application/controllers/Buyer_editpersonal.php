@@ -21,8 +21,18 @@ class Buyer_editpersonal extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper('url');
+		$this->load->library('session');
+		$this->load->model('Admin_model');
+			
+		$sess = "Bharath Steels";//$this->session->userdata('username');
+		
+		$active = array('busername'=>$sess);
+		//load model library use get_where func from tablename buyerprofile
+		
+		$query = $this->Admin_model->getdatafromtable('buyerprofile', $active);
+		$data['sqldata']= $query;
 		$this->load->view('buyer/header');
-		$this->load->view('buyer/editpersonal');
+		$this->load->view('buyer/editpersonal',$data);
 		$this->load->view('buyer/footer');
 		
 	}
