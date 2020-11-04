@@ -190,7 +190,8 @@
  </script>
  <script>
 		function seller_set_deactive(varab){
-			$.get('<?php echo base_url() .'Admin_sellerapproval/setdeactive_seller/'; ?>'+varab, function(data2){					
+			$.get('<?php echo base_url() .'Admin_sellerapproval/setdeactive_seller/'; ?>'+varab, function(data2){	
+					
 				 if($.trim(data2) == "HI"){
 					 window.location.href = '<?php echo base_url().'Admin_sellerapproval';?>'
 					return true;
@@ -210,7 +211,7 @@
  
  <script>
 		function buyer_set_deactive(varab){
-			$.get('<?php echo base_url() .'Admin_buyerapproval/setdeactive_buyer/'; ?>'+varab, function(data2){					
+			$.get('<?php echo base_url() .'Admin_buyerapproval/setdeactive_buyer/'; ?>'+varab, function(data2){	
 				 if($.trim(data2) == "HI"){
 					 window.location.href = '<?php echo base_url().'Admin_buyerapproval';?>'
 					return true;

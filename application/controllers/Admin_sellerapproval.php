@@ -25,7 +25,7 @@ class Admin_sellerapproval extends CI_Controller {
 		$adaction = array('adaction'=>false);
 		
 		$query = $this->Admin_model->getdatafromtable('sellerprofile', $adaction);
-		$adac['activestat']= $query->result_array();
+		$adac['activestat']= $query;
 		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('admin/header',$sess);
@@ -36,6 +36,7 @@ class Admin_sellerapproval extends CI_Controller {
 	public function setdeactive_seller(){
 		
 		$compname = $this->uri->segment(3);
+		$compname = urldecode($compname);
 		$this->load->model('Admin_model');
 		$adaction = array('adaction'=>true);
 		$adaction2 = array('scomapnyname'=>$compname);

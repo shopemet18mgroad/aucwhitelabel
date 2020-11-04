@@ -39,13 +39,13 @@
 				
 				<?php foreach($activestat as $activesta){?>
 				<tr>												
-					<td><?php echo $activesta['sname']; ?></td>
-					<td><?php echo $activesta['scompanytype']; ?></td>
-					<td><?php echo $activesta['scontactperson']; ?></td>
-					<td><?php echo $activesta['slocation']; ?></td>
-					<td><?php echo $activesta['scomapnyname']; ?></td>
+					<td><?php echo $activesta->sname; ?></td>
+					<td><?php echo $activesta->scompanytype; ?></td>
+					<td><?php echo $activesta->scontactperson; ?></td>
+					<td><?php echo $activesta->slocation; ?></td>
+					<td><?php echo $activesta->scomapnyname; ?></td>
 					<td><?php echo "DEACTIVE";?></td>
-					<td><button type="submit" name="submit" id="<?php echo $activesta['scomapnyname']?>" onclick="seller_set_deactive(this.id)" class="btn btn-info btn-sm">Approve</button></td>	
+					<td><button type="submit" name="submit" id="<?php echo $activesta->scomapnyname;?>" onclick="seller_set_deactive(this.id)" class="btn btn-info btn-sm">Approve</button></td>	
 				</tr>
 				<?php }?>
 	
