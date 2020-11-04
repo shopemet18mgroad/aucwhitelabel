@@ -44,7 +44,7 @@ class Buyer_liveauc extends CI_Controller {
 				echo '<tr>';
 				echo '<td><a href="'.base_url().'buyer_liveauc_2/liveauc_2/'.$dat['sauctionid'].
 				'">';
-				echo $dat['sauctionid'];
+				echo  $dat['sauctionid'];
 				echo '</a>';
 				echo '</td>';
 			

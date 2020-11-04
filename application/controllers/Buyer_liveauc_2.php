@@ -25,13 +25,12 @@ class Buyer_liveauc_2 extends CI_Controller {
 		$this->load->library('session');
 		$this->load->model('Admin_model');
 		
-		$sess = "AUC/seema/Minor Metals/20/4/32";
+		$sess = "/AUC/see/Minor%20Metals/11/48/10";
 		
 		$active = array('sauctionid' => $sess);
 		
 		$query = $this->Admin_model->getdatafromtable('auction',   $active);
 		$data['sqldata'] = $query;
-		
 		$this->load->view('buyer/header');
 		$this->load->view('buyer/liveauc_2', $data);
 		$this->load->view('buyer/footer');
