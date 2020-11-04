@@ -57,11 +57,11 @@
 						</tr>
 						<tr>
 							<td class="btxt">CIN Number:</td>
-							<td><input class="form-control w-50" type="text" id="bcin" name="bcin" onkeyup="validate_company2()" required></td>
+							<td><input class="form-control w-50" type="text" id="bcin" name="bcin" onkeyup="validate_user2()" required></td>
 						</tr>  
 						<tr>
 							<td class="btxt">GST:</td>
-							<td><input class="form-control w-50" type="text" id="bgst" name="bgst" required></td>
+							<td><input class="form-control w-50" type="text" id="bgst" name="bgst" onkeyup="validate_company2()"  required></td>
 						</tr> 
 						<tr>
 							<td class="btxt">PCB Licence NO:</td>
@@ -97,7 +97,7 @@
 						</tr> 
 						<tr>
 							<td class="btxt">Country:</td>
-							<td><input class="form-control w-50" type="text" id="bcountry" name="bcountry" value="INDIA" disabled></td>
+							<td><input class="form-control w-50" type="text" id="bcountry" name="bcountry" value="INDIA" readonly></td>
 						</tr>	 
 						</tbody>
 					</table>	

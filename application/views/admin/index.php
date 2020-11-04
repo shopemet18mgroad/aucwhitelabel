@@ -112,7 +112,7 @@
 							</tr>
 						<tr>
 							<td class="btxt">Country:</td>
-							<td><input class="form-control w-50" type="text" id="scountry" name="scountry" value="INDIA" disabled></td>
+							<td><input class="form-control w-50" type="text" id="scountry" name="scountry" value="INDIA" readonly></td>
 						</tr>		
 						</tbody>
 					</table>	

@@ -111,7 +111,7 @@
 						<tbody>
 							<tr>
 								<td>Old Password</td>
-								<td><?php echo $sqldata[0]->bpassword; ?></td>
+								<td>******</td>
 							</tr> 
 							<tr>
 								<td>New Password</td>

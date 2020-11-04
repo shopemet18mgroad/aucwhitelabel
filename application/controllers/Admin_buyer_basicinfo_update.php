@@ -108,6 +108,7 @@ class Admin_buyer_basicinfo_update extends CI_Controller {
 		$status = $this->Admin_model->update_custom('buyerprofile',$data2,$updatech,$updatech);
 		// $status = $this->Admin_model->insert('sellerprofile', $data2);
 		header('location: '.base_url().'Admin_buyerreg/index/'.$datainserr);
+	die;
 		//$this->load->view('admin/header');
 		//$this->load->view('admin/salesreport');
 		//$this->load->view('admin/footer');

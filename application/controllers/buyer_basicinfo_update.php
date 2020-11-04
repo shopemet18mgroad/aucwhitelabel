@@ -29,10 +29,12 @@ class Buyer_basicinfo_update extends CI_Controller {
 		$this->load->helper(array('url','form','file','html'));
 		$this->load->model('Admin_model');
 		$bname = $this->input->post('bname');
+		echo $bname; die;
 		$bcontactperson = $this->input->post('bcontactperson');
 		$bcomptype = $this->input->post('bcomptype');
 		$baddress  = $this->input->post('baddress');
 		$bpin = $this->input->post('bpin');
+		
 		$bstate = $this->input->post('bstate');
 		
 		$bcountry  = $this->input->post('bcountry');

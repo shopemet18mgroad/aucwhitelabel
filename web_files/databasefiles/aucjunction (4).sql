@@ -114,23 +114,6 @@ CREATE TABLE `auction` (
   `reauction` varchar(225) DEFAULT NULL,
   `stotalauction` int(225) DEFAULT NULL,
   `bwishlist` tinyint(1) DEFAULT NULL,
-  `bemdstatus` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `autobid`
---
-
-CREATE TABLE `autobid` (
-  `id` int NOT NULL,
-  `sauctionid` varchar(225) DEFAULT NULL,
-  `bfinalbid` int DEFAULT NULL,
-  `bidperunit` int DEFAULT NULL,
-  `bidmax` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
   `bemdstatus` int(225) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -196,9 +179,6 @@ CREATE TABLE `biddercart` (
   `emdpaid` int(220) DEFAULT NULL,
   `emdrequest` varchar(225) DEFAULT NULL,
   `bided` tinyint(1) DEFAULT NULL,
-  `emd_paiddd` blob
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
   `emd_paiddd` blob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -215,13 +195,8 @@ CREATE TABLE `biddingdata` (
   `slotno` varchar(200) DEFAULT NULL,
   `bidvalue` int(225) DEFAULT NULL,
   `Date_time` datetime(6) DEFAULT NULL,
-
-  `bidamount` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
   `bidamount` int(225) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
 
 -- --------------------------------------------------------
 
@@ -264,14 +239,9 @@ CREATE TABLE `buyerprofile` (
   `bifsccode` varchar(50) DEFAULT NULL,
   `buploadimagepic` varchar(200) DEFAULT NULL,
   `bsigneddocument` varchar(200) DEFAULT NULL,
-
-  `bemd` tinyint(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
   `bemd` tinyint(1) DEFAULT NULL,
   `adaction` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
 
 --
 -- Dumping data for table `buyerprofile`
@@ -301,8 +271,6 @@ INSERT INTO `buyerprofile` (`id`, `bname`, `bcompany`, `bcomptype`, `bbuyertype`
 CREATE TABLE `categories` (
   `id` int(11) NOT NULL,
   `name` varchar(200) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -328,11 +296,6 @@ CREATE TABLE `liveauction` (
   `sauctionid` varchar(225) DEFAULT NULL,
   `closetime` time(6) DEFAULT NULL,
   `timeleft` time(6) DEFAULT NULL,
-  `livestatus` int DEFAULT NULL,
-  `bidvalue` int DEFAULT NULL,
-  `bidamount` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
   `livestatus` int(225) DEFAULT NULL,
   `bidvalue` int(225) DEFAULT NULL,
   `bidamount` int(225) DEFAULT NULL
@@ -382,8 +345,6 @@ CREATE TABLE `sellerprofile` (
   `suploadprofilepic` varchar(200) DEFAULT NULL,
   `ssigneddocument` varchar(200) DEFAULT NULL,
   `adaction` tinyint(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -435,8 +396,6 @@ CREATE TABLE `subcategories` (
   `id` int(11) NOT NULL,
   `name` varchar(200) DEFAULT NULL,
   `description` varchar(225) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --

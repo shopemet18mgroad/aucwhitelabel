@@ -23,11 +23,15 @@ class Buyer_dashboard extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('session');
 		$this->load->model('Admin_model');
-			
+		
 
 		$sess = "Seema";//$this->session->userdata('username');
 
 		$sess = "Bharath Steels";//$this->session->userdata('username');
+
+
+		$sess = "Sidra Steels";
+		//$this->session->userdata('username');
 
 		
 		$active = array('busername'=>$sess);
