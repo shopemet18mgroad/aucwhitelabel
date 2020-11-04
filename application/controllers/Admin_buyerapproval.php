@@ -24,7 +24,7 @@ class Admin_buyerapproval extends CI_Controller {
 		$this->load->model('Admin_model');
 		$adaction = array('adaction'=>false);
 		$query = $this->Admin_model->getdatafromtable('buyerprofile', $adaction);
-		$adac['activestat']= $query->result_array();
+		$adac['activestat']= $query;
 		// $query = $this->db->get_where('buyerprofile', $adaction);
 		// $adac['activestat']= $query->result_array();
 		
@@ -38,6 +38,7 @@ class Admin_buyerapproval extends CI_Controller {
 		public function setdeactive_buyer(){
 		
 		$compname = $this->uri->segment(3);
+		$compname = urldecode($compname);
 		$this->load->model('Admin_model');
 		$adaction = array('adaction'=>true);
 		$adaction2 = array('bcompany'=>$compname);

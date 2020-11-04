@@ -36,7 +36,7 @@ class Admin_sellereditprofile extends CI_Controller {
 	public function get_table(){
 		$datatoquerydb = $this->uri->segment(3);
 		$this->load->model('Admin_model');
-		$data = $this->Admin_model->get_lookalike('sellerprofil','scomapnyname',$datatoquerydb);
+		$data = $this->Admin_model->get_lookalike('sellerprofile','scomapnyname',$datatoquerydb);
 		if(count($data)){
 			echo '<table class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';
 			echo '<thead class="bg-primary text-white">';
