@@ -73,18 +73,14 @@
 								<td>PCB</td>
 								<td><?php echo $sqldata[0]->bpcb; ?></td>
 							</tr>
-							
-							<tr>
-								<td class="btxt">Upload Profile Pic</td>
-								<td><input type="file" id="myFile" name="filename1"></td>
-							</tr> 								
+													
 						</tbody>
 					</table>			
 
-				<input type="submit" class="btn btn-primary offset-sm-3 mt-2"value="Update">
+				<input type="submit" class="btn btn-primary offset-sm-3 mt-2"  name="submit" value="Update">
 												
 				<input type="submit" class="btn btn-primary offset-sm-1 mt-2" value="Reset">
-					</form>							
+				</form>							
 				<a href="buyer_dashboard"><button type="button" class="btn btn-primary offset-sm-1 mt-2">Cancel</button></a>
 				
 				

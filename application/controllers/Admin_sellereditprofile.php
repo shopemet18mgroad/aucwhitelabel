@@ -42,7 +42,7 @@ class Admin_sellereditprofile extends CI_Controller {
 			echo '<thead class="bg-primary text-white">';
 			echo '<tr>';
 			echo '<th>Seller Name</th>';
-			echo '<th>Company Type</th>';
+			echo '<th>Company Name</th>';
 			echo '<th>Contact Person</th>';
 			echo '<th>Location</th>';
 			echo '<th>City</th>';

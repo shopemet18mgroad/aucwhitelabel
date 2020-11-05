@@ -23,14 +23,10 @@ class Buyer_dashboard extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('session');
 		$this->load->model('Admin_model');
-		
+		$bcompany = $this->uri->segment(3);	
 
-		$sess = "Seema";//$this->session->userdata('username');
-
-		$sess = "Bharath Steels";//$this->session->userdata('username');
-
-
-		$sess = "Sidra Steels";
+	
+		$sess = "abc";
 		//$this->session->userdata('username');
 
 		
@@ -38,8 +34,9 @@ class Buyer_dashboard extends CI_Controller {
 		//load model library use get_where func from tablename buyerprofile
 		
 		$query = $this->Admin_model->getdatafromtable('buyerprofile', $active);
-		$data['sqldata']= $query;
 		
+		$data['sqldata']= $query;
+		$data['bcompany'] = $bcompany;
 		$this->load->view('buyer/header');
 		$this->load->view('buyer/index',$data);
 		$this->load->view('buyer/footer');
