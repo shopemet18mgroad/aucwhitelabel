@@ -23,8 +23,8 @@ class Buyer_editpersonal extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('session');
 		$this->load->model('Admin_model');
-		$bname = $this->uri->segment(3);	
-		$sess = "Sidra Steels";
+		$bcompany = $this->uri->segment(3);	
+		$sess = "abc";
 		//$this->session->userdata('username');
 		
 		$active = array('busername'=>$sess);
@@ -32,7 +32,7 @@ class Buyer_editpersonal extends CI_Controller {
 		
 		$query = $this->Admin_model->getdatafromtable('buyerprofile', $active);
 		$data['sqldata']= $query;
-		$data['bname'] = $bname;
+		$data['bcompany'] = $bcompany;
 		$this->load->view('buyer/header');
 		$this->load->view('buyer/editpersonal',$data);
 		$this->load->view('buyer/footer');

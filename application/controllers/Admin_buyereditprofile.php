@@ -37,7 +37,7 @@ class Admin_buyereditprofile extends CI_Controller {
 			echo '<thead class="bg-primary text-white">';
 			echo '<tr>';
 			echo '<th>Buyer Name</th>';
-			echo '<th>Company Type</th>';
+			echo '<th>Company Name</th>';
 			echo '<th>Contact Person</th>';
 			echo '<th>Location</th>';
 			echo '<th>City</th>';
@@ -50,7 +50,7 @@ class Admin_buyereditprofile extends CI_Controller {
 			foreach($data as $dat){
 				echo '<tr>';
 				echo '<td>'.$dat['bname'].'</td>';
-				echo '<td>'.$dat['bcomptype'].'</td>';
+				echo '<td>'.$dat['bcompany'].'</td>';
 				echo '<td>'.$dat['bcontactperson'].'</td>';
 				echo '<td>'.$dat['baddress'].'</td>';
 				echo '<td>'.$dat['bcity'].'</td>';

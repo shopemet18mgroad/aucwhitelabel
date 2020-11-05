@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 04, 2020 at 09:49 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.1
+-- Generation Time: Nov 05, 2020 at 09:44 AM
+-- Server version: 10.4.13-MariaDB
+-- PHP Version: 7.4.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -60,7 +59,13 @@ CREATE TABLE `addlot` (
 INSERT INTO `addlot` (`id`, `sauctionid`, `slotno`, `slotname`, `scategory`, `sdescription`, `slotlocation`, `sfrominpectdate_time`, `stoinpectdate_time`, `semddetail`, `slastdateemdsub`, `sprice`, `sstartbidprice`, `sqty`, `sunitmeasurment`, `sbidbase`, `sgst`, `sothertax`, `semdamount`, `sliftingperiod`, `sliftingperiod2`, `spcbcertificate`) VALUES
 (1, 'AUC/xxx/Ferrous/15/43/33', 'M/xxx/Ferrous/15/43/55', 'xxx', 'Ferrous', 'xxx', 'five', '2020-10-30 15:45:00', '2020-10-30 15:46:00', 'xxxx', '2020-10-04', 0, 0, 0, 0, 0, 0, 'xxxx', 0, 'xxx', '2020-10-30 15:50:00', 0),
 (2, '<div style=', '', 'sss', '\r\n<div style=', 'ddd', 'three', '2020-11-02 17:19:00', '2020-11-02 17:18:00', 'ddd', '2020-11-12', 0, 0, 0, 0, 0, 0, 'ddd', 0, 'ddd', '2020-11-02 17:20:00', 1),
-(3, 'AUC/ddd/Granules/17/15/32', '', 'ddd', 'Granules', 'ddd', 'three', '2020-11-02 17:21:00', '2020-11-02 17:20:00', 'sss', '2020-11-07', 0, 0, 0, 0, 0, 0, 'ss', 0, 'ss', '2020-11-02 17:21:00', 0);
+(3, 'AUC/ddd/Granules/17/15/32', '', 'ddd', 'Granules', 'ddd', 'three', '2020-11-02 17:21:00', '2020-11-02 17:20:00', 'sss', '2020-11-07', 0, 0, 0, 0, 0, 0, 'ss', 0, 'ss', '2020-11-02 17:21:00', 0),
+(4, 'AUC/seema/Minor Metals/14/45/43', 'A-14-45', 'Alluminium', 'Minor Metals', 'metel', 'three', '2020-11-04 14:50:00', '2020-11-04 14:50:00', 'Emd Details', '2020-11-01', 20000, 1000, 20, 0, 0, 20, 'yes', 2000, '2days', '2020-11-04 14:53:00', 1),
+(5, 'AUC/sss/Minor Metals/17/28/6', 'A-17-14', 'sss', 'Minor Metals', 'sss', 'one', '2020-11-04 17:29:00', '2020-11-04 17:34:00', 'ssss', '2020-11-01', 0, 0, 0, 0, 0, 0, 'sss', 0, '2days', '2020-11-04 17:34:00', 1),
+(6, 'AUC/sss/Minor Metals/17/29/52', 'A-17-6', 'sss', 'Minor Metals', 'sss', 'four', '2020-11-04 17:32:00', '2020-11-04 17:32:00', 'sss', '2020-12-06', 0, 0, 0, 0, 0, 0, 'sss', 0, '2', '2020-11-04 17:36:00', 0),
+(7, 'AUC/Find/Ferrous/19/50/9', 'A-19-26', 'Find', 'Ferrous', 'Find', 'one', '2020-11-04 19:55:00', '2020-11-04 19:51:00', 'find', '2020-11-01', 1000000, 10000, 20000, 0, 0, 20000, '20000', 20000, '2days', '2020-11-04 19:56:00', 0),
+(8, 'AUC/price/Non Ferrous/20/42/45', 'A-20-7', 'pride', 'Non Ferrous', 'mind', 'four', '2020-11-04 20:50:00', '2020-11-04 20:49:00', 'mind', '2020-11-29', 8522, 65656, 41343521, 0, 0, 20, '35453', 56413, '2days', '2020-11-04 20:50:00', 1),
+(9, 'AUC/price/Non Ferrous/20/42/45', 'A-20-12', 'kit', 'Non Ferrous', 'hight', 'four', '2020-11-04 20:51:00', '2020-11-04 20:47:00', 'right', '2020-11-29', 545645, 545341, 135454, 0, 0, 5135453, '153143', 1351, '2days', '2020-11-04 20:51:00', 0);
 
 -- --------------------------------------------------------
 
@@ -122,23 +127,23 @@ CREATE TABLE `auction` (
 --
 
 INSERT INTO `auction` (`id`, `sname`, `scompanyname`, `scompanyid`, `scategory`, `sauctionid`, `svinspection`, `sonlineaucdate_time`, `sterms_condiaccept`, `sterms_condiupload`, `sterms_text`, `sterms_conditype`, `adminapprovalstatus`, `sapproval`, `sdownload`, `saction`, `sauctionstatus`, `saucstartdate_time`, `saucclosedate_time`, `adstatus`, `adaction`, `reauction`, `stotalauction`, `bwishlist`, `bemdstatus`) VALUES
-(1, 'asdad', NULL, NULL, 'Minor Metals', 'AUC/asdad/Minor Metals/11/10/28', 'asdasd', '2020-10-30 11:15:00', 1, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(2, 'dsdasd', NULL, NULL, 'Non Ferrous', 'AUC/dsdas/Non Ferrous/11/13/21', 'asdasdad', '2020-10-30 11:18:00', 1, 'a:1:{i:0;s:14:\"Aluminium1.jpg\";}', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1, 'asdad', NULL, NULL, 'Minor Metals', 'AUC/asdad/Minor Metals/11/10/28', 'asdqda', '2020-11-04 19:53:00', 1, 'N;', '', NULL, NULL, NULL, NULL, NULL, NULL, '2020-11-19 20:13:59.000000', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 'dsdasd', NULL, NULL, 'Select', 'AUC/dsdas/Non Ferrous/11/13/21', 'zxzZX', '2020-11-05 10:21:00', 1, 'N;', '', NULL, NULL, NULL, NULL, NULL, NULL, '2020-11-03 20:14:06.000000', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (3, 'dddd', NULL, NULL, 'Minor Metals', 'AUC/dddd/Minor Metals/11/14/40', 'dddd', '2020-10-30 11:20:00', 1, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (4, 'ASASA', NULL, NULL, 'Non Ferrous', 'AUC/ASASA/Non Ferrous/11/15/31', 'ASas', '2020-10-30 15:15:00', 1, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (5, 'sadasd', NULL, NULL, 'Minor Metals', 'AUC/sad/Minor Metals/11/16/50', 'asdasd', '2020-10-30 11:21:00', 1, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (6, 'erte', NULL, NULL, 'Minor Metals', 'AUC/erte/Minor Metals/11/17/35', 'ertert', '2020-10-30 11:23:00', 1, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (7, 'see', NULL, NULL, 'Minor Metals', 'AUC/see/Minor Metals/11/48/10', 'eee', '2020-10-30 11:53:00', 1, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (8, 'sasda', NULL, NULL, 'Minor Metals', 'AUC/sasda/Minor Metals/11/49/7', 'asdasd', '2020-10-30 11:54:00', 1, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(9, 'seee', NULL, NULL, 'Minor Metals', 'AUC/seee/Minor Metals/11/53/47', 'seee', '2020-10-30 11:59:00', 1, 'a:1:{i:0;s:13:\"aug_(5)23.pdf\";}', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(9, 'seee', NULL, NULL, 'Non Ferrous', 'AUC/seee/Minor Metals/11/53/47', 'saas', '2020-11-05 10:19:00', 1, 'a:2:{i:0;s:12:\"aug_(4)1.pdf\";i:1;s:13:\"aug_(5)23.pdf\";}', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (10, 'DDD', NULL, NULL, 'Non Ferrous', 'AUC/DDD/Non Ferrous/12/52/26', 'DDD', '2020-10-30 12:58:00', NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(11, 'sss', NULL, NULL, 'Non Ferrous', 'AUC/sss/Non Ferrous/13/12/11', 'sss', '2020-10-30 13:18:00', NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(11, 'sss', NULL, NULL, 'Select', 'AUC/sss/Non Ferrous/13/12/11', 'ddd', '2020-11-04 17:36:00', 0, 'N;', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (12, 'www', NULL, NULL, 'Non Ferrous', 'AUC/www/Non Ferrous/13/14/15', 'www', '2020-10-30 13:20:00', 1, 'a:1:{i:0;s:14:\"Aluminium2.jpg\";}', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (13, 'eee', NULL, NULL, 'Non Ferrous', 'AUC/eee/Non Ferrous/13/35/44', 'eee', '2020-10-30 13:40:00', 1, 'a:1:{i:0;s:14:\"Aluminium3.jpg\";}', 'dddd', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (14, 'xxx', NULL, NULL, 'Minor Metals', 'AUC/xxx/Minor Metals/13/40/0', 'xxxx', '2020-10-30 13:45:00', 1, NULL, 'xxxx', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (15, 'ccc', NULL, NULL, 'All Construction Materials', 'AUC/ccc/All Construction Materials/13/46/44', 'ccc', '2020-10-30 13:51:00', 1, NULL, 'cccc', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (16, 'zzzz', NULL, NULL, 'Minor Metals', 'AUC/zzzz/Minor Metals/13/49/16', 'zzzzzzzz', '2020-10-30 13:56:00', 1, NULL, 'sssssss', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(17, 'sss', NULL, NULL, 'Minor Metals', 'AUC/sss/Minor Metals/13/51/37', 'sss', '2020-10-30 13:56:00', 1, NULL, 'gggg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(17, 'sss', NULL, NULL, 'Select', 'AUC/sss/Non Ferrous/13/12/11', 'ddd', '2020-11-04 17:36:00', 0, 'N;', 'gggg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (18, 'qqq', NULL, NULL, 'Non Ferrous', 'AUC/qqq/Non Ferrous/13/56/20', 'qqqq', '2020-10-30 13:02:00', 1, 'a:1:{i:0;s:14:\"Aluminium4.jpg\";}', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (19, 'aaa', NULL, NULL, 'Non Ferrous', 'AUC/aaa/Non Ferrous/15/10/46', 'aaa', '2020-10-30 15:15:00', 1, 'a:1:{i:0;s:13:\"aug_(5)24.pdf\";}', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (20, 'aaa', NULL, NULL, 'Non Ferrous', '', 'aaa', '2020-10-30 15:15:00', 1, 'a:1:{i:0;s:13:\"aug_(5)25.pdf\";}', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
@@ -146,19 +151,25 @@ INSERT INTO `auction` (`id`, `sname`, `scompanyname`, `scompanyid`, `scategory`,
 (22, 'ccc', NULL, NULL, 'Non Ferrous', 'AUC/ccc/Non Ferrous/15/25/23', 'ccc', '2020-10-30 15:30:00', 1, 'a:1:{i:0;s:13:\"aug_(4)14.pdf\";}', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (23, 'xx', NULL, NULL, 'Non Ferrous', 'AUC/xx/Non Ferrous/15/42/9', 'xxx', '2020-10-30 15:47:00', 1, NULL, 'xxxx', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (24, 'xxx', NULL, NULL, 'Ferrous', 'AUC/xxx/Ferrous/15/43/33', 'xxx', '2020-10-30 15:48:00', 1, NULL, 'xxxx', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(25, 'sss', NULL, NULL, 'Non Ferrous', 'AUC/sss/Non Ferrous/17/14/13', 'sss', '2020-11-02 17:19:00', 1, NULL, 'sss', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(25, 'sss', NULL, NULL, 'Select', 'AUC/sss/Non Ferrous/13/12/11', 'ddd', '2020-11-04 17:36:00', 0, 'N;', 'sss', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (26, 'ddd', NULL, NULL, 'Granules', 'AUC/ddd/Granules/17/15/32', 'dd', '2020-11-02 17:19:00', 1, NULL, 'ddd', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (27, 'ss', NULL, NULL, 'Plain paper', 'AUC/ss/Plain paper/17/28/0', 'sss', '2020-11-02 17:31:00', 1, NULL, 'ssss', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(28, 'sss', NULL, NULL, 'Non Ferrous', 'AUC/sss/Non Ferrous/17/28/50', 'sss', '2020-11-02 17:33:00', 1, NULL, 'dddd', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(28, 'sss', NULL, NULL, 'Select', 'AUC/sss/Non Ferrous/13/12/11', 'ddd', '2020-11-04 17:36:00', 0, 'N;', 'dddd', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (29, 'www', NULL, NULL, 'Ferrous', 'AUC/www/Ferrous/17/29/22', 'www', '2020-11-02 17:33:00', 1, NULL, 'www', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(30, 'sss', NULL, NULL, 'Non Ferrous', 'AUC/sss/Non Ferrous/17/30/11', 'sss', '2020-11-02 17:31:00', 1, NULL, 'sss', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(30, 'sss', NULL, NULL, 'Select', 'AUC/sss/Non Ferrous/13/12/11', 'ddd', '2020-11-04 17:36:00', 0, 'N;', 'sss', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (31, 'gggg', NULL, NULL, 'Minor Metals', 'AUC/gggg/Minor Metals/17/32/9', 'ggg', '2020-11-02 17:37:00', 1, NULL, 'ggg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(32, 'sss', NULL, NULL, 'Plain paper', 'AUC/sss/Plain paper/17/33/47', 'sss', '2020-11-02 17:38:00', 1, NULL, 'sss', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(33, 'sss', NULL, NULL, 'Ferrous', 'AUC/ss/Ferrous/17/34/28', 'sss', '2020-11-02 17:39:00', 1, NULL, 'sss', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(32, 'sss', NULL, NULL, 'Select', 'AUC/sss/Non Ferrous/13/12/11', 'ddd', '2020-11-04 17:36:00', 0, 'N;', 'sss', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(33, 'sss', NULL, NULL, 'Select', 'AUC/sss/Non Ferrous/13/12/11', 'ddd', '2020-11-04 17:36:00', 0, 'N;', 'sss', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (34, '9ol.', NULL, NULL, 'Minor Metals', 'AUC/9ol./Minor Metals/17/48/31', '9ol.', '2020-11-03 22:48:00', 1, NULL, '9ol.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (35, 'csd', NULL, NULL, 'Non Ferrous', 'AUC/csd/Non Ferrous/20/49/53', 'csd', '2020-11-03 20:49:00', 1, NULL, 'cwdscdec', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (36, 'XSS', NULL, NULL, 'Non Ferrous', 'AUC/XSS/Non Ferrous/20/58/36', 'DSDA', '2020-11-03 20:58:00', 1, NULL, 'DAD', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(37, 'sss', NULL, NULL, 'Non Ferrous', 'AUC/sss/Non Ferrous/21/1/33', 'DSDA', '2020-11-03 20:58:00', 1, NULL, 'DAD', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(37, 'sss', NULL, NULL, 'Select', 'AUC/sss/Non Ferrous/13/12/11', 'ddd', '2020-11-04 17:36:00', 0, 'N;', 'DAD', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(38, 'seema', 'seema.pvt.ltd.', NULL, 'Non Ferrous', 'AUC/seema/Minor Metals/14/45/43', 'fefwerwerw', '2020-11-04 14:53:00', 1, 'a:2:{i:0;s:9:\"iron4.jpg\";i:1;s:13:\"Aluminium.jpg\";}', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(39, 'sss', NULL, NULL, 'Select', 'AUC/sss/Non Ferrous/13/12/11', 'ddd', '2020-11-04 17:36:00', 0, 'N;', 'sss', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(40, 'sss', NULL, NULL, 'Select', 'AUC/sss/Non Ferrous/13/12/11', 'ddd', '2020-11-04 17:36:00', 0, 'N;', 'sss', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(41, 'seem', NULL, NULL, 'Minor Metals', 'AUC/seem/Minor Metals/19/45/18', 'see', '2020-11-04 19:51:00', 1, NULL, 'see', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(42, 'Find', NULL, NULL, 'Ferrous', 'AUC/Find/Ferrous/19/51/39', 'es', '2020-11-04 19:57:00', 1, 'N;', 'Find', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(43, 'price', NULL, NULL, 'Non Ferrous', 'AUC/price/Non Ferrous/20/42/45', 'pray', '2020-11-04 01:42:00', 1, 'a:1:{i:0;s:11:\"aug_(2).pdf\";}', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -515,7 +526,7 @@ ALTER TABLE `subcategories`
 -- AUTO_INCREMENT for table `addlot`
 --
 ALTER TABLE `addlot`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `adminprofile`
@@ -527,7 +538,7 @@ ALTER TABLE `adminprofile`
 -- AUTO_INCREMENT for table `auction`
 --
 ALTER TABLE `auction`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `biddercart`

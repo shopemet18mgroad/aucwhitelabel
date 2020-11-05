@@ -1,5 +1,6 @@
 <?php 
 	//include('./header.php');
+	
 ?>
         <!-- End of Topbar -->
 
@@ -159,7 +160,7 @@
 						
 							<tr>
 								<td class="btxt">Upload Documents:</td>
-								<td><?php echo $sqldata[0]->buploadimage1; ?></td>
+								<td><?php echo $sqldata[0]->buploadimagepic; ?></td>
 							</tr>							
 							</form>					
 						</tbody>
