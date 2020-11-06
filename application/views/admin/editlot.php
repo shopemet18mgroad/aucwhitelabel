@@ -57,12 +57,13 @@
 	  <tr>  												
 		<td>Location Of Lot</td>
 		<td><select class="form-control w-50" id="slotlocation" name="slotlocation" value="<?php echo $sqldata[0]->slotlocation; ?>">
-				<option value="one" selected>Hydrabad</option>
-				<option value="two">Mangalore</option>
-				<option value="three" >Bangalore</option>
-				<option value="four">Mysore</option>
-				<option value="five">Mumbai</option>
-				<option value="six">Delhi</option>
+				<option value="Select" selected>Select</option>
+				<option value="Mangalore">Mangalore</option>
+				<option value="Bangalore" >Bangalore</option>
+				<option value="Mysore">Mysore</option>
+				<option value="Mumbai">Mumbai</option>
+				<option value="Delhi">Delhi</option>
+				<option value="Delhi">Hydrabad</option>
 				</select></td>
 	</tr>
 	<tr>  												
@@ -102,22 +103,24 @@ From:
 	<tr>
 		<td>Unit Of Measurment</td>
 		<td><select class="form-control w-50" id="sunitmeasurment" name="sunitmeasurment" value="<?php echo $sqldata[0]->sunitmeasurment; ?>">
-				<option value="one" selected>Gram</option>
-				<option value="two">Kilogram</option>
-				<option value="three">Tonne</option>
-				<option value="four">Megatonne</option>
-				<option value="five">Gigatonne</option>
+				<option value="KG" selected>KG</option>
+				<option value="Matric Tone">Matric Tone</option>
+				<option value="Lot">Lot</option>
+				<option value="Litters">Litters</option>
+				<option value="Numbers">Numbers</option>
+				<option value="Meters">Meters</option>
 				</select></td>
 	</tr>
 	
 	<tr>
 		<td>Bid Base</td>
 		<td><select class="form-control w-50" id="sbidbase" name="sbidbase" value="<?php echo $sqldata[0]->sbidbase; ?>">
-				<option value="one" selected>Gram</option>
-				<option value="two">Kilogram</option>
-				<option value="three">Tonne</option>
-				<option value="four">Megatonne</option>
-				<option value="five">Gigatonne</option>
+				<option value="KG" selected>KG</option>
+				<option value="Matric Tone">Matric Tone</option>
+				<option value="Lot">Lot</option>
+				<option value="Litters">Litters</option>
+				<option value="Numbers">Numbers</option>
+				<option value="Meters">Meters</option>
 				</select></td>
 	</tr>
 	<tr>

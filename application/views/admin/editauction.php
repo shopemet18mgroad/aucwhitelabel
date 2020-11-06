@@ -228,9 +228,18 @@ Bidders participating in AucJunction Auctions should verify with the selling com
 			<div class="form-group" id="text"  style="display:none">
 				<input type="file" class="form-control-file" id="sterms_condiupload" name="sterms_condiupload[]" multiple= "multiple">
 			</div>
+			<div class="form-check form-check-inline">
+			<input type="checkbox" class="form-check-input" id="idCheck" onclick="myFunction()" name="sterms_condiupload1[]">
+			<label class="form-check-label" for="idCheck" >No</label>
+			</div>
+			<div class="form-group" id="text2" style="display:none">
+			<textarea class="form-control w-50" type="text" id="sterms_text" name="sterms_text" <?php echo $sqldata[0]->sterms_text;?> ></textarea>
+			</div>
+			</td>
+  </tr>
 			<?php 
  							  if(unserialize($sqldata[0]->sterms_condiupload) != NULL){
-								$file = unserialize($sqldata[0]->ssigneddocument);
+								$file = unserialize($sqldata[0]->sterms_condiupload);
 								  foreach($file as $fl){
 								echo '<tr id="filess">';
 								echo '<td class="btxt">Existing Documents</td>';
@@ -250,15 +259,7 @@ Bidders participating in AucJunction Auctions should verify with the selling com
 							
 							?>
 			
-			<div class="form-check form-check-inline">
-			<input type="checkbox" class="form-check-input" id="idCheck" onclick="myFunction()" name="sterms_condiupload1[]">
-			<label class="form-check-label" for="idCheck" >No</label>
-			</div>
-			<div class="form-group" id="text2" style="display:none">
-			<textarea class="form-control w-50" type="text" id="sterms_text" name="sterms_text" <?php echo $sqldata[0]->sterms_text;?> ></textarea>
-			</div>
-			</td>
-  </tr>
+			
   
  
   

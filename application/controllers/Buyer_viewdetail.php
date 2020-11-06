@@ -35,7 +35,9 @@ class Buyer_viewdetail extends CI_Controller {
 		$this->load->model('Admin_model');
 		$data['sqldata'] = $this->Admin_model->getdatafromtable('addlot',$retriveval);
 		
-		$this->load->view('buyer/header');
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('buyer/header',$sess);
 		$this->load->view('buyer/viewdetail',$data);
 		$this->load->view('buyer/footer');
 		
@@ -50,7 +52,9 @@ class Buyer_viewdetail extends CI_Controller {
 		$this->load->model('Admin_model');
 		$data['sqldata'] = $this->Admin_model->getdatafromtable('addlot',$retriveval);
 		$this->load->helper('url');
-		$this->load->view('buyer/header');
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('buyer/header',$sess);
 		$this->load->view('buyer/viewdetail', $data);
 		$this->load->view('buyer/footer');
 	}
@@ -64,7 +68,9 @@ class Buyer_viewdetail extends CI_Controller {
 		$this->load->model('Admin_model');
 		$data['sqldata'] = $this->Admin_model->getdatafromtable('addlot',$retriveval);
 		$this->load->helper('url');
-		$this->load->view('buyer/header');
+	$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('buyer/header',$sess);
 		$this->load->view('buyer/viewdetail', $data);
 		$this->load->view('buyer/footer');
 	} 
