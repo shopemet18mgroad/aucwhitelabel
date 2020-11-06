@@ -94,7 +94,7 @@
 					<td><?php echo $sqldata[0]->sqty; ?></td>
 					<td><?php echo $sqldata[0]->sgst; ?></td>
 					<td><?php echo $sqldata[0]->slotlocation; ?></td>
-					<td><a href="#"><button type="button" class="btn btn-info">Accept</button></a>
+					<td><a href="#"><button type="button" class="btn btn-info" name="accept" >Accept</button></a>
 						<a href="#"><button type="button" class="btn btn-info">Reject</button></a></td>
 			</tr>
 		
