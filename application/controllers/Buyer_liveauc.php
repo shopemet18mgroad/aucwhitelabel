@@ -27,49 +27,7 @@ class Buyer_liveauc extends CI_Controller {
 		
 	}
 	
-	public function get_table(){
-		$datatoquerydb = $this->uri->segment(3);
-		$this->load->model('Admin_model');
-		$data = $this->Admin_model->get_lookalike('auction','sauctionid',$datatoquerydb);
-		if(count($data)){
-			echo '<table class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';
-			echo '<thead class="bg-primary text-white">';
-			echo '<tr>';
-			echo '<th>Auction Id</th>';
-			
-			echo '</tr>';
-			echo '</thead>';
-			echo '<tbody>';
-			foreach($data as $dat){
-				echo '<tr>';
-				echo '<td><a href="'.base_url().'buyer_liveauc_2/liveauc_2/'.$dat['sauctionid'].
-				'">';
-				echo  $dat['sauctionid'];
-				echo '</a>';
-				echo '</td>';
-			
-				echo '</tr>';
-			}
-			echo '</tbody>';
-			echo '</table>';
-		}else{
-			echo '<table class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';
-			echo '<thead class="bg-primary text-white">';
-			echo '<tr>';
-			echo '<th>Auction Id</th>';
-			echo '</tr>';
-			echo '</thead>';
-			echo '<tbody>';
-			echo '<tr>';
-				echo '<td><a href="'.base_url().'#">';
-				echo '</tr>';
-			echo '</tbody>';
-			echo '</table>';
-		}
 
-
-
-	}
 	
 	
 	
