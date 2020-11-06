@@ -36,10 +36,10 @@
 
 				<tbody>
 				<tr>
-					<td><a href="#"><?php echo $sqldata[0]->sauctionid; ?></a></</td>
+					<td><b><?php echo $sqldata[0]->sauctionid; ?></b></td>
 					<td><?php echo $sqldata[0]->saucstartdate_time; ?></td>
 					<td><?php echo $sqldata[0]->saucclosedate_time; ?></td>
-					<td><?php echo $sqldata[0]->scategory; ?></td>
+					<td><?php echo $sqldata[0]->semdamount; ?></td>
 				</tr>
 				</tbody>
 		 </table>
@@ -64,17 +64,17 @@
 				<tr>
 					<td><?php echo $sqldata[0]->scompanyid; ?></td>
 					<td><?php echo $sqldata[0]->sname; ?></td>
-					<td>Bangalore</td>
-					<td>Shashi Nagar</td>
-					<td>Bangalore-560013</td>
-					<td>2238521</td>
-					<td>XYZ@gmail.com</td>
-					<td>Shri S.K. Reddy</td>
+					<td><?php echo $sqldata[0]->saddress; ?></td>
+					<td><?php echo $sqldata[0]->sstreet; ?></td>
+					<td><?php echo $sqldata[0]->scity; ?></td>
+					<td><?php echo $sqldata[0]->sphone; ?></td>
+					<td><?php echo $sqldata[0]->semail; ?></td>
+					<td><?php echo $sqldata[0]->scontactperson; ?></td>
 				</tr>
 				</tbody>
 		 </table>
 		
-		<table class="table table-striped table-sm table-bordered mt-4 w-auto text-center" id="dataTable" width="100%" cellspacing="0">
+		<table class="table table-striped  table-bordered mt-4  text-center " id="dataTable" width="100%" cellspacing="0">
 				<thead class="bg-primary text-white">
 				<tr>
 					<th>Lot No</th>
@@ -88,24 +88,16 @@
 				</thead>
 
 				<tbody>
-				<tr><td>101</td>												
-					<td>Horizontal Boring Machine</td>
-					<td>In machining, boring is the process of enlarging a hole that has already been drilled.</td>
-					<td>1.0 Lot</td>
-					<td>18.0</td>
-					<td>Bangalore-KA</td>
-					<td><a href="#"><button type="button" class="btn btn-info btn-sm mt-2">Accept</button></a>
-						<a href="#"><button type="button" class="btn btn-info btn-sm offset-sm-1 mt-2">Reject</button></a></td>
+				<tr><td><?php echo $sqldata[0]->slotno; ?></td>												
+					<td><?php echo $sqldata[0]->slotname; ?></td>
+					<td><?php echo $sqldata[0]->sdescription; ?></td>
+					<td><?php echo $sqldata[0]->sqty; ?></td>
+					<td><?php echo $sqldata[0]->sgst; ?></td>
+					<td><?php echo $sqldata[0]->slotlocation; ?></td>
+					<td><a href="#"><button type="button" class="btn btn-info">Accept</button></a>
+						<a href="#"><button type="button" class="btn btn-info">Reject</button></a></td>
 			</tr>
-			<tr><td>102</td>												
-				<td>Cast Iron</td>
-				<td>In machining, boring is the process of enlarging a hole that has already been drilled.</td>
-				<td>1.0 Lot</td>
-				<td>20.0</td>
-				<td>Bangalore-KA</td>
-				<td><a href="#"><button type="button" class="btn btn-info btn-sm mt-2">Accept</button></a>
-					<a href="#"><button type="button" class="btn btn-info btn-sm offset-sm-1 mt-2">Reject</button></a></td>
-			</tr>
+		
 		
 				</tbody>
 			 </table>

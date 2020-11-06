@@ -21,7 +21,9 @@ class Buyer_detailedauc extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper(array('url','html'));
-		$this->load->view('buyer/header');
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('buyer/header',$sess);
 		$this->load->view('buyer/detailedauc');
 		$this->load->view('buyer/footer');
 		
