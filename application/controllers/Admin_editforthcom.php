@@ -51,7 +51,7 @@ class Admin_editforthcom extends CI_Controller {
 			echo '<tbody>';
 			foreach($data as $dat){
 				echo '<tr>';
-				echo '<td><a href="'.base_url().'admin_editforthcom_2/editforthcom_2/'.$dat['sname'].
+				echo '<td><a href="'.base_url().'admin_editforthcom_2/editforthcom_2/editlot/'.$dat['sname'].
 				'">';
 				echo $dat['sauctionid'];
 				echo '</a>';
@@ -69,7 +69,7 @@ class Admin_editforthcom extends CI_Controller {
 				echo '<td><a href="'.base_url().'Admin_editauction/editauction/'.$dat['sname'].'">';
 				echo '<i class="fa fa-edit"></i>';
 				echo '</a>';
-				echo '<a href="'.base_url().'Admin_editauction/delete_auction/'.$dat['sname'].'">';
+				echo '<a href="'.base_url().'Admin_editauction/delete_auction/'.$dat['sauctionid'].'">';
 				echo '<i class="fa fa-trash" style="color:black"></i>';
 				echo '</a>';
 				echo '</td>';
