@@ -62,19 +62,20 @@ class Admin_seller_basicinfo_update extends CI_Controller {
 		if($dataact && $datacomp){
 			$result = array_diff($dataact,$datacomp);
 			$result2 = array_intersect($dataact,$datacomp);
-		}
-		if(count($result)){
+			if(count($result)){
 			foreach($result as $res){
 			unlink(base_url()."web_files/uploads/".$res);
 			}
+			}
+			if(!count($result2) && !$_FILES['ssigneddocument']['name'][0]){
+				$datainserr = "Atleast One Signed Document Has To Uploaded";
+				header('location: '.base_url().'admin_editseller/edit_seller_alert/'.$scomapnyname.'/'.$datainserr);
+				die;
+			}
 		}
-		if(!count($result2) && !$_FILES['ssigneddocument']['name'][0]){
-			$datainserr = "Atleast One Signed Document Has To Uploaded";
-			header('location: '.base_url().'admin_editseller/edit_seller_alert/'.$scomapnyname.'/'.$datainserr);
-			die;
-		}
+		
 	    if($_FILES['suploadprofilepic']['tmp_name'][0]){
-			unlink(base_url()."web_files/uploads/".$profileimage[0]);
+			unlink("../web_files/uploads/".$profileimage[0]);
 			$pic_array = self::upload_files('suploadprofilepic');
 		}
 		if($_FILES['ssigneddocument']['tmp_name'][0]){
@@ -95,8 +96,13 @@ class Admin_seller_basicinfo_update extends CI_Controller {
 			echo '</script>';
 			$doc_array = serialize($result2);
 		}else{
-			$doc_array = array_merge($doc_array,$result2);
-			$doc_array = serialize($doc_array);
+			if($result2){
+				$doc_array = array_merge($doc_array,$result2);
+				$doc_array = serialize($doc_array);
+			}else{
+				$doc_array = serialize($doc_array);
+			}
+			
 		}
 		
 		//=================================================================================================
