@@ -42,6 +42,10 @@ class Admin_startauction_update extends CI_Controller {
 		if($dataact && $datacomp){
 			$result = array_diff($dataact,$datacomp);
 			$result2 = array_intersect($dataact,$datacomp);
+			if(!count($result2) && !$_FILES['sterms_condiupload']['name']){
+			$datainserr = "Atleast One Signed Document Has To Uploaded";
+			header('location: '.base_url().'admin_editauction/editauction_alert/'.$sauctionid.'/'.$datainserr);
+		}
 		}
 		
 		 /* if(count($result)){
@@ -49,10 +53,7 @@ class Admin_startauction_update extends CI_Controller {
 			unlink(base_url()."web_files/uploads/".$res);
 			} */
 	 
-		if(!count($result2) && !$_FILES['sterms_condiupload']['name']){
-			$datainserr = "Atleast One Signed Document Has To Uploaded";
-			header('location: '.base_url().'admin_editauction/editauction_alert/'.$sauctionid.'/'.$datainserr);
-		}
+		
 	   
 		 if($_FILES['sterms_condiupload']['tmp_name'][0]){
 			$doc_array = self::upload_files('sterms_condiupload');
@@ -65,8 +66,12 @@ class Admin_startauction_update extends CI_Controller {
 			echo '</script>';
 			$doc_array = serialize($result2);
 		}else{
-			$doc_array = array_merge($doc_array,$result2);
-			$doc_array = serialize($doc_array);
+			if($result2){
+				$doc_array = array_merge($doc_array,$result2);
+				$doc_array = serialize($doc_array);
+			}else{
+				$doc_array = serialize($doc_array);
+			}
 		} 
 		
 		//=================================================================================================

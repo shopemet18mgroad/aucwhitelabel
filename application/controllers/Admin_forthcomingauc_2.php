@@ -20,24 +20,39 @@ class Admin_forthcomingauc_2 extends CI_Controller {
 	 */
 	public function index()
 	{
+	
+		
 		$this->load->helper('url');
-
 		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->model('Admin_model');
 		$this->load->view('admin/header',$sess);
 		$this->load->view('admin/forthcomingauc_2');
 		$this->load->view('admin/footer');
 		
 	}
+
 	
 	public function forthcomingauc_2(){
+	
 		$retrivevaltmp = urldecode($this->uri->segment(3));
 		
 		$retriveval = array('sname'=>$retrivevaltmp);
 		$this->load->model('Admin_model');
-		$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
+		$this->db->select('*');
+			$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid', 'left');
 		
+		//$this->db->select('*');
+/* $this->db->join('addlot', 'addlot.ID = auction.ID');
+$this->db->join('sellerprofile', 'sellerprofile.ID = auction.ID');
+$this->db->from('auction'); */ 
+		//$this->db->join('addlot', 'addlot.ID = auction.ID', 'left');
+		//$this->db->join('sellerprofile', 'sellerprofile.ID = auction.ID', 'left');
+		
+		$data['sqldata'] = $this->Admin_model->getdatafromtable
+		('auction',$retriveval);
 		$this->load->helper('url');
+		
 		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('admin/header',$sess);
@@ -52,9 +67,10 @@ class Admin_forthcomingauc_2 extends CI_Controller {
 			echo '</script>';
 		$retriveval = array('sname'=>$retrivevaltmp);
 		$this->load->model('Admin_model');
+		
 		$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
 		$this->load->helper('url');
-	$this->load->library('session');
+		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('admin/header',$sess);
 		$this->load->view('admin/forthcomingauc_2', $data);
