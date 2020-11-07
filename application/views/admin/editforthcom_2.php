@@ -54,7 +54,7 @@
 				<?php foreach($sqldata as $sqldata[0]){?>
 				<tr>
 				
-					<td><b><?php echo $sqldata[0]->sauctionid; ?></b></td>
+					<td><b><?php echo str_ireplace("/","-",$sqldata[0]->sauctionid);?></b></td>
 					<td><?php echo $sqldata[0]->slotno; ?></td>
 					<td><?php echo $sqldata[0]->slotname; ?></td>
 					<td><?php echo $sqldata[0]->scategory; ?></td>
@@ -73,7 +73,7 @@
 					<td><?php echo $sqldata[0]->semdamount; ?></td>
 					<td><?php echo $sqldata[0]->sliftingperiod; ?><?php echo $sqldata[0]->sliftingperiod2; ?></td>
 					<td><?php echo $sqldata[0]->spcbcertificate; ?></td>
-					<td><a href="<?php echo base_url();?>Admin_editlot" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a>
+					<td><a href="<?php echo base_url()."Admin_editlot/editlot/".str_ireplace("/","-",$sqldata[0]->sauctionid)."/".urlencode($sqldata[0]->slotno);?>" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a>
 						<a class="btn btn-danger btn-sm text-white"><i class="fa fa-trash fa-sm"></i></a></td>	
 				</tr>
 			<?php }?>

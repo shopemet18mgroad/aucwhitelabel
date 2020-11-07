@@ -116,7 +116,89 @@ function validatestart(){
 	
 	}
           
+function validatestart_edit(){
+
+	var svinspection = document.getElementById("svinspection").value;
+	 var sonlineaucdate_time = document.getElementById("sonlineaucdate_time").value;
+	var sterms_text = document.getElementById("sterms_text").value;
+ var fileInput =  document.getElementById('sterms_condiupload');
+  var Yes =  document.getElementById('myCheck');
+  
+ 
+	
+	
+	if(svinspection == '' || sonlineaucdate_time == '' ){
+		swal("Alert!",  "Category, Seller, Venue Of Inspection, Online Auction Date cannot leave any field blank!", "error");
+		return false;
+	}
+	
+	
 		
+	
+	
+			if( $('input[name="sterms_condiaccept"]:checked').length == 0 )
+			{
+				swal("Alert!",  "Aucjunction Terms & Conditions Should Be Selected", "error");
+				return false;
+			}
+			 if(Yes.checked){
+					 if (!document.getElementById("sterms_condiupload").value) {
+				event.preventDefault();
+				swal("Alert!","Please choose a file!", "error");
+				return false; 			
+				}else{
+					var filePath = fileInput.value; 
+          
+            // Allowing file type 
+            var allowedExtensions =  /(\.doc|\.docx|\.png|\.pdf|\.jpg|\.xlsx|\.gif)$/i; 
+              
+            if (!allowedExtensions.exec(filePath)) { 
+                swal("Alert!",'Invalid file type',"error"); 
+                fileInput.value = ''; 
+                return false; 
+            }
+				}
+				
+			 }else{
+				  if (!document.getElementById("sterms_text").value) {
+				event.preventDefault();
+				swal("Alert!","Text Area Cannot Be Left Blank!", "error");
+				return false; 			
+				}
+			 }
+			 
+			 
+		 	
+
+				
+			 	if( $('input[name="sterms_condiupload1[]"]:checked').length == 0 )  
+			{ 
+				swal("Alert!",  "Please select one checkbox ", "error");
+				return false;
+			} 
+
+				/* else if(sterms_text == ''){
+		 swal("Alert!", "Please write", "error");
+		 return false;
+	 }
+			else{
+				return true;
+			} */
+				/* if (!document.getElementById("sterms_text").value) {
+            event.preventDefault();
+            swal("Alert!","Please writessss!", "error");
+			return false; 			
+        }  */
+			
+		 
+	
+            
+			 		
+			
+	
+
+	
+	}		
 			
 	
 

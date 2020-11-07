@@ -1,5 +1,6 @@
 <?php 
 	//include('./header.php');
+	
 ?>
         <!-- End of Topbar -->
 
@@ -30,7 +31,7 @@
 	 <form action="<?php echo base_url();?>Admin_addlot_update" method="POST" enctype="multipart/form-data">
 	<tr>
 		  <td width="11%">Auction Id</td>
-		  <td width="4%" style="text-color:blue;"> <input type="text" class="form-control w-50" id="sauctionid" name="sauctionid" value="<?php echo $sauctionid; ?>" readonly></td>
+		  <td width="4%" style="text-color:blue;"> <input type="text" class="form-control w-50" id="sauctionid" name="sauctionid" value="<?php echo $sqldata[0]->sauctionid; ?>" readonly></td>
 	  </tr>
 	  
 	  <tr>
@@ -52,33 +53,34 @@
 	  </tr>
 	   <tr>
 		  <td>Description</td>
-		  <td><textarea class="form-control w-75" type="text" id="sdescription" name="sdescription" value="<?php echo $sqldata[0]->sdescription; ?>"></textarea></td>
+		  <td><textarea class="form-control w-75" type="text" id="sdescription" name="sdescription" value="<?php echo $sqldata[0]->sdescription; ?>"><?php echo $sqldata[0]->sdescription; ?></textarea></td>
 	  </tr>
 	  <tr>  												
 		<td>Location Of Lot</td>
 		<td><select class="form-control w-50" id="slotlocation" name="slotlocation" value="<?php echo $sqldata[0]->slotlocation; ?>">
-				<option value="Select" selected>Select</option>
+				
+				<option value="<?php echo $sqldata[0]->slotlocation; ?>" selected><?php echo $sqldata[0]->slotlocation; ?></option>
 				<option value="Mangalore">Mangalore</option>
 				<option value="Bangalore" >Bangalore</option>
 				<option value="Mysore">Mysore</option>
 				<option value="Mumbai">Mumbai</option>
 				<option value="Delhi">Delhi</option>
-				<option value="Delhi">Hydrabad</option>
+				<option value="Hydrabad">Hydrabad</option>
 				</select></td>
 	</tr>
 	<tr>  												
 		<td>Inspection Date & Time</td>
 		<td>
-From: 	
-    <input class="form-control w-75" type="datetime-local" id="sfrominpectdate_time" name="sfrominpectdate_time" value="<?php echo $sqldata[0]->sfrominpectdate_time; ?>">
+From: 
+    <input class="form-control w-75" type="datetime-local" id="sfrominpectdate_time" name="sfrominpectdate_time" value="<?php echo date('Y-m-d\TH:i', strtotime($sqldata[0]->sfrominpectdate_time)); ?>">
  To:
-    <input class="form-control w-75" type="datetime-local"  id="stoinpectdate_time" name="stoinpectdate_time" value="<?php echo $sqldata[0]->stoinpectdate_time; ?>">
+    <input class="form-control w-75" type="datetime-local"  id="stoinpectdate_time" name="stoinpectdate_time" value="<?php echo date('Y-m-d\TH:i', strtotime($sqldata[0]->stoinpectdate_time)); ?>">
 </td>
 	</tr>
 	
 	<tr>
 		<td>EMD Details</td>
-		<td><textarea class="form-control w-75" type="text" id="semddetail" name="semddetail" value="<?php echo $sqldata[0]->semddetail; ?>"></textarea></td>
+		<td><textarea class="form-control w-75" type="text" id="semddetail" name="semddetail" value="<?php echo $sqldata[0]->semddetail; ?>"><?php echo $sqldata[0]->semddetail; ?></textarea></td>
 	</tr>
 	
 	<tr>
@@ -103,7 +105,8 @@ From:
 	<tr>
 		<td>Unit Of Measurment</td>
 		<td><select class="form-control w-50" id="sunitmeasurment" name="sunitmeasurment" value="<?php echo $sqldata[0]->sunitmeasurment; ?>">
-				<option value="KG" selected>KG</option>
+				<option value="<?php echo $sqldata[0]->sunitmeasurment; ?>"><?php echo $sqldata[0]->sunitmeasurment; ?></option>
+				<option value="KG">KG</option>
 				<option value="Matric Tone">Matric Tone</option>
 				<option value="Lot">Lot</option>
 				<option value="Litters">Litters</option>
@@ -115,7 +118,8 @@ From:
 	<tr>
 		<td>Bid Base</td>
 		<td><select class="form-control w-50" id="sbidbase" name="sbidbase" value="<?php echo $sqldata[0]->sbidbase; ?>">
-				<option value="KG" selected>KG</option>
+				<option value="<?php echo $sqldata[0]->sunitmeasurment; ?>" selected><?php echo $sqldata[0]->sunitmeasurment; ?></option>
+				<option value="KG">KG</option>
 				<option value="Matric Tone">Matric Tone</option>
 				<option value="Lot">Lot</option>
 				<option value="Litters">Litters</option>
@@ -138,17 +142,19 @@ From:
     </tr>	
 	<tr>
 		<td>Lifting Period</td>
-		<td><input class="form-control w-75" type="datetime-local" id="sliftingperiod2" name="sliftingperiod2" value="<?php echo $sqldata[0]->sliftingperiod2; ?>">
+		<td><input class="form-control w-75" type="datetime-local" id="sliftingperiod2" name="sliftingperiod2" value="<?php echo date('Y-m-d\TH:i', strtotime($sqldata[0]->sliftingperiod2)); ?>">
 		<input class="form-control w-50 mt-2" type="text" id="sliftingperiod" name="sliftingperiod" placeholder="Exp.15 days" value="<?php echo $sqldata[0]->sliftingperiod; ?>"></td>
     </tr>
 	<tr>
 		<td>PCB Certificate</td>
 		<td><div class="form-check form-check-inline">
-			<input type="checkbox" class="form-check-input" id="spcbcertificate1[]" name="spcbcertificate" value="<?php echo $sqldata[0]->spcbcertificate; ?>">
+			<input type="checkbox" class="form-check-input" id="spcbcertificate1[]" name="spcbcertificate" value="YES" <?php
+if($sqldata[0]->spcbcertificate){echo "checked";}else{echo "unchecked";}		?>>
 			<label class="form-check-label" for="exampleCheck1">Yes</label>
 			</div>
 			<div class="form-check form-check-inline">
-			<input type="checkbox" class="form-check-input" id="spcbcertificate2[]" name="spcbcertificate" value="<?php echo $sqldata[0]->spcbcertificate; ?>">
+			<input type="checkbox" class="form-check-input" id="spcbcertificate2[]" name="spcbcertificate" value="NO" <?php
+if($sqldata[0]->spcbcertificate){echo "unchecked";}else{echo "checked";}		?>>
 			<label class="form-check-label" for="exampleCheck1">No</label>
 			</div></td>
     </tr>
@@ -157,7 +163,7 @@ From:
   </table>
   
   <center>
-	<input type="submit" name="submit2" onclick="return validatelot()" class="btn btn-info text-white" data-dismiss="modal" value="Add Another Lot">
+	<input type="submit" name="submit2" onclick="return validatelot()" class="btn btn-info text-white" data-dismiss="modal" value="Update Lot">
  
  <input type="submit"  name="submit" onclick="return validatelot()" class="btn btn-info text-white" value="Submit" data-dismiss="modal">
   </center>
