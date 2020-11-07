@@ -20,24 +20,24 @@
           <div class="card shadow mb-4">
             <div class="card-body">
               <div class="table-responsive">
-			  <form class="form-inline">
-					<div class="form-group mr-4 offset-sm-4">
-						<td colspan="5">
-						<!-- <form action="/action_page.php"> -->
-								<label for="gettable"></label>
-								<input type="text" class="form-control gettable" id="gettable" placeholder="Enter Company Name To Fetch Result"  size="70" name="search">
-								
-								<!--<button class="form-control" type="submit"><i class="fa fa-search"></i></button>-->
+			  <table class="table table-striped table-sm text-center table-bordered " id="dataTable" width="100%" cellspacing="0">
+				<thead class="bg-primary text-white">
+				<tr>
+					<th width="60%">Click for Auction</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>												
+					<td><a href="<?php echo base_url();?>Buyer_liveauc_2">AUC/Anita/Ferrous/16/53/37</a></td></tr>
+					<tr>												
+					<td><a href="<?php echo base_url();?>Buyer_liveauc_2">AUC/Anita/Ferrous/16/53/37</a></td></tr>
+					<tr>												
+					<td><a href="<?php echo base_url();?>Buyer_liveauc_2">AUC/Anita/Ferrous/16/53/37</a></td></tr>
 					
-						<!-- </form> -->
-					</td>
-				</div>
-			</form>
-		<div class="ajaxrslt" id="ajaxrslt">
-			<!----Insert Ajax Table Here------>
-			
-			<!---- ------>
-		</div>
+				</tr>
+				
+				</tbody>
+		 </table>
 		
 		</div>
 		</div>
