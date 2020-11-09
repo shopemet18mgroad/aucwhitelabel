@@ -1,6 +1,5 @@
 <?php 
 	//include('./header.php');
-	
 ?>
         <!-- End of Topbar -->
 
