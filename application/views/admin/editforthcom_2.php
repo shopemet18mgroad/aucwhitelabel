@@ -20,14 +20,15 @@
           <div class="card shadow mb-4">
             <div class="card-body">
               <div class="table-responsive">
-				<table class="table table-striped   w-auto small table-bordered mt-4 text-center" id="dataTable" width="100%" cellspacing="0">
+				<table class="table table-striped w-auto small table-bordered mt-4 text-center" id="dataTable" width="100%" cellspacing="0">
 				<thead class="bg-warning  text-white text-center">
-					<th colspan="21">Lot Details</th>
+					<th colspan="21"><b>Lot Details</b></th>
 				</thead>
 				<thead class="bg-primary text-white">
 				
 				<tr>
 					<td>Auction Id</td>
+					<td>Seller</td>
 					<td>Lot No</td>
 					<td>Lot Name</td>
 					<td>Category</td>
@@ -55,6 +56,7 @@
 				<tr>
 				
 					<td><b><?php echo str_ireplace("/","-",$sqldata[0]->sauctionid);?></b></td>
+					<td><?php echo $sqldata[0]->sname; ?></td>
 					<td><?php echo $sqldata[0]->slotno; ?></td>
 					<td><?php echo $sqldata[0]->slotname; ?></td>
 					<td><?php echo $sqldata[0]->scategory; ?></td>
@@ -74,7 +76,6 @@
 					<td><?php echo $sqldata[0]->sliftingperiod; ?><?php echo $sqldata[0]->sliftingperiod2; ?></td>
 					<td><?php echo $sqldata[0]->spcbcertificate; ?></td>
 
-					<td><a href="<?php echo base_url();?>admin_editlot/editlot" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a>
 
 					<td><a href="<?php echo base_url()."Admin_editlot/editlot/".str_ireplace("/","-",$sqldata[0]->sauctionid)."/".urlencode($sqldata[0]->slotno);?>" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a>
 

@@ -59,10 +59,14 @@
 
 	  </tr>
 	  
+	  <tr>
+		  <td>Seller Company Name</td>
+		  <td><input class="form-control w-50"  type="text" id="scompanyname" name="scompanyname" value="<?php echo $sqldata[0]->scompanyname; ?>">
+		</td>
+	  </tr>
+	  
 	  <tr>											
 		  <td>Venue Of Inspection</td>
-
-		  <td><textarea class="form-control w-50" type="text" id="svinspection" name="svinspection" value=""><?php echo $sqldata[0]->svinspection; ?></textarea></td>
 
 
 
@@ -72,8 +76,10 @@
 	  </tr>
 	  
 	  <tr>
-		<td>Online Auction Date</td>
-		<td><input class="form-control w-75" id="sonlineaucdate_time" name="sonlineaucdate_time" type="datetime-local" value="<?php echo date('Y-m-d\TH:i', strtotime($sqldata[0]->sonlineaucdate_time)); ?>">
+		<td>Online Auction Start And End Date</td>
+		<td><input class="form-control w-75" id="saucstartdate_time" name="saucstartdate_time" type="datetime-local" value="<?php echo date('Y-m-d\TH:i', strtotime($sqldata[0]->saucstartdate_time)); ?>">
+		
+		<input class="form-control w-75" id="saucclosedate_time" name="saucclosedate_time" type="datetime-local" value="<?php echo date('Y-m-d\TH:i', strtotime($sqldata[0]->saucclosedate_time)); ?>">
 		</td>
 	</tr>
 	

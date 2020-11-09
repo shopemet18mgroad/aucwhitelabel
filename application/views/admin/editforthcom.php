@@ -25,7 +25,7 @@
 						<td colspan="5">
 						<!-- <form action="/action_page.php"> -->
 								<label for="gettable"></label>
-								<input type="text" class="form-control gettable" id="gettable_editauction" placeholder="Enter Company Name To Fetch Result"  size="70" name="search">
+								<input type="text" class="form-control gettable" id="gettable_editforth" placeholder="Enter Company Name To Fetch Result"  size="70" name="search">
 								
 								<!--<button class="form-control" type="submit"><i class="fa fa-search"></i></button>-->
 					
@@ -33,7 +33,7 @@
 					</td>
 				</div>
 			</form>
-		<div class="ajaxrslt" id="ajaxrslt_editauction">
+		<div class="ajaxrslt" id="ajaxrslt_editforth">
 			<!----Insert Ajax Table Here------>
 			
 			<!---- ------>

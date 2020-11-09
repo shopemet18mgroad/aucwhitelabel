@@ -53,7 +53,7 @@ class Admin_editauction extends CI_Controller {
 		$this->load->model('Admin_model');
 		$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
 		$this->load->helper('url');
-	$this->load->library('session');
+		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('admin/header',$sess);
 		$this->load->view('admin/editauction', $data);

@@ -33,6 +33,11 @@
 		  <td width="11%">Auction Id</td>
 		  <td width="4%" style="text-color:blue;"> <input type="text" class="form-control w-50" id="sauctionid" name="sauctionid" value="<?php echo $sqldata[0]->sauctionid; ?>" readonly></td>
 	  </tr>
+	  <tr>
+		  <td>Seller</td>
+		  <td><input class="form-control w-50"  type="text" id="sname" name="sname" placeholder="Search" value="<?php echo $sqldata[0]->sname; ?>" aria-label="Search" readonly>
+		</td>
+	  </tr>
 	  
 	  <tr>
 		  <td>Lot No.</td>
