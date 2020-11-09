@@ -88,7 +88,7 @@
 				</thead>
 
 				<tbody>
-<<<<<<< HEAD
+
 				<tr><td><?php echo $sqldata[0]->slotno; ?></td>												
 					<td><?php echo $sqldata[0]->slotname; ?></td>
 					<td><?php echo $sqldata[0]->sdescription; ?></td>
@@ -97,7 +97,7 @@
 					<td><?php echo $sqldata[0]->slotlocation; ?></td>
 					<td><button type="submit" class="btn btn-info" name="accept">Accept</button>
 						<button type="submit" class="btn btn-info">Reject</button></td>
-=======
+
 				<?php $urlsendind =  str_ireplace('/','-',$sqldata[0]->sauctionid);?>
 				<?php foreach($sqldata as $sqldat){?>
 				<tr><td><?php echo $sqldat->slotno; ?></td>												
@@ -108,7 +108,7 @@
 					<td><?php echo $sqldat->slotlocation; ?></td>
 					<td><a href="<?php  echo base_url()."Admin_auction_approval/approve/".$urlsendind."/".urldecode($sqldat->slotno);?>"><button type="button" class="btn btn-info" name="accept" >Accept</button></a>
 						<a href="<?php  echo base_url()."Admin_auction_approval/reject/".$urlsendind."/".urldecode($sqldat->slotno);?>"><button type="button" class="btn btn-info">Reject</button></a></td>
->>>>>>> b9e2cff126d6887decefa8c907dd7d41e9291f92
+
 			</tr>
 				<?php }?>
 		

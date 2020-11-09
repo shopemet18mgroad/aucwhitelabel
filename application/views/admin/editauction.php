@@ -63,7 +63,6 @@
 	  
 	  <tr>											
 		  <td>Venue Of Inspection</td>
-<<<<<<< HEAD
 		  <td><textarea class="form-control w-50" type="text" id="svinspection" name="svinspection" value=""><?php echo $sqldata[0]->svinspection; ?></textarea></td>
 
 		  <td><textarea class="form-control w-50" type="text" id="svinspection" name="svinspection" value="<?php echo $sqldata[0]->svinspection; ?>"><?php echo $sqldata[0]->svinspection; ?></textarea></td>
