@@ -35,6 +35,7 @@ class Admin_auctiondetails extends CI_Controller {
 		$data = $this->Admin_model->get_lookalike('auction','sname',$datatoquerydb);
 		if(count($data)){
 			echo '<table class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';
+		
 			echo '<thead class="bg-primary text-white">';
 			echo '<tr>';
 			echo '<th>Auction Id</th>';
@@ -70,7 +71,7 @@ class Admin_auctiondetails extends CI_Controller {
 				echo '<td><a href="'.base_url().'Admin_editauction/editauction/'.$dat['sname'].'">';
 				echo '<i class="fa fa-edit"></i>';
 				echo '</a>';
-				echo '<a href="'.base_url().'Admin_editauction/delete_auction/'.$dat['sname'].'">';
+				echo  '<a href="'.base_url().'Admin_editauction/delete_auction/'.$dat['sname'].'">';
 				echo '<i class="fa fa-trash" style="color:black"></i>';
 				echo '</a>';
 				echo '</td>';

@@ -20,21 +20,7 @@ class Buyer_viewdetail extends CI_Controller {
 	 */
 	public function index()
 	{
-			$this->load->helper('url');
-		$this->load->library('session');
-		$this->load->model('Admin_model');
-			
-		$sess = "Alluminium";//$this->session->userdata('username');
-		
-		$active = array('slotname'=>$sess);
-		//load model library use get_where func from tablename buyerprofile
-		
-		$query = $this->Admin_model->getdatafromtable('addlot', $active);
-		$data['sqldata']= $query;
-		
-		$this->load->model('Admin_model');
-		$data['sqldata'] = $this->Admin_model->getdatafromtable('addlot',$retriveval);
-		
+		$this->load->helper('url');	
 		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('buyer/header',$sess);
@@ -48,9 +34,11 @@ class Buyer_viewdetail extends CI_Controller {
 	
 	  public function viewdetail(){
 		$retrivevaltmp = urldecode($this->uri->segment(3));
-		$retriveval = array('slotname'=>$retrivevaltmp);
+		$retriveval = array('sname'=>$retrivevaltmp);
 		$this->load->model('Admin_model');
-		$data['sqldata'] = $this->Admin_model->getdatafromtable('addlot',$retriveval);
+		$this->db->select('*'); // join the two table with similer id
+		$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid', 'left');
+		$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
 		$this->load->helper('url');
 		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
@@ -64,9 +52,9 @@ class Buyer_viewdetail extends CI_Controller {
 		echo '<script language="javascript">';
 			echo 'alert("'.$retrivevaltmp2.'")';  //not showing an alert box.
 			echo '</script>';
-		$retriveval = array('slotname'=>$retrivevaltmp);
+		$retriveval = array('sname'=>$retrivevaltmp);
 		$this->load->model('Admin_model');
-		$data['sqldata'] = $this->Admin_model->getdatafromtable('addlot',$retriveval);
+		$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
 		$this->load->helper('url');
 	$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
