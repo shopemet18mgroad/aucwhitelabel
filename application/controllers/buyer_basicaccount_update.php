@@ -40,7 +40,7 @@ class Buyer_basicaccount_update extends CI_Controller {
 		//$this->load->view('xya', $data);
 		
 		$datainserr = "Data Inserted Successfully";
-		$updatech = array('bbankname' => $bbankname);
+		$updatech = array('busername' => 'avinash');
 		$status = $this->Admin_model->update_custom('buyerprofile',$data4,$updatech,$updatech);
 		
 		header('location: '.base_url().'buyer_dashboard/index/'.$datainserr);
