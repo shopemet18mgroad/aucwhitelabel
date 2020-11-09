@@ -33,7 +33,7 @@
 		    <form action="<?php echo base_url();?>Admin_startauction_update" method="POST"  enctype="multipart/form-data">
 		  
 		  <td width="11%">Category</td>
-		  <td width="4%"><select class="form-control w-50" id="scategory" name="scategory" value="">
+		  <td width="4%"><select class="form-control w-50" id="scategory" name="scategory" >
 				<option value="<?php echo $sqldata[0]->scategory; ?>" selected><?php echo $sqldata[0]->scategory; ?></option>
 				<option value="Ferrous">Ferrous</option>
 				<option value="Non Ferrous">Non Ferrous</option>
