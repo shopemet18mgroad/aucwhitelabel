@@ -31,7 +31,6 @@ class Admin_editlot extends CI_Controller {
 	
 	public function editlot(){
 		$retrivevaltmp = urldecode($this->uri->segment(3));
-		
 		$retriveval = array('slotno'=>$retrivevaltmp);
 		$this->load->model('Admin_model');
 		//$this->db->select('*');
@@ -40,6 +39,12 @@ class Admin_editlot extends CI_Controller {
 
 		$data['sqldata'] = $this->Admin_model->getdatafromtable
 		('addlot',$retriveval);
+
+		$retrivevaltmp = str_ireplace("-","/",$retrivevaltmp);
+		$retrivevaltmp2 = urldecode($this->uri->segment(4));
+		$retriveval = array('sauctionid'=>$retrivevaltmp,'slotno'=>$retrivevaltmp2);
+		$this->load->model('Admin_model');
+		$data['sqldata'] = $this->Admin_model->getdatafromtable('addlot',$retriveval);
 		$this->load->helper('url');
 		
 		$this->load->library('session');

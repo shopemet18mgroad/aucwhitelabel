@@ -33,7 +33,11 @@
 		    <form action="<?php echo base_url();?>Admin_startauction_update" method="POST"  enctype="multipart/form-data">
 		  
 		  <td width="11%">Category</td>
+
 		  <td width="4%"><select class="form-control w-50" id="scategory" name="scategory">
+
+		  <td width="4%"><select class="form-control w-50" id="scategory" name="scategory" value="">
+
 				<option value="<?php echo $sqldata[0]->scategory; ?>" selected><?php echo $sqldata[0]->scategory; ?></option>
 				<option value="Ferrous">Ferrous</option>
 				<option value="Non Ferrous">Non Ferrous</option>
@@ -59,12 +63,16 @@
 	  
 	  <tr>											
 		  <td>Venue Of Inspection</td>
+<<<<<<< HEAD
 		  <td><textarea class="form-control w-50" type="text" id="svinspection" name="svinspection" value=""><?php echo $sqldata[0]->svinspection; ?></textarea></td>
+
+		  <td><textarea class="form-control w-50" type="text" id="svinspection" name="svinspection" value="<?php echo $sqldata[0]->svinspection; ?>"><?php echo $sqldata[0]->svinspection; ?></textarea></td>
+
 	  </tr>
 	  
 	  <tr>
 		<td>Online Auction Date</td>
-		<td><input class="form-control w-75" id="sonlineaucdate_time" name="sonlineaucdate_time" type="datetime-local" value="<?php echo $sqldata[0]->sonlineaucdate_time; ?>">
+		<td><input class="form-control w-75" id="sonlineaucdate_time" name="sonlineaucdate_time" type="datetime-local" value="<?php echo date('Y-m-d\TH:i', strtotime($sqldata[0]->sonlineaucdate_time)); ?>">
 		</td>
 	</tr>
 	
@@ -214,7 +222,7 @@ Bidders participating in AucJunction Auctions should verify with the selling com
   </div>
   <br><br>
   <div class="form-check form-check-inline ">
-			<input type="checkbox" class="form-check-input" id="sterms_condiaccept" name="sterms_condiaccept" value="<?php echo $sqldata[0]->sterms_condiaccept; ?>">
+			<input type="checkbox" class="form-check-input" id="sterms_condiaccept" name="sterms_condiaccept" value="<?php echo $sqldata[0]->sterms_condiaccept; ?>" checked>
 			<label class="form-check-label" for="exampleCheck1">I agree to the Terms and Conditions</label>
 			</div></td>
   </tr>
@@ -229,7 +237,7 @@ Bidders participating in AucJunction Auctions should verify with the selling com
 				<input type="file" class="form-control-file" id="sterms_condiupload" name="sterms_condiupload[]" multiple= "multiple" value="<?php echo $sqldata[0]->sterms_condiupload;?>" >
 			</div>
 			<div class="form-check form-check-inline">
-			<input type="checkbox" class="form-check-input" id="idCheck" onclick="myFunction()" name="sterms_condiupload1[]">
+			<input type="checkbox" class="form-check-input" id="idCheck" onclick="myFunction()" name="sterms_condiupload1[]" checked>
 			<label class="form-check-label" for="idCheck" >No</label>
 			</div>
 			<div class="form-group" id="text2" style="display:none">
@@ -266,7 +274,7 @@ Bidders participating in AucJunction Auctions should verify with the selling com
     </tbody>
   </table>
   
-  <center><input  type="submit" name="submit" onclick="return validatestart()" class="btn btn-info" value="Start Auction" data-dismiss="modal"></center>
+  <center><input  type="submit" name="submit" onclick="return validatestart_edit()" class="btn btn-info" value="Update Auction" data-dismiss="modal"></center>
  	 </form>
 			</div>
             </div>

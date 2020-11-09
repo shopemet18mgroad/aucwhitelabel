@@ -29,19 +29,13 @@ class Buyer_basicinfo_update extends CI_Controller {
 		{
 		$this->load->helper(array('url','html'));
 		$this->load->model('Admin_model');
-	//	$bname = $this->input->post('bname');
-		//$bcompany = $this->input->post('bcompany');
-	//	$bcontactperson = $this->input->post('bcontactperson');
-	//	$bcomptype = $this->input->post('bcomptype');
+		
 		$baddress  = $this->input->post('baddress');
 		$bpin = $this->input->post('bpin');
 
-		//$bstate = $this->input->post('bstate');
-		//$bcountry  = $this->input->post('bcountry');
-		//$bpcb  = $this->input->post('bpcb');
 		//=================================================================================================
 		//==================================================================
-		$data2 = array (/*'bname' => $bname,'bcompany' => $bcompany, 'bcontactperson' => $bcontactperson, 'bcomptype' => $bcomptype, */ 'baddress' => $baddress, 'bpin' => $bpin, 'bstate'=> $bstate,/*  'bcountry' => $bcountry, 'bpcb' => $bpcb */);
+		$data2 = array ('baddress' => $baddress, 'bpin' => $bpin);//username
 		//$this->load->view('xya', $data);
 		
 		$datainserr = "Data Inserted Successfully";
@@ -51,6 +45,7 @@ class Buyer_basicinfo_update extends CI_Controller {
 		header('location: '.base_url().'buyer_dashboard/index/'.$datainserr);
 		}
 	}
+
 
 	
 }

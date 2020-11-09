@@ -77,7 +77,7 @@
 						</tbody>
 					</table>			
 
-				<input type="submit" class="btn btn-primary offset-sm-3 mt-2"  name="submit" value="Update">
+				<input type="submit" class="btn btn-primary offset-sm-3 mt-2" name="submit" value="Update">
 												
 				<input type="submit" class="btn btn-primary offset-sm-1 mt-2" value="Reset">
 				</form>							

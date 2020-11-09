@@ -35,24 +35,44 @@
 					 
 					 </thead>
 						<tbody>
-							
+							<form action ="<?php echo base_url();?>buyer_basicdocument_update" method="POST" enctype="multipart/form-data">
 							<tr>
 								<td class="btxt">Upload Documents:</td>
 								<td>
-								
-								<input type="file" multiple="multiple" id="bsigneddocument" name="bsigneddocument">
-								
+								<div class="input_fields_wrap">
+								<input type="file" multiple="multiple" id="bsigneddocument" name="bsigneddocument[]">
+								</div>
 								
 								</td>
 							</tr>							
-											
+							<?php 
+							if(unserialize($sqldata[0]->bsigneddocument) != NULL){
+								$file = unserialize($sqldata[0]->bsigneddocument);
+								  foreach($file as $fl){
+								echo '<tr id="filess">';
+								echo '<td class="btxt">Existing Documents</td>';
+								echo '<td><div class="input_fields_wrap">';
+								echo '<textarea class="form-control float-left mt-2 p-2 w-50" type="text" id="bsigneddocumentex" name="bsigneddocumentex[]" readonly>'.$fl.'</textarea>';
+								echo '<input type="hidden" id="bsigneddocumentexcom" name="bsigneddocumentexcom[]" value="'.$fl.'">';
+								echo '<a class="add_field_button1"><button type="button" onclick="$(this).parents(\'#filess\').remove()" class="btn btn-sm btn-primary ml-1 mb-5 mt-3">  <i class="fa fa-minus text-white"></i></button></a>';
+								
+								echo '</div></td>';
+								echo '';
+								echo '</tr>';
+								  }
+							}else{
+								
+							}
+							
+							
+							?>	
 						</tbody>
 					</table>								
                 
-				<a href="#"><button type="button" class="btn btn-primary offset-sm-3 mt-2">Update</button></a>
+			<input type="submit" class="btn btn-primary offset-sm-3 mt-2" name="submit" value="Update">
 												
-				<a href="#"><button type="button" class="btn btn-primary offset-sm-1 mt-2">Reset</button></a>
-												
+			<input type="submit" class="btn btn-primary offset-sm-1 mt-2" value="Reset">
+			</form>							
 				<a href="buyer_dashboard"><button type="button" class="btn btn-primary offset-sm-1 mt-2">Cancel</button></a>
 
 																

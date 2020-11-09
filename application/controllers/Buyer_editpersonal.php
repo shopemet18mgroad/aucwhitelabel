@@ -24,7 +24,7 @@ class Buyer_editpersonal extends CI_Controller {
 		$this->load->library('session');
 		$this->load->model('Admin_model');
 		$bcompany = $this->uri->segment(3);	
-		$sess = "abc";
+		$sess = "avinash";
 		//$this->session->userdata('username');
 		
 		$active = array('busername'=>$sess);

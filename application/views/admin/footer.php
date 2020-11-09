@@ -319,4 +319,21 @@
  }
  </script>
  
+ <script>
+		function auction_set_deactive(varab){
+			$.get('<?php echo base_url() .'Admin_forthcomingauc_2/setdeactive_auction/'; ?>'+varab, function(data2){	
+					
+				 if($.trim(data2) == "HI"){
+					 window.location.href = '<?php echo base_url().'Admin_forthcomingauc_2';?>'
+					return true;
+				}else{
+					swal("Alert!", "Company Name Already Exists", "error");
+					return false;
+				}
+			 });
+			
+		}
+
+
+ </script>
 

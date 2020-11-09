@@ -25,7 +25,7 @@ class Buyer_editcontact extends CI_Controller {
 		$this->load->library('session');
 		$this->load->model('Admin_model');
 			
-		$sess = "Sidra Steels";
+		$sess = "avinash";
 		//$this->session->userdata('username');
 		
 		$active = array('busername'=>$sess);
