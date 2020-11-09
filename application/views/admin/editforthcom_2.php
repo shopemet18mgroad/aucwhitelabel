@@ -73,7 +73,7 @@
 					<td><?php echo $sqldata[0]->semdamount; ?></td>
 					<td><?php echo $sqldata[0]->sliftingperiod; ?><?php echo $sqldata[0]->sliftingperiod2; ?></td>
 					<td><?php echo $sqldata[0]->spcbcertificate; ?></td>
-					<td><a href="<?php echo base_url();?>Admin_editlot" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a>
+					<td><a href="<?php echo base_url();?>admin_editlot/editlot" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a>
 						<a class="btn btn-danger btn-sm text-white"><i class="fa fa-trash fa-sm"></i></a></td>	
 				</tr>
 			<?php }?>

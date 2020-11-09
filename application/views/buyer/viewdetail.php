@@ -1,6 +1,5 @@
  <?php 
 	//include('./header.php');
-	print_r($sqldata);
 ?>
         <!-- End of Topbar -->
 
@@ -24,41 +23,43 @@
 		
 		
 		<table class="table table-striped table-bordered table-sm text-center mt-5"  width="100%" cellspacing="0">
+		<thead class="bg-warning text-white">
+		<tr>
+		<th colspan="12">Lot Details</th>
+		</tr>
 		<thead class="bg-primary text-white">
 			<tr>
-				<th>Lot No <br>/Lot Name</th>
-				<th>Location</th>
-				<th>Start Time</th>
-				<th>Close Time</th>
-				<th>Quantity</th>
-				<th>Unit</th>
-				<th>Start Price</th>
-				<th>Final Bid</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>												
-				<td ><?php echo $sqldata[0]->slotname; ?></td>
-				<td >Bangalore-KA</td>
-				<td>16:00:00</td>
-				<td>20:14:03</td>
-				<td>1.9</td>
-				<td>MT</td>
-				<td>40,000</td>
-				<td>2,00,000</td>
-														
-			</tr>
-			<tr>												
-				<td><b>Lot No:</b> M189<br><b>Lot Name:</b> Horizontal Boring Machine</td>
-				<td>Delhi</td>
-				<td>12:15:00</td>
-				<td>16:14:03</td>
-				<td>1.9</td>
-				<td>MT</td>
-				<td>80,000</td>
-				<td>52552323</td>
-			</tr>
-		</tbody>
+					<td>Auction Id</td>
+					<td>Lot No</td>
+					<td>Lot Name</td>
+					<td>Location Of Lot</td>
+					<td>Start Time</td>
+					<td>Close Time</td>
+					<td>Quantity</td>
+					<td>Unit Of Measurment</td>
+					<td>Starting Bid Price	</td>
+					<td>Final Bid</td>
+				</tr>
+				</thead>
+
+				<tbody>
+				<?php foreach($sqldata as $sqldata[0]){?>
+				<tr>
+				
+					<td><b><?php echo $sqldata[0]->sauctionid; ?></b></td>
+					<td><?php echo $sqldata[0]->slotno; ?></td>
+					<td><?php echo $sqldata[0]->slotname; ?></td>
+					<td><?php echo $sqldata[0]->slotlocation; ?></td>
+					<td><?php echo $sqldata[0]->sonlineaucdate_time; ?></td>
+					<td></td>
+					<td><?php echo $sqldata[0]->sqty; ?></td>
+					<td><?php echo $sqldata[0]->sunitmeasurment; ?></td>
+					<td><?php echo $sqldata[0]->sstartbidprice; ?></td>
+					<td></td>
+				</tr>
+			<?php }?>
+				</tbody>
+			
 		 </table>
 		</div>
 		</div>

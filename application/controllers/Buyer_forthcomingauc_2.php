@@ -21,11 +21,53 @@ class Buyer_forthcomingauc_2 extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper('url');
-		$this->load->view('buyer/header');
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->model('Admin_model');
+		$this->load->view('buyer/header',$sess);
 		$this->load->view('buyer/forthcomingauc_2');
 		$this->load->view('buyer/footer');
 
 		
+	}
+	
+		public function forthcomingauc_2(){
+	
+		$retrivevaltmp = urldecode($this->uri->segment(3));
+		
+		$retriveval = array('sname'=>$retrivevaltmp);
+		$this->load->model('Admin_model');
+		$this->db->select('*');
+			$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid', 'left'); //2 table merged
+	
+		$data['sqldata'] = $this->Admin_model->getdatafromtable
+		('auction',$retriveval);
+		$this->load->helper('url');
+		
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('buyer/header',$sess);
+		$this->load->view('buyer/forthcomingauc_2', $data);
+		$this->load->view('buyer/footer');
+	}
+	
+	
+	public function forthcomingauc_2_alert(){
+		$retrivevaltmp = $this->uri->segment(3);
+		$retrivevaltmp2 = urldecode($this->uri->segment(4));
+		echo '<script language="javascript">';
+			echo 'alert("'.$retrivevaltmp2.'")';  //not showing an alert box.
+			echo '</script>';
+		$retriveval = array('sname'=>$retrivevaltmp);
+		$this->load->model('Admin_model');
+		
+		$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
+		$this->load->helper('url');
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('buyer/header',$sess);
+		$this->load->view('buyer/forthcomingauc_2', $data);
+		$this->load->view('buyer/footer');
 	}
 	
 }

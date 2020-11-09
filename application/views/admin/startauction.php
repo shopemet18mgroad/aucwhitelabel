@@ -49,11 +49,18 @@
 		  <td><input class="form-control w-50"  type="text" id="sname" name="sname" placeholder="Search" onkeyup="auction_id()" aria-label="Search">
 		</td>
 	  </tr>
+	  
+	  
       
 	  <tr>
 		  <td>Auction Id</td>
 		  <td><input class="form-control w-50"  type="text" id="sauctionid" name="sauctionid" placeholder="Auction ID" aria-label="Search" readonly></td>
 
+	  </tr>
+	  <tr>
+		  <td>Seller Company Name</td>
+		  <td><input class="form-control w-50"  type="text" id="scompanyname" name="scompanyname">
+		</td>
 	  </tr>
 	  
 	  <tr>											

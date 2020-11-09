@@ -30,7 +30,7 @@
 	 <form action="<?php echo base_url();?>Admin_addlot_update" method="POST" enctype="multipart/form-data">
 	<tr>
 		  <td width="11%">Auction Id</td>
-		  <td width="4%" style="text-color:blue;"> <input type="text" class="form-control w-50" id="sauctionid" name="sauctionid" value="<?php echo $sauctionid; ?>" readonly></td>
+		  <td width="4%" style="text-color:blue;"> <input type="text" class="form-control w-50" id="sauctionid" name="sauctionid" value="<?php echo $sqldata[0]->sauctionid; ?>" readonly></td>
 	  </tr>
 	  
 	  <tr>

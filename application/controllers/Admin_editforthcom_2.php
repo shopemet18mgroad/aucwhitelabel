@@ -194,7 +194,7 @@ class Admin_editforthcom_2 extends CI_Controller {
 		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('admin/header',$sess);
-		$this->load->view('admin/	editforthcom_2', $data);
+		$this->load->view('admin/editforthcom_2', $data);
 		$this->load->view('admin/footer');
 	}
 	
