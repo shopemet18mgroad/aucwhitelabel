@@ -34,9 +34,7 @@
 		  
 		  <td width="11%">Category</td>
 
-		  <td width="4%"><select class="form-control w-50" id="scategory" name="scategory">
-
-		  <td width="4%"><select class="form-control w-50" id="scategory" name="scategory" value="">
+		  <td width="4%"><select class="form-control w-50" id="scategory" name="scategory" >
 
 				<option value="<?php echo $sqldata[0]->scategory; ?>" selected><?php echo $sqldata[0]->scategory; ?></option>
 				<option value="Ferrous">Ferrous</option>
@@ -63,7 +61,11 @@
 	  
 	  <tr>											
 		  <td>Venue Of Inspection</td>
+
 		  <td><textarea class="form-control w-50" type="text" id="svinspection" name="svinspection" value=""><?php echo $sqldata[0]->svinspection; ?></textarea></td>
+
+
+
 
 		  <td><textarea class="form-control w-50" type="text" id="svinspection" name="svinspection" value="<?php echo $sqldata[0]->svinspection; ?>"><?php echo $sqldata[0]->svinspection; ?></textarea></td>
 
