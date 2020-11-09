@@ -29,18 +29,20 @@ class Buyer_basicinfo_update extends CI_Controller {
 		{
 		$this->load->helper(array('url','html'));
 		$this->load->model('Admin_model');
-		
+		//$busername = $this->uri->segment(3);	
 		$baddress  = $this->input->post('baddress');
 		$bpin = $this->input->post('bpin');
-
-		//=================================================================================================
+		
+	//=================================================================================================
 		//==================================================================
-		$data2 = array ('baddress' => $baddress, 'bpin' => $bpin);//username
+		$data2 = array ('baddress' => $baddress, 'bpin' => $bpin);
 		//$this->load->view('xya', $data);
 		
 		$datainserr = "Data Inserted Successfully";
-		$updatech = array('baddress' => $baddress);
-		$status = $this->Admin_model->update_custom('buyerprofile',$data2,$updatech,$updatech);
+		//$updatech['busername'] = $busername;
+		$hidden = array('busername' => 'avinash');
+		//$updatech = array('baddress' => $baddress);
+		$status = $this->Admin_model->update_custom('buyerprofile',$data2,$hidden,$hidden);
 		
 		header('location: '.base_url().'buyer_dashboard/index/'.$datainserr);
 		}

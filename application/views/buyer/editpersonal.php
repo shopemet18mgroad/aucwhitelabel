@@ -39,7 +39,7 @@
 						<tr><td><img class="img-fluid" src="<?php echo base_url()."web_files/";?>img/manimg.jpg" alt="Chania" width="40" height="35"></td></tr>
 							
 							<form action = "<?php echo base_url();?>Buyer_basicinfo_update" method="POST" enctype="multipart/form-data">
-						 
+						
 							<tr>
 								<td>Buyer Name</td>
 								<td><?php echo $sqldata[0]->bname; ?></td>
