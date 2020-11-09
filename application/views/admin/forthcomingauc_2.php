@@ -37,13 +37,13 @@
 				<tbody>
 				<tr>
 					<td><b><?php echo $sqldata[0]->sauctionid; ?></b></td>
-					<td><?php echo $sqldata[0]->saucstartdate_time; ?></td>
+					<td><?php echo $sqldata[0]->sonlineaucdate_time; ?></td>
 					<td><?php echo $sqldata[0]->saucclosedate_time; ?></td>
 					<td><?php echo $sqldata[0]->semdamount; ?></td>
 				</tr>
 				</tbody>
 		 </table>
-				<table class="table table-striped table-sm table-bordered mt-4 text-center" id="dataTable" width="100%" cellspacing="0">
+				<!--<table class="table table-striped table-sm table-bordered mt-4 text-center" id="dataTable" width="100%" cellspacing="0">
 				<thead class="bg-warning  text-white text-center">
 					<th colspan="8">Seller Details</th>
 				</thead>
@@ -72,7 +72,7 @@
 					<td><?php echo $sqldata[0]->scontactperson; ?></td>
 				</tr>
 				</tbody>
-		 </table>
+		 </table> -->
 		
 		<table class="table table-striped  table-bordered mt-4  text-center " id="dataTable" width="100%" cellspacing="0">
 				<thead class="bg-primary text-white">
@@ -94,8 +94,8 @@
 					<td><?php echo $sqldata[0]->sqty; ?></td>
 					<td><?php echo $sqldata[0]->sgst; ?></td>
 					<td><?php echo $sqldata[0]->slotlocation; ?></td>
-					<td><a href="#"><button type="button" class="btn btn-info" name="accept" >Accept</button></a>
-						<a href="#"><button type="button" class="btn btn-info">Reject</button></a></td>
+					<td><button type="submit" class="btn btn-info" name="accept">Accept</button>
+						<button type="submit" class="btn btn-info">Reject</button></td>
 			</tr>
 		
 		

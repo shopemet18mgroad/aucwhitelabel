@@ -35,6 +35,7 @@
 					 
 					 </thead>
 						<tbody>
+						<form action ="<?php echo base_url();?>Buyer_basicaccount_update" method="POST" enctype="multipart/form-data">
 							<tr>
 								<td>Banker's Name</td>
 								<td><input class="form-control w-50" type="text" id="bbankname"name="bbankname" value="<?php echo $sqldata[0]->bbankname; ?>"></td>
@@ -55,10 +56,10 @@
 						</tbody>
 					</table>	
 		
-				<a href="#"><button type="button" class="btn btn-primary offset-sm-3 mt-2">Update</button></a>
+				<input type="submit" name="submit" class="btn btn-primary offset-sm-3 mt-2" name="submit" value="Update">
 												
-				<a href="#"><button type="button" class="btn btn-primary offset-sm-1 mt-2">Reset</button></a>
-												
+				<input type="submit" name="submit" class="btn btn-primary offset-sm-1 mt-2" value="Reset">
+				</form>							
 				<a href="buyer_dashboard"><button type="button" class="btn btn-primary offset-sm-1 mt-2">Cancel</button></a>
 	
 					

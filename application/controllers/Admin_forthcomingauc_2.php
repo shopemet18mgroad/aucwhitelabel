@@ -20,8 +20,6 @@ class Admin_forthcomingauc_2 extends CI_Controller {
 	 */
 	public function index()
 	{
-	
-		
 		$this->load->helper('url');
 		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
@@ -43,9 +41,9 @@ class Admin_forthcomingauc_2 extends CI_Controller {
 			$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid', 'left');
 		
 		//$this->db->select('*');
-/* $this->db->join('addlot', 'addlot.ID = auction.ID');
-$this->db->join('sellerprofile', 'sellerprofile.ID = auction.ID');
-$this->db->from('auction'); */ 
+		/* $this->db->join('addlot', 'addlot.ID = auction.ID');
+		$this->db->join('sellerprofile', 'sellerprofile.ID = auction.ID');
+		$this->db->from('auction'); */ 
 		//$this->db->join('addlot', 'addlot.ID = auction.ID', 'left');
 		//$this->db->join('sellerprofile', 'sellerprofile.ID = auction.ID', 'left');
 		
@@ -76,5 +74,7 @@ $this->db->from('auction'); */
 		$this->load->view('admin/forthcomingauc_2', $data);
 		$this->load->view('admin/footer');
 	}
+	
+
 	
 }

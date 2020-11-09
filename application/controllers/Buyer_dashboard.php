@@ -26,7 +26,7 @@ class Buyer_dashboard extends CI_Controller {
 		$bcompany = $this->uri->segment(3);	
 
 	
-		$sess = "abc";
+		$sess = "avinash";
 		//$this->session->userdata('username');
 
 		

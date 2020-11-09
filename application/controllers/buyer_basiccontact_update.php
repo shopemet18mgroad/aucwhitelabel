@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Buyer_basicinfo_update extends CI_Controller {
+class Buyer_basiccontact_update extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -23,29 +23,28 @@ class Buyer_basicinfo_update extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+
+
 	public function index()
 	{
 		if($this->input->post('submit'))
 		{
 		$this->load->helper(array('url','html'));
 		$this->load->model('Admin_model');
-		
-		$baddress  = $this->input->post('baddress');
-		$bpin = $this->input->post('bpin');
+		$bemail  = $this->input->post('bemail');
+		$bphone = $this->input->post('bphone');
 
 		//=================================================================================================
 		//==================================================================
-		$data2 = array ('baddress' => $baddress, 'bpin' => $bpin);
+		$data3 = array ('bemail' => $bemail, 'bphone' => $bphone);
 		//$this->load->view('xya', $data);
 		
 		$datainserr = "Data Inserted Successfully";
-		$updatech = array('baddress' => $baddress);
-		$status = $this->Admin_model->update_custom('buyerprofile',$data2,$updatech,$updatech);
+		$updatech = array('bemail' => $bemail);
+		$status = $this->Admin_model->update_custom('buyerprofile',$data3,$updatech,$updatech);
 		
 		header('location: '.base_url().'buyer_dashboard/index/'.$datainserr);
 		}
 	}
-
-
 	
 }
