@@ -45,7 +45,7 @@ class Admin_forthcomingauc extends CI_Controller {
 			echo '<tbody>';
 			foreach($data as $dat){
 				echo '<tr>';
-				echo '<td><a href="'.base_url().'admin_forthcomingauc_2/forthcomingauc_2/'.$dat['sname'].
+				echo '<td><a href="'.base_url().'admin_forthcomingauc_2/forthcomingauc_2/'.urlencode($dat['sname']).
 				'">';
 				echo $dat['sauctionid'];
 				echo '</a>';
@@ -54,7 +54,7 @@ class Admin_forthcomingauc extends CI_Controller {
 				echo '<i class="fa fa-download"></i>';
 				echo '</a>';
 				echo '</td>';
-				echo '<td>'.$dat['saucstartdate_time'].'</td>';
+				echo '<td>'.$dat['sonlineaucdate_time'].'</td>';
 				
 				echo '</tr>';
 			}

@@ -30,6 +30,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			 $query = $this->db->get($table); 
 			 return $query->result();
 		} 
+		public function getdatafromtablejoin($table,$table2,$joincolname,$compdata){
+			$this->db->select('*');
+			$this->db->from($table);
+			$this->db->join($table2, "$table.$joincolname = $table2.$joincolname");
+			$this->db->where("$table2.sname", $compdata);
+			$query = $this->db->get();
+			return $query->result();
+		}
 		  public function delete_data($table, $data) { 
 			 if ($this->db->delete($table, $data)) { 
 				return true; 

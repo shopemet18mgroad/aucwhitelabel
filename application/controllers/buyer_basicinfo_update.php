@@ -35,7 +35,7 @@ class Buyer_basicinfo_update extends CI_Controller {
 
 		//=================================================================================================
 		//==================================================================
-		$data2 = array ('baddress' => $baddress, 'bpin' => $bpin);
+		$data2 = array ('baddress' => $baddress, 'bpin' => $bpin);//username
 		//$this->load->view('xya', $data);
 		
 		$datainserr = "Data Inserted Successfully";

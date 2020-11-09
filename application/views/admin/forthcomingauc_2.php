@@ -49,8 +49,8 @@
 				</thead>
 				<thead class="bg-primary text-white">
 				<tr>
-					<th>Company Id</th>
-					<th>Seller / Company Name</th>
+					<th>Seller Name</th>
+					<th>Company Name</th>
 					<th>Location</th>
 					<th>Street</th>
 					<th>City</th>
@@ -62,14 +62,14 @@
 
 				<tbody>
 				<tr>
-					<td><?php echo $sqldata[0]->scompanyid; ?></td>
-					<td><?php echo $sqldata[0]->sname; ?></td>
-					<td><?php echo $sqldata[0]->saddress; ?></td>
-					<td><?php echo $sqldata[0]->sstreet; ?></td>
-					<td><?php echo $sqldata[0]->scity; ?></td>
-					<td><?php echo $sqldata[0]->sphone; ?></td>
-					<td><?php echo $sqldata[0]->semail; ?></td>
-					<td><?php echo $sqldata[0]->scontactperson; ?></td>
+					<td><?php echo $sellerinfo[0]->sname; ?></td>
+					<td><?php echo $sellerinfo[0]->scomapnyname; ?></td>
+					<td><?php echo $sellerinfo[0]->saddress; ?></td>
+					<td><?php echo $sellerinfo[0]->sstreet; ?></td>
+					<td><?php echo $sellerinfo[0]->scity; ?></td>
+					<td><?php echo $sellerinfo[0]->sphone; ?></td>
+					<td><?php echo $sellerinfo[0]->semail; ?></td>
+					<td><?php echo $sellerinfo[0]->scontactperson; ?></td>
 				</tr>
 				</tbody>
 		 </table> -->
@@ -88,6 +88,7 @@
 				</thead>
 
 				<tbody>
+<<<<<<< HEAD
 				<tr><td><?php echo $sqldata[0]->slotno; ?></td>												
 					<td><?php echo $sqldata[0]->slotname; ?></td>
 					<td><?php echo $sqldata[0]->sdescription; ?></td>
@@ -96,8 +97,20 @@
 					<td><?php echo $sqldata[0]->slotlocation; ?></td>
 					<td><button type="submit" class="btn btn-info" name="accept">Accept</button>
 						<button type="submit" class="btn btn-info">Reject</button></td>
+=======
+				<?php $urlsendind =  str_ireplace('/','-',$sqldata[0]->sauctionid);?>
+				<?php foreach($sqldata as $sqldat){?>
+				<tr><td><?php echo $sqldat->slotno; ?></td>												
+					<td><?php echo $sqldat->slotname; ?></td>
+					<td><?php echo $sqldat->sdescription; ?></td>
+					<td><?php echo $sqldat->sqty; ?></td>
+					<td><?php echo $sqldat->sgst; ?></td>
+					<td><?php echo $sqldat->slotlocation; ?></td>
+					<td><a href="<?php  echo base_url()."Admin_auction_approval/approve/".$urlsendind."/".urldecode($sqldat->slotno);?>"><button type="button" class="btn btn-info" name="accept" >Accept</button></a>
+						<a href="<?php  echo base_url()."Admin_auction_approval/reject/".$urlsendind."/".urldecode($sqldat->slotno);?>"><button type="button" class="btn btn-info">Reject</button></a></td>
+>>>>>>> b9e2cff126d6887decefa8c907dd7d41e9291f92
 			</tr>
-		
+				<?php }?>
 		
 				</tbody>
 			 </table>

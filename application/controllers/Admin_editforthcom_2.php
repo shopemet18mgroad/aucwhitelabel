@@ -29,7 +29,7 @@ class Admin_editforthcom_2 extends CI_Controller {
 		
 	}
 	
-	public function get_table(){
+	/* public function get_table(){
 		$datatoquerydb = $this->uri->segment(3);
 		$this->load->model('Admin_model');
 		$data = $this->Admin_model->get_lookalike('addlot','slotname',$datatoquerydb);
@@ -157,19 +157,20 @@ class Admin_editforthcom_2 extends CI_Controller {
 			echo '</tbody>';
 			echo '</table>';
 		}
+ */
 
 
-
-	}
+	
 	
 	public function editforthcom_2(){
 		$retrivevaltmp = urldecode($this->uri->segment(3));
 		
-		$retriveval = array('slotname'=>$retrivevaltmp);
+		$retriveval = array('sname'=>$retrivevaltmp);
 		$this->load->model('Admin_model');
+		/* $this->db->select('*'); // join the two table with similer id
+		$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid', 'left'); */
 		$data['sqldata'] = $this->Admin_model->getdatafromtable('addlot',$retriveval);
-		
-	
+
 		$this->load->helper('url');
 		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
@@ -183,9 +184,9 @@ class Admin_editforthcom_2 extends CI_Controller {
 		echo '<script language="javascript">';
 			echo 'alert("'.$retrivevaltmp2.'")';  //not showing an alert box.
 			echo '</script>';
-		$retriveval = array('slotname'=>$retrivevaltmp);
+		$retriveval = array('sname'=>$retrivevaltmp);
 		$this->load->model('Admin_model');
-		$data['sqldata'] = $this->Admin_model->getdatafromtable('addlot',$retriveval);
+		$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
 		
 	
 				
@@ -193,7 +194,7 @@ class Admin_editforthcom_2 extends CI_Controller {
 		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('admin/header',$sess);
-		$this->load->view('admin/editforthcom_2', $data);
+		$this->load->view('admin/	editforthcom_2', $data);
 		$this->load->view('admin/footer');
 	}
 	
