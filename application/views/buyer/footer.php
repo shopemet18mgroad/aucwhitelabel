@@ -67,10 +67,20 @@
  </script>
  
   <script>
-		$('.gettable').on('keyup', function(){
-			var contents = $('#gettable').val(); 
+		$('#gettable_detailedauc').on('keyup', function(){
+			var contents = $('#gettable_detailedauc').val(); 
 			$.get('<?php echo base_url() .'buyer_detailedauc/get_table/'; ?>'+contents, function(data){
-				$('#ajaxrslt').html(data);
+				$('#ajaxrslt_detailedauc').html(data);
+			});
+		});
+
+ </script>
+ 
+  <script>
+		$('#gettable_forthcomingauc').on('keyup', function(){
+			var contents = $('#gettable_forthcomingauc').val(); 
+			$.get('<?php echo base_url() .'buyer_forthcomingauc/get_table/'; ?>'+contents, function(data){
+				$('#ajaxrslt_forthcomingauc').html(data);
 			});
 		});
 

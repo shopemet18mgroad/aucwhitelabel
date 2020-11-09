@@ -38,9 +38,9 @@ class Admin_forthcomingauc_2 extends CI_Controller {
 		$retriveval = array('sname'=>$retrivevaltmp);
 		$this->load->model('Admin_model');
 
-		$this->db->select('*');
+		/* $this->db->select('*');
 			$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid', 'left');
-		
+		 */
 		//$this->db->select('*');
 		/* $this->db->join('addlot', 'addlot.ID = auction.ID');
 		$this->db->join('sellerprofile', 'sellerprofile.ID = auction.ID');
@@ -48,9 +48,9 @@ class Admin_forthcomingauc_2 extends CI_Controller {
 		//$this->db->join('addlot', 'addlot.ID = auction.ID', 'left');
 		//$this->db->join('sellerprofile', 'sellerprofile.ID = auction.ID', 'left');
 		
-		$data['sqldata'] = $this->Admin_model->getdatafromtable
+		/* $data['sqldata'] = $this->Admin_model->getdatafromtable
 		('auction',$retriveval);
-
+ */
 		$data['sqldata'] = $this->Admin_model->getdatafromtablejoin('addlot','auction','sauctionid',$retrivevaltmp);
 		$data['sellerinfo'] = $this->Admin_model->getdatafromtable('sellerprofile',$retriveval);
 

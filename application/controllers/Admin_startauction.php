@@ -47,6 +47,7 @@ class Admin_startauction extends CI_Controller {
 			$scategory = $this->input->post('scategory');
 			$sauctionid = $this->input->post('sauctionid');
 			$sname = $this->input->post('sname');
+			$scompanyname = $this->input->post('scompanyname');
 			$svinspection = $this->input->post('svinspection');
 			$sonlineaucdate_time = $this->input->post('sonlineaucdate_time');
 			$sterms_condiaccept = $this->input->post('sterms_condiaccept');
@@ -68,11 +69,11 @@ class Admin_startauction extends CI_Controller {
 				$sterms_text = $this->input->post('sterms_text');
 			
 			//$this->load->model('Admin_model');
-			$data = array('scategory' => $scategory, 'sauctionid' => $sauctionid, 'sname' => $sname, 'svinspection'=> $svinspection, 'sonlineaucdate_time' => $sonlineaucdate_time,'sterms_condiaccept'=>$sterms_condiaccept,'sterms_condiupload' => $pic_array1 , 'sterms_text' => $sterms_text);
+			$data = array('scategory' => $scategory, 'sauctionid' => $sauctionid, 'sname' => $sname, 'scompanyname' => $scompanyname, 'svinspection'=> $svinspection, 'sonlineaucdate_time' => $sonlineaucdate_time,'sterms_condiaccept'=>$sterms_condiaccept,'sterms_condiupload' => $pic_array1 , 'sterms_text' => $sterms_text);
 			
 			$status = $this->Admin_model->insert('auction', $data);
 			
-			 $transfer = array('category'=> $scategory, 'auctionid'=>$sauctionid, 'date'=>$date);
+			 $transfer = array('category'=> $scategory, 'auctionid'=>$sauctionid,'date'=>$date);
 			   if($status){
 				  $this->session->set_flashdata('txdata',$transfer);
 				  redirect('../admin_addlot');

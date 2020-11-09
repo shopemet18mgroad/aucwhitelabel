@@ -36,10 +36,10 @@
 
 				<tbody>
 				<tr>
-					<td><a href="#">EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</a></</td>
-					<td>23-03-2020 23:00:00</td>
-					<td>24-11-2019 16:17:00</td>
-					<td>2,00,000</td>
+					<td><b><?php echo $sqldata[0]->sauctionid; ?></b></td>
+					<td><?php echo $sqldata[0]->saucstartdate_time; ?></td>
+					<td><?php echo $sqldata[0]->saucclosedate_time; ?></td>
+					<td><?php echo $sqldata[0]->semdamount; ?></td>
 				</tr>
 				</tbody>
 		 </table>
@@ -49,7 +49,6 @@
 				</thead>
 				<thead class="bg-primary text-white">
 				<tr>
-					<th>Company Id</th>
 					<th>Seller / Company Name</th>
 					<th>Location</th>
 					<th>Street</th>
@@ -62,14 +61,13 @@
 
 				<tbody>
 				<tr>
-					<td>010</td>
-					<td>OMFED LTD</td>
-					<td>Bangalore</td>
-					<td>Shashi Nagar</td>
-					<td>Bangalore-560013</td>
-					<td>2238521</td>
-					<td>XYZ@gmail.com</td>
-					<td>Shri S.K. Reddy</td>
+					<td><?php echo $sqldata[0]->scompanyname; ?></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
 				</tr>
 				</tbody>
 		 </table>
@@ -87,12 +85,13 @@
 				</thead>
 
 				<tbody>
+				<?php foreach($sqldata as $sqldata[0]){?>
 			<tr>												
-				<td><a href="#">EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</a> </td>
-				<td>Machine Description- Horizontal Boring Machine</td>
-				<td>1.0 Lot</td>
-				<td>18.0</td>
-				<td>Bangalore-KA</td>
+				<td><b><?php echo $sqldata[0]->sauctionid; ?></b></td>
+				<td><?php echo $sqldata[0]->sdescription; ?></td>
+				<td><?php echo $sqldata[0]->sqty; ?></td>
+				<td><?php echo $sqldata[0]->sgst; ?></td>
+				<td><?php echo $sqldata[0]->slotlocation; ?></td>
 				<td><center><a href="" data-toggle="modal" data-target="#myModal"><i class="fas fa-heart text-danger" aria-hidden="true"></i></a></center>
 				
 				<div class="modal" id="myModal">
@@ -120,39 +119,7 @@
 				  </div>
 				</td>
 			</tr>
-			<tr>												
-				<td><a href="#">EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</a> </td>
-				<td>Machine Description- Horizontal Boring Machine</td>
-				<td>1.0 Lot</td>
-				<td>18.0</td>
-				<td>Bangalore-KA</td>
-					<td><center><a href="" data-toggle="modal" data-target="#myModal"><i class="fas fa-heart text-secondary" aria-hidden="true"></i></a></center>
-				
-				<div class="modal" id="myModal">
-					<div class="modal-dialog modal-sm">
-					  <div class="modal-content">
-					  
-						<!-- Modal Header -->
-						<div class="modal-header">
-						  <h4 class="modal-title"><b>My List</b><br></h4>
-						  <button type="button" class="close" data-dismiss="modal">&times;</button>
-						</div>
-						
-						<!-- Modal body -->
-						<div class="modal-body">
-						<center><p class="text-primary"><i class="fa fa-check" aria-hidden="true"></i>Added to My List</p></center>
-						</div>
-						
-						<!-- Modal footer -->
-						<div class="modal-footer">
-						  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-						</div>
-						
-					  </div>
-					</div>
-				  </div>
-				</td>
-			</tr>
+			<?php }?>
 				</tbody>
 		 </table>
 		</div>

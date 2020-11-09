@@ -33,7 +33,9 @@
 		    <form action="<?php echo base_url();?>Admin_startauction_update" method="POST"  enctype="multipart/form-data">
 		  
 		  <td width="11%">Category</td>
-		  <td width="4%"><select class="form-control w-50" id="scategory" name="scategory" value="">
+
+		  <td width="4%"><select class="form-control w-50" id="scategory" name="scategory" >
+
 				<option value="<?php echo $sqldata[0]->scategory; ?>" selected><?php echo $sqldata[0]->scategory; ?></option>
 				<option value="Ferrous">Ferrous</option>
 				<option value="Non Ferrous">Non Ferrous</option>
@@ -59,7 +61,10 @@
 	  
 	  <tr>											
 		  <td>Venue Of Inspection</td>
+
+
 		  <td><textarea class="form-control w-50" type="text" id="svinspection" name="svinspection" value="<?php echo $sqldata[0]->svinspection; ?>"><?php echo $sqldata[0]->svinspection; ?></textarea></td>
+
 	  </tr>
 	  
 	  <tr>
@@ -226,14 +231,14 @@ Bidders participating in AucJunction Auctions should verify with the selling com
 			<label class="form-check-label" for="myCheck">Yes</label>
 			</div>
 			<div class="form-group" id="text"  style="display:none">
-				<input type="file" class="form-control-file" id="sterms_condiupload" name="sterms_condiupload[]" multiple= "multiple">
+				<input type="file" class="form-control-file" id="sterms_condiupload" name="sterms_condiupload[]" multiple= "multiple" value="<?php echo $sqldata[0]->sterms_condiupload;?>" >
 			</div>
 			<div class="form-check form-check-inline">
 			<input type="checkbox" class="form-check-input" id="idCheck" onclick="myFunction()" name="sterms_condiupload1[]" checked>
 			<label class="form-check-label" for="idCheck" >No</label>
 			</div>
 			<div class="form-group" id="text2" style="display:none">
-			<textarea class="form-control w-50" type="text" id="sterms_text" name="sterms_text" <?php echo $sqldata[0]->sterms_text;?> ></textarea>
+			<textarea class="form-control w-50" type="text" id="sterms_text" name="sterms_text" value="" ><?php echo $sqldata[0]->sterms_text;?></textarea>
 			</div>
 			</td>
   </tr>
