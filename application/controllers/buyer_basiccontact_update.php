@@ -31,6 +31,8 @@ class Buyer_basiccontact_update extends CI_Controller {
 		{
 		$this->load->helper(array('url','html'));
 		$this->load->model('Admin_model');
+		$this->load->library('session');
+		
 		$bemail  = $this->input->post('bemail');
 		$bphone = $this->input->post('bphone');
 
@@ -41,7 +43,8 @@ class Buyer_basiccontact_update extends CI_Controller {
 		//$this->load->view('xya', $data);
 		
 		$datainserr = "Data Inserted Successfully";
-		$hidden = array('busername' => 'avinash');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$hidden = array('busername'=>$sess['sessi']);
 		$status = $this->Admin_model->update_custom('buyerprofile',$data3,$hidden,$hidden);
 		
 		header('location: '.base_url().'buyer_dashboard/index/'.$datainserr);
