@@ -42,6 +42,7 @@ class Admin_addlot_info extends CI_Controller {
 		$this->load->helper(array('url','form','file','html'));
             if($this->input->post('submit')){
 			$sauctionid = $this->input->post('sauctionid');
+			$sname = $this->input->post('sname');
 			 $slotno = $this->input->post('slotno'); 
 			$slotname = $this->input->post('slotname');
 			$scategory = $this->input->post('scategory');
@@ -71,14 +72,14 @@ class Admin_addlot_info extends CI_Controller {
 					
 			
 			$this->load->model('Admin_model');
-			$data = array('sauctionid' => $sauctionid, 'slotno' => $slotno, 'slotname' => $slotname, 'scategory' => $scategory, 'sdescription' => $sdescription, 'slotlocation'=> $slotlocation, 'sfrominpectdate_time' => $sfrominpectdate_time, 'stoinpectdate_time' => $stoinpectdate_time, 'semddetail' => $semddetail, 'slastdateemdsub' => $slastdateemdsub, 'sprice' => $sprice, 'sstartbidprice' => $sstartbidprice, 'sqty' => $sqty, 'sunitmeasurment' => $sunitmeasurment, 'sbidbase' => $sbidbase, 'sgst' => $sgst, 'sothertax' => $sothertax, 'semdamount' => $semdamount,'sliftingperiod2' => $sliftingperiod2, 'sliftingperiod' => $sliftingperiod,  'spcbcertificate' => $spcbcertificate);
+			$data = array('sauctionid' => $sauctionid, 'sname' => $sname, 'slotno' => $slotno, 'slotname' => $slotname, 'scategory' => $scategory, 'sdescription' => $sdescription, 'slotlocation'=> $slotlocation, 'sfrominpectdate_time' => $sfrominpectdate_time, 'stoinpectdate_time' => $stoinpectdate_time, 'semddetail' => $semddetail, 'slastdateemdsub' => $slastdateemdsub, 'sprice' => $sprice, 'sstartbidprice' => $sstartbidprice, 'sqty' => $sqty, 'sunitmeasurment' => $sunitmeasurment, 'sbidbase' => $sbidbase, 'sgst' => $sgst, 'sothertax' => $sothertax, 'semdamount' => $semdamount,'sliftingperiod2' => $sliftingperiod2, 'sliftingperiod' => $sliftingperiod,  'spcbcertificate' => $spcbcertificate);
 			
 			$status = $this->Admin_model->insert('addlot', $data);
 			
 			
 
 
-			 $transfer = array('auctionid' => $sauctionid, 'category' => $scategory);
+			 $transfer = array('auctionid' => $sauctionid, 'category' => $scategory,'sname'=> $sname);
 			   if($status){
 				  $this->session->set_flashdata('txdata',$transfer);
 				  redirect('../admin_auctiondetails');
@@ -96,6 +97,7 @@ class Admin_addlot_info extends CI_Controller {
 	}
 		 else if($this->input->post('submit2')){
 			 $sauctionid = $this->input->post('sauctionid'); 
+			 $sname = $this->input->post('sname');
 			$slotno = $this->input->post('slotno');
 			$slotname = $this->input->post('slotname');
 			$scategory = $this->input->post('scategory');
@@ -120,10 +122,10 @@ class Admin_addlot_info extends CI_Controller {
 			 
 			 $this->load->model('Admin_model');
 			 
-			 $data5 = array('sauctionid' => $sauctionid, 'slotno' => $slotno, 'slotname' => $slotname, 'scategory' => $scategory, 'sdescription' => $sdescription, 'slotlocation'=> $slotlocation, 'sfrominpectdate_time' => $sfrominpectdate_time, 'stoinpectdate_time' => $stoinpectdate_time, 'semddetail' => $semddetail, 'slastdateemdsub' => $slastdateemdsub, 'sprice' => $sprice, 'sstartbidprice' => $sstartbidprice, 'sqty' => $sqty, 'sunitmeasurment' => $sunitmeasurment, 'sbidbase' => $sbidbase, 'sgst' => $sgst, 'sothertax' => $sothertax, 'semdamount' => $semdamount,'sliftingperiod2' => $sliftingperiod2, 'sliftingperiod' => $sliftingperiod,  'spcbcertificate' => $spcbcertificate);
+			 $data5 = array('sauctionid' => $sauctionid,'sname' => $sname, 'slotno' => $slotno, 'slotname' => $slotname, 'scategory' => $scategory, 'sdescription' => $sdescription, 'slotlocation'=> $slotlocation, 'sfrominpectdate_time' => $sfrominpectdate_time, 'stoinpectdate_time' => $stoinpectdate_time, 'semddetail' => $semddetail, 'slastdateemdsub' => $slastdateemdsub, 'sprice' => $sprice, 'sstartbidprice' => $sstartbidprice, 'sqty' => $sqty, 'sunitmeasurment' => $sunitmeasurment, 'sbidbase' => $sbidbase, 'sgst' => $sgst, 'sothertax' => $sothertax, 'semdamount' => $semdamount,'sliftingperiod2' => $sliftingperiod2, 'sliftingperiod' => $sliftingperiod,  'spcbcertificate' => $spcbcertificate);
 			 $status1 = $this->Admin_model->insert('addlot', $data5);
 			 
-			 	 $transfer1 = array('auctionid' => $sauctionid, 'category' => $scategory, 'lotno' => $slotno);
+			 	 $transfer1 = array('auctionid' => $sauctionid, 'category' => $scategory,'sname' => $sname, 'lotno' => $slotno);
 				 
 						  if($status1){
 				  $this->session->set_flashdata('txdata',$transfer1);

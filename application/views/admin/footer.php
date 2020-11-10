@@ -178,6 +178,15 @@
 		});
 	
  </script>
+  <script>
+		$('#gettable_editforth').on('keyup', function(){
+			var contents = $('#gettable_editforth').val(); 
+			$.get('<?php echo base_url() .'admin_editforthcom/get_table/'; ?>'+contents, function(data){
+				$('#ajaxrslt_editforth').html(data);
+			});
+		});
+	
+ </script>
  <script>
 		$('#gettable_editauction').on('keyup', function(){
 			var contents = $('#gettable_editauction').val(); 
@@ -220,6 +229,8 @@
 		});
 
  </script>
+ 
+
  <script>
 		function seller_set_deactive(varab){
 			$.get('<?php echo base_url() .'Admin_sellerapproval/setdeactive_seller/'; ?>'+varab, function(data2){	

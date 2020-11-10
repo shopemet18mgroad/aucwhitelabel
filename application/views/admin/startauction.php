@@ -69,8 +69,9 @@
 	  </tr>
 	  
 	  <tr>
-		<td>Online Auction Date</td>
-		<td><input class="form-control w-75" id="sonlineaucdate_time" name="sonlineaucdate_time" type="datetime-local" >
+		<td>Online Auction Start And End Date</td>
+		<td><input class="form-control w-75" id="saucstartdate_time" name="saucstartdate_time" type="datetime-local" ><br>
+		<input class="form-control w-75" id="saucclosedate_time" name="saucclosedate_time" type="datetime-local" >
 		</td>
 	</tr>
 	

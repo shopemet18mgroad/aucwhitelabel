@@ -35,13 +35,17 @@ class Admin_editforthcom extends CI_Controller {
 		$data = $this->Admin_model->get_lookalike('auction','sname',$datatoquerydb);
 		if(count($data)){
 			echo '<table class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';
+			echo '<thead class="bg-warning text-white">';
+		echo '<tr>';
+			echo '<th colspan="12">Auction Details</th>';
+			echo '</tr>';
 			echo '<thead class="bg-primary text-white">';
 			echo '<tr>';
 			echo '<th>Auction Id</th>';
 			echo '<th>Seller</th>';
 			echo '<th>Category</th>';
 			echo '<th>Venue Of Inspection</th>';
-			echo '<th>Online Auction Date</th>';
+			echo '<th>Online Auction Start And Close Date</th>';
 			echo '<th>Aucjunction Terms & Conditions</th>';
 			echo '<th>Upload Terms & Conditions	</th>';
 			echo '<th>Download</th>';
@@ -51,7 +55,7 @@ class Admin_editforthcom extends CI_Controller {
 			echo '<tbody>';
 			foreach($data as $dat){
 				echo '<tr>';
-				echo '<td><a href="'.base_url().'admin_editforthcom_2/editforthcom_2/editlot/'.$dat['sname'].
+				echo '<td><a href="'.base_url().'admin_editforthcom_2/editforthcom_2/'.$dat['sname'].
 				'">';
 				echo $dat['sauctionid'];
 				echo '</a>';
@@ -59,9 +63,11 @@ class Admin_editforthcom extends CI_Controller {
 				echo '<td>'.$dat['sname'].'</td>';
 				echo '<td>'.$dat['scategory'].'</td>';
 				echo '<td>'.$dat['svinspection'].'</td>';
-				echo '<td>'.$dat['sonlineaucdate_time'].'</td>';
+				echo '<td>'.$dat['saucstartdate_time'].$dat['saucclosedate_time'].'</td>';
 				echo '<td>'.$dat['sterms_condiaccept'].'</td>';
 				echo '<td>'.$dat['sterms_condiupload'].'</td>';
+				//$aucfl = unserialize ($dat['sterms_condiupload']);
+				//echo '<td>'.implode (",",$aucfl).'</td>';
 				echo '<td><a href="'.base_url().'Admin_editauction/editauction/'.$dat['sname'].'">';
 				echo '<i class="fa fa-download"></i>';
 				echo '</a>';
@@ -69,7 +75,7 @@ class Admin_editforthcom extends CI_Controller {
 				echo '<td><a href="'.base_url().'Admin_editauction/editauction/'.$dat['sname'].'">';
 				echo '<i class="fa fa-edit"></i>';
 				echo '</a>';
-				echo '<a href="'.base_url().'Admin_editauction/delete_auction/'.$dat['sauctionid'].'">';
+				echo  '<a href="'.base_url().'Admin_editauction/delete_auction/'.$dat['sname'].'">';
 				echo '<i class="fa fa-trash" style="color:black"></i>';
 				echo '</a>';
 				echo '</td>';
@@ -83,11 +89,12 @@ class Admin_editforthcom extends CI_Controller {
 			echo '<thead class="bg-primary text-white">';
 			echo '<tr>';
 			echo '<th>Auction Id</th>';
+			echo '<th>Seller</th>';
 			echo '<th>Category</th>';
 			echo '<th>Venue Of Inspection</th>';
-			echo '<th>Online Auction Date</th>';
+			echo '<th>Online Auction Start And Close Date</th>';
 			echo '<th>Aucjunction Terms & Conditions</th>';
-			echo '<th>Upload Terms & Conditions</th>';
+			echo '<th>Upload Terms & Conditions	</th>';
 			echo '<th>Download</th>';
 			echo '<th>Action</th>';
 			echo '</tr>';
@@ -95,9 +102,6 @@ class Admin_editforthcom extends CI_Controller {
 			echo '<tbody>';
 			echo '<tr>';
 				echo '<td><a href="'.base_url().'#">';
-				echo '<td>No Records Found</td>';
-				echo '<td>No Records Found</td>';
-				echo '<td>No Records Found</td>';
 				echo '<td>No Records Found</td>';
 				echo '<td>No Records Found</td>';
 				echo '<td>No Records Found</td>';
