@@ -31,15 +31,15 @@ class Buyer_forthcomingauc extends CI_Controller {
 
 		
 	}
-
 	
 	public function get_table(){
 		$datatoquerydb = $this->uri->segment(3);
 		$this->load->model('Admin_model');
-		$this->db->where('scategory', $scategory );
-		$data = $this->Admin_model->get_alike('addlot','scategory',$datatoquerydb);
+		$data = $this->Admin_model->get_lookalike('addlot','scategory',$datatoquerydb);
 		if(count($data)){
-			echo '<table class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';
+			  
+			
+			echo '<table id="myTable" class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';
 			echo '<thead class="bg-warning text-white">';
 			echo '<tr>';
 			echo '<th colspan="12">Add Lot In Your List</th>';
@@ -68,7 +68,7 @@ class Buyer_forthcomingauc extends CI_Controller {
 				echo '<td>'.$dat['sqty'].'</td>';
 				echo '<td>'.$dat['sgst'].'</td>';
 				echo '<td>'.$dat['slotlocation'].'</td>';
-				echo '<td><center><a href="" name="submit" data-toggle="modal" data-target="#myModal"><i class="fas fa-heart text-danger" aria-hidden="true"></i></a></center>
+				echo '<td><center><button  href="'.base_url().'buyer_forthcomingauc/forthcomingauc/'.$dat['sauctionid'].'($sqldat->auctionid)" type=button name="addcart" data-toggle="modal" data-target="#myModal"><i class="fas fa-heart text-danger" aria-hidden="true"></i></button></center>
 				
 				<div class="modal" id="myModal">
 					<div class="modal-dialog modal-sm">
@@ -126,10 +126,54 @@ class Buyer_forthcomingauc extends CI_Controller {
 				echo '</tr>';
 			echo '</tbody>';
 			echo '</table>';
+			
 		}
 
 
 
+	}
+	
+	public function forthcomingauc(){
+	
+		$retrivevaltmp = urldecode($this->uri->segment(3));
+		
+		$retriveval = array('sauctionid'=>$retrivevaltmp);
+		$this->load->model('Admin_model');
+
+		$data['sqldata'] = $this->Admin_model->getdatafromtablejoin('addlot','auction','sauctionid',$retrivevaltmp);
+		$data['sellerinfo'] = $this->Admin_model->getdatafromtable('sellerprofile',$retriveval);
+			
+			$data2 = array('sauctionid' => $sauctionid, 'slotname' => $slotname, 'scategory' => $scategory, 'sdescription' => $sdescription);
+		//$this->load->view('xya', $data);
+		$datainserr = "Data Inserted Successfully";
+		$status = $this->Admin_model->update_custom('addlot',$data2);
+		// $status = $this->Admin_model->insert('sellerprofile', $data2);
+		//header('location: '.base_url().'admin_editforthcom/index/'.$datainserr);
+			
+		$this->load->helper('url');
+		
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('buyer/header',$sess);
+		$this->load->view('buyer/forthcomingauc', $data);
+		$this->load->view('buyer/footer');
+	}
+	 	public function forthcomingauc_alert(){
+		$retrivevaltmp = $this->uri->segment(3);
+		$retrivevaltmp2 = urldecode($this->uri->segment(4));
+		echo '<script language="javascript">';
+			echo 'alert("'.$retrivevaltmp2.'")';  //not showing an alert box.
+			echo '</script>';
+		$retriveval = array('sauctionid'=>$retrivevaltmp);
+		$this->load->model('Admin_model');
+		
+		$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
+		$this->load->helper('url');
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('buyer/header',$sess);
+		$this->load->view('buyer/forthcomingauc', $data);
+		$this->load->view('buyer/footer');
 	}
 	
 	

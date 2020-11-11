@@ -72,7 +72,7 @@ class Admin_editforthcom extends CI_Controller {
 				echo '<i class="fa fa-download"></i>';
 				echo '</a>';
 				echo '</td>';
-				echo '<td><a href="'.base_url().'Admin_editauction/editauction/'.$dat['sname'].'">';
+				echo '<td><a href="'.base_url().'Admin_editauction/editauction/'.$dat['sname'].'($sqldat->sauctionid)">';
 				echo '<i class="fa fa-edit"></i>';
 				echo '</a>';
 				echo  '<a href="'.base_url().'Admin_editauction/delete_auction/'.$dat['sname'].'">';

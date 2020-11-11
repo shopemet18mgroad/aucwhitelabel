@@ -77,21 +77,36 @@
  </script>
  
  <script>
-  $(function(){
+  /*  $(function(){
 	 $("#scategory").change(function(){
 		var displaycourse=$("#scategory option:selected").text();
 		$("#gettable_forthcomingauc").val(displaycourse);
 		
 	 });
- });
-		$('#gettable_forthcomingauc').on('keyup', function(){
-			var contents = $('#gettable_forthcomingauc').val(); 
-			$.get('<?php echo base_url() .'buyer_forthcomingauc/get_table/'; ?>'+contents, function(data){
+ }); */ 
+ 
+ $(document).ready(function($) {
+   $('table').hide();
+    $('#gettable_forthcomingauc').change( function(){
+		var contents = $('#gettable_forthcomingauc').val(); 
+			 $.get('<?php echo base_url() .'buyer_forthcomingauc/get_table/'; ?>'+contents, function(data){
 				$('#ajaxrslt_forthcomingauc').html(data);
 			});
-		});
+      $('table').show();
+	  
+      var selection = $(this).val();
+	  
+      var dataset = $('#myTable').find('tr');
+	 
+          $.each(dataset, function(index, item) {
+            help
+          });
+		  
+    });
+	
+});
+</script>
 
- </script>
  
 
  
