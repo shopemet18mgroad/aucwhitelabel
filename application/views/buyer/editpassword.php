@@ -36,27 +36,30 @@
 					
 					 </thead>
 						<tbody>
+						<form action ="<?php echo base_url();?>Buyer_basicpassword_update" method="POST" enctype="multipart/form-data">
+						<div class="error-msg"></div>
 							<tr>
 								<td>Old Password</td>
 								<td><input class="form-control w-50" type="password" id="boldpassword"name="boldpassword"></td>
 							</tr> 
 							<tr>
 								<td>New Password</td>
-								<td><input class="form-control w-50" type="password" id="bnewpassword" name="bnewpassword" ></td>
+								<td><input class="form-control w-50" type="password" id="bnewpassword" name="bnewpassword"  onkeyup="validate_password()"></td>
 							</tr> 
 							<tr>
 								<td>Confirm Password</td>
-								<td><input class="form-control w-50" type="password" id="bconfirmpassword" name="bconfirmpassword" ></td>
+								<td><input class="form-control w-50" type="password" id="bconfirmpassword" name="bconfirmpassword" >
+								<span id='message'></span></td>
 							</tr> 	
 											
 						</tbody>
 					</table>
 
-				<a href="#"><button type="button" class="btn btn-primary offset-sm-3 mt-2">Update</button></a>
+				<input type="submit" id="submitBtn" class="btn btn-primary offset-sm-3 mt-2" name="submit" value="Update" onclick="return validate_user_password()">
 												
-				<a href="#"><button type="button" class="btn btn-primary offset-sm-1 mt-2">Reset</button></a>
-												
-				<a href="buyer_dashboard"><button type="button" class="btn btn-primary offset-sm-1 mt-2">Cancel</button></a>
+			<input type="submit" class="btn btn-primary offset-sm-1 mt-2" value="Reset">
+					</form>							
+				<a href=""><button type="button" class="btn btn-primary offset-sm-1 mt-2">Cancel</button></a>
 				
 								
               </div>

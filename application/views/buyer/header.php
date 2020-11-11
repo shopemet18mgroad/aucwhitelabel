@@ -10,6 +10,7 @@
   <meta name="author" content="">
 
   <title>Dashboard</title>
+  
 
   <!-- Custom fonts for this template-->
   <link href="<?php echo base_url()."web_files/";?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -19,6 +20,8 @@
   <link href="<?php echo base_url()."web_files/";?>css/sb-admin-2.min.css" rel="stylesheet">
   <link href="<?php echo base_url()."web_files/";?>vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
   <script src="<?php echo base_url()."web_files/";?>js/js.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 <style>
 .blinking{
     animation:blinkingText 1.2s infinite;
@@ -99,17 +102,10 @@
         Manage
       </div> 	
 	  
-	   <li class="nav-item">
-        <a class="nav-link collapsed" href="<?php echo base_url();?>buyer_forthcomingauc" data-toggle="collapse" data-target="#auction" aria-expanded="true" aria-controls="collapseProduct">
+	    <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url();?>buyer_forthcomingauc">
           <i class="fas fa-fw fa-gavel"></i>
-          <span>Auction</span>
-        </a>
-        <div id="auction" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="<?php echo base_url();?>buyer_forthcomingauc">Forthcoming Auction</a>
-            <a class="collapse-item" href="<?php echo base_url();?>buyer_closedauc">Closed Auction</a>
-           </div>
-        </div>
+          <span>Forthcoming Auction</span></a>
       </li>
 	  
 	  	  <li class="nav-item">
@@ -261,7 +257,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $sessi;?></span>
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->

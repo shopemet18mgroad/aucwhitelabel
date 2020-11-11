@@ -90,6 +90,20 @@ class Registration extends CI_Controller {
 		}
 		
 	}
+	public function passwordverify_buyer()
+	{
+		$this->load->helper('url');
+		$dataw = base64_encode($this->uri->segment(3));
+		$update = array('bpassword'=>$dataw);
+		$this->load->model('Admin_model');
+		$scan = $this->Admin_model->check('buyerprofile',$update);
+		if($scan){
+			echo "BYE";
+		}else{
+			echo "HI";
+		}
+		
+	}
 	//////////////////////////////////////////////////////
 	
 	/* public function indexbuyer()

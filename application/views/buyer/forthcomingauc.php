@@ -21,11 +21,28 @@
             <div class="card-body">
               <div class="table-responsive">
 			      <form class="form-inline">
-					<div class="form-group mr-4 offset-sm-4">
+			
+				  <div class="form-group col-sm-3 mr-4 mt-3 ml-5">
+				<label for="gettable" ><strong>Category:</strong></label>
+
+					<select class="form-control col-sm-8 ml-2" id="scategory" name="scategory">
+					
+					<option value="" selected>Select</option>
+				<option value="Ferrous">Ferrous</option>
+				<option value="Non Ferrous">Non Ferrous</option>
+				<option value="Minor Metals" >Minor Metals</option>
+				<option value="Plain paper">Plain paper</option>
+				<option value="Granules">Granules</option>
+				<option value="All Construction Materials">All Construction Materials</option>
+					</select>
+					
+				</div>
+
+					<div class="form-group mr-4 offset-sm-1 mt-3 ">
 						<td colspan="5">
 						<!-- <form action="/action_page.php"> -->
 								<label for="gettable"></label>
-								<input type="text" class="form-control gettable" id="gettable_forthcomingauc" placeholder="Enter Company Name To Fetch Result"  size="70" name="search">
+								<input type="text" class="form-control gettable" id="gettable_forthcomingauc" placeholder="Enter Metal Name To Fetch Result"  size="70" name="search">
 								
 								<!--<button class="form-control" type="submit"><i class="fa fa-search"></i></button>-->
 					
@@ -38,6 +55,7 @@
 			
 			<!---- ------>
 		</div>
+	
 		</div>
 		</div>
 		</div>
@@ -59,6 +77,16 @@
     <!-- End of Content Wrapper -->
 
   </div>
+  
+  
+ <!-- <script>
+ $(function(){
+	 $("#scategory").change(function(){
+		var displaycourse=$("#scategory option:selected").text();
+		$("#gettable_forthcomingauc").val(displaycourse);
+	 })
+ })
+ </script>-->
   <!-- End of Page Wrapper -->
 
   <!-- Scroll to Top Button-->
