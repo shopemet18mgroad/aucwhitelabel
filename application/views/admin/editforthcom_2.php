@@ -79,7 +79,7 @@
 
 					<td><a href="<?php echo base_url()."Admin_editlot/editlot/".str_ireplace("/","-",$sqldata[0]->sauctionid)."/".urlencode($sqldata[0]->slotno);?>" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a>
 
-						<a class="btn btn-danger btn-sm text-white"><i class="fa fa-trash fa-sm"></i></a></td>	
+						<a href="<?php echo base_url()."Admin_editlot/deletelot/".str_ireplace("/","-",$sqldata[0]->sauctionid)."/".urlencode($sqldata[0]->slotno)."/".urlencode($sqldata[0]->sname);?>" class="btn btn-danger btn-sm text-white"><i class="fa fa-trash fa-sm"></i></a></td>	
 				</tr>
 			<?php }?>
 				</tbody>

@@ -71,4 +71,16 @@ class Admin_editlot extends CI_Controller {
 		$this->load->view('admin/editlot', $data);
 		$this->load->view('admin/footer');
 	} 
+	public function deletelot(){
+		$delval = $this->uri->segment(3);
+		$delval = str_ireplace('-','/',$delval);
+		$delval2 = $this->uri->segment(4);
+		$delval3 = urldecode($this->uri->segment(5));
+		$retriveval = array('sauctionid'=>$delval,'slotno'=>$delval2,'sname'=>$delval3);
+		$delval3 = urlencode($delval3);
+		$this->load->model('Admin_model');
+		$this->Admin_model->delete_data('addlot',$retriveval);
+		header('location: '.base_url().'admin_editforthcom_2/editforthcom_2/'.$delval3);
+		die;
+	}
 }
