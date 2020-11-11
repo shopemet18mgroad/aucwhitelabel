@@ -28,6 +28,7 @@ class Buyer_basicinfo_update extends CI_Controller {
 		if($this->input->post('submit'))
 		{
 		$this->load->helper(array('url','html'));
+		$this->load->library('session');
 		$this->load->model('Admin_model');
 		//$busername = $this->uri->segment(3);	
 		$baddress  = $this->input->post('baddress');
@@ -39,8 +40,11 @@ class Buyer_basicinfo_update extends CI_Controller {
 		//$this->load->view('xya', $data);
 		
 		$datainserr = "Data Inserted Successfully";
-		//$updatech['busername'] = $busername;
-		$hidden = array('busername' => 'avinash');
+		
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		
+		$hidden = array('busername'=>$sess['sessi']);
+		
 		//$updatech = array('baddress' => $baddress);
 		$status = $this->Admin_model->update_custom('buyerprofile',$data2,$hidden,$hidden);
 		

@@ -93,4 +93,38 @@
 
  </script>
  
+
  
+ 
+ <script>
+ function validate_user_password(){
+	 
+	var user = document.getElementById('boldpassword').value;
+	var user2 = document.getElementById('bnewpassword').value;
+	var user3 = document.getElementById('bconfirmpassword').value;
+	
+	if(user == "" || user2 == "" || user3 == ""){
+			 swal("Alert!", "Old Password, New Password and Confirm Password Cannot Be Left Blank","error");
+		 return false; 
+	 }
+	 
+	if (user2 != user3) {
+		swal("Both the Password Should Match");
+		return false;
+  } 
+ }
+
+function validate_password(){
+	var user = document.getElementById('boldpassword').value;
+	
+	
+	$.get('<?php echo base_url() .'registration/passwordverify_buyer/'; ?>'+user, function(data2){						
+				 if($.trim(data2) == "HI"){
+					return true;
+				}else{
+					swal("Alert!", "Password Already Exists", "error");
+					return false;
+				}
+			 }); 
+ }
+ </script>

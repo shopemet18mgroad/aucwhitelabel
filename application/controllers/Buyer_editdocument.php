@@ -23,18 +23,21 @@ class Buyer_editdocument extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('session');
 		$this->load->model('Admin_model');
-			
-		$sess = "avinash";//$this->session->userdata('username');
-		
-		$active = array('busername'=>$sess);
-		//load model library use get_where func from tablename buyerprofile
-		
-		$query = $this->Admin_model->getdatafromtable('buyerprofile', $active);
-		$data['sqldata']= $query;
-		$this->load->view('buyer/header');
+		$bcompany = $this->uri->segment(3);	
+			if(!$this->session->has_userdata('username')){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
+			$sess = array('sessi'=>$this->session->userdata('username'));
+			$active = array('busername'=>$sess['sessi']);
+			$query = $this->Admin_model->getdatafromtable('buyerprofile', $active);
+			$data['sqldata']= $query;
+			$data['bcompany'] = $bcompany;
+			$this->load->view('buyer/header',$sess);
 		$this->load->view('buyer/editdocument', $data);
 		$this->load->view('buyer/footer');
-		
+		}
 	}
 	
 }

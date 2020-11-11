@@ -31,7 +31,8 @@ class Buyer_basicdocument_update extends CI_Controller {
 		{
 		$this->load->helper(array('url','html'));
 		$this->load->model('Admin_model');
-
+		$this->load->library('session');
+		
 		$dataact = array();
 		$datacomp = array();
 		$dataact = $this->input->post('bsigneddocumentex');
@@ -80,7 +81,8 @@ class Buyer_basicdocument_update extends CI_Controller {
 		//$this->load->view('xya', $data);
 		
 		$datainserr = "Data Inserted Successfully";
-		$updatech = array('bsigneddocument' => $bsigneddocument);
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$updatech = array('busername'=>$sess['sessi']);
 		$status = $this->Admin_model->update_custom('buyerprofile',$data4,$updatech,$updatech);
 		
 		header('location: '.base_url().'buyer_dashboard/index/'.$datainserr);

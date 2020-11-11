@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Buyer_basicaccount_update extends CI_Controller {
+class Buyer_basicpassword_update extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -32,23 +32,25 @@ class Buyer_basicaccount_update extends CI_Controller {
 		$this->load->helper(array('url','html'));
 		$this->load->model('Admin_model');
 		$this->load->library('session');
-		
-		
-		$bbankname  = $this->input->post('bbankname');
-		$baccountnumber = $this->input->post('baccountnumber');
-		$bbranch = $this->input->post('bbranch');
-		$bifsccode = $this->input->post('bifsccode');		//=================================================================================================
+			
+		$bpassword=$this->input->post('bnewpassword');
+		$bpassword = base64_encode($bpassword);
+			
+		//=================================================================================================
 		//==================================================================
-		$data4 = array ('bbankname' => $bbankname, 'baccountnumber' => $baccountnumber, 'bbranch' => $bbranch, 'bifsccode' => $bifsccode);
+		$data4 = array ('bpassword' => $bpassword);
 		//$this->load->view('xya', $data);
+		
 		
 		$datainserr = "Data Inserted Successfully";
 		$sess = array('sessi'=>$this->session->userdata('username'));
-		$updatech = array('busername'=>$sess['sessi']);
-		$status = $this->Admin_model->update_custom('buyerprofile',$data4,$updatech,$updatech);
+		
+		$hidden = array('busername'=>$sess['sessi']);
+
+		$status = $this->Admin_model->update_custom('buyerprofile',$data4,$hidden,$hidden);
 		
 		header('location: '.base_url().'buyer_dashboard/index/'.$datainserr);
 		}
 	}
-	
-}
+}	
+

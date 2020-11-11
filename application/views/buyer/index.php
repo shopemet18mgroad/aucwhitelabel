@@ -111,7 +111,7 @@
 						<tbody>
 							<tr>
 								<td>Old Password</td>
-								<td>******</td>
+								<td>****</td>
 							</tr> 
 							<tr>
 								<td>New Password</td>
