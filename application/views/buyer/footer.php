@@ -76,7 +76,14 @@
 
  </script>
  
-  <script>
+ <script>
+  $(function(){
+	 $("#scategory").change(function(){
+		var displaycourse=$("#scategory option:selected").text();
+		$("#gettable_forthcomingauc").val(displaycourse);
+		
+	 });
+ });
 		$('#gettable_forthcomingauc').on('keyup', function(){
 			var contents = $('#gettable_forthcomingauc').val(); 
 			$.get('<?php echo base_url() .'buyer_forthcomingauc/get_table/'; ?>'+contents, function(data){

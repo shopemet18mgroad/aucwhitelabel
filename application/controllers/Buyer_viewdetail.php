@@ -36,9 +36,12 @@ class Buyer_viewdetail extends CI_Controller {
 		$retrivevaltmp = urldecode($this->uri->segment(3));
 		$retriveval = array('sname'=>$retrivevaltmp);
 		$this->load->model('Admin_model');
-		$this->db->select('*'); // join the two table with similer id
-		$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid', 'left');
-		$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
+		//$this->db->select('*'); // join the two table with similer id
+		//$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid', 'left');
+		//$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
+		$data['sqldata'] = $this->Admin_model->getdatafromtablejoin('addlot','auction','sauctionid',$retrivevaltmp);
+		$data['sellerinfo'] = $this->Admin_model->getdatafromtable('sellerprofile',$retriveval);
+		
 		$this->load->helper('url');
 		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));

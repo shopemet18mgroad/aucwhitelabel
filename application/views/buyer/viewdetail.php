@@ -50,8 +50,8 @@
 					<td><?php echo $sqldata[0]->slotno; ?></td>
 					<td><?php echo $sqldata[0]->slotname; ?></td>
 					<td><?php echo $sqldata[0]->slotlocation; ?></td>
-					<td><?php echo $sqldata[0]->sonlineaucdate_time; ?></td>
-					<td></td>
+					<td><?php echo $sqldata[0]->saucstartdate_time; ?></td>
+					<td><?php echo $sqldata[0]->saucclosedate_time; ?></td>
 					<td><?php echo $sqldata[0]->sqty; ?></td>
 					<td><?php echo $sqldata[0]->sunitmeasurment; ?></td>
 					<td><?php echo $sqldata[0]->sstartbidprice; ?></td>

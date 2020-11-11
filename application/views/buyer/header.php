@@ -10,6 +10,7 @@
   <meta name="author" content="">
 
   <title>Dashboard</title>
+  
 
   <!-- Custom fonts for this template-->
   <link href="<?php echo base_url()."web_files/";?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -99,17 +100,10 @@
         Manage
       </div> 	
 	  
-	   <li class="nav-item">
-        <a class="nav-link collapsed" href="<?php echo base_url();?>buyer_forthcomingauc" data-toggle="collapse" data-target="#auction" aria-expanded="true" aria-controls="collapseProduct">
+	    <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url();?>buyer_forthcomingauc">
           <i class="fas fa-fw fa-gavel"></i>
-          <span>Auction</span>
-        </a>
-        <div id="auction" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="<?php echo base_url();?>buyer_forthcomingauc">Forthcoming Auction</a>
-            <a class="collapse-item" href="<?php echo base_url();?>buyer_closedauc">Closed Auction</a>
-           </div>
-        </div>
+          <span>Forthcoming Auction</span></a>
       </li>
 	  
 	  	  <li class="nav-item">
