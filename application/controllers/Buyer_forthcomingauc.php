@@ -36,8 +36,7 @@ class Buyer_forthcomingauc extends CI_Controller {
 	public function get_table(){
 		$datatoquerydb = $this->uri->segment(3);
 		$this->load->model('Admin_model');
-		$this->db->where('scategory', $scategory );
-		$data = $this->Admin_model->get_alike('addlot','scategory',$datatoquerydb);
+		$data = $this->Admin_model->get_lookalike('addlot','scategory',$datatoquerydb);
 		if(count($data)){
 			echo '<table class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';
 			echo '<thead class="bg-warning text-white">';
@@ -60,7 +59,11 @@ class Buyer_forthcomingauc extends CI_Controller {
 			echo '<tbody>';
 			foreach($data as $dat){
 				echo '<tr>';
-				echo '<td style="color:blue;">'.$dat['sauctionid'].'</td>';
+				echo '<td style="color:blue"><a href="'.base_url().'buyer_mylist/my_cart/'.urlencode($dat['scategory']).
+				'">';
+				echo $dat['sauctionid'];
+				echo '</a>';
+				echo '</td>';
 				echo '<td>'.$dat['slotname'].'</td>';
 				echo '<td>'.$dat['scategory'].'</td>';
 				echo '<td>'.$dat['sdescription'].'</td>';
