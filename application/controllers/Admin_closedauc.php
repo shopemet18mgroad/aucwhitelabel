@@ -21,8 +21,9 @@ class Admin_closedauc extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper('url');
-
-		$this->load->view('admin/header');
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('admin/header',$sess);
 		$this->load->view('admin/closedauc');
 		$this->load->view('admin/footer');
 		

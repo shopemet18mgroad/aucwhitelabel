@@ -23,10 +23,54 @@ class Buyer_mylist extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
+
 		$this->load->view('buyer/header',$sess);
 		$this->load->view('buyer/mylist');
 		$this->load->view('buyer/footer');
-		}	
+	}	
+	
+	
+
+	
+public function my_cart(){
+	
+		$retrivevaltmp = urldecode($this->uri->segment(3));
+		
+		$retriveval = array('scategory'=>$retrivevaltmp);
+		$this->load->model('Admin_model');
+
+		$data['sqldata'] = $this->Admin_model->getdatafromtablejoin('addlot','auction','sauctionid',$retrivevaltmp);
+		//$data['sellerinfo'] = $this->Admin_model->getdatafromtable('sellerprofile',$retriveval);
+
+		$this->load->helper('url');
+		
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('buyer/header',$sess);
+		$this->load->view('buyer/mylist',$data);
+		$this->load->view('buyer/footer');
 	}
 	
+	
+	public function my_cart_alert(){
+		$retrivevaltmp = $this->uri->segment(3);
+		$retrivevaltmp2 = urldecode($this->uri->segment(4));
+		echo '<script language="javascript">';
+			echo 'alert("'.$retrivevaltmp2.'")';  //not showing an alert box.
+			echo '</script>';
+		$retriveval = array('scategory'=>$retrivevaltmp);
+		$this->load->model('Admin_model');
+		
+		$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
+		$this->load->helper('url');
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('buyer/header',$sess);
+		$this->load->view('buyer/mylist',$data);
+		$this->load->view('buyer/footer');
+	}
+	
+
+
+}
 
