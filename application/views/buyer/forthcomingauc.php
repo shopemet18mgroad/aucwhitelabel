@@ -45,7 +45,7 @@
 								<input type="text" class="form-control gettable" id="gettable_forthcomingauc" placeholder="Enter Metal Name To Fetch Result"  size="70" name="search">-->
 								<label for="gettable" ><strong>Category:</strong></label>
 								
-								<select class="form-control col-sm-5 col-md-5 ml-2" id="gettable_forthcomingauc" name="scategory" >
+								<select class="form-control gettable col-sm-5 col-md-5 ml-2" id="gettable_forthcomingauc" name="scategory" >
 					
 					<option value="" selected>Select</option>
 				<option value="Ferrous">Ferrous</option>
@@ -91,7 +91,7 @@
     <!-- End of Content Wrapper -->
 
   </div>
- 
+
   
  
   <!-- End of Page Wrapper -->

@@ -38,6 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$query = $this->db->get();
 			return $query->result();
 		}
+		
 		  public function delete_data($table, $data) { 
 			 if ($this->db->delete($table, $data)) { 
 				return true; 
