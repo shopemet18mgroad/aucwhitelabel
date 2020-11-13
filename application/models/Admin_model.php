@@ -26,6 +26,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			 $query = $this->db->get_where($table, $data); 
 			 return $query->result();
 		} 
+		public function datebetween($table, $date){
+			$this->db->select('*');
+			$this->db->from($table);
+			$this->db->where('saucstartdate_time <=', $date);
+			$this->db->where('saucclosedate_time >=', $date);
+			$query = $this->db->get();
+			return $query->result();
+		}
 		public function gettable($table) { 
 			 $query = $this->db->get($table); 
 			 return $query->result();
