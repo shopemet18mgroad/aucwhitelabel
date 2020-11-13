@@ -50,11 +50,19 @@
 		  <td><input class="form-control w-50" type="text" id="slotname" name="slotname" value="<?php echo $sqldata[0]->slotname; ?>" onkeyup="auction_id1()"></td>
 	  </tr>
 	  <tr>
-		  <td>Category</td>
-		  <td><select class="form-control w-50" id="scategory" name="scategory">
-				<option value="<?php echo $sqldata[0]->scategory; ?>"selected><?php echo $sqldata[0]->scategory; ?></option>
-				
-				</select></td>
+		  <td width="11%">Category</td>
+
+		  <td width="4%"><select class="form-control w-50" id="scategory" name="scategory" >
+
+				<option value="<?php echo $sqldata[0]->scategory; ?>" selected><?php echo $sqldata[0]->scategory; ?></option>
+				<option value="Ferrous">Ferrous</option>
+				<option value="Non Ferrous">Non Ferrous</option>
+				<option value="Minor Metals" >Minor Metals</option>
+				<option value="Plain paper">Plain paper</option>
+				<option value="Granules">Granules</option>
+				<option value="All Construction Materials">All Construction Materials</option>
+				</select>
+			</td>
 	  </tr>
 	   <tr>
 		  <td>Description</td>
@@ -73,14 +81,7 @@
 				<option value="Hydrabad">Hydrabad</option>
 				</select></td>
 	</tr>
-	<tr>  												
-		<td>Inspection Date & Time</td>
-		<td>
-From: 
-    <input class="form-control w-75" type="datetime-local" id="sfrominpectdate_time" name="sfrominpectdate_time" value="<?php echo date('Y-m-d\TH:i', strtotime($sqldata[0]->sfrominpectdate_time)); ?>">
- To:
-    <input class="form-control w-75" type="datetime-local"  id="stoinpectdate_time" name="stoinpectdate_time" value="<?php echo date('Y-m-d\TH:i', strtotime($sqldata[0]->stoinpectdate_time)); ?>">
-</td>
+	
 	</tr>
 	
 	<tr>
@@ -88,20 +89,14 @@ From:
 		<td><textarea class="form-control w-75" type="text" id="semddetail" name="semddetail" value="<?php echo $sqldata[0]->semddetail; ?>"><?php echo $sqldata[0]->semddetail; ?></textarea></td>
 	</tr>
 	
-	<tr>
-		<td>Last Date Of Submiting EMD</td>
-		<td><input class="form-control w-50" type="date" id="slastdateemdsub" name="slastdateemdsub" value="<?php echo $sqldata[0]->slastdateemdsub; ?>"></td>
-	</tr>
+	
 	
 	<tr>
 
 		<td>Expected Price</td>
 		<td><input class="form-control w-50" type="text" id="sprice" name="sprice" value="<?php echo $sqldata[0]->sprice; ?>"></td>
 	</tr>
-	<tr>
-		<td>Starting Bid Price</td>
-		<td><input class="form-control w-50" type="text" id="sstartbidprice" name="sstartbidprice" value="<?php echo $sqldata[0]->sstartbidprice; ?>"></td>
-	</tr>
+	
 	</tr>
 		<td>Qty</td>
 		<td><input class="form-control w-50" type="text" id="sqty" name="sqty" value="<?php echo $sqldata[0]->sqty; ?>"></td>
@@ -135,6 +130,10 @@ From:
 	<tr>
 	<td>GST</td>
 	<td><input class="form-control w-50" type="text" id="sgst" name="sgst" value="<?php echo $sqldata[0]->sgst; ?>"></td>
+    </tr>
+	<tr>
+		<td>HSN Code.</td>
+		<td><input class="form-control w-50" type="text" id="shsncode" name="shsncode" value="<?php echo $sqldata[0]->shsncode; ?>"></td>
     </tr>
   
      <tr>

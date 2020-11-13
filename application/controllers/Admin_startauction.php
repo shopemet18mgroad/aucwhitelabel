@@ -48,6 +48,10 @@ class Admin_startauction extends CI_Controller {
 			$sauctionid = $this->input->post('sauctionid');
 			$sname = $this->input->post('sname');
 			$scompanyname = $this->input->post('scompanyname');
+			$sfrominpectdate_time = $this->input->post('sfrominpectdate_time');
+			$stoinpectdate_time  = $this->input->post('stoinpectdate_time');
+			$sstartbidprice = $this->input->post('sstartbidprice');
+			$slastdateemdsub = $this->input->post('slastdateemdsub');
 			$svinspection = $this->input->post('svinspection');
 			$saucstartdate_time = $this->input->post('saucstartdate_time');
 			$saucclosedate_time = $this->input->post('saucclosedate_time');
@@ -70,7 +74,7 @@ class Admin_startauction extends CI_Controller {
 				$sterms_text = $this->input->post('sterms_text');
 			
 			//$this->load->model('Admin_model');
-			$data = array('scategory' => $scategory, 'sauctionid' => $sauctionid, 'sname' => $sname, 'scompanyname' => $scompanyname, 'svinspection'=> $svinspection, 'saucstartdate_time' => $saucstartdate_time,'saucclosedate_time' => $saucclosedate_time,'sterms_condiaccept'=>$sterms_condiaccept,'sterms_condiupload' => $pic_array1 , 'sterms_text' => $sterms_text);
+			$data = array('scategory' => $scategory, 'sauctionid' => $sauctionid, 'sname' => $sname, 'scompanyname' => $scompanyname, 'sfrominpectdate_time' => $sfrominpectdate_time, 'stoinpectdate_time' => $stoinpectdate_time, 'sstartbidprice' => $sstartbidprice,'slastdateemdsub' => $slastdateemdsub, 'svinspection'=> $svinspection, 'saucstartdate_time' => $saucstartdate_time,'saucclosedate_time' => $saucclosedate_time,'sterms_condiaccept'=>$sterms_condiaccept,'sterms_condiupload' => $pic_array1 , 'sterms_text' => $sterms_text);
 			
 			$status = $this->Admin_model->insert('auction', $data);
 			

@@ -80,8 +80,8 @@ class Admin_forthcomingauc extends CI_Controller {
 				echo '</a>';
 				echo '</td>';
 				echo '</tr>';
-			echo '</tbody>';
-			echo '</table>';
+				echo '</tbody>';
+				echo '</table>';
 		}
 
 

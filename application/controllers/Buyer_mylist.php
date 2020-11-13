@@ -23,6 +23,7 @@ class Buyer_mylist extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
+
 		$this->load->view('buyer/header',$sess);
 		$this->load->view('buyer/mylist');
 		$this->load->view('buyer/footer');
@@ -70,4 +71,6 @@ public function my_cart(){
 	}
 	
 
+
 }
+

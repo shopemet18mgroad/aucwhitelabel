@@ -75,6 +75,24 @@
 
 	  </tr>
 	  
+	  <tr>  												
+		<td>Inspection Date & Time</td>
+		<td>
+From: 
+    <input class="form-control w-75" type="datetime-local" id="sfrominpectdate_time" name="sfrominpectdate_time" value="<?php echo date('Y-m-d\TH:i', strtotime($sqldata[0]->sfrominpectdate_time)); ?>">
+ To:
+    <input class="form-control w-75" type="datetime-local"  id="stoinpectdate_time" name="stoinpectdate_time" value="<?php echo date('Y-m-d\TH:i', strtotime($sqldata[0]->stoinpectdate_time)); ?>">
+</td>
+	 </tr>
+<tr>
+		<td>Starting Bid Price</td>
+		<td><input class="form-control w-50" type="text" id="sstartbidprice" name="sstartbidprice" value="<?php echo $sqldata[0]->sstartbidprice; ?>"></td>
+	</tr>
+
+<tr>
+		<td>Last Date Of Submiting EMD</td>
+		<td><input class="form-control w-50" type="date" id="slastdateemdsub" name="slastdateemdsub" value="<?php echo $sqldata[0]->slastdateemdsub; ?>"></td>
+	</tr>	
 	  <tr>
 		<td>Online Auction Start And End Date</td>
 		<td><input class="form-control w-75" id="saucstartdate_time" name="saucstartdate_time" type="datetime-local" value="<?php echo date('Y-m-d\TH:i', strtotime($sqldata[0]->saucstartdate_time)); ?>">
