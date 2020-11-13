@@ -27,21 +27,14 @@
         <td><b>Company Type</b></td>
         <td><select class="form-control w-100" style="text-align-last:center;" id="bcomptype" name="bcomptype">
 		
-			<option value="one" selected>--------category1-------</option>
-			<option value="two">category2</option>
-			<option value="three" >category3</option>
-			<option value="four">category4</option>
+			<option value="one" selected>Central/State Govt/UT/Local Authority</option>
+			<option value="two">Central PSU</option>
+			<option value="three" >State PSU</option>
+			<option value="four">Educational/Research Institute</option>
+			<option value="five">Other</option>
 			</select></td>
         </tr>
-      <tr>
-         <td><b>Buyer Type</b></td>
-        <td><select class="form-control w-100" style="text-align-last:center;" id="bbuyertype" name="bbuyertype">
-			<option value="one" selected>-------category1--------</option>
-			<option value="two">category2</option>
-			<option value="three" >category3</option>
-			<option value="four">category4</option>
-			</select></td>
-      </tr>
+
 		<tr>
 		  <td><b>Buyer's Location</b></td>
 		  <td><input class="form-control w-100" type="text" id="bbuyerlocation" name="bbuyerlocation" size="50"></td>
