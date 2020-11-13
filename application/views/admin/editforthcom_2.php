@@ -34,11 +34,8 @@
 					<td>Category</td>
 					 <td>Description</td>
 					 <td>Location Of Lot</td>
-					 <td>Inspection Date & Time</td>
 					 <td>EMD Details</td>
-					 <td>Last Date Of Submiting EMD</td>
 					 <td>Expected Price</td>
-					 <td>Starting Bid Price</td>
 					<td>Quantity</td>
 					<td>Unit Of Measurment</td>
 					<td>Bid Base</td>
@@ -62,11 +59,8 @@
 					<td><?php echo $sqldata[0]->scategory; ?></td>
 					<td><?php echo $sqldata[0]->sdescription; ?></td>
 					<td><?php echo $sqldata[0]->slotlocation; ?></td>
-					<td><?php echo $sqldata[0]->sfrominpectdate_time; ?><?php echo $sqldata[0]->stoinpectdate_time; ?></td>
 					<td><?php echo $sqldata[0]->semddetail; ?></td>
-					<td><?php echo $sqldata[0]->slastdateemdsub; ?></td>
 					<td><?php echo $sqldata[0]->sprice; ?></td>
-					<td><?php echo $sqldata[0]->sstartbidprice; ?></td>
 					<td><?php echo $sqldata[0]->sqty; ?></td>
 					<td><?php echo $sqldata[0]->sunitmeasurment; ?></td>
 					<td><?php echo $sqldata[0]->sbidbase; ?></td>

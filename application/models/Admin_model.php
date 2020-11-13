@@ -70,12 +70,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return $q->result_array();
 		  }
 		  
-			 public function get_alike($table,$col,$query){			  
-			$this->db->from($table);
-			$this->db->like($col,$query);
-			$q = $this->db->get_where($table, array("prod_id"=>$id));
-			return $q->result_array();
-		  }
+			
+
+			function fetch_all()
+			 {
+			  $query = $this->db->get("auction");
+			  return $query->result();
+			 }
+
      
 		  
 		 

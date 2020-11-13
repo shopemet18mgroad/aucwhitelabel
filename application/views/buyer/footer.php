@@ -75,7 +75,15 @@
 		});
 
  </script>
- 
+ <script>
+		$('#gettable_forthcomingauc').on('keyup', function(){
+			var contents = $('#gettable_forthcomingauc').val(); 
+			$.get('<?php echo base_url() .'buyer_detailedauc/get_table/'; ?>'+contents, function(data){
+				$('#ajaxrslt_forthcomingauc1').html(data);
+			});
+		});
+
+ </script>
  <script>
   /*  $(function(){
 	 $("#scategory").change(function(){

@@ -24,7 +24,7 @@ class Buyer_viewdetail extends CI_Controller {
 		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('buyer/header',$sess);
-		$this->load->view('buyer/viewdetail');
+		$this->load->view('buyer/viewdetail',$data);
 		$this->load->view('buyer/footer');
 		
 	}
@@ -39,7 +39,8 @@ class Buyer_viewdetail extends CI_Controller {
 		//$this->db->select('*'); // join the two table with similer id
 		//$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid', 'left');
 		//$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
-		$data['sqldata'] = $this->Admin_model->getdatafromtablejoin('addlot','auction','sauctionid',$retrivevaltmp);//sqldata
+		
+		$data['sqldata'] = $this->Admin_model->getdatafromtablejoin('addlot','auction','sauctionid',$retrivevaltmp);
 		$data['sellerinfo'] = $this->Admin_model->getdatafromtable('sellerprofile',$retriveval);
 		
 		$this->load->helper('url');

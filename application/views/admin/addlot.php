@@ -73,35 +73,21 @@
 				<option value="Delhi">Hydrabad</option>
 				</select></td>
 	</tr>
-	<tr>  												
-		<td>Inspection Date & Time</td>
-		<td>
-From: 	
-    <input class="form-control w-75" type="datetime-local" id="sfrominpectdate_time" name="sfrominpectdate_time">
- To:
-    <input class="form-control w-75" type="datetime-local"  id="stoinpectdate_time" name="stoinpectdate_time">
-</td>
-	</tr>
+	
 	
 	<tr>
 		<td>EMD Details</td>
 		<td><textarea class="form-control w-75" type="text" id="semddetail" name="semddetail"></textarea></td>
 	</tr>
 	
-	<tr>
-		<td>Last Date Of Submiting EMD</td>
-		<td><input class="form-control w-50" type="date" id="slastdateemdsub" name="slastdateemdsub"></td>
-	</tr>
+	
 	
 	<tr>
 
 		<td>Expected Price</td>
 		<td><input class="form-control w-50" type="text" id="sprice" name="sprice"></td>
 	</tr>
-	<tr>
-		<td>Starting Bid Price</td>
-		<td><input class="form-control w-50" type="text" id="sstartbidprice" name="sstartbidprice"></td>
-	</tr>
+	
 	</tr>
 		<td>Qty</td>
 		<td><input class="form-control w-50" type="text" id="sqty" name="sqty"></td>

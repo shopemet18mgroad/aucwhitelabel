@@ -21,12 +21,13 @@ class Buyer_forthcomingauc extends CI_Controller {
 	public function index()
 	{
 		
-		
+		$this->load->model("Admin_model");
+		$data["addlot"] = $this->Admin_model->fetch_all();
 		$this->load->helper(array('url','html'));
 		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('buyer/header',$sess);
-		$this->load->view('buyer/forthcomingauc');
+		$this->load->view('buyer/forthcomingauc',$data);
 		$this->load->view('buyer/footer');
 
 		
@@ -39,7 +40,7 @@ class Buyer_forthcomingauc extends CI_Controller {
 		if(count($data)){
 			  
 			
-			echo '<table id="myTable" onchange="myFunction()" class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';
+			echo '<table id="datatable" onchange="myFunction()" class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';
 			echo '<thead class="bg-warning text-white">';
 			echo '<tr>';
 			echo '<th colspan="12">Add Lot In Your List</th>';
@@ -62,7 +63,7 @@ class Buyer_forthcomingauc extends CI_Controller {
 				echo '<tr>';
 				echo '<td style="color:blue"><a href="'.base_url().'buyer_mylist/my_cart/'.urlencode($dat['scategory']).
 				'">';
-				echo $dat['sauctionid'];
+				echo $dat['sauctionid'];	
 				echo '</a>';
 				echo '</td>';
 				echo '<td>'.$dat['slotname'].'</td>';
@@ -73,7 +74,7 @@ class Buyer_forthcomingauc extends CI_Controller {
 				echo '<td>'.$dat['sgst'].'</td>';
 				echo '<td>'.$dat['slotlocation'].'</td>';
 				echo '<td>
-				<button type="button" name="add_cart" class="btn add_cart" data-sauctionid="'.$dat['sauctionid'].'"/><i class="fas fa-heart " aria-hidden="true"></i></button>
+				<button type="button" onclick"add_cart()" herf="<?php echo base_url()."Buyer_forthcomingauc/Addtocart/";?><i class="fas fa-heart" aria-hidden="true"></i></button>
 				</td>';
 				
 				echo '</tr>';
@@ -113,26 +114,17 @@ class Buyer_forthcomingauc extends CI_Controller {
 
 
 	}
+		
+		public function Addtocart(){
 	
-	
- function add()
- {
-$this->load->library('session');
-  $data = array(
-   "sauctionid"  => $_POST["sauctionidslotname"],
-   "slotname"  => $_POST["slotname"],
-   "scategory"  => $_POST["scategory"],
-  );
-  $this->db->insert(biddercart, $data); //return rowid 
-  $this->load->helper(array('url','html'));
-		$this->load->library('session');
-		$sess = array('sessi'=>$this->session->userdata('username'));
-		$this->load->view('buyer/header',$sess);
-		$this->load->view('buyer/forthcomingauc');
-		$this->load->view('buyer/footer');
- }
-	
-	
-	
+		$dat = $this->uri->segment(3);
+		$check_db = array('sauctionid' => $dat);
+		$this->load->model('Admin_model');
+			  if($this->Admin_model->insert('biddercart', $check_db)){
+				  echo "BYE";
+			  }else{
+				  echo "HI";
+			  }
+	}
 	
 }

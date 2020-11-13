@@ -20,24 +20,29 @@
           <div class="card shadow mb-4">
             <div class="card-body">
               <div class="table-responsive">
-			   <form class="form-inline">
-					<div class="form-group mr-4 offset-sm-4">
-						<td colspan="5">
-						<!-- <form action="/action_page.php"> -->
-								<label for="gettable"></label>
-								<input type="text" class="form-control gettable" id="gettable_aliveauction" placeholder="Enter Company Name To Fetch Result"  size="70" name="search">
-								
-								<!--<button class="form-control" type="submit"><i class="fa fa-search"></i></button>-->
-					
-						<!-- </form> -->
-					</td>
-				</div>
-			</form>
-		<div class="ajaxrslt" id="ajaxrslt_aliveauction">
-			<!----Insert Ajax Table Here------>
-			
-			<!---- ------>
-		</div>
+				<table class="table table-striped table-sm text-center table-bordered " id="dataTable" width="100%" cellspacing="0">
+				<thead class="bg-primary text-white">
+				<tr>
+					<th width="60%">Click for Auction</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>												
+					<td><a href="liveauc_2.php">EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</a></td>
+				</tr>
+				<tr>
+					<td><a href="liveauc_2.php">BHEL/BBR/ISG LTD/2/Adarsh Vihar/25087/20-20</a></td>
+				</tr>  
+				<tr>
+					<td><a href="liveauc_2.php">REMT/BBR/ONGC LTD/3/Tamil Nadu/Vellore Dist/465895/18-20</a></td>
+				</tr>  
+				<tr>												
+					<td><a href="liveauc_2.php">HMT/BBR/Adnani logistic Ltd/4/Vidyut Nagar/99087/19-20</a></td>
+				<tr>												
+					<td><a href="liveauc_2.php">BEL/BBR/ONGC LTD/5/Nehru Nagar/99087/19-20</a></td>
+				</tr>
+				</tbody>
+		 </table>
 		</div>
 		</div>
 		
@@ -46,6 +51,8 @@
 		</div>
 		</div>
 		</div>
+			</div>
+				
           <!-- Content Row -->
 
           
@@ -58,10 +65,10 @@
      
       <!-- End of Footer -->
 
-    </div>
+    
     <!-- End of Content Wrapper -->
 
-  </div>
+
   <!-- End of Page Wrapper -->
 
   <!-- Scroll to Top Button-->
