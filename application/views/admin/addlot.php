@@ -51,11 +51,17 @@
 		  <td><input class="form-control w-50" type="text" id="slotname" name="slotname" onclick="auction_id1()"></td>
 	  </tr>
 	  <tr>
-		  <td>Category</td>
-		  <td><select class="form-control w-50" id="scategory" name="scategory">
-				<option value="<?php echo $category;?>" selected><?php echo $category;?></option>
-				
-				</select></td>
+		  <td width="11%">Category</td>
+		  <td width="4%"><select class="form-control w-50" id="scategory" name="scategory">
+				<option value="Select" selected>Select</option>
+				<option value="Ferrous">Ferrous</option>
+				<option value="Non Ferrous">Non Ferrous</option>
+				<option value="Minor Metals" >Minor Metals</option>
+				<option value="Plain paper">Plain paper</option>
+				<option value="Granules">Granules</option>
+				<option value="All Construction Materials">All Construction Materials</option>
+				</select>
+			</td>
 	  </tr>
 	   <tr>
 		  <td>Description</td>
@@ -119,6 +125,10 @@
 	<tr>
 	<td>GST</td>
 	<td><input class="form-control w-50" type="text" id="sgst" name="sgst"></td>
+    </tr>
+	<tr>
+		<td>HSN Code.</td>
+		<td><input class="form-control w-50" type="text" id="shsncode" name="shsncode"></td>
     </tr>
   
      <tr>
