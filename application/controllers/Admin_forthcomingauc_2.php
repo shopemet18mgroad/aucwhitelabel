@@ -94,6 +94,21 @@ class Admin_forthcomingauc_2 extends CI_Controller {
 		
 		die;
 	}
+	public function reject(){
+		$this->load->helper('url');
+		$retrivevaltmp = str_ireplace('-','/',$this->uri->segment(3));
+		$retrivevaltmp2 = urldecode($this->uri->segment(4));
+		$retrivevaltmp3 = urldecode($this->uri->segment(5));
+		$data2 = array('status'=>2);
+		$updatech = array('sname'=>$retrivevaltmp3,'sauctionid'=>$retrivevaltmp,'slotno'=>$retrivevaltmp2);
+		$this->load->model('Admin_model');
+		//$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
+		$status = $this->Admin_model->update_custom('addlot',$data2,$updatech,$updatech);
+		// $status = $this->Admin_model->insert('sellerprofile', $data2);
+		header('location: '.base_url().'admin_forthcomingauc_2/forthcomingauc_2/'.urlencode($retrivevaltmp3));
+		
+		die;
+	}
 
 	
 }
