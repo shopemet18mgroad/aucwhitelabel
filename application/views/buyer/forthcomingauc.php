@@ -87,6 +87,13 @@
 	 })
  })
  </script>-->
+  <script>
+  function changeLanguage(language) {
+   var element = document.getElementById("url");
+   element.value = language;
+   element.innerHTML = language;
+  }
+ </script>
   <!-- End of Page Wrapper -->
 
   <!-- Scroll to Top Button-->

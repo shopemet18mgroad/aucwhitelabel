@@ -35,9 +35,9 @@
 
 				<tbody>
 				<tr>
-					<td>EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</td>
-					<td>An iron rod is a length of iron that is mainly used in heavy construction projects. Reinforced concrete is intertwined with iron rods, also called rebar, to strengthen the tension of the build</td>
-					<td>25,000</td>
+					<td><b><?php echo $sqldata[0]->sauctionid; ?></b></td>
+					<td><?php echo $sqldata[0]->sonlineaucdate_time; ?></td>
+					<td><?php echo $sqldata[0]->saucclosedate_time; ?></td>
 				</tr>
 				
 				</tbody>
@@ -58,25 +58,14 @@
 
 				<tbody>
 				<tr>
-					<td>M-167</td>
-					<td>Horizontal Boring Machine</td>
-					<td>Shashi Kumar</td>
-					<td>OMFED LTD.</td>
-					<td>DD</td>
-				</tr>
-				<tr>
-					<td>M-167</td>
-					<td>Horizontal Boring Machine</td>
-					<td>Shashi Kumar</td>
-					<td>OMFED LTD.</td>
-					<td>Online Payment</td>
-				</tr>
-				<tr>
-					<td>M-167</td>
-					<td>Horizontal Boring Machine</td>
-					<td>Shashi Kumar</td>
-					<td>OMFED LTD.</td>
-					<td>DD</td>
+					<td><?php echo $sellerinfo[0]->sname; ?></td>
+					<td><?php echo $sellerinfo[0]->scomapnyname; ?></td>
+					<td><?php echo $sellerinfo[0]->saddress; ?></td>
+					<td><?php echo $sellerinfo[0]->sstreet; ?></td>
+					<td><?php echo $sellerinfo[0]->scity; ?></td>
+					<td><?php echo $sellerinfo[0]->sphone; ?></td>
+					<td><?php echo $sellerinfo[0]->semail; ?></td>
+					<td><?php echo $sellerinfo[0]->scontactperson; ?></td>
 				</tr>
 				</tbody>
 		 </table>

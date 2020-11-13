@@ -39,7 +39,7 @@ public function my_cart(){
 		$this->load->model('Admin_model');
 
 		$data['sqldata'] = $this->Admin_model->getdatafromtablejoin('addlot','auction','sauctionid',$retrivevaltmp);
-		//$data['sellerinfo'] = $this->Admin_model->getdatafromtable('sellerprofile',$retriveval);
+		$data['sellerinfo'] = $this->Admin_model->getdatafromtable('sellerprofile',$retriveval);
 
 		$this->load->helper('url');
 		

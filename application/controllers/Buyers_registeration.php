@@ -37,7 +37,6 @@ class Buyers_registeration extends CI_Controller {
 			$date =  Date('Y-m-d'); 
 			$bcompany = $this->input->post('bcompany');
 			$bcomptype = $this->input->post('bcomptype');
-			$bbuyertype = $this->input->post('bbuyertype');
 			$bbuyerlocation = $this->input->post('bbuyerlocation');
 			$bcontactperson = $this->input->post('bcontactperson');
 			$bdesignation = $this->input->post('bdesignation');
@@ -59,7 +58,7 @@ class Buyers_registeration extends CI_Controller {
             $sessCaptcha = $this->session->userdata('captchaCode');
             if($captcha === $sessCaptcha){
               $this->load->model('Admin_model');
-			  $data = array('bcompany' => $bcompany, 'bcomptype' => $bcomptype, 'bbuyertype' => $bbuyertype, 'bbuyerlocation'=> $bbuyerlocation, 'bcontactperson' => $bcontactperson, 'baddress' => $baddress, 'bcity' => $bcity, 'bpin' => $bpin, 'bstate' => $bstate, 'bcountry' => $bcountry, 'bemail' => $bemail, 'bphone' => $bphone, 'bpan' => $bpan, 'busername' => $busername, 'bpassword' => $bpassword, 'bgst' => $bgst);
+			  $data = array('bcompany' => $bcompany, 'bcomptype' => $bcomptype, 'bbuyerlocation'=> $bbuyerlocation, 'bcontactperson' => $bcontactperson, 'baddress' => $baddress, 'bcity' => $bcity, 'bpin' => $bpin, 'bstate' => $bstate, 'bcountry' => $bcountry, 'bemail' => $bemail, 'bphone' => $bphone, 'bpan' => $bpan, 'busername' => $busername, 'bpassword' => $bpassword, 'bgst' => $bgst);
 			  // check if company name exisyt before storing
 			  
 			  $status = $this->Admin_model->insert('buyerprofile', $data);
