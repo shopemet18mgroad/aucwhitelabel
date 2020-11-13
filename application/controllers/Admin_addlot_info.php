@@ -48,8 +48,6 @@ class Admin_addlot_info extends CI_Controller {
 			$scategory = $this->input->post('scategory');
 			$sdescription = $this->input->post('sdescription');
 			$slotlocation = $this->input->post('slotlocation');
-			$sfrominpectdate_time = $this->input->post('sfrominpectdate_time');
-			$stoinpectdate_time  = $this->input->post('stoinpectdate_time');
 			$semddetail = $this->input->post('semddetail');	
 			$slastdateemdsub = $this->input->post('slastdateemdsub');
 			$sprice = $this->input->post('sprice');
@@ -58,6 +56,7 @@ class Admin_addlot_info extends CI_Controller {
 			$sunitmeasurment = $this->input->post('sunitmeasurment');
 			$sbidbase = $this->input->post('sbidbase');
 			$sgst = $this->input->post('sgst');
+			$shsncode = $this->input->post('shsncode');
 			$sothertax = $this->input->post('sothertax');
 			$semdamount = $this->input->post('semdamount');
 			$sliftingperiod2 = $this->input->post('sliftingperiod2');
@@ -72,7 +71,7 @@ class Admin_addlot_info extends CI_Controller {
 					
 			
 			$this->load->model('Admin_model');
-			$data = array('sauctionid' => $sauctionid, 'sname' => $sname, 'slotno' => $slotno, 'slotname' => $slotname, 'scategory' => $scategory, 'sdescription' => $sdescription, 'slotlocation'=> $slotlocation, 'sfrominpectdate_time' => $sfrominpectdate_time, 'stoinpectdate_time' => $stoinpectdate_time, 'semddetail' => $semddetail, 'slastdateemdsub' => $slastdateemdsub, 'sprice' => $sprice, 'sstartbidprice' => $sstartbidprice, 'sqty' => $sqty, 'sunitmeasurment' => $sunitmeasurment, 'sbidbase' => $sbidbase, 'sgst' => $sgst, 'sothertax' => $sothertax, 'semdamount' => $semdamount,'sliftingperiod2' => $sliftingperiod2, 'sliftingperiod' => $sliftingperiod,  'spcbcertificate' => $spcbcertificate);
+			$data = array('sauctionid' => $sauctionid, 'sname' => $sname, 'slotno' => $slotno, 'slotname' => $slotname, 'scategory' => $scategory, 'sdescription' => $sdescription, 'slotlocation'=> $slotlocation, 'semddetail' => $semddetail, 'sprice' => $sprice, 'sqty' => $sqty, 'sunitmeasurment' => $sunitmeasurment, 'sbidbase' => $sbidbase, 'sgst' => $sgst,'shsncode' => $shsncode, 'sothertax' => $sothertax, 'semdamount' => $semdamount,'sliftingperiod2' => $sliftingperiod2, 'sliftingperiod' => $sliftingperiod,  'spcbcertificate' => $spcbcertificate);
 			
 			$status = $this->Admin_model->insert('addlot', $data);
 			
@@ -103,16 +102,13 @@ class Admin_addlot_info extends CI_Controller {
 			$scategory = $this->input->post('scategory');
 			$sdescription = $this->input->post('sdescription');
 			$slotlocation = $this->input->post('slotlocation');
-			$sfrominpectdate_time = $this->input->post('sfrominpectdate_time');
-			$stoinpectdate_time  = $this->input->post('stoinpectdate_time');
 			$semddetail = $this->input->post('semddetail');	
-			$slastdateemdsub = $this->input->post('slastdateemdsub');
 			$sprice = $this->input->post('sprice');
-			$sstartbidprice = $this->input->post('sstartbidprice');
 			$sqty = $this->input->post('sqty');
 			$sunitmeasurment = $this->input->post('sunitmeasurment');
 			$sbidbase = $this->input->post('sbidbase');
 			$sgst = $this->input->post('sgst');
+			$shsncode = $this->input->post('shsncode');
 			$sothertax = $this->input->post('sothertax');
 			$semdamount = $this->input->post('semdamount');
 			$sliftingperiod2 = $this->input->post('sliftingperiod2');
@@ -122,7 +118,7 @@ class Admin_addlot_info extends CI_Controller {
 			 
 			 $this->load->model('Admin_model');
 			 
-			 $data5 = array('sauctionid' => $sauctionid,'sname' => $sname, 'slotno' => $slotno, 'slotname' => $slotname, 'scategory' => $scategory, 'sdescription' => $sdescription, 'slotlocation'=> $slotlocation, 'sfrominpectdate_time' => $sfrominpectdate_time, 'stoinpectdate_time' => $stoinpectdate_time, 'semddetail' => $semddetail, 'slastdateemdsub' => $slastdateemdsub, 'sprice' => $sprice, 'sstartbidprice' => $sstartbidprice, 'sqty' => $sqty, 'sunitmeasurment' => $sunitmeasurment, 'sbidbase' => $sbidbase, 'sgst' => $sgst, 'sothertax' => $sothertax, 'semdamount' => $semdamount,'sliftingperiod2' => $sliftingperiod2, 'sliftingperiod' => $sliftingperiod,  'spcbcertificate' => $spcbcertificate);
+			 $data5 = array('sauctionid' => $sauctionid,'sname' => $sname, 'slotno' => $slotno, 'slotname' => $slotname, 'scategory' => $scategory, 'sdescription' => $sdescription, 'slotlocation'=> $slotlocation, 'semddetail' => $semddetail, 'sprice' => $sprice, 'sqty' => $sqty, 'sunitmeasurment' => $sunitmeasurment, 'sbidbase' => $sbidbase, 'sgst' => $sgst,'shsncode' => $shsncode, 'sothertax' => $sothertax, 'semdamount' => $semdamount,'sliftingperiod2' => $sliftingperiod2, 'sliftingperiod' => $sliftingperiod,  'spcbcertificate' => $spcbcertificate);
 			 $status1 = $this->Admin_model->insert('addlot', $data5);
 			 
 			 	 $transfer1 = array('auctionid' => $sauctionid, 'category' => $scategory,'sname' => $sname, 'lotno' => $slotno);

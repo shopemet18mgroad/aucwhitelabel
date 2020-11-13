@@ -21,24 +21,26 @@ class Buyer_forthcomingauc extends CI_Controller {
 	public function index()
 	{
 		
-		
+		$this->load->model("Admin_model");
+		$data["addlot"] = $this->Admin_model->fetch_all();
 		$this->load->helper(array('url','html'));
 		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('buyer/header',$sess);
-		$this->load->view('buyer/forthcomingauc');
+		$this->load->view('buyer/forthcomingauc',$data);
 		$this->load->view('buyer/footer');
 
 		
 	}
-
 	
 	public function get_table(){
 		$datatoquerydb = $this->uri->segment(3);
 		$this->load->model('Admin_model');
 		$data = $this->Admin_model->get_lookalike('addlot','scategory',$datatoquerydb);
 		if(count($data)){
-			echo '<table class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';
+			  
+			
+			echo '<table id="datatable" onchange="myFunction()" class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';
 			echo '<thead class="bg-warning text-white">';
 			echo '<tr>';
 			echo '<th colspan="12">Add Lot In Your List</th>';
@@ -61,7 +63,7 @@ class Buyer_forthcomingauc extends CI_Controller {
 				echo '<tr>';
 				echo '<td style="color:blue"><a href="'.base_url().'buyer_mylist/my_cart/'.urlencode($dat['scategory']).
 				'">';
-				echo $dat['sauctionid'];
+				echo $dat['sauctionid'];	
 				echo '</a>';
 				echo '</td>';
 				echo '<td>'.$dat['slotname'].'</td>';
@@ -71,31 +73,8 @@ class Buyer_forthcomingauc extends CI_Controller {
 				echo '<td>'.$dat['sqty'].'</td>';
 				echo '<td>'.$dat['sgst'].'</td>';
 				echo '<td>'.$dat['slotlocation'].'</td>';
-				echo '<td><center><a href="" name="submit" data-toggle="modal" data-target="#myModal"><i class="fas fa-heart text-danger" aria-hidden="true"></i></a></center>
-				
-				<div class="modal" id="myModal">
-					<div class="modal-dialog modal-sm">
-					  <div class="modal-content">
-					  
-						<!-- Modal Header -->
-						<div class="modal-header">
-						  <h4 class="modal-title"><b>My List</b><br></h4>
-						  <button type="button" class="close" data-dismiss="modal">&times;</button>
-						</div>
-						
-						<!-- Modal body -->
-						<div class="modal-body">
-						<center><p class="text-primary"><i class="fa fa-check" aria-hidden="true"></i>Added to My List</p></center>
-						</div>
-						
-						<!-- Modal footer -->
-						<div class="modal-footer">
-						  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-						</div>
-						
-					  </div>
-					</div>
-				  </div>
+				echo '<td>
+				<button type="button" onclick"add_cart()" herf="<?php echo base_url()."Buyer_forthcomingauc/Addtocart/";?><i class="fas fa-heart" aria-hidden="true"></i></button>
 				</td>';
 				
 				echo '</tr>';
@@ -129,13 +108,23 @@ class Buyer_forthcomingauc extends CI_Controller {
 				echo '</tr>';
 			echo '</tbody>';
 			echo '</table>';
+			
 		}
 
 
 
 	}
+		
+		public function Addtocart(){
 	
-	
-	
+		$dat = $this->uri->segment(3);
+		$check_db = array('sauctionid' => $dat);
+		$this->load->model('Admin_model');
+			  if($this->Admin_model->insert('biddercart', $check_db)){
+				  echo "BYE";
+			  }else{
+				  echo "HI";
+			  }
+	}
 	
 }
