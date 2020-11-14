@@ -27,20 +27,11 @@
 				</tr>
 				</thead>
 				<tbody>
+				<?php foreach($sqldata as $sqldat){?>
 				<tr>												
-					<td><a href="<?php  echo base_url()."Admin_liveauc_2/index/";?>">EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</a></td>
+					<td><a href="<?php  echo base_url()."Admin_liveauc_2/index/".str_ireplace('/','-',$sqldat->sauctionid);?>"><?php echo $sqldat->sauctionid;?></a></td>
 				</tr>
-				<tr>
-					<td><a href="<?php  echo base_url()."Admin_liveauc_2/index/";?>">BHEL/BBR/ISG LTD/2/Adarsh Vihar/25087/20-20</a></td>
-				</tr>  
-				<tr>
-					<td><a href="<?php  echo base_url()."Admin_liveauc_2/index/";?>">REMT/BBR/ONGC LTD/3/Tamil Nadu/Vellore Dist/465895/18-20</a></td>
-				</tr>  
-				<tr>												
-					<td><a href="<?php  echo base_url()."Admin_liveauc_2/index/";?>">HMT/BBR/Adnani logistic Ltd/4/Vidyut Nagar/99087/19-20</a></td>
-				<tr>												
-					<td><a href="<?php  echo base_url()."Admin_liveauc_2/index/";?>">BEL/BBR/ONGC LTD/5/Nehru Nagar/99087/19-20</a></td>
-				</tr>
+				<?php }?>
 				</tbody>
 		 </table>
 		</div>

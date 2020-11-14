@@ -37,11 +37,17 @@
 				<tbody>
 				<tr>
 					
-					<td><a href="#">EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</a> 1</td>
-					<td>EEMT OMFED LTD</td>
-					<td>20-03-2020 11:00:00</td>
-					<td>21-03-20202</td>
+					<td><a href="#"></a><?php echo $sqldata[0]->sauctionid; ?></td>
+					<td><?php echo $sqldata[0]->scompanyname; ?></td>
+					<td><?php echo $sqldata[0]->saucstartdate_time; ?></td>
+					<td><?php echo $sqldata[0]->saucclosedate_time; ?></td>
 					<td><a href="#"><u>Click here</u></a></td>
+					<?php 
+					date_default_timezone_set('Asia/Kolkata');
+					$time =  Date('Y-m-d H:i:s');
+					$datediff = (strtotime($time) - strtotime($sqldata[0]->saucclosedate_time));
+					$bal = gmdate("H:i:s", floor($datediff / (60)));
+					?>
 				</tr>
 				</tbody>
 			</table>
@@ -65,26 +71,20 @@
 				</thead>
 
 				<tbody>
+				
+				<?php foreach($sqldatalot as $sqlot){?>
 				<tr>												
-					<td> Horizontal Boring Machine</td>
-					<td>Bangalore-KA</td>
-					<td>20:14:03</td>
-					<td>1 Hour</td>
-					<td>1.9</td>
-					<td>MT</td>
-					<td>40,000</td>
-					<td>2,00,000</td>
+					<td><?php echo $sqlot->slotname; ?></td>
+					<td><?php echo $sqlot->slotlocation; ?></td>
+					<td><?php echo $sqldata[0]->saucclosedate_time; ?></td>
+					<td><?php echo $bal; ?></td>
+					<td><?php echo $sqlot->sqty; ?></td>
+					<td><?php echo $sqlot->sunitmeasurment; ?></td>
+					<td><?php echo $sqlot->sstartbidprice; ?></td>
+					<td><?php echo $sqlot->sbidfinalprice; ?></td>
+					
 				</tr>
-				<tr>												
-					<td>Horizontal Boring Machine</td>
-					<td>Delhi</td>
-					<td>16:14:03</td>
-					<td>55 min</td>
-					<td>1.9</td>
-					<td>info</td>
-					<td>80,000</td>
-					<td>1,45,000</td>
-				</tr>
+				<?php }?>
 				</tbody>
 		 </table>
 		</div>

@@ -40,16 +40,15 @@
 						<div class="error-msg"></div>
 							<tr>
 								<td>Old Password</td>
-								<td><input class="form-control w-50" type="password" id="boldpassword"name="boldpassword"></td>
+								<td><input class="form-control w-50" type="password" id="boldpassword"  name="boldpassword"placeholder="******" ></td>
 							</tr> 
 							<tr>
 								<td>New Password</td>
-								<td><input class="form-control w-50" type="password" id="bnewpassword" name="bnewpassword"  onkeyup="validate_password()"></td>
+								<td><input class="form-control w-50" type="password" id="bnewpassword" name="bnewpassword"  placeholder="******" onkeyup="validate_password()"></td>
 							</tr> 
 							<tr>
 								<td>Confirm Password</td>
-								<td><input class="form-control w-50" type="password" id="bconfirmpassword" name="bconfirmpassword" >
-								<span id='message'></span></td>
+								<td><input class="form-control w-50" type="password" id="bconfirmpassword" name="bconfirmpassword" placeholder="******"></td>
 							</tr> 	
 											
 						</tbody>

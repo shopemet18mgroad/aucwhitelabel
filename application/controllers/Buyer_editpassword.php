@@ -32,8 +32,7 @@ class Buyer_editpassword extends CI_Controller {
 		}else{
 			$sess = array('sessi'=>$this->session->userdata('username'));
 			$active = array('busername'=>$sess['sessi']);
-			$query = $this->Admin_model->getdatafromtable('buyerprofile', $active);
-			$data['sqldata']= $query;
+			$data['sqldata']= $this->Admin_model->getdatafromtable('buyerprofile', $active);
 			$data['bcompany'] = $bcompany;
 			$this->load->view('buyer/header',$sess);
 		$this->load->view('buyer/editpassword',$data);
