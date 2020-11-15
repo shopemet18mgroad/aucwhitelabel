@@ -92,7 +92,7 @@
 		
 	 });
  }); */ 
-   $(document).ready(function($) {
+   /* $(document).ready(function($) {
    $('table').hide();
     $('#gettable_forthcomingauc').change( function(){
 		$('table').show();
@@ -112,7 +112,7 @@
 		  
     });
 	
-});
+}); */
  
  
  /* function myFunction() {
@@ -169,13 +169,12 @@
 
 function validate_password(){
 	var user = document.getElementById('boldpassword').value;
-	
-	
 	$.get('<?php echo base_url() .'registration/passwordverify_buyer/'; ?>'+user, function(data2){						
 				 if($.trim(data2) == "HI"){
 					return true;
 				}else{
-					swal("Alert!", "Password Already Exists", "error");
+					swal("Alert!", "Old Password Doesnt Match","error");
+					//alert("Hi");
 					return false;
 				}
 			 }); 
