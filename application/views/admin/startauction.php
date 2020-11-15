@@ -246,21 +246,20 @@ Bidders participating in AucJunction Auctions should verify with the selling com
   
   <tr>
 		<td>Upload Terms & Conditions</td>
-		<td><div class="form-check form-check-inline">
-			<input type="checkbox" class="form-check-input" id="myCheck" onclick="myFunction()" name="sterms_condiupload1[]">
-			<label class="form-check-label" for="myCheck">Yes</label>
+		<td>
+			<div class="form-check form-check-inline">
+				<input type="checkbox" class="form-check-input" id="firstCheckBox" onclick="myFunction1()" name="sterms_condiupload1[]">
+				<label class="form-check-label" for="firstCheckBox">Yes</label>
 			</div>
-			<div class="form-group" id="text"  style="display:none">
+			<div class="form-check form-check-inline">
+				<input type="checkbox" class="form-check-input" id="secondCheckBox" onclick="myFunction2()" name="sterms_condiupload1[]">
+				<label class="form-check-label" for="secondCheckBox" >No</label>
+			</div>
+			<div class="form-group" id="start-auction-choose-file"  style="display:none">
 				<input type="file" class="form-control-file" id="sterms_condiupload" name="sterms_condiupload[]">
 			</div>
-			
-			
-			<div class="form-check form-check-inline">
-			<input type="checkbox" class="form-check-input" id="idCheck" onclick="myFunction()" name="sterms_condiupload1[]">
-			<label class="form-check-label" for="idCheck" >No</label>
-			</div>
-			<div class="form-group" id="text2" style="display:none">
-			<textarea class="form-control w-50" type="text" id="sterms_text" name="sterms_text"></textarea>
+			<div class="form-group" id="start-auction-textarea" style="display:none">
+				<textarea class="form-control w-50" type="text" id="sterms_text" name="sterms_text"></textarea>
 			</div>
 			</td>
   </tr>
