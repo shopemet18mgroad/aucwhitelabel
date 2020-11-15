@@ -357,4 +357,25 @@
 		});
 	
  </script>
- 
+ <script>
+ function search_company(){
+	 $("#dp").hide();
+ if(document.getElementById("scompanyname").value.length > 1){
+	 $("#dp").show();
+			var contents = $('#scompanyname').val(); 
+			$.get('<?php echo base_url() .'admin_startauction/get_seller_table/'; ?>'+contents, function(data){
+				$('#dp').html(data);
+			});
+
+					
+ }else{
+	 return;
+ }
+}
+</script>
+ <script>
+ function getPaging(v){
+	document.getElementById("scompanyname").value = v;
+	 $("#dp").hide();
+ }
+ </script>

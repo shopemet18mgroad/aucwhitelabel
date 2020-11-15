@@ -47,7 +47,7 @@
 	  	  <tr>
 		  <td>Seller</td>
 		  <td><input class="form-control w-50"  type="text" id="sname" name="sname" placeholder="Search" onkeyup="auction_id()" aria-label="Search">
-		</td>
+		  </td>
 	  </tr>
 	  
 	  
@@ -59,7 +59,7 @@
 	  </tr>
 	  <tr>
 		  <td>Seller Company Name</td>
-		  <td><input class="form-control w-50"  type="text" id="scompanyname" name="scompanyname">
+		  <td><input class="form-control w-50"  type="text" id="scompanyname" name="scompanyname" onkeyup="search_company()"><div id="select" class="select"><ul id="dp"></ul></div>
 		</td>
 	  </tr>
 	  

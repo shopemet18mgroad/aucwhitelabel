@@ -97,6 +97,20 @@ class Admin_startauction extends CI_Controller {
 			   
 	}
  
+public function get_seller_table(){
+	$dataw = urldecode($this->uri->segment(3));
+	$this->load->model('Admin_model');
+	$search = $this->Admin_model->get_lookalike('sellerprofile','scomapnyname',$dataw);	
+	if($search){
+		foreach($search as $sear){
+			echo "<li onclick=\"getPaging(this.id)\" id=\"".$sear['scomapnyname']."\" class=\"option\">".$sear['scomapnyname']."</li>\n";
+		}
+	}else{
+		echo "<li onclick=\"\" value=\"1\" class=\"option\">No Results</li>";
+	}
+	
+}
+
 
 	
 private function upload_files($nameid)
