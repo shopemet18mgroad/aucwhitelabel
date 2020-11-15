@@ -348,3 +348,13 @@
 
  </script>
  
+ <script>
+		$('#gettable_emdprofile').on('keyup', function(){
+			var contents = $('#gettable_emdprofile').val(); 
+			$.get('<?php echo base_url() .'admin_emdprofile/get_table/'; ?>'+contents, function(data){
+				$('#ajaxrslt_emdprofile').html(data);
+			});
+		});
+	
+ </script>
+ 

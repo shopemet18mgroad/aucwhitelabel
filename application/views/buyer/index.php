@@ -37,7 +37,7 @@
 						<tbody>
 						<tr><td><img class="img-fluid" src="<?php echo base_url()."web_files/";?>img/manimg.jpg" alt="Chania" width="40" height="35"></td></tr>
 						
-						 <form action = "<?php echo base_url();?>" method="POST" enctype="multipart/form-data">
+						 <form action = "<?phpdecho base_url();?>" method="POST" enctype="multipart/form-data">
 						 
 							<tr>
 								<td>Buyer Name:</td>
@@ -111,15 +111,15 @@
 						<tbody>
 							<tr>
 								<td>Old Password</td>
-								<td>****</td>
+								<td>******</td>
 							</tr> 
 							<tr>
 								<td>New Password</td>
-								<td>**</td>
+								<td>******</td>
 							</tr> 
 							<tr>
 								<td>Confirm Password</td>
-								<td>**</td>
+								<td>******</td>
 							</tr>
 											
 						</tbody>
@@ -214,9 +214,6 @@
 
   </div>
  
-<?php 
-	//include('./footer.php');
-?>
 </body>
 
 </html>

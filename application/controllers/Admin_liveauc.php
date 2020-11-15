@@ -20,11 +20,16 @@ class Admin_liveauc extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->helper(array('url','html'));
+		$this->load->helper(array('url','html','date'));
+		date_default_timezone_set('Asia/Kolkata');
+		$time =  Date('Y-m-d H:i:s');
+		$this->load->model('Admin_model');
+		$data['sqldata'] = $this->Admin_model->datebetween('auction',$time);
 		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
+		//$check_array = array('dat'=>);
 		$this->load->view('admin/header',$sess);
-		$this->load->view('admin/liveauc');
+		$this->load->view('admin/liveauc',$data);
 		$this->load->view('admin/footer');
 		
 	}

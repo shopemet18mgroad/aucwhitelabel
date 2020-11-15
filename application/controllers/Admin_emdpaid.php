@@ -28,5 +28,23 @@ class Admin_emdpaid extends CI_Controller {
 		$this->load->view('admin/footer');
 		
 	}
+	public function emdpaid_2(){
+	
+		$retrivevaltmp = urldecode($this->uri->segment(3));
+		
+		$retriveval = array('sname'=>$retrivevaltmp);
+		$this->load->model('Admin_model');
+
+		$data['sqldata'] = $this->Admin_model->getdatafromtablejoin('addlot','auction','sauctionid',$retrivevaltmp);
+		$data['sellerinfo'] = $this->Admin_model->getdatafromtable('sellerprofile',$retriveval);
+
+		$this->load->helper('url');
+		
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('admin/header',$sess);
+		$this->load->view('admin/emdpaid', $data);
+		$this->load->view('admin/footer');
+	}
 	
 }

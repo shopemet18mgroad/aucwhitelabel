@@ -21,6 +21,7 @@ class Registration extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper('url');
+		
 		$dataw = $this->uri->segment(3);
 		$datad = $this->uri->segment(4);
 		
@@ -93,14 +94,16 @@ class Registration extends CI_Controller {
 	public function passwordverify_buyer()
 	{
 		$this->load->helper('url');
+		$this->load->library('session');
 		$dataw = base64_encode($this->uri->segment(3));
-		$update = array('bpassword'=>$dataw);
+		$sessi = $this->session->userdata('username');
+		$update = array('busername'=>$sessi,'bpassword'=>$dataw);
 		$this->load->model('Admin_model');
 		$scan = $this->Admin_model->check('buyerprofile',$update);
 		if($scan){
-			echo "BYE";
-		}else{
 			echo "HI";
+		}else{
+			echo "BYE";
 		}
 		
 	}

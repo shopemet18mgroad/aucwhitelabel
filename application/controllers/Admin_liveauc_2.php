@@ -21,9 +21,18 @@ class Admin_liveauc_2 extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper('url');
-
-		$this->load->view('admin/header');
-		$this->load->view('admin/liveauc_2');
+		$this->load->library('session');
+		$retrivevaltmp = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
+		$retriveval = array('sauctionid'=>$retrivevaltmp);
+		$this->load->model('Admin_model');
+		$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
+		//$datediff = (strtotime($time) - strtotime($data['sqldata'][0]->saucclosedate_time));
+		//echo floor($datediff / (60));
+		//echo gmdate("H:i:s", floor($datediff / (60)));
+		$data['sqldatalot'] = $this->Admin_model->getdatafromtable('addlot',$retriveval);
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('admin/header',$sess);
+		$this->load->view('admin/liveauc_2',$data);
 		$this->load->view('admin/footer');
 		
 	}

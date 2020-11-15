@@ -1,35 +1,34 @@
-$('input[id="myCheck"]').on('change', function() {
-   $('input[id="idCheck"]').not(this).prop('checked', false);  
+// $('input[id="myCheck"]').on('change', function() {
+//    $('input[id="idCheck"]').not(this).prop('checked', false);  
 	
-});
-$('input[id="idCheck"]').on('change', function() {
-   $('input[id="myCheck"]').not(this).prop('checked', false);	
-	});
+// });
+// $('input[id="idCheck"]').on('change', function() {
+//    $('input[id="myCheck"]').not(this).prop('checked', false);	
+// 	});
 
-function myFunction() {
-  var checkBox1 = document.getElementById("myCheck");
-  var text1 = document.getElementById("text");
-  var checkBox = document.getElementById("idCheck");
-  var text = document.getElementById("text2");
- 
-
-  if (checkBox1.checked == true){
-   text1.style.display = "block";
-	
-  } else{
-    text1.style.display = "none"; 
-
- }
-
-
-  if (checkBox.checked == true){
-    text.style.display = "block";
-
-  } else {
-     text.style.display = "none";
-	
- }
-  
+var startAuctionChooseFile = document.getElementById("start-auction-choose-file");
+var startAuctionTextarea = document.getElementById("start-auction-textarea");
+var firstCheckBox = document.getElementById("firstCheckBox");
+var secondCheckBox = document.getElementById("secondCheckBox");
+function myFunction1() { 
+	if (firstCheckBox.checked == true){
+		startAuctionChooseFile.style.display = "block";
+		startAuctionTextarea.style.display = "none";
+		secondCheckBox.checked = false;
+		firstCheckBox.checked = true;
+	}else {
+		startAuctionChooseFile.style.display = "none";
+	}
+}
+function myFunction2() { 
+	if(secondCheckBox.checked == true){
+		startAuctionTextarea.style.display = "block";
+		startAuctionChooseFile.style.display = "none";
+		firstCheckBox.checked = false;
+		secondCheckBox.checked = true;
+	}else {
+		startAuctionTextarea.style.display = "none";
+	}
 }
 
 function validatestart(){

@@ -76,7 +76,27 @@
 
  </script>
  <script>
+
   $(document).ready(function($) {
+
+		$('#gettable_forthcomingauc').on('keyup', function(){
+			var contents = $('#gettable_forthcomingauc').val(); 
+			$.get('<?php echo base_url() .'buyer_forthcomingauc/get_table/'; ?>'+contents, function(data){
+				$('#ajaxrslt_forthcomingauc1').html(data);
+			});
+		});
+
+ </script>
+ <script>
+  /*  $(function(){
+	 $("#scategory").change(function(){
+		var displaycourse=$("#scategory option:selected").text();
+		$("#gettable_forthcomingauc").val(displaycourse);
+		
+	 });
+ }); */ 
+   /* $(document).ready(function($) {
+
    $('table').hide();
    $('table').show();
     $('#gettable_forthcomingauc').change( function(){
@@ -94,7 +114,13 @@
             help
           });
 		  
+
   });
+
+    });
+	
+}); */
+
  
   
   });
@@ -136,13 +162,12 @@ function HeartFunction() {
 
 function validate_password(){
 	var user = document.getElementById('boldpassword').value;
-	
-	
 	$.get('<?php echo base_url() .'registration/passwordverify_buyer/'; ?>'+user, function(data2){						
 				 if($.trim(data2) == "HI"){
 					return true;
 				}else{
-					swal("Alert!", "Password Already Exists", "error");
+					swal("Alert!", "Old Password Doesnt Match","error");
+					//alert("Hi");
 					return false;
 				}
 			 }); 

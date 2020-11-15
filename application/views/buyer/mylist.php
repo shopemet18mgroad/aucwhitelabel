@@ -53,7 +53,7 @@
 				<tr>
 				
 					<td><b><?php echo $sqldata[0]->sauctionid; ?></b></td>
-					<td><?php echo $sqldata[0]->scomapnyname; ?></td>
+					<td><?php echo $sqldata[0]->sname; ?></td>
 					<td><?php echo $sqldata[0]->slotno; ?></td></td>
 					<td><?php echo $sqldata[0]->slotlocation; ?></td>
 				
