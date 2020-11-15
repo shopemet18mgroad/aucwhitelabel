@@ -76,78 +76,45 @@
 
  </script>
  <script>
-		$('#gettable_forthcomingauc').on('keyup', function(){
-			var contents = $('#gettable_forthcomingauc').val(); 
-			$.get('<?php echo base_url() .'buyer_forthcomingauc/get_table/'; ?>'+contents, function(data){
-				$('#ajaxrslt_forthcomingauc1').html(data);
-			});
-		});
-
- </script>
- <script>
-  /*  $(function(){
-	 $("#scategory").change(function(){
-		var displaycourse=$("#scategory option:selected").text();
-		$("#gettable_forthcomingauc").val(displaycourse);
-		
-	 });
- }); */ 
-   $(document).ready(function($) {
+  $(document).ready(function($) {
    $('table').hide();
+   $('table').show();
     $('#gettable_forthcomingauc').change( function(){
-		$('table').show();
+		
 		var contents = $('#gettable_forthcomingauc').val(); 
 			 $.get('<?php echo base_url() .'buyer_forthcomingauc/get_table/'; ?>'+contents, function(data){
 				$('#ajaxrslt_forthcomingauc').html(data);
 			});
-      
-	  
+
       var selection = $(this).val();
 	  
       var dataset = $('#myTable').find('tr');
 	 
          $.each(dataset, function(index, item) {
-            //help
+            help
           });
 		  
-    });
-	
-});
+  });
  
- 
- /* function myFunction() {
-  var input, filter, table, tr, td, i;		
-  input = document.getElementById("gettable_forthcomingauc");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
   
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    } 
-	$('#gettable_forthcomingauc').on('keyup', function(){
-			var contents = $('#gettable_forthcomingauc').val(); 
+  });
+	$('#gettable_forth').on('keyup', function(){
+			var contents = $('#gettable_forth').val(); 
 			$.get('<?php echo base_url() .'buyer_forthcomingauc/get_table/'; ?>'+contents, function(data){
 				$('#ajaxrslt_forthcomingauc').html(data);
 			});
-		});	 
-
-  }
-  
-} */
-
-
+		});
 </script>
 
- 
+<script>
 
- 
+function HeartFunction() {
+   var element = document.getElementById("heart");
+   element.classList.toggle("heartstyle");
+
+
+}
+</script>
  
  <script>
  function validate_user_password(){

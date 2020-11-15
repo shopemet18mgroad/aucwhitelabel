@@ -33,21 +33,31 @@ function myFunction() {
 }
 
 function validatestart(){
-
+	 var cat = document.getElementById('scategory').value;
+	 var scompanyname = document.getElementById("scompanyname").value;
 	var svinspection = document.getElementById("svinspection").value;
-	 var sonlineaucdate_time = document.getElementById("sonlineaucdate_time").value;
+	 var sfrominpectdate_time = document.getElementById(sfrominpectdate_time).value;
+	 var stoinpectdate_time = document.getElementById(stoinpectdate_time).value;
+	  var sstartbidprice = document.getElementById(sstartbidprice).value;
+	   var slastdateemdsub = document.getElementById(slastdateemdsub).value;
+	   var saucstartdate_time = document.getElementById(saucstartdate_time).value;
+	   var saucclosedate_time = document.getElementById(saucclosedate_time).value;
 	var sterms_text = document.getElementById("sterms_text").value;
  var fileInput =  document.getElementById('sterms_condiupload');
   var Yes =  document.getElementById('myCheck');
   
- 
+ 	
 	
 	
-	if(svinspection == '' || sonlineaucdate_time == '' ){
-		swal("Alert!",  "Category, Seller, Venue Of Inspection, Online Auction Date cannot leave any field blank!", "error");
+	if(scompanyname == '' || svinspection == '' || sfrominpectdate_time == '' || stoinpectdate_time == '' || sstartbidprice == '' || slastdateemdsub == '' || saucstartdate_time == '' || saucclosedate_time == '' ){
+		swal("Alert!",  "Category,Seller Company Name, Seller, Venue Of Inspection, Online Auction Date cannot leave any field blank!", "error");
 		return false;
 	}
 	
+	if(cat == 'Select'){
+		 swal("Alert!", "Please Select Categoery First", "error");
+		 return false;
+	 }
 	
 		
 	
@@ -65,7 +75,7 @@ function validatestart(){
 				}else{
 					var filePath = fileInput.value; 
           
-            // Allowing file type 
+            Allowing file type 
             var allowedExtensions =  /(\.doc|\.docx|\.png|\.pdf|\.jpg|\.xlsx|\.gif)$/i; 
               
             if (!allowedExtensions.exec(filePath)) { 
@@ -228,13 +238,14 @@ function validatelot(){
 	var sunitmeasurment = document.getElementById("sunitmeasurment").value;
 	var sbidbase = document.getElementById("sbidbase").value;
 	var sgst = document.getElementById("sgst").value;
+	var shsncode = document.getElementById("shsncode").value;
 	var sothertax = document.getElementById("sothertax").value;
 	var semdamount = document.getElementById("semdamount").value;
 	var sliftingperiod2 = document.getElementById("sliftingperiod2").value;
 	var sliftingperiod = document.getElementById("sliftingperiod").value;
 	
 	
-	if(slotname == '' || scategory == '' || sdescription == '' || slotlocation == '' || sfrominpectdate_time == '' || stoinpectdate_time == '' || semddetail == '' || slastdateemdsub == '' || sprice == '' || sstartbidprice == '' || sqty == '' || sunitmeasurment == '' || sbidbase == '' || sgst == '' || sothertax == '' || semdamount == '' || sliftingperiod2 == ''|| sliftingperiod == '' ){
+	if(slotname == '' || scategory == '' || sdescription == '' || slotlocation == '' || sfrominpectdate_time == '' || stoinpectdate_time == '' || semddetail == '' || slastdateemdsub == '' || sprice == '' || sstartbidprice == '' || sqty == '' || sunitmeasurment == '' || sbidbase == '' || sgst == '' || shsncode == ''|| sothertax == '' || semdamount == '' || sliftingperiod2 == ''|| sliftingperiod == '' ){
 	
 		swal("Alert!","lotname ,Category, lotlocation, description, frominpectdate&time ,toinpectdate_time, Emddetail,lastdateemdsub,price ,startbidprice, Quantity,Unitmeasurment  ,Bidbase ,gst,othertax,liftingperiod,emdamount,cannot leave any field blank!", "error");
 		return false;
@@ -253,16 +264,13 @@ function validatelot(){
 	
 
   function auction_id1(){
-	 var cat = document.getElementById('scategory').value;
+	 //var cat = document.getElementById('scategory').value;
 	  var cat2 = document.getElementById('slotname').value;
 	   var d = new Date();
 	   var m = d.getHours();
 	   var n = d.getMinutes();
 	   var s = d.getSeconds();
-	 if(cat == 'Select'){
-		 swal("Alert!", "Please Select Categoery First", "error");
-		 return false;
-	 }
+	 
 	 if(cat2.length<6){
 		  document.getElementById('slotno').value = "A-"+m+-+s
 		  ;

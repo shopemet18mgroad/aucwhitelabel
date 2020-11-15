@@ -18,6 +18,19 @@ class Buyer_forthcomingauc extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	 
+	 function __construct() {
+        parent::__construct();
+        
+        // Load session library
+        $this->load->library('session');
+		$this->load->model('Admin_model');
+		$this->load->helper('url');
+		$this->load->helper('date');
+		date_default_timezone_set("Asia/Kolkata");
+    }
+	 
+	 
 	public function index()
 	{
 		
@@ -36,11 +49,11 @@ class Buyer_forthcomingauc extends CI_Controller {
 	public function get_table(){
 		$datatoquerydb = $this->uri->segment(3);
 		$this->load->model('Admin_model');
-		$data = $this->Admin_model->get_lookalike('addlot','scategory',$datatoquerydb);
+		$data = $this->Admin_model->get_lookalike('addlot','sdescription',$datatoquerydb);
 		if(count($data)){
 			  
 			
-			echo '<table id="datatable" onchange="myFunction()" class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';
+			echo '<table id="myTable" class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';
 			echo '<thead class="bg-warning text-white">';
 			echo '<tr>';
 			echo '<th colspan="12">Add Lot In Your List</th>';
@@ -61,7 +74,7 @@ class Buyer_forthcomingauc extends CI_Controller {
 			echo '<tbody>';
 			foreach($data as $dat){
 				echo '<tr>';
-				echo '<td style="color:blue"><a href="'.base_url().'buyer_mylist/my_cart/'.urlencode($dat['scategory']).
+				echo '<td style="color:blue"><a href="'.base_url().'buyer_mylist/my_cart/'.urlencode($dat['sdescription']).
 				'">';
 				echo $dat['sauctionid'];	
 				echo '</a>';
@@ -73,10 +86,12 @@ class Buyer_forthcomingauc extends CI_Controller {
 				echo '<td>'.$dat['sqty'].'</td>';
 				echo '<td>'.$dat['sgst'].'</td>';
 				echo '<td>'.$dat['slotlocation'].'</td>';
-				echo '<td>
-				<button type="button" onclick"add_cart()" herf="<?php echo base_url()."Buyer_forthcomingauc/Addtocart/";?><i class="fas fa-heart" aria-hidden="true"></i></button>
-				</td>';
-				
+				echo '<td><a href="'.base_url().'Buyer_forthcomingauc/Addtocart/'.urlencode($dat['sauctionid']).'">';
+				echo'<button type="button" onClick="HeartFunction()">';
+				echo'<i class="fas fa-heart" id="heart"></i>';
+				echo'</button>';
+				echo '</a>';
+				echo '</td>';
 				echo '</tr>';
 			}
 			echo '</tbody>';
@@ -115,16 +130,26 @@ class Buyer_forthcomingauc extends CI_Controller {
 
 	}
 		
-		public function Addtocart(){
-	
-		$dat = $this->uri->segment(3);
-		$check_db = array('sauctionid' => $dat);
-		$this->load->model('Admin_model');
-			  if($this->Admin_model->insert('biddercart', $check_db)){
-				  echo "BYE";
-			  }else{
-				  echo "HI";
-			  }
+	function Addtocart($sauctionid){
+		
+		$dat = $this->Admin_model->get_table('addlot','sauctionid');
+		
+		$data = array(
+		'sauctionid'  => $dat['sauctionid'],
+		'slotname' => $dat['slotname'],
+		);
+		
+		
+		$status = $this->Admin_model->insert('biddercart', $data);
+		
+		//header('location: ./Buyer_forthcomingauc/index/');
+		$this->load->helper('url');
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('buyer/header',$sess);
+		$this->load->view('buyer/forthcomingauc',$data);
+		$this->load->view('buyer/footer');
 	}
 	
 }
+?>

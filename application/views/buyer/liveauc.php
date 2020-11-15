@@ -27,14 +27,17 @@
 				</tr>
 				</thead>
 				<tbody>
-				<tr>												
-					<td><a href="<?php echo base_url();?>Buyer_liveauc_2">AUC/Anita/Ferrous/16/53/37</a></td></tr>
 					<tr>												
-					<td><a href="<?php echo base_url();?>Buyer_liveauc_2">AUC/Anita/Ferrous/16/53/37</a></td></tr>
-					<tr>												
-					<td><a href="<?php echo base_url();?>Buyer_liveauc_2">AUC/Anita/Ferrous/16/53/37</a></td></tr>
+					<td><a href="<?php echo base_url();?>Buyer_liveauc_2">AUC/Anita/Ferrous/16/53/37</a>
+					</td>
+					</tr>
+					<tr>				
+					<td><a href="<?php echo base_url();?>Buyer_liveauc_2">AUC/Anita/Ferrous/16/53/37</a></td>
+					</tr>
+																	
+					<tr><td><a href="<?php echo base_url();?>Buyer_liveauc_2">AUC/Anita/Ferrous/16/53/37</a></td></tr>
 					
-				</tr>
+			
 				
 				</tbody>
 		 </table>

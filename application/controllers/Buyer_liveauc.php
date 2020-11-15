@@ -20,7 +20,7 @@ class Buyer_liveauc extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->helper(array('url','html'));
+		$this->load->helper('url');
 		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->model('Admin_model');
