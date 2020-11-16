@@ -18,14 +18,52 @@ class Admin_emdapproval extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	 
+	 function __construct() {
+        parent::__construct();
+        
+        // Load session library
+        $this->load->library('session');
+        // Load the captcha helper
+		//$this->load->helper('captcha');
+		$this->load->helper('url');
+		$this->load->helper('date');
+	
+		date_default_timezone_set("Asia/Kolkata");
+    }
+	
+	
 	public function index()
 	{
-		$this->load->helper('url');$this->load->library('session');
+		$this->load->helper(array('url','html'));	
+			
+		$this->load->model('Admin_model');
+		$emd_paid_dd = array('emd_paid_dd'=>false);
+		$query = $this->Admin_model->getdatafromtable('biddercart', $emd_paid_dd);
+		$data['sqldat']= $query;
+		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
+
 		$this->load->view('admin/header',$sess);
-		$this->load->view('admin/emdapproval');
+		$this->load->view('admin/emdapproval',$data);
 		$this->load->view('admin/footer');
 		
+	}
+	
+	public function setdeactive_buyer_emd_dd(){
+		
+		$compname = $this->uri->segment(3);
+		$compname = urldecode($compname);
+		$this->load->model('Admin_model');
+		$emd_paid_dd = array('emd_paid_dd'=>true);
+		$adaction2 = array('bidderusername'=>$compname);
+		$query = $this->Admin_model->update_custom('biddercart',$emd_paid_dd, $adaction2, $adaction2);
+		if($compname){
+			echo "HI";
+		}else{
+			echo "BYE";
+		}
+	
 	}
 	
 }

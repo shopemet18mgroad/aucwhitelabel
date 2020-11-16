@@ -20,26 +20,41 @@
           <div class="card shadow mb-4">
             <div class="card-body">
               <div class="table-responsive">
-			   <form class="form-inline">
-					<div class="form-group mr-4 offset-sm-4">
-						<td colspan="5">
-						<!--<form action="/action_page.php">-->
-								<label for="gettable"></label>
-								<input type="text" class="form-control gettable" id="gettable_emdprofile" placeholder="Enter Company Name To Fetch Result"  size="70" name="search">
-								
-					
-						<!--</form>-->
-					</td>
-				</div>
-			
+			 
 		
-			</form>
-		
-		<div class="ajaxrslt" id="ajaxrslt_emdprofile">
-			<!----Insert Ajax Table Here------>
-			
-			<!---- ------>
-		</div>
+				<table class="table table-striped table-bordered table-sm text-center mt-5" id="dataTable" width="100%" cellspacing="0">
+				
+				<thead class="bg-primary text-white">
+				 <tr>
+		<th class="bg-info" colspan="12" style="Text-align:center;">EMD</th>
+	</tr>
+				<tr>
+					<th>Auction ID</th>
+					<th>Buyer Name</th>
+					<!--<th>Location</th>-->
+					<th>Date/Time</th>
+					<th>Lot No</th>
+					<!--<th>Lot Name</th>-->
+					<th>Bid Amount</th>
+					<th>EMD Type</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+				 <?php foreach($sqldat as $sqldata){?>  									<td><b><?php echo $sqldata->auctionid; ?></b></td>
+				 <td><?php echo $sqldata->bidderusername; ?></td>
+				 <td><?php echo $sqldata->aucstartdate_time;?><br><?php echo $sqldata->aucclosedate_time;?></td>
+				 <td><?php echo $sqldata->lotno; ?></td>
+				  <td><?php echo $sqldata->bidamount; ?></td>
+				
+				<td><?php  if($sqldata->emdpaid == 1) {echo 'Paid';} ?></td>
+				
+				</tr>
+				
+					<?php }  
+         ?> 						
+				</tbody>
+		 </table>
 		</div>
 		</div>
 		 <!--Pagination -->

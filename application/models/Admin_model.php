@@ -86,9 +86,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			  $query = $this->db->get("auction");
 			  return $query->result();
 			 }
-			 
-	
-
+		
 		public function select()  
       {  
          //data is retrive from this query  
