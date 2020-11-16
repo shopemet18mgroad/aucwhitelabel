@@ -21,7 +21,7 @@
             <div class="card-body">
               <div class="table-responsive">
 
-			<table class="table table-striped table-bordered table-sm text-center mt-5 w-auto small ml-4"  width="100%" cellspacing="0">
+			<table class="table table-striped table-bordered table-sm text-center mt-5 w-auto small ml-4" id="datatable" width="100%" cellspacing="0">
 			<thead class="bg-info  text-white text-center">
 					<th colspan="12"><b>EMD</b></th>
 				</thead>
@@ -58,23 +58,56 @@
 					<td><?php echo $sqldata->aucstartdate_time;?><br><?php echo $sqldata->aucclosedate_time;?></td>
 					<td><?php  if($sqldata->emdpaid == 0) {echo 'Request';} ?></td>
 				
-					<td><a href="#"><button type="submit" class="btn btn-primary btn-sm w-50">
+					<td><a href="" data-toggle="modal" data-target="#myModal">
+					<button type="submit" class="btn btn-info btn-sm w-50">
 					<i class="fa fa-eye" aria-hidden="true"></i>
-					</button></a></td>
+					</button>
+					</a>
+				
+				<div class="modal" id="myModal">
+					<div class="modal-dialog modal-lg">
+					  <div class="modal-content">
+					  
+						<!-- Modal Header -->
+						
+						
+						<!-- Modal body -->
+						<div class="modal-body">
+						<img src="../../img/dd.png" class="img-fluid" alt="Responsive image">
+						</div>
+						
+						<!-- Modal footer -->
+						<div class="modal-footer">
+						  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+						</div>
+						
+					  </div>
+					</div>
+				  </div>
+					</td>
 					<td><a href="#"><button type="button" class="btn btn-primary btn-sm"disabled>Pay</button></a></td>
 					
 					<td>
-					 <form action="<?php echo base_url();?>Buyer_mylist" method="POST" id="upload-form" enctype="multipart/form-data">
-					<input class="form-group w-auto" type="file"  id="emd_paid_dd" name="emd_paid_dd[]">
-					<input type="submit" class="btn btn-primary " name="submit" value="Upload"></td>
-					 </form>
+					 <form action="<?php echo base_url();?>Buyer_Mylist_dd_upload" method="POST" id="upload-form" enctype="multipart/form-data">
+			
+					<input class="form-group w-auto"  multiple="multiple"  type="file"  id="upload_dd" name="upload_dd[]">
+				
+					
+					<input type="submit" class="btn btn-primary " name="submit" value="Upload">
+		  </form>
+					
+					</td>
 					
 
-				</tr>
-		 <?php }  
+					 <?php } 		 
          ?> 
+
+				</tr>
+			
+							
 				</tbody>
 		 </table>
+		 
 		</div>
 		</div>
 		

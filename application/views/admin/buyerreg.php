@@ -125,7 +125,7 @@
 						</tbody>
 					</table>
 
-<table class="table table-sm table-borderless">
+					<table class="table table-sm table-borderless">
 					 <thead><th width="45%">Documents</th>
 					 </thead>
 						<tbody>
