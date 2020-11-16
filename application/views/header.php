@@ -47,14 +47,14 @@
 					<div class="input-feild">
 					
 							<div class="form-group p-1">
-							<form  action="<?php echo base_url()."Home_Login";?>" method="POST" id="bidder" name="myform">
-								<input type="email" class="form-control" id="email" name="email" placeholder="User Name" size="50">
+							<form  class="user" action="<?php echo base_url()."Home_Login";?>" method="POST" id="bidder" name="myform">
+								<input type="text" class="form-control" id="exampleInputEmail" name="user" placeholder="User Name" size="50">
 							</div>
 						  <div class="form-group p-1">
-							<input type="password" class="form-control" id="pswd" name="pswd" placeholder="Password" size="50">
+							<input type="password" class="form-control" id="exampleInputPassword" name="pass" placeholder="Password" size="50">
 						  </div>
 						  <div class="form-group p-1">
-							<button type="submit" name="submit" class="btn btn-primary"><i class="fa fa-sign-in"></i> Login</button>	
+							<button type="submit" name="submit" onClick="return userid4()" class="btn btn-primary"><i class="fa fa-sign-in"></i> Login</button>	
 						  </div>
 						   
 						  
@@ -62,13 +62,13 @@
 					 <div class="row ml-3">
 						<div class="form-group pl-3">
 						  <div class="custom-control custom-checkbox small ">
-							<input type="checkbox" class="custom-control-input ltype" id="customCheck2" name="ltype">
+							<input type="checkbox" class="custom-control-input ltype" id="customCheck2" name="ltype"  value="Auctioner">
 							<label class="custom-control-label" for="customCheck2">Auctioner</label>
 						  </div>
 						</div>
 						<div class="form-group pl-3">
 						  <div class="custom-control custom-checkbox small">
-							<input type="checkbox" class="custom-control-input ltype" id="customCheck" name="ltype">
+							<input type="checkbox" class="custom-control-input ltype" id="customCheck" name="ltype" value="Bidder">
 							<label class="custom-control-label" for="customCheck">Bidder</label>
 							
 						  </div>

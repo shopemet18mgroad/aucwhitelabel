@@ -36,7 +36,7 @@ class Admin_emdprofile extends CI_Controller {
 	
 		$data = $this->Admin_model->getdatafromtable('biddercart','auctionid',$emdpaid);
 		
-		print_r($data); die;
+		//print_r($data); die;
 		
 		if(count($data)){
 			echo '<table class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';

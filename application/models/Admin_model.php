@@ -85,7 +85,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			  $query = $this->db->get("auction");
 			  return $query->result();
 			 }
-		public function get_emd_paid($table,$col,$query){			  
+			 
+			public function get_emd_paid($table,$col,$query){			  
 			$this->db->from($table);
 			//$this->db->like($col,$query); 
 			$q = $this->db->get();
