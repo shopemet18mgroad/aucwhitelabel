@@ -21,18 +21,17 @@
             <div class="card-body">
               <div class="table-responsive">
 
-			<table class="table table-striped table-bordered table-sm text-center mt-5 w-auto small"  width="100%" cellspacing="0">
+			<table class="table table-striped table-bordered table-sm text-center mt-5 w-auto small ml-4"  width="100%" cellspacing="0">
 			<thead class="bg-info  text-white text-center">
 					<th colspan="12"><b>EMD</b></th>
 				</thead>
 				<thead class="bg-primary text-white">
 				<tr>
 					<td>Auction Id</td>
-					<td>Company Name</td>
 					<td>Lot No</td>
-					<td>Location</td>
+					<td>Auction Start/Close date/time</td>
 					<td>Status</td>
-					 <td>View Auction</td>
+					 <td>View DD Image</td>
 					 <td>EMD Payment</td>
 					 <td>EMD Pay By DD</td>
 					
@@ -49,46 +48,36 @@
 					</tr>-->
 				</thead>
 		<tbody>
-				
+			 
+        <?php foreach($sqldat as $sqldata){?>  
+       
 				<tr>
 				
-					<td><b><?php echo $sqldata[0]->sauctionid; ?></b></td>
-					<td><?php echo $sqldata[0]->sname; ?></td>
-					<td><?php echo $sqldata[0]->slotno; ?></td></td>
-					<td><?php echo $sqldata[0]->slotlocation; ?></td>
+					<td><b><?php echo $sqldata->auctionid; ?></b></td>
+					<td><?php echo $sqldata->lotno; ?></td>
+					<td><?php echo $sqldata->aucstartdate_time;?><br><?php echo $sqldata->aucclosedate_time;?></td>
+					<td><?php  if($sqldata->emdpaid == 0) {echo 'Request';} ?></td>
 				
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td><a href="#"><button type="submit" class="btn btn-primary btn-sm w-50">
+					<i class="fa fa-eye" aria-hidden="true"></i>
+					</button></a></td>
+					<td><a href="#"><button type="button" class="btn btn-primary btn-sm"disabled>Pay</button></a></td>
+					
+					<td>
+					 <form action="<?php echo base_url();?>Buyer_mylist" method="POST" id="upload-form" enctype="multipart/form-data">
+					<input class="form-group w-auto" type="file"  id="emd_paid_dd" name="emd_paid_dd[]">
+					<input type="submit" class="btn btn-primary " name="submit" value="Upload"></td>
+					 </form>
 					
 
 				</tr>
-		
+		 <?php }  
+         ?> 
 				</tbody>
 		 </table>
 		</div>
 		</div>
-		<!--Pagination -->
-
-        <div class="row">
 		
-			<div class="col-sm-12 col-md-10">
-				<div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
-				<ul class="pagination offset-lg-11">
-				<li class="paginate_button page-item previous disabled" id="dataTable_previous">
-				<a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
-				</li>
-				<li class="paginate_button page-item active">
-				<a href="#" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page-link">1</a>
-				</li>
-				<li class="paginate_button page-item next disabled" id="dataTable_next">
-				<a href="#" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page-link">Next</a>
-				</li>
-				</ul>
-				</div>
-				</div>
-			</div>
 		</div>
 		</div>
 		</div>
