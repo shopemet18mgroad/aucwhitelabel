@@ -34,13 +34,13 @@ class Buyer_forthcomingauc extends CI_Controller {
 	public function index()
 	{
 		
-		$this->load->model("Admin_model");
-		$data["addlot"] = $this->Admin_model->fetch_all();
+		//$this->load->model("Admin_model");
+		//$data["addlot"] = $this->Admin_model->fetch_all();
 		$this->load->helper(array('url','html'));
 		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('buyer/header',$sess);
-		$this->load->view('buyer/forthcomingauc',$data);
+		$this->load->view('buyer/forthcomingauc');
 		$this->load->view('buyer/footer');
 
 		
@@ -77,6 +77,7 @@ class Buyer_forthcomingauc extends CI_Controller {
 				echo '<td style="color:blue"><a href="'.base_url().'buyer_mylist/my_cart/'.urlencode($dat['sdescription']).
 				'">';
 				echo $dat['sauctionid'];	
+				echo $aucencode = str_ireplace('/','-',$dat['sauctionid']);
 				echo '</a>';
 				echo '</td>';
 				echo '<td>'.$dat['slotname'].'</td>';
@@ -86,11 +87,10 @@ class Buyer_forthcomingauc extends CI_Controller {
 				echo '<td>'.$dat['sqty'].'</td>';
 				echo '<td>'.$dat['sgst'].'</td>';
 				echo '<td>'.$dat['slotlocation'].'</td>';
-				echo '<td><a href="'.base_url().'Buyer_forthcomingauc/Addtocart/'.urlencode($dat['sauctionid']).'">';
-				echo'<button type="button" onClick="HeartFunction()">';
-				echo'<i class="fas fa-heart" id="heart"></i>';
+				echo '<td>';
+				echo'<button type="button" id="'.$aucencode.'|'.$dat['slotno'].'" onClick="addtocart(this.id)">';
+				echo'<i class="fas fa-heart" id="'.$aucencode.'|'.$dat['slotno'].'"></i>';
 				echo'</button>';
-				echo '</a>';
 				echo '</td>';
 				echo '</tr>';
 			}
@@ -130,25 +130,34 @@ class Buyer_forthcomingauc extends CI_Controller {
 
 	}
 		
-	function Addtocart($sauctionid){
-		
-		$dat = $this->Admin_model->get_table('addlot','sauctionid');
-		
-		$data = array(
-		'sauctionid'  => $dat['sauctionid'],
-		'slotname' => $dat['slotname'],
-		);
-		
-		
-		$status = $this->Admin_model->insert('biddercart', $data);
-		
-		//header('location: ./Buyer_forthcomingauc/index/');
-		$this->load->helper('url');
+	public function Addtocart(){
+		$dat = urldecode($this->uri->segment(3));
 		$this->load->library('session');
-		$sess = array('sessi'=>$this->session->userdata('username'));
-		$this->load->view('buyer/header',$sess);
-		$this->load->view('buyer/forthcomingauc',$data);
-		$this->load->view('buyer/footer');
+		$bidderuname = $this->session->userdata('username');
+		$datexp = explode('|',$dat);
+		$auctionid = str_ireplace('-','/',$datexp[0]);
+		$lotno = $datexp[1];
+		$data = array('sauctionid'=>$auctionid);
+		$data2 = array('sauctionid'=>$auctionid,'slotno'=>$lotno);		
+		$dat4 = $this->Admin_model->getdatafromtable('addlot',$data2);
+		$dat3 = $this->Admin_model->getdatafromtable('auction',$data);
+		$aucstart = $dat3[0]->saucstartdate_time;
+		$aucend = $dat3[0]->saucclosedate_time;
+		$aucstartbid = $dat4[0]->sstartbidprice;
+		$aucstartbidprice = $dat4[0]->sprice;
+		$bcheck = array('bidderusername'=>$bidderuname,'auctionid'=>$auctionid,'lotno'=>$lotno);
+		$cartdata = array(
+		'bidderusername'  => $bidderuname,'auctionid'=>$auctionid,'lotno' => $lotno,'aucstartdate_time'=>$aucstart,'aucclosedate_time'=>$aucend,'bidstart'=>$aucstartbid,'bidprice'=>$aucstartbidprice);
+		if($this->Admin_model->check('biddercart',$bcheck)){
+			echo "EX";
+		}else{
+			$status = $this->Admin_model->insert('biddercart', $cartdata);
+			echo "IN";
+		}
+		die;
+		
+		
+	
 	}
 	
 }
