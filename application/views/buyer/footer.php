@@ -119,7 +119,6 @@
 
     });
 	
-
 	$('#gettable_forth').on('keyup', function(){
 			var contents = $('#gettable_forth').val(); 
 			$.get('<?php echo base_url() .'buyer_forthcomingauc/get_table/'; ?>'+contents, function(data){
@@ -130,11 +129,17 @@
 
 <script>
 
-function HeartFunction() {
-   var element = document.getElementById("heart");
-   element.classList.toggle("heartstyle");
-
-
+function addtocart(v){
+  $.get('<?php echo base_url() .'buyer_forthcomingauc/Addtocart/'; ?>'+v, function(data){
+	  if($.trim(data)=="EX"){
+		  document.getElementById(v).style.color="blue";
+		  return false;
+	  }else{
+		  document.getElementById(v).style.color="red";
+		  return false;
+	  }
+				
+	});
 }
 </script>
  

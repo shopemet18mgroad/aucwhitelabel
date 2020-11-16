@@ -27,7 +27,7 @@ class Buyer_dashboard extends CI_Controller {
 
 	
 	
-	if(!$this->session->has_userdata('username')){
+		if(!$this->session->has_userdata('username')){
 			$datainserr = "Invalid Login Session";
 			header('location: '.base_url().'login/index_error/'.$datainserr);
 			die;
