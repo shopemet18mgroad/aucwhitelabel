@@ -59,8 +59,8 @@ class Buyer_mylist extends CI_Controller {
 			$this->load->model('Admin_model');
 			$auctionid = $this->input->post('auctionid');
 			$lotno = $this->input->post('lotno');
-			$emd_paid_dd = $this->input->post('emd_paid_dd');
-			$pic_array1 = self::upload_files('emd_paid_dd');
+			$upload_dd = $this->input->post('upload_dd');
+			$pic_array1 = self::upload_files('upload_dd');
 			
 			if(!count($pic_array1)){
 			echo '<script language="javascript">';
@@ -72,18 +72,18 @@ class Buyer_mylist extends CI_Controller {
 		}
 		
 		
-	$data = array('auctionid' => $auctionid, 'lotno' => $lotno,'emd_paid_dd' => $pic_array1);
+	$data = array('auctionid' => $auctionid, 'lotno' => $lotno,'upload_dd' => $pic_array1);
 		
 	$status = $this->Admin_model->insert('biddercart', $data);
-	$auctionid = $this->db->insert_id();
+	//$auctionid = $this->db->insert_id();
 	
-	$transfer = array('emd_paid_dd'=> $emd_paid_dd,'date'=>$date);
+	$transfer = array('upload_dd'=> $upload_dd,'date'=>$date);
 			   if($status){
 				  $this->session->set_flashdata('txdata',$transfer);
 				  
 			  }else{
 				   header('location: ./Buyer_mylist/');
-			  } 
+			  }  
 			  
 		/* 	  $sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('buyer/header',$sess);
