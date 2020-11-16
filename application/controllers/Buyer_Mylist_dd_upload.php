@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Buyer_mylist extends CI_Controller {
+class Buyer_Mylist_dd_upload extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -11,6 +11,11 @@ class Buyer_mylist extends CI_Controller {
 	 *	- or -
 	 * 		http://example.com/index.php/welcome/index
 	 *	- or -
+	 
+	 
+	 
+	 
+	 
 	 * Since this controller is set as the default controller in
 	 * config/routes.php, it's displayed at http://example.com/
 	 *
@@ -18,82 +23,71 @@ class Buyer_mylist extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	 	function __construct() {
-        parent::__construct();
-        
-        // Load session library
-        $this->load->library('session');
-        // Load the captcha helper
-		//$this->load->helper('captcha');
-		$this->load->helper('url');
-		$this->load->helper('date');
-	
-		date_default_timezone_set("Asia/Kolkata");
-    }
-	 
-	 
+
+
 	public function index()
 	{
-		 //$this->load->database();  
-         //load the model  
-         //$this->load->model('Admin_model');  
-         //load the method of model  
-         //$data['h']=$this->Admin_model->select();  
-         //return the data in view  
+		if($this->input->post('submit'))
+		{
 		$this->load->helper(array('url','html'));
 		$this->load->model('Admin_model');
-		$emdpaid = array('emdpaid'=>false);
-		$query = $this->Admin_model->getdatafromtable('biddercart', $emdpaid);
-		$data['sqldat']= $query;
-
-		
-		
 		$this->load->library('session');
-		$sess = array('sessi'=>$this->session->userdata('username'));
-			
-			
 		
-		$this->load->view('buyer/header',$sess);
-		$this->load->view('buyer/mylist', $data);
-		$this->load->view('buyer/footer');
-	}
+		$dataact = array();
+		$datacomp = array();
+		$dataact = $this->input->post('bsigneddocumentex');
+		$datacomp = $this->input->post('bsigneddocumentexcom');
+		if($dataact && $datacomp){
+			$result = array_diff($dataact,$datacomp);
+			$result2 = array_intersect($dataact,$datacomp);
+		if(count($result)){
+			foreach($result as $res){
+			unlink(base_url()."web_files/uploads/".$res);
+			}
+		}
 		
-	 /* if($this->input->post('submit')){
-			$date =  Date('Y-m-d'); 
-			$this->load->library('fileupload');
-			$this->load->helper(array('url','form','file','html'));
-			$this->load->model('Admin_model');
-			$auctionid = $this->input->post('auctionid');
-			$lotno = $this->input->post('lotno');
-			$upload_dd = $this->input->post('upload_dd');
-			$pic_array1 = self::upload_files('upload_dd');
-			
-			if(!count($pic_array1)){
-			echo '<script language="javascript">';
-			echo 'alert("Documents Upload Failed")';  //not showing an alert box.
-			echo '</script>';
-			
-		}else{
-			$pic_array1 = serialize($pic_array1);
+		/* if(!count($result2) && !$_FILES['upload']['name'][0]){
+			$datainserr = "Atleast One Signed Document Has To Uploaded";
+			header('location: '.base_url().'buyer_mylist/index/'.$auctionid.'/'.$datainserr);
+			die;
+		} */
 		}
 		
 		
-	$data = array('auctionid' => $auctionid, 'lotno' => $lotno,'upload_dd' => $pic_array1);
-		$this->db->where('auctionid', $auctionid);
-	$status = $this->Admin_model->insert('biddercart', $data);
-	//$auctionid = $this->db->insert_id();
+		/* if($_FILES['upload']['tmp_name'][0]){
+			$doc_array = self::upload_files('upload_dd');
+		} */
 	
-	$transfer = array('upload_dd'=> $upload_dd,'date'=>$date);
-			   if($status){
-				  $this->session->set_flashdata('txdata',$transfer);
-				  
-			  }else{
-				   header('location: ./Buyer_mylist/');
-			  } 
-			   */
-		
-		
 
+		if(!count($doc_array)){
+			echo '<script language="javascript">';
+			echo 'alert("Documents Upload Failed")';  //not showing an alert box.
+			echo '</script>';
+			$doc_array = serialize($result2);
+		}else{
+			if($result2){
+				$doc_array = array_merge($doc_array,$result2);
+				$doc_array = serialize($doc_array);
+			}else{
+				$doc_array = serialize($doc_array);
+			}
+			
+		}
+		
+		
+		//=================================================================================================
+		//==================================================================
+		$data4 = array ('upload_dd' => $doc_array);
+		//$this->load->view('xya', $data);
+		
+		$datainserr = "Data Inserted Successfully";
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$updatech = array('auctionid'=>$sess['sessi']);
+		$status = $this->Admin_model->update_custom('biddercart',$data4,$updatech,$updatech);
+		print_r($status); die();
+		header('location: '.base_url().'buyer_mylist/index/'.$datainserr);
+		}
+	}
 	
 	private function upload_files($nameid)
     {	
@@ -132,7 +126,4 @@ class Buyer_mylist extends CI_Controller {
 	  return $datar;
     }
 	
-
-
 }
-

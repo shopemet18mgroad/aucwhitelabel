@@ -88,7 +88,8 @@
 					<td><a href="#"><button type="button" class="btn btn-primary btn-sm"disabled>Pay</button></a></td>
 					
 					<td>
-					 <form action="<?php echo base_url();?>Buyer_mylist" method="POST" id="upload-form" enctype="multipart/form-data">
+					 <form action="<?php echo base_url();?>Buyer_Mylist_dd_upload" method="POST" id="upload-form" enctype="multipart/form-data">
+			
 					<input class="form-group w-auto"  multiple="multiple"  type="file"  id="upload_dd" name="upload_dd[]">
 				
 					
@@ -102,9 +103,7 @@
          ?> 
 
 				</tr>
-				
-		
-		 
+			
 							
 				</tbody>
 		 </table>
