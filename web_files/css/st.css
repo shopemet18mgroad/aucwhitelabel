@@ -1,0 +1,28 @@
+.bara{
+
+	text-align: center;
+	padding-top:1px;
+	height: 40px;
+	background-color: #51adc2;
+	color: #ffffff;
+	
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-align: left;    
+}
+#lrow{
+	color:blue;
+}
+
+.b{
+	background-color:blue;
+}
+.bank{
+	color:red;
+}
