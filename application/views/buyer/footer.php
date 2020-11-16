@@ -119,7 +119,6 @@
 
     });
 	
-
 	$('#gettable_forth').on('keyup', function(){
 			var contents = $('#gettable_forth').val(); 
 			$.get('<?php echo base_url() .'buyer_forthcomingauc/get_table/'; ?>'+contents, function(data){
