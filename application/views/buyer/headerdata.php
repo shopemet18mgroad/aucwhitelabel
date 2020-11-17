@@ -136,7 +136,10 @@ body {
           <i class="fas fa-fw fa-shopping-cart"></i>
           <span>My List</span></a>
       </li>
-	   	
+	  
+	  <li class="nav-item">
+	  	<a class="nav-link" href="<?php echo base_url();?>buyer_liveauc"><span class="blinking"><b>Live Auction</b></span></a>
+	   	 </li>
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
