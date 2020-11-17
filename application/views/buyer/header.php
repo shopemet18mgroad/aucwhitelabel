@@ -50,6 +50,8 @@
   div.col-8 div {
     height: 500px;
   }</style>
+  
+
 </head>
 
 <body id="page-top" data-spy="scroll" data-target="#myScrollspy" data-offset="1">
@@ -140,6 +142,10 @@
           <i class="fas fa-fw fa-shopping-cart"></i>
           <span>My List</span></a>
       </li>
+	  
+	  <li class="nav-item">
+	  	<a class="nav-link" href="<?php echo base_url();?>buyer_liveauc"><i class="fas fa-fw fa-gavel"></i><span><b>Live Auction</b></span></a>
+	   	 </li>
 	   	
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">

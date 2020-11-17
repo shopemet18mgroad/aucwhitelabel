@@ -48,7 +48,7 @@
 					</tr>-->
 				</thead>
 		<tbody>
-			 
+			  <form action="<?php echo base_url();?>Buyer_Mylist_dd_upload" method="POST" id="upload-form" enctype="multipart/form-data">
         <?php foreach($sqldat as $sqldata){?>  
        
 				<tr>
@@ -73,7 +73,7 @@
 						
 						<!-- Modal body -->
 						<div class="modal-body">
-						<img src="../../img/dd.png" class="img-fluid" alt="Responsive image">
+						<img src="<?php echo base_url();?>web_files/img/Aluminium.jpg" class="img-fluid" alt="Responsive image">
 						</div>
 						
 						<!-- Modal footer -->
@@ -88,7 +88,7 @@
 					<td><a href="#"><button type="button" class="btn btn-primary btn-sm"disabled>Pay</button></a></td>
 					
 					<td>
-					 <form action="<?php echo base_url();?>Buyer_Mylist_dd_upload" method="POST" id="upload-form" enctype="multipart/form-data">
+					
 			
 					<input class="form-group w-auto"  multiple="multiple"  type="file"  id="upload_dd" name="upload_dd[]">
 				
@@ -97,7 +97,7 @@
 		  </form>
 					
 					</td>
-					
+			
 
 					 <?php } 		 
          ?> 
