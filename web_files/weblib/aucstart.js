@@ -32,18 +32,19 @@ function myFunction2() {
 }
 
 function validatestart(){
+	
 	 var cat = document.getElementById('scategory').value;
 	 var scompanyname = document.getElementById("scompanyname").value;
 	var svinspection = document.getElementById("svinspection").value;
-	 var sfrominpectdate_time = document.getElementById(sfrominpectdate_time).value;
-	 var stoinpectdate_time = document.getElementById(stoinpectdate_time).value;
-	  var sstartbidprice = document.getElementById(sstartbidprice).value;
-	   var slastdateemdsub = document.getElementById(slastdateemdsub).value;
-	   var saucstartdate_time = document.getElementById(saucstartdate_time).value;
-	   var saucclosedate_time = document.getElementById(saucclosedate_time).value;
+	 var sfrominpectdate_time = document.getElementById("sfrominpectdate_time").value;
+	 var stoinpectdate_time = document.getElementById("stoinpectdate_time").value;
+	  var sstartbidprice = document.getElementById("sstartbidprice").value;
+	   var slastdateemdsub = document.getElementById("slastdateemdsub").value;
+	   var saucstartdate_time = document.getElementById("saucstartdate_time").value;
+	   var saucclosedate_time = document.getElementById("saucclosedate_time").value;
 	var sterms_text = document.getElementById("sterms_text").value;
- var fileInput =  document.getElementById('sterms_condiupload');
-  var Yes =  document.getElementById('myCheck');
+ var fileInput =  document.getElementById('sterms_condiupload1');
+  var Yes =  document.getElementById('firstCheckBox');
   
  	
 	
@@ -63,9 +64,16 @@ function validatestart(){
 	
 			if( $('input[name="sterms_condiaccept"]:checked').length == 0 )
 			{
-				swal("Alert!",  "Aucjunction Terms & Conditions Should Be Selected", "error");
+				swal("Alert!",  "I agree to the Terms and Conditions Should Be Selected", "error");
 				return false;
 			}
+			 
+			 if( $('input[name="sterms_condiupload1[]"]:checked').length == 0 )  
+			{ 
+				swal("Alert!",  "Please select one checkbox ", "error");
+				return false;
+			} 
+			 
 			 if(Yes.checked){
 					 if (!document.getElementById("sterms_condiupload").value) {
 				event.preventDefault();
@@ -74,11 +82,11 @@ function validatestart(){
 				}else{
 					var filePath = fileInput.value; 
           
-            Allowing file type 
+           // Allowing file type 
             var allowedExtensions =  /(\.doc|\.docx|\.png|\.pdf|\.jpg|\.xlsx|\.gif)$/i; 
               
             if (!allowedExtensions.exec(filePath)) { 
-                swal("Alert!",'Invalid file type',"error"); 
+                swal("Alert!","Invalid file type","error"); 
                 fileInput.value = ''; 
                 return false; 
             }
@@ -96,11 +104,7 @@ function validatestart(){
 		 	
 
 				
-			 	if( $('input[name="sterms_condiupload1[]"]:checked').length == 0 )  
-			{ 
-				swal("Alert!",  "Please select one checkbox ", "error");
-				return false;
-			} 
+			 	
 
 				/* else if(sterms_text == ''){
 		 swal("Alert!", "Please write", "error");

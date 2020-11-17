@@ -46,17 +46,17 @@ class Buyer_Mylist_dd_upload extends CI_Controller {
 			}
 		}
 		
-		/* if(!count($result2) && !$_FILES['upload']['name'][0]){
+		 if(!count($result2) && !$_FILES['upload_dd']['name'][0]){
 			$datainserr = "Atleast One Signed Document Has To Uploaded";
 			header('location: '.base_url().'buyer_mylist/index/'.$auctionid.'/'.$datainserr);
 			die;
-		} */
+		}  
 		}
 		
 		
-		/* if($_FILES['upload']['tmp_name'][0]){
+		 if($_FILES['upload_dd']['tmp_name'][0]){
 			$doc_array = self::upload_files('upload_dd');
-		} */
+		} 
 	
 
 		if(!count($doc_array)){
@@ -64,7 +64,7 @@ class Buyer_Mylist_dd_upload extends CI_Controller {
 			echo 'alert("Documents Upload Failed")';  //not showing an alert box.
 			echo '</script>';
 			$doc_array = serialize($result2);
-		}else{
+		}  else{
 			if($result2){
 				$doc_array = array_merge($doc_array,$result2);
 				$doc_array = serialize($doc_array);
@@ -72,7 +72,7 @@ class Buyer_Mylist_dd_upload extends CI_Controller {
 				$doc_array = serialize($doc_array);
 			}
 			
-		}
+		} 
 		
 		
 		//=================================================================================================
@@ -82,9 +82,9 @@ class Buyer_Mylist_dd_upload extends CI_Controller {
 		
 		$datainserr = "Data Inserted Successfully";
 		$sess = array('sessi'=>$this->session->userdata('username'));
-		$updatech = array('auctionid'=>$sess['sessi']);
+		$updatech = array('upload_dd'=>$sess['sessi']);
 		$status = $this->Admin_model->update_custom('biddercart',$data4,$updatech,$updatech);
-		print_r($status); die();
+		
 		header('location: '.base_url().'buyer_mylist/index/'.$datainserr);
 		}
 	}
