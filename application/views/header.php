@@ -55,7 +55,7 @@
 							<input type="password" class="form-control" id="exampleInputPassword" name="pass" placeholder="Password" size="50">
 						  </div>
 						  <div class="form-group p-1">
-							<button type="submit" name="submit" onClick="return userid4()" class="btn btn-primary"><i class="fa fa-sign-in"></i> Login</button>	
+							<button type="submit" name="submit" onclick="return userid4()" class="btn btn-primary"><i class="fa fa-sign-in"></i> Login</button>	
 						  </div>
 						   
 						  
