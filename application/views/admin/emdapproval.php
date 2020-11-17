@@ -41,44 +41,33 @@
 		<th class="bg-info" colspan="12" style="Text-align:center;">EMD</th>
 	</tr>
 				<tr>
-					<th>Auction ID</th>
-					<th>Company Name</th>
-					<th>Location</th>
-					<th>Date/Time</th>
-				</tr>
+						<th>Auction Id</th>
+						<th>Lot No</th>
+						<th>Company Name</th>
+						<th>Buyer Name</th>
+						<!--<th>Location</th>-->
+						<th>Date/Time</th>
+						<th>Status</th>
+						<th>View DD</th>
+						<th>Action</th>
+					</tr>
 				</thead>
 				<tbody>
 				<tr>
-														<td><a href="<?php echo base_url();?>admin_eapprove">BHEL/BBR/ISG LTD/2/Adarsh Vihar/25087/20-20</a></td>
-														<td>BHEL</td>
-														<td>Bangalore</td>
-														<td>23-03-2020 23:00:00</td>
-														</tr>
-													<tr>
-														<td><a href="<?php echo base_url();?>admin_eapprove">MSTC/BBR/ISG LTD/2/Adarsh Vihar/25087/20-20</a></td>
-														<td>ISG LTD</td>
-														<td>Uttrakhand</td>
-														<td>23-03-2020 23:00:00</td>
-														</tr>
-													<tr>
-														<td><a href="<?php echo base_url();?>admin_eapprove">MSTC/BBR/BHRL LTD/2/Vihar/25087/20-20</a></td>
-														<td>BHRL LTD</td>
-														<td>Gujarat</td>
-														<td>23-03-2020 23:00:00</td>
-														</tr>
-													<tr>
-														<td><a href="<?php echo base_url();?>admin_eapprove">MSTC/BBR/ONGC LTD/2/Vidyut Nagar/25087/20-20</a></td>
-														<td>ONGC LTD</td>
-														<td>Orrisa</td>
-														<td>23-03-2020 23:00:00</td>
-														</tr>
-													<tr>
-														<td><a href="<?php echo base_url();?>admin_eapprove">MSTC/BBR/BSP LTD/2/Nehru Vihar/25087/20-20</a></td>
-														<td>BSP</td>
-														<td>Chhattisgarh</td>
-														<td>23-03-2020 23:00:00</td>
-													</tr>
-													</tr>
+				<?php foreach($sqldat as $sqldata){?><td><b><?php echo $sqldata->auctionid; ?></b></td>
+				 <td><?php echo $sqldata->lotno; ?></td>
+				 <td></td> <td><?php echo $sqldata->bidderusername; ?></td>
+				 <td><?php echo $sqldata->aucstartdate_time;?><br><?php echo $sqldata->aucclosedate_time;?></td>
+			
+				
+				<td><?php  if($sqldata->emd_paid_dd == 0) {echo 'DD';}				?></td>
+				<td></td>
+				<td><button type="submit" name="submit" id="<?php echo $sqldata->bidderusername;?>" onclick="buyer_set_deactive_emd_dd(this.id)" class="btn btn-info btn-sm">Approve</button></td>	
+														
+				</tr>
+						<?php }  
+         ?> 							
+				
 				</tbody>
 		 </table>
 		</div>

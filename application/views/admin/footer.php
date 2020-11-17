@@ -379,3 +379,37 @@
 	 $("#dp").hide();
  }
  </script>
+ 
+ 
+ 
+ <script>
+		function buyer_set_deactive_emd(varab2){
+			$.get('<?php echo base_url() .'Admin_emdrequest/setdeactive_buyer_emd/'; ?>'+varab2, function(data2){	
+				 if($.trim(data2) == "HI"){
+					 window.location.href = '<?php echo base_url().'Admin_emdrequest';?>'
+					return true;
+				}else{
+					swal("Alert!", "Company Name Already Exists", "error");
+					return false;
+				}
+			 });
+			
+		}
+	
+ </script>
+ 
+ <script>
+		function buyer_set_deactive_emd_dd(varab2){
+			$.get('<?php echo base_url() .'Admin_emdapproval/setdeactive_buyer_emd_dd/'; ?>'+varab2, function(data2){	
+				 if($.trim(data2) == "HI"){
+					 window.location.href = '<?php echo base_url().'Admin_emdapproval';?>'
+					return true;
+				}else{
+					swal("Alert!", "Company Name Already Exists", "error");
+					return false;
+				}
+			 });
+			
+		}
+	
+ </script>

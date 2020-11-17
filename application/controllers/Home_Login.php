@@ -25,11 +25,11 @@ class Home_Login extends CI_Controller {
 		$this->load->library('session');
 		$this->session->sess_expiration = '3600';
 		if($this->input->post('user')){
-			if($this->input->post('ltype')=="Buyer"){
+			if($this->input->post('ltype')=="Bidder"){
 				$table = "buyerprofile";
 				$colname = "busername";
 				$colname2 = "bpassword";
-			}else if($this->input->post('ltype')=="Seller"){
+			}else if($this->input->post('ltype')=="Auctioner"){
 				$table = "sellerprofile";
 				$colname = "susername";
 				$colname2 = "spassword";
@@ -54,13 +54,13 @@ class Home_Login extends CI_Controller {
 				  }
 			  }else{
 				  $datainserr = "Invalid Password";
-				  header('location: '.base_url().'header/index_error/'.$datainserr);
+				  header('location: '.base_url().'Home_Login/index_error/'.$datainserr);
 				  die;
 			  }
 			  die;
 		}else{
 			$this->load->view('header');
-			$this->load->view('login');
+			$this->load->view('home');
 			$this->load->view('footer');
 		}
 		
@@ -73,7 +73,7 @@ class Home_Login extends CI_Controller {
 			echo 'alert("'.$alertmsg.'")';  //not showing an alert box.
 			echo '</script>';
 			$this->load->view('header');
-			$this->load->view('login');
+			$this->load->view('home');
 			$this->load->view('footer');
 			
 	}

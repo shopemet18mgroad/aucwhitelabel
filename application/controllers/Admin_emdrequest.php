@@ -18,15 +18,57 @@ class Admin_emdrequest extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	 
+	 function __construct() {
+        parent::__construct();
+        
+        // Load session library
+        $this->load->library('session');
+        // Load the captcha helper
+		//$this->load->helper('captcha');
+		$this->load->helper('url');
+		$this->load->helper('date');
+	
+		date_default_timezone_set("Asia/Kolkata");
+    }
+	
+	
 	public function index()
 	{
-		$this->load->helper('url');
+		$this->load->helper(array('url','html'));	
+			
+		$this->load->model('Admin_model');
+		$emdrequest = array('emdrequest'=>false);
+		$query = $this->Admin_model->getdatafromtable('biddercart', $emdrequest);
+		$data['sqldat']= $query;
 		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
+
+
+
 		$this->load->view('admin/header',$sess);
-		$this->load->view('admin/emdrequest');
+		$this->load->view('admin/emdrequest',$data);
 		$this->load->view('admin/footer');
 		
 	}
+	
+		public function setdeactive_buyer_emd(){
+		
+		$compname = $this->uri->segment(3);
+		$compname = urldecode($compname);
+		$this->load->model('Admin_model');
+		$emdrequest = array('emdrequest'=>true);
+		$adaction2 = array('bidderusername'=>$compname);
+		$query = $this->Admin_model->update_custom('biddercart',$emdrequest, $adaction2, $adaction2);
+		if($compname){
+			echo "HI";
+		}else{
+			echo "BYE";
+		}
+	
+	}
+	
+	
+
 	
 }
