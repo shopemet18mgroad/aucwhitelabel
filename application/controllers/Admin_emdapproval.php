@@ -56,7 +56,7 @@ class Admin_emdapproval extends CI_Controller {
 		$compname = urldecode($compname);
 		$this->load->model('Admin_model');
 		$emd_paid_dd = array('emd_paid_dd'=>true);
-		$adaction2 = array('bidderusername'=>$compname);
+		$adaction2 = array('lotno'=>$compname);
 		$query = $this->Admin_model->update_custom('biddercart',$emd_paid_dd, $adaction2, $adaction2);
 		if($compname){
 			echo "HI";

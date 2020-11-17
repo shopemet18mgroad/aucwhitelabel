@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Agreementforseller extends CI_Controller {
+class Pdf_File2 extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -19,16 +19,26 @@ class Agreementforseller extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index()
-	{	
-		
+	{
 		$this->load->helper('url');
-		$this->load->library('session');
-		$data = $this->session->flashdata('txdata');
-		$this->load->view('header');
-		$this->load->view('agreementforseller',$data);
-		$this->load->view('footer');
-	}
+		$this->load->model('Admin_model');
+		$sname = $this->uri->segment(3);
+			
+		$aucencode = str_ireplace('-','/',$sname);
+			
+			$active = array('sauctionid'=>$aucencode);
+			
+			$query = $this->Admin_model->getdatafromtable('addlot', $active);
+			$query2 = $this->Admin_model->getdatafromtable('auction', $active);
+			
+			$data['sqldata']= $query;
+			$data['sqldata2']= $query2;
+			$data['sname'] = $sname;
+			
+			$this->load->view('Pdf_File2',$data);
+			
 		
 		
+}
 	
 }

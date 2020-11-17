@@ -35,7 +35,7 @@
 		
 			</form>
 		
-		<table class="table table-striped table-bordered table-sm text-center mt-5" id="dataTable" width="100%" cellspacing="0">
+		<table class="table table-striped table-bordered table-sm text-center mt-5"  id="dataTable" width="100%" cellspacing="0">
 				
 					<thead class="bg-primary text-white">
 					 <tr>
@@ -65,7 +65,7 @@
 				
 				<td><?php  if($sqldata->emdrequest == 0) {echo 'Pending';}				?></td>
 				
-				<td><button type="submit" name="submit" id="<?php echo $sqldata->bidderusername;?>" onclick="buyer_set_deactive_emd(this.id)" class="btn btn-info btn-sm">Approve</button></td>	
+				<td><button type="submit" name="submit" id="<?php echo $sqldata->lotno;?>" onclick="buyer_set_deactive_emd(this.id)" class="btn btn-info btn-sm">Approve</button></td>	
 				
 				</tr>
 				
