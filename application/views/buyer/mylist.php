@@ -53,7 +53,8 @@
        
 				<tr>
 				
-					<td><b><?php echo $sqldata->auctionid; ?></b></td>
+					<td><b><a href="<?php echo base_url();?>'buyer_mylist/index/'.urlencode($sqldata['sdescription'])
+				"><?php echo $sqldata->auctionid; ?><?php echo $aucencode = str_ireplace('/','-',$sqldata->auctionid); ?></b></a></td>
 					<td><?php echo $sqldata->lotno; ?></td>
 					<td><?php echo $sqldata->aucstartdate_time;?><br><?php echo $sqldata->aucclosedate_time;?></td>
 					<td><?php  if($sqldata->emdpaid == 0) {echo 'Request';} ?></td>
@@ -93,21 +94,19 @@
 					<input class="form-group w-auto"  multiple="multiple"  type="file"  id="upload_dd" name="upload_dd[]">
 				
 					
-					<input type="submit" class="btn btn-primary " name="submit" value="Upload">
-		  </form>
-					
+					<input type="submit" id="<?php'.$aucencode.'|'.$sqldata['slotno'].' ?>" class="btn btn-primary " name="submit" value="Upload">
+		 
 					</td>
 			
 
-					 <?php } 		 
-         ?> 
+					 <?php } ?> 
 
 				</tr>
 			
 							
 				</tbody>
 		 </table>
-		 
+		  </form>
 		</div>
 		</div>
 		
