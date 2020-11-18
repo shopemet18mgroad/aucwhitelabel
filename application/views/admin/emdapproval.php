@@ -76,6 +76,11 @@
 						<!-- Modal body -->
 						<div class="modal-body">
 						<img src="<?php echo $sqldata->upload_dd;?>" class="img-fluid" alt="DD image">
+						
+						<img src="<?php if(unserialize($sqldata[0]->buploadimagepic) != NULL){
+									$img = unserialize($sqldata[0]->buploadimagepic);
+									echo base_url()."/web_files/uploads/".$img[0];}else{echo base_url()."#";} ?>" width="300px" height="100px">
+									
 						</div>
 						
 						<!-- Modal footer -->
