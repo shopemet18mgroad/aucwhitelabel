@@ -68,7 +68,13 @@
 					<td><?php echo $sqldata[0]->sothertax; ?></td>
 					<td><?php echo $sqldata[0]->semdamount; ?></td>
 					<td><?php echo $sqldata[0]->sliftingperiod; ?><?php echo $sqldata[0]->sliftingperiod2; ?></td>
-					<td><?php echo $sqldata[0]->spcbcertificate; ?></td>
+					<td><?php if($sqldata[0]->spcbcertificate == 1)
+								{ 
+							echo 'Yes';
+							}
+							else{
+							echo 'No'	;
+							}; ?></td>
 
 
 					<td><a href="<?php echo base_url()."Admin_editlot/editlot/".str_ireplace("/","-",$sqldata[0]->sauctionid)."/".urlencode($sqldata[0]->slotno);?>" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a>

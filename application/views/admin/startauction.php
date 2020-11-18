@@ -239,7 +239,7 @@ Bidders participating in AucJunction Auctions should verify with the selling com
   </div>
   <br><br>
   <div class="form-check form-check-inline ">
-			<input type="checkbox" class="form-check-input" id="sterms_condiaccept" name="sterms_condiaccept">
+			<input type="checkbox" class="form-check-input" id="sterms_condiaccept" name="sterms_condiaccept" required>
 			<label class="form-check-label" for="exampleCheck1">I agree to the Terms and Conditions</label>
 			</div></td>
   </tr>

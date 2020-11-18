@@ -58,7 +58,7 @@ class Admin_emdrequest extends CI_Controller {
 		$compname = urldecode($compname);
 		$this->load->model('Admin_model');
 		$emdrequest = array('emdrequest'=>true);
-		$adaction2 = array('bidderusername'=>$compname);
+		$adaction2 = array('lotno'=>$compname);
 		$query = $this->Admin_model->update_custom('biddercart',$emdrequest, $adaction2, $adaction2);
 		if($compname){
 			echo "HI";

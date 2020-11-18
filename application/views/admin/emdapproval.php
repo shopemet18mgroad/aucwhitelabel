@@ -23,18 +23,18 @@
 			   <form class="form-inline">
 					<div class="form-group mr-4 offset-sm-4">
 						<td colspan="5">
-						<form action="/action_page.php">
+						<!--<form action="/action_page.php">
 							
 								<input type="text" class="form-control" placeholder="Search.." name="search">
 								<button class="form-control" type="submit"><i class="fa fa-search"></i></button>
 					
-						</form>
+						</form>-->
 					</td>
 				</div>
 		
 			</form>
 		
-		<table class="table table-striped table-bordered table-sm text-center mt-5"  width="100%" cellspacing="0">
+		<table class="table table-striped table-bordered table-sm text-center mt-5 w-auto" id="dataTable" width="100%" cellspacing="0">
 				
 				<thead class="bg-primary text-white">
 				 <tr>
@@ -61,8 +61,38 @@
 			
 				
 				<td><?php  if($sqldata->emd_paid_dd == 0) {echo 'DD';}				?></td>
-				<td></td>
-				<td><button type="submit" name="submit" id="<?php echo $sqldata->bidderusername;?>" onclick="buyer_set_deactive_emd_dd(this.id)" class="btn btn-info btn-sm">Approve</button></td>	
+					<td><a href="" data-toggle="modal" data-target="#myModal">
+					<button type="submit" class="btn btn-info btn-sm w-50">
+					<i class="fa fa-eye" aria-hidden="true"></i>
+					</button>
+					</a>
+				
+				<div class="modal" id="myModal">
+					<div class="modal-dialog modal-sm">
+					  <div class="modal-content">
+					  
+			
+						
+						<!-- Modal body -->
+						<div class="modal-body">
+						<img src="<?php echo $sqldata->upload_dd;?>" class="img-fluid" alt="DD image">
+						
+						<img src="<?php if(unserialize($sqldata[0]->buploadimagepic) != NULL){
+									$img = unserialize($sqldata[0]->buploadimagepic);
+									echo base_url()."/web_files/uploads/".$img[0];}else{echo base_url()."#";} ?>" width="300px" height="100px">
+									
+						</div>
+						
+						<!-- Modal footer -->
+						<div class="modal-footer">
+						  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+						</div>
+						
+					  </div>
+					</div>
+				  </div>
+					</td>
+				<td><button type="submit" name="submit" id="<?php echo $sqldata->lotno;?>" onclick="buyer_set_deactive_emd_dd(this.id)" class="btn btn-info btn-sm">Approve</button></td>	
 														
 				</tr>
 						<?php }  
@@ -75,25 +105,7 @@
 		
 		<!--Pagination -->
 
-        <div class="row">
-		
-			<div class="col-sm-12 col-md-10">
-				<div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
-				<ul class="pagination offset-lg-11">
-				<li class="paginate_button page-item previous disabled" id="dataTable_previous">
-				<a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
-				</li>
-				<li class="paginate_button page-item active">
-				<a href="#" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page-link">1</a>
-				</li>
-				<li class="paginate_button page-item next disabled" id="dataTable_next">
-				<a href="#" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page-link">Next</a>
-				</li>
-				</ul>
-				</div>
-				</div>
-			</div> 
-		
+
 		</div>
 		</div>
 		</div>

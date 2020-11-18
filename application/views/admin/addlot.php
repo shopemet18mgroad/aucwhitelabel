@@ -160,9 +160,10 @@
   </table>
   
   <center>
-	<input type="submit" name="submit2" onclick="return validatelot()" class="btn btn-info text-white" data-dismiss="modal" value="Add Another Lot">
+  
+	<input type="submit" name="submit2" onclick="return validatelot()" class="btn btn-info text-white" value="Add Another Lot" data-dismiss="modal">
  
- <input type="submit"  name="submit" onclick="return validatelot()" class="btn btn-info text-white" value="Submit" data-dismiss="modal">
+	<input type="submit"  name="submit" onclick="return validatelot()" class="btn btn-info text-white" value="Submit" data-dismiss="modal">
   </center>
   </form>
 			</div>
