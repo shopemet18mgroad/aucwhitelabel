@@ -38,7 +38,7 @@
 						<form action ="<?php echo base_url();?>Buyer_basiccontact_update" method="POST" enctype="multipart/form-data">
 							<tr>
 								<td>Email</td>
-								<td><input class="form-control w-50" type="text" id="bemail" name="bemail"  value="<?php echo $sqldata[0]->bemail; ?>"></td>
+								<td><input class="form-control w-50" type="email" id="bemail" name="bemail"  value="<?php echo $sqldata[0]->bemail; ?>"></td>
 							</tr> 
 							<tr>
 								<td>Phone Number</td>
