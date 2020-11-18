@@ -39,6 +39,7 @@ class Admin_emdapproval extends CI_Controller {
 			
 		$this->load->model('Admin_model');
 		$emd_paid_dd = array('emd_paid_dd'=>false);
+		$emd_paid = array('emd_paid'=>false);
 		$query = $this->Admin_model->getdatafromtable('biddercart', $emd_paid_dd);
 		$data['sqldat']= $query;
 		$this->load->library('session');
@@ -52,11 +53,19 @@ class Admin_emdapproval extends CI_Controller {
 	
 	public function setdeactive_buyer_emd_dd(){
 		
-		$compname = $this->uri->segment(3);
-		$compname = urldecode($compname);
+	
+	
+	
+		$compnameurl = $this->uri->segment(3);
+		$compnameurl = urldecode($compnameurl);
+		$compnameurl2 = explode('|',$compnameurl);
+		$compname = $compnameurl2[0];
+	
+		$comp = str_ireplace('-','/',$compnameurl2[1]);
+		
 		$this->load->model('Admin_model');
 		$emd_paid_dd = array('emd_paid_dd'=>true);
-		$adaction2 = array('lotno'=>$compname);
+		$adaction2 = array('lotno'=>$compname,'auctionid'=>$comp);
 		$query = $this->Admin_model->update_custom('biddercart',$emd_paid_dd, $adaction2, $adaction2);
 		if($compname){
 			echo "HI";
@@ -64,6 +73,5 @@ class Admin_emdapproval extends CI_Controller {
 			echo "BYE";
 		}
 	
-	}
-	
+}
 }

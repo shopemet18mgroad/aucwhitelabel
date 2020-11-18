@@ -25,6 +25,7 @@ class Home_Login extends CI_Controller {
 		$this->load->library('session');
 		$this->session->sess_expiration = '3600';
 		if($this->input->post('user')){
+			
 			if($this->input->post('ltype')=="Bidder"){
 				$table = "buyerprofile";
 				$colname = "busername";

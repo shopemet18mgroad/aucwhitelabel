@@ -63,13 +63,13 @@
 					 <div class="row ml-3">
 						<div class="form-group pl-3">
 						  <div class="custom-control custom-checkbox small ">
-							<input type="checkbox" class="custom-control-input ltype" id="customCheck2" name="ltype[]"  value="Auctioner">
+							<input type="checkbox" class="custom-control-input ltype" id="customCheck2" name="ltype"  value="Auctioner">
 							<label class="custom-control-label" for="customCheck2">Auctioner</label>
 						  </div>
 						</div>
 						<div class="form-group pl-3">
 						  <div class="custom-control custom-checkbox small">
-							<input type="checkbox" class="custom-control-input ltype" id="customCheck" name="ltype[]" value="Bidder">
+							<input type="checkbox" class="custom-control-input ltype" id="customCheck" name="ltype" value="Bidder">
 							<label class="custom-control-label" for="customCheck">Bidder</label>
 							
 						  </div>

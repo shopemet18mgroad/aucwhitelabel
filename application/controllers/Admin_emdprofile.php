@@ -36,8 +36,8 @@ class Admin_emdprofile extends CI_Controller {
 	{
 		$this->load->helper(array('url','html'));
 		$this->load->model('Admin_model');
-		$emdpaid = array('emdpaid'=>true);
-		$query = $this->Admin_model->getdatafromtable('biddercart', $emdpaid);
+		$emd_paid_dd = array('emd_paid_dd'=>true);
+		$query = $this->Admin_model->getdatafromtable('biddercart', $emd_paid_dd);
 		$data['sqldat']= $query;
 		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
