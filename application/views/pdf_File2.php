@@ -45,15 +45,15 @@ th, td {
 <pre><?php echo $sqldata[0]->slotlocation; ?></pre>
 
 	<div class="bara w-100">
-		<p><strong>ONLINE AUCTION PLATFORM AND SUPPORT SERVICES PROVIDED BY MATEX NET</strong></p>
+		<p><strong>ONLINE AUCTION PLATFORM AND SUPPORT SERVICES PROVIDED BY AUCJUNCTION</strong></p>
 	</div>
 
-<p><b>Aucjunction</b>&nbsp; is an authorized e- commerce service provider for&nbsp; <?php echo $sqldata2[0]->scompanyname; ?>&nbsp;
-(Seller) to obtain rates online through its portal www.matexnet.com. The sale and purchase are directly made
+<p><b>AUCJUNCTION</b>&nbsp; is an authorized e- commerce service provider for&nbsp; <?php echo $sqldata2[0]->scompanyname; ?>&nbsp;
+(Seller) to obtain rates online through its portal www.aucjunction.com. The sale and purchase are directly made
 by the Seller and Buyer/s (Bidder/s).
 </p>
 
-<p><b>&nbsp; <?php echo $sqldata2[0]->scompanyname; ?>&nbsp;</b>will sell <b>&nbsp; <?php echo $sqldata[0]->slotname; ?>&nbsp; available at &nbsp; <?php echo $sqldata2[0]->scompanyname; ?>&nbsp;,&nbsp;<?php echo $sqldata[0]->slotlocation; ?>&nbsp;</b> through Online Auction subject to terms and conditions
+<p><b><?php echo $sqldata2[0]->scompanyname; ?>&nbsp;</b>will sell <b>&nbsp; <?php echo $sqldata[0]->slotname; ?>&nbsp; available at &nbsp; <?php echo $sqldata2[0]->scompanyname; ?>&nbsp;,&nbsp;<?php echo $sqldata[0]->slotlocation; ?>&nbsp;</b> through Online Auction subject to terms and conditions
 annexed hereto and as per schedule of programme given below. </p>
 
 
@@ -78,7 +78,7 @@ annexed hereto and as per schedule of programme given below. </p>
   </tr>
   <tr>
     <td>Inspection of Auction Property</td>
-    <td><?php echo $sqldata2[0]->sfrominpectdate_time; ?>&nbsp;<?php echo $sqldata2[0]->stoinpectdate_time; ?></td>
+    <td><?php echo $sqldata[0]->sfrominpectdate_time; ?>&nbsp; to &nbsp; <?php echo $sqldata[0]->stoinpectdate_time; ?></td>
     
   </tr>
   <tr>
@@ -96,7 +96,7 @@ annexed hereto and as per schedule of programme given below. </p>
  
   <tr>
     <td>Last Date and time to receive EMD</td>
-    <td></td>
+    <td><?php echo $sqldata[0]->slastdateemdsub ?></td>
  
   </tr>
   
@@ -112,7 +112,7 @@ annexed hereto and as per schedule of programme given below. </p>
 participants and for those existing members
 whose validity has expired)</td>
     <td id="lrow"><a href="#"> Rs 8,850/- (inclusive of GST ) payable online through
-	www.matrixnet.com</a></td>
+	www.aucjunction.com</a></td>
  
   </tr>
 </table >
