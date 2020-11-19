@@ -71,7 +71,7 @@
                 
 			<input type="submit" class="btn btn-primary offset-sm-3 mt-2" name="submit" value="Update">
 												
-			<input type="submit" class="btn btn-primary offset-sm-1 mt-2" value="Reset">
+			<input type="reset" class="btn btn-primary offset-sm-1 mt-2" value="Reset">
 			</form>							
 				<a href="buyer_dashboard"><button type="button" class="btn btn-primary offset-sm-1 mt-2">Cancel</button></a>
 
