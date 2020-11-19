@@ -157,9 +157,9 @@ No.</b></th>
   </table>
   </br>
  <h2 class="bara">TERMS AND CONDITIONS</h2>
-                <p class="aboutus-text">Welcome to AucJunction.com website (here in after referred to as &quot;the website&quot;).
+ <p class="aboutus-text">Welcome to AucJunction.com website (here in after referred to as &quot;the website&quot;).
 </br></br>
-The auctions and related services are provided by AucJunction Pvt. Ltd. (hereinafter referred
+The auctions and related services are provided by Aucjunction Pvt. Ltd. (hereinafter referred
 to as &quot;AucJunction&quot;) on the website.
 </br></br>
 AucJunction is an e-commerce service provider mandated by the seller/buyer to facilitate

@@ -47,7 +47,7 @@
 						<th>Buyer Name</th>
 						<!--<th>Location</th>-->
 						<th>Date/Time</th>
-						<th>Status</th>
+						<th>EMD Type</th>
 						<th>View DD</th>
 						<th>Action</th>
 					</tr>
@@ -76,11 +76,6 @@
 						<!-- Modal body -->
 						<div class="modal-body">
 						<img src="<?php echo $sqldata->upload_dd;?>" class="img-fluid" alt="DD image">
-						
-						<img src="<?php if(unserialize($sqldata[0]->buploadimagepic) != NULL){
-									$img = unserialize($sqldata[0]->buploadimagepic);
-									echo base_url()."/web_files/uploads/".$img[0];}else{echo base_url()."#";} ?>" width="300px" height="100px">
-									
 						</div>
 						
 						<!-- Modal footer -->
@@ -92,7 +87,7 @@
 					</div>
 				  </div>
 					</td>
-				<td><button type="submit" name="submit" id="<?php echo $sqldata->lotno;?>" onclick="buyer_set_deactive_emd_dd(this.id)" class="btn btn-info btn-sm">Approve</button></td>	
+				<td><button type="submit" name="submit" id="<?php echo $sqldata->lotno.'|'.str_ireplace('/','-',$sqldata->auctionid);?>" onclick="buyer_set_deactive_emd_dd(this.id)" class="btn btn-info btn-sm">Approve</button></td>	
 														
 				</tr>
 						<?php }  

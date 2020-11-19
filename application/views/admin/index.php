@@ -79,7 +79,7 @@
 						<tbody>
 						<tr>
 							<td class="btxt">Email:</td>
-							<td><input class="form-control w-50" type="text" id="semail" name="semail" required></td>
+							<td><input class="form-control w-50" type="email" id="semail" name="semail" required></td>
 						</tr>
 						<tr>
 							<td class="btxt">Phone:</td>
