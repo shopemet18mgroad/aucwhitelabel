@@ -53,7 +53,7 @@
        
 				<tr>
 				
-					<td><b><a href="<?php echo base_url();?>'buyer_mylist/index/'.urlencode($sqldata['sdescription'])
+					<td><b><a href="<?php echo base_url();?>'buyer_mylist/index/'.urlencode($sqldata['auctionid'])
 				"><?php echo $sqldata->auctionid; ?><?php echo $aucencode = str_ireplace('/','-',$sqldata->auctionid); ?></b></a></td>
 					<td><?php echo $sqldata->lotno; ?></td>
 					<td><?php echo $sqldata->aucstartdate_time;?><br><?php echo $sqldata->aucclosedate_time;?></td>
@@ -74,7 +74,7 @@
 						
 						<!-- Modal body -->
 						<div class="modal-body">
-						<img src="<?php echo base_url();?>web_files/img/Aluminium.jpg" class="img-fluid" alt="Responsive image">
+						<img src="<?php echo $sqldata->upload_dd;?>" class="img-fluid" alt="<?php echo $sqldata->upload_dd;?>">
 						</div>
 						
 						<!-- Modal footer -->

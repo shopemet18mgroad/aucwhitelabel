@@ -35,7 +35,7 @@ class Buyer_Mylist_dd_upload extends CI_Controller {
 		$this->load->library('session');
 		//$data1 = $this->session->flashdata('txdata');
 		$this->input->post('auc');
-
+		
 		$auc = $this->input->post('auc');
 		
 		//$auc = urldecode($this->uri->segment(4));
