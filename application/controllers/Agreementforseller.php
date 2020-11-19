@@ -22,7 +22,7 @@ class Agreementforseller extends CI_Controller {
 	{	
 		
 		$this->load->helper('url');
-		 $this->load->library('session');
+		$this->load->library('session');
 		$data = $this->session->flashdata('txdata');
 		$this->load->view('header');
 		$this->load->view('agreementforseller',$data);

@@ -12,6 +12,7 @@
   <!-- Custom fonts for this template-->
   <link href="<?php echo base_url()."web_files/";?>css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="<?php echo base_url()."web_files/";?>css/style.css" rel="stylesheet" type="text/css">
+
   <!-- Custom styles for this template-->
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
    <script src=" https://github.com/superRaytin/paginationjs"></script>
@@ -54,7 +55,7 @@
 							<input type="password" class="form-control" id="exampleInputPassword" name="pass" placeholder="Password" size="50">
 						  </div>
 						  <div class="form-group p-1">
-							<button type="submit" name="submit" onClick="return userid4()" class="btn btn-primary"><i class="fa fa-sign-in"></i> Login</button>	
+							<button type="submit" name="submit" onclick="return userid4()" class="btn btn-primary"><i class="fa fa-sign-in"></i> Login</button>	
 						  </div>
 						   
 						  

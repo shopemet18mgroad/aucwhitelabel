@@ -56,7 +56,7 @@
 
 				<input type="submit" id="submitBtn" class="btn btn-primary offset-sm-3 mt-2" name="submit" value="Update" onclick="return validate_user_password()">
 												
-			<input type="submit" class="btn btn-primary offset-sm-1 mt-2" value="Reset">
+			<input type="reset" class="btn btn-primary offset-sm-1 mt-2" value="Reset">
 					</form>							
 				<a href=""><button type="button" class="btn btn-primary offset-sm-1 mt-2">Cancel</button></a>
 				

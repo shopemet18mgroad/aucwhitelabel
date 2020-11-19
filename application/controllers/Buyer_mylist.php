@@ -41,6 +41,12 @@ class Buyer_mylist extends CI_Controller {
          //$data['h']=$this->Admin_model->select();  
          //return the data in view  
 		$this->load->helper(array('url','html'));
+		if($this->uri->segment(4)){
+			$errormsg = urldecode($this->uri->segment(4));
+			echo '<script language="javascript">';
+			echo 'alert("'.$errormsg.'")';
+			echo '</script>';
+		}
 		$this->load->model('Admin_model');
 		$emdpaid = array('emdpaid'=>false);
 		$query = $this->Admin_model->getdatafromtable('biddercart', $emdpaid);
@@ -49,6 +55,7 @@ class Buyer_mylist extends CI_Controller {
 		
 		
 		$this->load->library('session');
+		//$data1 = $this->session->flashdata('txdata');
 		$sess = array('sessi'=>$this->session->userdata('username'));
 			
 			

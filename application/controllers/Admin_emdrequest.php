@@ -54,11 +54,16 @@ class Admin_emdrequest extends CI_Controller {
 	
 		public function setdeactive_buyer_emd(){
 		
-		$compname = $this->uri->segment(3);
-		$compname = urldecode($compname);
+		$compnameurl = $this->uri->segment(3);
+		$compnameurl = urldecode($compnameurl);
+		$compnameurl2 = explode('|',$compnameurl);
+		$compname = $compnameurl2[0];
+	
+		$comp = str_ireplace('-','/',$compnameurl2[1]);
+		
 		$this->load->model('Admin_model');
 		$emdrequest = array('emdrequest'=>true);
-		$adaction2 = array('bidderusername'=>$compname);
+		$adaction2 = array('lotno'=>$compname,'auctionid'=>$comp);
 		$query = $this->Admin_model->update_custom('biddercart',$emdrequest, $adaction2, $adaction2);
 		if($compname){
 			echo "HI";

@@ -38,7 +38,7 @@
 						<form action ="<?php echo base_url();?>Buyer_basiccontact_update" method="POST" enctype="multipart/form-data">
 							<tr>
 								<td>Email</td>
-								<td><input class="form-control w-50" type="text" id="bemail" name="bemail"  value="<?php echo $sqldata[0]->bemail; ?>"></td>
+								<td><input class="form-control w-50" type="email" id="bemail" name="bemail"  value="<?php echo $sqldata[0]->bemail; ?>"></td>
 							</tr> 
 							<tr>
 								<td>Phone Number</td>
@@ -55,7 +55,7 @@
 
 				<input type="submit" class="btn btn-primary offset-sm-3 mt-2" name="submit" value="Update">
 												
-				<input type="submit" class="btn btn-primary offset-sm-1 mt-2" value="Reset">
+				<input type="reset" class="btn btn-primary offset-sm-1 mt-2" value="Reset">
 					</form>							
 				<a href="buyer_dashboard"><button type="button" class="btn btn-primary offset-sm-1 mt-2">Cancel</button></a>
 				
