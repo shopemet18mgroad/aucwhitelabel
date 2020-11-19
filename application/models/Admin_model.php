@@ -34,6 +34,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$query = $this->db->get();
 			return $query->result();
 		}
+		public function datebetweensess($table, $date, $sessi){
+			$this->db->select('*');
+			$this->db->from($table);
+			$this->db->where('aucstartdate_time <=', $date);
+			$this->db->where('aucclosedate_time >=', $date);
+			$this->db->where('bidderusername =', $sessi);
+			$query = $this->db->get();
+			return $query->result();
+		}
 		public function gettable($table) { 
 			 $query = $this->db->get($table); 
 			 return $query->result();

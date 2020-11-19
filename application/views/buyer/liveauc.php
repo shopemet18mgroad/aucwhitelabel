@@ -27,18 +27,12 @@
 				</tr>
 				</thead>
 				<tbody>
+			 <?php foreach($sqldata as $sqldat){?>
 					<tr>												
-					<td><a href="<?php echo base_url();?>Buyer_liveauc_2">AUC/Anita/Ferrous/16/53/37</a>
+					<td><a href="<?php echo base_url()."Buyer_liveauc_2/index/".str_ireplace('/','-',$sqldat->auctionid)."|".$sqldat->lotno;?>"><?php echo $sqldat->auctionid;?></a>
 					</td>
 					</tr>
-					<tr>				
-					<td><a href="<?php echo base_url();?>Buyer_liveauc_2">AUC/Anita/Ferrous/16/53/37</a></td>
-					</tr>
-																	
-					<tr><td><a href="<?php echo base_url();?>Buyer_liveauc_2">AUC/Anita/Ferrous/16/53/37</a></td></tr>
-					
-			
-				
+			 <?php }?>	
 				</tbody>
 		 </table>
 		

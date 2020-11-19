@@ -1,6 +1,5 @@
  <?php 
 	//include('./header.php');
-	
 ?>
         <!-- End of Topbar -->
 
@@ -22,9 +21,9 @@
               <div class="table-responsive">
 			  
 			  
-
-
-		<table class="table table-striped table-bordered table-sm text-center w-auto small ml-5" width="100%" cellspacing="0">
+	<input type="hidden" id="ref" value="<?php echo str_ireplace('/','-',$sqldata[0]->auctionid)."|".$sqldata2[0]->slotno; ?>">
+	<div id="ajaxauc" class="ajaxauc">
+		<table class="table table-striped table-bordered table-sm text-center w-auto small ml-5" width="100%" cellspacing="0" >
 				<thead class="bg-info text-white text-center">
 					<th colspan="7">Auction Details</th>
 				</thead>
@@ -32,7 +31,7 @@
 				<tr>
 				
 					<th width="22%">Auction Id</th>
-					<th>Seller / Company Name</th>
+					<th>User Name</th>
 					<th>Auction Start Date</th>
 					<th>Auction Close Date</th>
 					<th>Seller Terms & Condition</th>
@@ -43,12 +42,12 @@
 				<form action="<?php echo base_url();?>" method="POST"  enctype="multipart/form-data">
 				<tr>
 				
-					<td><a href="#"><?php echo $sqldata[0]->sauctionid; ?></a> </td>
+					<td><a href="#"><?php echo $sqldata[0]->auctionid; ?></a> </td>
 				
-					<td><?php echo $sqldata[0]->sname; ?></td>
+					<td><?php echo $sqldata[0]->bidderusername; ?></td>
 					
-					<td><?php echo $sqldata[0]->saucstartdate_time; ?></td>
-					<td><?php echo $sqldata[0]->saucclosedate_time; ?></td>
+					<td><?php echo $sqldata[0]->aucstartdate_time; ?></td>
+					<td><?php echo $sqldata[0]->aucclosedate_time; ?></td>
 					<td><a href="#"><u>Click here</u></a></td>
 				</tr>
 				</tbody>
@@ -79,41 +78,42 @@
 				</thead>
 
 				<tbody>
-				<tr><td>M-129</td>												
-					<td><a href="#">EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</a> </td>
-					<td>Bangalore-KA</td>
-					<td>20:14:03</td>
-					<td>1 Hour</td>
-					<td>1.9</td>
-					<td>MT</td>
-					<td>40,000</td>
-					<td>20,000</td>
-					<td>2,00,000</td>
+				<?php 
+				date_default_timezone_set('Asia/Kolkata');
+				$time =  Date('Y-m-d H:i:s');
+				$diff = (strtotime($sqldata[0]->aucclosedate_time) - strtotime($time));
+				//$diff = abs($time - $sqldata[0]->aucclosedate_time);  
+			//$diff = strtotime($query[0]->aucclosedate_time)-strtotime($time);
+		$years = floor($diff / (365*60*60*24));  
+			$months = floor(($diff - $years * 365*60*60*24)/ (30*60*60*24));   
+			$days = floor(($diff - $years * 365*60*60*24 -  $months*30*60*60*24)/ (60*60*24)); 
+			$hours = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24 - $days*60*60*24)/ (60*60));  
+$minutes = floor(($diff - $years * 365*60*60*24  - $months*30*60*60*24 - $days*60*60*24 - $hours*60*60)/ 60);  
+$seconds = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24 - $days*60*60*24 - $hours*60*60 - $minutes*60)); 
+$Remaining = $days." Days ".$hours." Hours ".$minutes." Minutes ";
+				?>
+				<tr><td><?php echo $sqldata2[0]->sname; ?></td>												
+					<td><?php echo $sqldata2[0]->slotname; ?> </td>
+					<td><?php echo $sqldata2[0]->slotlocation; ?></td>
+					<td><?php echo $sqldata[0]->aucclosedate_time; ?></td>
+					<td><?php echo $Remaining; ?></td>
+					<td><?php echo $sqldata2[0]->sqty; ?></td>
+					<td><?php echo $sqldata2[0]->sunitmeasurment; ?></td>
+					<td><?php echo $sqldata2[0]->sstartbidprice; ?></td>
+					<td><?php echo $sqldata[0]->bidprice; ?></td>
+					<td><?php echo $sqldata2[0]->cbidval; ?></td>
 					<td><div class="form-group row ml-2">
-					<input class="form-control col-sm-7 mr-2" type="number" value="100" min="0" step="100" id="bid" name="bid">
-					<a href="" data-toggle="modal" data-target="#myModal"><button type="submit" class="btn btn-info">Bid</button></a></div>
+					<?php
+					if($sqldata2[0]->sstartbidprice >= $sqldata2[0]->cbidval){
+						$datbid = $sqldata2[0]->sstartbidprice;
+					}else{
+						$datbid = $sqldata2[0]->cbidval;
+					}  
+					?> 
+					<input class="form-control col-sm-7 mr-2" type="number" value="<?php echo $datbid; ?>" min="0" step="<?php echo $sqldata2[0]->sprice; ?>" id="bid" name="bid">
+					<button type="submit" id="<?php echo $sessi.'|'.str_ireplace('/','-',$sqldata[0]->auctionid)."|".$sqldata2[0]->slotno; ?>" class="btn btn-info" onclick="bid_manual(this.id)">Bid</button></div>
 							
-					<div class="modal" id="myModal">
-					<div class="modal-dialog modal-sm">
-					  <div class="modal-content">
-					  
-						<!-- Modal Header -->
-						
-						
-						<!-- Modal body -->
-						<div class="modal-body">
-						<center><p class="text-primary">You are going to bid for five hundered Rupees</p></center>
-						</div>
-						
-						<!-- Modal footer -->
-						<div class="modal-footer">
-						  <button type="button" class="btn btn-danger" data-dismiss="modal">OK</button>
-						  <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-						</div>
-						
-					  </div>
-					</div>
-				  </div>
+					
 				  </td>
 					<td><a href="<?php echo base_url();?>buyer_autobid"><button type="button" class="btn btn-info">AutoBid</button></a></td>
 					<td><a href="<?php echo base_url();?>buyer_biddinglivestatus"><button type="button" class="btn btn-info btn-sm p-2"><b>Live Status</b></button></a></td>
@@ -121,7 +121,7 @@
 				
 				</tbody>
 		 </table>
-
+</div>
 
 		</div>
 		</div>
