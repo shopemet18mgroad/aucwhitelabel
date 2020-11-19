@@ -93,13 +93,13 @@
 			
 					<input class="form-group w-auto"  multiple="multiple"  type="file"  id="upload_dd" name="upload_dd[]">
 				
-					
-					<input type="submit" id="<?php'.$aucencode.'|'.$sqldata['slotno'].' ?>" class="btn btn-primary " name="submit" value="Upload">
+					<input type="hidden" name="auc" value="<?php echo $aucencode.'|'.$sqldata->lotno;?>"> 
+					<input type="submit" id="" class="btn btn-primary " name="submit" value="Upload">
 		 
 					</td>
 			
 
-					 <?php } ?> 
+					 <?php }?> 
 
 				</tr>
 			
@@ -107,6 +107,8 @@
 				</tbody>
 		 </table>
 		  </form>
+	
+
 		</div>
 		</div>
 		

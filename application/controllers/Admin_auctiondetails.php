@@ -37,7 +37,7 @@ class Admin_auctiondetails extends CI_Controller {
 			echo '<table class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';
 			echo '<thead class="bg-warning text-white">';
 		echo '<tr>';
-			echo '<th colspan="12">Auction Details</th>';
+			echo '<th colspan="13">Auction Details</th>';
 			echo '</tr>';
 			echo '<thead class="bg-primary text-white">';
 			echo '<tr>';
@@ -73,7 +73,11 @@ class Admin_auctiondetails extends CI_Controller {
 				echo '<td>'.$dat['sstartbidprice'].'</td>';
 				echo '<td>'.$dat['slastdateemdsub'].'</td>';
 				echo '<td>'.$dat['saucstartdate_time'].$dat['saucclosedate_time'].'</td>';
-				echo '<td>'.$dat['sterms_condiaccept'].'</td>';
+				echo '<td>';
+				if ($dat['sterms_condiaccept'] == 1){
+				echo 'Accepted';
+				}
+				echo '</td>';
 				echo '<td>'.$dat['sterms_condiupload'].'</td>';
 				//echo '<td>'.$aucfl.'</td>';
 				echo '<td><a href="'.base_url().'Admin_editauction/editauction/'.$dat['sname'].'">';

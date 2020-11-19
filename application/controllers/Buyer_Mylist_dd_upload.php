@@ -29,11 +29,39 @@ class Buyer_Mylist_dd_upload extends CI_Controller {
 	{
 		if($this->input->post('submit'))
 		{
+		
 		$this->load->helper(array('url','html'));
 		$this->load->model('Admin_model');
 		$this->load->library('session');
+		//$data1 = $this->session->flashdata('txdata');
+		$this->input->post('auc');
+
+		$auc = $this->input->post('auc');
 		
-		$dataact = array();
+		//$auc = urldecode($this->uri->segment(4));
+		
+		//$this->load->library('session');
+		//$bidderuname = $this->session->userdata('username');
+		$datexp = explode('|',$auc);
+		
+		$auctionid = str_ireplace('-','/',$datexp[0]);
+		
+		$lotno = $datexp[1];
+		
+		/* $data = array('sauctionid'=>$auctionid);
+		$data2 = array('sauctionid'=>$auctionid,'slotno'=>$lotno);	
+		
+		$dat4 = $this->Admin_model->getdatafromtable('addlot',$data2);
+		$dat3 = $this->Admin_model->getdatafromtable('auction',$data);
+		
+		$aucstart = $dat3[0]->saucstartdate_time;
+	
+		$aucend = $dat3[0]->saucclosedate_time; */
+		//$aucstartbid = $dat4[0]->sstartbidprice;
+		//$aucstartbidprice = $dat4[0]->sprice;
+		
+		
+		 $dataact = array();
 		$datacomp = array();
 		$dataact = $this->input->post('bsigneddocumentex');
 		$datacomp = $this->input->post('bsigneddocumentexcom');
@@ -53,18 +81,20 @@ class Buyer_Mylist_dd_upload extends CI_Controller {
 		}  
 		}
 		
-		
+		$doc_array = self::upload_files('upload_dd');
 		 if($_FILES['upload_dd']['tmp_name'][0]){
 			$doc_array = self::upload_files('upload_dd');
+			
+			
 		} 
 	
 
-		if(!count($doc_array)){
+		  if(!count($doc_array)){
 			echo '<script language="javascript">';
 			echo 'alert("Documents Upload Failed")';  //not showing an alert box.
 			echo '</script>';
 			$doc_array = serialize($result2);
-		}  /* else{
+		}    else{
 			if($result2){
 				$doc_array = array_merge($doc_array,$result2);
 				$doc_array = serialize($doc_array);
@@ -72,52 +102,38 @@ class Buyer_Mylist_dd_upload extends CI_Controller {
 				$doc_array = serialize($doc_array);
 			}
 			
-		}  */
+		} 
 		
 		
 		//=================================================================================================
 		//==================================================================
-		$sqldata = urldecode($this->uri->segment(3));
 		
-		$this->load->library('session');
-		$bidderuname = $this->session->userdata('username');
-		$datexp = explode('|',$sqldata);
-					
-
-		$auctionid = str_ireplace('-','/',$datexp[0]);
 		
-		$lotno = $datexp[0];
+		//$bcheck = array('bidderusername'=>$bidderuname,'auctionid'=>$auctionid,'lotno'=>$lotno);
 		
-		$data = array('sauctionid'=>$auctionid);
-		$data2 = array('sauctionid'=>$auctionid,'slotno'=>$lotno);	
+		$data4 = array ('upload_dd' => $doc_array);
 		
-		$dat4 = $this->Admin_model->getdatafromtable('addlot',$data2);
-		$dat3 = $this->Admin_model->getdatafromtable('auction',$data);
-		
-		$aucstart = $dat3[0]->saucstartdate_time;
-	
-		$aucend = $dat3[0]->saucclosedate_time;
-		$aucstartbid = $dat4[0]->sstartbidprice;
-		$aucstartbidprice = $dat4[0]->sprice;
-		$bcheck = array('bidderusername'=>$bidderuname,'auctionid'=>$auctionid,'lotno'=>$lotno);
-		
-		$data4 = array ('bidderusername'=>$bidderuname,'auctionid'=>$auctionid,'lotno' => $lotno,'aucstartdate_time'=>$aucstart,'aucclosedate_time'=>$aucend,'bidstart'=>$aucstartbid,'bidprice'=>$aucstartbidprice,'upload_dd' => $doc_array);
-		
-		if($this->Admin_model->check('biddercart',$bcheck)){
-			echo "EX";
-		}/* else{
-			$status = $this->Admin_model->insert('biddercart', $data4);
+		// if($this->Admin_model->check('biddercart',$bcheck)){
+			// echo "EX";
+		// }/* else{
+			/* $status = $this->Admin_model->insert('biddercart', $data4);
 			echo "IN";
-		} */
+		} */ 
 		//$this->load->view('xya', $data);
 		
 	 	$datainserr = "Data Inserted Successfully";
-		$sess = array('sessi'=>$this->session->userdata('auctionid'));
-			$updatech = array('bidderusername'=>$sess['sessi']);
+		//$sess = array('sessi'=>$this->session->userdata('username'));
+		$updatech = array('auctionid'=>$auctionid,'lotno' => $lotno);
 		$status = $this->Admin_model->update_custom('biddercart',$data4,$updatech,$updatech); 
+		if($status){
+				  $this->session->set_flashdata('txdata',$transfer);
+				  
+			  }
 		
 		header('location: '.base_url().'buyer_mylist/index/'.$datainserr);
 		}
+		
+		
 	}
 	
 	private function upload_files($nameid)
