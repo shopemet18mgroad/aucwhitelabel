@@ -29,17 +29,14 @@ class Admin_addlot_update extends CI_Controller {
 		//$this->load->helper(array('url','form','file','html'));
 		$this->load->model('Admin_model');
 		$sauctionid = $this->input->post('sauctionid');
+		$sname = $this->input->post('sname');
 		$slotno = $this->input->post('slotno');
 		$slotname = $this->input->post('slotname');
 		$scategory  = $this->input->post('scategory');
 		$sdescription = $this->input->post('sdescription');
 		$slotlocation = $this->input->post('slotlocation');
-		$sfrominpectdate_time = $this->input->post('sfrominpectdate_time');
-		$stoinpectdate_time = $this->input->post('stoinpectdate_time');
 		$semddetail = $this->input->post('semddetail');
-		$slastdateemdsub = $this->input->post('slastdateemdsub');
 		$sprice  = $this->input->post('sprice');
-		$sstartbidprice = $this->input->post('sstartbidprice');
 		$sqty = $this->input->post('sqty');
 		$sunitmeasurment = $this->input->post('sunitmeasurment');
 		$sbidbase  = $this->input->post('sbidbase');
@@ -99,7 +96,7 @@ class Admin_addlot_update extends CI_Controller {
 		
 		
 		//==================================================================
-		$data2 = array('sauctionid' => $sauctionid, 'slotno' => $slotno, 'slotname' => $slotname, 'scategory' => $scategory, 'sdescription' => $sdescription, 'slotlocation'=> $slotlocation, 'sfrominpectdate_time' => $sfrominpectdate_time,  'stoinpectdate_time' => $stoinpectdate_time,  'semddetail' => $semddetail,  'slastdateemdsub' => $slastdateemdsub,  'sprice' => $sprice,  'sstartbidprice' => $sstartbidprice,  'sqty' => $sqty,  'sunitmeasurment' => $sunitmeasurment,  'sbidbase' => $sbidbase,  'sgst' => $sgst,'shsncode' => $shsncode,  'sothertax' => $sothertax,  'semdamount' => $semdamount,  'sliftingperiod2' => $sliftingperiod2,  'sliftingperiod' => $sliftingperiod, 'spcbcertificate' => $spcbcertificate,);
+		$data2 = array('sauctionid' => $sauctionid,'sname' => $sname, 'slotno' => $slotno, 'slotname' => $slotname, 'scategory' => $scategory, 'sdescription' => $sdescription, 'slotlocation'=> $slotlocation,  'semddetail' => $semddetail,  'sprice' => $sprice,   'sqty' => $sqty,  'sunitmeasurment' => $sunitmeasurment,  'sbidbase' => $sbidbase,  'sgst' => $sgst,'shsncode' => $shsncode,  'sothertax' => $sothertax,  'semdamount' => $semdamount,  'sliftingperiod2' => $sliftingperiod2,  'sliftingperiod' => $sliftingperiod, 'spcbcertificate' => $spcbcertificate,);
 		//$this->load->view('xya', $data);
 		$datainserr = "Data Inserted Successfully";
 		$updatech = array('slotname' => $slotname );

@@ -22,6 +22,8 @@ class Admin_liveauc_2 extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$this->load->library('session');
+		/* $this->load->library('currency');
+		echo $this->currency->getIndianCurrency(7288);die; */
 		$retrivevaltmp = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
 		$retriveval = array('sauctionid'=>$retrivevaltmp);
 		$this->load->model('Admin_model');

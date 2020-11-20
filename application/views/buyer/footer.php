@@ -174,5 +174,60 @@ function validate_password(){
 			 }); 
  }
  </script>
+ <script>
+ function executeQuery() {
+  var contents = $('#ref').val(); 
+			$.get('<?php echo base_url() .'Buyer_liveauc_2/get_table_ajax/'; ?>'+contents, function(data){
+				$('#ajaxauc').html(data);
+	});
+  setTimeout(executeQuery, 30000); // you could choose not to continue on failure...
+}
+
+$(document).ready(function() {
+  // run the first time; all subsequent calls will take care of themselves
+  setTimeout(executeQuery, 30000);
+});
+ </script>
+ <script>
+ function  bid_manual(v){
+	 var k = document.getElementById('bid').value;
+	 $.get('<?php echo base_url() .'Buyer_liveauc_2/get_currency/'; ?>'+k, function(data){
+		 if(data){
+			 swal({
+  title: "Are you sure?", 
+  text: "You Are about to bid a sum of "+ data,
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+})
+.then((willDelete) => {
+  if (willDelete) {
+	  $.get('<?php echo base_url() .'Buyer_liveauc_2/storebidval/'; ?>'+v+'|'+k, function(data2){
+		  if($.trim(data2) == "Done"){
+			  swal("You Bid Has Been Placed!", {
+				  icon: "success",
+				});
+		  }else if($.trim(data2) == "Higher Bid Value"){
+			  swal("Higher Bid Value Exists!", {
+				  icon: "error",
+				});
+		  }else{
+			  swal("Auction Closed!", {
+				  icon: "error",
+				});
+		  }
+		});
+	  
+    
+  } else {
+    swal("Your imaginary file is safe!");
+  }
+});
+		 }
+	});
+
+ }
+ </script>
+
 
 

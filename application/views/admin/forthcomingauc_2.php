@@ -64,7 +64,9 @@
 				<tr>
 					<td><?php echo $sellerinfo[0]->sname; ?></td>
 					<td><?php echo $sellerinfo[0]->scomapnyname; ?></td>
-					<td><?php echo $sellerinfo[0]->saddress; ?></td>
+					<td><?php $companyltype = unserialize($sellerinfo[0]->saddress);
+					echo $companyltype[0];?>
+					</td>
 					<td><?php echo $sellerinfo[0]->sstreet; ?></td>
 					<td><?php echo $sellerinfo[0]->scity; ?></td>
 					<td><?php echo $sellerinfo[0]->sphone; ?></td>
@@ -99,7 +101,8 @@
 					<td><?php echo $sqldat->sdescription; ?></td>
 					<td><?php echo $sqldat->sqty; ?></td>
 					<td><?php echo $sqldat->sgst; ?></td>
-					<td><?php echo $sqldat->slotlocation; ?></td>
+					<td><?php echo $sqldat->slotlocation;?>
+					</td>
 					<td><a href="<?php  echo base_url()."Admin_forthcomingauc_2/approve/".$urlsendind."/".urldecode($sqldat->slotno).'/'.urlencode($sqldat->sname);?>"><button type="button" class="btn btn-info" name="accept" >Accept</button></a>
 						<a href="<?php  echo base_url()."Admin_forthcomingauc_2/reject/".$urlsendind."/".urldecode($sqldat->slotno).'/'.urlencode($sqldat->sname);?>"><button type="button" class="btn btn-info">Reject</button></a></td>
 

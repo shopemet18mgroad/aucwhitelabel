@@ -88,7 +88,11 @@ class Admin_editforthcom extends CI_Controller {
 				echo '<td>'.$dat['sstartbidprice'].'</td>';
 				echo '<td>'.$dat['slastdateemdsub'].'</td>';
 				echo '<td>'.$dat['saucstartdate_time'].$dat['saucclosedate_time'].'</td>';
-				echo '<td>'.$dat['sterms_condiaccept'].'</td>';
+				echo '<td>';
+				if ($dat['sterms_condiaccept'] == 1){
+				echo 'Accepted';
+				}
+				echo '</td>';
 				echo '<td>'.$dat['sterms_condiupload'].'</td>';
 				//echo '<td>'.$uploadfl[0].'</td>';
 				//$aucfl = unserialize ($dat['sterms_condiupload']);
