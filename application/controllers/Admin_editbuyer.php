@@ -59,9 +59,10 @@ class Admin_editbuyer extends CI_Controller {
 		$this->load->view('admin/editbuyer', $data);
 		$this->load->view('admin/footer');
 	}
+	
 	public function delete_buyer(){
 		$retrivevaltmpdel = urldecode($this->uri->segment(3));
-		$retrivevaldel = array('scomapnyname'=>$retrivevaltmpdel);
+		$retrivevaldel = array('bcompany'=>$retrivevaltmpdel);
 		$this->load->model('Admin_model');
 		if($retrivevaltmpdel){
 			$this->Admin_model->delete_data('buyerprofile', $retrivevaldel);
@@ -76,5 +77,6 @@ class Admin_editbuyer extends CI_Controller {
 		$this->load->view('admin/footer');
 	}
 	
+
 	
 }

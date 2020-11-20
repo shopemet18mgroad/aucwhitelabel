@@ -249,10 +249,8 @@
 
  </script>
 
-	
- </script>
  
- <script>
+<script>
 		function buyer_set_deactive(varab){
 			$.get('<?php echo base_url() .'Admin_buyerapproval/setdeactive_buyer/'; ?>'+varab, function(data2){	
 				 if($.trim(data2) == "HI"){
@@ -407,3 +405,4 @@
 		}
 	
  </script>
+ 

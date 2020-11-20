@@ -91,11 +91,10 @@
 
 
 				<?php $urlsendind =  str_ireplace('/','-',$sqldata[0]->sauctionid);?>
-
 <?php $urlsendind =  str_ireplace('/','-',$sqldata[0]->sauctionid);?>
 
 				<?php foreach($sqldata as $sqldat){if(!$sqldat->status){?>
-				<tr><td><?php echo $sqldat->slotno; ?></td>												
+				<tr><td><?php echo $sqldat->slotno; ?></td>								
 					<td><?php echo $sqldat->slotname; ?></td>
 					<td><?php echo $sqldat->sdescription; ?></td>
 					<td><?php echo $sqldat->sqty; ?></td>
@@ -103,8 +102,6 @@
 					<td><?php echo $sqldat->slotlocation; ?></td>
 					<td><a href="<?php  echo base_url()."Admin_forthcomingauc_2/approve/".$urlsendind."/".urldecode($sqldat->slotno).'/'.urlencode($sqldat->sname);?>"><button type="button" class="btn btn-info" name="accept" >Accept</button></a>
 						<a href="<?php  echo base_url()."Admin_forthcomingauc_2/reject/".$urlsendind."/".urldecode($sqldat->slotno).'/'.urlencode($sqldat->sname);?>"><button type="button" class="btn btn-info">Reject</button></a></td>
-
-
 
 
 			</tr>
