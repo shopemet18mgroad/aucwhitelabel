@@ -74,7 +74,9 @@
 						
 						<!-- Modal body -->
 						<div class="modal-body">
-						<img src="<?php echo $sqldata->upload_dd;?>" class="img-fluid" alt="<?php echo $sqldata->upload_dd;?>">
+						 
+									
+									
 						</div>
 						
 						<!-- Modal footer -->

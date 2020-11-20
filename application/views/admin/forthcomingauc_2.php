@@ -1,5 +1,6 @@
 <?php 
 	//include('./header.php');
+	
 ?>
         <!-- End of Topbar -->
 
@@ -37,7 +38,7 @@
 				<tbody>
 				<tr>
 					<td><b><?php echo $sqldata[0]->sauctionid; ?></b></td>
-					<td><?php echo $sqldata[0]->sonlineaucdate_time; ?></td>
+					<td><?php echo $sqldata[0]->saucstartdate_time; ?></td>
 					<td><?php echo $sqldata[0]->saucclosedate_time; ?></td>
 					<td><?php echo $sqldata[0]->semdamount; ?></td>
 				</tr>
@@ -94,7 +95,7 @@
 
 				<?php $urlsendind =  str_ireplace('/','-',$sqldata[0]->sauctionid);?>
 
-<?php $urlsendind =  str_ireplace('/','-',$sqldata[0]->sauctionid);?>
+				<?php $urlsendind =  str_ireplace('/','-',$sqldata[0]->sauctionid);?>
 
 				<?php foreach($sqldata as $sqldat){if(!$sqldat->status){?>
 				<tr><td><?php echo $sqldat->slotno; ?></td>												
@@ -104,7 +105,7 @@
 					<td><?php echo $sqldat->sgst; ?></td>
 					<td><?php echo $sqldat->slotlocation;?>
 					</td>
-					<td><a href="<?php  echo base_url()."Admin_forthcomingauc_2/approve/".$urlsendind."/".urldecode($sqldat->slotno).'/'.urlencode($sqldat->sname);?>"><button type="button" class="btn btn-info" name="accept" >Accept</button></a>
+					<td><a href="<?php  echo base_url()."Admin_forthcomingauc_2/approve/".$urlsendind."/".urldecode($sqldat->slotno).'/'.urlencode($sqldat->sname);  ?>"><button type="button" class="btn btn-info" name="accept" >Accept</button></a>
 						<a href="<?php  echo base_url()."Admin_forthcomingauc_2/reject/".$urlsendind."/".urldecode($sqldat->slotno).'/'.urlencode($sqldat->sname);?>"><button type="button" class="btn btn-info">Reject</button></a></td>
 
 
