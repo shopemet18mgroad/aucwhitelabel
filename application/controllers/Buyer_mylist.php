@@ -48,18 +48,14 @@ class Buyer_mylist extends CI_Controller {
 			echo '</script>';
 		}
 		$this->load->model('Admin_model');
-		$emdpaid = array('emdpaid'=>false);
-		$query = $this->Admin_model->getdatafromtable('biddercart', $emdpaid);
-		$data['sqldat']= $query;
-
-		
-		
 		$this->load->library('session');
 		//$data1 = $this->session->flashdata('txdata');
 		$sess = array('sessi'=>$this->session->userdata('username'));
-			
-			
-		
+		$sess2 = $this->session->userdata('username');
+		$emdpaid = array('bidderusername'=>$sess2,'emdpaid'=>false);
+		$query = $this->Admin_model->getdatafromtable('biddercart', $emdpaid);
+		$data['sqldat']= $query;
+		$data['sessi']= $sess2;
 		$this->load->view('buyer/header',$sess);
 		$this->load->view('buyer/mylist', $data);
 		$this->load->view('buyer/footer');

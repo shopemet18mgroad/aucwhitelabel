@@ -29,25 +29,28 @@ class Buyer_Mylist_dd_upload extends CI_Controller {
 	{
 		if($this->input->post('submit'))
 		{
-		
 		$this->load->helper(array('url','html'));
 		$this->load->model('Admin_model');
 		$this->load->library('session');
 		//$data1 = $this->session->flashdata('txdata');
-		$this->input->post('auc');
-		
+		//$this->input->post('auc');
 		$auc = $this->input->post('auc');
-		
+		$kaa=0;
+		foreach($_FILES['upload_dd']['name'] as $b){
+			if($b != ""){
+				$kab = $kaa;
+			}
+			$kaa++;
+		}
+		echo $kab;
 		//$auc = urldecode($this->uri->segment(4));
 		
 		//$this->load->library('session');
 		//$bidderuname = $this->session->userdata('username');
-		$datexp = explode('|',$auc);
-		
-		$auctionid = str_ireplace('-','/',$datexp[0]);
-		
-		$lotno = $datexp[1];
-		
+		$datexp = explode('|',$auc[$kab]);
+		$username =  urlencode($datexp[0]);
+		$auctionid = str_ireplace('-','/',$datexp[1]);
+		$lotno = $datexp[2];
 		/* $data = array('sauctionid'=>$auctionid);
 		$data2 = array('sauctionid'=>$auctionid,'slotno'=>$lotno);	
 		
@@ -60,7 +63,7 @@ class Buyer_Mylist_dd_upload extends CI_Controller {
 		//$aucstartbid = $dat4[0]->sstartbidprice;
 		//$aucstartbidprice = $dat4[0]->sprice;
 		
-		
+		/* 
 		 $dataact = array();
 		$datacomp = array();
 		$dataact = $this->input->post('bsigneddocumentex');
@@ -72,46 +75,42 @@ class Buyer_Mylist_dd_upload extends CI_Controller {
 			foreach($result as $res){
 			unlink(base_url()."web_files/uploads/".$res);
 			}
-		}
-		
-		 if(!count($result2) && !$_FILES['upload_dd']['name'][0]){
-			$datainserr = "Atleast One Signed Document Has To Uploaded";
-			header('location: '.base_url().'buyer_mylist/index/'.$auctionid.'/'.$datainserr);
-			die;
-		}  
-		}
-		
-		$doc_array = self::upload_files('upload_dd');
-		 if($_FILES['upload_dd']['tmp_name'][0]){
-			$doc_array = self::upload_files('upload_dd');
-			
-			
-		} 
-	
-
-		  if(!count($doc_array)){
+		} */
+			 if(!$_FILES['upload_dd']['name'][$kab]){
+				$datainserr = "Atleast One Signed Document Has To Uploaded";
+				header('location: '.base_url().'buyer_mylist/index/'.$auctionid.'/'.$datainserr);
+				die;
+			}else{
+				$doc_array = self::upload_files('upload_dd');
+			}  
+			if(!count($doc_array)){
 			echo '<script language="javascript">';
 			echo 'alert("Documents Upload Failed")';  //not showing an alert box.
 			echo '</script>';
-			$doc_array = serialize($result2);
-		}    else{
-			if($result2){
-				$doc_array = array_merge($doc_array,$result2);
-				$doc_array = serialize($doc_array);
 			}else{
 				$doc_array = serialize($doc_array);
 			}
-			
-		} 
+			$data4 = array ('upload_dd' => $doc_array);
+			$datainserr = "Data Inserted Successfully";
+			$username = urldecode($username);
+		//$sess = array('sessi'=>$this->session->userdata('username'));
+			$updatech = array('bidderusername'=>$username,'auctionid'=>$auctionid,'lotno' => $lotno);
+			$status = $this->Admin_model->update_custom('biddercart',$data4,$updatech,$updatech); 
+			if($status){
+				
+			} 
+			 header('location: '.base_url().'buyer_mylist/index/'.$datainserr);
+		}
 		
 		
+		 
 		//=================================================================================================
 		//==================================================================
 		
 		
 		//$bcheck = array('bidderusername'=>$bidderuname,'auctionid'=>$auctionid,'lotno'=>$lotno);
 		
-		$data4 = array ('upload_dd' => $doc_array);
+		
 		
 		// if($this->Admin_model->check('biddercart',$bcheck)){
 			// echo "EX";
@@ -121,20 +120,10 @@ class Buyer_Mylist_dd_upload extends CI_Controller {
 		} */ 
 		//$this->load->view('xya', $data);
 		
-	 	$datainserr = "Data Inserted Successfully";
-		//$sess = array('sessi'=>$this->session->userdata('username'));
-		$updatech = array('auctionid'=>$auctionid,'lotno' => $lotno);
-		$status = $this->Admin_model->update_custom('biddercart',$data4,$updatech,$updatech); 
-		if($status){
-				  $this->session->set_flashdata('txdata',$transfer);
-				  
-			  }
-		
-		header('location: '.base_url().'buyer_mylist/index/'.$datainserr);
+	 	
 		}
 		
 		
-	}
 	
 	private function upload_files($nameid)
     {	

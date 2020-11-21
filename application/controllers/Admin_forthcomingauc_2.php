@@ -82,6 +82,7 @@ class Admin_forthcomingauc_2 extends CI_Controller {
 	public function approve(){
 		$this->load->helper('url');
 		$retrivevaltmp = str_ireplace('-','/',$this->uri->segment(3));
+		$retrivevaltmp = urldecode($retrivevaltmp);
 		$retrivevaltmp2 = urldecode($this->uri->segment(4));
 		$retrivevaltmp3 = urldecode($this->uri->segment(5));
 		$data2 = array('status'=>true);

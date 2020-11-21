@@ -207,6 +207,12 @@ $(document).ready(function() {
 			  swal("You Bid Has Been Placed!", {
 				  icon: "success",
 				});
+				var res = v.split("|");
+		  var tvar = res[1]+'|'+res[2];
+				$.get('<?php echo base_url() .'Buyer_liveauc_2/get_table_ajax/'; ?>'+tvar, function(data3){
+				$('#ajaxauc').html(data3);
+				});
+				
 		  }else if($.trim(data2) == "Higher Bid Value"){
 			  swal("Higher Bid Value Exists!", {
 				  icon: "error",
@@ -220,7 +226,7 @@ $(document).ready(function() {
 	  
     
   } else {
-    swal("Your imaginary file is safe!");
+    swal("You Have Cancelled your request to bid!");
   }
 });
 		 }
