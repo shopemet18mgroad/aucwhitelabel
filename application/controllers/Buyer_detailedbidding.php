@@ -21,10 +21,33 @@ class Buyer_detailedbidding extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper('url');
-		$this->load->view('buyer/header');
-		$this->load->view('buyer/detailedbidding');
+		$this->load->library('session');
+		
+		$variable = $this->uri->segment(3);
+		$vararray = urldecode($variable);
+		$vararray2 = explode('|',$vararray);
+		//$vararray3 = explode('|',$vararray);
+		$auctionid = str_ireplace('-','/',$vararray2[0]);
+		$lotno = $vararray2[1];
+		$sess = $this->session->userdata('username');
+		$this->load->model('Admin_model');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$active = array('bidderusername'=>$sess['sessi'],'auctionid'=>$auctionid);
+		$active2 = array('sauctionid'=>$auctionid);
+		$query = $this->Admin_model->getdatafromtable('biddercart', $active);
+
+		$query2 = $this->Admin_model->getdatafromtable('biddingdata', $active2);
+
+		$data['sqldata'] = $query;
+		$data['sqldata2'] = $query2;
+		
+		//$data['sessi'] = $sess['sessi'];		
+		$this->load->view('buyer/header',$sess);
+		$this->load->view('buyer/detailedbidding',$data);
 		$this->load->view('buyer/footer');
 		
 	}
+	
+
 	
 }
