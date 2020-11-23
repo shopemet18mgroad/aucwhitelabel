@@ -65,8 +65,9 @@
 				<tr>
 					<td><?php echo $sellerinfo[0]->sname; ?></td>
 					<td><?php echo $sellerinfo[0]->scomapnyname; ?></td>
-					<td><?php $companyltype = unserialize($sellerinfo[0]->saddress);
-					echo $companyltype[0];?>
+					<td><?php if($sellerinfo[0]->saddress == NULL){
+						ECHO "No Address found";
+					}?>
 					</td>
 					<td><?php echo $sellerinfo[0]->sstreet; ?></td>
 					<td><?php echo $sellerinfo[0]->scity; ?></td>
@@ -95,7 +96,10 @@
 
 				<?php $urlsendind =  str_ireplace('/','-',$sqldata[0]->sauctionid);?>
 
+
 				<?php $urlsendind =  str_ireplace('/','-',$sqldata[0]->sauctionid);?>
+
+
 
 				<?php foreach($sqldata as $sqldat){if(!$sqldat->status){?>
 				<tr><td><?php echo $sqldat->slotno; ?></td>												
