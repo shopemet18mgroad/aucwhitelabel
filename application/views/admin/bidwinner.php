@@ -62,7 +62,8 @@
 				<?php  foreach($bidwinner as $bidwin){ ?>
 				
 				<tr>
-					<td><a href="<?php  echo base_url()."Admin_aucwinner/aucwinner2/".urldecode($bidwin->slotno);?>"><u>
+					<td><a href="<?php  echo base_url()."Admin_aucwinner/aucwinner2/".str_ireplace('/','-',$bidwin->auctionid);?>">
+						
 						<?php  echo $bidwin->auctionid; ?></u></a></td>
 					 <td><?php echo $bidwin->lotno; ?></td>
 					 <td><?php echo $bidwin->bidstart; ?></td>

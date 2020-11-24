@@ -32,15 +32,23 @@ class Admin_aucwinner extends CI_Controller {
 	}
 	
 	public function aucwinner2(){
-		$aucw = urldecode($this->uri->segment(3));
-		print_r($aucw); die;
-		$auc = array('auctionid'=>$aucwi);
+		$retrivevaltmp2 = $this->uri->segment(3);
+		
+		$retrivevaltmp = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
+		$retriveval = array('auctionid'=>$retrivevaltmp);
+		$retrive = array('bidderusername'=>$retrivevaltmp);
+	
+		$retriveval2 = array('bname'=>$retrivevaltmp2);
+		
 		$this->load->model('Admin_model');
+		$data['bidwin'] = $this->Admin_model->getdatafromtable('biddercart',$retriveval,$retrive);
 		
-
-		$data['aucwin'] = $this->Admin_model->getdatafromtable('biddercart',$auc);
+		$data['buyerdet'] = $this->Admin_model->getdatafromtable('buyerprofile',$retriveval2);
 		
-		$this->load->helper('url');
+		if($retrive == $retriveval2){
+		$data['buyerdet'] = $this->Admin_model->getdatafromtable('buyerprofile',$retriveval2);
+		}
+	
 		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('admin/header',$sess);
@@ -49,22 +57,5 @@ class Admin_aucwinner extends CI_Controller {
 		
 	}
 	
-	public function aucwinner2_alert(){
-		$aucw = $this->uri->segment(3);
-		
-		$aucwi2 = urldecode($this->uri->segment(4));
-		echo '<script language="javascript">';
-			echo 'alert("'.$aucwi2.'")';  //not showing an alert box.
-			echo '</script>';
-		$retriveval = array('auctionid'=>$aucwi);
-		$this->load->model('Admin_model');
-		
-		$data['aucwin'] = $this->Admin_model->getdatafromtable('biddercart',$aucwi);
-		$this->load->helper('url');
-		$this->load->library('session');
-		$sess = array('sessi'=>$this->session->userdata('username'));
-		$this->load->view('admin/header',$sess);
-		$this->load->view('admin/aucwinner', $data);
-		$this->load->view('admin/footer');
-	}
+	
 }
