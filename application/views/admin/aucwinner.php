@@ -27,17 +27,15 @@
 				<thead class="bg-primary text-white">
 				<tr>
 					<th>Auction Id</th>
-					<th>Lot No</th>
-					<th>Lot Name</th>
+					<th width="50%">Lot No</th>
 				</tr>
 				</thead>
 
 				<tbody>
 				<tr>
 					
-					<td><a href=""><u>AJ256458/BHEL/IRON/102</u></a></td>
-					<td>M-265</td>
-					<td>Paper</td>
+					<td><?php echo $bidwin[0]->auctionid; ?></td>
+					<td><?php echo $bidwin[0]->lotno; ?></td>
 				</tr>
 				</tbody>
 			</table>
@@ -62,12 +60,13 @@
 				</thead>
 				<tbody>
 				<tr>
-				<tr>
-														<td style="color:green;"><b>S.R.Murthy</b></td>
-														<td style="color:green;"><b>BHEL</b></td>
-														<td style="color:green;"><b>17-03-2020</b></td>
-														<td style="color:green;"><b>2,00,000</b></td>
+				<?php foreach($buyerdet as $sqldat){?>
+								<td style="color:green;"><b><?php echo $sqldat->bcompany; ?></b></td>
+								<td style="color:green;"><b>BHEL</b></td>
+								<td style="color:green;"><b>17-03-2020</b></td>
+								<td style="color:green;"><b>2,00,000</b></td>
 													</tr>
+						<?php }?>
 													<tr>
 														<td style="color:orange;"><b>S.R.Murthy</b></td>
 														<td style="color:orange;">BHEL</td>
