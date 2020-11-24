@@ -57,34 +57,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		} 
 		
 		public function maxbidvalue($table){
-			$this->db->select(max('mybid_val'));
-			$this->db->from($table);
-			
-			//$this->db->where('mybid_val >', $compdata);
-			//$this->db->where('auctionid =', $auctmp);
-			//$this->db->where('lotno =', $auclottmp);
-			//$this->db->where('bidderusername =', $sessi);
-			$query = $this->db->get();
-			// if($query->num_rows() > 0){
-           // return $query->row('mybid_val');        
-        // }else{
-           // return 1;
-        // }
-		
-			return $query->result();
+			$this->db->select_max('mybid_val');
+			$result = $this->db->get('biddercart')->row();
+			return $result->mybid_val;
 		} 
 		
-		public function getmaxbid(){
-        $this->db->select_max('mybid_val');
-        $this->db->from('biddercart');
-        $query = $this->db->get();
-        if($query->num_rows() > 0){
-           return $query->row('mybid_val');        
-        }else{
-           return 1;
-        }
-}
-		
+			
 		
 		public function dateclosedauc($table, $date){
 			$this->db->select('*');
