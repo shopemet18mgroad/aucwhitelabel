@@ -20,7 +20,6 @@ class Buyer_liveauc_2 extends CI_Controller {
 	 */
 	public function index()
 	{
-		
 		$this->load->helper('url');
 		$this->load->library('session');
 		$variable = $this->uri->segment(3);
@@ -142,7 +141,7 @@ echo '<td>'.$Remaining.'</td>';
 echo '<td>'.$query2[0]->sqty.'</td>';
 echo '<td>'.$query2[0]->sunitmeasurment.'</td>';
 echo '<td>'.$query2[0]->sstartbidprice.'</td>';
-echo '<td>'.$query[0]->bidprice.'</td>';
+echo '<td>'.$query[0]->mybid_val.'</td>';
 echo '<td>'.$query2[0]->cbidval.'</td>';
 if($query2[0]->sstartbidprice >= $query2[0]->cbidval){
 	$datbid = $query2[0]->sstartbidprice;
@@ -226,6 +225,9 @@ echo '</table>';
 	public function storebidval(){
 		$this->load->helper('url');
 		$this->load->model('Admin_model');
+		$this->load->library('session');
+		date_default_timezone_set('Asia/Kolkata');
+		$time =  Date('Y-m-d H:i:s');
 		$data = urldecode($this->uri->segment(3));
 		$data2 = explode('|',$data);
 		$username = str_ireplace('%40','@',$data2[0]);
@@ -233,20 +235,39 @@ echo '</table>';
 		$lotno = $data2[2];
 		$bitval = $data2[3];
 		$dataforupdate = array('cbidval' => $bitval);
+		$dataforupdate2 = array('mybid_val' => $bitval);
 		$active2 = array('sauctionid'=>$auctionid,'slotno'=>$lotno);
-		$active3 = array('bidderusername'=>$username,'sauctionid'=>$auctionid,'slotno'=>$lotno);
+		$active3 = array('bidderusername'=>$username,'auctionid'=>$auctionid,'lotno'=>$lotno);
+		$active4 = array('auctionid'=>$auctionid);
 		//$query = $this->Admin_model->getdatafromtable('biddercart', $active);
 		$query2 = $this->Admin_model->getdatafromtable('addlot', $active2);
+		$query3 = $this->Admin_model->getdatafromtable('biddercart', $active3);
+		$diff = strtotime($query3[0]->aucclosedate_time)-strtotime($time);
+		$newtimestamp = strtotime($query3[0]->aucclosedate_time.'+ 5 minute');
+		$newtimestamp2 =  date('Y-m-d H:i:s', $newtimestamp);
+		$dataforupdate3 = array('aucclosedate_time' => $newtimestamp2);
+		$dataforupdate4 = array('saucclosedate_time' => $newtimestamp2);
+		$dataforupdate5 = array('bidderusername' => $username, 'sauctionid'=>$auctionid,'slotno'=>$lotno,'Date_time'=>$time,'bidamount'=>$bitval);
 		if(!$query2[0]->status){
 			if($query2[0]->cbidval >= $bitval){
 				echo "Higher Bid Value";
 				die;
 			}else{
-				$this->Admin_model->update_custom('addlot',$dataforupdate,$active2,$active2);
-				$this->Admin_model->update_custom('biddercart',$dataforupdate,$active3,$active3);
-				$auctionid = str_ireplace('/','-',$auctionid);
+				if($diff > 1 && $diff < 180){
+					$this->Admin_model->update_custom('addlot',$dataforupdate,$active2,$active2);
+					$this->Admin_model->update_custom('biddercart',$dataforupdate2,$active3,$active3);
+					$this->Admin_model->update_custom('biddercart',$dataforupdate3,$active4,$active4);
+					$this->Admin_model->update_custom('auction',$dataforupdate4,$active2,$active4);
+					$this->Admin_model->insert('biddingdata', $dataforupdate5);
+					//$this->Admin_model->update_custom('auction',$dataforupdate4,$active2,$active4);
+				}else{
+					$this->Admin_model->update_custom('addlot',$dataforupdate,$active2,$active2);
+					$this->Admin_model->update_custom('biddercart',$dataforupdate2,$active3,$active3);
+					//$this->Admin_model->update_custom('biddingdata',$dataforupdate5,$active2,$active4);
+					$this->Admin_model->insert('biddingdata', $dataforupdate5);
+				}
 				echo "Done";
-				header('location: '.base_url().'Buyer_liveauc_2/index/'.$auctionid.'|'.$lotno);
+				//header('location: '.base_url().'Buyer_liveauc_2/index/'.$auctionid.'|'.$lotno);
 				die;
 			}
 		}else{

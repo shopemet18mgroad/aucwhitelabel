@@ -49,6 +49,7 @@
 				</thead>
 		<tbody>
 			  <form action="<?php echo base_url();?>Buyer_Mylist_dd_upload" method="POST" id="upload-form" enctype="multipart/form-data">
+			  <?php $k=0;?>
         <?php foreach($sqldat as $sqldata){?>  
        
 				<tr>
@@ -57,15 +58,15 @@
 				"><?php echo $sqldata->auctionid; ?><?php echo $aucencode = str_ireplace('/','-',$sqldata->auctionid); ?></b></a></td>
 					<td><?php echo $sqldata->lotno; ?></td>
 					<td><?php echo $sqldata->aucstartdate_time;?><br><?php echo $sqldata->aucclosedate_time;?></td>
-					<td><?php  if($sqldata->emdpaid == 0) {echo 'Request';} ?></td>
+					<td><?php  if($sqldata->emdpaid == 0) {echo 'Emd Not Paid';}else{echo 'Emd Paid';} ?></td>
 				
-					<td><a href="" data-toggle="modal" data-target="#myModal">
+					<td><a href="" data-toggle="modal" data-target="#myModal<?php echo"$k";?>">
 					<button type="submit" class="btn btn-info btn-sm w-50">
 					<i class="fa fa-eye" aria-hidden="true"></i>
 					</button>
 					</a>
 				
-				<div class="modal" id="myModal">
+				<div class="modal" id="myModal<?php echo"$k";?>">
 					<div class="modal-dialog modal-lg">
 					  <div class="modal-content">
 					  
@@ -74,7 +75,13 @@
 						
 						<!-- Modal body -->
 						<div class="modal-body">
-						<img src="<?php echo $sqldata->upload_dd;?>" class="img-fluid" alt="<?php echo $sqldata->upload_dd;?>">
+
+						 
+									
+									
+
+						<img src="<?php $im = unserialize($sqldata->upload_dd); echo base_url().'web_files/uploads/'.$im[0];?>" class="img-fluid" alt="<?php echo $im[0];?>">
+
 						</div>
 						
 						<!-- Modal footer -->
@@ -91,15 +98,13 @@
 					<td>
 					
 			
-					<input class="form-group w-auto"  multiple="multiple"  type="file"  id="upload_dd" name="upload_dd[]">
-				
-					<input type="hidden" name="auc" value="<?php echo $aucencode.'|'.$sqldata->lotno;?>"> 
+					<input class="form-group w-auto"  multiple="multiple"  type="file" name="upload_dd[]">
+					<input type="hidden" name="auc[]" value="<?php echo $sessi.'|'.$aucencode.'|'.$sqldata->lotno;?>"> 
 					<input type="submit" id="" class="btn btn-primary " name="submit" value="Upload">
 		 
 					</td>
 			
-
-					 <?php }?> 
+					 <?php $k++;}?> 
 
 				</tr>
 			

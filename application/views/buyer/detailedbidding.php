@@ -27,21 +27,14 @@
 			</thead>
 			<tbody>
 			<tr>
-				<td>Lot No</td>
-				<td width="50%">M342</td>
+				<td>Auction ID</td>
+				<td width="50%"><?php echo $sqldata2[0]->sauctionid; ?></td>
 	 		</tr>
 			<tr>												
-				<td>Quantity</td>
-				<td width="50%">8.0</td>
+				<td>Lot No</td>
+				<td width="50%"><?php echo $sqldata2[0]->slotno; ?></td>
 			</tr>
-			<tr>
-				<td>Location</td>
-				<td width="50%">Vellore</td>
-			</tr>  
-			<tr>
-				<td>Opening Time</td>
-				<td width="50%">22:55:23</td>
-			</tr>
+			
 			</tbody>
 		 </table>
 		 
@@ -49,26 +42,20 @@
 			<thead class="bg-primary text-white">
 				<tr>
 					<th>Bid Amount</th>
-					<th>Date</th>
-					<th>Time</th>
+					<th>Date/Time</th>
+					<th>Status</th>
 				</tr>
 			</thead>
 			<tbody>
+			<?php foreach($sqldata2 as $sqldat){?>
+
 			<tr>												
-				<td>2,35,000</td>
-				<td>25-12-2019</td>
-				<td>08:20:37</td>
+				<td><?php echo $aucencode = str_ireplace('/','-',$sqldat->bidamount); ?></td>
+				<td><?php echo $sqldat->Date_time; ?></td>
+				<td><?php echo $sqldat->Date_time; ?></td>
 			</tr>
-			<tr>												
-				<td>1,06,000</td>
-				<td>15-08-2020</td>
-				<td>11:23:58</td>
-			</tr>
-			<tr>												
-				<td>3,00,000</td>
-				<td>16-05-2020</td>
-				<td>08:22:04</td>
-			</tr>
+								<?php }?>
+
 			</tbody>
 		 </table>
 		</div>
