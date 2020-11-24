@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Aucjunction Dashboard</title>
+  <title>Auctioneer Dashboard</title>
 
   <!-- Custom fonts for this template-->
   <link href="<?php echo base_url()."web_files/";?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

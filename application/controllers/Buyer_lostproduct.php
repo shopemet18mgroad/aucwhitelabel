@@ -19,14 +19,24 @@ class Buyer_lostproduct extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index()
+	
 	{
-		$this->load->helper('url');
-			$this->load->library('session');
+		$this->load->helper(array('url','html','date'));
+		date_default_timezone_set('Asia/Kolkata');
+		$time =  Date('Y-m-d H:i:s');
+		$this->load->model('Admin_model');
+		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
+		//print_r($sess['sessi']);die;
+		$data['sqldata'] = $this->Admin_model->datebetweenlost('biddercart',$time,$sess['sessi']);
+		
+		//$data['sqldat']= $query;
 		$this->load->view('buyer/header',$sess);
-		$this->load->view('buyer/lostproduct');
+		$this->load->view('buyer/lostproduct',$data);
 		$this->load->view('buyer/footer');
 		
 	}
+	
+	
 	
 }

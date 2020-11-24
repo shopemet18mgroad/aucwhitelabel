@@ -55,6 +55,38 @@
   <script src="<?php echo base_url()."web_files/";?>vendor/datatables/dataTables.bootstrap4.min.js"></script>
  <script src="<?php echo base_url()."web_files/";?>js/demo/datatables-demo.js"></script>
 
+
+ <script>
+ function validate_user_password_seller(){
+	 
+	var user = document.getElementById('soldpassword').value;
+	var user2 = document.getElementById('snewpassword').value;
+	var user3 = document.getElementById('sconfirmpassword').value;
+	
+	if(user == "" || user2 == "" || user3 == ""){
+			 swal("Alert!", "Old Password, New Password and Confirm Password Cannot Be Left Blank","error");
+		 return false; 
+	 }
+	 
+	if (user2 != user3) {
+		swal("Both the Password Should Match");
+		return false;
+  } 
+ }
+
+function validate_password_seller(){
+	var user = document.getElementById('soldpassword').value;
+	$.get('<?php echo base_url() .'registration/passwordverify_seller/'; ?>'+user, function(data2){						
+				 if($.trim(data2) == "HI"){
+					return true;
+				}else{
+					swal("Alert!", "Old Password Doesnt Match","error");
+					//alert("Hi");
+					return false;
+				}
+			 }); 
+ }
+ </script>
 </body>
 
 </html>

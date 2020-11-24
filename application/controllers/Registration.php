@@ -107,6 +107,23 @@ class Registration extends CI_Controller {
 		}
 		
 	}
+	
+	public function passwordverify_seller()
+	{
+		$this->load->helper('url');
+		$this->load->library('session');
+		$dataw = base64_encode($this->uri->segment(3));
+		$sessi = $this->session->userdata('username');
+		$update = array('susername'=>$sessi,'spassword'=>$dataw);
+		$this->load->model('Admin_model');
+		$scan = $this->Admin_model->check('sellerprofile',$update);
+		if($scan){
+			echo "HI";
+		}else{
+			echo "BYE";
+		}
+		
+	}
 	//////////////////////////////////////////////////////
 	
 	/* public function indexbuyer()

@@ -35,30 +35,32 @@
 					 
 					 </thead>
 						<tbody>
+						
 							<tr>
+							<form action="<?php echo base_url();?>Seller_basiccontact_update" method="POST" enctype="multipart/form-data">
 								<td>Email</td>
-								<td><input class="name" type="text" id="semail" name="semail"></td>
+								<td><input class="name" type="text" id="semail" name="semail" value="<?php echo $sqldata[0]->semail; ?>"></td>
 							</tr> 
 							<tr>
 								<td>Phone Number</td>
-								<td><input class="name" type="text" id="sphone" name="sphone" ></td>
+								<td><input class="name" type="text" id="sphone" name="sphone" value="<?php echo $sqldata[0]->sphone; ?>"></td>
 							</tr> 
 							<tr>
 								<td>Pan Number</td>
-								<td>JCDB245555</td>
+								<td><?php echo $sqldata[0]->span; ?></td></td>
 							</tr> 	
 							<tr>
 								<td>GST</td>
-								<td>18%</td>
+								<td><?php echo $sqldata[0]->sgst; ?></td></td>
 							</tr> 
 													
 						</tbody>
 					</table>									
                 
-				<a href="#"><button type="button" class="btn btn-primary offset-sm-3 mt-2">Update</button></a>
+					<input type="submit" class="btn btn-primary offset-sm-3 mt-2" name="submit" value="Update">
 												
-				<a href="#"><button type="button" class="btn btn-primary offset-sm-1 mt-2">Reset</button></a>
-												
+				<input type="reset" class="btn btn-primary offset-sm-1 mt-2" value="Reset">
+					</form>							
 				<a href='<?php echo base_url();?>seller_dashboard'><button type="button" class="btn btn-primary offset-sm-1 mt-2">Cancel</button></a>
 						
               </div>
