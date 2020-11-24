@@ -46,12 +46,12 @@
 		</thead>
 		<tbody>
 			<tr>
-		<?php foreach($sqldata as $sqldat){?>			
-				<td><a href="<?php echo base_url()."Buyer_detailedbiddinglost/index/".str_ireplace('/','-',$sqldat->auctionid)."|".$sqldat->lotno;?>"><?php echo $sqldat->auctionid;?></a>
-					</td>
+		<?php foreach($winner as $sqldat){?>			
+				<td><?php echo $sqldat->auctionid;?></td>
 				<td><?php echo $sqldat->lotno;?></td>
 				<td><?php echo $sqldat->aucclosedate_time;?> </td>
 				<td><?php echo $sqldat->bidamount;?></td>
+				<td><?php echo "lost";?></td>
 				</tr>
 		<?php }?>
 		

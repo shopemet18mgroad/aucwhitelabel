@@ -39,11 +39,11 @@
 							<tr>
 							<form action="<?php echo base_url();?>Seller_basiccontact_update" method="POST" enctype="multipart/form-data">
 								<td>Email</td>
-								<td><input class="name" type="text" id="semail" name="semail" value="<?php echo $sqldata[0]->semail; ?>"></td>
+								<td><input class="form-control w-50" type="text" id="semail" name="semail" value="<?php echo $sqldata[0]->semail; ?>"></td>
 							</tr> 
 							<tr>
 								<td>Phone Number</td>
-								<td><input class="name" type="text" id="sphone" name="sphone" value="<?php echo $sqldata[0]->sphone; ?>"></td>
+								<td><input class="form-control w-50" type="text" id="sphone" name="sphone" value="<?php echo $sqldata[0]->sphone; ?>"></td>
 							</tr> 
 							<tr>
 								<td>Pan Number</td>

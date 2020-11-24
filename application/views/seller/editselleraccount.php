@@ -34,31 +34,31 @@
 					 
 					 </thead>
 						<tbody>
+						<form action = "<?php echo base_url();?>Seller_basicaccount_update" method="POST" enctype="multipart/form-data">
 							<tr>
 								<td>Banker's Name</td>
-								<td><input class="name" type="text" id="sbankername" name="sbankername"></td>
+								<td><input class="form-control w-50" type="text" id="sbankername" name="sbankername" value="<?php echo $sqldata[0]->sbankername; ?>"></td>
 							</tr> 
 							<tr>
 								<td>Account Number</td>
-								<td><input class="name" type="text" id="saccountnumber" name="saccountnumber"></td>
+								<td><input class="form-control w-50" type="text" id="saccountnumber" name="saccountnumber" value="<?php echo $sqldata[0]->saccountnumber; ?>"></td>
 							</tr> 
 							<tr>
 								<td>Branch</td>
-								<td><input class="name" type="text" id="sbranch" name="sbranch"></td>
+								<td><input class="form-control w-50" type="text" id="sbranch" name="sbranch" value="<?php echo $sqldata[0]->sbranch; ?>"></td>
 							</tr> 
 							<tr>
 								<td>IFSC Code</td>
-								<td><input class="name" type="text" id="sifsccode" name="sifsccode"></td>
+								<td><input class="form-control w-50" type="text" id="sifsccode" name="sifsccode" value="<?php echo $sqldata[0]->sifsccode; ?>"></td>
 							</tr> 							
 											
 						</tbody>
 					</table>	
 													
-                
-				<a href="#"><button type="button" class="btn btn-primary offset-sm-3 mt-2">Update</button></a>
+                <input type="submit" class="btn btn-primary offset-sm-3 mt-2" name="submit" value="Update">
 												
-				<a href="#"><button type="button" class="btn btn-primary offset-sm-1 mt-2">Reset</button></a>
-												
+				<input type="reset" class="btn btn-primary offset-sm-1 mt-2" value="Reset">
+					</form>							
 				<a href='<?php echo base_url();?>seller_dashboard'><button type="button" class="btn btn-primary offset-sm-1 mt-2">Cancel</button></a>
 						
               </div>

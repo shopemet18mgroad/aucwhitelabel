@@ -37,15 +37,15 @@
 							<tr>
 							<form action="<?php echo base_url();?>Seller_basicpassword_update" method="POST" enctype="multipart/form-data">
 								<td>Old Password</td>
-								<td><input class="name" type="soldpassword" id="soldpassword" placeholder="******" ></td>
+								<td><input class="form-control w-50" type="soldpassword" id="soldpassword" placeholder="******" ></td>
 							</tr> 
 							<tr>
 								<td>New Password</td>
-								<td><input class="name" type="password" id="snewpassword" name="snewpassword" placeholder="******"  onkeyup="validate_password_seller()"></td>
+								<td><input class="form-control w-50" type="password" id="snewpassword" name="snewpassword" placeholder="******"  onkeyup="validate_password_seller()"></td>
 							</tr> 
 							<tr>
 								<td>Confirm Password</td>
-								<td><input class="name" type="password" id="sconfirmpassword" name="sconfirmpassword" placeholder="******" ></td>
+								<td><input class="form-control w-50" type="password" id="sconfirmpassword" name="sconfirmpassword" placeholder="******" ></td>
 							</tr> 	
 											
 						</tbody>

@@ -42,7 +42,7 @@ class Seller_editsellerdocument extends CI_Controller {
 		$this->load->view('seller/header',$sess);
 		$this->load->view('seller/editsellerdocument',$data);
 		$this->load->view('seller/footer');
-		
+		}
 	}
 	
 }

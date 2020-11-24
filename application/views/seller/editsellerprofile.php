@@ -93,11 +93,11 @@
 							</tr> 
 							<tr>
 								<td>City</td>
-								<td><input class="name" type="text" id="scity" name="scity" value="<?php echo $sqldata[0]->scity; ?>"></td>
+								<td><input class="form-control w-50" type="text" id="scity" name="scity" value="<?php echo $sqldata[0]->scity; ?>"></td>
 							</tr>
 							<tr>
 								<td>Pincode</td>
-								<td><input class="name" type="text" id="spin" name="spin" value="<?php echo $sqldata[0]->spin; ?>" ></td>
+								<td><input class="form-control w-50" type="text" id="spin" name="spin" value="<?php echo $sqldata[0]->spin; ?>" ></td>
 							</tr>
 							<tr>
 								<td>State /Union Ter.</td>
