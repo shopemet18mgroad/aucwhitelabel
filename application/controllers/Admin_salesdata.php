@@ -22,9 +22,20 @@ class Admin_salesdata extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$this->load->library('session');
+		
+		$retrivevaltmp = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
+		$retriveval = array('sauctionid'=>$retrivevaltmp);
+		
+		$retrivevaltmp2 = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
+		$retriveval2 = array('auctionid'=>$retrivevaltmp);
+	
+		$this->load->model('Admin_model');
+		$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
+		
+		$data['sqldatalot'] = $this->Admin_model->getdatafromtable('biddercart',$retriveval2);
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('admin/header',$sess);
-		$this->load->view('admin/salesdata');
+		$this->load->view('admin/salesdata',$data);
 		$this->load->view('admin/footer');
 		
 	}

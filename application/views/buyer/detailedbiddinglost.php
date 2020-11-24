@@ -26,37 +26,37 @@
 				<th colspan="10" class="bg-info">Bid History</th>
 			</thead>
 			<tbody>
+			<form action="<?php echo base_url();?>" method="POST"  enctype="multipart/form-data">
 			<tr>
-				<td>Auction ID</td>
-				<td width="50%"><?php echo $sqldata2[0]->sauctionid; ?></td>
+				<td width="50%">Auction ID</td>
+				<td><?php echo $sqldata2[0]->sauctionid; ?></td>
 	 		</tr>
-			<tr>												
+			<tr>
 				<td>Lot No</td>
-				<td width="50%"><?php echo $sqldata2[0]->slotno; ?></td>
-			</tr>
-			
+				<td><?php echo $sqldata2[0]->slotno; ?></td>
+	 	
 			</tbody>
+			</form>
 		 </table>
 		 
 		<table class="table table-striped table-bordered table-sm text-center mt-5" id="dataTable" width="100%" cellspacing="0">
 			<thead class="bg-primary text-white">
 				<tr>
 					<th>Bid Amount</th>
-					<th>Date/Time</th>
+					<th>Date</th>
 					<th>Status</th>
 				</tr>
 			</thead>
 			<tbody>
-			<?php foreach($sqldata2 as $sqldat){?>
-
+			<form action="<?php echo base_url();?>" method="POST"  enctype="multipart/form-data">
 			<tr>												
-				<td><?php echo $aucencode = str_ireplace('/','-',$sqldat->bidamount); ?></td>
-				<td><?php echo $sqldat->Date_time; ?></td>
-				<td><?php echo $sqldat->Date_time; ?></td>
+				<td><?php echo $sqldata2[0]->bidamount; ?></td>
+				<td><?php echo $sqldata2[0]->Date_time; ?></td>
+				<td><?php echo "Lost"; ?></td>
 			</tr>
-								<?php }?>
-
+			
 			</tbody>
+			</form>
 		 </table>
 		</div>
 		</div>

@@ -29,25 +29,25 @@
 				<tr>
 					<th>Seller Name</th>
 					<th>Total Amount</th>
+					<th>Seller Location</th>
 				</tr>
 				</thead>
-
 				<tbody>
 				<tr>
-					
-					<td>EEMT OMFED LTD</td>
-					<td>2,0002005</td>
+					<td><?php echo $sqldata[0]->sname; ?></td>
+					<td><?php echo $sqldata[0]->scompanyname; ?></td>
+					<td><?php echo $sqldata[0]->svinspection; ?></td>
 				</tr>
+			 
 				</tbody>
 			</table>
-			  
+			 
 		<table class="table table-striped table-bordered table-sm text-center mt-5" id="dataTable" width="100%" cellspacing="0">
 				<thead class="bg-primary text-white">
-				<tr><th colspan="7" class="bg-warning" >Auctions</th></tr>
+				<tr><th colspan="7" class="bg-warning">Auctions</th></tr>
 				<tr>
 					<th>Auction Id</th>
 					<th>Lot Name</th>
-					<th>Seller Location</th>
 					<th>Auction Start Date</th>
 					<th>Auction Close Date</th>
 					
@@ -56,29 +56,13 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td><a href="#">BHEL/BBR/ISG LTD/2/Adarsh Vihar/25087/20-20</a></td>	
-						<td>Pig Iron</td>
-						<td>Bangalore</td>
-						<td>20-10-2019</td>
-						<td>20-10-2019</td>
-						<td>2,00,000</td>
+						<td><?php echo $sqldatalot[0]->auctionid; ?></td>	
+						<td><?php echo $sqldatalot[0]->	lotno; ?></td>
+						<td><?php echo $sqldatalot[0]->aucstartdate_time; ?></td>
+						<td><?php echo $sqldatalot[0]->aucclosedate_time; ?></td>
+						<td><?php echo $sqldatalot[0]->abidmaxvalue; ?></td>
 					</tr>
-					<tr>
-						<td><a href="#">BHEL/BBR/ISG LTD/2/Adarsh Vihar/25087/20-20</a></td>	
-						<td>Cast Iron</td>
-						<td>Bangalore</td>
-						<td>20-10-2019</td>
-						<td>20-10-2019</td>
-						<td>2,00,000</td>
-					</tr>
-					<tr>
-						<td><a href="#">BHEL/BBR/ISG LTD/2/Adarsh Vihar/25087/20-20</a></td>	
-						<td>Iron</td>
-						<td>Bangalore</td>
-						<td>20-10-2019</td>
-						<td>20-10-2019</td>
-						<td>2,00,000</td>
-					</tr>							
+										
 				</tbody>
 		 </table>
 		</div>

@@ -36,42 +36,51 @@
 					 </thead>
 						<tbody>
 						<tr><td><img class="img-fluid" src="<?php echo base_url()."web_files/";?>img/manimg.jpg" alt="Chania" width="40" height="35"></td></tr>
+						
+						<form action = "<?phpdecho base_url();?>" method="POST" enctype="multipart/form-data">
 							<tr>
 								
 								<td>Seller Name:</td>
-								<td>John</td>
+								<td><?php echo $sqldata[0]->sname; ?></td>
 							</tr> 
 							<tr>
 								<td>Contact Person</td>
-								<td>M.R.Venkatesh</td>
+								<td><?php echo $sqldata[0]->scomapnyname; ?></td>
 							</tr>  
 							<tr>
 								<td>Company Type:</td>
-								<td>Industry</td>
+								<td><?php echo $sqldata[0]->scompanytype; ?></td>
 							</tr> 	
 							<tr>
 								<td>Address</td>
-								<td>Corporate Office</td>
+								<td><?php
+								$companyltype = unserialize($sqldata[0]->saddress);
+							
+								echo $companyltype[0];
+								
+									
+								?></td>
 							</tr>
 							<tr>
 							<td>Another Address</td>
-							<td>Indira Palace,Bangalore</td>
+							<td><?php $companyaddress = unserialize($sqldata[0]->saddresscount); 
+							echo $companyaddress[0];?></td>
 							</tr>	
 							<tr>
 								<td>City</td>
-								<td>Amritsar</td>
+								<td><?php echo $sqldata[0]->scity; ?></td>
 							</tr>
 							<tr>
 								<td>Pincode</td>
-								<td>555230</td>
+								<td><?php echo $sqldata[0]->spin; ?></td>
 							</tr>
 							<tr>
 								<td>State /Union Ter.</td>
-								<td>Chandigarh</td>
+								<td><?php echo $sqldata[0]->sstate; ?></td>
 							</tr>
 							<tr>
 								<td>Country</td>
-								<td>India</td>
+								<td><?php echo $sqldata[0]->scountry; ?></td>
 							</tr>
 													
 						</tbody>
@@ -85,19 +94,19 @@
 						<tbody>
 							<tr>
 								<td>Email</td>
-								<td>abc@gmail.com</td>
+								<td><?php echo $sqldata[0]->semail; ?></td>
 							</tr> 
 							<tr>
 								<td>Phone Number</td>
-								<td>4475142122</td>
+								<td><?php echo $sqldata[0]->sphone; ?></td>
 							</tr> 
 							<tr>
 								<td>Pan Number</td>
-								<td>JCDB245555</td>
+								<td><?php echo $sqldata[0]->span; ?></td>
 							</tr> 	
 							<tr>
 								<td>GST</td>
-								<td>18%</td>
+								<td><?php echo $sqldata[0]->sgst; ?></td>
 							</tr> 
 													
 						</tbody>
@@ -131,19 +140,19 @@
 						<tbody>
 							<tr>
 								<td>Banker's Name</td>
-								<td>PNB</td>
+								<td><?php echo $sqldata[0]->sbankername; ?></td>
 							</tr> 
 							<tr>
 								<td>Account Number</td>
-								<td>25635685****</td>
+								<td><?php echo $sqldata[0]->saccountnumber; ?></td>
 							</tr> 
 							<tr>
 								<td>Branch</td>
-								<td>Indra Palace</td>
+								<td><?php echo $sqldata[0]->sbranch; ?></td>
 							</tr> 
 							<tr>
 								<td>IFSC Code</td>
-								<td>154221485245555</td>
+								<td><?php echo $sqldata[0]->sifsccode; ?></td>
 							</tr> 							
 											
 						</tbody>
@@ -155,22 +164,31 @@
 					 </thead>
 						<tbody>
 							<tr>
-								<td class="btxt">Upload Image1:</td>
-								<td>XYZ.pdf</td>
+								<td class="btxt">Upload Image</td>
+								<td></td>
 							</tr> 
-							<tr>
-								<td class="btxt">Upload Image2:</td>
-								<td>XYZ.pdf</td>
-							</tr> 
-							<tr>
-								<td class="btxt">Upload Image3:</td>
-								<td>XYZ.pdf</td>
-							</tr>
-							<tr>
-								<td class="btxt">Signed Documents:</td>
-								<td>XYZ.pdf</td>
-							</tr>							
-											
+								<?php 
+							if(unserialize($sqldata[0]->ssigneddocument) != NULL){
+								$file = unserialize($sqldata[0]->ssigneddocument);
+								  foreach($file as $fl){
+								echo '<tr id="filess">';
+								echo '<td class="btxt">Existing Documents</td>';
+								echo '<td><div class="input_fields_wrap">';
+								echo '<textarea class="form-control float-left mt-2 p-2 w-50" type="text" id="ssigneddocumentex" name="ssigneddocumentex[]" readonly>'.$fl.'</textarea>';
+								echo '<input type="hidden" id="ssigneddocumentexcom" name="ssigneddocumentexcom[]" value="'.$fl.'">';
+								echo '<a class="add_field_button1"><button type="button" onclick="$(this).parents(\'#filess\').remove()" class="btn btn-sm btn-primary ml-1 mb-5 mt-3">  <i class="fa fa-minus text-white"></i></button></a>';
+								
+								echo '</div></td>';
+								echo '';
+								echo '</tr>';
+								  }
+							}else{
+								
+							}
+							
+							
+							?>			
+							</form>				
 						</tbody>
 					</table>
               

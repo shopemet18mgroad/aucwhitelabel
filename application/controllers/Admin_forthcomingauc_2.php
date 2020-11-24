@@ -20,7 +20,7 @@ class Admin_forthcomingauc_2 extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->helper('url');
+		$this->load->helper(array('url','html'));
 		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->model('Admin_model');
@@ -90,10 +90,11 @@ class Admin_forthcomingauc_2 extends CI_Controller {
 		$this->load->model('Admin_model');
 		//$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
 		$status = $this->Admin_model->update_custom('addlot',$data2,$updatech,$updatech);
-		// $status = $this->Admin_model->insert('sellerprofile', $data2);
+	
+		 //$status = $this->Admin_model->insert('sellerprofile', $data2);
 		header('location: '.base_url().'admin_forthcomingauc_2/forthcomingauc_2/'.urlencode($retrivevaltmp3));
 		
-		die;
+		
 	}
 	public function reject(){
 		$this->load->helper('url');

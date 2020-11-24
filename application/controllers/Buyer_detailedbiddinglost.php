@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Buyer_detailedbidding extends CI_Controller {
+class Buyer_detailedbiddinglost extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -22,32 +22,25 @@ class Buyer_detailedbidding extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$this->load->library('session');
-		
 		$variable = $this->uri->segment(3);
 		$vararray = urldecode($variable);
 		$vararray2 = explode('|',$vararray);
-		//$vararray3 = explode('|',$vararray);
 		$auctionid = str_ireplace('-','/',$vararray2[0]);
 		$lotno = $vararray2[1];
 		$sess = $this->session->userdata('username');
 		$this->load->model('Admin_model');
 		$sess = array('sessi'=>$this->session->userdata('username'));
-		$active = array('bidderusername'=>$sess['sessi'],'auctionid'=>$auctionid);
-		$active2 = array('sauctionid'=>$auctionid);
-		$query = $this->Admin_model->getdatafromtable('biddercart', $active);
-
+		//$active = array('bidderusername'=>$sess['sessi'],'auctionid'=>$auctionid,'lotno'=>$lotno,);
+		$active2 =array('bidderusername'=>$sess['sessi'],'sauctionid'=>$auctionid,'slotno'=>$lotno,);
+		//$query = $this->Admin_model->getdatafromtable('biddercart', $active);
 		$query2 = $this->Admin_model->getdatafromtable('biddingdata', $active2);
-
-		$data['sqldata'] = $query;
+		//$data['sqldata'] = $query;
 		$data['sqldata2'] = $query2;
-		
-		//$data['sessi'] = $sess['sessi'];		
-		$this->load->view('buyer/header',$sess);
-		$this->load->view('buyer/detailedbidding',$data);
+		$data['sessi'] = $sess['sessi'];
+		$this->load->view('buyer/header',$data);
+		$this->load->view('buyer/detailedbiddinglost',$sess);
 		$this->load->view('buyer/footer');
 		
 	}
-	
-
 	
 }
