@@ -65,7 +65,9 @@
 						
 					<tr>
 				
-					<td><?php echo $winner[0]->mybid_val;?></td>
+					<td><?php	
+					
+					echo $winner[0]->mybid_val;?></td>
 					</tr>
 					
 				</tbody>

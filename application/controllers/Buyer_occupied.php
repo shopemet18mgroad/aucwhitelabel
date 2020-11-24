@@ -29,6 +29,8 @@ class Buyer_occupied extends CI_Controller {
 
 //print_r($sess['sessi']);die;
 		$data['sqldat'] = $this->Admin_model->datebetweensess2('biddercart',$time,$sess['sessi']);
+		
+		
 			$xr = 0;
 			$xdata = array();
 			
@@ -43,42 +45,40 @@ class Buyer_occupied extends CI_Controller {
 		$active3 = array('sauctionid'=>$auctmp,'slotno'=>$auclottmp);
 		$query2 = $this->Admin_model->getdatafromtable('biddingdata', $active3);
 		
-		$tmpbidamt = $query2[0]->bidamount; 
+		$tmpbidamt = $query2[0]->bidamount;
 		
 		
-		$active4 = array('bidderusername'=>$sess['sessi']);
-		
-		$query3 = $this->Admin_model->getdatafromtable('biddercart',$active4);
-		print_r(array($query3[0]->mybid_val)); die;
-		$maxvalue = $query3[0]->mybid_val;
-		print_r($maxvalue); die;
+	
+	  
+		//$active4 = array('bidderusername'=>$sess['sessi']);
+		/*  $active4 = array('sauctionid'=>$auctmp,'slotno'=>$auclottmp);
+		$query3 = $this->Admin_model->getdatafromtable('biddercart',$active4);  */
+		$query3 = $this->Admin_model->maxbidvalue('biddercart');
+print_r($query3); die;
+		$maxvalue = $query3;
+	
 		 if ($maxvalue = $tmpbidamt){
 			$xdata[$xr] = $query3[0];
-			$xr++;
-			
+		$xr++;
 		}
 		else{
 			echo "not ok";
-		}  
-		$data['winner'] = $xdata;	
-	$auctmp = $datsql->auctionid;
-	$auclottmp = $datsql->lotno;	
-		
-	$active6 = array('sauctionid'=>$auctmp,'slotno'=>$auclottmp,'bidamount'=>$maxvalue,'bidderusername'=>$sess['sessi']);
-
-		$query7 = $this->Admin_model->getdatafromtable('biddingdata', $active6);
-	print_r($query7); die;
+	}  
 					}
 				
-			
-	
+
+      
+				
+		
+		$data['winner'] = $xdata;	
+
 
 		//$check_array = array('dat'=>);
 		$this->load->view('buyer/header',$sess);
-		$this->load->view('buyer/occupied',$data,$query7);
+		$this->load->view('buyer/occupied',$data,$query2);
 		$this->load->view('buyer/footer');		
 	
-	
+
 }
 
 

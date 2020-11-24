@@ -20,13 +20,22 @@ class admin_bidwinner extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->helper('url');
+		$this->load->helper(array('url','html','date'));
+		date_default_timezone_set('Asia/Kolkata');
+		$time =  Date('Y-m-d H:i:s');
+		$this->load->model('Admin_model');
+		$data['bidwinner'] = $this->Admin_model->dateclosedauc('biddercart',$time);
+		
+		
 		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('admin/header',$sess);
-		$this->load->view('admin/bidwinner');
+		$this->load->view('admin/bidwinner',$data);
 		$this->load->view('admin/footer');
 		
 	}
+	
+	
+	
 	
 }
