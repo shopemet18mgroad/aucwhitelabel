@@ -234,6 +234,24 @@ $(document).ready(function() {
 
  }
  </script>
+ <script>
+ function autobidenable(v){
+	 var a = $('#bidperunit').val();
+	 var b = $('#bidmax').val();
+	 
+	 $.get('<?php echo base_url() .'Buyer_liveauc_2/buyer_autobid_set/'; ?>'+a+'|'+b+'|'+v, function(dataab){
+		 if($.trim(dataab) == "Done"){
+			 var res = v.split("|");
+			window.location = '<?php echo base_url() .'Buyer_liveauc_2/index/'; ?>'+res[1]+'|'+res[2];
+		 }else{
+			  swal("Something Went Wrong Please Try again!", {
+				  icon: "error",
+				});
+		 }
+		});
+	 return false;
+ }
+ </script>
 
 
 
