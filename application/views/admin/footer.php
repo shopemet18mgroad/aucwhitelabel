@@ -187,6 +187,7 @@
 		});
 	
  </script>
+
  <script>
 		$('#gettable_editauction').on('keyup', function(){
 			var contents = $('#gettable_editauction').val(); 
