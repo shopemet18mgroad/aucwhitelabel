@@ -42,21 +42,24 @@
 					<th>Lot No</th>
 					<th>Date/Time</th>
 					<th>Bid Price</th>
+					<th>Status</th>
 				</tr>
 		</thead>
 		<tbody>
-			<tr>
-		<?php foreach($winner as $sqldat){?>			
-				<td><?php echo $sqldat->auctionid;?></td>
-				<td><?php echo $sqldat->lotno;?></td>
-				<td><?php echo $sqldat->aucclosedate_time;?> </td>
-				<td><?php echo $sqldat->bidamount;?></td>
-				<td><?php echo "lost";?></td>
-				</tr>
-		<?php }?>
-		
-													
-		</tbody>
+				<?php  foreach($sqldatarec as $sqldata){ $datareciver = explode('|',$sqldata);?>
+					<tr>												
+						<td><?php echo $datareciver[0]; ?></td>
+						<td><?php echo $datareciver[1]; ?></td>
+						<td><?php echo $datareciver[3]	; ?>
+						</td>
+						<td><?php echo $datareciver[2];?>
+						</td>
+						<td><?php echo "Lost"?></td>
+					</tr>
+					<?php  } ?>
+						
+					
+				</tbody>
 		 </table>
 		 	<div class="ajaxrslt" id="ajaxrslt_detailedauc">
 			<!----Insert Ajax Table Here------>
