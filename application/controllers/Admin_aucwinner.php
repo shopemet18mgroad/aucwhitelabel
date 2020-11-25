@@ -32,12 +32,15 @@ class Admin_aucwinner extends CI_Controller {
 	}
 	
 	public function aucwinner2(){
+
 		$this->load->helper(array('url','html','date'));
 		date_default_timezone_set('Asia/Kolkata');
 		$time =  Date('Y-m-d H:i:s');
 		
 		$retrivevaltmp2 = $this->uri->segment(3);
+
 		
+		$this->load->model('Admin_model');
 		$retrivevaltmp = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
 		
 		$retriveval = array('auctionid'=>$retrivevaltmp);
@@ -67,7 +70,15 @@ class Admin_aucwinner extends CI_Controller {
 		 
 		}
 		
-	
+
+		
+		$retrive= urldecode($this->uri->segment(3));
+
+		$ret = array('bcompany'=>$retrive);
+
+		$this->load->model('Admin_model');
+		$data['bidwin'] = $this->Admin_model->getdatafromtable('biddercart',$retriveval);
+		$data['buyer'] = $this->Admin_model->getdatafromtable('buyerprofile',$ret);
 		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('admin/header',$sess);
@@ -76,5 +87,25 @@ class Admin_aucwinner extends CI_Controller {
 		
 	}
 	
+	/* public function aucwin(){
+		
+		$this->load->model('Admin_model');
+
+	
+		
+		$retrive= urldecode($this->uri->segment(3));
+
+		$ret = array('bcompany'=>$retrive);
+		
+		$data2['buyer'] = $this->Admin_model->getdatafromtable('buyerprofile',$ret);
+		print_r(data2); die;
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('admin/header',$sess);
+		$this->load->view('admin/aucwinner',$data2);
+		$this->load->view('admin/footer');
+		
+	}
+	 */
 	
 }

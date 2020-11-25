@@ -22,22 +22,21 @@ class Pdf_File2 extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$this->load->model('Admin_model');
-		$sname = $this->uri->segment(3);
-			
+		//$sname = $this->uri->segment(3);
+			$sname = "AUC/Anita/Ferrous/16/53/37";
 		$aucencode = str_ireplace('-','/',$sname);
 			
 			$active = array('sauctionid'=>$aucencode);
 			
 			$query = $this->Admin_model->getdatafromtable('addlot', $active);
+			
 			$query2 = $this->Admin_model->getdatafromtable('auction', $active);
 			
 			$data['sqldata']= $query;
 			$data['sqldata2']= $query2;
 			$data['sname'] = $sname;
-			
-			$this->load->view('Pdf_File2',$data);
-			
 		
+			$this->load->view('Pdf_File2',$data);
 		
 }
 	
