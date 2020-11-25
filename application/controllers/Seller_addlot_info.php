@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin_addlot_info extends CI_Controller {
+class Seller_addlot_info extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -40,8 +40,7 @@ class Admin_addlot_info extends CI_Controller {
 		$data = $this->session->flashdata('txdata');
 		$this->load->library('fileupload');
 		$this->load->helper(array('url','form','file','html'));
-            
-			if($this->input->post('submit')){
+            if($this->input->post('submit')){
 			$sauctionid = $this->input->post('sauctionid');
 			$sname = $this->input->post('sname');
 			 $slotno = $this->input->post('slotno'); 
@@ -82,17 +81,17 @@ class Admin_addlot_info extends CI_Controller {
 			 $transfer = array('auctionid' => $sauctionid, 'category' => $scategory,'sname'=> $sname);
 			   if($status){
 				  $this->session->set_flashdata('txdata',$transfer);
-				  redirect('../admin_auctiondetails');
+				  redirect('../Seller_auctiondetails');
 			  }else{
-				   header('location: ./admin_addlot/index/');
+				   header('location: ./Seller_addlot/index/');
 		
 			}
 			
 			
 			
-		$this->load->view('admin/header');
-		$this->load->view('admin/addlot');
-		$this->load->view('admin/footer');
+		$this->load->view('seller/header');
+		$this->load->view('seller/addlot');
+		$this->load->view('seller/footer');
 		
 	}
 		 else if($this->input->post('submit2')){
@@ -126,15 +125,15 @@ class Admin_addlot_info extends CI_Controller {
 				 
 						  if($status1){
 				  $this->session->set_flashdata('txdata',$transfer1);
-				  redirect('../admin_addlot');
+				  redirect('../Seller_addlot');
 				  
 			  }else{
-				   header('location: ./admin_addlot1/index/');
+				   header('location: ./Seller_addlot1/index/');
 		
 			}
-         $this->load->view('admin/header');
-		$this->load->view('admin/addlot');
-		$this->load->view('admin/footer');
+         $this->load->view('seller/header');
+		$this->load->view('seller/addlot');
+		$this->load->view('seller/footer');
 
 			  }
 	}	

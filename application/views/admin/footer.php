@@ -121,7 +121,7 @@
  <script>
  function auction_id(){
 	 var cat = document.getElementById('scategory').value;
-	  var cat2 = document.getElementById('sname').value;
+	  var cat2 = document.getElementById('srefid').value;
 	   var d = new Date();
 	   var m = d.getHours();
 	   var n = d.getMinutes();
@@ -374,7 +374,9 @@
 </script>
  <script>
  function getPaging(v){
-	document.getElementById("scompanyname").value = v;
+	 var s = v.split("|");
+	document.getElementById("scompanyname").value = s[0];
+	document.getElementById("sname").value = s[1];
 	 $("#dp").hide();
  }
  </script>

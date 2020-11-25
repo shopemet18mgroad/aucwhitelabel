@@ -48,7 +48,7 @@ th, td {
 		<p><strong>ONLINE AUCTION PLATFORM AND SUPPORT SERVICES PROVIDED BY AUCJUNCTION</strong></p>
 	</div>
 
-<p><b>AUCJUNCTION</b>&nbsp; is an authorized e- commerce service provider for&nbsp; <?php echo $sqldata2[0]->scompanyname; ?>&nbsp;
+<p><b>AUCJUNCTION</b>&nbsp; is an authorized e- commerce service provider for&nbsp; <?php echo $sqldata2[0]->scompanyname; ?>
 (Seller) to obtain rates online through its portal www.aucjunction.com. The sale and purchase are directly made
 by the Seller and Buyer/s (Bidder/s).
 </p>

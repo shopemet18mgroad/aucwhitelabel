@@ -32,23 +32,53 @@ class Admin_aucwinner extends CI_Controller {
 	}
 	
 	public function aucwinner2(){
-		$retrivevaltmp2 = $this->uri->segment(3);
+
+		$this->load->helper(array('url','html','date'));
+		date_default_timezone_set('Asia/Kolkata');
+		$time =  Date('Y-m-d H:i:s');
 		
-		$retrivevaltmp = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
-		$retriveval = array('auctionid'=>$retrivevaltmp);
-		$retrive = array('bidderusername'=>$retrivevaltmp);
-	
-		$retriveval2 = array('bname'=>$retrivevaltmp2);
+		$retrivevaltmp2 = $this->uri->segment(3);
+
 		
 		$this->load->model('Admin_model');
-		$data['bidwin'] = $this->Admin_model->getdatafromtable('biddercart',$retriveval,$retrive);
+		$retrivevaltmp = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
 		
-		$data['buyerdet'] = $this->Admin_model->getdatafromtable('buyerprofile',$retriveval2);
+		$retriveval = array('auctionid'=>$retrivevaltmp);
+
+		$this->load->model('Admin_model');
+		$data['bidwin'] = $this->Admin_model->dateclosedauc('biddercart',$time);
+		//print_r($data['bidwin']); die;
+		$data['busername'] = $data['bidwin'][0]->bidderusername; 	
+		//$data['mybid_val'] = $data['bidwin'][0]->mybid_val; 
+			
+		$active = array('busername'=>$data['busername']);
+		$data['buyerdet'] = $this->Admin_model->getdatafromtable('buyerprofile',$active);
 		
-		if($retrive == $retriveval2){
-		$data['buyerdet'] = $this->Admin_model->getdatafromtable('buyerprofile',$retriveval2);
-		}
+		$active2 = array('sauctionid'=>$retrivevaltmp,'bidderusername'=>$data['busername']);
+		$data['bidding'] = $this->Admin_model->getdatafromtable('biddingdata',$active2);
+		
+		$data['bidata'] =$data['bidding'][0]->bidamount;
 	
+		
+		$data['maxbid_val'] = $this->Admin_model->maxbidvalue('biddercart');
+		// print_r($data['maxbid_val']); die;
+		
+		
+		if($data['bidata'] == $data['maxbid_val']){
+			
+		echo "hi";
+		 
+		}
+		
+
+		
+		$retrive= urldecode($this->uri->segment(3));
+
+		$ret = array('bcompany'=>$retrive);
+
+		$this->load->model('Admin_model');
+		$data['bidwin'] = $this->Admin_model->getdatafromtable('biddercart',$retriveval);
+		$data['buyer'] = $this->Admin_model->getdatafromtable('buyerprofile',$ret);
 		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('admin/header',$sess);
@@ -57,5 +87,25 @@ class Admin_aucwinner extends CI_Controller {
 		
 	}
 	
+	/* public function aucwin(){
+		
+		$this->load->model('Admin_model');
+
+	
+		
+		$retrive= urldecode($this->uri->segment(3));
+
+		$ret = array('bcompany'=>$retrive);
+		
+		$data2['buyer'] = $this->Admin_model->getdatafromtable('buyerprofile',$ret);
+		print_r(data2); die;
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('admin/header',$sess);
+		$this->load->view('admin/aucwinner',$data2);
+		$this->load->view('admin/footer');
+		
+	}
+	 */
 	
 }
