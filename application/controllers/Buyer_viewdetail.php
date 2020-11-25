@@ -33,15 +33,12 @@ class Buyer_viewdetail extends CI_Controller {
 	
 	
 	  public function viewdetail(){
-		$retrivevaltmp = urldecode($this->uri->segment(3));
-		$retriveval = array('sname'=>$retrivevaltmp);
+		$retrivevaltmp = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
+		$retriveval = array('sauctionid'=>$retrivevaltmp);
 		$this->load->model('Admin_model');
-		//$this->db->select('*'); // join the two table with similer id
-		//$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid', 'left');
-		//$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
 		
-		$data['sqldata'] = $this->Admin_model->getdatafromtablejoin('addlot','auction','sauctionid',$retrivevaltmp);
-		$data['sellerinfo'] = $this->Admin_model->getdatafromtable('sellerprofile',$retriveval);
+		$data['sqldata'] = $this->Admin_model->getdatafromtable('biddingdata',$retriveval);
+		//print_r($data['sqldata']); die;
 		
 		$this->load->helper('url');
 		$this->load->library('session');
@@ -56,7 +53,7 @@ class Buyer_viewdetail extends CI_Controller {
 		echo '<script language="javascript">';
 			echo 'alert("'.$retrivevaltmp2.'")';  //not showing an alert box.
 			echo '</script>';
-		$retriveval = array('sname'=>$retrivevaltmp);
+		$retriveval = array('sauctionid'=>$retrivevaltmp);
 		$this->load->model('Admin_model');
 		$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
 		$this->load->helper('url');

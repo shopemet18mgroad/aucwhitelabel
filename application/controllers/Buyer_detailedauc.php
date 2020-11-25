@@ -32,7 +32,7 @@ class Buyer_detailedauc extends CI_Controller {
 	public function get_table(){
 		$datatoquerydb = $this->uri->segment(3);
 		$this->load->model('Admin_model');		
-		$data = $this->Admin_model->get_lookalike('auction','sname',$datatoquerydb);
+		$data = $this->Admin_model->get_lookalike('auction','sauctionid',$datatoquerydb);
 		if(count($data)){
 			echo '<table class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';
 			echo '<thead class="bg-warning  text-white text-center">';
@@ -50,7 +50,7 @@ class Buyer_detailedauc extends CI_Controller {
 			echo '<tbody>';
 			foreach($data as $dat){
 				echo '<tr>';
-				echo '<td><a href="'.base_url().'buyer_viewdetail/viewdetail/'.$dat['sname'].
+				echo '<td><a href="'.base_url().'buyer_viewdetail/viewdetail/'.str_ireplace('/','-',$dat['sauctionid']).
 				'">';
 				echo $dat['sauctionid'];
 				echo '</a>';
