@@ -43,10 +43,15 @@
 				</select>
 			</td>
 	  </tr>
+	  <tr>
+		  <td>Seller Name</td>
+		  <td><input class="form-control w-50"  type="text" id="sname" name="sname" placeholder="Search"  aria-label="Search" readonly>
+		  </td>
+	  </tr>
 	  
 	  	  <tr>
-		  <td>Seller</td>
-		  <td><input class="form-control w-50"  type="text" id="sname" name="sname" placeholder="Search" onkeyup="auction_id()" aria-label="Search">
+		  <td>Reference Id</td>
+		  <td><input class="form-control w-50"  type="text" id="srefid" name="srefid" placeholder="Search" onkeyup="auction_id()" aria-label="Search">
 		  </td>
 	  </tr>
 	  

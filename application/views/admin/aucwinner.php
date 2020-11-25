@@ -53,7 +53,7 @@
 				<tr>
 					<th>Buyer Name</th>
 					<th>Company Name </th>
-					<th>Date and Time</th>
+					<th>Closed Date and Time</th>
 					<th>Amount</th>
 				</tr>
 													
@@ -61,10 +61,10 @@
 				<tbody>
 				<tr>
 				<?php foreach($buyerdet as $sqldat){?>
+								<td style="color:green;"><b><?php echo $sqldat->bname; ?></b></td>
 								<td style="color:green;"><b><?php echo $sqldat->bcompany; ?></b></td>
-								<td style="color:green;"><b>BHEL</b></td>
-								<td style="color:green;"><b>17-03-2020</b></td>
-								<td style="color:green;"><b>2,00,000</b></td>
+								<td style="color:green;"><b><?php echo $data['bidding'][0]->saucclosedate_time; ?></b></td>
+								<td style="color:green;"><b><?php echo $data['bidding']->bidamount; ?></b></td>
 													</tr>
 						<?php }?>
 													<tr>

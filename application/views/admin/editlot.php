@@ -167,9 +167,9 @@ if($sqldata[0]->spcbcertificate){echo "unchecked";}else{echo "checked";}		?>>
   </table>
   
   <center>
-	<input type="submit" name="submit2" onclick="return validatelot()" class="btn btn-info text-white" data-dismiss="modal" value="Update Lot">
+	
  
- <input type="submit"  name="submit" onclick="return validatelot()" class="btn btn-info text-white" value="Submit" data-dismiss="modal">
+ <input type="submit"  name="submit" onclick="return validatelot()" class="btn btn-info text-white" value="Update Lot" data-dismiss="modal">
   </center>
   </form>
 			</div>

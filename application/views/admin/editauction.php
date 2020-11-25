@@ -49,9 +49,10 @@
 	  
 	  	  <tr>
 		  <td>Seller</td>
-		  <td><input class="form-control w-50"  type="text" id="sname" name="sname" placeholder="Search" value="<?php echo $sqldata[0]->sname; ?>" onkeyup="auction_id()" aria-label="Search">
+		  <td><input class="form-control w-50"  type="text" id="sname" name="sname" placeholder="Search" value="<?php echo $sqldata[0]->sname; ?>" aria-label="Search" readonly>
 		</td>
 	  </tr>
+	  
       
 	  <tr>
 		  <td>Auction Id</td>
@@ -61,15 +62,12 @@
 	  
 	  <tr>
 		  <td>Seller Company Name</td>
-		  <td><input class="form-control w-50"  type="text" id="scompanyname" name="scompanyname" value="<?php echo $sqldata[0]->scompanyname; ?>">
+		  <td><input class="form-control w-50"  type="text" id="scompanyname" name="scompanyname"  value="<?php echo $sqldata[0]->scompanyname; ?>" readonly>
 		</td>
 	  </tr>
 	  
 	  <tr>											
 		  <td>Venue Of Inspection</td>
-
-
-
 
 		  <td><textarea class="form-control w-50" type="text" id="svinspection" name="svinspection" value="<?php echo $sqldata[0]->svinspection; ?>"><?php echo $sqldata[0]->svinspection; ?></textarea></td>
 

@@ -61,7 +61,7 @@
 						</td>
 						<td><?php
 					
-						if($maxbid_val == $sqldata->bidamount){
+						if($maxbid_val == $bidamt[0]->bidamount){
 						echo "Win";
 					}else{
 						echo "Lost";
