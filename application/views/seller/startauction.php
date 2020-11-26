@@ -1,5 +1,6 @@
 <?php 
 	//include('./header.php');
+	//print_r($scomp); die;
 ?>
         <!-- End of Topbar -->
 
@@ -46,11 +47,17 @@
 	  
 	  	  <tr>
 		  <td>Seller</td>
-		  <td><input class="form-control w-50"  type="text" id="sname" name="sname" placeholder="Search" onkeyup="auction_id()" aria-label="Search">
+		  <td><input class="form-control w-50"  type="text" id="sname" name="sname"
+		   value="<?php echo  $scomp[0]->sname;?>" readonly>
+		  
 		  </td>
 	  </tr>
 	  
-	  
+	  <tr>
+		  <td>Reference Id</td>
+		  <td><input class="form-control w-50"  type="text" id="srefid" name="srefid" placeholder="Search" onkeyup="auction_id()" aria-label="Search">
+		  </td>
+	  </tr>
       
 	  <tr>
 		  <td>Auction Id</td>
@@ -59,7 +66,7 @@
 	  </tr>
 	  <tr>
 		  <td>Seller Company Name</td>
-		 <td><input class="form-control w-50"  type="text" id="scompanyname" name="scompanyname" onkeyup="search_company()""><div id="select" class="select"><ul id="dp"></ul></div>
+		 <td><input class="form-control w-50"  type="text" id="scompanyname" name="scompanyname" value="<?php echo  $scomp[0]->scomapnyname;?>" readonly>
 		</td>
 	  </tr>
 	  

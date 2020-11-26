@@ -34,7 +34,8 @@ class Seller_startauction extends CI_Controller {
     }
 	
 	public function index()
-	{
+	{	
+		
 		 if($this->input->post('submit')){
 			$date =  Date('Y-m-d'); 
 			$this->load->library('fileupload');
@@ -44,6 +45,7 @@ class Seller_startauction extends CI_Controller {
 			$scategory = $this->input->post('scategory');
 			$sauctionid = $this->input->post('sauctionid');
 			$sname = $this->input->post('sname');
+			$srefid = $this->input->post('srefid');
 			$scompanyname = $this->input->post('scompanyname');
 			$sfrominpectdate_time = $this->input->post('sfrominpectdate_time');
 			$stoinpectdate_time  = $this->input->post('stoinpectdate_time');
@@ -71,7 +73,7 @@ class Seller_startauction extends CI_Controller {
 				$sterms_text = $this->input->post('sterms_text');
 			
 			//$this->load->model('Admin_model');
-			$data = array('scategory' => $scategory, 'sauctionid' => $sauctionid, 'sname' => $sname, 'scompanyname' => $scompanyname, 'sfrominpectdate_time' => $sfrominpectdate_time, 'stoinpectdate_time' => $stoinpectdate_time, 'sstartbidprice' => $sstartbidprice,'slastdateemdsub' => $slastdateemdsub, 'svinspection'=> $svinspection, 'saucstartdate_time' => $saucstartdate_time,'saucclosedate_time' => $saucclosedate_time,'sterms_condiaccept'=>$sterms_condiaccept,'sterms_condiupload' => $pic_array1 , 'sterms_text' => $sterms_text);
+			$data = array('scategory' => $scategory, 'sauctionid' => $sauctionid, 'sname' => $sname,'srefid' => $srefid, 'scompanyname' => $scompanyname, 'sfrominpectdate_time' => $sfrominpectdate_time, 'stoinpectdate_time' => $stoinpectdate_time, 'sstartbidprice' => $sstartbidprice,'slastdateemdsub' => $slastdateemdsub, 'svinspection'=> $svinspection, 'saucstartdate_time' => $saucstartdate_time,'saucclosedate_time' => $saucclosedate_time,'sterms_condiaccept'=>$sterms_condiaccept,'sterms_condiupload' => $pic_array1 , 'sterms_text' => $sterms_text);
 			
 			$status = $this->Admin_model->insert('auction', $data);
 			
@@ -85,19 +87,23 @@ class Seller_startauction extends CI_Controller {
 			
 			}
 		
-		$this->load->model('Admin_model');	
+		
+		$this->load->model('Admin_model');
 		$sess = array('sessi'=>$this->session->userdata('username'));
-		$active1 = array('scomapnyname'=>$sess['sessi']);
-		//print_r($active); die;
+	
+		 $active1 = array('susername'=>$sess['sessi']);
+		
 		
 	
-		 $query = $this->Admin_model->getdatafromtable('sellerprofile', $active1);
-		 //print_r($query); die;
-		$data2['sqldata']= $query; 
-			//print_r($query); die;
+		 $data['scomp'] = $this->Admin_model->get1datafromtable('sellerprofile', $active1);
+		
+		//print_r($data['scomp']); die;
+		 
+		
+		
 			
 		$this->load->view('seller/header',$sess);
-		$this->load->view('seller/startauction');
+		$this->load->view('seller/startauction',$data );
 		$this->load->view('seller/footer');
 		
 	}
@@ -106,6 +112,7 @@ class Seller_startauction extends CI_Controller {
 	 
 	public function get_seller_table(){
 	$dataw = urldecode($this->uri->segment(3));
+	print_r($dataw); die;
 	$this->load->model('Admin_model');
 	$search = $this->Admin_model->get_lookalike('sellerprofile','scomapnyname',$dataw);	
 	if($search){

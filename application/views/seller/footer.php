@@ -88,10 +88,10 @@ function validate_password_seller(){
  }
  </script>
  
-  <script>
+ <script>
  function auction_id(){
 	 var cat = document.getElementById('scategory').value;
-	  var cat2 = document.getElementById('sname').value;
+	  var cat2 = document.getElementById('srefid').value;
 	   var d = new Date();
 	   var m = d.getHours();
 	   var n = d.getMinutes();
@@ -125,7 +125,19 @@ function validate_password_seller(){
 		});
 	
  </script>
-
+ <script>
+		function seller_set_deactive(varab2){
+			$.get('<?php echo base_url() .'Seller_auctionapproval/setdeactive_seller/'; ?>'+varab2, function(data2){
+alert(data2);				
+				 if($.trim(data2) == "HI"){
+					 window.location.href = '<?php echo base_url().'Seller_auctionapproval';?>'
+					return true;
+				}
+			 });
+			
+		}
+	
+ </script>
 
 </body>
 
