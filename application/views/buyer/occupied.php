@@ -44,7 +44,7 @@
 					<th>Auction Id</th>
 					<th>Lot No</th>
 					<th>date/Time</th>
-					<th>Bid Amount</th>
+					<th>My Bid Value</th>
 					<th>Status</th>
 					
 					
@@ -57,17 +57,29 @@
 						<td><?php echo $sqldata->lotno; ?></td>
 						<td><?php echo $sqldata->aucclosedate_time	; ?>
 						</td>
-						<td><?php echo $sqldata->bidamount; ?></td>
-						<td><?php echo $sqldata->mybid_val; ?></td>
+						<td><?php echo $sqldata->mybid_val;?>
+						</td>
+						<td><?php
 					
+						if($maxbid_val == $sqldata->bidamount){
+						echo "Win";
+					}else{
+						echo "Lost";
+					}	?></td>
 					</tr>
 					<?php  } ?>
 						
 					<tr>
 				
-					<td><?php	
-					
-					echo $winner[0]->mybid_val;?></td>
+					<td><?php echo $maxbid_val;
+							  echo $tmpbidamt;
+							echo $sqldat[0]->bidamount;
+					if($maxbid_val == $sqldat[0]->bidamount){
+						echo "Win";
+					}
+					?>
+					         
+					</td>
 					</tr>
 					
 				</tbody>

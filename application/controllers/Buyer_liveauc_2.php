@@ -153,13 +153,21 @@ if($query2[0]->sstartbidprice >= $query2[0]->cbidval){
 $sessa2 = str_ireplace('@','%40',$sess['sessi']);
 $id = $sessa2."|".str_ireplace('/','-',$query[0]->auctionid)."|".$query2[0]->slotno;
 echo '<td><div class="form-group row ml-2">';
-echo '<input class="form-control col-sm-7 mr-2" type="number" value="'.$datbid.'" min="0" step="'.$query2[0]->sprice.'" id="bid" name="bid">';
-echo '<button type="submit" class="btn btn-info" id="'.$id.'" onclick="bid_manual(this.id)">Bid</button></div>';
-echo '';
+if($query[0]->abidding){
+	echo '<input class="form-control col-sm-7 mr-2" type="number" value="'.$datbid.'" min="0" step="'.$query2[0]->sprice.'" id="bid" name="bid" readonly>';
+	echo '<button type="submit" class="btn btn-info" id="'.$id.'" onclick="bid_manual(this.id)" disabled>Bid</button></div>';
+	echo '';
+	echo '</td>';
+echo '<td><a href="'.base_url().'Buyer_liveauc_2/buyer_autobid_disable/'.str_ireplace('/','-',$query[0]->auctionid).'|'.$query2[0]->slotno.'"><button type="button" class="btn btn-info">Disable AutoBid</button></a></td>';
+}else{
+	echo '<input class="form-control col-sm-7 mr-2" type="number" value="'.$datbid.'" min="0" step="'.$query2[0]->sprice.'" id="bid" name="bid">';
+	echo '<button type="submit" class="btn btn-info" id="'.$id.'" onclick="bid_manual(this.id)">Bid</button></div>';
+	echo '';
+	echo '</td>';
+echo '<td><a href="'.base_url().'Buyer_liveauc_2/buyer_autobid/'.str_ireplace('/','-',$query[0]->auctionid).'|'.$query2[0]->slotno.'"><button type="button" class="btn btn-info">AutoBid</button></a></td>';
+}
 
-echo '</td>';
-echo '<td><a href="<?php echo base_url();?>buyer_autobid"><button type="button" class="btn btn-info">AutoBid</button></a></td>';
-echo '<td><a href="<?php echo base_url();?>buyer_biddinglivestatus"><button type="button" class="btn btn-info btn-sm p-2"><b>Live Status</b></button></a></td>';
+echo '<td><a href="'.base_url().'buyer_biddinglivestatus"><button type="button" class="btn btn-info btn-sm p-2"><b>Live Status</b></button></a></td>';
 echo '</tr>';
 echo '';
 echo '</tbody>';
@@ -274,5 +282,55 @@ echo '</table>';
 			echo "Bidding Closed";
 			die;
 		}die;
+	}
+	public function buyer_autobid(){
+		$this->load->helper('url');
+		$this->load->library('session');
+		$this->load->model('Admin_model');
+		$url = $this->uri->segment(3);
+		$urltoexplode = urldecode($url);
+		$urltoexplode2 = explode('|',$urltoexplode);
+		$auctionid = $urltoexplode2[0];
+		$auctionid = str_ireplace('-','/',$auctionid);
+		$lotid = $urltoexplode2[1];
+		$active = array('sauctionid'=>$auctionid,'slotno'=>$lotid);
+		$data['sqldata'] = $this->Admin_model->getdatafromtable('addlot',$active);
+		$data['sqldata2'] = $this->session->userdata('username');
+		 $sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('buyer/header',$sess);
+		$this->load->view('buyer/autobid',$data);
+		$this->load->view('buyer/footer');
+	}
+	public function buyer_autobid_set(){
+		$this->load->helper('url');
+		$this->load->library('session');
+		$this->load->model('Admin_model');
+		$user = $this->uri->segment(3);
+		$user2 = explode('|',urldecode($user));
+		$bidslab = $user2[0];
+		$expprice = $user2[1];
+		$user = $user2[2];
+		$auctionid = str_ireplace('-','/',$user2[3]);
+		$auclot = $user2[4];
+		$active = array('bidderusername'=>$user,'auctionid'=>$auctionid,'lotno'=>$auclot);
+		$dataforupdate = array('abidmaxvalue'=>$expprice,'abidslab'=>$bidslab,'abidding'=>true);
+		$this->Admin_model->update_custom('biddercart',$dataforupdate,$active,$active);
+		echo "Done";
+	}
+	public function buyer_autobid_disable(){
+		$this->load->helper('url');
+		$this->load->library('session');
+		$this->load->model('Admin_model');
+		$user = $this->uri->segment(3);
+		$user2 = explode('|',urldecode($user));
+		echo $user = $this->session->userdata('username');
+		echo $auctionid = $user2[0];
+		echo $auctionid2 = str_ireplace('-','/',$user2[0]);
+		echo $auclot = $user2[1];
+		$active = array('bidderusername'=>$user,'auctionid'=>$auctionid2,'lotno'=>$auclot);
+		$dataforupdate = array('abidding'=>false);
+		$this->Admin_model->update_custom('biddercart',$dataforupdate,$active,$active);
+		header('location: '.base_url().'buyer_liveauc_2/index/'.$auctionid.'|'.$auclot);
+		
 	}
 }
