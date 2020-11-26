@@ -1,5 +1,6 @@
  <?php 
 	//include('./header.php');
+	//print_r($sqldatarec);die;
 	
 ?>
         <!-- End of Topbar -->
@@ -51,36 +52,28 @@
 				</tr>
 				</thead>
 				<tbody>
-				<?php  foreach($sqldat as $sqldata){ ?>
+				<?php  foreach($sqldatarec as $sqldata){ $datareciver = explode('|',$sqldata);?>
 					<tr>												
-						<td><?php echo $sqldata->auctionid; ?></td>
-						<td><?php echo $sqldata->lotno; ?></td>
-						<td><?php echo $sqldata->aucclosedate_time	; ?>
+						<td><?php echo $datareciver[0]; ?></td>
+						<td><?php echo $datareciver[1]; ?></td>
+						<td><?php echo $datareciver[3]	; ?>
 						</td>
-						<td><?php echo $sqldata->mybid_val;?>
+						<td><?php echo $datareciver[2];?>
 						</td>
+<<<<<<< HEAD
+						<td><?php echo "Winner"?></td>
+=======
 						<td><?php
 					
-						if($maxbid_val == $sqldata->bidamount){
+						if($maxbid_val == $bidamt[0]->bidamount){
 						echo "Win";
 					}else{
 						echo "Lost";
 					}	?></td>
+>>>>>>> e13aa12b3719e51d7edaa0ce16288902dbcc87f3
 					</tr>
 					<?php  } ?>
 						
-					<tr>
-				
-					<td><?php echo $maxbid_val;
-							  echo $tmpbidamt;
-							echo $sqldat[0]->bidamount;
-					if($maxbid_val == $sqldat[0]->bidamount){
-						echo "Win";
-					}
-					?>
-					         
-					</td>
-					</tr>
 					
 				</tbody>
 		 </table>

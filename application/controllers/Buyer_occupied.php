@@ -29,34 +29,39 @@ class Buyer_occupied extends CI_Controller {
 
 //print_r($sess['sessi']);die;
 		$data['sqldat'] = $this->Admin_model->datebetweensess2('biddercart',$time,$sess['sessi']);
-		$active3 = array();
-		$data['bidamt'] = $this->Admin_model->getdatafromtable('biddingdata', $active3);
+		//$active3 = array();
+		//$data['bidamt'] = $this->Admin_model->getdatafromtable('biddingdata', $active3);
 		//$data['maxbid_val'] = $this->Admin_model->maxbidvalue('biddercart');
-		 
 		 // $auctmp = $sqldat->auctionid;
 		// $auclottmp = $sqldat->lotno;
 		// $active3 = array('sauctionid'=>$auctmp,'slotno'=>$auclottmp);
 		// $data['bidamt'] = $this->Admin_model->getdatafromtable('biddingdata', $active3);
-			 $xr = 0;
-			$xdata = array(); 
+		   $xr = 0;
+		   $xdata = array(); 
 			
-		foreach($data['sqldat'] as $datsql){ 
-				
-		 $auctmp = $datsql->auctionid;
+		foreach($data['sqldat'] as $datsql){ 	
+		$auctmp = $datsql->auctionid;
 		$auclottmp = $datsql->lotno;
-		
-		$active2 = array('auctionid'=>$auctmp,'lotno'=>$auclottmp,'bidderusername'=>$sess['sessi']);
-		$query = $this->Admin_model->getdatafromtable('biddercart', $active2);
-		
-		$tmpbidval = $query[0]->mybid_val;
-		
-		$active3 = array('sauctionid'=>$auctmp,'slotno'=>$auclottmp);
-		$data['bidamt'] = $this->Admin_model->getdatafromtable('biddingdata', $active3); 
-	
+		$username = $sess['sessi'];
+		$mybitvalref = $datsql->mybid_val;
+		//$active2 = array('auctionid'=>$auctmp,'lotno'=>$auclottmp,'bidderusername'=>$sess['sessi']);
+		//$query = $this->Admin_model->getdatafromtable('biddingdata', $active2);
+		//$tmpbidval = $query[0]->mybid_val;
+		//$active3 = array('sauctionid'=>$auctmp,'slotno'=>$auclottmp);
+		//$data['bidamt'] = $this->Admin_model->getdatafromtable('biddingdata', $active3); 
 		//$data['tmpbidamt'] = $data['bidamt'][0]->bidamount; 
-		$data['maxbid_val'] = $this->Admin_model->maxbidvalue('biddercart');
+		$datap = $this->Admin_model->maxbidvalue($auctmp, $auclottmp);
+		$mybitvalrec = $datap[0]->bidderusername;
+		$aucbidamount = $datap[0]->bidamount;
+		$mybitvaldatetime = $datap[0]->Date_time;
+		if($username === $mybitvalrec){
+			$data['sqldatarec'][$xr] = $auctmp.'|'.$auclottmp.'|'.$aucbidamount.'|'.$mybitvaldatetime;
+			$xr++;
+		}else{
+			
+		}
 		//print_r($tmpbidamt); die;
-	
+	//print_r($data);die;
 	  
 		//$active4 = array('bidderusername'=>$sess['sessi']);
 		/*  $active4 = array('sauctionid'=>$auctmp,'slotno'=>$auclottmp);
@@ -74,12 +79,6 @@ class Buyer_occupied extends CI_Controller {
 			echo "not ok";
 	}   */ 
 				 	} 
-				
-
-      
-				
-		
-		 $data['winner'] = $xdata;	
 		 
 
 		//$check_array = array('dat'=>);

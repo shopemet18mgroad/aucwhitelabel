@@ -52,7 +52,7 @@ class Admin_sellereditprofile extends CI_Controller {
 			echo '</thead>';
 			echo '<tbody>';
 			foreach($data as $dat){
-				echo '<tr>';
+				echo '<tr>';	
 				echo '<td>'.$dat['sname'].'</td>';
 				echo '<td>'.$dat['scomapnyname'].'</td>';
 				echo '<td>'.$dat['scontactperson'].'</td>';

@@ -163,14 +163,12 @@ class Admin_editforthcom_2 extends CI_Controller {
 	
 	
 	public function editforthcom_2(){
-		$retrivevaltmp = urldecode($this->uri->segment(3));
-		
-		$retriveval = array('sname'=>$retrivevaltmp);
+		$retrivevaltmp = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
+		$retriveval = array('sauctionid'=>$retrivevaltmp);
 		$this->load->model('Admin_model');
 		/* $this->db->select('*'); // join the two table with similer id
 		$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid', 'left'); */
 		$data['sqldata'] = $this->Admin_model->getdatafromtable('addlot',$retriveval);
-
 		$this->load->helper('url');
 		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
@@ -184,7 +182,7 @@ class Admin_editforthcom_2 extends CI_Controller {
 		echo '<script language="javascript">';
 			echo 'alert("'.$retrivevaltmp2.'")';  //not showing an alert box.
 			echo '</script>';
-		$retriveval = array('sname'=>$retrivevaltmp);
+		$retriveval = array('sauctionid'=>$retrivevaltmp);
 		$this->load->model('Admin_model');
 		$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
 		

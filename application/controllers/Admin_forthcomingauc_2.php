@@ -20,7 +20,7 @@ class Admin_forthcomingauc_2 extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->helper(array('url','html'));
+		$this->load->helper('url');
 		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->model('Admin_model');
@@ -34,7 +34,7 @@ class Admin_forthcomingauc_2 extends CI_Controller {
 	public function forthcomingauc_2(){
 	
 		$retrivevaltmp = urldecode($this->uri->segment(3));
-		
+
 		$retriveval = array('sname'=>$retrivevaltmp);
 		$this->load->model('Admin_model');
 

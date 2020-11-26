@@ -40,7 +40,8 @@ class Admin_addlot_info extends CI_Controller {
 		$data = $this->session->flashdata('txdata');
 		$this->load->library('fileupload');
 		$this->load->helper(array('url','form','file','html'));
-            if($this->input->post('submit')){
+            
+			if($this->input->post('submit')){
 			$sauctionid = $this->input->post('sauctionid');
 			$sname = $this->input->post('sname');
 			 $slotno = $this->input->post('slotno'); 
