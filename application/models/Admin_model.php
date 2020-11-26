@@ -120,7 +120,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return $q->result_array();
 		  }
 		  
-			
+			public function getdataASC($table, $data) { 
+			$this->db->order_by("bidvalue", "desc");
+			//$this->db->limit(5)
+			$query = $this->db->get_where($table, $data); 
+			 return $query->result();
+		}
 
 
 			function fetch_all()
