@@ -85,16 +85,18 @@ class Seller_startauction extends CI_Controller {
 			
 			}
 		
-		$this->load->model('Admin_model');	
+		
+	
 		$sess = array('sessi'=>$this->session->userdata('username'));
-		$active1 = array('scomapnyname'=>$sess['sessi']);
+	
+		/* $active1 = array('susername'=>$sess['sessi']);
 		//print_r($active); die;
 		
 	
-		 $query = $this->Admin_model->getdatafromtable('sellerprofile', $active1);
-		 //print_r($query); die;
-		$data2['sqldata']= $query; 
-			//print_r($query); die;
+		 $data2['bcom'] = $this->Admin_model->getdatafromtable('sellerprofile', $active1);
+		$bcomp = $data2['bcom'][0]->scomapnyname; */
+		
+		
 			
 		$this->load->view('seller/header',$sess);
 		$this->load->view('seller/startauction');

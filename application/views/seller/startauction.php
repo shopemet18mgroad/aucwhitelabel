@@ -59,7 +59,7 @@
 	  </tr>
 	  <tr>
 		  <td>Seller Company Name</td>
-		 <td><input class="form-control w-50"  type="text" id="scompanyname" name="scompanyname" onkeyup="search_company()""><div id="select" class="select"><ul id="dp"></ul></div>
+		 <td><input class="form-control w-50"  type="text" id="scompanyname" name="scompanyname" value="<?php echo $bcomp; ?>">
 		</td>
 	  </tr>
 	  
