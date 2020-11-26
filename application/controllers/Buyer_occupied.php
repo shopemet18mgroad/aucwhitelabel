@@ -27,15 +27,9 @@ class Buyer_occupied extends CI_Controller {
 		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
 
-//print_r($sess['sessi']);die;
+
 		$data['sqldat'] = $this->Admin_model->datebetweensess2('biddercart',$time,$sess['sessi']);
-		//$active3 = array();
-		//$data['bidamt'] = $this->Admin_model->getdatafromtable('biddingdata', $active3);
-		//$data['maxbid_val'] = $this->Admin_model->maxbidvalue('biddercart');
-		 // $auctmp = $sqldat->auctionid;
-		// $auclottmp = $sqldat->lotno;
-		// $active3 = array('sauctionid'=>$auctmp,'slotno'=>$auclottmp);
-		// $data['bidamt'] = $this->Admin_model->getdatafromtable('biddingdata', $active3);
+		
 		   $xr = 0;
 		   $xdata = array(); 
 			

@@ -189,7 +189,7 @@ function validatelot(){
 	   var s = d.getSeconds();
 	 
 	 if(cat2.length<6){
-		  document.getElementById('slotno').value = "A-"+m+-+s
+		  document.getElementById('slotno').value = "A-"+m+-+n+-+s
 		  ;
 	 }
  } 

@@ -32,6 +32,7 @@
 					<td>Auction Id</td>
 					<td>Lot No</td>
 					<td>Close Time</td>
+					<td>Bid Value</td>
 					<td>Final Bid Amount</td>
 				</tr>
 				</thead>
@@ -43,6 +44,7 @@
 					<td><b><?php echo $sqldata[0]->sauctionid; ?></b></td>
 					<td><?php echo $sqldata[0]->slotno; ?></td>
 					<td><?php echo $sqldata[0]->Date_time; ?></td>
+					<td><?php echo $sqldata[0]->bidvalue; ?></td>
 					<td><?php echo $sqldata[0]->bidamount; ?></td>
 				</tr>
 			<?php }?>

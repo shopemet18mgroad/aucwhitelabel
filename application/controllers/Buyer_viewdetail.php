@@ -37,7 +37,7 @@ class Buyer_viewdetail extends CI_Controller {
 		$retriveval = array('sauctionid'=>$retrivevaltmp);
 		$this->load->model('Admin_model');
 		
-		$data['sqldata'] = $this->Admin_model->getdatafromtable('biddingdata',$retriveval);
+		$data['sqldata'] = $this->Admin_model->getdataASC('biddingdata',$retriveval);
 		//print_r($data['sqldata']); die;
 		
 		$this->load->helper('url');

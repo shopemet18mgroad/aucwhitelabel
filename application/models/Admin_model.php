@@ -26,6 +26,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			 $query = $this->db->get_where($table, $data); 
 			 return $query->result();
 		} 
+		
+		public function get1datafromtable($table, $data) { 
+			 $this->db->select('scomapnyname');
+			  $this->db->select('sname');
+			 $query = $this->db->get_where($table, $data); 
+			 return $query->result();
+		}
+		
+		
 		public function datebetween($table, $date){
 			$this->db->select('*');
 			$this->db->from($table);
@@ -120,7 +129,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return $q->result_array();
 		  }
 		  
-			
+			public function getdataASC($table, $data) { 
+			$this->db->order_by("bidvalue", "desc");
+			//$this->db->limit(5)
+			$query = $this->db->get_where($table, $data); 
+			 return $query->result();
+		}
 
 
 			function fetch_all()
