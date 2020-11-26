@@ -42,7 +42,7 @@
 
   <!-- Custom scripts for all pages-->
   <script src="<?php echo base_url()."web_files/";?>js/sb-admin-2.min.js"></script>
-
+ <script src="<?php echo base_url()."web_files/";?>weblib/aucstart.js" type="text/javascript" charset="utf-8"></script>
   <!-- Page level plugins -->
   <script src="<?php echo base_url()."web_files/";?>vendor/chart.js/Chart.min.js"></script>
 
@@ -87,6 +87,46 @@ function validate_password_seller(){
 			 }); 
  }
  </script>
+ 
+  <script>
+ function auction_id(){
+	 var cat = document.getElementById('scategory').value;
+	  var cat2 = document.getElementById('sname').value;
+	   var d = new Date();
+	   var m = d.getHours();
+	   var n = d.getMinutes();
+	   var s = d.getSeconds();
+	 if(cat == 'Select'){
+		 swal("Alert!", "Please Select Categoery First", "error");
+		 return false;
+	 }
+	 if(cat2.length<6){
+		  document.getElementById('sauctionid').value = "AUC/"+cat2+"/"+cat+"/"+m+"/"+n+"/"+s;
+	 }
+ }
+ </script>
+ 
+  <script>
+		$('#gettable_auction_seller').on('keyup', function(){
+			var contents = $('#gettable_auction_seller').val(); 
+			$.get('<?php echo base_url() .'seller_auctiondetails/get_table/'; ?>'+contents, function(data){
+				$('#ajaxrslt_auction_seller').html(data);
+			});
+		});
+	
+ </script>
+ 
+ <script>
+		$('#gettable_editforth_seller').on('keyup', function(){
+			var contents = $('#gettable_editforth_seller').val(); 
+			$.get('<?php echo base_url() .'Seller_editforthcom/get_table/'; ?>'+contents, function(data){
+				$('#ajaxrslt_editforth_seller').html(data);
+			});
+		});
+	
+ </script>
+
+
 </body>
 
 </html>

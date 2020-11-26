@@ -29,32 +29,67 @@
     <tbody>
 	  
 	  <tr>
+	  <form action="<?php echo base_url();?>Seller_startauction" method="POST" id="upload-form" enctype="multipart/form-data">
+		  
 		  <td width="11%">Category</td>
 		  <td width="4%"><select class="form-control w-50" id="scategory" name="scategory">
-				<option value="one" selected>Ferrous</option>
-				<option value="two">Non Ferrous</option>
-				<option value="three" >Minor Metals</option>
-				<option value="four">Plain paper</option>
-				<option value="five">Granules</option>
-				<option value="six">All Construction Materials</option>
+				<option value="Select" selected>Select</option>
+				<option value="Ferrous">Ferrous</option>
+				<option value="Non Ferrous">Non Ferrous</option>
+				<option value="Minor Metals" >Minor Metals</option>
+				<option value="Plain paper">Plain paper</option>
+				<option value="Granules">Granules</option>
+				<option value="All Construction Materials">All Construction Materials</option>
 				</select>
 			</td>
 	  </tr>
 	  
-	  	  
+	  	  <tr>
+		  <td>Seller</td>
+		  <td><input class="form-control w-50"  type="text" id="sname" name="sname" placeholder="Search" onkeyup="auction_id()" aria-label="Search">
+		  </td>
+	  </tr>
+	  
+	  
+      
 	  <tr>
 		  <td>Auction Id</td>
-		  <td style="color:blue;">AJ256458/BHEL/IRON/102</td>
+		  <td><input class="form-control w-50"  type="text" id="sauctionid" name="sauctionid" placeholder="Auction ID" aria-label="Search" readonly></td>
+
+	  </tr>
+	  <tr>
+		  <td>Seller Company Name</td>
+		 <td><input class="form-control w-50"  type="text" id="scompanyname" name="scompanyname" onkeyup="search_company()""><div id="select" class="select"><ul id="dp"></ul></div>
+		</td>
 	  </tr>
 	  
 	  <tr>											
 		  <td>Venue Of Inspection</td>
 		  <td><textarea class="form-control w-50" type="text" id="svinspection" name="svinspection"></textarea></td>
 	  </tr>
+	  <tr>  												
+		<td>Inspection Date & Time</td>
+		<td>
+From: 	
+    <input class="form-control w-75" type="datetime-local" id="sfrominpectdate_time" name="sfrominpectdate_time">
+ To:
+    <input class="form-control w-75" type="datetime-local"  id="stoinpectdate_time" name="stoinpectdate_time">
+</td>
+	</tr>
 	  
 	  <tr>
-		<td>Online Auction Date</td>
-		<td><input class="form-control w-75" id="sonlineaucdate_time" name="sonlineaucdate_time" type="datetime-local" >
+		<td>Starting Bid Price</td>
+		<td><input class="form-control w-50" type="text" id="sstartbidprice" name="sstartbidprice"></td>
+	</tr>
+	<tr>
+		<td>Last Date Of Submiting EMD</td>
+		<td><input class="form-control w-50" type="date" id="slastdateemdsub" name="slastdateemdsub"></td>
+	</tr>
+	  
+	  <tr>
+		<td>Online Auction Start And End Date</td>
+		<td><input class="form-control w-75" id="saucstartdate_time" name="saucstartdate_time" type="datetime-local" ><br>
+		<input class="form-control w-75" id="saucclosedate_time" name="saucclosedate_time" type="datetime-local" >
 		</td>
 	</tr>
 	
@@ -204,28 +239,27 @@ Bidders participating in AucJunction Auctions should verify with the selling com
   </div>
   <br><br>
   <div class="form-check form-check-inline ">
-			<input type="checkbox" class="form-check-input" id="sterms_condiaccept" name="sterms_condiaccept">
+			<input type="checkbox" class="form-check-input" id="sterms_condiaccept" name="sterms_condiaccept" required>
 			<label class="form-check-label" for="exampleCheck1">I agree to the Terms and Conditions</label>
 			</div></td>
   </tr>
   
   <tr>
 		<td>Upload Terms & Conditions</td>
-		<td><div class="form-check form-check-inline">
-			<input type="checkbox" class="form-check-input" id="myCheck" onclick="myFunction()" name="adexampleCheck1">
-			<label class="form-check-label" for="myCheck">Yes</label>
-			</div>
-			<div class="form-group" id="text" style="display:none">
-				<input type="file" class="form-control-file" id="sterms_condiupload" name="sterms_condiupload">
-			</div>
-			
-			
+		<td>
 			<div class="form-check form-check-inline">
-			<input type="checkbox" class="form-check-input" id="idCheck" onclick="myFunction2()" name="adexampleCheck1">
-			<label class="form-check-label" for="idCheck">No</label>
+				<input type="checkbox" class="form-check-input" id="firstCheckBox" onclick="myFunction1()" name="sterms_condiupload1[]">
+				<label class="form-check-label" for="firstCheckBox">Yes</label>
 			</div>
-			<div class="form-group" id="text2" style="display:none">
-			<textarea class="form-control w-50" type="text" id="sterms_conditype" name="sterms_conditype"></textarea>
+			<div class="form-check form-check-inline">
+				<input type="checkbox" class="form-check-input" id="secondCheckBox" onclick="myFunction2()" name="sterms_condiupload1[]">
+				<label class="form-check-label" for="secondCheckBox" >No</label>
+			</div>
+			<div class="form-group" id="start-auction-choose-file"  style="display:none">
+				<input type="file" class="form-control-file" id="sterms_condiupload" name="sterms_condiupload[]">
+			</div>
+			<div class="form-group" id="start-auction-textarea" style="display:none">
+				<textarea class="form-control w-50" type="text" id="sterms_text" name="sterms_text"></textarea>
 			</div>
 			</td>
   </tr>
@@ -235,8 +269,11 @@ Bidders participating in AucJunction Auctions should verify with the selling com
     </tbody>
   </table>
   
-  <center><a type="button" class="btn btn-info" href="<?php echo base_url();?>seller_addlot" data-dismiss="modal">Start Auction</a></center>
+  <center><input type="submit" name="submit" onclick="return validatestart()" class="btn btn-info" value="Start Auction" data-dismiss="modal"></center>
+ 	 </form>
+
 			</div>
+		
             </div>
 			</div>
 			</div>
@@ -261,28 +298,11 @@ Bidders participating in AucJunction Auctions should verify with the selling com
 
   <!-- Scroll to Top Button-->
   
-  <script>
-function myFunction() {
-  var checkBox = document.getElementById("myCheck");
-  var text = document.getElementById("text");
-  if (checkBox.checked == true){
-    text.style.display = "block";
-  } else {
-     text.style.display = "none";
-  }
-}
-</script>
- <script>
-function myFunction2() {
-  var checkBox = document.getElementById("idCheck");
-  var text = document.getElementById("text2");
-  if (checkBox.checked == true){
-    text.style.display = "block";
-  } else {
-     text.style.display = "none";
-  }
-}
-</script>
+  
+  
+  
+  <!-----myscript-->
+
 
 
 <?php 

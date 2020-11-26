@@ -60,13 +60,12 @@
 				</thead>
 				<tbody>
 				<tr>
-				<?php foreach($buyerdet as $sqldat){?>
-								<td style="color:green;"><b><?php echo $sqldat->bcompany; ?></b></td>
+								<td style="color:green;"><b> </b></td>
 								<td style="color:green;"><b>BHEL</b></td>
 								<td style="color:green;"><b>17-03-2020</b></td>
 								<td style="color:green;"><b>2,00,000</b></td>
 													</tr>
-						<?php }?>
+				
 													<tr>
 														<td style="color:orange;"><b>S.R.Murthy</b></td>
 														<td style="color:orange;">BHEL</td>

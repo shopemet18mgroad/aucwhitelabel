@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Seller_addlot extends CI_Controller {
+class Seller_addlot1 extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -18,23 +18,24 @@ class Seller_addlot extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-		
 
-	public function index()
+public function index()
 	{
 		$this->load->helper('url');
-		if($this->uri->segment(4)){
-			$errormsg = urldecode($this->uri->segment(4));
+		if($this->uri->segment(5)){
+			$errormsg = urldecode($this->uri->segment(5));
 			echo '<script language="javascript">';
 			echo 'alert("'.$errormsg.'")';
 			echo '</script>';
+			
 		}
 		$this->load->library('session');
 		$data = $this->session->flashdata('txdata');
-		$sess = array('sessi'=>$this->session->userdata('username'));
-		$this->load->view('seller/header',$sess);
-		$this->load->view('seller/addlot',$data);
+		$this->load->view('seller/header');
+		$this->load->view('seller/addlot',$data5);
 		$this->load->view('seller/footer');
 		
-	}
+	} 
+	
+	
 }
