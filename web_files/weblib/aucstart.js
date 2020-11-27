@@ -178,20 +178,50 @@ function validatelot(){
 			} 
 	}			
 
-	
+	month[0] = "January";
+  month[1] = "February";
+  month[2] = "March";
+  month[3] = "April";
+  month[4] = "May";
+  month[5] = "June";
+  month[6] = "July";
+  month[7] = "August";
+  month[8] = "September";
+  month[9] = "October";
+  month[10] = "November";
+  month[11] = "December";
+
 
   function auction_id1(){
 	 //var cat = document.getElementById('scategory').value;
-	  var cat2 = document.getElementById('slotname').value;
-	   var d = new Date();
+	   var cat2 = document.getElementById('slotname').value;
+	   var cat4 = document.getElementById('slotno').value;
+	   
+	    var month = new Array();
+  month[0] = "1";  //"January"
+  month[1] = "2";  //"February"
+  month[2] = "3"; //"March"
+  month[3] = "4";  //"April"
+  month[4] = "5";  //"May"
+  month[5] = "6"; //"June"
+  month[6] = "7"; //"July"
+  month[7] = "8"; //"August"
+  month[8] = "9";  //"September"
+  month[9] = "10";  //"October"
+  month[10] = "11";  //"November"
+  month[11] = "12"; //"December"
+	   
+	    var d = new Date();
+	   var g = month[d.getMonth()];
 	   var m = d.getHours();
 	   var n = d.getMinutes();
-	   var s = d.getSeconds();
-	 
+	   var s = d.getSeconds(); 
+	   //var e = d.getMilliseconds();
 	 if(cat2.length<6){
-		  document.getElementById('slotno').value = "A-"+m+-+n+-+s
-		  ;
-	 }
+		   document.getElementById('slotno').value = "A-"+m+-+n+-+s+-+d.getDate()+-+g+-+d.getFullYear(); 
+		/* document.getElementById(sa"slotno").value = "A-"+Math.random(); */
+	 } 
+	 
  } 
 
 
