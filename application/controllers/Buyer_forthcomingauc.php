@@ -75,11 +75,16 @@ class Buyer_forthcomingauc extends CI_Controller {
 			echo '<tbody>';
 			foreach($data as $dat){
 				echo '<tr>';
+
+				 echo '<td style="color:blue"><a href="'.base_url().'buyer_mylist/my_cart/'.urlencode($dat['sdescription']).
+				'">'; 
+
 				echo '<td style="color:blue"><a href="#">';
+
 				echo $dat['sauctionid'];	
 				echo $aucencode = str_ireplace('/','-',$dat['sauctionid']);
-				echo '</a>';
-				echo '</td>';
+				echo '</a>'; 
+				echo '</td>'; 
 				echo '<td>'.$dat['slotname'].'</td>';
 				echo '<td>'.$dat['scategory'].'</td>';
 				echo '<td>'.$dat['sdescription'].'</td>';
