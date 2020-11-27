@@ -1,88 +1,83 @@
-<?php 
-	//include('./header.php');
-?>
+<?php
+   // include('./header');
+ //print_r($sqldatarec); die;
+	?>
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
           <!-- Page Heading -->
-      <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Bid Winner</h1>
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Auction Approvals</h1>
             
           </div>
 
           <!-- Content Row -->
-          <div class="row">
-
-            <!-- Earnings (Monthly) Card Example -->
-			<div class="col-xl-12 col-lg-7">
+         <div class="col-sm-12 col-md-12">
           <div class="card shadow mb-4">
             <div class="card-body">
-              <div class="table-responsive">
-			   <form class="form-inline">
-					<div class="form-group mr-4 offset-sm-4">
+			<div class="table-responsive">
+			
+			<form class="form-inline">
+			  
+			 <div class="form-group mr-4 offset-sm-4">
 						<td colspan="5">
-						<!-- <form action="/action_page.php"> -->
-								<!--<label for="gettable"></label>
-								<input type="text" class="form-control gettable" id="gettable_bidwinner" placeholder="Enter Company Name To Fetch Result"  size="70" name="search">-->
-								
-								<!--<button class="form-control" type="submit"><i class="fa fa-search"></i></button>-->
+						<form action="/action_page.php">
+							
+								<input type="text" class="form-control" placeholder="Search.." name="search">
+								<button class="form-control" type="submit"><i class="fa fa-search"></i></button>
 					
-						<!-- </form> -->
+						</form>
 					</td>
 				</div>
 			</form>
-		<!--<div class="ajaxrslt" id="ajaxrslt_bidwinner">-->
-			<!----Insert Ajax Table Here------>
 			
-			<!---- ------>
-		<!--</div>-->
+         <table class="table table-striped text-center table-sm table-bordered mt-5"  width="100%" cellspacing="0">		
+    <thead class="bg-primary text-white">
+	  <tr>
+		<th colspan="13" class="bg-info">Auctions</th></tr>
+     <tr>
+		<th>Auction Id</th>
+		<th>Lot No</th>
+		<th>date/Time</th>
+		<th>My Bid Value</th>
+		<th>Status</th>
+		<th>Action</th>
 		
-		<table class="table table-striped table-bordered table-sm text-center mt-5" id="dataTable" width="100%" cellspacing="0">
-				<!-- <thead class="bg-info text-white">
-				<tr>
-					<th colspan="10">List of Auction Name</th>
-				</tr>
-				</thead> -->
-				<thead class="bg-primary text-white">
-				<tr>
-					 <th>Auction Id</th>
-					 <th>Lot No.</th>
-					 <th>Starting Bid Price</th>
-					 <th>Auction closing Date</th>
-					 <th>Download</th>
-				</tr>
-													
-				</thead>
-				
-				
-				<tbody>
-				<?php $aucw =  str_ireplace('/','-',$bidwinner[0]->auctionid);?>
-				<?php  foreach($bidwinner as $bidwin){ ?>
-				
-				<tr>
-					<td><a href="<?php  echo base_url()."Admin_aucwinner/aucwinner2/".str_ireplace('/','-',$bidwin->auctionid);?>">
+	
+	</tr>
+    </thead>
+    <tbody>
+   	<?php  foreach($sqldatarec as $sqldata){ $datareciver = explode('|',$sqldata);?>
+		<?php /* print_r($datareciver[4]); die;  */?>
+					<tr>												
+						<td><?php echo $datareciver[0]; ?></td>
+						<td><?php echo $datareciver[1]; ?></td>
+						<td><?php echo $datareciver[3]; ?></td>
+						<td><?php echo $datareciver[2];?></td>
+						<td><?php echo "Winner"?></td>
 						
-						<?php  echo $bidwin->auctionid; ?></u></a></td>
-					 <td><?php echo $bidwin->lotno; ?></td>
-					 <td><?php echo $bidwin->bidstart; ?></td>
-					 <td><?php echo $bidwin->aucclosedate_time; ?></td>
-					 <td>
-					<a href="" >
-					<i class="fa fa-download"></i>
-					</a></td>
-				</tr>
-				<?php  } ?>							
-				</tbody>
-		 </table>
-		</div>
-		</div>
-		 <!--Pagination -->
+					
+						
+						<td><button type="submit" name="submit" id="<?php echo $datareciver[1].'|'.str_ireplace('/','-', $datareciver[0]);?>" onclick="winner_set_deactive(this.id)" class="btn btn-info btn-sm">Approve</button></td>	
 
+					</tr>
+					<?php  } ?>
+	
+    </tbody>
+  </table>
+
+		  </div>
+            </div>
+			
+			<!--Pagination -->
+
+      
+          </div>
 		</div>
-		</div>
-		</div>
+        </div>
+	
           <!-- Content Row -->
 
           
@@ -95,16 +90,14 @@
      
       <!-- End of Footer -->
 
-    </div>
+   
     <!-- End of Content Wrapper -->
 
-  </div>
+
   <!-- End of Page Wrapper -->
 
   <!-- Scroll to Top Button-->
-<?php 
-	//include('./footer.php');
-?>
-</body>
+<?php
+  //  include('./footer');
+	?>
 
-</html>

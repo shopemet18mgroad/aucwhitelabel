@@ -198,7 +198,15 @@
 	
  </script>
  
- 
+  <script>
+		$('#gettable_bidsummary').on('keyup', function(){
+			var contents = $('#gettable_bidsummary').val(); 
+			$.get('<?php echo base_url() .'Admin_bidsummary/get_table/'; ?>'+contents, function(data){
+				$('#ajaxrslt_bidsummary').html(data);
+			});
+		});
+	
+ </script>
  
  <script>
 		$('#gettable_aliveauction').on('keyup', function(){
@@ -256,6 +264,24 @@
 			$.get('<?php echo base_url() .'Admin_buyerapproval/setdeactive_buyer/'; ?>'+varab, function(data2){	
 				 if($.trim(data2) == "HI"){
 					 window.location.href = '<?php echo base_url().'Admin_buyerapproval';?>'
+					return true;
+				}else{
+					swal("Alert!", "Company Name Already Exists", "error");
+					return false;
+				}
+			 });
+			
+		}
+	
+ </script>
+ 
+ 
+ 
+ <script>
+		function winner_set_deactive(varab){
+			$.get('<?php echo base_url() .'Admin_bidwinner/setdeactive_winner/'; ?>'+varab, function(data2){	
+				 if($.trim(data2) == "HI"){
+					 window.location.href = '<?php echo base_url().'Admin_bidwinner';?>'
 					return true;
 				}else{
 					swal("Alert!", "Company Name Already Exists", "error");
