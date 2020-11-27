@@ -22,7 +22,7 @@
               <div class="table-responsive">
 		
 		
-		<table class="table table-striped table-bordered table-sm text-center mt-5"  width="100%" cellspacing="0">
+		<table class="table table-striped table-bordered table-sm text-center mt-5" id="dataTable" width="100%" cellspacing="0">
 		<thead class="bg-warning text-white">
 		<tr>
 		<th colspan="12">Bidding Data</th>

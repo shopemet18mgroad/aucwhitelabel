@@ -20,92 +20,82 @@ class Admin_aucwinner extends CI_Controller {
 	 */
 	public function index()
 	{
-		
-		$this->load->helper('url');
-		
-		$this->load->library('session');
-		$sess = array('sessi'=>$this->session->userdata('username'));
-		$this->load->view('admin/header',$sess);
-		$this->load->view('admin/aucwinner');
-		$this->load->view('admin/footer');
-		
-	}
-	
-	public function aucwinner2(){
-
 		$this->load->helper(array('url','html','date'));
 		date_default_timezone_set('Asia/Kolkata');
 		$time =  Date('Y-m-d H:i:s');
-		
-		$retrivevaltmp2 = $this->uri->segment(3);
-
-		
 		$this->load->model('Admin_model');
-		$retrivevaltmp = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
+		//$this->load->library('session');
+		//$sess = array('sessi'=>$this->session->userdata('username'));
 		
-		$retriveval = array('auctionid'=>$retrivevaltmp);
 
-		$this->load->model('Admin_model');
-		$data['bidwin'] = $this->Admin_model->dateclosedauc('biddercart',$time);
-		//print_r($data['bidwin']); die;
-		$data['busername'] = $data['bidwin'][0]->bidderusername; 	
-		//$data['mybid_val'] = $data['bidwin'][0]->mybid_val; 
+		//$this->load->model('Admin_model');
+		$sapproval = array('sapproval'=>false);
+		$data['sqldat'] = $this->Admin_model->getdatafromtable('biddercart', $sapproval); 
+		
+	//print_r($data['sqldat'][1]); die;
+	//$data['sqldat'] = $this->Admin_model->datebetweensess2('biddercart',$time,$sess['sessi']);
+		
+		   $xr = 0;
+		   $xdata = array(); 
+		   
+		   	foreach($data['sqldat'] as $datsql){ 	
+		$auctmp = $datsql->auctionid;
+		$auclottmp = $datsql->lotno;
+		$username = $sess['sessi'];
+		$mybitvalref = $datsql->mybid_val;
+		
+		$datap = $this->Admin_model->maxbidvalue($auctmp, $auclottmp);
+		$mybitvalrec = $datap[0]->bidderusername;
+		$aucbidamount = $datap[0]->bidamount;
+		$mybitvaldatetime = $datap[0]->Date_time;
+		$myapproval = $datap[0]->sapproval;
+		if($username === $mybitvalrec){
+			$data['sqldatarec'][$xr] = $auctmp.'|'.$auclottmp.'|'.$aucbidamount.'|'.$mybitvaldatetime.'|'.$myapproval;
+			$xr++;
+		}else{
 			
-		$active = array('busername'=>$data['busername']);
-		$data['buyerdet'] = $this->Admin_model->getdatafromtable('buyerprofile',$active);
-		
-		$active2 = array('sauctionid'=>$retrivevaltmp,'bidderusername'=>$data['busername']);
-		$data['bidding'] = $this->Admin_model->getdatafromtable('biddingdata',$active2);
-		
-		$data['bidata'] =$data['bidding'][0]->bidamount;
-	
-		
-		$data['maxbid_val'] = $this->Admin_model->maxbidvalue('biddercart');
-		// print_r($data['maxbid_val']); die;
-		
-		
-		if($data['bidata'] == $data['maxbid_val']){
-			
-		echo "hi";
-		 
 		}
 		
-
+		}
+		/* $this->load->model('Admin_model');
+		$sapproval = array('sapproval'=>false);
 		
-		$retrive= urldecode($this->uri->segment(3));
-
-		$ret = array('bcompany'=>$retrive);
-
-		$this->load->model('Admin_model');
-		$data['bidwin'] = $this->Admin_model->getdatafromtable('biddercart',$retriveval);
-		$data['buyer'] = $this->Admin_model->getdatafromtable('buyerprofile',$ret);
-		$this->load->library('session');
-		$sess = array('sessi'=>$this->session->userdata('username'));
-		$this->load->view('admin/header',$sess);
-		$this->load->view('admin/aucwinner',$data);
-		$this->load->view('admin/footer');
+		$query = $this->Admin_model->getdatafromtable('biddercart', $sapproval);
+		
+		$data2['sqldat2']= $query;
+		
+		$this->load->library('session'); */
+		$sess = array('sessi'=>$this->session->userdata('username'));		
+					
+		 
+		$this->load->view('seller/header',$sess);
+		$this->load->view('seller/auctionapproval',$data);
+		$this->load->view('seller/footer');
 		
 	}
 	
-	/* public function aucwin(){
+	public function setdeactive_seller(){
 		
-		$this->load->model('Admin_model');
-
+		$compnameurl = $this->uri->segment(3);
+		
+		$compnameurl = urldecode($compnameurl);
+		//print_r($compnameurl); die;
+		$compnameurl2 = explode('|',$compnameurl);
+		$compname = $compnameurl2[0];
 	
+		$comp = str_ireplace('-','/',$compnameurl2[1]);
+		//print_r($comp); die;
+		$this->load->model('Admin_model');
+		$sapproval = array('sapproval'=>true);
+		$adaction2 = array('slotno'=>$compname,'sauctionid'=>$comp);
 		
-		$retrive= urldecode($this->uri->segment(3));
-
-		$ret = array('bcompany'=>$retrive);
-		
-		$data2['buyer'] = $this->Admin_model->getdatafromtable('buyerprofile',$ret);
-		print_r(data2); die;
-		$this->load->library('session');
-		$sess = array('sessi'=>$this->session->userdata('username'));
-		$this->load->view('admin/header',$sess);
-		$this->load->view('admin/aucwinner',$data2);
-		$this->load->view('admin/footer');
-		
-	}
-	 */
+		$query = $this->Admin_model->update_custom('biddingdata',$sapproval, $adaction2, $adaction2);
+		if($compname){
+			echo "HI";
+		}else{
+			echo "BYE";
+		}
+	
+}
 	
 }

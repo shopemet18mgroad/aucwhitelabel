@@ -20,11 +20,43 @@ class Admin_bidhistory extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->helper('url');
-		$this->load->view('admin/header');
-		$this->load->view('admin/bidhistory');
+		$this->load->helper('url');	
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('admin/header',$sess);
+		$this->load->view('admin/bidhistory',$data);
 		$this->load->view('admin/footer');
 		
 	}
-	
+	public function bidhistory2(){
+		$retrivevaltmp = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
+		$retriveval = array('sauctionid'=>$retrivevaltmp);
+		$this->load->model('Admin_model');
+		
+		$data['sqldata'] = $this->Admin_model->getdataASC('biddingdata',$retriveval);
+		//print_r($data['sqldata']); die;
+		
+		$this->load->helper('url');
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('admin/header',$sess);
+		$this->load->view('admin/bidhistory',$data);
+		$this->load->view('admin/footer');
+	}
+	 public function bidhistory2_alert(){
+		$retrivevaltmp = $this->uri->segment(3);
+		$retrivevaltmp2 = urldecode($this->uri->segment(4));
+		echo '<script language="javascript">';
+			echo 'alert("'.$retrivevaltmp2.'")';  //not showing an alert box.
+			echo '</script>';
+		$retriveval = array('sauctionid'=>$retrivevaltmp);
+		$this->load->model('Admin_model');
+		$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
+		$this->load->helper('url');
+	$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('admin/header',$sess);
+		$this->load->view('admin/bidhistory',$data);
+		$this->load->view('admin/footer');
+	} 
 }
