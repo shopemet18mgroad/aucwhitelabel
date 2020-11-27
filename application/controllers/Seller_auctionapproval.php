@@ -76,7 +76,7 @@ class Seller_auctionapproval extends CI_Controller {
 		
 	}
 	
-	public function setdeactive_seller(){
+	public function setdeactive(){
 		
 		$compnameurl = $this->uri->segment(3);
 		
@@ -89,9 +89,9 @@ class Seller_auctionapproval extends CI_Controller {
 		//print_r($comp); die;
 		$this->load->model('Admin_model');
 		$sapproval = array('sapproval'=>true);
-		$adaction2 = array('slotno'=>$compname,'sauctionid'=>$comp);
+		$adaction2 = array('lotno'=>$compname,'auctionid'=>$comp);
 		
-		$query = $this->Admin_model->update_custom('biddingdata',$sapproval, $adaction2, $adaction2);
+		$query = $this->Admin_model->update_custom('biddercart',$sapproval, $adaction2, $adaction2);
 		if($compname){
 			echo "HI";
 		}else{

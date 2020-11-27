@@ -9,7 +9,7 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Auction Approvals</h1>
+            <h1 class="h3 mb-0 text-gray-800">Winner Approvals</h1>
             
           </div>
 
@@ -58,9 +58,8 @@
 						<td><?php echo $datareciver[2];?></td>
 						<td><?php echo "Winner"?></td>
 						
-					
 						
-						<td><button type="submit" name="submit" id="<?php echo $datareciver[1].'|'.str_ireplace('/','-', $datareciver[0]);?>" onclick="seller_set_deactive(this.id)" class="btn btn-info btn-sm">Approve</button></td>	
+						<td><button type="submit" name="submit" id="<?php echo $datareciver[1].'|'.str_ireplace('/','-', $datareciver[0]);?>" onclick="seller_set(this.id)" class="btn btn-info btn-sm">Approve</button></td>	
 
 					</tr>
 					<?php  } ?>
