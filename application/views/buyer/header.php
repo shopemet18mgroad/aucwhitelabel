@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Dashboard</title>
+  <title>Buyer Dashboard</title>
   
 
   <!-- Custom fonts for this template-->

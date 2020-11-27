@@ -52,9 +52,6 @@ class Admin_emdapproval extends CI_Controller {
 	}
 	
 	public function setdeactive_buyer_emd_dd(){
-		
-	
-	
 	
 		$compnameurl = $this->uri->segment(3);
 		$compnameurl = urldecode($compnameurl);

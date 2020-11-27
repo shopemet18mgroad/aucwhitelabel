@@ -125,18 +125,20 @@ function validate_password_seller(){
 		});
 	
  </script>
-
  <script>
-		$('#gettable_forthcoming').on('keyup', function(){
-			var contents = $('#gettable_forthcoming').val(); 
-			$.get('<?php echo base_url() .'Seller_auctionapproval/get_table/'; ?>'+contents, function(data){
-				$('#ajaxrslt_forthcoming').html(data);
-			});
-		});
+		function seller_set_deactive(varab2){
+			$.get('<?php echo base_url() .'Seller_auctionapproval/setdeactive_seller/'; ?>'+varab2, function(data2){
+alert(data2);				
+				 if($.trim(data2) == "HI"){
+					 window.location.href = '<?php echo base_url().'Seller_auctionapproval';?>'
+					return true;
+				}
+			 });
+			
+		}
 	
  </script>
- 
- 
+
 </body>
 
 </html>

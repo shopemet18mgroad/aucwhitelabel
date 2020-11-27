@@ -60,15 +60,9 @@
 						</td>
 						<td><?php echo $datareciver[2];?>
 						</td>
+
 						<td><?php echo "Winner"?></td>
 
-						<td><?php
-					
-						if($maxbid_val == $bidamt[0]->bidamount){
-						echo "Win";
-					}else{
-						echo "Lost";
-					}	?></td>
 
 					</tr>
 					<?php  } ?>

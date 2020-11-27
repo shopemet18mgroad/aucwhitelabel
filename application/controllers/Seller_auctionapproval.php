@@ -18,74 +18,80 @@ class Seller_auctionapproval extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+		
+
 	public function index()
 	{
-		$this->load->helper(array('url','html'));
+		$this->load->helper(array('url','html','date'));
+		date_default_timezone_set('Asia/Kolkata');
+		$time =  Date('Y-m-d H:i:s');
+		$this->load->model('Admin_model');
 		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
-		$this->load->view('Seller/header',$sess);
-		$this->load->view('Seller/aucapproval');
-		$this->load->view('Seller/footer');
+		
+
+
+
+		$data['sqldat'] = $this->Admin_model->datebetweensess2('biddercart',$time,$sess['sessi']);
+		
+		   $xr = 0;
+		   $xdata = array(); 
+		   
+		   	foreach($data['sqldat'] as $datsql){ 	
+		$auctmp = $datsql->auctionid;
+		$auclottmp = $datsql->lotno;
+		$username = $sess['sessi'];
+		$mybitvalref = $datsql->mybid_val;
+		
+		$datap = $this->Admin_model->maxbidvalue($auctmp, $auclottmp);
+		$mybitvalrec = $datap[0]->bidderusername;
+		$aucbidamount = $datap[0]->bidamount;
+		$mybitvaldatetime = $datap[0]->Date_time;
+		if($username === $mybitvalrec){
+			$data['sqldatarec'][$xr] = $auctmp.'|'.$auclottmp.'|'.$aucbidamount.'|'.$mybitvaldatetime;
+			$xr++;
+		}else{
+			
+		}
+		
+		}
+		$this->load->model('Admin_model');
+		$sapproval = array('sapproval'=>false);
+		
+		$query = $this->Admin_model->getdatafromtable('biddercart', $sapproval);
+		
+		$data2['sqldat2']= $query;
+		
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));		
+					
+		 
+		$this->load->view('seller/header',$sess);
+		$this->load->view('seller/auctionapproval',$data,$data2);
+		$this->load->view('seller/footer');
 		
 	}
 	
-	public function get_table(){
-		$datatoquerydb = $this->uri->segment(3);
-		$this->load->model('Admin_model');
-		$data = $this->Admin_model->get_lookalike('auction','sname',$datatoquerydb);
-		if(count($data)){
-			echo '<table class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';
-			echo '<thead class="bg-primary text-white">';
-			echo '<tr>';
-			echo '<th>Auction Id</th>';
-			echo '<th>Download</th>';
-			echo '<th>Start Date/Time</th>';
-			echo '</tr>';
-			echo '</thead>';
-			echo '<tbody>';
-			foreach($data as $dat){
-				echo '<tr>';
-				echo '<td><a href="'.base_url().'Selleraucapproval/aucapproval/'.urlencode($dat['sname']).
-				'">';
-				echo $dat['sauctionid'];
-				echo '</a>';
-				echo '</td>';
-				echo '<td><a href="'.base_url().'#">';
-				echo '<i class="fa fa-download"></i>';
-				echo '</a>';
-				echo '</td>';
-				echo '<td>'.$dat['sonlineaucdate_time'].'</td>';
-				
-				echo '</tr>';
-			}
-			echo '</tbody>';
-			echo '</table>';
-		}else{
-			echo '<table class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';
-			echo '<thead class="bg-primary text-white">';
-			echo '<tr>';
-			echo '<th>Auction Id</th>';
-			echo '<th>Download</th>';
-			echo '<th>Start Date/Time</th>';
-			echo '</tr>';
-			echo '</thead>';
-			echo '<tbody>';
-			echo '<tr>';
-				echo '<td><a href="'.base_url().'#">';
-				echo '<td>No Records Found</td>';
-				echo '<td>No Records Found</td>';
-				echo '<td>No Records Found</td>';
-				echo '<td><a href="'.base_url().'#">';
-				echo '<i class="fa fa-download"></i>';
-				echo '</a>';
-				echo '</td>';
-				echo '</tr>';
-				echo '</tbody>';
-				echo '</table>';
-		}
-
-
-
-	}
+	public function setdeactive_seller(){
+		
+		$compnameurl = $this->uri->segment(3);
+		print_r($compnameurl); die;
+		$compnameurl = urldecode($compnameurl);
+		$compnameurl2 = explode('|',$compnameurl);
+		$compname = $compnameurl2[0];
 	
+		$comp = str_ireplace('-','/',$compnameurl2[1]);
+		
+		$this->load->model('Admin_model');
+		$sapproval = array('sapproval'=>true);
+		$adaction2 = array('lotno'=>$compname,'auctionid'=>$comp);
+		
+		$query = $this->Admin_model->update_custom('biddercart',$sapproval, $adaction2, $adaction2);
+		if($compname){
+			echo "HI";
+		}else{
+			echo "BYE";
+		}
+	
+}
 }

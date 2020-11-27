@@ -89,7 +89,7 @@ class Admin_startauction_update extends CI_Controller {
 		$data2 = array('scategory' => $scategory, 'sauctionid' => $sauctionid, 'sname' => $sname, 'scompanyname' => $scompanyname, 'svinspection' => $svinspection, 'svinspection' => $svinspection,'sfrominpectdate_time' => $sfrominpectdate_time, 'stoinpectdate_time' => $stoinpectdate_time, 'sstartbidprice' => $sstartbidprice, 'slastdateemdsub' => $slastdateemdsub, 'saucstartdate_time' => $saucstartdate_time, 'saucclosedate_time' => $saucclosedate_time, 'sterms_condiaccept'=> $sterms_condiaccept, 'sterms_condiupload' => $doc_array,'sterms_text' => $sterms_text);
 		//$this->load->view('xya', $data);
 		$datainserr = "Data Inserted Successfully";
-		$updatech = array('sname' => $sname);
+		$updatech = array('sauctionid' => $sauctionid);
 		$status = $this->Admin_model->update_custom('auction',$data2,$updatech,$updatech);
 		// $status = $this->Admin_model->insert('sellerprofile', $data2);
 		header('location: '.base_url().'admin_editforthcom/index/'.$datainserr);
