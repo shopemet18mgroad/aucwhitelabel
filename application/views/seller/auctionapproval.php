@@ -1,5 +1,6 @@
 <?php
    // include('./header');
+ //print_r($sqldatarec); die;
 	?>
         <!-- End of Topbar -->
 
@@ -44,11 +45,12 @@
 		<th>Status</th>
 		<th>Action</th>
 		
-		
+	
 	</tr>
     </thead>
     <tbody>
    	<?php  foreach($sqldatarec as $sqldata){ $datareciver = explode('|',$sqldata);?>
+		<?php /* print_r($datareciver[4]); die;  */?>
 					<tr>												
 						<td><?php echo $datareciver[0]; ?></td>
 						<td><?php echo $datareciver[1]; ?></td>
@@ -56,11 +58,13 @@
 						<td><?php echo $datareciver[2];?></td>
 						<td><?php echo "Winner"?></td>
 						
-						<td><button type="submit" name="submit" id="<?php echo $sqldata->lotno.'|'.str_ireplace('/','-',$sqldata->auctionid);?>" onclick="seller_set_deactive(this.id)" class="btn btn-info btn-sm">Approve</button></td>	
+					
+						
+						<td><button type="submit" name="submit" id="<?php echo $datareciver[1].'|'.str_ireplace('/','-', $datareciver[0]);?>" onclick="seller_set_deactive(this.id)" class="btn btn-info btn-sm">Approve</button></td>	
 
 					</tr>
 					<?php  } ?>
-
+	
     </tbody>
   </table>
 

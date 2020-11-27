@@ -128,7 +128,7 @@ function validate_password_seller(){
  <script>
 		function seller_set_deactive(varab2){
 			$.get('<?php echo base_url() .'Seller_auctionapproval/setdeactive_seller/'; ?>'+varab2, function(data2){
-alert(data2);				
+			
 				 if($.trim(data2) == "HI"){
 					 window.location.href = '<?php echo base_url().'Seller_auctionapproval';?>'
 					return true;

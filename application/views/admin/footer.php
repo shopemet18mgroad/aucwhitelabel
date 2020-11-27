@@ -398,7 +398,8 @@
  
  <script>
 		function buyer_set_deactive_emd_dd(varab2){
-			$.get('<?php echo base_url() .'Admin_emdapproval/setdeactive_buyer_emd_dd/'; ?>'+varab2, function(data2){	
+			$.get('<?php echo base_url() .'Admin_emdapproval/setdeactive_buyer_emd_dd/'; ?>'+varab2, function(data2){
+				
 				 if($.trim(data2) == "HI"){
 					 window.location.href = '<?php echo base_url().'Admin_emdapproval';?>'
 					return true;

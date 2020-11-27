@@ -30,9 +30,12 @@ class Seller_auctionapproval extends CI_Controller {
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		
 
-
-
-		$data['sqldat'] = $this->Admin_model->datebetweensess2('biddercart',$time,$sess['sessi']);
+		$this->load->model('Admin_model');
+		$sapproval = array('sapproval'=>false);
+		$data['sqldat'] = $this->Admin_model->getdatafromtable('biddercart', $sapproval); 
+		
+	//print_r($data['sqldat'][1]); die;
+	//$data['sqldat'] = $this->Admin_model->datebetweensess2('biddercart',$time,$sess['sessi']);
 		
 		   $xr = 0;
 		   $xdata = array(); 
@@ -47,27 +50,28 @@ class Seller_auctionapproval extends CI_Controller {
 		$mybitvalrec = $datap[0]->bidderusername;
 		$aucbidamount = $datap[0]->bidamount;
 		$mybitvaldatetime = $datap[0]->Date_time;
+		$myapproval = $datap[0]->sapproval;
 		if($username === $mybitvalrec){
-			$data['sqldatarec'][$xr] = $auctmp.'|'.$auclottmp.'|'.$aucbidamount.'|'.$mybitvaldatetime;
+			$data['sqldatarec'][$xr] = $auctmp.'|'.$auclottmp.'|'.$aucbidamount.'|'.$mybitvaldatetime.'|'.$myapproval;
 			$xr++;
 		}else{
 			
 		}
 		
 		}
-		$this->load->model('Admin_model');
+		/* $this->load->model('Admin_model');
 		$sapproval = array('sapproval'=>false);
 		
 		$query = $this->Admin_model->getdatafromtable('biddercart', $sapproval);
 		
 		$data2['sqldat2']= $query;
 		
-		$this->load->library('session');
+		$this->load->library('session'); */
 		$sess = array('sessi'=>$this->session->userdata('username'));		
 					
 		 
 		$this->load->view('seller/header',$sess);
-		$this->load->view('seller/auctionapproval',$data,$data2);
+		$this->load->view('seller/auctionapproval',$data);
 		$this->load->view('seller/footer');
 		
 	}
@@ -75,18 +79,19 @@ class Seller_auctionapproval extends CI_Controller {
 	public function setdeactive_seller(){
 		
 		$compnameurl = $this->uri->segment(3);
-		print_r($compnameurl); die;
+		
 		$compnameurl = urldecode($compnameurl);
+		//print_r($compnameurl); die;
 		$compnameurl2 = explode('|',$compnameurl);
 		$compname = $compnameurl2[0];
 	
 		$comp = str_ireplace('-','/',$compnameurl2[1]);
-		
+		//print_r($comp); die;
 		$this->load->model('Admin_model');
 		$sapproval = array('sapproval'=>true);
-		$adaction2 = array('lotno'=>$compname,'auctionid'=>$comp);
+		$adaction2 = array('slotno'=>$compname,'sauctionid'=>$comp);
 		
-		$query = $this->Admin_model->update_custom('biddercart',$sapproval, $adaction2, $adaction2);
+		$query = $this->Admin_model->update_custom('biddingdata',$sapproval, $adaction2, $adaction2);
 		if($compname){
 			echo "HI";
 		}else{
