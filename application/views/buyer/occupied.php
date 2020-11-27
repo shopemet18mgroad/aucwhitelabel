@@ -60,10 +60,7 @@
 						</td>
 						<td><?php echo $datareciver[2];?>
 						</td>
-
 						<td><?php echo "Winner"?></td>
-
-
 					</tr>
 					<?php  } ?>
 						

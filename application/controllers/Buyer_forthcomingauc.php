@@ -68,14 +68,14 @@ class Buyer_forthcomingauc extends CI_Controller {
 			echo '<th>Quantity</th>';
 			echo '<th>GST</th>';
 			echo '<th>Location</th>';
+			echo '<th>Download</th>';
 			echo '<th>Add to Mylist</th>';
 			echo '</tr>';
 			echo '</thead>';
 			echo '<tbody>';
 			foreach($data as $dat){
 				echo '<tr>';
-				echo '<td style="color:blue"><a href="'.base_url().'buyer_mylist/my_cart/'.urlencode($dat['sdescription']).
-				'">';
+				echo '<td style="color:blue"><a href="#">';
 				echo $dat['sauctionid'];	
 				echo $aucencode = str_ireplace('/','-',$dat['sauctionid']);
 				echo '</a>';
@@ -87,6 +87,9 @@ class Buyer_forthcomingauc extends CI_Controller {
 				echo '<td>'.$dat['sqty'].'</td>';
 				echo '<td>'.$dat['sgst'].'</td>';
 				echo '<td>'.$dat['slotlocation'].'</td>';
+				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$aucencode.'" target="_blank"><i class="fa fa-download"></i></a></td>';
+				echo '';
+
 				echo '<td>';
 				echo'<button type="button" id="'.$aucencode.'|'.$dat['slotno'].'" onClick="addtocart(this.id)">';
 				echo'<i class="fas fa-heart" id="'.$aucencode.'|'.$dat['slotno'].'"></i>';
