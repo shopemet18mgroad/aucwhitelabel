@@ -36,27 +36,33 @@
 		
 			</form>
 		
-		<table class="table table-striped table-bordered table-sm text-center mt-5 w-auto" id="dataTable" width="100%" cellspacing="0">
+		<table class="table table-striped table-bordered table-sm text-center mt-5 " id="dataTable" width="100%" cellspacing="0">
 				<thead class="bg-primary text-white">
-					<tr>
+				
 					<tr><th>Auction Id</th>
 						<th>Lot No</th>
-						<th>Starting Date/Time</th>
+						<th>Buyer</th>
 						<th>Closing Date/Time</th>
 						<th>Bid Final Value</th>
 						<th>Status</th>
 					</tr>
-				</tr>
+			
 				</thead>
 				<tbody>
-				<?php  foreach($sqldat as $sqldata){ ?>
-					<tr><td><?php echo $sqldata->auctionid; ?></td>				
-					<td class="up"><?php echo $sqldata->lotno; ?></td>
-					<td class="up"><?php echo $sqldata->aucstartdate_time; ?></td>
-					<td class="up"><?php echo $sqldata->aucclosedate_time; ?></td>
-					<td class="up"><?php echo $sqldata->abidmaxvalue; ?></td>
-					<td class="up" style="color:orange">Shortlisted</td>
-				</tr>
+					<?php  foreach($sqldatarec as $sqldata){ $datareciver = explode('|',$sqldata);?>
+	<?php //print_r($datareciver); die; ?>
+					<tr>												
+						<td><?php echo $datareciver[0]; ?></td>
+						<td><?php echo $datareciver[1]; ?></td>
+						<td><?php echo $datareciver[2];?></td>
+						<td><?php echo $datareciver[4]; ?></td>
+						<td><?php echo $datareciver[3]; ?></td>
+						<td><?php if($datareciver[2]){
+						echo "Shortlisted"	;
+						}
+						 ?></td>			
+					</tr>
+					
 				<?php  } ?>
 				
 				</tbody>

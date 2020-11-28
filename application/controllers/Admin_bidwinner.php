@@ -29,43 +29,39 @@ class admin_bidwinner extends CI_Controller {
 		
 
 		//$this->load->model('Admin_model');
-		$sapproval = array('sapproval'=>false);
-		$data['sqldat'] = $this->Admin_model->getdatafromtable('biddercart', $sapproval); 
+		//$sapproval = array('sapproval'=>false);
+		$data['sqldat'] = $this->Admin_model->dateclosedauc('biddercart', $time); 
 		
-	//print_r($data['sqldat'][1]); die;
-	//$data['sqldat'] = $this->Admin_model->datebetweensess2('biddercart',$time,$sess['sessi']);
 		
-		   $xr = 0;
+		$xr = 0;
 		   $xdata = array(); 
 		   
-		   	foreach($data['sqldat'] as $datsql){ 	
+		 foreach($data['sqldat'] as $datsql){ 	
 		$auctmp = $datsql->auctionid;
-		$auclottmp = $datsql->lotno;
 		
-		//$username = $sess['sessi'];
+		
 		
 		$mybitvalref = $datsql->mybid_val;
-		print_r($mybitvalref ); die;
-		$datap = $this->Admin_model->maxbidvalue($auctmp, $auclottmp);
-		
+			
+		//print_r($mybitvalref); die;
+		$datap = $this->Admin_model->adminmaxbidvalue($auctmp);
+		//print_r($datap); die;
+		$myauction = $datap[0]->sauctionid;
+		$mylotno = $datap[0]->slotno;
 		$mybitvalrec = $datap[0]->bidderusername;
 		$aucbidamount = $datap[0]->bidamount;
 		$mybitvaldatetime = $datap[0]->Date_time;
-		$myapproval = $datap[0]->sapproval;
-		if($aucbidamount === $mybitvalref){
-			$data['sqldatarec'][$xr] = $auctmp.'|'.$auclottmp.'|'.$aucbidamount.'|'.$mybitvaldatetime.'|'.$myapproval;
-			$xr++;
-		}else{
+		//$myapproval = $datap[0]->sapproval;
+		 if($aucbidamount){   
+			$data['sqldatarec'][$xr] = $myauction.'|'.$mylotno.'|'.$mybitvalrec.'|'.$aucbidamount.'|'.$mybitvaldatetime;
 			
-		}
+			$xr++; 
+		   } else{
+			
+		}    
 		
 		}
-		/* $this->load->model('Admin_model');
-		$sapproval = array('sapproval'=>false);
-		
-		$query = $this->Admin_model->getdatafromtable('biddercart', $sapproval);
-		
-		$data2['sqldat2']= $query;*/
+		//print_r($data['sqldatarec']);die;
 		
 		$this->load->library('session'); 
 		$sess = array('sessi'=>$this->session->userdata('username'));
@@ -88,7 +84,7 @@ class admin_bidwinner extends CI_Controller {
 		//print_r($comp); die;
 		$this->load->model('Admin_model');
 		$sapproval = array('sapproval'=>true);
-		$adaction2 = array('slotno'=>$compname,'sauctionid'=>$comp);
+		$adaction2 = array('lotno'=>$compname,'auctionid'=>$comp);
 		
 		$query = $this->Admin_model->update_custom('biddercart',$sapproval, $adaction2, $adaction2);
 		if($compname){

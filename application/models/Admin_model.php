@@ -74,6 +74,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$query = $this->db->get();
 			return $query->result();
 		}
+		
+		public function adminmaxbidvalue($auction){
+			$this->db->select('*');
+			$this->db->select_max('bidamount');
+			$this->db->from('biddingdata');
+			$this->db->where('sauctionid =', $auction);
+			//$this->db->where('slotno =',$lot);
+			$query = $this->db->get();
+			return $query->result();
+		}
 
 	 public function dateclosedauc($table, $date){
 			$this->db->select('*');
