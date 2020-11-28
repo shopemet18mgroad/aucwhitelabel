@@ -19,7 +19,7 @@
             <div class="card-body">
 			<div class="table-responsive">
 			
-			<form class="form-inline">
+		<!--	<form class="form-inline">
 			  
 			 <div class="form-group mr-4 offset-sm-4">
 						<td colspan="5">
@@ -31,7 +31,7 @@
 						</form>
 					</td>
 				</div>
-			</form>
+			</form>-->
 			
          <table class="table table-striped text-center table-sm table-bordered mt-5"  width="100%" cellspacing="0">		
     <thead class="bg-primary text-white">
@@ -39,7 +39,8 @@
 		<th colspan="13" class="bg-info">Auctions</th></tr>
      <tr>
 		<th>Auction Id</th>
-		<th>Lot No</th>
+		<th>Lot No</th>		
+		<th>Buyer Name</th>
 		<th>date/Time</th>
 		<th>My Bid Value</th>
 		<th>Status</th>
@@ -54,8 +55,10 @@
 					<tr>												
 						<td><?php echo $datareciver[0]; ?></td>
 						<td><?php echo $datareciver[1]; ?></td>
-						<td><?php echo $datareciver[3]; ?></td>
 						<td><?php echo $datareciver[2];?></td>
+						<td><?php echo $datareciver[0]; ?></td>
+						<td><?php echo $datareciver[3]; ?></td>
+						
 						<td><?php echo "Winner"?></td>
 						
 						

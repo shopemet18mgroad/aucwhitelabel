@@ -52,7 +52,7 @@ class Seller_auctionapproval extends CI_Controller {
 		$mybitvaldatetime = $datap[0]->Date_time;
 		$myapproval = $datap[0]->sapproval;
 		if($username === $mybitvalrec){
-			$data['sqldatarec'][$xr] = $auctmp.'|'.$auclottmp.'|'.$aucbidamount.'|'.$mybitvaldatetime.'|'.$myapproval;
+			$data['sqldatarec'][$xr] = $auctmp.'|'.$auclottmp.'|'.$mybitvalrec.'|'.$aucbidamount.'|'.$mybitvaldatetime.'|'.$myapproval;
 			$xr++;
 		}else{
 			

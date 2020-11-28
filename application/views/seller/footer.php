@@ -138,7 +138,15 @@ function validate_password_seller(){
 		}
 	
  </script>
-
+<script>
+		$('#gettable_biddata').on('keyup', function(){
+			var contents = $('#gettable_biddata').val(); 
+			$.get('<?php echo base_url() .'Seller_biddingdata/get_table/'; ?>'+contents, function(data){
+				$('#ajaxrslt_biddata').html(data);
+			});
+		});
+	
+ </script>
 </body>
 
 </html>
