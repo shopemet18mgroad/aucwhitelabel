@@ -32,86 +32,39 @@
 				</div>
 			</form>
 			
-         <table class="table table-striped text-center table-sm table-bordered w-auto small mt-5"  width="100%" cellspacing="0">		
+         <table class="table table-striped text-center table-sm table-bordered  mt-5"  width="100%" cellspacing="0">		
     <thead class="bg-primary text-white">
       <tr>
 	<th colspan="15" class="bg-info text-center">Sold Products</th>
 	</tr>
 	<tr>
-	<th>Auction Id</th>
-	<th>Company Name</th>
-	<th>Location</th>
-	<th>Lot No.</th>
-	<th>Lot Name</th>
-	<th>Qty</th>
-	<th>Purity</th>
-	<th>Final Bid price</th>
-	<th>Description</th>
-	<th>Auction Date/Time</th>
-	<th>Amount</th>
-	<th>Download</th>
+	 <tr>
+		<th>Auction Id</th>
+		<th>Lot No</th>		
+		<th>Buyer Name</th>
+		<th>date/Time</th>
+		<th>My Bid Value</th>
+		<th>Status</th>
+		<th>Download</th>
 	</tr>
 
 	</thead>
-	<tbody>
-		<tr>
-        <td style="color:blue;">AJ256458/BHEL/IRON/102</td>
-		<td style="color:blue;">XYZ Ltd</td>
-		<td>BHUBANESWAR</td>
-		<td>M-9</td>
-		<td>Paper</td>
-		<td>50</td>
-		<td>80%</td>
-		<td>35,000</td>
-		<td><a href=""><u>Type: Pipes, Sheets, Rods, Blocks & Etc</u></a></td>
-		<td>15-7-2020</td>
-		<td>2,00,000</td>
-		<td><a href=""><i class="fa fa-download"></i></a></td>	
-		</tr>
-		<tr>
-		<td style="color:blue;">AJ256458/BHEL/IRON/102</td>
-		<td style="color:blue;">XYZ Ltd</td>
-		<td>BHUBANESWAR</td>
-		<td>M-9</td>
-		<td>Paper</td>
-		<td>50</td>
-		<td>80%</td>
-		<td>35,000</td>
-		<td><a href=""><u>Type: Pipes, Sheets, Rods, Blocks & Etc</u></a></td>
-		<td>15-7-2020</td>
-		<td>2,00,000</td>
-		<td><a href=""><i class="fa fa-download"></i></a></td>	
-		</tr>
-		<tr>
-		<td style="color:blue;">AJ256458/BHEL/IRON/102</td>
-		<td style="color:blue;">XYZ Ltd</td>
-		<td>BHUBANESWAR</td>
-		<td>M-9</td>
-		<td>Paper</td>
-		<td>50</td>
-		<td>80%</td>
-		<td>35,000</td>
-		<td><a href=""><u>Type: Pipes, Sheets, Rods, Blocks & Etc</u></a></td>
-		<td>15-7-2020</td>
-		<td>2,00,000</td>
-		<td><a href=""><i class="fa fa-download"></i></a></td>	
-		</tr>
-		<tr>
-		<td style="color:blue;">AJ256458/BHEL/IRON/102</td>
-		<td style="color:blue;">XYZ Ltd</td>
-		<td>BHUBANESWAR</td>
-		<td>M-9</td>
-		<td>Paper</td>
-		<td>50</td>
-		<td>80%</td>
-		<td>35,000</td>
-		<td><a href=""><u>Type: Pipes, Sheets, Rods, Blocks & Etc</u></a></td>
-		<td>15-7-2020</td>
-		<td>2,00,000</td>
-		<td><a href=""><i class="fa fa-download"></i></a></td>	
-		</tr>
-			
-      
+	    <tbody>
+   	<?php  foreach($sqldatarec as $sqldata){ $datareciver = explode('|',$sqldata);?>
+		<?php /* print_r($datareciver[4]); die;  */?>
+					<tr>												
+						<td><?php echo $datareciver[0]; ?></td>
+						<td><?php echo $datareciver[1]; ?></td>
+						<td><?php echo $datareciver[2];?></td>
+						<td><?php echo $datareciver[4]; ?></td>
+						<td><?php echo $datareciver[3]; ?></td>
+						<td><?php echo "Sold"?></td>
+						
+						<td><a href="<?php echo base_url().'/pdf_gen/auc_no/'.$datareciver[0]?>" target="_blank"><i class="fa fa-download"></i></a></td>
+
+					</tr>
+					<?php  } ?>
+	
     </tbody>
   </table>
 
@@ -119,26 +72,7 @@
             </div>
 			<!--Pagination -->
 
-        <div class="row">
-		
-			<div class="col-sm-12 col-md-10">
-				<div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
-				<ul class="pagination offset-lg-11">
-				<li class="paginate_button page-item previous disabled" id="dataTable_previous">
-				<a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
-				</li>
-				<li class="paginate_button page-item active">
-				<a href="#" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page-link">1</a>
-				</li>
-				<li class="paginate_button page-item next disabled" id="dataTable_next">
-				<a href="#" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page-link">Next</a>
-				</li>
-				</ul>
-				</div>
-				</div>
-			
-			</div>
-			
+
           </div>
 		</div>
         </div>

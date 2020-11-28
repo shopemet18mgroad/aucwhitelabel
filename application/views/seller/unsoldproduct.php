@@ -32,89 +32,39 @@
 				</div>
 			</form>
 			
-         <table class="table table-striped text-center table-sm table-bordered w-auto small mt-5"  width="100%" cellspacing="0">		
+         <table class="table table-striped text-center table-sm table-bordered mt-5"  width="100%" cellspacing="0">		
     <thead class="bg-primary text-white">
       <tr>
 	<th colspan="15" class="bg-info text-center">Unsold Products</th>
 	</tr>
 	<tr>
 	<th>Auction Id</th>
-	<th>Company Name</th>
-	<th>Location</th>
-	<th>Lot No.</th>
-	<th>Lot Name</th>
-	<th>Qty</th>
-	<th>Purity</th>
-	<th>Final Bid price</th>
-	<th>Description</th>
-	<th>Auction Date/Time</th>
-	<th>Amount</th>
+					<th>Lot Name</th>
+					<th>Lot Description</th>
+					<th>Quantity</th>
+					<th>GST</th>
+					<th>Location</th>
 	<th>Option</th>
 	<th>Download</th>
 	</tr>
 
 	</thead>
 	<tbody>
+	<?php foreach($sqldat as $sqldata){?>	
 		<tr>
-        <td style="color:blue;">AJ256458/BHEL/IRON/102</td>
-		<td style="color:blue;">XYZ Ltd</td>
-		<td>BHUBANESWAR</td>
-		<td>M-9</td>
-		<td>Paper</td>
-		<td>50</td>
-		<td>80%</td>
-		<td>35,000</td>
-		<td><a href=""><u>Type: Pipes, Sheets, Rods, Blocks & Etc</u></a></td>
-		<td>15-7-2020</td>
-		<td>2,00,000</td>
-		<td><a href="#"><button type="button" class="btn btn-primary btn-sm"><strong>Reauction</strong></button></a></td>
+        <td><?php echo $sqldata->sauctionid; ?></td>
+		<td><?php echo $sqldata->slotno; ?></td>
+		<td><?php echo $sqldata->sdescription; ?></td>
+		<td><?php echo $sqldata->sqty; ?></td>
+		<td><?php echo $sqldata->sgst; ?></td>
+		<td><?php echo $sqldata->slotlocation; ?></td>
+		<td><input type="button" class="btn btn-primary btn-sm" value="Reauction"></td>
 		<td><a href=""><i class="fa fa-download"></i></a></td>	
 		</tr>
-		<tr>
-		<td style="color:blue;">AJ256458/BHEL/IRON/102</td>
-		<td style="color:blue;">XYZ Ltd</td>
-		<td>BHUBANESWAR</td>
-		<td>M-9</td>
-		<td>Paper</td>
-		<td>50</td>
-		<td>80%</td>
-		<td>35,000</td>
-		<td><a href=""><u>Type: Pipes, Sheets, Rods, Blocks & Etc</u></a></td>
-		<td>15-7-2020</td>
-		<td>2,00,000</td>
-		<td><a href="#"><button type="button" class="btn btn-primary btn-sm "><strong>Reauction</strong></button></a></td>
-		<td><a href=""><i class="fa fa-download"></i></a></td>	
-		</tr>
-		<tr>
-		<td style="color:blue;">AJ256458/BHEL/IRON/102</td>
-		<td style="color:blue;">XYZ Ltd</td>
-		<td>BHUBANESWAR</td>
-		<td>M-9</td>
-		<td>Paper</td>
-		<td>50</td>
-		<td>80%</td>
-		<td>35,000</td>
-		<td><a href=""><u>Type: Pipes, Sheets, Rods, Blocks & Etc</u></a></td>
-		<td>15-7-2020</td>
-		<td>2,00,000</td>
-		<td><a href="#"><button type="button" class="btn btn-primary btn-sm "><strong>Reauction</strong></button></a></td>
-		<td><a href=""><i class="fa fa-download"></i></a></td>	
-		</tr>
-		<tr>
-		<td style="color:blue;">AJ256458/BHEL/IRON/102</td>
-		<td style="color:blue;">XYZ Ltd</td>
-		<td>BHUBANESWAR</td>
-		<td>M-9</td>
-		<td>Paper</td>
-		<td>50</td>
-		<td>80%</td>
-		<td>35,000</td>
-		<td><a href=""><u>Type: Pipes, Sheets, Rods, Blocks & Etc</u></a></td>
-		<td>15-7-2020</td>
-		<td>2,00,000</td>
-		<td><a href="#"><button type="button" class="btn btn-primary btn-sm"><strong>Reauction</strong></button></a></td>
-		<td><a href=""><i class="fa fa-download"></i></a></td>	
-		</tr>
+				<?php }  
+         ?> 							
+			
+	
 			
       
     </tbody>

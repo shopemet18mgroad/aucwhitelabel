@@ -51,12 +51,12 @@
     </thead>
     <tbody>
    	<?php  foreach($sqldatarec as $sqldata){ $datareciver = explode('|',$sqldata);?>
-		<?php /* print_r($datareciver[4]); die;  */?>
+		<?php /*  print_r($datareciver[4]); die;  */ ?>
 					<tr>												
 						<td><?php echo $datareciver[0]; ?></td>
 						<td><?php echo $datareciver[1]; ?></td>
 						<td><?php echo $datareciver[2];?></td>
-						<td><?php echo $datareciver[0]; ?></td>
+						<td><?php echo $datareciver[4]; ?></td>
 						<td><?php echo $datareciver[3]; ?></td>
 						
 						<td><?php echo "Winner"?></td>
