@@ -1,6 +1,6 @@
 <?php
    // include('./header');
- //print_r($sqldatarec); die;
+ //print_r($mybitvalref); die;
 	?>
         <!-- End of Topbar -->
 
@@ -25,23 +25,24 @@
 						<td colspan="5">
 						<form action="/action_page.php">
 							
-								<input type="text" class="form-control" placeholder="Search.." name="search">
-								<button class="form-control" type="submit"><i class="fa fa-search"></i></button>
+								<!--<input type="text" class="form-control" placeholder="Search.." name="search">
+								<button class="form-control" type="submit"><i class="fa fa-search"></i></button>-->
 					
 						</form>
 					</td>
 				</div>
 			</form>
 			
-         <table class="table table-striped text-center table-sm table-bordered mt-5"  width="100%" cellspacing="0">		
+         <table class="table table-striped text-center table-sm table-bordered mt-5" id="dataTable" width="100%" cellspacing="0">		
     <thead class="bg-primary text-white">
 	  <tr>
 		<th colspan="13" class="bg-info">Auctions</th></tr>
      <tr>
 		<th>Auction Id</th>
 		<th>Lot No</th>
+		<th>Buyer</th>
 		<th>date/Time</th>
-		<th>My Bid Value</th>
+		<th>Bid Amount</th>
 		<th>Status</th>
 		<th>Action</th>
 		
@@ -50,13 +51,21 @@
     </thead>
     <tbody>
    	<?php  foreach($sqldatarec as $sqldata){ $datareciver = explode('|',$sqldata);?>
-		<?php /* print_r($datareciver[4]); die;  */?>
+		
 					<tr>												
+						
 						<td><?php echo $datareciver[0]; ?></td>
-						<td><?php echo $datareciver[1]; ?></td>
-						<td><?php echo $datareciver[3]; ?></td>
-						<td><?php echo $datareciver[2];?></td>
-						<td><?php echo "Winner"?></td>
+						<td><?php echo $datareciver[1];	?></td>
+						<td><?php echo $datareciver[2]; ?></td>
+						<td><?php echo $datareciver[4];?></td>
+						<td><?phpecho $datareciver[3]; ?></td>
+						<td><?php if($datareciver[3]){
+						echo "Winner"	;
+						}
+						else{
+						
+						}
+						 ?></td>
 						
 					
 						
@@ -64,7 +73,7 @@
 
 					</tr>
 					<?php  } ?>
-	
+
     </tbody>
   </table>
 
