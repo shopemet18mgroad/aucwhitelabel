@@ -20,7 +20,9 @@ class Admin_salesdata extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->helper('url');
+		$this->load->helper(array('url','html','date'));
+		date_default_timezone_set('Asia/Kolkata');
+		$time =  Date('Y-m-d H:i:s');
 		$this->load->library('session');
 		
 		$retrivevaltmp = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
@@ -32,7 +34,39 @@ class Admin_salesdata extends CI_Controller {
 		$this->load->model('Admin_model');
 		$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
 		
-		$data['sqldatalot'] = $this->Admin_model->getdatafromtable('biddercart',$retriveval2);
+		$datsql = $this->Admin_model->admindateclosedauc('biddercart',$time, $retrivevaltmp2);
+		//print_r($datsql); die;
+
+		  $xr = 0;
+		  $xdata = array(); 
+		   
+		 //foreach($data['sqldat'] as $datsql){ 	
+		$auctmp = $datsql[0]->auctionid;
+		$lotmp = $datsql[0]->lotno;
+		$mybitvalref = $datsql[0]->mybid_val;
+			
+		//print_r($mybitvalref); die;
+		$datap = $this->Admin_model->maxbidvalue($auctmp,$lotmp);
+		//print_r($datap); die;
+		$myauction = $datap[0]->sauctionid;
+		$mylotno = $datap[0]->slotno;
+		$mybitvalrec = $datap[0]->bidderusername;
+		$aucbidamount = $datap[0]->bidamount;
+		$mybitvaldatetime = $datap[0]->Date_time;
+		//$myapproval = $datap[0]->sapproval;
+		 if($aucbidamount){   
+			$data['sqldatarec'][$xr] = $myauction.'|'.$mylotno.'|'.$mybitvalrec.'|'.$aucbidamount.'|'.$mybitvaldatetime;
+			
+			$xr++; 
+		   } else{
+			
+		}    
+		
+		//}
+		
+		
+		
+		
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('admin/header',$sess);
 		$this->load->view('admin/salesdata',$data);

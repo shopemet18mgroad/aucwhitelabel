@@ -50,19 +50,30 @@
 					<th>Lot Name</th>
 					<th>Auction Start Date</th>
 					<th>Auction Close Date</th>
-					
 					<th>Amount</th>
+					<th>Status</th>
 				</tr>
 				</thead>
 				<tbody>
+				<?php  foreach($sqldatarec as $sqldata){ $datareciver = explode('|',$sqldata);?>
 					<tr>
-						<td><?php echo $sqldatalot[0]->auctionid; ?></td>	
-						<td><?php echo $sqldatalot[0]->	lotno; ?></td>
-						<td><?php echo $sqldatalot[0]->aucstartdate_time; ?></td>
-						<td><?php echo $sqldatalot[0]->aucclosedate_time; ?></td>
-						<td><?php echo $sqldatalot[0]->abidmaxvalue; ?></td>
+						<td><?php echo $datareciver[0]; ?></td>
+						<td><?php echo $datareciver[1];	?></td>
+						<td><?php echo $datareciver[2]; ?></td>
+						<td><?php echo $datareciver[4];?></td>
+						<td><?php echo $datareciver[3]; ?></td>
+						<td><?php if($datareciver[3]){
+						echo "Sold"	;
+						}
+						else{
+						
+						}
+						 ?></td>
+
 					</tr>
-										
+					<?php  } ?>
+					
+						
 				</tbody>
 		 </table>
 		</div>
