@@ -126,8 +126,8 @@ function validate_password_seller(){
 	
  </script>
  <script>
-		function seller_set_deactive(varab2){
-			$.get('<?php echo base_url() .'Seller_auctionapproval/setdeactive_seller/'; ?>'+varab2, function(data2){
+		function seller_set(varab2){
+			$.get('<?php echo base_url() .'Seller_auctionapproval/setdeactive/'; ?>'+varab2, function(data2){
 			
 				 if($.trim(data2) == "HI"){
 					 window.location.href = '<?php echo base_url().'Seller_auctionapproval';?>'
@@ -138,7 +138,15 @@ function validate_password_seller(){
 		}
 	
  </script>
-
+<script>
+		$('#gettable_biddata').on('keyup', function(){
+			var contents = $('#gettable_biddata').val(); 
+			$.get('<?php echo base_url() .'Seller_biddingdata/get_table/'; ?>'+contents, function(data){
+				$('#ajaxrslt_biddata').html(data);
+			});
+		});
+	
+ </script>
 </body>
 
 </html>

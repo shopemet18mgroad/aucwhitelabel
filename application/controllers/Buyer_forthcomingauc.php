@@ -79,7 +79,6 @@ class Buyer_forthcomingauc extends CI_Controller {
 				 echo '<td style="color:blue"><a href="'.base_url().'buyer_mylist/my_cart/'.urlencode($dat['sdescription']).
 				'">'; 
 
-				echo '<td style="color:blue"><a href="#">';
 
 				echo $dat['sauctionid'];	
 				echo $aucencode = str_ireplace('/','-',$dat['sauctionid']);

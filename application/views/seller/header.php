@@ -99,16 +99,16 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="<?php echo base_url();?>seller_auctionapproval">
           <i class="fas fa-thumbs-up"  aria-hidden="true"></i>
-          <span>Auction Approvals</span>
+          <span>Winner Approvals</span>
         </a>
       </li>
 
 
       <!-- Nav Item - Tables -->
-       <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="<?php echo base_url();?>seller_auction">
           <i class="fa fa-gavel"></i>
-          <span>Auctions</span></a>
+          <span>Auctions</span></a>-->
       </li>
 	  <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url();?>seller_biddingdata">
