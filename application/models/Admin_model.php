@@ -106,6 +106,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			 $query = $this->db->get($table); 
 			 return $query->result();
 		} 
+		
+		public function gettablenews($table) {
+			$this->db->limit(2);			
+			 $query = $this->db->get($table); 
+			 return $query->result();
+		}
+		
 		public function getdatafromtablejoin($table,$table2,$joincolname,$compdata){
 			$this->db->select('*');
 			$this->db->from($table);
@@ -119,6 +126,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			 $this->db->from('auction');
 			$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid');
 			$this->db->where('status =', 1);
+			$this->db->limit(4);
 			$query = $this->db->get();
 			return $query->result();
 		}

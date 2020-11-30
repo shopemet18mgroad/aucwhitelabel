@@ -25,7 +25,7 @@ class Home extends CI_Controller {
 		$data['sqldata1'] = $this->Admin_model->getdatafromtablehomejoin();
 		
 		
-		$data['lnews'] =  $this->Admin_model->gettable('latestnews');
+		$data['lnews'] = $this->Admin_model->gettablenews('latestnews');
 		
 		/*  echo "<pre>";
 		print_r($data['lnews']); 

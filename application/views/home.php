@@ -8,12 +8,12 @@
 		 
 			<div class="col-md-3">
 			
-			    <div class="newsbox-containertray">
-						<div class="newsbox-header">
+			    <div class="newsbox-containertray m-1 ">
+						<div class="newsbox-header ">
 							<h4>Latest News</h4>
 						</div>
 						
-						<div class="wrapper">
+						<div class="wrapper ">
 						
 							<!--<ul class="data-list" data-autoscroll>
 								<li><i class="fa fa-hand-o-right" aria-hidden="true"></i><p>Breaking News 1</p>
@@ -42,22 +42,28 @@
 							</ul>-->
 								 
 							<div class="">
-						<?php foreach($lnews as $sqld){?>
-								<div class="nw newswrapper">
+						
+								<div class="nw newswrapper ">
 								
 								<ul>
-								<li><a href=""><?php echo $sqld->tittle	; ?></a>
+								<?php foreach($lnews as $sqld){?>
+								<li>
+								
+								<a href=""><?php echo $sqld->tittle; ?></a>
 								<p><?php echo $sqld->content; ?></p>
 								</li>
 								<li class="odd"><a href=""><?php echo $sqld->description; ?></a>
+								
 								</li>
-								<li><a href="">Aucjunction10200003</a>
+								<?php }?>
+								<!--<li><a href="">Aucjunction10200003</a>
 								<p>FERROUS Mild Steel ( MS) Scrap Stainless Steel ( SS) Scrap – BENGALURU, KARNATAKA on October 2020</p>
-								</li>
+								</li>-->
+								
 								</ul>
 							
 								</div>
-									<?php }?>
+									
 								</div>
 								
 						</div>
@@ -66,8 +72,8 @@
 					
 			</div>
 			
-			<div class="col-md-9">
-					<div class="auclist-containertray">
+			<div class="col-md-9 pl-5">
+					<div class="auclist-containertray m-2">
 							<div class="auclisting-header">
 							<h4>Oncoming Events</h4>
 							</div>
@@ -131,7 +137,7 @@
 				</ul>
 				</div>
 				</div>
-			</div>										
+			</div>									
 								</div>
 								
 								
