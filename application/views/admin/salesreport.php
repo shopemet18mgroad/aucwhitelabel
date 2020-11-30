@@ -38,24 +38,43 @@
 		<table class="table table-striped table-bordered table-sm text-center mt-5" id="dataTable" width="100%" cellspacing="0">
 				<thead class="bg-primary text-white">
 				<tr>
-					<th>Auction ID</th>
-					<th>From-Date</th>
-					<th>To-Date</th>
-					<th>View Details</th>
+					<th>Auction Id</th>
+		<th>Lot No</th>
+		<th>Buyer</th>
+		<th>date/Time</th>
+		<th>Bid Amount</th>
+		<th>Status</th>
+		
 				</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<?php  foreach($sqldat as $sqldata){ ?>
-					<tr><td><?php echo $sqldata->auctionid; ?></td>		
-					<td class="up"><?php echo $sqldata->aucstartdate_time; ?></td>
-					<td class="up"><?php echo $sqldata->aucclosedate_time; ?></td>
-					<td class="up"><a href="<?php  echo base_url()."Admin_salesdata/index/".str_ireplace('/','-',$sqldata->auctionid);?>">View Details</a></td>
-				</tr>
-				<?php  } ?>
+   	<?php  foreach($sqldatarec as $sqldata){ $datareciver = explode('|',$sqldata);?>
+		
+					<tr>												
+						
+						<td><?php echo $datareciver[0]; ?></td>
+						<td><?php echo $datareciver[1];	?></td>
+						<td><?php echo $datareciver[2]; ?></td>
+						<td><?php echo $datareciver[4];?></td>
+						<td><?php echo $datareciver[3]; ?></td>
+						<td style="color:Blue;"><b><?php if($datareciver[3]){
+						echo "Sold"	;
+						}
+						else{
+						
+						}
+						 ?></b></td>
+						
+
 					</tr>
-													
-				</tbody>
+					
+					
+
+					
+					<?php  } ?>
+					
+					
+    </tbody>
 		 </table>
 		</div>
 		</div>

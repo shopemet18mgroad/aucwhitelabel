@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin_unsoldproduct extends CI_Controller {
+class Admin_sellerreauction extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -23,13 +23,16 @@ class Admin_unsoldproduct extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('session');
 		$this->load->model('Admin_model');
-		$status = array('status'=>2);
-		$query = $this->Admin_model->getdatafromtable('addlot', $status);
-		$data['sqldat']= $query;
-		$this->load->library('session');
+
 		$sess = array('sessi'=>$this->session->userdata('username'));
+		
+		$retrivevaltmp = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
+		$retriveval = array('sauctionid'=>$retrivevaltmp);
+		$data['scomp'] = $this->Admin_model->getsomedatafromtable('auction', $retriveval);
+		  
+	//print_r($data['scomp']); die;
 		$this->load->view('admin/header',$sess);
-		$this->load->view('admin/unsoldproduct',$data);
+		$this->load->view('admin/sellerreauction',$data);
 		$this->load->view('admin/footer');
 		
 	}

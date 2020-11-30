@@ -26,7 +26,41 @@ class Admin_salesreport extends CI_Controller {
 		$this->load->model('Admin_model');
 		
 		$data['sqldat'] = $this->Admin_model->dateclosedauc('biddercart',$time);
-				
+			  		
+					
+					
+					$xr = 0;
+		   $xdata = array(); 
+		   
+		 foreach($data['sqldat'] as $datsql){ 	
+		$auctmp = $datsql->auctionid;
+		$lotmp = $datsql->lotno;
+		
+		
+		//$mybitvalref = $datsql->mybid_val;
+					
+
+		//print_r($mybitvalref); die;
+		$datap = $this->Admin_model->maxbidvalue($auctmp,$lotmp);
+		//print_r($datap); die;
+
+		$myauction = $datap[0]->sauctionid;
+		$mylotno = $datap[0]->slotno;
+		$mybitvalrec = $datap[0]->bidderusername;
+		$aucbidamount = $datap[0]->bidamount;
+		//print_r($aucbidamount); die;
+		$mybitvaldatetime = $datap[0]->Date_time;
+		//$myapproval = $datap[0]->sapproval;
+		 if($aucbidamount){   
+			$data['sqldatarec'][$xr] = $myauction.'|'.$mylotno.'|'.$mybitvalrec.'|'.$aucbidamount.'|'.$mybitvaldatetime;
+			
+			$xr++; 
+		   } else{
+			
+		}    
+		
+		}
+		
 		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('admin/header',$sess);

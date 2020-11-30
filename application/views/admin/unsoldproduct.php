@@ -24,9 +24,10 @@
 						<td colspan="5">
 						<form action="/action_page.php">
 							
-								<input type="text" class="form-control" placeholder="Search.." name="search">
+								<!--<input type="text" class="form-control" placeholder="Search.." name="search">
 								<button class="form-control" type="submit"><i class="fa fa-search"></i></button>
 					
+					-->
 						</form>
 					</td>
 				</div>
@@ -39,50 +40,31 @@
 					<th>Auction Id</th>
 					<th>Lot No</th>
 					<th>Lot Name</th>
-					<th> Location</th>
+					<th>Location</th>
 					<th>Date</th>
 					<th>Amount</th>
 					<th>Reauction</th>
 				</tr>
 				</thead>
 				<tbody>
-				<tr>
-					<td><a href="#">BHEL/BBR/ISG LTD/2/Adarsh Vihar/25087/20-20</a></td>
-					<td>M-101</td>
-					<td>SS Iron</td>
-					<td>Bangalore</td>
-					<td>20-10-2019</td>
-					<td>2,00,000</td>
-					<td><a href="#"><button type="button" class="btn btn-info btn-sm">Reauction</button></a></td>
-				</tr>
-				<tr>
-					<td><a href="#">BHEL/BBR/ISG LTD/2/Adarsh Vihar/25087/20-20</a></td>
-					<td>M-102</td>
-					<td>Iron</td>
-					<td>Bangalore</td>
-					<td>20-10-2019</td>
-					<td>2,00,000</td>
-					<td><a href="#"><button type="button" class="btn btn-info btn-sm">Reauction</button></a></td>
-				</tr>
-				<tr>
-					<td><a href="#">BHEL/BBR/ISG LTD/2/Adarsh Vihar/25087/20-20</a></td>
-					<td>M-103</td>
-					<td>Cast Iron</td>
-					<td>Bangalore</td>
-					<td>20-10-2019</td>
-					<td>2,00,000</td>
-					<td><a href="#"><button type="button" class="btn btn-info btn-sm">Reauction</button></a></td>
-				</tr>
-				<tr>
-					<td><a href="#">BHEL/BBR/ISG LTD/2/Adarsh Vihar/25087/20-20</a></td>
-					<td>M-104</td>
-					<td>Cast Iron</td>
-					<td>Bangalore</td>
-					<td>20-10-2019</td>
-					<td>2,00,000</td>
-					<td><a href="#"><button type="button" class="btn btn-info btn-sm">Reauction</button></a></td>
-				</tr>							
-				</tbody>
+	<?php foreach($sqldat as $sqldata){?>	
+		<tr>
+        <td><?php echo $sqldata->sauctionid; ?></td>
+		<td><?php echo $sqldata->slotno; ?></td>
+		<td><?php echo $sqldata->sdescription; ?></td>
+		<td><?php echo $sqldata->sqty; ?></td>
+		<td><?php echo $sqldata->sgst; ?></td>
+		<td><?php echo $sqldata->slotlocation; ?></td>
+		<td><a href="<?php  echo base_url()."Admin_sellerreauction/index/".str_ireplace('/','-',$sqldata->sauctionid);?>"><input type="button" class="btn btn-primary btn-sm" value="Reauction"></a></td>
+			
+		</tr>
+				<?php }  
+         ?> 							
+			
+	
+			
+      
+    </tbody>
 		 </table>
 		</div>
 		</div>

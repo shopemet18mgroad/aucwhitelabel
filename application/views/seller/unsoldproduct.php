@@ -38,14 +38,14 @@
 	<th colspan="15" class="bg-info text-center">Unsold Products</th>
 	</tr>
 	<tr>
-	<th>Auction Id</th>
+					<th>Auction Id</th>
 					<th>Lot Name</th>
 					<th>Lot Description</th>
 					<th>Quantity</th>
 					<th>GST</th>
 					<th>Location</th>
-	<th>Option</th>
-	<th>Download</th>
+					<th>Option</th>
+					<th>Download</th>
 	</tr>
 
 	</thead>

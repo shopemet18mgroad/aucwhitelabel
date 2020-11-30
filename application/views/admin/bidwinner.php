@@ -59,13 +59,13 @@
 						<td><?php echo $datareciver[2]; ?></td>
 						<td><?php echo $datareciver[4];?></td>
 						<td><?php echo $datareciver[3]; ?></td>
-						<td style="color:green; font:50px;"><?php if($datareciver[3]){
+						<td style="color:green;"><b><?php if($datareciver[3]){
 						echo "Winner"	;
 						}
 						else{
 						
 						}
-						 ?></td>
+						 ?></b></td>
 						
 					
 						<td><button type="submit" name="submit" id="<?php echo $datareciver[1].'|'.str_ireplace('/','-', $datareciver[0]);?>" onclick="winner_set_deactive(this.id)" class="btn btn-info btn-sm">Approve</button></td>	

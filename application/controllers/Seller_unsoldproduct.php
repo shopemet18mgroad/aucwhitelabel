@@ -22,7 +22,7 @@ class Seller_unsoldproduct extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper(array('url','html'));	
-			
+		$this->load->library('session');
 		$this->load->model('Admin_model');
 		$status = array('status'=>2);
 		$query = $this->Admin_model->getdatafromtable('addlot', $status);

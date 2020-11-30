@@ -278,14 +278,11 @@
  
  
  <script>
-		function winner_set_deactive(varab){
-			$.get('<?php echo base_url() .'Admin_bidwinner/setdeactive_winner/'; ?>'+varab, function(data2){	
+		function winner_set_deactive(varab2){
+			$.get('<?php echo base_url() .'Admin_bidwinner/setdeactive_winner/'; ?>'+varab2, function(data2){	
 				 if($.trim(data2) == "HI"){
 					 window.location.href = '<?php echo base_url().'Admin_bidwinner';?>'
 					return true;
-				}else{
-					swal("Alert!", "Company Name Already Exists", "error");
-					return false;
 				}
 			 });
 			
