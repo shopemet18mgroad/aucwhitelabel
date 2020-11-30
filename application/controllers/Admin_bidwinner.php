@@ -24,13 +24,9 @@ class admin_bidwinner extends CI_Controller {
 		date_default_timezone_set('Asia/Kolkata');
 		$time =  Date('Y-m-d H:i:s');
 		$this->load->model('Admin_model');
-		//$this->load->library('session');
-		//$sess = array('sessi'=>$this->session->userdata('username'));
+		$sapproval = array('sapproval'=>false);
+		$data['sqldat'] = $this->Admin_model->getdatafromtable('biddercart', $sapproval);
 		
-
-		//$this->load->model('Admin_model');
-		//$sapproval = array('sapproval'=>false);
-		$data['sqldat'] = $this->Admin_model->dateclosedauc('biddercart', $time); 
 				//print_r($data['sqldat']); die;
 		
 		$xr = 0;

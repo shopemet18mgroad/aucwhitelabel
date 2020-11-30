@@ -178,7 +178,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
          $query = $this->db->get('biddercart');  
          return $query;  
       }
-
+		
+	
 		  
 		 
 		  
