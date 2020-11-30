@@ -83,7 +83,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return $query->result();
 		}
 		
-		public function adminmaxbidvalue($auction){
+		/* public function adminmaxbidvalue($auction){
 			$this->db->select('*');
 			$this->db->select_max('bidamount');
 			$this->db->from('biddingdata');
@@ -91,7 +91,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			//$this->db->where('slotno =',$lot);
 			$query = $this->db->get();
 			return $query->result();
-		}
+		} */
 
 	 public function dateclosedauc($table, $date){
 			$this->db->select('*');
@@ -155,7 +155,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$query = $this->db->get_where($table, $data); 
 			 return $query->result();
 		}
-
+			
+			
+			public function admindateclosedauc($table, $date, $data){
+			$this->db->select('*');
+			$this->db->from($table);
+			//$this->db->where('aucstartdate_time <=', $date);
+			$this->db->where('aucclosedate_time <', $date);
+			$this->db->where('auctionid =', $data);
+			$query = $this->db->get();
+			return $query->result();
+		}
 
 			function fetch_all()
 			 {

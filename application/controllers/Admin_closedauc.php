@@ -35,7 +35,7 @@ class Admin_closedauc extends CI_Controller {
 		   
 		 foreach($data['sqldat'] as $datsql){ 	
 		$auctmp = $datsql->auctionid;
-		
+		$lotmp = $datsql->lotno;
 		//$auclottmp = $datsql->lotno;
 			
 
@@ -44,7 +44,7 @@ class Admin_closedauc extends CI_Controller {
 		$mybitvalref = $datsql->mybid_val;
 			
 		//print_r($mybitvalref); die;
-		$datap = $this->Admin_model->adminmaxbidvalue($auctmp);
+		$datap = $this->Admin_model->maxbidvalue($auctmp,$lotmp);
 		//print_r($datap); die;
 		$myauction = $datap[0]->sauctionid;
 		$mylotno = $datap[0]->slotno;
@@ -52,13 +52,13 @@ class Admin_closedauc extends CI_Controller {
 		$aucbidamount = $datap[0]->bidamount;
 		$mybitvaldatetime = $datap[0]->Date_time;
 		//$myapproval = $datap[0]->sapproval;
-		/*   if($aucbidamount == $mybitvalref){  */  
-			$data['sqldatarec'][$xr] = $myauction.'|'.$mylotno.'|'.$mybitvalrec.'|'.$aucbidamount.'|'.$mybitvaldatetime;
+	  if($aucbidamount){  
+			$data['sqldatarec'][$xr] = $auctmp.'|'.$lotmp.'|'.$mybitvalrec.'|'.$aucbidamount.'|'.$mybitvaldatetime;
 			//print_r($data['sqldatarec']);die;
 			$xr++; 
-		/*  } else{
+		 } else{
 			
-		}  */  
+		}   
 		
 		}
 		
