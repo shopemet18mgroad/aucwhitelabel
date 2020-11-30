@@ -57,10 +57,10 @@
 						<td><?php echo $datareciver[2];?></td>
 						<td><?php echo $datareciver[4]; ?></td>
 						<td><?php echo $datareciver[3]; ?></td>
-						<td><?php if($datareciver[2]){
+						<td style="color:orange;"><b><?php if($datareciver[2]){
 						echo "Shortlisted"	;
 						}
-						 ?></td>			
+						 ?></b></td>			
 					</tr>
 					
 				<?php  } ?>

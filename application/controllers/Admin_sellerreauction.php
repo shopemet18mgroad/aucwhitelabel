@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Seller_unsoldproduct extends CI_Controller {
+class Admin_sellerreauction extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -18,33 +18,23 @@ class Seller_unsoldproduct extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-		
 	public function index()
 	{
-		$this->load->helper(array('url','html'));	
-
-		$this->load->library('session');	
-
+		$this->load->helper('url');
 		$this->load->library('session');
 		$this->load->model('Admin_model');
-		$sess = $this->session->userdata('username');
-		$this->load->model('Admin_model');
+
 		$sess = array('sessi'=>$this->session->userdata('username'));
-		$status = array('status'=>2,'sname'=>$sess['sessi']);
 		
-		
-		$query = $this->Admin_model->getdatafromtable('addlot', $status);
-		$data['sqldat']= $query;
-		//$this->load->library('session');
-		//$sess = array('sessi'=>$this->session->userdata('username'));
-
-
-		$this->load->view('seller/header',$sess);
-		$this->load->view('seller/unsoldproduct',$data);
-		$this->load->view('seller/footer');
+		$retrivevaltmp = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
+		$retriveval = array('sauctionid'=>$retrivevaltmp);
+		$data['scomp'] = $this->Admin_model->getsomedatafromtable('auction', $retriveval);
+		  
+	//print_r($data['scomp']); die;
+		$this->load->view('admin/header',$sess);
+		$this->load->view('admin/sellerreauction',$data);
+		$this->load->view('admin/footer');
 		
 	}
-	
-	
 	
 }

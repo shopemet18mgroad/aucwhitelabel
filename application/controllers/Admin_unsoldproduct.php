@@ -22,9 +22,14 @@ class Admin_unsoldproduct extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$this->load->library('session');
+		$this->load->model('Admin_model');
+		$status = array('status'=>2);
+		$query = $this->Admin_model->getdatafromtable('addlot', $status);
+		$data['sqldat']= $query;
+		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('admin/header',$sess);
-		$this->load->view('admin/unsoldproduct');
+		$this->load->view('admin/unsoldproduct',$data);
 		$this->load->view('admin/footer');
 		
 	}
