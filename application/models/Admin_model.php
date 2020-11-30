@@ -114,6 +114,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$query = $this->db->get();
 			return $query->result();
 		}
+		public function getdatafromtablehomejoin(){
+			$this->db->select('*');
+			 $this->db->from('auction');
+			$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid');
+			$this->db->where('status =', 1);
+			$query = $this->db->get();
+			return $query->result();
+		}
+		
+		
 		
 		  public function delete_data($table, $data) { 
 			 if ($this->db->delete($table, $data)) { 

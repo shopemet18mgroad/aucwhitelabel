@@ -1,15 +1,20 @@
 <?php 
 	//include('./header.php');
+	//print_r($sellerinfo); die; 
 ?>
 
 		<div class="container">
 		  <div class="row">
+		 
 			<div class="col-md-3">
+			
 			    <div class="newsbox-containertray">
 						<div class="newsbox-header">
 							<h4>Latest News</h4>
 						</div>
+						
 						<div class="wrapper">
+						
 							<!--<ul class="data-list" data-autoscroll>
 								<li><i class="fa fa-hand-o-right" aria-hidden="true"></i><p>Breaking News 1</p>
 								<p>Breaking News 1</p>
@@ -35,24 +40,32 @@
 								<li><i class="fa fa-hand-o-right" aria-hidden="true"></i> Breaking News 13</li>
 								<li><i class="fa fa-hand-o-right" aria-hidden="true"></i> Breaking News 14</li>
 							</ul>-->
+								 
 							<div class="">
+						<?php foreach($lnews as $sqld){?>
 								<div class="nw newswrapper">
+								
 								<ul>
-								<li><a href="">Aucjunction10200001</a>
-								<p>FERROUS CR Steel Scrap – BENGALURU, KARNATAKA on October 2020</p>
+								<li><a href=""><?php echo $sqld->tittle	; ?></a>
+								<p><?php echo $sqld->content; ?></p>
 								</li>
-								<li class="odd"><a href="">Aucjunction10200002 </a>
-								<p>FERROUS SS 304 Scrap SS 304 Pipe – BENGALURU, KARNATAKA on October 2020</p>
+								<li class="odd"><a href=""><?php echo $sqld->description; ?></a>
 								</li>
 								<li><a href="">Aucjunction10200003</a>
 								<p>FERROUS Mild Steel ( MS) Scrap Stainless Steel ( SS) Scrap – BENGALURU, KARNATAKA on October 2020</p>
 								</li>
 								</ul>
+							
 								</div>
+									<?php }?>
 								</div>
+								
 						</div>
+						
 					</div>
+					
 			</div>
+			
 			<div class="col-md-9">
 					<div class="auclist-containertray">
 							<div class="auclisting-header">
@@ -75,10 +88,10 @@
 							<div class="tab-content w-100">
 								<div class="tab-pane h-100 p-3 active border border-primary" id="home" role="tabpanel" aria-labelledby="home-tab" onclick="one()">
 										<div class="table-holder"> 
-											<table class="table table-bordered">
+											<table class="table table-bordered" id="dataTable">
 												<thead class="thead-auc">
 													<tr>
-														<th width="10%">SL No</th>
+														
 														<th width="30%">AUCTION ID</th>
 														<th width="30%">DESCRIPTION</th>
 														<th width="30%">DATE & TIME</th>
@@ -87,48 +100,17 @@
 													</tr>
 												</thead>
 												<tbody>
+												<?php foreach($sqldata1 as $sqldat){?>
 													<tr>
 													
-														<td>1</td>
-														<td>Aucjunction10200001 – BENGALURU, KARNATAKA</td>
-														<td>FERROUS CR Steel Scrap</td>
-														<td>October 2020</td>
+																						
+					<td><?php echo $sqldat->sauctionid; ?></td>
+					<td><?php echo $sqldat->sdescription; ?></td>
+					<td><?php echo $sqldat->saucstartdate_time; ?></td>
 														
 													</tr>
-													<tr>
-													
-														<td>2</td>
-														<td>Aucjunction10200002 – BENGALURU, KARNATAKA</td>
-														<td>FERROUS SS 304 Scrap SS 304 Pipe</td>
-														<td>October 2020</td>
-														
-													</tr>
-													<tr>
-														
-														<td>3</td>
-														<td>Aucjunction10200003 – BENGALURU, KARNATAKA</td>
-														<td>FERROUS Mild Steel ( MS) Scrap Stainless Steel ( SS) Scrap</td>
-														<td>October 2020</td>
-														
-													</tr>  
-													<tr>
-														<td>4</td>
-														<td>Aucjunction10200004 – BENGALURU, KARNATAKA</td>
-														<td>Binding Wires</td>
-														<td>October 2020</td>
-													</tr>
-														<tr>
-														<td>5</td>
-														<td>Aucjunction10200005 – BENGALURU, KARNATAKA</td>
-														<td>FERROUS CR and HR Punching Laser Scrap SS Aluminium Scrap</td>
-														<td>October 2020</td>
-													</tr>
-													<tr>
-														<td>6</td>
-														<td>Aucjunction10200006 – BENGALURU, KARNATAKA</td>
-														<td>FERROUS MS Scrap</td>
-														<td>October 2020</td>
-													</tr>									
+													<?php }?>
+																				
 												</tbody>
 											</table>
 										</div> 

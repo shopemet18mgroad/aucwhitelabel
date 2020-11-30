@@ -21,8 +21,17 @@ class Home extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper('url');
+		$this->load->model('Admin_model');	
+		$data['sqldata1'] = $this->Admin_model->getdatafromtablehomejoin();
+		
+		
+		$data['lnews'] =  $this->Admin_model->gettable('latestnews');
+		
+		/*  echo "<pre>";
+		print_r($data['lnews']); 
+		echo "</pre>";die;  */
 		$this->load->view('header');
-		$this->load->view('home');
+		$this->load->view('home',$data);
 		$this->load->view('footer');
 		
 	}
