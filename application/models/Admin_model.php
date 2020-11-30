@@ -34,6 +34,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			 return $query->result();
 		}
 		
+		public function getsomedatafromtable($table, $data) { 
+			 $this->db->select('sname');
+			 $this->db->select('sauctionid');
+			 $this->db->select('scompanyname');
+			 $query = $this->db->get_where($table, $data); 
+			 return $query->result();
+		}
+		
 		
 		public function datebetween($table, $date){
 			$this->db->select('*');
@@ -124,6 +132,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			 $this->db->where($colname, $comp);
 			 $this->db->update($table, $data); 
 		  } 
+		
+		  
 		  public function get_distinct($table,$col,$id) { 
 			$this->db->select($col);
 			$this->db->distinct();
