@@ -25,7 +25,8 @@ class Admin_salesreport extends CI_Controller {
 		$time =  Date('Y-m-d H:i:s');
 		$this->load->model('Admin_model');
 		
-		$data['sqldat'] = $this->Admin_model->dateclosedauc('biddercart',$time);
+		$sapproval = array('sapproval'=>true);
+		$data['sqldat'] = $this->Admin_model->getdatafromtable('biddercart',$sapproval);
 			  		
 					
 					
