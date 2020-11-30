@@ -22,13 +22,18 @@ class Seller_unsoldproduct extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper(array('url','html'));	
-			
+		$this->load->library('session');	
 		$this->load->model('Admin_model');
-		$status = array('status'=>2);
+		$sess = $this->session->userdata('username');
+		$this->load->model('Admin_model');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$status = array('status'=>2,'sname'=>$sess['sessi']);
+		
+		
 		$query = $this->Admin_model->getdatafromtable('addlot', $status);
 		$data['sqldat']= $query;
-		$this->load->library('session');
-		$sess = array('sessi'=>$this->session->userdata('username'));
+		//$this->load->library('session');
+		//$sess = array('sessi'=>$this->session->userdata('username'));
 
 
 		$this->load->view('seller/header',$sess);

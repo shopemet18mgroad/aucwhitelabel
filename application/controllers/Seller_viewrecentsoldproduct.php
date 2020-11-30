@@ -30,7 +30,7 @@ class Seller_viewrecentsoldproduct extends CI_Controller {
 		
 
 		$this->load->model('Admin_model');
-		$sapproval = array('sapproval'=>false);
+		$sapproval = array('sapproval'=>true);
 		$data['sqldat'] = $this->Admin_model->getdatafromtable('biddercart', $sapproval); 
 		
 	//print_r($data['sqldat'][1]); die;

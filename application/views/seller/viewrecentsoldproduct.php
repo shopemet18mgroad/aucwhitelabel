@@ -43,7 +43,7 @@
 		<th>Lot No</th>		
 		<th>Buyer Name</th>
 		<th>date/Time</th>
-		<th>My Bid Value</th>
+		<th>Bid Amount</th>
 		<th>Status</th>
 		<th>Download</th>
 	</tr>
@@ -58,7 +58,7 @@
 						<td><?php echo $datareciver[2];?></td>
 						<td><?php echo $datareciver[4]; ?></td>
 						<td><?php echo $datareciver[3]; ?></td>
-						<td><?php echo "Sold"?></td>
+						<td style="color:blue;"><?php echo "Sold"?></td>
 						
 						<td><a href="<?php echo base_url().'/pdf_gen/auc_no/'.$datareciver[0]?>" target="_blank"><i class="fa fa-download"></i></a></td>
 

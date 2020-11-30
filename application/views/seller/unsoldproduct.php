@@ -39,11 +39,12 @@
 	</tr>
 	<tr>
 	<th>Auction Id</th>
-					<th>Lot Name</th>
-					<th>Lot Description</th>
-					<th>Quantity</th>
-					<th>GST</th>
-					<th>Location</th>
+	<th>Lot Name</th>
+	
+	<th>Lot Description</th>
+	<th>Quantity</th>
+	<th>GST</th>
+	<th>Location</th>
 	<th>Option</th>
 	<th>Download</th>
 	</tr>
@@ -59,7 +60,7 @@
 		<td><?php echo $sqldata->sgst; ?></td>
 		<td><?php echo $sqldata->slotlocation; ?></td>
 		<td><a href="<?php  echo base_url()."Seller_reauction/index/".str_ireplace('/','-',$sqldata->sauctionid);?>"><input type="button" class="btn btn-primary btn-sm" value="Reauction"></a></td>
-		<td><a href=""><i class="fa fa-download"></i></a></td>	
+		<td><a href="<?php echo base_url().'/pdf_gen/auc_no/'.$sqldata->sauctionid?>" target="_blank"><i class="fa fa-download"></i></a></td>	
 		</tr>
 				<?php }  
          ?> 							

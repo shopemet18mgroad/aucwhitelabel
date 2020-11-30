@@ -52,6 +52,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return $query->result();
 		}
 		
+		public function getsessdatafromtable($table, $data,$sessi) {
+			$this->db->where('sname =', $sessi);
+			 $query = $this->db->get_where($table, $data,$sessi); 
+			 
+			 return $query->result();
+		} 
+		
 		
 		public function datebetweensess($table, $date, $sessi){
 			$this->db->select('*');
