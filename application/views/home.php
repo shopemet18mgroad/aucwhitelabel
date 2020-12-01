@@ -101,7 +101,7 @@
 							<div class="tab-content w-100">
 								<div class="tab-pane h-100 p-3 active border border-primary" id="home" role="tabpanel" aria-labelledby="home-tab" onclick="one()">
 										<div class="table-holder"> 
-											<table class="table table-bordered" id="dataTable">
+											<table class="table table-bordered"  id="dataTable">
 												<thead class="thead-auc">
 													<tr>
 														
@@ -276,7 +276,7 @@
 												</tbody>
 											</table>
 									
-			<div class="row mt-1">
+			<!--<div class="row mt-1">
 			<div class="col-sm-12 col-md-9">
 				<div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
 				<ul class="pagination offset-lg-11">
@@ -293,8 +293,8 @@
 				</ul>
 				</div>
 			
-			</div>										
-								</div>
+			</div>									
+								</div>-->	
 								</div>
 							
 							
@@ -390,6 +390,9 @@ function one(){
 	x.id="home2";
 	
 }</script>
+
+
+
 		<?php 
 	//include('./footer.php');
 	?>

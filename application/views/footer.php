@@ -87,7 +87,10 @@
   <script src="<?php echo base_url()."web_files/";?>js/jquery.easy-ticker.js"></script> 
    <script src="<?php echo base_url()."web_files/";?>weblib/auclib.js" type="text/javascript" charset="utf-8"></script>
    <script src="<?php echo base_url()."web_files/";?>/weblib/homevalidate.js" type="text/javascript" charset="utf-8"></script>
-  
+   <!--data table-->
+  <script src="<?php echo base_url()."web_files/";?>vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="<?php echo base_url()."web_files/";?>vendor/datatables/dataTables.bootstrap4.min.js"></script>
+ <script src="<?php echo base_url()."web_files/";?>js/demo/datatables-demo.js"></script>
   
   <!--  <script src="./js/jquery.autoscroll.js" type="text/javascript" charset="utf-8"></script> Core plugin JavaScript-->
   
