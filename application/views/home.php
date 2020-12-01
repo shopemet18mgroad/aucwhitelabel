@@ -8,12 +8,12 @@
 		 
 			<div class="col-md-3">
 			
-			    <div class="newsbox-containertray m-1 ">
+			    <div class="newsbox-containertray mt-1">
 						<div class="newsbox-header ">
 							<h4>Latest News</h4>
 						</div>
 						
-						<div class="wrapper ">
+						<div class="wrapper">
 						
 							<!--<ul class="data-list" data-autoscroll>
 								<li><i class="fa fa-hand-o-right" aria-hidden="true"></i><p>Breaking News 1</p>
@@ -41,21 +41,28 @@
 								<li><i class="fa fa-hand-o-right" aria-hidden="true"></i> Breaking News 14</li>
 							</ul>-->
 								 
-							<div class="">
+							<div class="overflow-hidden">
 						
 								<div class="nw newswrapper ">
 								
 								<ul>
-								<?php foreach($lnews as $sqld){?>
-								<li>
+								<?php// foreach($lnews as $sqld){?>
+								<marquee direction="down">
+								<li  class="odd" >
 								
-								<a href=""><?php echo $sqld->tittle; ?></a>
-								<p><?php echo $sqld->content; ?></p>
-								</li>
-								<li class="odd"><a href=""><?php echo $sqld->description; ?></a>
+								<a href=""><?php echo $lnews[0]->tittle; ?></a>
+								<p><?php echo $lnews[0]->content; ?></p>
 								
 								</li>
-								<?php }?>
+								<li><a href=""></a></li>
+								<li class="odd" ><a href=""></a>
+								<a href=""><?php echo $lnews[1]->tittle; ?></a>
+								<p><?php echo $lnews[1]->content; ?></p>
+								
+								</li>
+								</marquee>
+								
+								<?php //}?>
 								<!--<li><a href="">Aucjunction10200003</a>
 								<p>FERROUS Mild Steel ( MS) Scrap Stainless Steel ( SS) Scrap – BENGALURU, KARNATAKA on October 2020</p>
 								</li>-->
@@ -73,11 +80,11 @@
 			</div>
 			
 			<div class="col-md-9 pl-5">
-					<div class="auclist-containertray m-2">
+					<div class="auclist-containertray mt-1">
 							<div class="auclisting-header">
 							<h4>Oncoming Events</h4>
 							</div>
-							<div class="tab-holder w-100 ">
+							<div class="tab-holder w-100 mt-4">
 							<ul class="nav nav-tabs border-0" id="myTab" role="tablist">
 							
 								<li class="nav-item">
