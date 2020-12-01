@@ -1,6 +1,6 @@
 <?php 
 	//include('./header.php');
-	//print_r($sellerinfo); die; 
+	//print_r($all); die; 
 ?>
 
 		<div class="container">
@@ -47,12 +47,12 @@
 								
 								<ul>
 								<?php foreach($lnews as $sqld){?>
-								<marquee direction="down">
-								<li  class="odd" >
 								
+								<li  class="odd" >
+								<marquee direction="up">
 								<a href=""><?php echo $sqld->tittle; ?></a>
 								<p><?php echo $sqld->content; ?></p>
-								
+								</marquee>
 								</li>
 								<!--<li><a href=""></a></li>-->
 								<!--<li class="odd" ><a href=""></a>
@@ -60,7 +60,7 @@
 								<p><?php echo $lnews[1]->content; ?></p>
 								
 								</li>-->
-								</marquee>
+								
 								
 								<?php }?>
 								<!--<li><a href="">Aucjunction10200003</a>
@@ -127,24 +127,7 @@
 												</tbody>
 											</table>
 										</div> 
-			<div class="row mt-1">
-			<div class="col-sm-12 col-md-9">
-				<div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
-				<ul class="pagination offset-lg-11">
-				<li class="paginate_button page-item previous disabled" id="dataTable_previous">
-				<a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
-				</li>
-				<li class="paginate_button page-item active">
-				<a href="#home" aria-controls="dataTable" id="home" data-dt-idx="1" tabindex="0" class="page-link">1</a>
-				</li>
-				
-				<li class="paginate_button page-item next disabled" id="dataTable_next">
-				<a href="#" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page-link">Next</a>
-				</li>
-				</ul>
-				</div>
-				</div>
-			</div>									
+										
 								</div>
 								
 								
@@ -155,7 +138,7 @@
 											<table class="table table-bordered">
 												<thead class="thead-auc">
 													<tr>
-														<th width="10%">SL No</th>
+														
 														<th width="30%">AUCTION ID</th>
 														<th width="30%">DESCRIPTION</th>
 														<th width="30%">DATE & TIME</th>
@@ -165,24 +148,7 @@
 												</thead>
 												<tbody>
 													
-													
-													<tr>
-														<td>7</td>
-														<td>Aucjunction10200007 – BENGALURU, KARNATAKA</td>
-														<td>PCB Cut sheets, Rejected PCBs, Acrylic Material Boards, FR4 Copper Clad Laminated Cut Sheets, PCB Scrap Aluminium, </td>
-														<td>October 2020</td>
-													</tr>
-													<tr>
-														<td>8</td>
-														<td>Aucjunction10200008 – BENGALURU, KARNATAKA</td>
-														<td>Bimetal Scrap, Cu 70%, Ni 30%</td>
-														<td>October 2020</td>
-													</tr> <tr>
-														<td>9</td>
-														<td>Aucjunction10200009 – BENGALURU,  KARNATAKA</td>
-														<td>UPS Batteries , Running Condition</td>
-														<td>October 2020</td>
-													</tr>													
+																
 												</tbody>
 											</table>
 										</div> 			
@@ -201,10 +167,10 @@
 								<div class="tab-pane h-100 p-3 border border-primary" id="all" role="tabpanel" aria-labelledby="all-tab">
 								
 										
-											<table class="table table-bordered">
+									<table class="table table-bordered text-center" id="dataTable" >
 												<thead class="thead-auc">
 													<tr>
-														<th width="10%">SL No</th>
+														
 														<th width="30%">AUCTION ID</th>
 														<th width="30%">DESCRIPTION</th>
 														<th width="30%">DATE & TIME</th>
@@ -213,66 +179,16 @@
 													</tr>
 												</thead>
 												<tbody>
-													<tr>
-													
-														<td>1</td>
-														<td>Aucjunction10200001 – BENGALURU, KARNATAKA</td>
-														<td>FERROUS CR Steel Scrap</td>
-														<td>October 2020</td>
-														
-													</tr>
-													<tr>
-													
-														<td>2</td>
-														<td>Aucjunction10200002 – BENGALURU, KARNATAKA</td>
-														<td>FERROUS SS 304 Scrap SS 304 Pipe</td>
-														<td>October 2020</td>
-														
-													</tr>
+													<?php foreach($all as $sql){?>
 													<tr>
 														
-														<td>3</td>
-														<td>Aucjunction10200003 – BENGALURU, KARNATAKA</td>
-														<td>FERROUS Mild Steel ( MS) Scrap Stainless Steel ( SS) Scrap</td>
-														<td>October 2020</td>
-														
-													</tr>  
-													<tr>
-														<td>4</td>
-														<td>Aucjunction10200004 – BENGALURU, KARNATAKA</td>
-														<td>Binding Wires</td>
-														<td>October 2020</td>
+					<td><?php echo $sql->sauctionid; ?></td>
+					<td><?php echo $sql->sdescription; ?></td>
+					<td><?php echo $sql->saucstartdate_time; ?></td>
 													</tr>
-														<tr>
-														<td>5</td>
-														<td>Aucjunction10200005 – BENGALURU, KARNATAKA</td>
-														<td>FERROUS CR and HR Punching Laser Scrap SS Aluminium Scrap</td>
-														<td>October 2020</td>
-													</tr>
-													<tr>
-														<td>6</td>
-														<td>Aucjunction10200006 – BENGALURU, KARNATAKA</td>
-														<td>FERROUS MS Scrap</td>
-														<td>October 2020</td>
-													</tr>
-
-													<tr>
-														<td>7</td>
-														<td>Aucjunction10200007 – BENGALURU, KARNATAKA</td>
-														<td>PCB Cut sheets, Rejected PCBs, Acrylic Material Boards, FR4 Copper Clad Laminated Cut Sheets, PCB Scrap Aluminium, </td>
-														<td>October 2020</td>
-													</tr>
-													<tr>
-														<td>8</td>
-														<td>Aucjunction10200008 – BENGALURU, KARNATAKA</td>
-														<td>Bimetal Scrap, Cu 70%, Ni 30%</td>
-														<td>October 2020</td>
-													</tr> <tr>
-														<td>9</td>
-														<td>Aucjunction10200009 – BENGALURU,  KARNATAKA</td>
-														<td>UPS Batteries , Running Condition</td>
-														<td>October 2020</td>
-													</tr>															
+													<?php }?>
+																
+																												
 												</tbody>
 											</table>
 									
