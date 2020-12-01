@@ -33,7 +33,7 @@
       </tr>
 	  <tr>
         <td><b>Contact Person *</b></td>
-        <td><input class="form-control w-100" type="text" id="scontactperson" name="scontactperson" size="50" ></td>
+        <td><input class="form-control w-100" type="text" id="sname" name="sname" size="50" ></td>
       </tr>
 		<tr>
         <td><b>Contact Person Designation *</b></td>
@@ -44,9 +44,22 @@
         <td><input class="form-control w-100" type="text" id="span" name="span" size="50"></td>
       </tr>
 	  <tr>
-        <td><b>Street</b></td>
-        <td><input class="form-control w-100" type="text" id="sstreet" name="sstreet" size="50"></td>       
-      </tr>
+								<td>Address</td>
+								<td>
+								<div class="input_fields_wrap1">
+								<select class="form-control w-50  p-1" id="saddress" name="saddress[]">
+									<option value="select" selected>SELECT</option>
+									<option value="Corporate Office">Corporate Office</option>
+									<option value="Headquarter">Headquarter</option>
+								
+									</select>
+									
+									<textarea class="form-control float-left mt-2 p-2 w-50" type="text" id="saddresscount" name="saddresscount[]" ></textarea>
+								<a class="add_field_button1"><button type="button" class="btn btn-sm btn-primary ml-1 mb-5 mt-3"> <i class="fa fa-plus text-white"></i></button></a>
+									</div>
+									</td>
+								
+							</tr>
 	    </tr>
 	   <tr>
         <td><b>City</b></td>
@@ -141,6 +154,38 @@
 </div>
 </div>
 </div>	
+
+
+ <script>
+ $(document).ready(function() {
+ var max_fields  = 10;
+ var wrapper     = $(".input_fields_wrap1");
+ var add_button  = $(".add_field_button1");
+
+ 
+ var x=1;
+ $(add_button).click(function(e) {
+   e.preventDefault();
+   if(x < max_fields){
+			x++;
+			$(wrapper).append('<div><tr><td><select class="form-control w-50  p-1 " name="saddress[]"><option value="select" selected>SELECT</option><option value="Corporate Office" >Corporate Office</option><option value="Headquarter">Headquarter</option></select></td><td><textarea class="form-control float-left mt-2 p-2 w-50" type="text" name="saddresscount[]" ></textarea><a href="#" class="remove_field">  <button type="button" class="btn btn-sm btn-primary ml-1 mb-5 mt-3">  <i class="fa fa-minus text-white"></i></button></a></td></tr></div>');
+   }	
+	
+			});
+			
+			
+			$(wrapper).on("click",".remove_field", function(e){
+			
+			e.preventDefault();
+			$(this).parent('div').remove();
+			x--;
+			
+			})
+			
+			});
+ 
+ </script>
+ 
 	 <!---  body  design  -->
 
         <!---  footer  -->
