@@ -46,23 +46,23 @@
 								<div class="nw newswrapper ">
 								
 								<ul>
-								<?php// foreach($lnews as $sqld){?>
+								<?php foreach($lnews as $sqld){?>
 								<marquee direction="down">
 								<li  class="odd" >
 								
-								<a href=""><?php echo $lnews[0]->tittle; ?></a>
-								<p><?php echo $lnews[0]->content; ?></p>
+								<a href=""><?php echo $sqld->tittle; ?></a>
+								<p><?php echo $sqld->content; ?></p>
 								
 								</li>
-								<li><a href=""></a></li>
-								<li class="odd" ><a href=""></a>
+								<!--<li><a href=""></a></li>-->
+								<!--<li class="odd" ><a href=""></a>
 								<a href=""><?php echo $lnews[1]->tittle; ?></a>
 								<p><?php echo $lnews[1]->content; ?></p>
 								
-								</li>
+								</li>-->
 								</marquee>
 								
-								<?php //}?>
+								<?php }?>
 								<!--<li><a href="">Aucjunction10200003</a>
 								<p>FERROUS Mild Steel ( MS) Scrap Stainless Steel ( SS) Scrap – BENGALURU, KARNATAKA on October 2020</p>
 								</li>-->
