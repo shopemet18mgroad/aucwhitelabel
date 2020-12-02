@@ -62,7 +62,7 @@ class Admin_auctiondetails extends CI_Controller {
 				echo '<td><a href="'.base_url().'admin_editforthcom_2/editforthcom_2/'.str_ireplace('/','-',$dat['sauctionid']).
 				'">';
 				echo $dat['sauctionid'];
-				//echo $aucfl = unserialize($dat['sterms_condiupload']);
+			 $aucfl = unserialize($dat['sterms_condiupload']);
 				echo '</a>';
 				echo '</td>';
 				echo '<td>'.$dat['sname'].'</td>';
@@ -78,8 +78,9 @@ class Admin_auctiondetails extends CI_Controller {
 				echo 'Accepted';
 				}
 				echo '</td>';
-				echo '<td>'.$dat['sterms_condiupload'].'</td>';
-				//echo '<td>'.$aucfl.'</td>';
+				
+				//echo '<td>'.$up[0].'</td>';
+				echo '<td>'.$aucfl[0].'</td>';
 				echo '<td><a href="'.base_url().'Admin_editauction/editauction/'.$dat['sname'].'">';
 				echo '<i class="fa fa-download"></i>';
 				echo '</a>';
