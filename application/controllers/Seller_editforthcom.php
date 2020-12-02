@@ -93,7 +93,8 @@ class Seller_editforthcom extends CI_Controller {
 				echo 'Accepted';
 				}
 				echo '</td>';
-				echo '<td>'.$dat['sterms_condiupload'].'</td>';
+				$comp = unserialize($dat['sterms_condiupload']);
+				echo '<td>'.$comp[0];'</td>';
 				//echo '<td>'.$uploadfl[0].'</td>';
 				//$aucfl = unserialize ($dat['sterms_condiupload']);
 				//echo '<td>'.implode (",",$aucfl).'</td>';
