@@ -50,10 +50,7 @@ class Admin_forthcomingauc extends CI_Controller {
 				echo $dat['sauctionid'];
 				echo '</a>';
 				echo '</td>';
-				echo '<td><a href="'.base_url().'#">';
-				echo '<i class="fa fa-download"></i>';
-				echo '</a>';
-				echo '</td>';
+				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$dat['sauctionid'].'" target="_blank"><i class="fa fa-download"></i></a></td>';
 				echo '<td>'.$dat['sonlineaucdate_time'].'</td>';
 				
 				echo '</tr>';
