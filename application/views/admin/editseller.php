@@ -74,11 +74,11 @@
 						<tbody>
 						<tr>
 							<td class="btxt">Email:</td>
-							<td><input class="form-control w-50" type="text" id="semail" name="semail" value="<?php echo $sqldata[0]->semail; ?>"></td>
+							<td><input class="form-control w-50" type="email" id="semail" name="semail" value="<?php echo $sqldata[0]->semail; ?>"></td>
 						</tr>
 						<tr>
 							<td class="btxt">Phone:</td>
-							<td><input class="form-control w-50" type="email" id="sphone" name="sphone" value="<?php echo $sqldata[0]->sphone; ?>"></td>
+							<td><input class="form-control w-50" type="text" id="sphone" name="sphone" value="<?php echo $sqldata[0]->sphone; ?>"></td>
 						</tr>
 						<tr>
 								<td>Address</td>

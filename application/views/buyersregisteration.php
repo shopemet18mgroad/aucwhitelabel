@@ -27,11 +27,11 @@
         <td><b>Company Type</b></td>
         <td><select class="form-control w-100" style="text-align-last:center;" id="bcomptype" name="bcomptype">
 		
-			<option value="one" selected>Central/State Govt/UT/Local Authority</option>
-			<option value="two">Central PSU</option>
-			<option value="three" >State PSU</option>
-			<option value="four">Educational/Research Institute</option>
-			<option value="five">Other</option>
+			<option value="Central/State Govt/UT/Local Authority" selected>Central/State Govt/UT/Local Authority</option>
+			<option value="Central PSU">Central PSU</option>
+			<option value="State PSU" >State PSU</option>
+			<option value="Educational/Research Institute">Educational/Research Institute</option>
+			<option value="Other">Other</option>
 			</select></td>
         </tr>
 
@@ -41,7 +41,7 @@
 		</tr>
 	   <tr>
 	  <td><b>Contact Person *</b></td>
-	  <td><input  class="form-control w-100" type="text" id="bcontactperson" name="bcontactperson" size="50"></td>
+	  <td><input  class="form-control w-100" type="text" id="bname" name="bname" size="50"></td>
 	  </tr>
 	  <tr>
         <td><b>Contact Person Designation *</b></td>

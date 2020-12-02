@@ -38,7 +38,7 @@ class Buyers_registeration extends CI_Controller {
 			$bcompany = $this->input->post('bcompany');
 			$bcomptype = $this->input->post('bcomptype');
 			$bbuyerlocation = $this->input->post('bbuyerlocation');
-			$bcontactperson = $this->input->post('bcontactperson');
+			$bname = $this->input->post('bname');
 			$bdesignation = $this->input->post('bdesignation');
 			$baddress = $this->input->post('baddress');
 			$bcity = $this->input->post('bcity');
@@ -58,11 +58,11 @@ class Buyers_registeration extends CI_Controller {
             $sessCaptcha = $this->session->userdata('captchaCode');
             if($captcha === $sessCaptcha){
               $this->load->model('Admin_model');
-			  $data = array('bcompany' => $bcompany, 'bcomptype' => $bcomptype, 'bbuyerlocation'=> $bbuyerlocation, 'bcontactperson' => $bcontactperson, 'baddress' => $baddress, 'bcity' => $bcity, 'bpin' => $bpin, 'bstate' => $bstate, 'bcountry' => $bcountry, 'bemail' => $bemail, 'bphone' => $bphone, 'bpan' => $bpan, 'busername' => $busername, 'bpassword' => $bpassword, 'bgst' => $bgst);
+			  $data = array('bcompany' => $bcompany, 'bcomptype' => $bcomptype, 'bbuyerlocation'=> $bbuyerlocation, 'bname' => $bname, 'baddress' => $baddress, 'bcity' => $bcity, 'bpin' => $bpin, 'bstate' => $bstate, 'bcountry' => $bcountry, 'bemail' => $bemail, 'bphone' => $bphone, 'bpan' => $bpan, 'busername' => $busername, 'bpassword' => $bpassword, 'bgst' => $bgst);
 			  // check if company name exisyt before storing
 			  
 			  $status = $this->Admin_model->insert('buyerprofile', $data);
-			  $transfer = array('company'=> $bcompany, 'contactperson'=>$bcontactperson,'designation'=>$bdesignation, 'address'=>$baddress, 'city' => $bcity, 'pin'=>$bpin, 'username'=>$busername, 'gst'=>$bgst, 'date'=>$date);
+			  $transfer = array('company'=> $bcompany, 'bname'=>$bname,'designation'=>$bdesignation, 'address'=>$baddress, 'city' => $bcity, 'pin'=>$bpin, 'username'=>$busername, 'gst'=>$bgst, 'date'=>$date);
 			  if($status){
 				  $this->session->set_flashdata('txdata',$transfer);
 				  redirect('../agreementforbuyer');
