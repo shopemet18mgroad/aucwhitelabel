@@ -46,7 +46,7 @@
 				</tr>
 		</thead>
 		<tbody>
-				<?php  foreach($sqldatarec as $sqldata){ $datareciver = explode('|',$sqldata);?>
+				<?php if(isset($sqldatarec)){ foreach($sqldatarec as $sqldata){ $datareciver = explode('|',$sqldata);?>
 					<tr>												
 						<td><?php echo $datareciver[0]; ?></td>
 						<td><?php echo $datareciver[1]; ?></td>
@@ -56,7 +56,7 @@
 						</td>
 						<td><?php echo "Lost"?></td>
 					</tr>
-					<?php  } ?>
+				<?php  }} ?>
 						
 					
 				</tbody>
