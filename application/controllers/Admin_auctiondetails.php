@@ -78,13 +78,12 @@ class Admin_auctiondetails extends CI_Controller {
 				echo 'Accepted';
 				}
 				echo '</td>';
-				
-				//echo '<td>'.$up[0].'</td>';
-				echo '<td>'.$aucfl[0].'</td>';
-				echo '<td><a href="'.base_url().'Admin_editauction/editauction/'.$dat['sname'].'">';
-				echo '<i class="fa fa-download"></i>';
-				echo '</a>';
+				echo '<td>';
+				if(isset($aucfl[0])){
+				echo $aucfl[0];	
+				}
 				echo '</td>';
+				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$dat['sauctionid'].'" target="_blank"><i class="fa fa-download"></i></a></td>';
 				echo '<td><a href="'.base_url().'Admin_editauction/editauction/'.$dat['sname'].'">';
 				echo '<i class="fa fa-edit"></i>';
 				echo '</a>';
