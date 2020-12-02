@@ -50,7 +50,7 @@
 	</tr>
     </thead>
     <tbody>
-   	<?php  foreach($sqldatarec as $sqldata){ $datareciver = explode('|',$sqldata);?>
+   	<?php if(isset($sqldatarec)){ foreach($sqldatarec as $sqldata){ $datareciver = explode('|',$sqldata);?>
 		<?php /*  print_r($datareciver[4]); die;  */ ?>
 					<tr>												
 						<td><?php echo $datareciver[0]; ?></td>
@@ -65,7 +65,7 @@
 						<td><button type="submit" name="submit" id="<?php echo $datareciver[1].'|'.str_ireplace('/','-', $datareciver[0]);?>" onclick="seller_set(this.id)" class="btn btn-info btn-sm">Approve</button></td>	
 
 					</tr>
-					<?php  } ?>
+	<?php  }} ?>
 	
     </tbody>
   </table>

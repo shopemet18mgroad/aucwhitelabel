@@ -50,7 +50,7 @@
 
 	</thead>
 	    <tbody>
-   	<?php  foreach($sqldatarec as $sqldata){ $datareciver = explode('|',$sqldata);?>
+   	<?php if(isset($sqldatarec)){ foreach($sqldatarec as $sqldata){ $datareciver = explode('|',$sqldata);?>
 		<?php /* print_r($datareciver[4]); die;  */?>
 					<tr>												
 						<td><?php echo $datareciver[0]; ?></td>
@@ -63,7 +63,7 @@
 						<td><a href="<?php echo base_url().'/pdf_gen/auc_no/'.$datareciver[0]?>" target="_blank"><i class="fa fa-download"></i></a></td>
 
 					</tr>
-					<?php  } ?>
+	<?php  }} ?>
 	
     </tbody>
   </table>

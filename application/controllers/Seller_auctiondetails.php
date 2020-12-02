@@ -80,7 +80,8 @@ class Seller_auctiondetails extends CI_Controller {
 				echo 'Accepted';
 				}
 				echo '</td>';
-				echo '<td>'.$dat['sterms_condiupload'].'</td>';
+				$comp = unserialize($dat['sterms_condiupload']);
+				echo '<td>'.$comp[0];'</td>';
 				//echo '<td>'.$aucfl.'</td>';
 				echo '<td><a href="'.base_url().'Seller_editauction/editauction/'.$dat['sname'].'">';
 				echo '<i class="fa fa-download"></i>';
