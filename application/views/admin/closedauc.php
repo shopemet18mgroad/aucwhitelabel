@@ -49,7 +49,7 @@
 			
 				</thead>
 				<tbody>
-					<?php  foreach($sqldatarec as $sqldata){ $datareciver = explode('|',$sqldata);?>
+					<?php if(isset($sqldatarec)){ foreach($sqldatarec as $sqldata){ $datareciver = explode('|',$sqldata);?>
 	<?php //print_r($datareciver); die; ?>
 					<tr>												
 						<td><?php echo $datareciver[0]; ?></td>
@@ -63,7 +63,7 @@
 						 ?></b></td>			
 					</tr>
 					
-				<?php  } ?>
+					<?php  }} ?>
 				
 				</tbody>
 		 </table>
