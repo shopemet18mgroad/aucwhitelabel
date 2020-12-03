@@ -63,6 +63,7 @@ class Admin_auctiondetails extends CI_Controller {
 				'">';
 				echo $dat['sauctionid'];
 			 $aucfl = unserialize($dat['sterms_condiupload']);
+			 $passaucid = str_ireplace('/','-',$dat['sauctionid']);
 				echo '</a>';
 				echo '</td>';
 				echo '<td>'.$dat['sname'].'</td>';
@@ -87,7 +88,8 @@ class Admin_auctiondetails extends CI_Controller {
 				echo '<td><a href="'.base_url().'Admin_editauction/editauction/'.$dat['sname'].'">';
 				echo '<i class="fa fa-edit"></i>';
 				echo '</a>';
-				echo  '<a href="'.base_url().'Admin_editauction/delete_auction/'.$dat['sname'].'">';
+			
+				echo '<a href="'.base_url().'Admin_editauction/delete_auction/'.$passaucid.'" class="btn btn-sm text-white delete-confirm">';
 				echo '<i class="fa fa-trash" style="color:black"></i>';
 				echo '</a>';
 				echo '</td>';
@@ -142,3 +144,19 @@ class Admin_auctiondetails extends CI_Controller {
 	}
 	
 }
+echo "<script>\n";
+echo "$('.delete-confirm').on('click', function (event) {\n";
+echo "    event.preventDefault();\n";
+echo "    const url = $(this).attr('href');\n";
+echo "    swal({\n";
+echo "        title: 'Are you sure?',\n";
+echo "        text: 'This record and it`s details will be permanantly deleted!',\n";
+echo "        icon: 'warning',\n";
+echo "        buttons: [\"Cancel\", \"Yes!\"],\n";
+echo "    }).then(function(value) {\n";
+echo "        if (value) {\n";
+echo "            window.location.href = url;\n";
+echo "        }\n";
+echo "    });\n";
+echo "});\n";
+echo "</script>\n";
