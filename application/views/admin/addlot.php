@@ -194,7 +194,16 @@
 <?php 
 	//include('./footer.php');
 ?>
-
+<script>
+/* $(document).ready(function(){
+        //var counter = $('#TextBox').val();
+        $('#AddButton').click( function() {
+            var counter = $('#slotno').val();
+            counter++ ;
+            $('#slotno').val(counter);
+    });
+}); */
+</script>
 </body>
 
 </html>
