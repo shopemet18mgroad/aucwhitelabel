@@ -315,6 +315,7 @@ if(bcompany == '' || bcomptype == '' || bbuyertype == '' || bbuyerlocation == ''
 				function(data2){						
 				 if($.trim(data2) == "HI"){
 					swal("Thank You!", "Data Stored Successfully", "success");
+					window.location = "<?php echo base_url() .'home/index/'; ?>" 
 				}else{
 					alert(data2);
 					swal("Alert!", "Terms and condition Failed Store", "error");
@@ -341,13 +342,16 @@ if(bcompany == '' || bcomptype == '' || bbuyertype == '' || bbuyerlocation == ''
 				
 				function(data2){						
 				 if($.trim(data2) == "HI"){
-					swal("Thank You!", "Data Stored Successfully", "success");
-				}else{
+				 swal("Thank You!", "Data Stored Successfully", "success");
+				 
+				window.location = "<?php echo base_url() .'home/index/'; ?>" 
+				
+				 }else{
 					alert(data2);
 					swal("Alert!", "Terms and condition Failed Store", "error");
 					return false;
 				}
-			 });
+				});
 	   }else{
 		    swal("Alert!", "Please Tick On Accept Agreement To Complete Registration", "error");
 			return false;

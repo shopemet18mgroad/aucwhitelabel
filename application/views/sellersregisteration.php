@@ -44,7 +44,7 @@
         <td><input class="form-control w-100" type="text" id="span" name="span" size="50"></td>
       </tr>
 	  <tr>
-								<td>Address</td>
+								<td><b>Address</b></td>
 								<td>
 								<div class="input_fields_wrap1">
 								<select class="form-control w-50  p-1" id="saddress" name="saddress[]">

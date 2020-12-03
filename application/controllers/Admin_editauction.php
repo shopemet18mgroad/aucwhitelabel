@@ -31,9 +31,9 @@ class Admin_editauction extends CI_Controller {
 	
 	
 	public function editauction(){
-		$retrivevaltmp = urldecode($this->uri->segment(3));
+		$retrivevaltmp = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
 		
-		$retriveval = array('sname'=>$retrivevaltmp);
+		$retriveval = array('sauctionid'=>$retrivevaltmp);
 		
 		$this->load->model('Admin_model');
 		$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
