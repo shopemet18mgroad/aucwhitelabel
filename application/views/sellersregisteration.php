@@ -47,14 +47,14 @@
 								<td><b>Address</b></td>
 								<td>
 								<div class="input_fields_wrap1">
-								<select class="form-control w-50  p-1" id="saddress" name="saddress[]">
+								<select class="form-control w-75  p-1" id="saddress" name="saddress[]">
 									<option value="select" selected>SELECT</option>
 									<option value="Corporate Office">Corporate Office</option>
 									<option value="Headquarter">Headquarter</option>
 								
 									</select>
 									
-									<textarea class="form-control float-left mt-2 p-2 w-50" type="text" id="saddresscount" name="saddresscount[]" ></textarea>
+									<textarea class="form-control float-left mt-2 p-2 w-75" type="text" id="saddresscount" name="saddresscount[]" ></textarea>
 								<a class="add_field_button1"><button type="button" class="btn btn-sm btn-primary ml-1 mb-5 mt-3"> <i class="fa fa-plus text-white"></i></button></a>
 									</div>
 									</td>
@@ -168,7 +168,7 @@
    e.preventDefault();
    if(x < max_fields){
 			x++;
-			$(wrapper).append('<div><tr><td><select class="form-control w-50  p-1 " name="saddress[]"><option value="select" selected>SELECT</option><option value="Corporate Office" >Corporate Office</option><option value="Headquarter">Headquarter</option></select></td><td><textarea class="form-control float-left mt-2 p-2 w-50" type="text" name="saddresscount[]" ></textarea><a href="#" class="remove_field">  <button type="button" class="btn btn-sm btn-primary ml-1 mb-5 mt-3">  <i class="fa fa-minus text-white"></i></button></a></td></tr></div>');
+			$(wrapper).append('<div><tr><td><select class="form-control w-75  p-1 " name="saddress[]"><option value="select" selected>SELECT</option><option value="Corporate Office" >Corporate Office</option><option value="Headquarter">Headquarter</option></select></td><td><textarea class="form-control float-left mt-2 p-2 w-75" type="text" name="saddresscount[]" ></textarea><a href="#" class="remove_field">  <button type="button" class="btn btn-sm btn-primary ml-1 mb-5 mt-3">  <i class="fa fa-minus text-white"></i></button></a></td></tr></div>');
    }	
 	
 			});
