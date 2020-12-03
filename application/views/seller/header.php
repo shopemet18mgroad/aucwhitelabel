@@ -94,6 +94,21 @@
           <i class="fas fa-hand-point-up"></i>
           <span>Start Auction</span></a>
       </li>
+	  
+	  	  
+	    <li class="nav-item">
+        <a class="nav-link collapsed" href="<?php echo base_url();?>seller_liveauc" data-toggle="collapse" data-target="#auction" aria-expanded="true" aria-controls="collapseProduct">
+          <i class="fas fa-fw fa-gavel"></i>
+          <span>Auction</span>
+        </a>
+        <div id="auction" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="<?php echo base_url();?>seller_liveauc">Live Auction</a>
+           
+			 <a class="collapse-item" href="<?php echo base_url();?>seller_editforthcom">Edit Forthcoming Auction</a>
+           </div>
+        </div>
+      </li>
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">

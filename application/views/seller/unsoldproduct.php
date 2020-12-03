@@ -18,7 +18,7 @@
             <div class="card-body">
 			<div class="table-responsive">
 			
-			<form class="form-inline">
+			<!--<form class="form-inline">
 			  
 			  <div class="form-group mr-4 offset-sm-4">
 						<td colspan="5">
@@ -27,7 +27,7 @@
 								<input type="text" class="form-control" placeholder="Search.." name="search">
 								<button class="form-control" type="submit"><i class="fa fa-search"></i></button>
 					
-						</form>
+						</form>-->
 					</td>
 				</div>
 			</form>

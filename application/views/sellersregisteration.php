@@ -41,7 +41,7 @@
       </tr>
 	  <tr>
         <td><b>Pan</b></td>
-        <td><input class="form-control w-100" type="text" id="span" name="span" size="50"></td>
+        <td><input class="form-control w-100 pan" type="text" id="span" name="span" size="50"></td>
       </tr>
 	  <tr>
 								<td><b>Address</b></td>
@@ -119,7 +119,7 @@
       </tr>
 	   <tr>
         <td><b>Phone *</b></td>
-        <td><input class="form-control w-100" type="text" id="sphone" name="sphone" size="50" ></td>      
+        <td><input class="form-control w-100" type="text" id="sphone" name="sphone" size="50"  pattern="[1-9]{1}[0-9]{9}" title="Enter 10 digit mobile number" placeholder="Mobile number" required></td>      
       </tr>
 	 <tr>
 	  <td><b>User Name *</b></td>
@@ -185,7 +185,21 @@
 			});
  
  </script>
- 
+<script type="text/javascript">    
+$(document).ready(function(){     
+        
+$(".pan").change(function () {      
+var inputvalues = $(this).val();      
+  var regex = /[A-Z]{5}[0-9]{4}[A-Z]{1}$/;    
+  if(!regex.test(inputvalues)){      
+  $(".pan").val("");    
+  swal("invalid PAN no");    
+  return regex.test(inputvalues);    
+  }    
+});      
+    
+});    
+</script> 
 	 <!---  body  design  -->
 
         <!---  footer  -->
