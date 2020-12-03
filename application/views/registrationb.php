@@ -335,7 +335,7 @@ in applicable tax rates that are promulgated by the Government from time to time
 			</table>
 
 			<div class="text-center" style="position:relative;">
-				<button  type="button" class="btn btn-primary mt-2" onclick="return validate_regb()">Agree</button>
+				<button  type="button" class="btn btn-primary mt-2" href="<?php echo base_url();?>home" onclick="return validate_regb()">Agree</button>
 				<a href="<?php echo base_url();?>home"><button type="button" class="btn btn-primary mt-2">Disagree</button></a>
 			</div>
 			
