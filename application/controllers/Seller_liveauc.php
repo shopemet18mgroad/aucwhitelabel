@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin_liveauc extends CI_Controller {
+class Seller_liveauc extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -25,13 +25,12 @@ class Admin_liveauc extends CI_Controller {
 		$time =  Date('Y-m-d H:i:s');
 		$this->load->model('Admin_model');
 		$data['sqldata'] = $this->Admin_model->datebetween('auction',$time);
-
 		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		//$check_array = array('dat'=>);
-		$this->load->view('admin/header',$sess);
-		$this->load->view('admin/liveauc',$data);
-		$this->load->view('admin/footer');
+		$this->load->view('seller/header',$sess);
+		$this->load->view('seller/liveauc',$data);
+		$this->load->view('seller/footer');
 		
 	}
 	

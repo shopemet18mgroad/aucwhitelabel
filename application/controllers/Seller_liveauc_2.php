@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Seller_editauction extends CI_Controller {
+class Seller_liveauc_2 extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -18,64 +18,55 @@ class Seller_editauction extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-		
-
 	public function index()
 	{
-			$this->load->helper('url');
-		$this->load->library('session');
-		$sess = array('sessi'=>$this->session->userdata('username'));
-		$this->load->view('seller/header',$sess);
-		$this->load->view('seller/editauction');
-		$this->load->view('seller/footer');
-		
-	}
-	public function editauction(){
-		$retrivevaltmp = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
-		
-		$retriveval = array('sauctionid'=>$retrivevaltmp);
-		
-		$this->load->model('Admin_model');
-		$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
 		$this->load->helper('url');
 		$this->load->library('session');
+		/* $this->load->library('currency');
+		echo $this->currency->getIndianCurrency(7288);die; */
+		$retrivevaltmp = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
+		$retriveval = array('sauctionid'=>$retrivevaltmp);
+		$this->load->model('Admin_model');
+		$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
+		//$datediff = (strtotime($time) - strtotime($data['sqldata'][0]->saucclosedate_time));
+		//echo floor($datediff / (60));
+		//echo gmdate("H:i:s", floor($datediff / (60)));
+		$data['sqldatalot'] = $this->Admin_model->getdatafromtable('addlot',$retriveval);
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('seller/header',$sess);
-		$this->load->view('seller/editauction', $data);
+		$this->load->view('seller/liveauc_2',$data);
 		$this->load->view('seller/footer');
+		
 	}
 	
-	public function editauction_alert(){
+	public function liveauc_2(){
+		$retrivevaltmp = urldecode($this->uri->segment(3));
+		
+		$retriveval = array('sauctionid'=>$retrivevaltmp);
+		$this->load->model('Admin_model');
+		$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
+		
+	
+		$this->load->helper('url');
+		$this->load->view('seller/header');
+		$this->load->view('seller/liveauc_2', $data);
+		$this->load->view('seller/footer');
+	}
+	public function liveauc_2_alert(){
 		$retrivevaltmp = $this->uri->segment(3);
 		$retrivevaltmp2 = urldecode($this->uri->segment(4));
 		echo '<script language="javascript">';
 			echo 'alert("'.$retrivevaltmp2.'")';  //not showing an alert box.
 			echo '</script>';
-		$retriveval = array('sname'=>$retrivevaltmp);
+		$retriveval = array('sauctionid'=>$retrivevaltmp);
 		$this->load->model('Admin_model');
 		$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
+		
+	
+				
 		$this->load->helper('url');
-		$this->load->library('session');
-		$sess = array('sessi'=>$this->session->userdata('username'));
-		$this->load->view('seller/header',$sess);
-		$this->load->view('seller/editauction', $data);
+		$this->load->view('seller/header');
+		$this->load->view('seller/liveauc_2', $data);
 		$this->load->view('seller/footer');
 	}
-	
-	public function delete_auction(){
-	
-		$retrivevaltmpdel = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
-		$retrivevaldel = array('sauctionid'=>$retrivevaltmpdel);
-		$this->load->model('Admin_model');
-		if($retrivevaltmpdel){
-			$this->Admin_model->delete_data('auction', $retrivevaldel);
-	
-		}
-		$this->load->helper('url');
-		$this->load->library('session');
-		$sess = array('sessi'=>$this->session->userdata('username'));
-		$this->load->view('seller/header',$sess);
-		$this->load->view('seller/editforthcom');
-		$this->load->view('seller/footer');
-}
 }

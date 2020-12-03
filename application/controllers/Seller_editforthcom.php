@@ -111,7 +111,7 @@ class Seller_editforthcom extends CI_Controller {
 
 				//echo '<td><a href="'.base_url().'Admin_editauction/editauction/'.$dat['sname'].'($sqldat->sauctionid)">';
 
-				echo '<td><a href="'.base_url().'Seller_editauction/editauction/'.urlencode($dat['sname']).'">';
+				echo '<td><a href="'.base_url().'Seller_editauction/editauction/'.$passaucid.'">';
 				echo '<i class="fa fa-edit"></i>';
 				echo '</a>';
 				
