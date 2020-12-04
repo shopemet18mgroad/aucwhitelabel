@@ -59,10 +59,7 @@ class Admin_bidsummary extends CI_Controller {
 				echo '<td>'.$dat['svinspection'].'</td>';
 				echo '<td>'.$dat['sonlineaucdate_time'].'</td>';
 				echo '<td>'.$dat['saucclosedate_time'].'</td>';
-				echo '<td><a href="'.base_url().''.$dat['sname'].'">';
-				echo '<i class="fa fa-download"></i>';
-				echo '</a>';
-				echo '</td>';
+				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$dat['sauctionid'].'" target="_blank"><i class="fa fa-download"></i></a></td>';
 			
 				echo '</tr>';
 			}

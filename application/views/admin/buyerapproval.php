@@ -27,9 +27,8 @@
 				<tr>
 					<th>Buyer Name</th>
 					<th>Company Type</th>
-					<th>Contact Person</th>
 					<th>Location</th>
-					<th>City</th>
+					<th>Company Name</th>
 					<th>Status</th>
 					<th>Action</th>
 				</tr>
@@ -40,7 +39,6 @@
 				<tr>												
 					<td><?php echo $activesta->bname; ?></td>
 					<td><?php echo $activesta->bcomptype; ?></td>
-					<td><?php echo $activesta->bcontactperson; ?></td>
 					<td><?php echo $activesta->baddress; ?></td>
 					<td><?php echo $activesta->bcompany; ?></td>
 					<td><?php echo "DEACTIVE";?></td>

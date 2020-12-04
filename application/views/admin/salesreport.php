@@ -48,7 +48,7 @@
 				</tr>
 				</thead>
 				<tbody>
-   	<?php  foreach($sqldatarec as $sqldata){ $datareciver = explode('|',$sqldata);?>
+   	<?php if(isset($sqldatarec)){ foreach($sqldatarec as $sqldata){ $datareciver = explode('|',$sqldata);?>
 		
 					<tr>												
 						
@@ -71,7 +71,7 @@
 					
 
 					
-					<?php  } ?>
+	<?php  } }?>
 					
 					
     </tbody>

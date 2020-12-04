@@ -26,10 +26,10 @@ class Home extends CI_Controller {
 		
 		
 		$data['lnews'] = $this->Admin_model->gettablenews('latestnews');
-		
-		/*  echo "<pre>";
-		print_r($data['lnews']); 
-		echo "</pre>";die;  */
+		$data['all'] = $this->Admin_model->getdatafromtablejoinallauc();
+		 /*  echo "<pre>";
+		print_r($data['all']); 
+		echo "</pre>";die;  */ 
 		$this->load->view('header');
 		$this->load->view('home',$data);
 		$this->load->view('footer');

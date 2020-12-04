@@ -26,6 +26,9 @@ class Admin_sellerapproval extends CI_Controller {
 		
 		$query = $this->Admin_model->getdatafromtable('sellerprofile', $adaction);
 		$adac['activestat']= $query;
+		/* echo '<pre>';
+		print_r($adac['activestat']); die;
+			echo '</pre>'; */
 		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('admin/header',$sess);

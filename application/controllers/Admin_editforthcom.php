@@ -77,6 +77,7 @@ class Admin_editforthcom extends CI_Controller {
 				echo '<td><a href="'.base_url().'admin_editforthcom_2/editforthcom_2/'.str_ireplace('/','-',$dat['sauctionid']).
 				'">';
 				echo $dat['sauctionid'];
+				$aucfl = unserialize($dat['sterms_condiupload']);
 				$passaucid = str_ireplace('/','-',$dat['sauctionid']);
 				echo '</a>';
 				echo '</td>';
@@ -93,21 +94,26 @@ class Admin_editforthcom extends CI_Controller {
 				echo 'Accepted';
 				}
 				echo '</td>';
-				echo '<td>'.$dat['sterms_condiupload'].'</td>';
+				echo '<td>';
+				if(isset($aucfl[0])){
+				echo $aucfl[0];	
+				}
+				echo '</td>';
 				//echo '<td>'.$uploadfl[0].'</td>';
 				//$aucfl = unserialize ($dat['sterms_condiupload']);
 				//echo '<td>'.implode (",",$aucfl).'</td>';
-				echo '<td><a href="'.base_url().'Admin_editauction/editauction/'.urlencode($dat['sname']).'">';
-				echo '<i class="fa fa-download"></i>';
-				echo '</a>';
-				echo '</td>';
+				//echo '<td><a href="'.base_url().'Admin_editauction/editauction/'.urlencode($dat['sname']).'">';
+				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$dat['sauctionid'].'" target="_blank"><i class="fa fa-download"></i></a></td>';
+				//echo '</a>';
+				//echo '</td>';
 
 				//echo '<td><a href="'.base_url().'Admin_editauction/editauction/'.$dat['sname'].'($sqldat->sauctionid)">';
 
-				echo '<td><a href="'.base_url().'Admin_editauction/editauction/'.urlencode($dat['sname']).'">';
+				echo '<td><a href="'.base_url().'Admin_editauction/editauction/'.$passaucid.'">';
 				echo '<i class="fa fa-edit"></i>';
 				echo '</a>';
-				echo  '<a href="'.base_url().'Admin_editauction/delete_auction/'.$passaucid.'/'.urlencode($dat['sname']).'">';
+				
+				echo '<a href="'.base_url().'Admin_editauction/delete_auction/'.$passaucid.'" class="btn btn-sm text-white delete-confirm">';
 				echo '<i class="fa fa-trash" style="color:black"></i>';
 				echo '</a>';
 				echo '</td>';
@@ -166,3 +172,19 @@ class Admin_editforthcom extends CI_Controller {
 
 	}
 }
+echo "<script>\n";
+echo "$('.delete-confirm').on('click', function (event) {\n";
+echo "    event.preventDefault();\n";
+echo "    const url = $(this).attr('href');\n";
+echo "    swal({\n";
+echo "        title: 'Are you sure?',\n";
+echo "        text: 'This record and it`s details will be permanantly deleted!',\n";
+echo "        icon: 'warning',\n";
+echo "        buttons: [\"Cancel\", \"Yes!\"],\n";
+echo "    }).then(function(value) {\n";
+echo "        if (value) {\n";
+echo "            window.location.href = url;\n";
+echo "        }\n";
+echo "    });\n";
+echo "});\n";
+echo "</script>\n";

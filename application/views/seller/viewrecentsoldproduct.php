@@ -18,7 +18,7 @@
             <div class="card-body">
 			<div class="table-responsive">
 			
-			<form class="form-inline">
+			<!-- <form class="form-inline">
 			  
 			  <div class="form-group mr-4 offset-sm-4">
 						<td colspan="5">
@@ -30,7 +30,7 @@
 						</form>
 					</td>
 				</div>
-			</form>
+			</form>-->
 			
          <table class="table table-striped text-center table-sm table-bordered  mt-5"  width="100%" cellspacing="0">		
     <thead class="bg-primary text-white">
@@ -50,7 +50,7 @@
 
 	</thead>
 	    <tbody>
-   	<?php  foreach($sqldatarec as $sqldata){ $datareciver = explode('|',$sqldata);?>
+   	<?php if(isset($sqldatarec)){ foreach($sqldatarec as $sqldata){ $datareciver = explode('|',$sqldata);?>
 		<?php /* print_r($datareciver[4]); die;  */?>
 					<tr>												
 						<td><?php echo $datareciver[0]; ?></td>
@@ -63,7 +63,7 @@
 						<td><a href="<?php echo base_url().'/pdf_gen/auc_no/'.$datareciver[0]?>" target="_blank"><i class="fa fa-download"></i></a></td>
 
 					</tr>
-					<?php  } ?>
+	<?php  }} ?>
 	
     </tbody>
   </table>

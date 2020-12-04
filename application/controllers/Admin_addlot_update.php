@@ -99,7 +99,7 @@ class Admin_addlot_update extends CI_Controller {
 		$data2 = array('sauctionid' => $sauctionid,'sname' => $sname, 'slotno' => $slotno, 'slotname' => $slotname, 'scategory' => $scategory, 'sdescription' => $sdescription, 'slotlocation'=> $slotlocation,  'semddetail' => $semddetail,  'sprice' => $sprice,   'sqty' => $sqty,  'sunitmeasurment' => $sunitmeasurment,  'sbidbase' => $sbidbase,  'sgst' => $sgst,'shsncode' => $shsncode,  'sothertax' => $sothertax,  'semdamount' => $semdamount,  'sliftingperiod2' => $sliftingperiod2,  'sliftingperiod' => $sliftingperiod, 'spcbcertificate' => $spcbcertificate);
 		//$this->load->view('xya', $data);
 		$datainserr = "Data Inserted Successfully";
-		$updatech = array('sauctionid' => $sauctionid);
+		$updatech = array('sauctionid' => $sauctionid,'slotno' => $slotno);
 		$status = $this->Admin_model->update_custom('addlot',$data2,$updatech,$updatech);
 		
 		
