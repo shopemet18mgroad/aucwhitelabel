@@ -49,7 +49,7 @@ function validatestart(){
  	
 	
 	
-	if(scompanyname == '' || svinspection == '' || sfrominpectdate_time == '' || stoinpectdate_time == '' || sstartbidprice == '' || slastdateemdsub == '' || saucstartdate_time == '' || saucclosedate_time == '' ){
+	if(scompanyname == '' || svinspection == '' || sfrominpectdate_time == '' || stoinpectdate_time == '' || sstartbidprice == '' || saucstartdate_time == '' || saucclosedate_time == '' ){
 		swal("Alert!",  "Category,Seller Company Name, Seller, Venue Of Inspection, Online Auction Date cannot leave any field blank!", "error");
 		return false;
 	}
