@@ -49,7 +49,7 @@ function validatestart(){
  	
 	
 	
-	if(scompanyname == '' || svinspection == '' || sfrominpectdate_time == '' || stoinpectdate_time == '' || sstartbidprice == '' || slastdateemdsub == '' || saucstartdate_time == '' || saucclosedate_time == '' ){
+	if(scompanyname == '' || svinspection == '' || sfrominpectdate_time == '' || stoinpectdate_time == '' || sstartbidprice == '' || saucstartdate_time == '' || saucclosedate_time == '' ){
 		swal("Alert!",  "Category,Seller Company Name, Seller, Venue Of Inspection, Online Auction Date cannot leave any field blank!", "error");
 		return false;
 	}
@@ -154,7 +154,8 @@ function validatelot(){
 	var sqty = document.getElementById("sqty").value;
 	var sunitmeasurment = document.getElementById("sunitmeasurment").value;
 	var sbidbase = document.getElementById("sbidbase").value;
-	var sgst = document.getElementById("sgst").value;
+	var sgstString = document.myForm.sgst.value;
+	var sgst = parseInt(sgstString);
 	var shsncode = document.getElementById("shsncode").value;
 	var sothertax = document.getElementById("sothertax").value;
 	var semdamount = document.getElementById("semdamount").value;
@@ -168,7 +169,11 @@ function validatelot(){
 		return false;
 	}
 		
-
+	if (sgst <= 0 || sgst >= 18) {
+                swal("Alert!","GST Should Not Be More Than 18%.", "error");
+                document.myForm.sgst.focus();
+                return false;
+            }
 	 
 		if( $('input[name="spcbcertificate"]:checked').length == 0 )
 		   
