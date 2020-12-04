@@ -45,17 +45,17 @@ class Login extends CI_Controller {
 			$this->load->model('Admin_model');
 			  if($this->Admin_model->check($table, $check_db)){
 				  if($table == "buyerprofile"){
-					  $newdata = array('username'  => $user,'logged_in' => TRUE);
+					  $newdata = array('username'=>$user,'auth'=>'BUYER','logged_in' => TRUE);
 						$this->session->set_userdata($newdata);
 					  header('location: '.base_url().'buyer_dashboard');
 					  die;
 				  }else if($table == "sellerprofile"){
-					  $newdata = array('username'  => $user,'logged_in' => TRUE);
+					  $newdata = array('username'=>$user,'auth'=>'SELLER','logged_in' => TRUE);
 						$this->session->set_userdata($newdata);
 					  header('location: '.base_url().'seller_dashboard');
 					  die;
 				  }else{
-					  $newdata = array('username'  => $user,'logged_in' => TRUE);
+					  $newdata = array('username'=>$user,'auth'=>'ADMIN','logged_in' => TRUE);
 						$this->session->set_userdata($newdata);
 					 header('location: '.base_url().'admin_dashboard');
 					 die; 

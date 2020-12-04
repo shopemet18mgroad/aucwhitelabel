@@ -23,7 +23,7 @@
 
 				<div class="space w-100">
 
-<p class="termstxt2">The auctions and related services are provided by AucJunction Pvt. Ltd. (hereinafter referred
+<p class="termstxt2">The auctions and related services are provided by Shopemet Networks Pvt ltd.(hereinafter referred
 to as &quot;AucJunction&quot;) on the website.</P>
 
 
