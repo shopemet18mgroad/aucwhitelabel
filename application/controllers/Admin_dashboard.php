@@ -28,7 +28,8 @@ class Admin_dashboard extends CI_Controller {
 			echo 'alert("'.$errormsg.'")';
 			echo '</script>';
 		}
-		if(!$this->session->has_userdata('username')){
+		echo $this->session->userdata('auth');
+		if(!$this->session->has_userdata('username')  || $this->session->userdata('auth') != "ADMIN"){
 			$datainserr = "Invalid Login Session";
 			header('location: '.base_url().'login/index_error/'.$datainserr);
 			die;
