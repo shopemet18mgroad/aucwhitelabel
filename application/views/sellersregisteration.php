@@ -15,7 +15,7 @@
 		
 		<table class="table table-striped table-info text-center justify-content-center text-secondary table-borderless table-responsive" >
    
-   <form action="./Sellers_registeration" method="POST">
+   <form action="./Sellers_registeration" onsubmit ="return validateForm()" method="POST">
     <tbody>
       <tr>
         <td width="20%"><b>Company Name *</b></td>
@@ -24,10 +24,9 @@
       <tr>
         <td><b>Type of seller</b></td>
         <td><select class="form-control w-100" style="text-align-last:center;" id="ssellertype" name="ssellertype">
-			<option value="Central/State Govt/UT/Local Authority" selected>Central/State Govt/UT/Local Authority</option>
-			<option value="Central PSU">Central PSU</option>
-			<option value="State PSU" >State PSU</option>
-			<option value="Educational/Research Institutes">Educational/Research Institutes</option>
+			<option value="Govt Regd Company" selected>Govt Regd Company</option>
+			<option value="Ltd, Pvt Ltd, LLP, Corp">Ltd, Pvt Ltd, LLP, Corp</option>
+			<option value="Partnership, Proprietorship, OPC" >Partnership, Proprietorship, OPC</option>
 			<option value="Other">Other</option>
 			</select></td>
       </tr>
@@ -119,7 +118,7 @@
       </tr>
 	   <tr>
         <td><b>Phone *</b></td>
-        <td><input class="form-control w-100" type="text" id="sphone" name="sphone" size="50"  pattern="[1-9]{1}[0-9]{9}" title="Enter 10 digit mobile number" placeholder="Mobile number" required></td>      
+        <td><input class="form-control w-100" type="text" id="sphone" name="sphone" size="50"  pattern="[1-9]{1}[0-9]{9}" title="Enter 10 digit mobile number" required></td>      
       </tr>
 	 <tr>
 	  <td><b>User Name *</b></td>
@@ -127,15 +126,15 @@
 	  </tr>
 	  <tr>
         <td><b>Password *</b></td>
-        <td><input class="form-control w-100" type="password" id="spassword" name="spassword" size="50" onkeyup="validate_username()"></td>       
+        <td><input class="form-control w-100" type="password" id="spassword" name="spassword" size="50" onkeyup="validate_username()"><span id = "message1" style="color:red"> </span></td>       
       </tr>
 	  <tr>
         <td><b>Confirm Password *</b></td>
-        <td><input class="form-control w-100" type="password" id="sconfirmpassword" name="sconfirmpassword" size="50"></td>       
+        <td><input class="form-control w-100" type="password" id="sconfirmpassword" name="sconfirmpassword" size="50"><span id = "message2" style="color:red"> </span></td>       
       </tr>
 	  <tr>
         <td><b>GST No.</b></td>
-        <td><input  class="form-control w-100" type="text" name="sgst" id="sgst" size="50"></td>
+        <td><input class="form-control w-100 gst" type="text" name="sgst" id="sgst" size="50"></td>
         </tr>
 		<tr>
         <td><b>CAPATCHA : </b><span id="captImg" class="captImg">&nbsp; <img src="<?php echo base_url()."web_files/captcha_images/".$ImgFileName;?>"></span><a href="javascript:void(0);" class="refreshCaptcha">&nbsp;&nbsp;&nbsp;<br>Refresh Captacha</a></td>
@@ -193,12 +192,56 @@ var inputvalues = $(this).val();
   var regex = /[A-Z]{5}[0-9]{4}[A-Z]{1}$/;    
   if(!regex.test(inputvalues)){      
   $(".pan").val("");    
-  swal("invalid PAN no");    
+  swal("Alert!","Invalid PAN no", "error");    
   return regex.test(inputvalues);    
   }    
 });      
     
 });    
+</script> 
+
+<script type="text/javascript">    
+$(document).ready(function(){     
+        
+$(".gst").change(function () {      
+var inputvalues = $(this).val();      
+  var regex = /^([0-9]){2}([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}([0-9]){1}([a-zA-Z]){1}([0-9]){1}?$/;    
+  if(!regex.test(inputvalues)){      
+  $(".gst").val("");    
+  swal("Alert!","Invalid gst no", "error");    
+  return regex.test(inputvalues);    
+  }    
+});      
+    
+});    
+</script>
+
+<script>
+function validateForm() {
+    //collect form data in JavaScript variables
+    var pw1 = document.getElementById("spassword").value;
+    var pw2 = document.getElementById("sconfirmpassword").value;
+   
+  
+    //check empty password field
+
+    //minimum password length validation
+    if(pw1.length < 8) {
+      document.getElementById("message1").innerHTML = "**Password length must be atleast 8 characters";
+      return false;
+    }
+
+    //maximum length of password validation
+    if(pw1.length > 15) {
+      document.getElementById("message1").innerHTML = "**Password length must not exceed 15 characters";
+      return false;
+    }
+  
+    if(pw1 != pw2) {
+      document.getElementById("message2").innerHTML = "**Passwords are not same";
+      return false;
+    } 
+ }
 </script> 
 	 <!---  body  design  -->
 
