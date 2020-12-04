@@ -29,7 +29,7 @@
       </tr>
     </thead>
     <tbody>
-	<form action="<?php echo base_url();?>Admin_addlot_info" method="POST" enctype="multipart/form-data">
+	<form name="myForm"  action="<?php echo base_url();?>Admin_addlot_info" method="POST" enctype="multipart/form-data">
 	<tr>
 		  <td width="11%">Auction Id</td>
 		  <td width="4%" style="text-color:blue;"> <input type="text" class="form-control w-50" id="sauctionid" name="sauctionid" value="<?php echo $auctionid; ?>" readonly></td>
@@ -124,7 +124,7 @@
 	</tr>
 	<tr>
 	<td>GST</td>
-	<td><input class="form-control w-50" type="text" id="sgst" name="sgst"></td>
+	<td><input class="form-control w-50" type="text" id="sgst" name="sgst" placeholder="Exp. Max 18%"></td>
     </tr>
 	<tr>
 		<td>HSN Code.</td>
