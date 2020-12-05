@@ -41,7 +41,7 @@ class Login extends CI_Controller {
 			$user = $this->input->post('user');
 			$pass = $this->input->post('pass');
 			$pass = base64_encode($pass);
-			$check_db = array($colname => $user, $colname2 => $pass);
+			$check_db = array($colname => $user, $colname2 => $pass, 'adaction'=>true);
 			$this->load->model('Admin_model');
 			  if($this->Admin_model->check($table, $check_db)){
 				  if($table == "buyerprofile"){
