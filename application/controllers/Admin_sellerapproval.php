@@ -21,6 +21,13 @@ class Admin_sellerapproval extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper(array('url','html'));
+		$this->load->library('session');
+		//echo $this->session->userdata('auth');
+		if(!$this->session->has_userdata('username')  || $this->session->userdata('auth') != "ADMIN"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
 		$this->load->model('Admin_model');
 		$adaction = array('adaction'=>false);
 		
@@ -29,12 +36,12 @@ class Admin_sellerapproval extends CI_Controller {
 		/* echo '<pre>';
 		print_r($adac['activestat']); die;
 			echo '</pre>'; */
-		$this->load->library('session');
+		
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('admin/header',$sess);
 		$this->load->view('admin/sellerapproval',$adac);
 		$this->load->view('admin/footer');
-		
+		}
 	}
 	public function setdeactive_seller(){
 		

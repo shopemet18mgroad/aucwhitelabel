@@ -87,12 +87,16 @@ class Seller_addlot_info extends CI_Controller {
 		
 			}
 			
-			
-			
-		$this->load->view('seller/header');
+			if(!$this->session->has_userdata('username')|| $this->session->userdata('auth') != "SELLER"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
+		$sess = array('sessi'=>$this->session->userdata('username'));	
+		$this->load->view('seller/header',$sess);
 		$this->load->view('seller/addlot');
 		$this->load->view('seller/footer');
-		
+		}
 	}
 		 else if($this->input->post('submit2')){
 			 $sauctionid = $this->input->post('sauctionid'); 
@@ -131,7 +135,13 @@ class Seller_addlot_info extends CI_Controller {
 				   header('location: ./Seller_addlot1/index/');
 		
 			}
-         $this->load->view('seller/header');
+			if(!$this->session->has_userdata('username')|| $this->session->userdata('auth') != "SELLER"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
+		$sess = array('sessi'=>$this->session->userdata('username'));
+         $this->load->view('seller/header',$sess);
 		$this->load->view('seller/addlot');
 		$this->load->view('seller/footer');
 
@@ -140,7 +150,7 @@ class Seller_addlot_info extends CI_Controller {
 		
 	}
 
-            
+}        
 			
 	
 	

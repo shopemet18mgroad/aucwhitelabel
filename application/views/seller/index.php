@@ -1,5 +1,6 @@
 <?php
    // include('./header');
+   
 	?>
         <!-- End of Topbar -->
 
@@ -61,6 +62,7 @@
 									
 								?></td>
 							</tr>
+							
 							<tr>
 							<td>Another Address</td>
 							<td><?php $companyaddress = unserialize($sqldata[0]->saddresscount); 
@@ -188,8 +190,10 @@
 							
 							
 							?>			
-							</form>				
+							</form>	
+						
 						</tbody>
+						
 					</table>
               
               </div>
@@ -207,5 +211,5 @@
 
       <!-- Footer -->
 <?php
-  //  include('./footer');
+   //  include('./footer');
 	?>

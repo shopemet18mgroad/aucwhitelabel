@@ -22,6 +22,11 @@ class Buyer_liveauc_2 extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$this->load->library('session');
+		if(!$this->session->has_userdata('username')|| $this->session->userdata('auth') != "BUYER"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
 		$variable = $this->uri->segment(3);
 		$vararray = urldecode($variable);
 		$vararray2 = explode('|',$vararray);
@@ -40,7 +45,7 @@ class Buyer_liveauc_2 extends CI_Controller {
 		$this->load->view('buyer/header',$sess);
 		$this->load->view('buyer/liveauc_2', $data);
 		$this->load->view('buyer/footer');
-		
+		}
 	}
 	public function get_table_ajax(){
 		$this->load->helper('url');

@@ -24,6 +24,12 @@ class Admin_liveauc_2 extends CI_Controller {
 		$this->load->library('session');
 		/* $this->load->library('currency');
 		echo $this->currency->getIndianCurrency(7288);die; */
+		//echo $this->session->userdata('auth');
+		if(!$this->session->has_userdata('username')  || $this->session->userdata('auth') != "ADMIN"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
 		$retrivevaltmp = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
 		$retriveval = array('sauctionid'=>$retrivevaltmp);
 		$this->load->model('Admin_model');
@@ -32,11 +38,12 @@ class Admin_liveauc_2 extends CI_Controller {
 		//echo floor($datediff / (60));
 		//echo gmdate("H:i:s", floor($datediff / (60)));
 		$data['sqldatalot'] = $this->Admin_model->getdatafromtable('addlot',$retriveval);
+		
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('admin/header',$sess);
 		$this->load->view('admin/liveauc_2',$data);
 		$this->load->view('admin/footer');
-		
+		}
 	}
 	
 	public function liveauc_2(){

@@ -22,11 +22,17 @@ class Admin_editforthcom_2 extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$this->load->library('session');
+		//echo $this->session->userdata('auth');
+		if(!$this->session->has_userdata('username')  || $this->session->userdata('auth') != "ADMIN"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('admin/header',$sess);
 		$this->load->view('admin/editforthcom_2');
 		$this->load->view('admin/footer');
-		
+		}
 	}
 	
 	

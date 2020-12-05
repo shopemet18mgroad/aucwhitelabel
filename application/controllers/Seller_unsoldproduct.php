@@ -22,10 +22,13 @@ class Seller_unsoldproduct extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper(array('url','html'));	
-
 		$this->load->library('session');	
-
-		$this->load->library('session');
+		if(!$this->session->has_userdata('username')|| $this->session->userdata('auth') != "SELLER"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
+		//$this->load->library('session');
 		$this->load->model('Admin_model');
 		$sess = $this->session->userdata('username');
 		$this->load->model('Admin_model');
@@ -47,4 +50,5 @@ class Seller_unsoldproduct extends CI_Controller {
 	
 	
 	
+}
 }

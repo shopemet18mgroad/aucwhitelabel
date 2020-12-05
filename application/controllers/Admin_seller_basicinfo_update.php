@@ -140,7 +140,7 @@ class Admin_seller_basicinfo_update extends CI_Controller {
                 }else{
                     $flname = 'Unable';
                 }
-            }else{
+            }else{`
                 $flname = 'aa';
             }
 			return $flname;

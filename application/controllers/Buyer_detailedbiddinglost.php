@@ -37,10 +37,16 @@ class Buyer_detailedbiddinglost extends CI_Controller {
 		//$data['sqldata'] = $query;
 		$data['sqldata2'] = $query2;
 		$data['sessi'] = $sess['sessi'];
+		echo $this->session->userdata('auth');
+		if(!$this->session->has_userdata('username')  || $this->session->userdata('auth') != "BUYER"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
 		$this->load->view('buyer/header',$data);
 		$this->load->view('buyer/detailedbiddinglost',$sess);
 		$this->load->view('buyer/footer');
-		
+		}
 	}
 	
 }

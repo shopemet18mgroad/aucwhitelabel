@@ -49,6 +49,11 @@ class Buyer_mylist extends CI_Controller {
 		}
 		$this->load->model('Admin_model');
 		$this->load->library('session');
+		if(!$this->session->has_userdata('username')|| $this->session->userdata('auth') != "BUYER"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
 		//$data1 = $this->session->flashdata('txdata');
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$sess2 = $this->session->userdata('username');
@@ -60,7 +65,7 @@ class Buyer_mylist extends CI_Controller {
 		$this->load->view('buyer/mylist', $data);
 		$this->load->view('buyer/footer');
 	}
-		
+	}
 	 /* if($this->input->post('submit')){
 			$date =  Date('Y-m-d'); 
 			$this->load->library('fileupload');

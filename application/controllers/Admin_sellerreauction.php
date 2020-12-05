@@ -23,7 +23,12 @@ class Admin_sellerreauction extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('session');
 		$this->load->model('Admin_model');
-
+		//echo $this->session->userdata('auth');
+		if(!$this->session->has_userdata('username')  || $this->session->userdata('auth') != "ADMIN"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		
 		$retrivevaltmp = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
@@ -37,4 +42,5 @@ class Admin_sellerreauction extends CI_Controller {
 		
 	}
 	
+}
 }
