@@ -35,6 +35,7 @@ function validatestart(){
 	
 	 var cat = document.getElementById('scategory').value;
 	 var scompanyname = document.getElementById("scompanyname").value;
+	  var srefid = document.getElementById("srefid").value;
 	var svinspection = document.getElementById("svinspection").value;
 	 var sfrominpectdate_time = document.getElementById("sfrominpectdate_time").value;
 	 var stoinpectdate_time = document.getElementById("stoinpectdate_time").value;
@@ -49,8 +50,8 @@ function validatestart(){
  	
 	
 	
-	if(scompanyname == '' || svinspection == '' || sfrominpectdate_time == '' || stoinpectdate_time == '' || sstartbidprice == '' || saucstartdate_time == '' || saucclosedate_time == '' ){
-		swal("Alert!",  "Category,Seller Company Name, Seller, Venue Of Inspection, Online Auction Date cannot leave any field blank!", "error");
+	if(scompanyname == ''|| svinspection == ''  || srefid == ''|| sfrominpectdate_time == '' || stoinpectdate_time == '' || sstartbidprice == '' || saucstartdate_time == '' || saucclosedate_time == '' ){
+		swal("Alert!",  "Category,Seller Company Name, ReferenceId, Seller, Venue Of Inspection, Online Auction Date cannot leave any field blank!", "error");
 		return false;
 	}
 	
@@ -168,7 +169,9 @@ function validatelot(){
 		return false;
 	}
 		
-	 
+
+	
+
 		if( $('input[name="spcbcertificate"]:checked').length == 0 )
 		   
 			{
