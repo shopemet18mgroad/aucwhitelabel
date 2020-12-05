@@ -22,16 +22,14 @@ class Buyer_dashboard extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$this->load->library('session');
-		$this->load->model('Admin_model');
-		$bcompany = $this->uri->segment(3);	
-
-	
-	
-		if(!$this->session->has_userdata('username')|| $this->session->userdata('auth') != "BUYER")){
+		if(!$this->session->has_userdata('username')|| $this->session->userdata('auth') != "BUYER"){
 			$datainserr = "Invalid Login Session";
 			header('location: '.base_url().'login/index_error/'.$datainserr);
 			die;
 		}else{
+		$this->load->model('Admin_model');
+		$bcompany = $this->uri->segment(3);	
+		
 			$sess = array('sessi'=>$this->session->userdata('username'));
 			$active = array('busername'=>$sess['sessi']);
 			$query = $this->Admin_model->getdatafromtable('buyerprofile', $active);

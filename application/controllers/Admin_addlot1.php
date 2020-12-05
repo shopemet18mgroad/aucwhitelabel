@@ -21,6 +21,7 @@ class Admin_addlot1 extends CI_Controller {
 
 public function index()
 	{
+		$this->load->library('session');
 		$this->load->helper('url');
 		if($this->uri->segment(5)){
 			$errormsg = urldecode($this->uri->segment(5));
@@ -29,12 +30,18 @@ public function index()
 			echo '</script>';
 			
 		}
-		$this->load->library('session');
+		//echo $this->session->userdata('auth');
+		if(!$this->session->has_userdata('username')  || $this->session->userdata('auth') != "ADMIN"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
+		
 		$data = $this->session->flashdata('txdata');
 		$this->load->view('admin/header');
 		$this->load->view('admin/addlot',$data5);
 		$this->load->view('admin/footer');
-		
+		}
 	} 
 	
 	

@@ -24,6 +24,12 @@ class Admin_salesdata extends CI_Controller {
 		date_default_timezone_set('Asia/Kolkata');
 		$time =  Date('Y-m-d H:i:s');
 		$this->load->library('session');
+		//echo $this->session->userdata('auth');
+		if(!$this->session->has_userdata('username')  || $this->session->userdata('auth') != "ADMIN"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
 		
 		$retrivevaltmp = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
 		$retriveval = array('sauctionid'=>$retrivevaltmp);
@@ -71,7 +77,7 @@ class Admin_salesdata extends CI_Controller {
 		$this->load->view('admin/header',$sess);
 		$this->load->view('admin/salesdata',$data);
 		$this->load->view('admin/footer');
-		
+		}
 	}
 	
 }

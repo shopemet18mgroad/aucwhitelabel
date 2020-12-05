@@ -24,7 +24,12 @@ class Admin_aucwinner extends CI_Controller {
 		date_default_timezone_set('Asia/Kolkata');
 		$time =  Date('Y-m-d H:i:s');
 		$this->load->model('Admin_model');
-		//$this->load->library('session');
+		$this->load->library('session');
+		if(!$this->session->has_userdata('username')  || $this->session->userdata('auth') != "ADMIN"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
 		//$sess = array('sessi'=>$this->session->userdata('username'));
 		
 
@@ -65,15 +70,17 @@ class Admin_aucwinner extends CI_Controller {
 		$data2['sqldat2']= $query;
 		
 		$this->load->library('session'); */
+		//echo $this->session->userdata('auth');
+		
 		$sess = array('sessi'=>$this->session->userdata('username'));		
 					
 		 
-		$this->load->view('seller/header',$sess);
-		$this->load->view('seller/auctionapproval',$data);
-		$this->load->view('seller/footer');
-		
+		$this->load->view('admin/header',$sess);
+		$this->load->view('admin/auctionapproval',$data);
+		$this->load->view('admin/footer');
+		}
 	}
-	
+}
 	public function setdeactive_seller(){
 		
 		$compnameurl = $this->uri->segment(3);

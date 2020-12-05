@@ -22,7 +22,11 @@ class Buyer_detailedbidding extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$this->load->library('session');
-		
+		if(!$this->session->has_userdata('username')  || $this->session->userdata('auth') != "BUYER"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{		
 		$variable = $this->uri->segment(3);
 		$vararray = urldecode($variable);
 		$vararray2 = explode('|',$vararray);
@@ -41,11 +45,13 @@ class Buyer_detailedbidding extends CI_Controller {
 		$data['sqldata'] = $query;
 		$data['sqldata2'] = $query2;
 		
-		//$data['sessi'] = $sess['sessi'];		
+		//$data['sessi'] = $sess['sessi'];	
+//echo $this->session->userdata('auth');
+		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('buyer/header',$sess);
 		$this->load->view('buyer/detailedbidding',$data);
 		$this->load->view('buyer/footer');
-		
+		}
 	}
 	
 

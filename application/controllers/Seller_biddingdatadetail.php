@@ -23,11 +23,16 @@ class Seller_biddingdatadetail extends CI_Controller {
 	{
 		$this->load->helper('url');	
 		$this->load->library('session');
+		if(!$this->session->has_userdata('username')|| $this->session->userdata('auth') != "SELLER"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('seller/header',$sess);
 		$this->load->view('seller/biddingdatadetail',$data);
 		$this->load->view('seller/footer');
-		
+		}
 	}
 	public function biddetail2(){
 		$retrivevaltmp = urldecode(str_ireplace('-','/',$this->uri->segment(3)));

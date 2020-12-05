@@ -24,11 +24,16 @@ class Seller_auctiondetails extends CI_Controller {
 	{
 		$this->load->helper(array('url','html'));
 		$this->load->library('session');
+		if(!$this->session->has_userdata('username')|| $this->session->userdata('auth') != "SELLER"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('seller/header',$sess);
 		$this->load->view('seller/auctiondetails');
 		$this->load->view('seller/footer');
-		
+		}
 	}
 	
 		public function get_table(){

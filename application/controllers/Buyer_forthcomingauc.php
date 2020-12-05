@@ -39,7 +39,7 @@ class Buyer_forthcomingauc extends CI_Controller {
 		$this->load->helper(array('url','html'));
 		$this->load->library('session');
 		
-		if(!$this->session->has_userdata('username')|| $this->session->userdata('auth') != "BUYER")){
+		if(!$this->session->has_userdata('username')|| $this->session->userdata('auth') != "BUYER"){
 			$datainserr = "Invalid Login Session";
 			header('location: '.base_url().'login/index_error/'.$datainserr);
 			die;
