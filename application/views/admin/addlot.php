@@ -124,7 +124,10 @@
 	</tr>
 	<tr>
 	<td>GST</td>
+
 	<td><input class="form-control w-50" type="text" id="sgst" name="sgst" placeholder="Exp. Max 28%"></td>
+
+	<td><input class="form-control w-50" type="text" id="sgst" name="sgst" placeholder="Exp.18%" value="%"></td>
     </tr>
 	<tr>
 		<td>HSN Code.</td>
