@@ -59,13 +59,14 @@ class Admin_bidsummary extends CI_Controller {
 				echo '<td><a href="'.base_url().'admin_bidhistory/bidhistory2/'.str_ireplace('/','-',$dat['sauctionid']).
 				'">';
 				echo $dat['sauctionid'];
+				$passaucid = str_ireplace('/','-',$dat['sauctionid']);
 				echo '</a>';
 				echo '</td>';
 				echo '<td>'.$dat['scompanyname'].'</td>';
 				echo '<td>'.$dat['svinspection'].'</td>';
 				echo '<td>'.$dat['sonlineaucdate_time'].'</td>';
 				echo '<td>'.$dat['saucclosedate_time'].'</td>';
-				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$dat['sauctionid'].'" target="_blank"><i class="fa fa-download"></i></a></td>';
+				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$passaucid.'" target="_blank"><i class="fa fa-download"></i></a></td>';
 			
 				echo '</tr>';
 			}
