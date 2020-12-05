@@ -173,6 +173,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$q = $this->db->get();
 			return $q->result_array();
 		  }
+		
+		public function get_lookalikesess($table,$col,$sessi){			  
+			$this->db->from($table);
+			$this->db->where('sname =', $sessi);
+			$this->db->like($col,$sessi);
+			$q = $this->db->get();
+			return $q->result_array();
+		  }
 		  
 			public function getdataASC($table, $data) { 
 			$this->db->order_by("bidvalue", "desc");

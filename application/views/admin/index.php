@@ -44,7 +44,7 @@
 							</tr>
 						<tr>
 							<td class="btxt">Company Type:</td>
-							<td><input class="form-control w-50" type="text" id="scompanytype" name="scompanytype" required></td>
+							<td><input class="form-control w-50" type="text" id="ssellertype" name="ssellertype" required></td>
 						</tr>  
 						<tr>
 							<td class="btxt">Contact Person:</td>
@@ -61,7 +61,11 @@
 						<tr>
 							<td class="btxt">CIN Number:</td>
 							<td><input class="form-control w-50" type="text" id="scin" name="scin" onkeyup="validate_user()" required></td>
-						</tr>  
+						</tr> 
+						<tr>
+							<td class="btxt">Pan Number:</td>
+							<td><input class="form-control w-50" type="text" id="span" name="span" required></td>
+						</tr>						
 						<tr>
 							<td class="btxt">GST:</td>
 							<td><input class="form-control w-50" type="text" id="sgst" name="sgst" onkeyup="validate_company()" required></td>

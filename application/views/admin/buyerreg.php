@@ -64,6 +64,10 @@
 							<td><input class="form-control w-50" type="text" id="bgst" name="bgst" onkeyup="validate_company2()"  required></td>
 						</tr> 
 						<tr>
+							<td class="btxt">Pan Number</td>
+							<td><input class="form-control w-50" type="text" id="bpan" name="bpan" required></td>
+						</tr> 
+						<tr>
 							<td class="btxt">PCB Licence NO:</td>
 							<td><input class="form-control w-50" type="text" id="bpcb" name="bpcb" required></td>
 						</tr> 

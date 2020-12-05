@@ -46,7 +46,7 @@ class Seller_editforthcom extends CI_Controller {
 	public function get_table(){
 		$datatoquerydb = $this->uri->segment(3);
 		$this->load->model('Admin_model');
-		$data = $this->Admin_model->get_lookalike('auction','sname',$datatoquerydb);
+		$data = $this->Admin_model->get_lookalike('auction','sauctionid',$datatoquerydb);
 		if(count($data)){
 			echo '<table class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';
 			echo '<thead class="bg-warning text-white">';
@@ -72,10 +72,11 @@ class Seller_editforthcom extends CI_Controller {
 			echo '</thead>';
 			echo '<tbody>';
 			foreach($data as $dat){
-				//$uploadfl = unserialize($dat['sterms_condiupload']);
+				$uploadfl = unserialize($dat['sterms_condiupload']);
 				echo '<tr>';
-				echo '<td><a href="'.base_url().'Seller_editforthcom_2/editforthcom_2/'.$dat['sname'].
+				echo '<td><a href="'.base_url().'Seller_editforthcom_2/editforthcom_2/'.str_ireplace('/','-',$dat['sauctionid']).
 				'">';
+				
 				echo $dat['sauctionid'];
 				$comp = unserialize($dat['sterms_condiupload']);
 				$passaucid = str_ireplace('/','-',$dat['sauctionid']);
@@ -104,8 +105,8 @@ class Seller_editforthcom extends CI_Controller {
 				//echo '<td>'.$uploadfl[0].'</td>';
 				//$aucfl = unserialize ($dat['sterms_condiupload']);
 				//echo '<td>'.implode (",",$aucfl).'</td>';
-				echo '<td><a href="'.base_url().'Seller_editauction/editauction/'.urlencode($dat['sname']).'">';
-				echo '<i class="fa fa-download"></i>';
+				/* echo '<td><a href="'.base_url().'Seller_editauction/editauction/'.urlencode($dat['sname']).'">'; */
+				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$dat['sauctionid'].'" target="_blank"><i class="fa fa-download"></i></a></td>';
 				echo '</a>';
 				echo '</td>';
 

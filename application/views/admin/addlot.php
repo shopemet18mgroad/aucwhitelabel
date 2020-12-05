@@ -94,10 +94,6 @@
 		<td><input class="form-control w-50" type="text" id="sprice" name="sprice"></td>
 	</tr>
 	
-	</tr>
-		<td>Qty</td>
-		<td><input class="form-control w-50" type="text" id="sqty" name="sqty"></td>
-	</tr>
 	
 	<tr>
 		<td>Unit Of Measurment</td>
@@ -109,6 +105,10 @@
 				<option value="Numbers">Numbers</option>
 				<option value="Meters">Meters</option>
 				</select></td>
+	</tr>
+	<tr>
+		<td>Qty</td>
+		<td><input class="form-control w-50" type="text" id="sqty" name="sqty"></td>
 	</tr>
 	
 	<tr>
@@ -124,7 +124,7 @@
 	</tr>
 	<tr>
 	<td>GST</td>
-	<td><input class="form-control w-50" type="text" id="sgst" name="sgst" placeholder="Exp. Max 18%"></td>
+	<td><input class="form-control w-50" type="text" id="sgst" name="sgst" placeholder="Exp. Max 28%"></td>
     </tr>
 	<tr>
 		<td>HSN Code.</td>
