@@ -24,6 +24,11 @@ class Seller_liveauc_2 extends CI_Controller {
 		$this->load->library('session');
 		/* $this->load->library('currency');
 		echo $this->currency->getIndianCurrency(7288);die; */
+		if(!$this->session->has_userdata('username')|| $this->session->userdata('auth') != "SELLER")){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
 		$retrivevaltmp = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
 		$retriveval = array('sauctionid'=>$retrivevaltmp);
 		$this->load->model('Admin_model');
@@ -36,7 +41,7 @@ class Seller_liveauc_2 extends CI_Controller {
 		$this->load->view('seller/header',$sess);
 		$this->load->view('seller/liveauc_2',$data);
 		$this->load->view('seller/footer');
-		
+		}
 	}
 	
 	public function liveauc_2(){

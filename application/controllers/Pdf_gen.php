@@ -17,18 +17,24 @@ class Pdf_gen extends CI_Controller
 	  
 		$this->load->helper('url');
 		$this->load->model('Admin_model');
-		$sname = $this->uri->segment(3);
+		$aucf = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
+		
 			//$sname = "AUC/Anita/Ferrous/16/53/37";
-		$aucencode = str_ireplace('-','/',$sname);		
-			$active = array('sauctionid'=>$aucencode);
+		//$aucencode = str_ireplace('-','/',$aucf);	
+					
+			$active = array('sauctionid'=>$aucf);
 			$query = $this->Admin_model->getdatafromtable('addlot', $active);
+			
 			$query2 = $this->Admin_model->getdatafromtable('auction', $active);
+		
 			$data['sqldata']= $query;
+				
 			$data['sqldata2']= $query2;
-			$data['sname'] = $sname;
+			$data['sauctionid'] = $aucf;
+			//print_r($aucf); die;
 			$this->load->view('Pdf_File2',$data);
       $data2 = array(
-        'title' => $aucencode,
+        'title' => $aucf,
         'data' => 'List Of Lots');
 	 $ci = &get_instance();
     $data['data'] = $data2;
@@ -45,7 +51,7 @@ class Pdf_gen extends CI_Controller
     // Render the HTML as PDF
     $ci->dompdf->render();
     // Output  PDF (1 = download and 0 = preview)
-    $ci->dompdf->stream($sname.".pdf", array("Attachment" => 0));
+    $ci->dompdf->stream($aucf.".pdf", array("Attachment" => 0));
   }
  }
 ?>

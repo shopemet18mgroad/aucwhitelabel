@@ -35,6 +35,7 @@ function validatestart(){
 	
 	 var cat = document.getElementById('scategory').value;
 	 var scompanyname = document.getElementById("scompanyname").value;
+	  var srefid = document.getElementById("srefid").value;
 	var svinspection = document.getElementById("svinspection").value;
 	 var sfrominpectdate_time = document.getElementById("sfrominpectdate_time").value;
 	 var stoinpectdate_time = document.getElementById("stoinpectdate_time").value;
@@ -49,8 +50,8 @@ function validatestart(){
  	
 	
 	
-	if(scompanyname == '' || svinspection == '' || sfrominpectdate_time == '' || stoinpectdate_time == '' || sstartbidprice == '' || saucstartdate_time == '' || saucclosedate_time == '' ){
-		swal("Alert!",  "Category,Seller Company Name, Seller, Venue Of Inspection, Online Auction Date cannot leave any field blank!", "error");
+	if(scompanyname == ''|| svinspection == ''  || srefid == ''|| sfrominpectdate_time == '' || stoinpectdate_time == '' || sstartbidprice == '' || saucstartdate_time == '' || saucclosedate_time == '' ){
+		swal("Alert!",  "Category,Seller Company Name, ReferenceId, Seller, Venue Of Inspection, Online Auction Date cannot leave any field blank!", "error");
 		return false;
 	}
 	
@@ -154,8 +155,7 @@ function validatelot(){
 	var sqty = document.getElementById("sqty").value;
 	var sunitmeasurment = document.getElementById("sunitmeasurment").value;
 	var sbidbase = document.getElementById("sbidbase").value;
-	var sgstString = document.myForm.sgst.value;
-	var sgst = parseInt(sgstString);
+	var sgst = document.getElementById("sgst").value;
 	var shsncode = document.getElementById("shsncode").value;
 	var sothertax = document.getElementById("sothertax").value;
 	var semdamount = document.getElementById("semdamount").value;
@@ -163,18 +163,15 @@ function validatelot(){
 	var sliftingperiod = document.getElementById("sliftingperiod").value;
 	
 	
-	if(slotname == '' || scategory == '' || sdescription == '' || slotlocation == '' ||  semddetail == ''  || sprice == '' || sqty == '' || sunitmeasurment == '' || sbidbase == '' || sgst == '' || shsncode == ''|| sothertax == '' || semdamount == '' || sliftingperiod2 == ''|| sliftingperiod == '' ){
+	if(slotname == '' || scategory == '' || sdescription == '' || slotlocation == '' ||  semddetail == ''  || sprice == '' || sqty == '' || sunitmeasurment == '' || sbidbase == '' || sgst == '%' || shsncode == ''|| sothertax == '' || semdamount == '' || sliftingperiod2 == ''|| sliftingperiod == '' ){
 	
 		swal("Alert!","lotname ,Category, lotlocation, description, frominpectdate&time ,toinpectdate_time, Emddetail,lastdateemdsub,price ,startbidprice, Quantity,Unitmeasurment  ,Bidbase ,gst,othertax,liftingperiod,emdamount,cannot leave any field blank!", "error");
 		return false;
 	}
 		
-	if (sgst <= 0 || sgst >= 18) {
-                swal("Alert!","GST Should Not Be More Than 18%.", "error");
-                document.myForm.sgst.focus();
-                return false;
-            }
-	 
+
+	
+
 		if( $('input[name="spcbcertificate"]:checked').length == 0 )
 		   
 			{

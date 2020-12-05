@@ -22,11 +22,17 @@ class Admin_editforthcom extends CI_Controller {
 	{
 		$this->load->helper(array('url','html'));
 		$this->load->library('session');
+		//echo $this->session->userdata('auth');
+		if(!$this->session->has_userdata('username')  || $this->session->userdata('auth') != "ADMIN"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('admin/header',$sess);
 		$this->load->view('admin/editforthcom');
 		$this->load->view('admin/footer');
-		
+		}
 	}
 	public function index_alert()
 	{
@@ -48,7 +54,7 @@ class Admin_editforthcom extends CI_Controller {
 		$this->load->model('Admin_model');
 		$data = $this->Admin_model->get_lookalike('auction','sauctionid',$datatoquerydb);
 		if(count($data)){
-			echo '<table class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';
+			echo '<table class="table table-striped table-bordered table-sm text-center w-auto small mt-5" width="100%" cellspacing="0">';
 			echo '<thead class="bg-warning text-white">';
 		echo '<tr>';
 			echo '<th colspan="14">Auction Details</th>';
@@ -103,7 +109,7 @@ class Admin_editforthcom extends CI_Controller {
 				//$aucfl = unserialize ($dat['sterms_condiupload']);
 				//echo '<td>'.implode (",",$aucfl).'</td>';
 				//echo '<td><a href="'.base_url().'Admin_editauction/editauction/'.urlencode($dat['sname']).'">';
-				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$dat['sauctionid'].'" target="_blank"><i class="fa fa-download"></i></a></td>';
+				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$passaucid.'" target="_blank"><i class="fa fa-download"></i></a></td>';
 				//echo '</a>';
 				//echo '</td>';
 

@@ -46,8 +46,8 @@
 								<td><?php echo $sqldata[0]->scontactperson; ?></td>
 							</tr>  
 							<tr>
-								<td>Company Type:</td>
-								<td><?php echo $sqldata[0]->scompanytype; ?></td>
+								<td>Seller Type:</td>
+								<td><?php echo $sqldata[0]->ssellertype; ?></td>
 							</tr> 	
 								<tr>
 								<td>Address</td>

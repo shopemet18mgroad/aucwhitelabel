@@ -89,6 +89,11 @@ class Seller_startauction extends CI_Controller {
 		
 		
 		$this->load->model('Admin_model');
+		if(!$this->session->has_userdata('username')|| $this->session->userdata('auth') != "SELLER"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
 		$sess = array('sessi'=>$this->session->userdata('username'));
 	
 		 $active1 = array('susername'=>$sess['sessi']);
@@ -108,7 +113,7 @@ class Seller_startauction extends CI_Controller {
 		
 	}
 	 
-	
+	}
 	 
 	public function get_seller_table(){
 	$dataw = urldecode($this->uri->segment(3));

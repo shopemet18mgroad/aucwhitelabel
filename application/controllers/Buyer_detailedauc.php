@@ -22,11 +22,17 @@ class Buyer_detailedauc extends CI_Controller {
 	{
 		$this->load->helper(array('url','html'));
 		$this->load->library('session');
+		//echo $this->session->userdata('auth');
+		if(!$this->session->has_userdata('username')  || $this->session->userdata('auth') != "BUYER"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('buyer/header',$sess);
 		$this->load->view('buyer/detailedauc');
 		$this->load->view('buyer/footer');
-		
+		}
 	}
 	
 	public function get_table(){
@@ -53,16 +59,14 @@ class Buyer_detailedauc extends CI_Controller {
 				echo '<td><a href="'.base_url().'buyer_viewdetail/viewdetail/'.str_ireplace('/','-',$dat['sauctionid']).
 				'">';
 				echo $dat['sauctionid'];
+				$passaucid = str_ireplace('/','-',$dat['sauctionid']);
 				echo '</a>';
 				echo '</td>';
 				echo '<td>'.$dat['scompanyname'].'</td>';
 				echo '<td>'.$dat['svinspection'].'</td>';
 				echo '<td>'.$dat['sonlineaucdate_time'].'</td>';
 				echo '<td>'.$dat['saucclosedate_time'].'</td>';
-				echo '<td><a href="'.base_url().''.$dat['sname'].'">';
-				echo '<i class="fa fa-download"></i>';
-				echo '</a>';
-				echo '</td>';
+				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$passaucid.'" target="_blank"><i class="fa fa-download"></i></a></td>';
 			
 				echo '</tr>';
 			}

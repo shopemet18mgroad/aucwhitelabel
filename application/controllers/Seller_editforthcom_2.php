@@ -24,17 +24,23 @@ class Seller_editforthcom_2 extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$this->load->library('session');
+		if(!$this->session->has_userdata('username')|| $this->session->userdata('auth') != "SELLER"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('seller/header',$sess);
 		$this->load->view('seller/editforthcom_2');
 		$this->load->view('seller/footer');
-		
+		}
 	}
 	
 	public function editforthcom_2(){
 		$retrivevaltmp = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
 		
 		$retriveval = array('sauctionid'=>$retrivevaltmp);
+	
 		$this->load->model('Admin_model');
 		/* $this->db->select('*'); // join the two table with similer id
 		$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid', 'left'); */

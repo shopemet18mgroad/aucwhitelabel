@@ -62,7 +62,8 @@
 		<td><?php echo $sqldata->sgst; ?></td>
 		<td><?php echo $sqldata->slotlocation; ?></td>
 		<td><a href="<?php  echo base_url()."Seller_reauction/index/".str_ireplace('/','-',$sqldata->sauctionid);?>"><input type="button" class="btn btn-primary btn-sm" value="Reauction"></a></td>
-		<td><a href="<?php echo base_url().'/pdf_gen/auc_no/'.$sqldata->sauctionid?>" target="_blank"><i class="fa fa-download"></i></a></td>	
+		<?php $passaucid = str_ireplace('/','-',$sqldata->sauctionid);?>
+		<td><a href="<?php echo base_url().'/pdf_gen/auc_no/'.$passaucid;?>" target="_blank"><i class="fa fa-download"></i></a></td>	
 		</tr>
 				<?php }  
          ?> 							

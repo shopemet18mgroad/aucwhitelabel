@@ -61,6 +61,10 @@
 							<td><input class="form-control w-50" type="text" id="bgst" name="bgst" value="<?php echo $sqldata[0]->bgst; ?>"></td>
 						</tr> 
 						<tr>
+							<td class="btxt">Pan Number:</td>
+							<td><input class="form-control w-50" type="text" id="bpan" name="bpan" value="<?php echo $sqldata[0]->bpan; ?>"></td>
+						</tr> 
+						<tr>
 							<td class="btxt">PCB Licence NO:</td>
 							<td><input class="form-control w-50" type="text" id="bpcb" name="bpcb" value="<?php echo $sqldata[0]->bpcb; ?>"></td>
 						</tr> 

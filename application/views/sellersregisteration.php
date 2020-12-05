@@ -21,6 +21,10 @@
         <td width="20%"><b>Company Name *</b></td>
         <td width="20%"><input class="form-control w-100" type="text" id="scomapnyname" name="scomapnyname" size="50" ></td>       
       </tr>
+	    <tr>
+        <td><b>Seller Name</b></td>
+        <td><input class="form-control w-100" type="text" id="sname" name="sname" size="50" ></td>
+      </tr>
       <tr>
         <td><b>Type of seller</b></td>
         <td><select class="form-control w-100" style="text-align-last:center;" id="ssellertype" name="ssellertype">
@@ -32,7 +36,7 @@
       </tr>
 	  <tr>
         <td><b>Contact Person *</b></td>
-        <td><input class="form-control w-100" type="text" id="sname" name="sname" size="50" ></td>
+        <td><input class="form-control w-100" type="text" id="scontactperson" name="scontactperson" size="50" ></td>
       </tr>
 		<tr>
         <td><b>Contact Person Designation *</b></td>
@@ -136,6 +140,14 @@
         <td><b>GST No.</b></td>
         <td><input class="form-control w-100 gst" type="text" name="sgst" id="sgst" size="50"></td>
         </tr>
+		 <tr>
+        <td><b>CIN Number</b></td>
+        <td><input class="form-control w-100" type="text" id="scin" name="scin" size="50"></td>
+      </tr>
+	   <tr>
+        <td><b>PCB License Number</b></td>
+        <td><input class="form-control w-100" type="text" id="spcb" name="spcb" size="50"></td>
+      </tr>
 		<tr>
         <td><b>CAPATCHA : </b><span id="captImg" class="captImg">&nbsp; <img src="<?php echo base_url()."web_files/captcha_images/".$ImgFileName;?>"></span><a href="javascript:void(0);" class="refreshCaptcha">&nbsp;&nbsp;&nbsp;<br>Refresh Captacha</a></td>
         <td><input  class="form-control w-100" type="text" name="captcha" id="captcha" onkeyup="validate_cap()" placeholder="Enter 4 Digit Captcha" size="50"></td>

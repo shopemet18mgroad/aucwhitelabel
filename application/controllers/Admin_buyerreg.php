@@ -28,6 +28,12 @@ class Admin_buyerreg extends CI_Controller {
 			echo '</script>';
 		}
 		$this->load->library('session');
+		//echo $this->session->userdata('auth');
+		if(!$this->session->has_userdata('username')  || $this->session->userdata('auth') != "ADMIN"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('admin/header',$sess);
 		$this->load->view('admin/buyerreg');
@@ -35,4 +41,4 @@ class Admin_buyerreg extends CI_Controller {
 		
 	}
 	
-}
+}}

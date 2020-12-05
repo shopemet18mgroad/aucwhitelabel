@@ -22,7 +22,10 @@
 		  <td width="20%"><b>Company *</b></td>
 		  <td width="20%"><input class="form-control w-100" type="text" id="bcompany" name="bcompany" size="50" ></td>
 		</tr>
-	  
+	  <tr>
+		  <td width="20%"><b>Buyer Name</b></td>
+		  <td width="20%"><input class="form-control w-100" type="text" id="bname" name="bname" size="50" ></td>
+		</tr>
       <tr>
         <td><b>Company Type</b></td>
         <td><select class="form-control w-100" style="text-align-last:center;" id="bcomptype" name="bcomptype">
@@ -40,7 +43,7 @@
 		</tr>
 	   <tr>
 	  <td><b>Contact Person *</b></td>
-	  <td><input  class="form-control w-100" type="text" id="bname" name="bname" size="50"></td>
+	  <td><input  class="form-control w-100" type="text" id="bcontactperson" name="bcontactperson" size="50"></td>
 	  </tr>
 	  <tr>
         <td><b>Contact Person Designation *</b></td>
@@ -63,35 +66,35 @@
 	  <tr>
         <td><b>State/Union Ter.</b></td>
         <td><select class="form-control w-100" style="text-align-last:center;" id="bstate" name="bstate" >
-			<option value="two"  selected>Andra Pradesh</option>
-			<option value="one">Arunachal Pradesh</option>
-			<option value="three">Assam</option>
-			<option value="three">Bihar</option>
-			<option value="five" >Chhattishgarh</option>
-			<option value="six">Delhi</option>
-			<option value="seven">Goa</option>
-			<option value="Eight">Gujarat</option>
-			<option value="Nine">Harayana</option>
-			<option value="ten">Himachal Pradesh</option>
-			<option value="Eleven" >Jharkhand</option>
-			<option value="twelve">Karnataka</option>
-			<option value="thirteen">Kerala</option>
-			<option value="fourteen">Madhya Pradesh</option>
-			<option value="fifteen" >Maharashtra</option>
-			<option value="sixteen">Manipur</option>
-			<option value="seventeen" >Meghalaya</option>
-			<option value="eighteen">Mizoram</option>
-			<option value="Nineteen">Nagaland</option>
-			<option value="twenty">Odisha</option>
-			<option value="twentyone">Punjab</option>
-			<option value="twentytwo">Rajasthan</option>
-			<option value="twentythree" >Sikkim</option>
-			<option value="twentyfour">Tamil Nadu</option>
-			<option value="twentyfive">Telangana</option>
-			<option value="twentysix" >Tripura</option>
-			<option value="twentyseven">Uttar Pradesh</option>
-			<option value="twentyeight">Uttarakhand</option>
-			<option value="twentynine" >West Bengal</option>
+			<option value="Andra Pradesh"  selected>Andra Pradesh</option>
+			<option value="Arunachal Pradesh">Arunachal Pradesh</option>
+			<option value="Assam">Assam</option>
+			<option value="Bihar">Bihar</option>
+			<option value="Chhattishgarh" >Chhattishgarh</option>
+			<option value="Delhi">Delhi</option>
+			<option value="Goa">Goa</option>
+			<option value="Gujarat">Gujarat</option>
+			<option value="Harayana">Harayana</option>
+			<option value="Himachal Pradesh">Himachal Pradesh</option>
+			<option value="Jharkhand" >Jharkhand</option>
+			<option value="Karnataka">Karnataka</option>
+			<option value="Kerala">Kerala</option>
+			<option value="Madhya Pradesh">Madhya Pradesh</option>
+			<option value="Maharashtra" >Maharashtra</option>
+			<option value="Manipur">Manipur</option>
+			<option value="Meghalaya" >Meghalaya</option>
+			<option value="Mizoram">Mizoram</option>
+			<option value="Nagaland">Nagaland</option>
+			<option value="Odisha">Odisha</option>
+			<option value="Punjab">Punjab</option>
+			<option value="Rajasthan">Rajasthan</option>
+			<option value="Sikkim" >Sikkim</option>
+			<option value="Tamil Nadu">Tamil Nadu</option>
+			<option value="Telangana">Telangana</option>
+			<option value="Tripura" >Tripura</option>
+			<option value="Uttar Pradesh">Uttar Pradesh</option>
+			<option value="Uttarakhand">Uttarakhand</option>
+			<option value="West Bengal" >West Bengal</option>
 			</select></td>      
       </tr>	
 	  <tr>
@@ -127,6 +130,14 @@
         <td><b>GST No.</b></td>
         <td><input  class="form-control w-100 gst" type="text" name="bgst" id="bgst" size="50"></td>
         </tr>
+		<tr>
+			<td><b>PCB Licence NO</b></td>
+			<td><input class="form-control w-50" type="text" id="bpcb" name="bpcb" required></td>
+		</tr> 
+		<tr>
+			<td><b>CIN Number</b></td>
+			<td><input class="form-control w-50" type="text" id="bcin" name="bcin" required></td>
+		</tr> 
 		<tr>
         <td><b>CAPATCHA : </b><span id="captImg" class="captImg">&nbsp; <img src="<?php echo base_url()."web_files/captcha_images/".$ImgFileName;?>"></span><a href="javascript:void(0);" class="refreshCaptcha">&nbsp;&nbsp;Refresh Captacha</a></td>
         <td><input  class="form-control w-100" type="text" name="captcha" id="captcha"  onkeyup="validate_cap1()" placeholder="Enter 4 Digit Captcha" size="50"></td>

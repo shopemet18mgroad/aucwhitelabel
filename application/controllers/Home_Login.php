@@ -39,16 +39,16 @@ class Home_Login extends CI_Controller {
 			$user = $this->input->post('user');
 			$pass = $this->input->post('pass');
 			$pass = base64_encode($pass);
-			$check_db = array($colname=>$user, $colname2=>$pass,'adaction'=>true);
+			$check_db = array($colname => $user, $colname2 => $pass,'adaction' => true);
 			$this->load->model('Admin_model');
 			  if($this->Admin_model->check($table, $check_db)){
 				  if($table == "buyerprofile"){
-					  $newdata = array('username'  => $user,'logged_in' => TRUE);
+					  $newdata = array('username'=>$user,'auth'=>'BUYER','logged_in' => TRUE);
 						$this->session->set_userdata($newdata);
 					  header('location: '.base_url().'buyer_dashboard');
 					  die;
 				  }else if($table == "sellerprofile"){
-					  $newdata = array('username'  => $user,'logged_in' => TRUE);
+					  $newdata = array('username'=>$user,'auth'=>'SELLER','logged_in' => TRUE);
 						$this->session->set_userdata($newdata);
 					  header('location: '.base_url().'seller_dashboard');
 					  die;

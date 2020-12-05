@@ -49,26 +49,26 @@
 				</thead>
 
 				<tbody>
-				<?php foreach($sqldata as $sqldata[0]){?>
+				<?php foreach($sqldata as $sqldat[0]){?>
 				<tr>
 				
-					<td><b><?php echo str_ireplace("/","-",$sqldata[0]->sauctionid);?></b></td>
-					<td><?php echo $sqldata[0]->sname; ?></td>
-					<td><?php echo $sqldata[0]->slotno; ?></td>
-					<td><?php echo $sqldata[0]->slotname; ?></td>
-					<td><?php echo $sqldata[0]->scategory; ?></td>
-					<td><?php echo $sqldata[0]->sdescription; ?></td>
-					<td><?php echo $sqldata[0]->slotlocation; ?></td>
-					<td><?php echo $sqldata[0]->semddetail; ?></td>
-					<td><?php echo $sqldata[0]->sprice; ?></td>
-					<td><?php echo $sqldata[0]->sqty; ?></td>
-					<td><?php echo $sqldata[0]->sunitmeasurment; ?></td>
-					<td><?php echo $sqldata[0]->sbidbase; ?></td>
-					<td><?php echo $sqldata[0]->sgst; ?></td>
-					<td><?php echo $sqldata[0]->sothertax; ?></td>
-					<td><?php echo $sqldata[0]->semdamount; ?></td>
-					<td><?php echo $sqldata[0]->sliftingperiod; ?><?php echo $sqldata[0]->sliftingperiod2; ?></td>
-					<td><?php if($sqldata[0]->spcbcertificate == 1)
+					<td><b><?php echo str_ireplace("/","-",$sqldat[0]->sauctionid);?></b></td>
+					<td><?php echo $sqldat[0]->sname; ?></td>
+					<td><?php echo $sqldat[0]->slotno; ?></td>
+					<td><?php echo $sqldat[0]->slotname; ?></td>
+					<td><?php echo $sqldat[0]->scategory; ?></td>
+					<td><?php echo $sqldat[0]->sdescription; ?></td>
+					<td><?php echo $sqldat[0]->slotlocation; ?></td>
+					<td><?php echo $sqldat[0]->semddetail; ?></td>
+					<td><?php echo $sqldat[0]->sprice; ?></td>
+					<td><?php echo $sqldat[0]->sqty; ?></td>
+					<td><?php echo $sqldat[0]->sunitmeasurment; ?></td>
+					<td><?php echo $sqldat[0]->sbidbase; ?></td>
+					<td><?php echo $sqldat[0]->sgst; ?></td>
+					<td><?php echo $sqldat[0]->sothertax; ?></td>
+					<td><?php echo $sqldat[0]->semdamount; ?></td>
+					<td><?php echo $sqldat[0]->sliftingperiod; ?><?php echo $sqldat[0]->sliftingperiod2; ?></td>
+					<td><?php if($sqldat[0]->spcbcertificate == 1)
 								{ 
 							echo 'Yes';
 							}
@@ -77,9 +77,9 @@
 							}; ?></td>
 
 
-					<td><a href="<?php echo base_url()."Seller_editlot/editlot/".str_ireplace("/","-",$sqldata[0]->sauctionid)."/".urlencode($sqldata[0]->slotno);?>" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a>
+					<td><a href="<?php echo base_url()."Seller_editlot/editlot/".str_ireplace("/","-",$sqldat[0]->sauctionid)."/".urlencode($sqldat[0]->slotno);?>" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a>
 
-						<a href="<?php echo base_url()."Seller_editlot/deletelot/".str_ireplace("/","-",$sqldata[0]->sauctionid)."/".urlencode($sqldata[0]->slotno)."/".urlencode($sqldata[0]->sname);?>" class="btn btn-danger btn-sm text-white"><i class="fa fa-trash fa-sm"></i></a></td>	
+						<a href="<?php echo base_url()."Seller_editlot/deletelot/".urlencode($sqldat[0]->slotno);?>" class="btn btn-danger btn-sm text-white delete-confirm"><i class="fa fa-trash fa-sm"></i></a></td>	
 				</tr>
 			<?php }?>
 				</tbody>
@@ -110,6 +110,7 @@
   <!-- End of Page Wrapper -->
 
   <!-- Scroll to Top Button-->
+  
  <?php 
 	//include('./footerdata.php');
 ?>

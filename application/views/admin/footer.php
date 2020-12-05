@@ -15,7 +15,7 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="<?php echo base_url()."logout/index/".$sessi;?>">Logout</a>
+          <a class="btn btn-primary" href="<?php echo base_url()."logout/index/".str_ireplace('@','%40',$sessi);?>">Logout</a>
         </div>
       </div>
     </div>

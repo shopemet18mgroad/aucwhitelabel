@@ -22,11 +22,17 @@ class Buyer_biddinglivestatus extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$this->load->library('session');
+		echo $this->session->userdata('auth');
+		if(!$this->session->has_userdata('username')  || $this->session->userdata('auth') != "Buyer"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('buyer/header',$sess);
 		$this->load->view('buyer/biddinglivestatus');
 		$this->load->view('buyer/footer');
-		
+		}
 	}
 	
 }

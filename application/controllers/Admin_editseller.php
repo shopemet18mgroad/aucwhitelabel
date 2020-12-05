@@ -22,12 +22,18 @@ class Admin_editseller extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$this->load->library('session');
+		//echo $this->session->userdata('auth');
+		if(!$this->session->has_userdata('username')  || $this->session->userdata('auth') != "ADMIN"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('admin/header',$sess);
 		//this->load->view('admin/header');
 		$this->load->view('admin/editseller');
 		$this->load->view('admin/footer');
-		
+		}
 	}
 	public function edit_seller(){
 		$retrivevaltmp = urldecode($this->uri->segment(3));

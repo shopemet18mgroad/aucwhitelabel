@@ -28,7 +28,7 @@ class Seller_editsellercontact extends CI_Controller {
 		//$sess = "avinash";
 		//$this->session->userdata('username');
 		
-		if(!$this->session->has_userdata('username')){
+		if(!$this->session->has_userdata('username')|| $this->session->userdata('auth') != "SELLER"){
 			$datainserr = "Invalid Login Session";
 			header('location: '.base_url().'login/index_error/'.$datainserr);
 			die;

@@ -59,8 +59,8 @@
 						<td><?php echo $datareciver[4]; ?></td>
 						<td><?php echo $datareciver[3]; ?></td>
 						<td style="color:blue;"><?php echo "Sold"?></td>
-						
-						<td><a href="<?php echo base_url().'/pdf_gen/auc_no/'.$datareciver[0]?>" target="_blank"><i class="fa fa-download"></i></a></td>
+						<?php $passaucid = str_ireplace('/','-',$datareciver[0]);?>
+						<td><a href="<?php echo base_url().'/pdf_gen/auc_no/'.$passaucid;?>" target="_blank"><i class="fa fa-download"></i></a></td>
 
 					</tr>
 	<?php  }} ?>

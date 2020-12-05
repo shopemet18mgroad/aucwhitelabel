@@ -39,7 +39,7 @@ class Buyer_forthcomingauc extends CI_Controller {
 		$this->load->helper(array('url','html'));
 		$this->load->library('session');
 		
-		if(!$this->session->has_userdata('username')|| $this->session->userdata('auth') != "BUYER")){
+		if(!$this->session->has_userdata('username')|| $this->session->userdata('auth') != "BUYER"){
 			$datainserr = "Invalid Login Session";
 			header('location: '.base_url().'login/index_error/'.$datainserr);
 			die;
@@ -61,7 +61,7 @@ class Buyer_forthcomingauc extends CI_Controller {
 		if(count($data)){
 			  
 			
-			echo '<table id="myTable" class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';
+			echo '<table id="myTable" class="table table-striped table-bordered table-sm text-center mt-5" w-auto small width="100%" cellspacing="0">';
 			echo '<thead class="bg-warning text-white">';
 			echo '<tr>';
 			echo '<th colspan="12">Add Lot In Your List</th>';

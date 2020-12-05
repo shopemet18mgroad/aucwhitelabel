@@ -27,11 +27,17 @@ class Admin_unsoldproduct extends CI_Controller {
 		$query = $this->Admin_model->getdatafromtable('addlot', $status);
 		$data['sqldat']= $query;
 		$this->load->library('session');
+		//echo $this->session->userdata('auth');
+		if(!$this->session->has_userdata('username')  || $this->session->userdata('auth') != "ADMIN"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('admin/header',$sess);
 		$this->load->view('admin/unsoldproduct',$data);
 		$this->load->view('admin/footer');
-		
+		}
 	}
 	
 }

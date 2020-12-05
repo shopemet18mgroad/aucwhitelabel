@@ -104,7 +104,7 @@ class Seller_addlot_update extends CI_Controller {
 		
 		
 			
-		header('location: '.base_url().'seller_auctiondetails/index/'.$datainserr);
+		header('location: '.base_url().'/Seller_editforthcom/index/'.$datainserr);
 		//$this->load->view('admin/header');
 		//$this->load->view('admin/salesreport');
 		//$this->load->view('admin/footer');
