@@ -40,6 +40,7 @@ class Seller_editforthcom_2 extends CI_Controller {
 		$retrivevaltmp = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
 		
 		$retriveval = array('sauctionid'=>$retrivevaltmp);
+	
 		$this->load->model('Admin_model');
 		/* $this->db->select('*'); // join the two table with similer id
 		$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid', 'left'); */

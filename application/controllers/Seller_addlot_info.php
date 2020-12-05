@@ -81,7 +81,7 @@ class Seller_addlot_info extends CI_Controller {
 			 $transfer = array('auctionid' => $sauctionid, 'category' => $scategory,'sname'=> $sname);
 			   if($status){
 				  $this->session->set_flashdata('txdata',$transfer);
-				  redirect('../Seller_auctiondetails');
+				  redirect('../Seller_editforthcom');
 			  }else{
 				   header('location: ./Seller_addlot/index/');
 		

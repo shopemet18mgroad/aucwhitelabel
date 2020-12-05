@@ -174,10 +174,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return $q->result_array();
 		  }
 		
-		public function get_lookalikesess($table,$col,$sessi){			  
+		public function get_lookalikesess($table,$col,$query,$sessi){			  
 			$this->db->from($table);
-			$this->db->where('sname =', $sessi);
-			$this->db->like($col,$sessi);
+			$this->db->like($col,$query);
+			$this->db->where('susername =', $sessi);
 			$q = $this->db->get();
 			return $q->result_array();
 		  }
