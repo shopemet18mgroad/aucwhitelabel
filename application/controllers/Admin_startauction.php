@@ -47,6 +47,7 @@ class Admin_startauction extends CI_Controller {
 			$scategory = $this->input->post('scategory');
 			$sauctionid = $this->input->post('sauctionid');
 			$sname = $this->input->post('sname');
+			$srefid = $this->input->post('srefid');
 			$scompanyname = $this->input->post('scompanyname');
 			$sfrominpectdate_time = $this->input->post('sfrominpectdate_time');
 			$stoinpectdate_time  = $this->input->post('stoinpectdate_time');
@@ -74,7 +75,7 @@ class Admin_startauction extends CI_Controller {
 				$sterms_text = $this->input->post('sterms_text');
 			
 			//$this->load->model('Admin_model');
-			$data = array('scategory' => $scategory, 'sauctionid' => $sauctionid, 'sname' => $sname, 'scompanyname' => $scompanyname, 'sfrominpectdate_time' => $sfrominpectdate_time, 'stoinpectdate_time' => $stoinpectdate_time, 'sstartbidprice' => $sstartbidprice,'slastdateemdsub' => $slastdateemdsub, 'svinspection'=> $svinspection, 'saucstartdate_time' => $saucstartdate_time,'saucclosedate_time' => $saucclosedate_time,'sterms_condiaccept'=>$sterms_condiaccept,'sterms_condiupload' => $pic_array1 , 'sterms_text' => $sterms_text);
+			$data = array('scategory' => $scategory, 'sauctionid' => $sauctionid, 'sname' => $sname,'srefid' => $srefid, 'scompanyname' => $scompanyname, 'sfrominpectdate_time' => $sfrominpectdate_time, 'stoinpectdate_time' => $stoinpectdate_time, 'sstartbidprice' => $sstartbidprice,'slastdateemdsub' => $slastdateemdsub, 'svinspection'=> $svinspection, 'saucstartdate_time' => $saucstartdate_time,'saucclosedate_time' => $saucclosedate_time,'sterms_condiaccept'=>$sterms_condiaccept,'sterms_condiupload' => $pic_array1 , 'sterms_text' => $sterms_text);
 			
 			$status = $this->Admin_model->insert('auction', $data);
 			
@@ -87,23 +88,38 @@ class Admin_startauction extends CI_Controller {
 			  }
 			
 			}
-			
+			//echo $this->session->userdata('auth');
+		if(!$this->session->has_userdata('username')  || $this->session->userdata('auth') != "ADMIN"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
 
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('admin/header',$sess);
 		$this->load->view('admin/startauction');
 		$this->load->view('admin/footer');
 		
-			   
+		}	   
 	}
+ public function auc2(){
+	 $sdata = urldecode($this->uri->segment(3));
+	$this->load->model('Admin_model');
+	$search = $this->Admin_model->getdatafromtable('sellerprofile',$sdata);	
+ }
+ 
+ 
+ 
  
 public function get_seller_table(){
 	$dataw = urldecode($this->uri->segment(3));
 	$this->load->model('Admin_model');
 	$search = $this->Admin_model->get_lookalike('sellerprofile','scomapnyname',$dataw);	
+	
 	if($search){
 		foreach($search as $sear){
-			echo "<li onclick=\"getPaging(this.id)\" id=\"".$sear['scomapnyname']."\" class=\"option\">".$sear['scomapnyname']."</li>\n";
+			echo "<li onclick=\"getPaging(this.id)\" id=\"".$sear['scomapnyname'].'|'.$sear['sname']."\" class=\"option\">".$sear['scomapnyname']."</li>\n";
+			
 		}
 	}else{
 		echo "<li onclick=\"\" value=\"1\" class=\"option\">No Results</li>";

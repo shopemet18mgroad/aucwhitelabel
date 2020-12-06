@@ -26,6 +26,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			 $query = $this->db->get_where($table, $data); 
 			 return $query->result();
 		} 
+		
+		public function get1datafromtable($table, $data) { 
+			 $this->db->select('scomapnyname');
+			  $this->db->select('sname');
+			 $query = $this->db->get_where($table, $data); 
+			 return $query->result();
+		}
+		
+		public function getsomedatafromtable($table, $data) { 
+			 $this->db->select('sname');
+			 $this->db->select('sauctionid');
+			 $this->db->select('scompanyname');
+			 $query = $this->db->get_where($table, $data); 
+			 return $query->result();
+		}
+		
+		
 		public function datebetween($table, $date){
 			$this->db->select('*');
 			$this->db->from($table);
@@ -34,6 +51,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$query = $this->db->get();
 			return $query->result();
 		}
+		
+		public function getsessdatafromtable($table, $data,$sessi) {
+			$this->db->where('sname =', $sessi);
+			 $query = $this->db->get_where($table, $data,$sessi); 
+			 
+			 return $query->result();
+		} 
+		
+		
 		public function datebetweensess($table, $date, $sessi){
 			$this->db->select('*');
 			$this->db->from($table);
@@ -43,15 +69,74 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$query = $this->db->get();
 			return $query->result();
 		}
+		
+		public function datebetweensess2($table, $date, $sessi){
+			$this->db->select('*');
+			$this->db->from($table);
+			//$this->db->where('aucstartdate_time <=', $date);
+			$this->db->where('aucclosedate_time <', $date);
+			$this->db->where('bidderusername =', $sessi);
+			$query = $this->db->get();
+			return $query->result();
+		} 
+		
+		public function maxbidvalue($auction,$lot){
+			$this->db->select('*');
+			$this->db->select_max('bidamount');
+			$this->db->from('biddingdata');
+			$this->db->where('sauctionid =', $auction);
+			$this->db->where('slotno =',$lot);
+			$query = $this->db->get();
+			return $query->result();
+		}
+		
+		 
+
+	 public function dateclosedauc($table, $date){
+			$this->db->select('*');
+			$this->db->from($table);
+			//$this->db->where('aucstartdate_time <=', $date);
+			$this->db->where('aucclosedate_time <', $date);
+			//$this->db->where('bidderusername =', $sessi);
+			$query = $this->db->get();
+			return $query->result();
+		} 
+		
 		public function gettable($table) { 
 			 $query = $this->db->get($table); 
 			 return $query->result();
 		} 
+		
+		public function gettablenews($table) {
+			$this->db->limit(2);			
+			 $query = $this->db->get($table); 
+			 return $query->result();
+		}
+		
 		public function getdatafromtablejoin($table,$table2,$joincolname,$compdata){
 			$this->db->select('*');
 			$this->db->from($table);
 			$this->db->join($table2, "$table.$joincolname = $table2.$joincolname");
 			$this->db->where("$table2.sname", $compdata);
+			$query = $this->db->get();
+			return $query->result();
+		}
+		public function getdatafromtablehomejoin(){
+			$this->db->select('*');
+			 $this->db->from('auction');
+			$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid');
+			$this->db->where('status =', 1);
+			$this->db->limit(4);
+			$query = $this->db->get();
+			return $query->result();
+		}
+		
+		public function getdatafromtablejoinallauc(){
+			$this->db->select('*');
+			 $this->db->from('auction');
+			$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid');
+			//$this->db->where('status =', 1);
+			//$this->db->limit(4);
 			$query = $this->db->get();
 			return $query->result();
 		}
@@ -72,6 +157,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			 $this->db->where($colname, $comp);
 			 $this->db->update($table, $data); 
 		  } 
+		
+		  
 		  public function get_distinct($table,$col,$id) { 
 			$this->db->select($col);
 			$this->db->distinct();
@@ -86,9 +173,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$q = $this->db->get();
 			return $q->result_array();
 		  }
+		
+		public function get_lookalikesess($table,$col,$query,$sessi){			  
+			$this->db->from($table);
+			$this->db->like($col,$query);
+			$this->db->where('susername =', $sessi);
+			$q = $this->db->get();
+			return $q->result_array();
+		  }
 		  
+			public function getdataASC($table, $data) { 
+			$this->db->order_by("bidvalue", "desc");
+			//$this->db->limit(5)
+			$query = $this->db->get_where($table, $data); 
+			 return $query->result();
+		}
 			
-
+			
+			public function admindateclosedauc($table, $date, $data){
+			$this->db->select('*');
+			$this->db->from($table);
+			//$this->db->where('aucstartdate_time <=', $date);
+			$this->db->where('aucclosedate_time <', $date);
+			$this->db->where('auctionid =', $data);
+			$query = $this->db->get();
+			return $query->result();
+		}
 
 			function fetch_all()
 			 {
@@ -102,8 +212,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
          $query = $this->db->get('biddercart');  
          return $query;  
       }
-
-     
+		
+	
 		  
 		 
 		  

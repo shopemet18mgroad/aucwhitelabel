@@ -22,11 +22,17 @@ class Admin_editlot extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$this->load->library('session');
+		//echo $this->session->userdata('auth');
+		if(!$this->session->has_userdata('username')  || $this->session->userdata('auth') != "ADMIN"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('admin/header',$sess);
 		$this->load->view('admin/editlot');
 		$this->load->view('admin/footer');
-		
+		}
 	}
 	
 	public function editlot(){
@@ -72,15 +78,18 @@ class Admin_editlot extends CI_Controller {
 		$this->load->view('admin/footer');
 	} 
 	public function deletelot(){
-		$delval = $this->uri->segment(3);
-		$delval = str_ireplace('-','/',$delval);
-		$delval2 = $this->uri->segment(4);
-		$delval3 = urldecode($this->uri->segment(5));
-		$retriveval = array('sauctionid'=>$delval,'slotno'=>$delval2,'sname'=>$delval3);
-		$delval3 = urlencode($delval3);
+		$retrivevaltmpdel = urldecode($this->uri->segment(3));
+		$retrivevaldel = array('slotno'=>$retrivevaltmpdel);
 		$this->load->model('Admin_model');
-		$this->Admin_model->delete_data('addlot',$retriveval);
-		header('location: '.base_url().'admin_editforthcom_2/editforthcom_2/'.$delval3);
-		die;
+		if($retrivevaltmpdel){
+			$this->Admin_model->delete_data('addlot', $retrivevaldel);
+	
+		}
+		$this->load->helper('url');
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('admin/header',$sess);
+		$this->load->view('admin/editforthcom');
+		$this->load->view('admin/footer');
 	}
 }

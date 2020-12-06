@@ -22,14 +22,22 @@ class Seller_dashboard extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$this->load->library('session');
-		if(!$this->session->has_userdata('username')){
+		if(!$this->session->has_userdata('username')|| $this->session->userdata('auth') != "SELLER"){
 			$datainserr = "Invalid Login Session";
 			header('location: '.base_url().'login/index_error/'.$datainserr);
 			die;
 		}else{
-			$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->model('Admin_model');
+		$scomapnyname = $this->uri->segment(3);
+		
+		
+		$sess = array('sessi'=>$this->session->userdata('username'));
+			$active = array('susername'=>$sess['sessi']);
+			$query = $this->Admin_model->getdatafromtable('sellerprofile', $active);
+			$data['sqldata']= $query;
+			$data['scomapnyname'] = $scomapnyname;
 			$this->load->view('seller/header',$sess);
-			$this->load->view('seller/index');
+			$this->load->view('seller/index',$data);
 			$this->load->view('seller/footer');
 		}
 		

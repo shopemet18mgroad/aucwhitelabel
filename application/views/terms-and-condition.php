@@ -12,7 +12,7 @@
                         <h2 class="aboutus-title">TERMS AND CONDITIONS</h2>
                 <p class="aboutus-text">Welcome to AucJunction.com website (hereinafter referred to as &quot;the website&quot;).
 </br></br>
-The auctions and related services are provided by AucJunction Pvt. Ltd. (hereinafter referred
+The auctions and related services are provided by Shopemet Networks Pvt ltd.(hereinafter referred
 to as &quot;AucJunction&quot;) on the website.
 </br></br>
 AucJunction is an e-commerce service provider mandated by the seller/buyer to facilitate

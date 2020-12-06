@@ -152,12 +152,12 @@
 	<tr>
 		<td>PCB Certificate</td>
 		<td><div class="form-check form-check-inline">
-			<input type="checkbox" class="form-check-input" id="spcbcertificate1[]" name="spcbcertificate" value="YES" <?php
+			<input type="checkbox" class="form-check-input" id="spcbcertificate1[]" name="spcbcertificate" value="1" <?php
 if($sqldata[0]->spcbcertificate){echo "checked";}else{echo "unchecked";}		?>>
 			<label class="form-check-label" for="exampleCheck1">Yes</label>
 			</div>
 			<div class="form-check form-check-inline">
-			<input type="checkbox" class="form-check-input" id="spcbcertificate2[]" name="spcbcertificate" value="NO" <?php
+			<input type="checkbox" class="form-check-input" id="spcbcertificate2[]" name="spcbcertificate" value="0" <?php
 if($sqldata[0]->spcbcertificate){echo "unchecked";}else{echo "checked";}		?>>
 			<label class="form-check-label" for="exampleCheck1">No</label>
 			</div></td>
@@ -167,9 +167,9 @@ if($sqldata[0]->spcbcertificate){echo "unchecked";}else{echo "checked";}		?>>
   </table>
   
   <center>
-	<input type="submit" name="submit2" onclick="return validatelot()" class="btn btn-info text-white" data-dismiss="modal" value="Update Lot">
+
  
- <input type="submit"  name="submit" onclick="return validatelot()" class="btn btn-info text-white" value="Submit" data-dismiss="modal">
+ <input type="submit"  name="submit" onclick="return validatelot()" class="btn btn-info text-white" value="Update Lot" data-dismiss="modal">
   </center>
   </form>
 			</div>

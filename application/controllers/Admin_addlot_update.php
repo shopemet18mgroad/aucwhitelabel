@@ -25,8 +25,8 @@ class Admin_addlot_update extends CI_Controller {
 	 */
 	public function index()
 	{
-		//$this->load->library('fileupload');
-		//$this->load->helper(array('url','form','file','html'));
+		$this->load->library('fileupload');
+		$this->load->helper(array('url','form','file','html'));
 		$this->load->model('Admin_model');
 		$sauctionid = $this->input->post('sauctionid');
 		$sname = $this->input->post('sname');
@@ -96,15 +96,15 @@ class Admin_addlot_update extends CI_Controller {
 		
 		
 		//==================================================================
-		$data2 = array('sauctionid' => $sauctionid,'sname' => $sname, 'slotno' => $slotno, 'slotname' => $slotname, 'scategory' => $scategory, 'sdescription' => $sdescription, 'slotlocation'=> $slotlocation,  'semddetail' => $semddetail,  'sprice' => $sprice,   'sqty' => $sqty,  'sunitmeasurment' => $sunitmeasurment,  'sbidbase' => $sbidbase,  'sgst' => $sgst,'shsncode' => $shsncode,  'sothertax' => $sothertax,  'semdamount' => $semdamount,  'sliftingperiod2' => $sliftingperiod2,  'sliftingperiod' => $sliftingperiod, 'spcbcertificate' => $spcbcertificate,);
+		$data2 = array('sauctionid' => $sauctionid,'sname' => $sname, 'slotno' => $slotno, 'slotname' => $slotname, 'scategory' => $scategory, 'sdescription' => $sdescription, 'slotlocation'=> $slotlocation,  'semddetail' => $semddetail,  'sprice' => $sprice,   'sqty' => $sqty,  'sunitmeasurment' => $sunitmeasurment,  'sbidbase' => $sbidbase,  'sgst' => $sgst,'shsncode' => $shsncode,  'sothertax' => $sothertax,  'semdamount' => $semdamount,  'sliftingperiod2' => $sliftingperiod2,  'sliftingperiod' => $sliftingperiod, 'spcbcertificate' => $spcbcertificate);
 		//$this->load->view('xya', $data);
 		$datainserr = "Data Inserted Successfully";
-		$updatech = array('slotname' => $slotname );
+		$updatech = array('sauctionid' => $sauctionid,'slotno' => $slotno);
 		$status = $this->Admin_model->update_custom('addlot',$data2,$updatech,$updatech);
 		
 		
 			
-		header('location: '.base_url().'admin_auctiondetails/index/'.$datainserr);
+		header('location: '.base_url().'admin_editforthcom/index/'.$datainserr);
 		//$this->load->view('admin/header');
 		//$this->load->view('admin/salesreport');
 		//$this->load->view('admin/footer');

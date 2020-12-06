@@ -92,7 +92,7 @@ $minutes = floor(($diff - $years * 365*60*60*24  - $months*30*60*60*24 - $days*6
 $seconds = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24 - $days*60*60*24 - $hours*60*60 - $minutes*60)); 
 $Remaining = $days." Days ".$hours." Hours ".$minutes." Minutes ";
 				?>
-				<tr><td><?php echo $sqldata2[0]->sname; ?></td>												
+				<tr><td><?php echo $sqldata2[0]->slotno; ?></td>												
 					<td><?php echo $sqldata2[0]->slotname; ?> </td>
 					<td><?php echo $sqldata2[0]->slotlocation; ?></td>
 					<td><?php echo $sqldata[0]->aucclosedate_time; ?></td>
@@ -102,6 +102,7 @@ $Remaining = $days." Days ".$hours." Hours ".$minutes." Minutes ";
 					<td><?php echo $sqldata2[0]->sstartbidprice; ?></td>
 					<td><?php echo $sqldata[0]->bidprice; ?></td>
 					<td><?php echo $sqldata2[0]->cbidval; ?></td>
+					
 					<td><div class="form-group row ml-2">
 					<?php
 					if($sqldata2[0]->sstartbidprice >= $sqldata2[0]->cbidval){
@@ -109,13 +110,19 @@ $Remaining = $days." Days ".$hours." Hours ".$minutes." Minutes ";
 					}else{
 						$datbid = $sqldata2[0]->cbidval;
 					}  
+					
+//$sessa2 = urlencode($sess['sessi']);
+$sessa2 = str_ireplace('@','%40',$sessi);
 					?> 
-					<input class="form-control col-sm-7 mr-2" type="number" value="<?php echo $datbid; ?>" min="0" step="<?php echo $sqldata2[0]->sprice; ?>" id="bid" name="bid">
-					<button type="submit" id="<?php echo $sessi.'|'.str_ireplace('/','-',$sqldata[0]->auctionid)."|".$sqldata2[0]->slotno; ?>" class="btn btn-info" onclick="bid_manual(this.id)">Bid</button></div>
+					<input class="form-control col-sm-7 mr-2" type="number" value="<?php echo $datbid; ?>" min="0" step="<?php echo $sqldata2[0]->sprice; ?>" id="bid" name="bid" <?php if($sqldata[0]->abidding){echo "readonly";}else{echo "";} ?>>
+					<button type="submit" id="<?php echo $sessa2.'|'.str_ireplace('/','-',$sqldata[0]->auctionid)."|".$sqldata2[0]->slotno; ?>" class="btn btn-info" onclick="bid_manual(this.id)" <?php if($sqldata[0]->abidding){echo "disabled";}else{echo "";} ?>>Bid</button></div>
 							
 					
 				  </td>
-					<td><a href="<?php echo base_url();?>buyer_autobid"><button type="button" class="btn btn-info">AutoBid</button></a></td>
+				  <?php if($sqldata[0]->abidding){?>
+					<td>
+				  <a href="<?php echo base_url().'Buyer_liveauc_2/buyer_autobid_disable/'.str_ireplace('/','-',$sqldata[0]->auctionid)."|".$sqldata2[0]->slotno;?>"><button type="button" class="btn btn-info" >Disable AutoBid</button></a></td><?php }else{?><td>
+				  <a href="<?php echo base_url().'Buyer_liveauc_2/buyer_autobid/'.str_ireplace('/','-',$sqldata[0]->auctionid)."|".$sqldata2[0]->slotno;?>"><button type="button" class="btn btn-info" >AutoBid</button></a></td><?php }?>
 					<td><a href="<?php echo base_url();?>buyer_biddinglivestatus"><button type="button" class="btn btn-info btn-sm p-2"><b>Live Status</b></button></a></td>
 				</tr>
 				

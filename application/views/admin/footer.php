@@ -15,7 +15,7 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="<?php echo base_url()."logout/index/".$sessi;?>">Logout</a>
+          <a class="btn btn-primary" href="<?php echo base_url()."logout/index/".str_ireplace('@','%40',$sessi);?>">Logout</a>
         </div>
       </div>
     </div>
@@ -121,7 +121,7 @@
  <script>
  function auction_id(){
 	 var cat = document.getElementById('scategory').value;
-	  var cat2 = document.getElementById('sname').value;
+	  var cat2 = document.getElementById('srefid').value;
 	   var d = new Date();
 	   var m = d.getHours();
 	   var n = d.getMinutes();
@@ -187,6 +187,7 @@
 		});
 	
  </script>
+
  <script>
 		$('#gettable_editauction').on('keyup', function(){
 			var contents = $('#gettable_editauction').val(); 
@@ -197,7 +198,15 @@
 	
  </script>
  
- 
+  <script>
+		$('#gettable_bidsummary').on('keyup', function(){
+			var contents = $('#gettable_bidsummary').val(); 
+			$.get('<?php echo base_url() .'Admin_bidsummary/get_table/'; ?>'+contents, function(data){
+				$('#ajaxrslt_bidsummary').html(data);
+			});
+		});
+	
+ </script>
  
  <script>
 		$('#gettable_aliveauction').on('keyup', function(){
@@ -249,10 +258,8 @@
 
  </script>
 
-	
- </script>
  
- <script>
+<script>
 		function buyer_set_deactive(varab){
 			$.get('<?php echo base_url() .'Admin_buyerapproval/setdeactive_buyer/'; ?>'+varab, function(data2){	
 				 if($.trim(data2) == "HI"){
@@ -261,6 +268,21 @@
 				}else{
 					swal("Alert!", "Company Name Already Exists", "error");
 					return false;
+				}
+			 });
+			
+		}
+	
+ </script>
+ 
+ 
+ 
+ <script>
+		function winner_set_deactive(varab2){
+			$.get('<?php echo base_url() .'Admin_bidwinner/setdeactive_winner/'; ?>'+varab2, function(data2){	
+				 if($.trim(data2) == "HI"){
+					 window.location.href = '<?php echo base_url().'Admin_bidwinner';?>'
+					return true;
 				}
 			 });
 			
@@ -375,7 +397,9 @@
 </script>
  <script>
  function getPaging(v){
-	document.getElementById("scompanyname").value = v;
+	 var s = v.split("|");
+	document.getElementById("scompanyname").value = s[0];
+	document.getElementById("sname").value = s[1];
 	 $("#dp").hide();
  }
  </script>
@@ -397,7 +421,8 @@
  
  <script>
 		function buyer_set_deactive_emd_dd(varab2){
-			$.get('<?php echo base_url() .'Admin_emdapproval/setdeactive_buyer_emd_dd/'; ?>'+varab2, function(data2){	
+			$.get('<?php echo base_url() .'Admin_emdapproval/setdeactive_buyer_emd_dd/'; ?>'+varab2, function(data2){
+				
 				 if($.trim(data2) == "HI"){
 					 window.location.href = '<?php echo base_url().'Admin_emdapproval';?>'
 					return true;
@@ -407,3 +432,34 @@
 		}
 	
  </script>
+ <script>
+$('.delete-confirm').on('click', function (event) {
+    event.preventDefault();
+    const url = $(this).attr('href');
+    swal({
+        title: 'Are you sure?',
+        text: 'This record and it`s details will be permanantly deleted!',
+        icon: 'warning',
+        buttons: ["Cancel", "Yes!"],
+    }).then(function(value) {
+        if (value) {
+            window.location.href = url;
+        }
+    });
+});
+</script>
+ <script>
+ function admin_live_auc() {
+  var contents = $('#refsel').val(); 
+			$.get('<?php echo base_url() .'Admin_liveauc_2/get_table_ajax/'; ?>'+contents, function(data){
+				$('#ajaxreloadadminlive').html(data);
+	});
+  setTimeout(admin_live_auc, 60000); // you could choose not to continue on failure...
+}
+
+$(document).ready(function() {
+  // run the first time; all subsequent calls will take care of themselves
+  setTimeout(admin_live_auc, 60000);
+});
+ </script>
+ 

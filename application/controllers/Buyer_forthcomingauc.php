@@ -38,11 +38,19 @@ class Buyer_forthcomingauc extends CI_Controller {
 		//$data["addlot"] = $this->Admin_model->fetch_all();
 		$this->load->helper(array('url','html'));
 		$this->load->library('session');
+		
+		if(!$this->session->has_userdata('username')|| $this->session->userdata('auth') != "BUYER"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
+		
+		
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('buyer/header',$sess);
 		$this->load->view('buyer/forthcomingauc');
 		$this->load->view('buyer/footer');
-
+		}
 		
 	}
 	
@@ -53,7 +61,7 @@ class Buyer_forthcomingauc extends CI_Controller {
 		if(count($data)){
 			  
 			
-			echo '<table id="myTable" class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';
+			echo '<table id="myTable" class="table table-striped table-bordered table-sm text-center mt-5" w-auto small width="100%" cellspacing="0">';
 			echo '<thead class="bg-warning text-white">';
 			echo '<tr>';
 			echo '<th colspan="12">Add Lot In Your List</th>';
@@ -68,18 +76,22 @@ class Buyer_forthcomingauc extends CI_Controller {
 			echo '<th>Quantity</th>';
 			echo '<th>GST</th>';
 			echo '<th>Location</th>';
+			echo '<th>Download</th>';
 			echo '<th>Add to Mylist</th>';
 			echo '</tr>';
 			echo '</thead>';
 			echo '<tbody>';
 			foreach($data as $dat){
 				echo '<tr>';
-				echo '<td style="color:blue"><a href="'.base_url().'buyer_mylist/my_cart/'.urlencode($dat['sdescription']).
-				'">';
+
+				 echo '<td style="color:blue"><a href="'.base_url().'buyer_mylist/my_cart/'.urlencode($dat['sdescription']).
+				'">'; 
+
+
 				echo $dat['sauctionid'];	
 				echo $aucencode = str_ireplace('/','-',$dat['sauctionid']);
-				echo '</a>';
-				echo '</td>';
+				echo '</a>'; 
+				echo '</td>'; 
 				echo '<td>'.$dat['slotname'].'</td>';
 				echo '<td>'.$dat['scategory'].'</td>';
 				echo '<td>'.$dat['sdescription'].'</td>';
@@ -87,6 +99,9 @@ class Buyer_forthcomingauc extends CI_Controller {
 				echo '<td>'.$dat['sqty'].'</td>';
 				echo '<td>'.$dat['sgst'].'</td>';
 				echo '<td>'.$dat['slotlocation'].'</td>';
+				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$aucencode.'" target="_blank"><i class="fa fa-download"></i></a></td>';
+				echo '';
+
 				echo '<td>';
 				echo'<button type="button" id="'.$aucencode.'|'.$dat['slotno'].'" onClick="addtocart(this.id)">';
 				echo'<i class="fas fa-heart" id="'.$aucencode.'|'.$dat['slotno'].'"></i>';

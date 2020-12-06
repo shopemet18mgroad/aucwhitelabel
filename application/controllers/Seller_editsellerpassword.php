@@ -21,11 +21,28 @@ class Seller_editsellerpassword extends CI_Controller {
 		
 	public function index()
 	{
+		
 		$this->load->helper('url');
-		$this->load->view('seller/header');
-		$this->load->view('seller/editsellerpassword');
+		$this->load->library('session');
+		$this->load->model('Admin_model');
+		$scomapnyname = $this->uri->segment(3);	
+		//$sess = "avinash";
+		//$this->session->userdata('username');
+		
+		if(!$this->session->has_userdata('username')|| $this->session->userdata('auth') != "SELLER"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
+			$sess = array('sessi'=>$this->session->userdata('username'));
+			$active = array('susername'=>$sess['sessi']);
+			$query = $this->Admin_model->getdatafromtable('sellerprofile', $active);
+			$data['sqldata']= $query;
+			$data['scomapnyname'] = $scomapnyname;
+		$this->load->view('seller/header',$sess);
+		$this->load->view('seller/editsellerpassword',$data);
 		$this->load->view('seller/footer');
 		
 	}
-	
+	}
 }

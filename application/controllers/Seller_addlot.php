@@ -23,9 +23,24 @@ class Seller_addlot extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper('url');
-		$this->load->view('seller/header');
-		$this->load->view('seller/addlot');
+		if($this->uri->segment(4)){
+			$errormsg = urldecode($this->uri->segment(4));
+			echo '<script language="javascript">';
+			echo 'alert("'.$errormsg.'")';
+			echo '</script>';
+		}
+		$this->load->library('session');
+		if(!$this->session->has_userdata('username')|| $this->session->userdata('auth') != "SELLER"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
+		$data = $this->session->flashdata('txdata');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('seller/header',$sess);
+		$this->load->view('seller/addlot',$data);
 		$this->load->view('seller/footer');
 		
 	}
+}
 }

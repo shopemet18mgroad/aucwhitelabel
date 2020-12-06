@@ -43,10 +43,15 @@
 				</select>
 			</td>
 	  </tr>
+	  <tr>
+		  <td>Seller Name</td>
+		  <td><input class="form-control w-50"  type="text" id="sname" name="sname" placeholder="Search"  aria-label="Search" readonly>
+		  </td>
+	  </tr>
 	  
 	  	  <tr>
-		  <td>Seller</td>
-		  <td><input class="form-control w-50"  type="text" id="sname" name="sname" placeholder="Search" onkeyup="auction_id()" aria-label="Search">
+		  <td>Reference Id</td>
+		  <td><input class="form-control w-50"  type="text" id="srefid" name="srefid" placeholder="Search" onkeyup="auction_id()" aria-label="Search">
 		  </td>
 	  </tr>
 	  
@@ -114,7 +119,7 @@ Welcome to AucJunction.com website(hereinafter referred to as "the website").</c
         
         <!-- Modal body -->
         <div class="modal-body">
-          <p><strong>The auctions and related services are provided by AucJunction Pvt. Ltd.(hereinafter referred to as "AucJunction") on the website.</strong><br>
+          <p><strong>The auctions and related services are provided by Shopemet Networks Pvt ltd.(hereinafter referred to as "AucJunction") on the website.</strong><br>
 
 AucJunction is an e-commerce service provider mandated by the seller/buyer to facilitate virtual auctions by the seller/buyer. The website is an online auction platform, a virtual marketplace/venue for sellers/buyers to conduct sale/purchase of assets, and for bidders to make/place bids/offers on such assets. AucJunction is considered as third party not particularly interested in the item/s being sold/bought on behalf of the seller/buyer.<br><br>
 

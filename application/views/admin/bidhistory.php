@@ -1,4 +1,4 @@
-<?php 
+ <?php 
 	//include('./header.php');
 ?>
         <!-- End of Topbar -->
@@ -7,10 +7,10 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-      <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Bid History</h1>
+          <!-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Manage Buying Requirements</h1>
             
-          </div>
+          </div> -->
 
           <!-- Content Row -->
           <div class="row">
@@ -20,70 +20,39 @@
           <div class="card shadow mb-4">
             <div class="card-body">
               <div class="table-responsive">
-			
-			<table class="table table-striped table-bordered table-sm text-center" id="dataTable" width="100%" cellspacing="0">
-				<thead class="bg-info text-white text-center">
-					<th colspan="7">Auction Details</th>
-				</thead>
-				<thead class="bg-primary text-white">
-				<tr>
-					<th width="25%">Auction ID</th>
-					<th>Lot No</th>
-					<th>Company Name</th>
-					<th width="40%">Auction Description</th>
-					<th>Date</th>
+		
+		
+		<table class="table table-striped table-bordered table-sm text-center mt-5" id="dataTable" width="100%" cellspacing="0">
+		<thead class="bg-warning text-white">
+		<tr>
+		<th colspan="12">Bidding History</th>
+		</tr>
+		<thead class="bg-primary text-white">
+			<tr>
+					<td>Auction Id</td>
+					<td>Lot No</td>
+					<td>Bidder User Name</td>
+					<td>Close Time</td>
+					<td>Bid Value</td>
+					<td>Final Bid Amount</td>
 				</tr>
 				</thead>
 
 				<tbody>
+				<?php foreach($sqldata as $sqldata[0]){?>
 				<tr>
-					<td>EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</td>
-					<td>ME129</td>
-					<td>OMFED LTD.</td>
-					<td>Iron is a chemical element with symbol Fe (from Latin: ferrum) and atomic number 26.</td>
-					<td>4-11-2019</td>
+				
+					<td><b><?php echo $sqldata[0]->sauctionid; ?></b></td>
+					<td><?php echo $sqldata[0]->slotno; ?></td>
+					<td><?php echo $sqldata[0]->bidderusername; ?></td>
+					<td><?php echo $sqldata[0]->Date_time; ?></td>
+					<td><?php echo $sqldata[0]->bidvalue; ?></td>
+					<td><?php echo $sqldata[0]->bidamount; ?></td>
 				</tr>
+			<?php }?>
 				</tbody>
+			
 		 </table>
-		
-		<table class="table table-striped table-bordered table-sm text-center mt-5" id="dataTable" width="100%" cellspacing="0">
-				<thead class="bg-primary text-white">
-					<tr>
-						<th>Buyer Name</th>
-						<th>Company Name</th>
-						<th>Bid Amount</th>
-						<th>Time</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr style="color:green">
-						<td><b>S.R.Ramu</b></td>
-						<td>SSR Ltd.</td>
-						<td>2,35,000</td>
-						<td>08:20:37</td>
-					</tr>
-					<tr style="color:orange">
-						<td>Balasubramanium</td>												
-						<td>BHEL</td>
-						<td>1,06,000</td>
-						<td>11:23:58</td>
-					</tr>
-					<tr>
-						<td>Sunil Gupta</td>
-						<td>NSTC</td>
-						<td>3,00,000</td>
-						<td>08:22:04</td>
-					</tr>
-						<tr>
-						<td>Sunil Gupta</td>
-						<td>NSTC</td>
-						<td>3,00,000</td>
-						<td>08:22:04</td>
-					</tr>
-				</tbody>
-		 </table>
-		 
-		 
 		</div>
 		</div>
 		</div>
@@ -108,7 +77,7 @@
   <!-- End of Page Wrapper -->
 
   <!-- Scroll to Top Button-->
-<?php 
+  <?php 
 	//include('./footer.php');
 ?>
 </body>

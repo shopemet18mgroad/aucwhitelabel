@@ -22,23 +22,18 @@
               <div class="table-responsive">
 		
 		
-		<table class="table table-striped table-bordered table-sm text-center mt-5"  width="100%" cellspacing="0">
+		<table class="table table-striped table-bordered table-sm text-center mt-5" id="dataTable" width="100%" cellspacing="0">
 		<thead class="bg-warning text-white">
 		<tr>
-		<th colspan="12">Lot Details</th>
+		<th colspan="12">Bidding Data</th>
 		</tr>
 		<thead class="bg-primary text-white">
 			<tr>
 					<td>Auction Id</td>
 					<td>Lot No</td>
-					<td>Lot Name</td>
-					<td>Location Of Lot</td>
-					<td>Start Time</td>
 					<td>Close Time</td>
-					<td>Quantity</td>
-					<td>Unit Of Measurment</td>
-					<td>Starting Bid Price	</td>
-					<td>Final Bid</td>
+					<td>Bid Value</td>
+					<td>Final Bid Amount</td>
 				</tr>
 				</thead>
 
@@ -48,14 +43,9 @@
 				
 					<td><b><?php echo $sqldata[0]->sauctionid; ?></b></td>
 					<td><?php echo $sqldata[0]->slotno; ?></td>
-					<td><?php echo $sqldata[0]->slotname; ?></td>
-					<td><?php echo $sqldata[0]->slotlocation; ?></td>
-					<td><?php echo $sqldata[0]->saucstartdate_time; ?></td>
-					<td><?php echo $sqldata[0]->saucclosedate_time; ?></td>
-					<td><?php echo $sqldata[0]->sqty; ?></td>
-					<td><?php echo $sqldata[0]->sunitmeasurment; ?></td>
-					<td><?php echo $sqldata[0]->sstartbidprice; ?></td>
-					<td></td>
+					<td><?php echo $sqldata[0]->Date_time; ?></td>
+					<td><?php echo $sqldata[0]->bidvalue; ?></td>
+					<td><?php echo $sqldata[0]->bidamount; ?></td>
 				</tr>
 			<?php }?>
 				</tbody>

@@ -23,83 +23,64 @@
 			   <form class="form-inline">
 					<div class="form-group mr-4 offset-sm-4">
 						<td colspan="5">
-						<form action="/action_page.php">
+						<!--<form action="/action_page.php">
 							
 								<input type="text" class="form-control" placeholder="Search.." name="search">
 								<button class="form-control" type="submit"><i class="fa fa-search"></i></button>
 					
-						</form>
+						</form>-->
 					</td>
 				</div>
 			
 		
 			</form>
 		
-		<table class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">
+		<table class="table table-striped table-bordered table-sm text-center mt-5" id="dataTable" width="100%" cellspacing="0">
 				<thead class="bg-primary text-white">
 				<tr>
-					<th>Company Name</th>
-					<th>From-Date</th>
-					<th>To-Date</th>
-					<th>Total Amount</th>
-					<th>View Details</th>
+					<th>Auction Id</th>
+		<th>Lot No</th>
+		<th>Buyer</th>
+		<th>date/Time</th>
+		<th>Bid Amount</th>
+		<th>Status</th>
+		
 				</tr>
 				</thead>
 				<tbody>
-					<tr>
-					<td>BHEL</td>
-						<td>18-05-2020</td>
-						<td>20-05-2020</td>
-						<td>5,00,000</td>
-						<td><a href="<?php echo base_url();?>admin_salesdata">View Details</a></td>
+   	<?php if(isset($sqldatarec)){ foreach($sqldatarec as $sqldata){ $datareciver = explode('|',$sqldata);?>
+		
+					<tr>												
+						
+						<td><?php echo $datareciver[0]; ?></td>
+						<td><?php echo $datareciver[1];	?></td>
+						<td><?php echo $datareciver[2]; ?></td>
+						<td><?php echo $datareciver[4];?></td>
+						<td><?php echo $datareciver[3]; ?></td>
+						<td style="color:Blue;"><b><?php if($datareciver[3]){
+						echo "Sold"	;
+						}
+						else{
+						
+						}
+						 ?></b></td>
+						
+
 					</tr>
-					<tr>
-						<td>SAIL</td>
-						<td>18-05-2020</td>
-						<td>20-05-2020</td>
-						<td>5,00,000</td>
-						<td><a href="<?php echo base_url();?>admin_salesdata">View Details</a></td>
-					</tr>
-					<tr>
-						<td>GAIL</td>
-						<td>18-05-2020</td>
-						<td>20-05-2020</td>
-						<td>5,00,000</td>
-						<td><a href="<?php echo base_url();?>admin_salesdata">View Details</a></td>
-					</tr>
-					<tr>
-						<td>NSPCL</td>
-						<td>18-05-2020</td>
-						<td>20-05-2020</td>
-						<td>5,00,000</td>
-						<td><a href="<?php echo base_url();?>admin_salesdata">View Details</a></td>
-					</tr>
-													
-				</tbody>
+					
+					
+
+					
+	<?php  } }?>
+					
+					
+    </tbody>
 		 </table>
 		</div>
 		</div>
 		
 		   <!--Pagination -->
 
-        <div class="row">
-		
-			<div class="col-sm-12 col-md-10">
-				<div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
-				<ul class="pagination offset-lg-11">
-				<li class="paginate_button page-item previous disabled" id="dataTable_previous">
-				<a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
-				</li>
-				<li class="paginate_button page-item active">
-				<a href="#" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page-link">1</a>
-				</li>
-				<li class="paginate_button page-item next disabled" id="dataTable_next">
-				<a href="#" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page-link">Next</a>
-				</li>
-				</ul>
-				</div>
-				</div>
-			</div> 
 		</div>
 		</div>
 		</div>

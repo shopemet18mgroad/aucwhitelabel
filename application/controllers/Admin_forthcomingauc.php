@@ -22,11 +22,17 @@ class Admin_forthcomingauc extends CI_Controller {
 	{
 		$this->load->helper(array('url','html'));
 		$this->load->library('session');
+		//echo $this->session->userdata('auth');
+		if(!$this->session->has_userdata('username')  || $this->session->userdata('auth') != "ADMIN"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('admin/header',$sess);
 		$this->load->view('admin/forthcomingauc');
 		$this->load->view('admin/footer');
-		
+		}	
 	}
 	
 	public function get_table(){
@@ -48,13 +54,11 @@ class Admin_forthcomingauc extends CI_Controller {
 				echo '<td><a href="'.base_url().'admin_forthcomingauc_2/forthcomingauc_2/'.urlencode($dat['sname']).
 				'">';
 				echo $dat['sauctionid'];
+				$passaucid = str_ireplace('/','-',$dat['sauctionid']);
 				echo '</a>';
 				echo '</td>';
-				echo '<td><a href="'.base_url().'#">';
-				echo '<i class="fa fa-download"></i>';
-				echo '</a>';
-				echo '</td>';
-				echo '<td>'.$dat['sonlineaucdate_time'].'</td>';
+				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$passaucid.'" target="_blank"><i class="fa fa-download"></i></a></td>';
+				echo '<td>'.$dat['saucstartdate_time'].'</td>';
 				
 				echo '</tr>';
 			}
@@ -71,12 +75,9 @@ class Admin_forthcomingauc extends CI_Controller {
 			echo '</thead>';
 			echo '<tbody>';
 			echo '<tr>';
-				echo '<td><a href="'.base_url().'#">';
 				echo '<td>No Records Found</td>';
 				echo '<td>No Records Found</td>';
 				echo '<td>No Records Found</td>';
-				echo '<td><a href="'.base_url().'#">';
-				echo '<i class="fa fa-download"></i>';
 				echo '</a>';
 				echo '</td>';
 				echo '</tr>';

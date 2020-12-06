@@ -24,7 +24,7 @@ class Buyer_editdocument extends CI_Controller {
 		$this->load->library('session');
 		$this->load->model('Admin_model');
 		$bcompany = $this->uri->segment(3);	
-			if(!$this->session->has_userdata('username')){
+			if(!$this->session->has_userdata('username')|| $this->session->userdata('auth') != "BUYER"){
 			$datainserr = "Invalid Login Session";
 			header('location: '.base_url().'login/index_error/'.$datainserr);
 			die;

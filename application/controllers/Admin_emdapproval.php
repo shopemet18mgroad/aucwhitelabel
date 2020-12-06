@@ -36,13 +36,19 @@ class Admin_emdapproval extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper(array('url','html'));	
-			
+			$this->load->library('session');
+		//echo $this->session->userdata('auth');
+		if(!$this->session->has_userdata('username')  || $this->session->userdata('auth') != "ADMIN"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
 		$this->load->model('Admin_model');
 		$emd_paid_dd = array('emd_paid_dd'=>false);
 		$emd_paid = array('emd_paid'=>false);
 		$query = $this->Admin_model->getdatafromtable('biddercart', $emd_paid_dd);
 		$data['sqldat']= $query;
-		$this->load->library('session');
+		
 		$sess = array('sessi'=>$this->session->userdata('username'));
 
 		$this->load->view('admin/header',$sess);
@@ -50,14 +56,14 @@ class Admin_emdapproval extends CI_Controller {
 		$this->load->view('admin/footer');
 		
 	}
+}
 	
 	public function setdeactive_buyer_emd_dd(){
-		
-	
-	
 	
 		$compnameurl = $this->uri->segment(3);
+
 		$compnameurl = urldecode($compnameurl);
+		
 		$compnameurl2 = explode('|',$compnameurl);
 		$compname = $compnameurl2[0];
 	

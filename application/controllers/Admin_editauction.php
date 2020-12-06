@@ -22,17 +22,25 @@ class Admin_editauction extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$this->load->library('session');
+		//echo $this->session->userdata('auth');
+		if(!$this->session->has_userdata('username')  || $this->session->userdata('auth') != "ADMIN"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('admin/header',$sess);
 		$this->load->view('admin/editauction');
 		$this->load->view('admin/footer');
-		
+		}
 	}
 	
 	
 	public function editauction(){
-		$retrivevaltmp = urldecode($this->uri->segment(3));
-		$retriveval = array('sname'=>$retrivevaltmp);
+		$retrivevaltmp = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
+		
+		$retriveval = array('sauctionid'=>$retrivevaltmp);
+		
 		$this->load->model('Admin_model');
 		$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
 		$this->load->helper('url');
@@ -58,26 +66,23 @@ class Admin_editauction extends CI_Controller {
 		$this->load->view('admin/editauction', $data);
 		$this->load->view('admin/footer');
 	}
+	
+	
 	public function delete_auction(){
-		$retrivevaltmp = $this->uri->segment(3);
-		$retrivevaltmp = str_ireplace('-','/',$retrivevaltmp);
+	
+		$retrivevaltmpdel = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
+		$retrivevaldel = array('sauctionid'=>$retrivevaltmpdel);
 		$this->load->model('Admin_model');
-		$data = array('sauctionid'=>$retrivevaltmp);
-		$datainserr = "Unable To Delete Auction";
-		$datainserr2 = "Unable To Delete Lot";
-		$datainserr3 = "Data Deleted Successfully";
-		/* $this->Admin_model->delete_data('auction', $data);
-		$this->Admin_model->delete_data('addlot', $data); */
-		if(!$this->Admin_model->delete_data('auction', $data)){
-			header('location: '.base_url().'Admin_editforthcom/index_alert/'.$datainserr);
+		if($retrivevaltmpdel){
+			$this->Admin_model->delete_data('auction', $retrivevaldel);
+	
 		}
-		if(!$this->Admin_model->delete_data('addlot', $data)){
-		  header('location: '.base_url().'Admin_editforthcom/index_alert/'.$datainserr2);
-
-		}
-		if($this->Admin_model->delete_data('auction', $data) && $this->Admin_model->delete_data('addlot', $data)){
-			header('location: '.base_url().'Admin_editforthcom/index_alert/'.$datainserr3);
-		}
-	}
+		$this->load->helper('url');
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('admin/header',$sess);
+		$this->load->view('admin/editforthcom');
+		$this->load->view('admin/footer');
+}
 	
 }

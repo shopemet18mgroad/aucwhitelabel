@@ -49,9 +49,10 @@
 	  
 	  	  <tr>
 		  <td>Seller</td>
-		  <td><input class="form-control w-50"  type="text" id="sname" name="sname" placeholder="Search" value="<?php echo $sqldata[0]->sname; ?>" onkeyup="auction_id()" aria-label="Search">
+		  <td><input class="form-control w-50"  type="text" id="sname" name="sname" placeholder="Search" value="<?php echo $sqldata[0]->sname; ?>" aria-label="Search" readonly>
 		</td>
 	  </tr>
+	  
       
 	  <tr>
 		  <td>Auction Id</td>
@@ -61,15 +62,12 @@
 	  
 	  <tr>
 		  <td>Seller Company Name</td>
-		  <td><input class="form-control w-50"  type="text" id="scompanyname" name="scompanyname" value="<?php echo $sqldata[0]->scompanyname; ?>">
+		  <td><input class="form-control w-50"  type="text" id="scompanyname" name="scompanyname"  value="<?php echo $sqldata[0]->scompanyname; ?>" readonly>
 		</td>
 	  </tr>
 	  
 	  <tr>											
 		  <td>Venue Of Inspection</td>
-
-
-
 
 		  <td><textarea class="form-control w-50" type="text" id="svinspection" name="svinspection" value="<?php echo $sqldata[0]->svinspection; ?>"><?php echo $sqldata[0]->svinspection; ?></textarea></td>
 
@@ -254,21 +252,50 @@ Bidders participating in AucJunction Auctions should verify with the selling com
   
   <tr>
 		<td>Upload Terms & Conditions</td>
-		<td><div class="form-check form-check-inline">
-			<input type="checkbox" class="form-check-input" id="myCheck" onclick="myFunction()" name="sterms_condiupload1[]">
+		<td>
+		<div class="form-check form-check-inline">
+				<input type="checkbox" class="form-check-input" id="firstCheckBox" onclick="myFunction1()" name="sterms_condiupload1[]">
+				<label class="form-check-label" for="firstCheckBox">Yes</label>
+			</div>
+			<div class="form-check form-check-inline">
+				<input type="checkbox" class="form-check-input" id="secondCheckBox" onclick="myFunction2()" name="sterms_condiupload1[]" checked>
+				<label class="form-check-label" for="secondCheckBox" >No</label>
+			</div>
+			<div class="form-group" id="start-auction-choose-file"  style="display:none">
+				<input type="file" class="form-control-file" id="sterms_condiupload" name="sterms_condiupload[]" multiple= "multiple" value="<?php echo $sqldata[0]->sterms_condiupload;?>" >
+			</div>
+			<div class="form-group" id="start-auction-textarea" style="display:none">
+			<textarea class="form-control w-50" type="text" id="sterms_text" name="sterms_text" value="" ><?php echo $sqldata[0]->sterms_text;?></textarea>
+			</div>
+		<!--<div class="form-group" id="start-auction-choose-file"  style="display:none">
+				<input type="file" class="form-control-file" id="sterms_condiupload" name="sterms_condiupload[]">
+			</div>
+			<div class="form-group" id="start-auction-textarea" style="display:none">
+				<textarea class="form-control w-50" type="text" id="sterms_text" name="sterms_text"></textarea>
+			</div>
+		
+		
+		
+		
+		<div class="form-check form-check-inline">
+			<input type="checkbox" class="form-check-input" id="myCheck" onclick="myFunction1()" name="sterms_condiupload1[]">
 			<label class="form-check-label" for="myCheck">Yes</label>
 			</div>
 			<div class="form-group" id="text"  style="display:none">
 				<input type="file" class="form-control-file" id="sterms_condiupload" name="sterms_condiupload[]" multiple= "multiple" value="<?php echo $sqldata[0]->sterms_condiupload;?>" >
 			</div>
 			<div class="form-check form-check-inline">
-			<input type="checkbox" class="form-check-input" id="idCheck" onclick="myFunction()" name="sterms_condiupload1[]" checked>
+			<input type="checkbox" class="form-check-input" id="idCheck" onclick="myFunction2()" name="sterms_condiupload1[]" checked>
 			<label class="form-check-label" for="idCheck" >No</label>
 			</div>
 			<div class="form-group" id="text2" style="display:none">
 			<textarea class="form-control w-50" type="text" id="sterms_text" name="sterms_text" value="" ><?php echo $sqldata[0]->sterms_text;?></textarea>
-			</div>
+			</div>-->
 			</td>
+			
+			
+			
+			
   </tr>
 			<?php 
  							  if(unserialize($sqldata[0]->sterms_condiupload) != NULL){
@@ -299,7 +326,7 @@ Bidders participating in AucJunction Auctions should verify with the selling com
     </tbody>
   </table>
   
-  <center><input  type="submit" name="submit" onclick="return validatestart_edit()" class="btn btn-info" value="Update Auction" data-dismiss="modal"></center>
+  <center><input  type="submit" name="submit" onclick="return validatestart()" class="btn btn-info" value="Update Auction" data-dismiss="modal"></center>
  	 </form>
 			</div>
             </div>

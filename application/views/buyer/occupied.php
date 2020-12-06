@@ -1,5 +1,7 @@
  <?php 
 	//include('./header.php');
+	//print_r($sqldatarec);die;
+	
 ?>
         <!-- End of Topbar -->
 
@@ -20,7 +22,7 @@
           <div class="card shadow mb-4">
             <div class="card-body">
               <div class="table-responsive">
-			   <form class="form-inline">
+			   <!-- <form class="form-inline">
 			  
 			 <div class="form-group mr-4 offset-sm-4">
 						<td colspan="5">
@@ -34,64 +36,41 @@
 				</div>
 			
 		
-			</form>
+			</form> -->
 		
-		<table class="table table-striped table-bordered table-sm text-center mt-5"  width="100%" cellspacing="0">
+		<table class="table table-striped table-bordered table-sm text-center mt-5"  id="dataTable" width="100%" cellspacing="0">
 				<thead class="bg-primary text-white">
 				<tr><th colspan="8" class="bg-info">Occupied Bidding Products</th></tr>
 				<tr>
 					<th>Auction Id</th>
-					<th>Company Name</th>
-					<th>Location</th>
-					<th>Quantity</th>
-					<th>Unit</th>
-					<th>Price</th>
-					<th>Date/Time</th>
+					<th>Lot No</th>
+					<th>date/Time</th>
+					<th>My Bid Value</th>
+					<th>Status</th>
+					
+					
 				</tr>
 				</thead>
 				<tbody>
+				<?php if(isset($sqldatarec)){ foreach($sqldatarec as $sqldata){ $datareciver = explode('|',$sqldata);?>
 					<tr>												
-						<td><a href="<?php echo base_url();?>buyer_detailedbidding">BHEL/BBR/ISG LTD/2/Adarsh Vihar/25087/20-20</a></td>
-						<td>BHEL</td>
-						<td>Bangalore</td>
-						<td>8.0</td>
-						<td>MT</td>
-						<td>80,000</td>
-						<td>23-03-2020 23:00:00</td>
+						<td><?php echo $datareciver[0]; ?></td>
+						<td><?php echo $datareciver[1]; ?></td>
+						<td><?php echo $datareciver[3]	; ?>
+						</td>
+						<td><?php echo $datareciver[2];?>
+						</td>
+						<td><?php echo "Winner"?></td>
 					</tr>
-					<tr>												
-						<td><a href="<?php echo base_url();?>buyer_detailedbidding">BHEL/BBR/ISG LTD/2/Adarsh Vihar/25087/20-20</a></td>
-						<td>BHEL</td>
-						<td>Bangalore</td>
-						<td>8.0</td>
-						<td>MT</td>
-						<td>80,000</td>
-						<td>23-03-2020 23:00:00</td>
-					</tr>
+				<?php  }} ?>
+						
+					
 				</tbody>
 		 </table>
 		</div>
 		</div>
 		<!--Pagination -->
 
-        <div class="row">
-		
-			<div class="col-sm-12 col-md-10">
-				<div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
-				<ul class="pagination offset-lg-11">
-				<li class="paginate_button page-item previous disabled" id="dataTable_previous">
-				<a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
-				</li>
-				<li class="paginate_button page-item active">
-				<a href="#" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page-link">1</a>
-				</li>
-				<li class="paginate_button page-item next disabled" id="dataTable_next">
-				<a href="#" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page-link">Next</a>
-				</li>
-				</ul>
-				</div>
-				</div>
-			</div>
 		
 		</div>
 		</div>

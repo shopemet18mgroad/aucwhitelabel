@@ -21,11 +21,34 @@ class Seller_unsoldproduct extends CI_Controller {
 		
 	public function index()
 	{
-		$this->load->helper('url');
-		$this->load->view('seller/header');
-		$this->load->view('seller/unsoldproduct');
+		$this->load->helper(array('url','html'));	
+		$this->load->library('session');	
+		if(!$this->session->has_userdata('username')|| $this->session->userdata('auth') != "SELLER"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
+		//$this->load->library('session');
+		$this->load->model('Admin_model');
+		$sess = $this->session->userdata('username');
+		$this->load->model('Admin_model');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$status = array('status'=>2,'sname'=>$sess['sessi']);
+		
+		
+		$query = $this->Admin_model->getdatafromtable('addlot', $status);
+		$data['sqldat']= $query;
+		//$this->load->library('session');
+		//$sess = array('sessi'=>$this->session->userdata('username'));
+
+
+		$this->load->view('seller/header',$sess);
+		$this->load->view('seller/unsoldproduct',$data);
 		$this->load->view('seller/footer');
 		
 	}
 	
+	
+	
+}
 }

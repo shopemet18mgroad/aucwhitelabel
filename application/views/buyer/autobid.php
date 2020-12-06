@@ -28,7 +28,7 @@
 				</tr>
 				<tr>
 					<th>Auction Id</th>
-					<th>Final Bid</th>
+					<th>Lot No</th>
 					<th>Your Bid(Per Unit)</th>
 					<th>Your Bid(Max)</th>
 					<th>Submit</th>
@@ -36,11 +36,11 @@
 				</thead>
 				<tbody>
 			<tr>												
-				<td><a href="#">EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</a> </td>
-				<td>2,50,000</td>
-				<td><input class="form-control" type="text" id="bidperunit" name="bidperunit" ></td>
-				<td><input class="form-control" type="text" id="bidmax" name="bidmax"></td>
-				<td><a href=""><button type="button" class="btn btn-info">AutoBid</button></a></td>
+				<td><?php echo $sqldata[0]->sauctionid;?></td>
+				<td><?php echo $sqldata[0]->slotno;?></td>
+				<td><input class="form-control" type="text" id="bidperunit" name="bidperunit" value="<?php echo $sqldata[0]->sstartbidprice;?>"></td>
+				<td><input class="form-control" type="text" id="bidmax" value="<?php echo $sqldata[0]->sprice;?>" name="bidmax"></td>
+				<td><a href=""><button type="button" class="btn btn-info" id="<?php echo urlencode($sqldata2).'|'.str_ireplace('/','-',$sqldata[0]->sauctionid).'|'.$sqldata[0]->slotno;?>" onclick="return autobidenable(this.id)">AutoBid</button></a></td>
 			</tr>
 													
 				</tbody>
@@ -50,7 +50,7 @@
 		</div>
 		</div>
 		</div>
-          <!-- Content Row -->
+          <!-- Content Row --> 
 
           
         <!-- /.container-fluid -->

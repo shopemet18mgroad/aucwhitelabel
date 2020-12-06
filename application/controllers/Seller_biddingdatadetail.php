@@ -21,11 +21,49 @@ class Seller_biddingdatadetail extends CI_Controller {
 		
 	public function index()
 	{
-		$this->load->helper('url');
-		$this->load->view('seller/header');
-		$this->load->view('seller/biddingdatadetail');
+		$this->load->helper('url');	
+		$this->load->library('session');
+		if(!$this->session->has_userdata('username')|| $this->session->userdata('auth') != "SELLER"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('seller/header',$sess);
+		$this->load->view('seller/biddingdatadetail',$data);
 		$this->load->view('seller/footer');
-		
+		}
 	}
+	public function biddetail2(){
+		$retrivevaltmp = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
+		$retriveval = array('sauctionid'=>$retrivevaltmp);
+		$this->load->model('Admin_model');
+		
+		$data['sqldata'] = $this->Admin_model->getdataASC('biddingdata',$retriveval);
+		//print_r($data['sqldata']); die;
+		
+		$this->load->helper('url');
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('seller/header',$sess);
+		$this->load->view('seller/biddingdatadetail',$data);
+		$this->load->view('seller/footer');
+	}
+	 public function biddetail2_alert(){
+		$retrivevaltmp = $this->uri->segment(3);
+		$retrivevaltmp2 = urldecode($this->uri->segment(4));
+		echo '<script language="javascript">';
+			echo 'alert("'.$retrivevaltmp2.'")';  //not showing an alert box.
+			echo '</script>';
+		$retriveval = array('sauctionid'=>$retrivevaltmp);
+		$this->load->model('Admin_model');
+		$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
+		$this->load->helper('url');
+	$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('seller/header',$sess);
+		$this->load->view('seller/biddingdatadetail',$data);
+		$this->load->view('seller/footer');
+	} 
 	
 }

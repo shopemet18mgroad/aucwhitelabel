@@ -22,11 +22,17 @@ class Admin_editbuyer extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$this->load->library('session');
+		//echo $this->session->userdata('auth');
+		if(!$this->session->has_userdata('username')  || $this->session->userdata('auth') != "ADMIN"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('admin/header',$sess);
 		$this->load->view('admin/editbuyer');
 		$this->load->view('admin/footer');
-		
+		}
 	}
 	public function edit_buyer(){
 		$retrivevaltmp =  urldecode($this->uri->segment(3));
@@ -58,9 +64,10 @@ class Admin_editbuyer extends CI_Controller {
 		$this->load->view('admin/editbuyer', $data);
 		$this->load->view('admin/footer');
 	}
+	
 	public function delete_buyer(){
 		$retrivevaltmpdel = urldecode($this->uri->segment(3));
-		$retrivevaldel = array('scomapnyname'=>$retrivevaltmpdel);
+		$retrivevaldel = array('bcompany'=>$retrivevaltmpdel);
 		$this->load->model('Admin_model');
 		if($retrivevaltmpdel){
 			$this->Admin_model->delete_data('buyerprofile', $retrivevaldel);
@@ -69,11 +76,12 @@ class Admin_editbuyer extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
-			$this->load->view('admin/header',$sess);
+		$this->load->view('admin/header',$sess);
 		//$this->load->view('admin/header');
 		$this->load->view('admin/buyereditprofile');
 		$this->load->view('admin/footer');
 	}
 	
+
 	
 }

@@ -40,7 +40,8 @@ class Admin_addlot_info extends CI_Controller {
 		$data = $this->session->flashdata('txdata');
 		$this->load->library('fileupload');
 		$this->load->helper(array('url','form','file','html'));
-            if($this->input->post('submit')){
+            
+			if($this->input->post('submit')){
 			$sauctionid = $this->input->post('sauctionid');
 			$sname = $this->input->post('sname');
 			 $slotno = $this->input->post('slotno'); 
@@ -87,12 +88,18 @@ class Admin_addlot_info extends CI_Controller {
 		
 			}
 			
+			//echo $this->session->userdata('auth');
+		if(!$this->session->has_userdata('username')  || $this->session->userdata('auth') != "ADMIN"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
+		$sess = array('sessi'=>$this->session->userdata('username'));
 			
-			
-		$this->load->view('admin/header');
+		$this->load->view('admin/header',$sess);
 		$this->load->view('admin/addlot');
 		$this->load->view('admin/footer');
-		
+		}
 	}
 		 else if($this->input->post('submit2')){
 			 $sauctionid = $this->input->post('sauctionid'); 
@@ -131,6 +138,14 @@ class Admin_addlot_info extends CI_Controller {
 				   header('location: ./admin_addlot1/index/');
 		
 			}
+			
+			echo $this->session->userdata('auth');
+		if(!$this->session->has_userdata('username')  || $this->session->userdata('auth') != "ADMIN"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
+		$sess = array('sessi'=>$this->session->userdata('username'));
          $this->load->view('admin/header');
 		$this->load->view('admin/addlot');
 		$this->load->view('admin/footer');
@@ -139,7 +154,7 @@ class Admin_addlot_info extends CI_Controller {
 	}	
 		
 	}
-
+}
             
 			
 	

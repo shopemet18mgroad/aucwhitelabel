@@ -87,7 +87,10 @@
   <script src="<?php echo base_url()."web_files/";?>js/jquery.easy-ticker.js"></script> 
    <script src="<?php echo base_url()."web_files/";?>weblib/auclib.js" type="text/javascript" charset="utf-8"></script>
    <script src="<?php echo base_url()."web_files/";?>/weblib/homevalidate.js" type="text/javascript" charset="utf-8"></script>
-  
+   <!--data table-->
+  <script src="<?php echo base_url()."web_files/";?>vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="<?php echo base_url()."web_files/";?>vendor/datatables/dataTables.bootstrap4.min.js"></script>
+ <script src="<?php echo base_url()."web_files/";?>js/demo/datatables-demo.js"></script>
   
   <!--  <script src="./js/jquery.autoscroll.js" type="text/javascript" charset="utf-8"></script> Core plugin JavaScript-->
   
@@ -312,6 +315,7 @@ if(bcompany == '' || bcomptype == '' || bbuyertype == '' || bbuyerlocation == ''
 				function(data2){						
 				 if($.trim(data2) == "HI"){
 					swal("Thank You!", "Data Stored Successfully", "success");
+					window.location = "<?php echo base_url() .'home/index/'; ?>" 
 				}else{
 					alert(data2);
 					swal("Alert!", "Terms and condition Failed Store", "error");
@@ -338,13 +342,16 @@ if(bcompany == '' || bcomptype == '' || bbuyertype == '' || bbuyerlocation == ''
 				
 				function(data2){						
 				 if($.trim(data2) == "HI"){
-					swal("Thank You!", "Data Stored Successfully", "success");
-				}else{
+				 swal("Thank You!", "Data Stored Successfully", "success");
+				 
+				window.location = "<?php echo base_url() .'home/index/'; ?>" 
+				
+				 }else{
 					alert(data2);
 					swal("Alert!", "Terms and condition Failed Store", "error");
 					return false;
 				}
-			 });
+				});
 	   }else{
 		    swal("Alert!", "Please Tick On Accept Agreement To Complete Registration", "error");
 			return false;

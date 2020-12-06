@@ -23,94 +23,55 @@
 			   <form class="form-inline">
 					<div class="form-group mr-4 offset-sm-4">
 						<td colspan="5">
-						<form action="/action_page.php">
-							
-								<input type="text" class="form-control" placeholder="Search.." name="search">
-								<button class="form-control" type="submit"><i class="fa fa-search"></i></button>
+						<!-- <form action="/action_page.php"> -->
+								<!--<label for="gettable"></label>
+								<input type="text" class="form-control gettable" id="gettable_closedauc" placeholder="Enter Company Name To Fetch Result"  size="70" name="search">
+								
+								<!--<button class="form-control" type="submit"><i class="fa fa-search"></i></button>-->
 					
-						</form>
+						<!-- </form> -->
 					</td>
 				</div>
 			
 		
 			</form>
 		
-		<table class="table table-striped table-bordered table-sm text-center mt-5 w-auto"  width="100%" cellspacing="0">
+		<table class="table table-striped table-bordered table-sm text-center mt-5 " id="dataTable" width="100%" cellspacing="0">
 				<thead class="bg-primary text-white">
-					<tr>
+				
 					<tr><th>Auction Id</th>
 						<th>Lot No</th>
-						<th>Lot Name</th>
-						<th>Company Name </th>
-						<th>Location</th>
-						<th>Starting Date</th>
-						<th>Closing Date</th>
+						<th>Buyer</th>
+						<th>Closing Date/Time</th>
+						<th>Bid Final Value</th>
 						<th>Status</th>
 					</tr>
-				</tr>
+			
 				</thead>
 				<tbody>
-					<tr><td>MRR/BBL LTD/1/varanasi Nagar/99087/19-20</td>												
-					<td class="up">M293</td>
-					<td class="up">Horizontal Boring Machine</td>
-					<td class="up">BHEL Ltd.</td>
-					<td class="up">Uttrakhand</td>
-					<td class="up">20-07-2019</td>
-					<td class="up">21-07-2019</td>
-					<td class="up" style="color:orange">Shortlisted</td>
-				</tr>
-				<tr><td>EEMT/OMFED LTD/1/Shashi Nagar/99087/19-20</td>												
-					<td class="up">E687</td>
-					<td class="up">SS Iron rod</td>
-					<td class="up">BSP</td>
-					<td class="up">Bhilai</td>
-					<td class="up">16-03-2020</td>
-					<td class="up">17-03-2020</td>
-					<td class="up" style="color:green"><b>Winner</b></td>
-				</tr>
-				<tr><td>RMT/SSL LTD/1/Kishore Nagar/99087/19-20</td>												
-					<td class="up">E689</td>
-					<td class="up">Jig Boring Machine</td>
-					<td class="up">Paradip port  trust</td>
-					<td class="up">Gandhi</td>
-					<td class="up">14-01-2020</td>
-					<td class="up">15-01-2020</td>
-					<td class="up" style="color:orange">Shortlisted</td>
-				</tr>
-				<tr><td>NSTC/OMFED LTD/1/Jaya Nagar/99087/19-20</td>												
-					<td class="up">E689</td>
-					<td class="up">Boring Machine</td>
-					<td class="up">Paradip </td>
-					<td class="up">Gandhi</td>
-					<td class="up">14-01-2020</td>
-					<td class="up">15-01-2020</td>
-					<td class="up">Lost</td>
-				</tr>
+					<?php if(isset($sqldatarec)){ foreach($sqldatarec as $sqldata){ $datareciver = explode('|',$sqldata);?>
+	<?php //print_r($datareciver); die; ?>
+					<tr>												
+						<td><?php echo $datareciver[0]; ?></td>
+						<td><?php echo $datareciver[1]; ?></td>
+						<td><?php echo $datareciver[2];?></td>
+						<td><?php echo $datareciver[4]; ?></td>
+						<td><?php echo $datareciver[3]; ?></td>
+						<td style="color:orange;"><b><?php if($datareciver[2]){
+						echo "Shortlisted"	;
+						}
+						 ?></b></td>			
+					</tr>
+					
+					<?php  }} ?>
+				
 				</tbody>
 		 </table>
 		</div>
 		</div>
 		 <!--Pagination -->
 
-        <div class="row">
-		
-			<div class="col-sm-12 col-md-10">
-				<div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
-				<ul class="pagination offset-lg-11">
-				<li class="paginate_button page-item previous disabled" id="dataTable_previous">
-				<a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
-				</li>
-				<li class="paginate_button page-item active">
-				<a href="#" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page-link">1</a>
-				</li>
-				<li class="paginate_button page-item next disabled" id="dataTable_next">
-				<a href="#" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page-link">Next</a>
-				</li>
-				</ul>
-				</div>
-				</div>
-			</div> 
-		
+    
 		
 		</div>
 		</div>

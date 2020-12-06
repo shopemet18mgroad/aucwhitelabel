@@ -43,11 +43,8 @@
 							<td><input class="form-control w-50" type="text" id="scomapnyname" name="scomapnyname" value="<?php echo $sqldata[0]->scomapnyname; ?>"></td>
 							</tr>
 						<tr>
-							<td class="btxt">Company Type:</td>
-		
-
-
-		<td><input class="form-control w-50" type="text" id="scompanytype" name="scompanytype" value="<?php echo $sqldata[0]->scompanytype; ?>"></td>
+							<td class="btxt">Seller Type:</td>
+								<td><input class="form-control w-50" type="text" id="ssellertype" name="ssellertype" value="<?php echo $sqldata[0]->ssellertype; ?>"></td>
 						</tr>  
 						<tr>
 							<td class="btxt">Contact Person:</td>
@@ -57,6 +54,10 @@
 							<td class="btxt">CIN Number:</td>
 							<td><input class="form-control w-50" type="text" id="scin" name="scin" value="<?php echo $sqldata[0]->scin; ?>"></td>
 						</tr>  
+						<tr>
+							<td class="btxt">Pan Number:</td>
+							<td><input class="form-control w-50" type="text" id="span" name="span" value="<?php echo $sqldata[0]->span; ?>"></td>
+						</tr>
 						<tr>
 							<td class="btxt">GST:</td>
 							<td><input class="form-control w-50" type="text" id="sgst" name="sgst" value="<?php echo $sqldata[0]->sgst; ?>"></td>
@@ -74,11 +75,11 @@
 						<tbody>
 						<tr>
 							<td class="btxt">Email:</td>
-							<td><input class="form-control w-50" type="text" id="semail" name="semail" value="<?php echo $sqldata[0]->semail; ?>"></td>
+							<td><input class="form-control w-50" type="email" id="semail" name="semail" value="<?php echo $sqldata[0]->semail; ?>"></td>
 						</tr>
 						<tr>
 							<td class="btxt">Phone:</td>
-							<td><input class="form-control w-50" type="email" id="sphone" name="sphone" value="<?php echo $sqldata[0]->sphone; ?>"></td>
+							<td><input class="form-control w-50" type="text" id="sphone" name="sphone" value="<?php echo $sqldata[0]->sphone; ?>"></td>
 						</tr>
 						<tr>
 								<td>Address</td>

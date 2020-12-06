@@ -9,12 +9,12 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Aucjunction Dashboard</title>
+  <title>Auctioneer Dashboard</title>
 
   <!-- Custom fonts for this template-->
   <link href="<?php echo base_url()."web_files/";?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
+ <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <!-- Custom styles for this template-->
   <link href="<?php echo base_url()."web_files/";?>css/sb-admin-2.min.css" rel="stylesheet">
   <link href="<?php echo base_url()."web_files/";?>vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
@@ -94,21 +94,36 @@
           <i class="fas fa-hand-point-up"></i>
           <span>Start Auction</span></a>
       </li>
+	  
+	  	  
+	    <li class="nav-item">
+        <a class="nav-link collapsed" href="<?php echo base_url();?>seller_liveauc" data-toggle="collapse" data-target="#auction" aria-expanded="true" aria-controls="collapseProduct">
+          <i class="fas fa-fw fa-gavel"></i>
+          <span>Auction</span>
+        </a>
+        <div id="auction" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="<?php echo base_url();?>seller_liveauc">Live Auction</a>
+           
+			 <a class="collapse-item" href="<?php echo base_url();?>seller_editforthcom">Edit Forthcoming Auction</a>
+           </div>
+        </div>
+      </li>
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="<?php echo base_url();?>seller_auctionapproval">
           <i class="fas fa-thumbs-up"  aria-hidden="true"></i>
-          <span>Auction Approvals</span>
+          <span>Winner Approvals</span>
         </a>
       </li>
 
 
       <!-- Nav Item - Tables -->
-       <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="<?php echo base_url();?>seller_auction">
           <i class="fa fa-gavel"></i>
-          <span>Auctions</span></a>
+          <span>Auctions</span></a>-->
       </li>
 	  <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url();?>seller_biddingdata">

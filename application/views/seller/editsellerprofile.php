@@ -37,66 +37,86 @@
 						<tbody>
 						<tr><td><img class="img-fluid" src="<?php echo base_url()."web_files/";?>img/manimg.jpg" alt="Chania" width="40" height="35"></td></tr>
 							<tr>
-								
+							<form action = "<?php echo base_url();?>Seller_basicinfo_update" method="POST" enctype="multipart/form-data">
 								<td>Seller Name:</td>
-								<td>John</td>
+								<td><?php echo $sqldata[0]->sname; ?></td>
 							</tr> 
 							<tr>
 								<td>Contact Person</td>
-								<td>M.R.Venkatesh</td>
+								<td><?php echo $sqldata[0]->scontactperson; ?></td>
 							</tr>  
 							<tr>
-								<td>Company Type:</td>
-								<td>Industry</td>
+								<td>Seller Type:</td>
+								<td><?php echo $sqldata[0]->ssellertype; ?></td>
 							</tr> 	
 								<tr>
 								<td>Address</td>
 								<td>
-								<div class="input_fields_wrap">
-								<select class="tos float-left p-1" id="saddress" name="saddress">
-									<option value="one" selected>Corporate Office</option>
-									<option value="two">Headquarter</option>
-									<option value="three" >.....</option>
-									<option value="four">.....</option>
-									<option value="five">......</option>
-									<option value="six">.....</option>
-									</select>
-									
-									<textarea class="name  ml-5 p-2 w-50" type="text" id="saddress" name="saddress"></textarea>
-								<a class="add_field_button"><button type="button" class="btn btn-sm btn-primary ml-1 mb-5"> <i class="fa fa-plus text-white"></i></button></a>
-									</div>
+								<?php
+								$companyltype = unserialize($sqldata[0]->saddress);
+								$companyaddress = unserialize($sqldata[0]->saddresscount);
+								 $xj = 0;
+								 if($companyltype != NULL || $companyaddress != NULL){
+									  $companyltypecnt = count($companyltype);
+										$companyaddresscnt = count($companyaddress);
+								 }
+								
+									 if($companyltype != NULL){
+										 for($i=0;$i<$companyltypecnt;$i++){
+										 echo '<div class="input_fields_wrap1">';
+											echo '<select class="form-control w-50  p-1" name="saddress[]">';
+											echo '<option value="'.$companyltype[$i].'">'.$companyltype[$i].'</option>';
+											echo '<option value="Corporate-Office">Corporate Office</option>';
+											echo '<option value="Headquarter">Headquarter</option>';
+											echo '</select>';
+											echo '';
+											echo '<textarea class="form-control float-left mt-2 p-2 w-50" type="text" name="saddresscount[]">'.$companyaddress[$i].'</textarea>';
+											echo '<a class="add_field_button1"><button type="button" class="btn btn-sm btn-primary ml-1 mb-5 mt-3">  <i class="fa fa-plus text-white"></i></button></a>';
+											echo '</div>';
+									 }
+								 }else{
+											echo '<div class="input_fields_wrap1">';
+											echo '<select class="form-control w-50  p-1" name="saddress[]">';
+											echo '<option value="Corporate-Office">Corporate Office</option>';
+											echo '<option value="Headquarter">Headquarter</option>';
+											echo '</select>';
+											echo '';
+											echo '<textarea class="form-control float-left mt-2 p-2 w-50" type="text" name="saddresscount[]"></textarea>';
+											echo '<a class="add_field_button1"><button type="button" class="btn btn-sm btn-primary ml-1 mb-5 mt-3">  <i class="fa fa-plus text-white"></i></button></a>';
+											echo '</div>';
+								 }
+								 
+								?>
+								
 									</td>
 								
 							</tr> 
 							<tr>
 								<td>City</td>
-								<td><input class="name" type="text" id="scity" name="scity"></td>
+								<td><input class="form-control w-50" type="text" id="scity" name="scity" value="<?php echo $sqldata[0]->scity; ?>"></td>
 							</tr>
 							<tr>
 								<td>Pincode</td>
-								<td><input class="name" type="text" id="spin" name="spin" ></td>
+								<td><input class="form-control w-50" type="text" id="spin" name="spin" value="<?php echo $sqldata[0]->spin; ?>" ></td>
 							</tr>
 							<tr>
 								<td>State /Union Ter.</td>
-								<td>Chandigarh</td>
+								<td><?php echo $sqldata[0]->sstate; ?></td>
 							</tr>
 							<tr>
 								<td>Country</td>
-								<td>India</td>
+								<td><?php echo $sqldata[0]->scountry; ?></td>
 							</tr>
-							<tr>
-								<td class="btxt">Upload Profile Pic</td>
-								<td><form action="/action_page.php"> <input type="file" id="myFile" name="filename1"></form></td>
-							</tr>						
+													
 						</tbody>
 					</table>			
 
 												
                 
-				<a href="#"><button type="button" class="btn btn-primary offset-sm-3 mt-2">Update</button></a>
+				<input type="submit" class="btn btn-primary offset-sm-3 mt-2" name="submit" value="Update">
 												
-				<a href="#"><button type="button" class="btn btn-primary offset-sm-1 mt-2">Reset</button></a>
-												
+				<input type="reset" class="btn btn-primary offset-sm-1 mt-2" value="Reset">
+				</form>								
 				<a href='<?php echo base_url();?>seller_dashboard'><button type="button" class="btn btn-primary offset-sm-1 mt-2">Cancel</button></a>
 						
               </div>

@@ -36,6 +36,7 @@ class Buyers_registeration extends CI_Controller {
         if($this->input->post('submit2')){
 			$date =  Date('Y-m-d'); 
 			$bcompany = $this->input->post('bcompany');
+			$bname = $this->input->post('bname');
 			$bcomptype = $this->input->post('bcomptype');
 			$bbuyerlocation = $this->input->post('bbuyerlocation');
 			$bcontactperson = $this->input->post('bcontactperson');
@@ -54,15 +55,17 @@ class Buyers_registeration extends CI_Controller {
 			//$bconfirmpassword = $this->input->post('bconfirmpassword');
 			$bpassword = base64_encode($this->input->post('bpassword'));
 			$bgst = $this->input->post('bgst');
+			$bpcb = $this->input->post('bpcb');
+			$bcin = $this->input->post('bcin');
             $captcha = $this->input->post('captcha');
             $sessCaptcha = $this->session->userdata('captchaCode');
             if($captcha === $sessCaptcha){
               $this->load->model('Admin_model');
-			  $data = array('bcompany' => $bcompany, 'bcomptype' => $bcomptype, 'bbuyerlocation'=> $bbuyerlocation, 'bcontactperson' => $bcontactperson, 'baddress' => $baddress, 'bcity' => $bcity, 'bpin' => $bpin, 'bstate' => $bstate, 'bcountry' => $bcountry, 'bemail' => $bemail, 'bphone' => $bphone, 'bpan' => $bpan, 'busername' => $busername, 'bpassword' => $bpassword, 'bgst' => $bgst);
+			  $data = array('bcompany' => $bcompany, 'bcontactperson' => $bcontactperson,'bcomptype' => $bcomptype, 'bbuyerlocation'=> $bbuyerlocation, 'bname' => $bname, 'baddress' => $baddress, 'bcity' => $bcity, 'bpin' => $bpin, 'bstate' => $bstate, 'bcountry' => $bcountry, 'bemail' => $bemail, 'bphone' => $bphone, 'bpan' => $bpan, 'busername' => $busername, 'bpassword' => $bpassword, 'bgst' => $bgst,'bpcb' => $bpcb, 'bcin' => $bcin);
 			  // check if company name exisyt before storing
 			  
 			  $status = $this->Admin_model->insert('buyerprofile', $data);
-			  $transfer = array('company'=> $bcompany, 'contactperson'=>$bcontactperson,'designation'=>$bdesignation, 'address'=>$baddress, 'city' => $bcity, 'pin'=>$bpin, 'username'=>$busername, 'gst'=>$bgst, 'date'=>$date);
+			  $transfer = array('company'=> $bcompany, 'bname'=>$bname,'designation'=>$bdesignation, 'address'=>$baddress, 'city' => $bcity, 'pin'=>$bpin, 'username'=>$busername, 'gst'=>$bgst, 'date'=>$date);
 			  if($status){
 				  $this->session->set_flashdata('txdata',$transfer);
 				  redirect('../agreementforbuyer');

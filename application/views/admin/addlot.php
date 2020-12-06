@@ -29,7 +29,7 @@
       </tr>
     </thead>
     <tbody>
-	<form action="<?php echo base_url();?>Admin_addlot_info" method="POST" enctype="multipart/form-data">
+	<form name="myForm"  action="<?php echo base_url();?>Admin_addlot_info" method="POST" enctype="multipart/form-data">
 	<tr>
 		  <td width="11%">Auction Id</td>
 		  <td width="4%" style="text-color:blue;"> <input type="text" class="form-control w-50" id="sauctionid" name="sauctionid" value="<?php echo $auctionid; ?>" readonly></td>
@@ -94,10 +94,6 @@
 		<td><input class="form-control w-50" type="text" id="sprice" name="sprice"></td>
 	</tr>
 	
-	</tr>
-		<td>Qty</td>
-		<td><input class="form-control w-50" type="text" id="sqty" name="sqty"></td>
-	</tr>
 	
 	<tr>
 		<td>Unit Of Measurment</td>
@@ -109,6 +105,10 @@
 				<option value="Numbers">Numbers</option>
 				<option value="Meters">Meters</option>
 				</select></td>
+	</tr>
+	<tr>
+		<td>Qty</td>
+		<td><input class="form-control w-50" type="text" id="sqty" name="sqty"></td>
 	</tr>
 	
 	<tr>
@@ -124,7 +124,10 @@
 	</tr>
 	<tr>
 	<td>GST</td>
-	<td><input class="form-control w-50" type="text" id="sgst" name="sgst"></td>
+
+	<td><input class="form-control w-50" type="text" id="sgst" name="sgst" placeholder="Exp. Max 28%"></td>
+
+	<td><input class="form-control w-50" type="text" id="sgst" name="sgst" placeholder="Exp.18%" value="%"></td>
     </tr>
 	<tr>
 		<td>HSN Code.</td>
@@ -194,7 +197,16 @@
 <?php 
 	//include('./footer.php');
 ?>
-
+<script>
+/* $(document).ready(function(){
+        //var counter = $('#TextBox').val();
+        $('#AddButton').click( function() {
+            var counter = $('#slotno').val();
+            counter++ ;
+            $('#slotno').val(counter);
+    });
+}); */
+</script>
 </body>
 
 </html>

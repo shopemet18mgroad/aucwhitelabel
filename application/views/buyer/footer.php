@@ -15,7 +15,7 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="<?php echo base_url()."logout/index/".$sessi;?>">Logout</a>
+          <a class="btn btn-primary" href="<?php echo base_url()."logout/index/".str_ireplace('@','%40',$sessi);?>">Logout</a>
         </div>
       </div>
     </div>
@@ -174,6 +174,7 @@ function validate_password(){
 			 }); 
  }
  </script>
+<script></script>
  <script>
  function executeQuery() {
   var contents = $('#ref').val(); 
@@ -232,6 +233,24 @@ $(document).ready(function() {
 		 }
 	});
 
+ }
+ </script>
+ <script>
+ function autobidenable(v){
+	 var a = $('#bidperunit').val();
+	 var b = $('#bidmax').val();
+	 
+	 $.get('<?php echo base_url() .'Buyer_liveauc_2/buyer_autobid_set/'; ?>'+a+'|'+b+'|'+v, function(dataab){
+		 if($.trim(dataab) == "Done"){
+			 var res = v.split("|");
+			window.location = '<?php echo base_url() .'Buyer_liveauc_2/index/'; ?>'+res[1]+'|'+res[2];
+		 }else{
+			  swal("Something Went Wrong Please Try again!", {
+				  icon: "error",
+				});
+		 }
+		});
+	 return false;
  }
  </script>
 

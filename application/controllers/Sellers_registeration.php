@@ -35,20 +35,25 @@ class Sellers_registeration extends CI_Controller {
         if($this->input->post('submit2')){
 			$date =  Date('Y-m-d'); 
 			$scomapnyname = $this->input->post('scomapnyname');
+			$sname = $this->input->post('sname');
 			$ssellertype = $this->input->post('ssellertype');
 			$scontactperson = $this->input->post('scontactperson');
 			$sdesignation = $this->input->post('sdesignation');
 			$span = $this->input->post('span');
-			$sstreet = $this->input->post('sstreet');
+			$saddress  = $this->input->post('saddress');
+			$saddress2 = serialize($saddress);
+			$saddresscount  = $this->input->post('saddresscount');
+			$saddresscount = serialize($saddresscount);
 			$scity = $this->input->post('scity');
 			$sgst = $this->input->post('sgst');
 			//echo $spcb = $this->input->post('spcb');
 			$semail = $this->input->post('semail');
 			$sphone = $this->input->post('sphone');
 			$slocation = $this->input->post('slocation');
-			$saddresscount = $this->input->post('saddresscount');
 			$spin = $this->input->post('spin');
 			$sstate = $this->input->post('sstate');
+			$scin = $this->input->post('scin');
+			$spcb = $this->input->post('spcb');
 			$scountry = $this->input->post('scountry');
 			$susername = $this->input->post('susername');
 			//$spassword = $this->input->post('spassword');
@@ -58,11 +63,11 @@ class Sellers_registeration extends CI_Controller {
             $sessCaptcha = $this->session->userdata('captchaCode');
             if($captcha === $sessCaptcha){
               $this->load->model('Admin_model');
-			  $data = array('scomapnyname' => $scomapnyname, 'ssellertype' => $ssellertype, 'scontactperson' => $scontactperson, 'sdesignation'=> $sdesignation, 'span' => $span, 'sstreet' => $sstreet, 'scity' => $scity, 'sgst' => $sgst, 'semail' => $semail, 'sphone' => $sphone, 'slocation' => $slocation, 'saddresscount' => $saddresscount, 'spin' => $spin, 'sstate' => $sstate, 'scountry' => $scountry, 'susername' => $susername, 'spassword' => $spassword);
+			  $data = array('scomapnyname' => $scomapnyname,'sname' => $sname, 'ssellertype' => $ssellertype, 'scontactperson' => $scontactperson, 'sdesignation'=> $sdesignation, 'span' => $span, 'saddress' => $saddress2, 'saddresscount' => $saddresscount, 'scity' => $scity, 'sgst' => $sgst, 'semail' => $semail, 'sphone' => $sphone, 'slocation' => $slocation, 'spin' => $spin, 'sstate' => $sstate, 'spcb' => $spcb, 'scin' => $scin, 'scountry' => $scountry, 'susername' => $susername, 'spassword' => $spassword);
 			  // check if company name exisyt before storing
 			  
 			  $status = $this->Admin_model->insert('sellerprofile', $data);
-			  $transfer = array('company'=> $scomapnyname, 'contactperson'=>$scontactperson,'designation'=>$sdesignation, 'street'=>$sstreet, 'city' => $scity, 'pin'=>$spin, 'username'=>$susername, 'location'=>$slocation, 'date'=>$date);
+			  $transfer = array('company'=> $scomapnyname, 'sname'=>$sname,'designation'=>$sdesignation, 'saddresscount' => $saddresscount, 'city' => $scity, 'pin'=>$spin, 'username'=>$susername, 'location'=>$slocation, 'date'=>$date);
 			  if($status){
 				  $this->session->set_flashdata('txdata',$transfer);
 				  redirect('../Agreementforseller');

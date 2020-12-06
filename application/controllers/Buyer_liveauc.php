@@ -25,14 +25,19 @@ class Buyer_liveauc extends CI_Controller {
 		$time =  Date('Y-m-d H:i:s');
 		$this->load->model('Admin_model');
 		$this->load->library('session');
+		if(!$this->session->has_userdata('username')|| $this->session->userdata('auth') != "BUYER"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
 		$sess = array('sessi'=>$this->session->userdata('username'));
-//print_r($sess['sessi']);die;
+		//print_r($sess['sessi']);die;
 		$data['sqldata'] = $this->Admin_model->datebetweensess('biddercart',$time,$sess['sessi']);
 		//$check_array = array('dat'=>);
 		$this->load->view('buyer/header',$sess);
 		$this->load->view('buyer/liveauc',$data);
 		$this->load->view('buyer/footer');
-		
+		}
 	}
 	
 

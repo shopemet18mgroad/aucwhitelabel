@@ -20,78 +20,70 @@
           <div class="card shadow mb-4">
             <div class="card-body">
               <div class="table-responsive">
-
-		<table class="table table-striped table-bordered table-sm text-center" id="dataTable" width="100%" cellspacing="0">
-				<thead class="bg-info text-white text-center">
-					<th colspan="7">Auction Details</th>
-				</thead>
-				<thead class="bg-primary text-white">
-				<tr>
-					<th>Auction Id</th>
-					<th>Company Name</th>
-					<th>Location</th>
-					<th>Seller Name</th>
-				</tr>
-				</thead>
-
-				<tbody>
-				<tr>
-					<td>EEMT/BBR/OMFED LTD/1/Shashi Nagar/99087/19-20</td>
-					<td>OMFED LTD.</td>
-					<td>Vellore</td>
-					<td>Shashi Kumar</td>
-				</tr>
-				
-				</tbody>
-		 </table>
-				<table class="table table-striped table-sm table-bordered mt-4 text-center" id="dataTable" width="100%" cellspacing="0">
+				<table class="table table-striped w-auto small table-bordered mt-4 text-center" id="dataTable" width="100%" cellspacing="0">
 				<thead class="bg-warning  text-white text-center">
-					<th colspan="8">Lot Details</th>
+					<th colspan="21"><b>Lot Details</b></th>
 				</thead>
 				<thead class="bg-primary text-white">
+				
 				<tr>
-					<th>Lot No</th>
-					<th>Lot Name</th>
-					<th>Quantity</th>
-					<th>GST</th>
-					<th>Action</th>
+					<td>Auction Id</td>
+					<td>Seller</td>
+					<td>Lot No</td>
+					<td>Lot Name</td>
+					<td>Category</td>
+					 <td>Description</td>
+					 <td>Location Of Lot</td>
+					 <td>EMD Details</td>
+					 <td>Expected Price</td>
+					<td>Quantity</td>
+					<td>Unit Of Measurment</td>
+					<td>Bid Base</td>
+					<td>GST</td>
+					<td>Other Tax</td>
+					<td>EMD Amount</td>
+					<td>Lifting Period</td>
+					<td>PCB Certificate</td>
+					<td>Action</td>
 				</tr>
 				</thead>
 
 				<tbody>
+				<?php foreach($sqldata as $sqldat[0]){?>
 				<tr>
-					<td>M-167</td>
-					<td>Horizontal Boring Machine</td>
-					<td>1.0 Lot</td>
-					<td>18.0</td>
-					<td><a href="<?php echo base_url();?>seller_editlot" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a>
-						<a class="btn btn-danger btn-sm text-white"><i class="fa fa-trash fa-sm"></i></a></td>
+				
+					<td><b><?php echo str_ireplace("/","-",$sqldat[0]->sauctionid);?></b></td>
+					<td><?php echo $sqldat[0]->sname; ?></td>
+					<td><?php echo $sqldat[0]->slotno; ?></td>
+					<td><?php echo $sqldat[0]->slotname; ?></td>
+					<td><?php echo $sqldat[0]->scategory; ?></td>
+					<td><?php echo $sqldat[0]->sdescription; ?></td>
+					<td><?php echo $sqldat[0]->slotlocation; ?></td>
+					<td><?php echo $sqldat[0]->semddetail; ?></td>
+					<td><?php echo $sqldat[0]->sprice; ?></td>
+					<td><?php echo $sqldat[0]->sqty; ?></td>
+					<td><?php echo $sqldat[0]->sunitmeasurment; ?></td>
+					<td><?php echo $sqldat[0]->sbidbase; ?></td>
+					<td><?php echo $sqldat[0]->sgst; ?></td>
+					<td><?php echo $sqldat[0]->sothertax; ?></td>
+					<td><?php echo $sqldat[0]->semdamount; ?></td>
+					<td><?php echo $sqldat[0]->sliftingperiod; ?><?php echo $sqldat[0]->sliftingperiod2; ?></td>
+					<td><?php if($sqldat[0]->spcbcertificate == 1)
+								{ 
+							echo 'Yes';
+							}
+							else{
+							echo 'No'	;
+							}; ?></td>
+
+
+					<td><a href="<?php echo base_url()."Seller_editlot/editlot/".str_ireplace("/","-",$sqldat[0]->sauctionid)."/".urlencode($sqldat[0]->slotno);?>" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a>
+
+						<a href="<?php echo base_url()."Seller_editlot/deletelot/".urlencode($sqldat[0]->slotno);?>" class="btn btn-danger btn-sm text-white delete-confirm"><i class="fa fa-trash fa-sm"></i></a></td>	
 				</tr>
-				<tr>
-					<td>M-163</td>
-					<td>Cast Iron</td>
-					<td>1.0 Lot</td>
-					<td>20.0</td>
-					<td><a href="<?php echo base_url();?>seller_editlot" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a>
-						<a class="btn btn-danger btn-sm text-white"><i class="fa fa-trash fa-sm"></i></a></td>
-				</tr>
-				<tr>
-					<td>M-167</td>
-					<td>Pig Iron</td>
-					<td>1 MT</td>
-					<td>20.0</td>
-					<td><a href="<?php echo base_url();?>seller_editlot" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a>
-						<a class="btn btn-danger btn-sm text-white"><i class="fa fa-trash fa-sm"></i></a></td>
-				</tr>
-				<tr>
-					<td>M-168</td>
-					<td>SS Aluminum</td>
-					<td>1.0 Lot</td>
-					<td>20.0</td>
-					<td><a href="<?php echo base_url();?>seller_editlot" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a>
-						<a class="btn btn-danger btn-sm text-white"><i class="fa fa-trash fa-sm"></i></a></td>
-				</tr>
+			<?php }?>
 				</tbody>
+			
 		 </table>
 
 		</div>
@@ -118,6 +110,7 @@
   <!-- End of Page Wrapper -->
 
   <!-- Scroll to Top Button-->
+  
  <?php 
 	//include('./footerdata.php');
 ?>

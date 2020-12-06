@@ -22,11 +22,65 @@ class Seller_editauction extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->helper('url');
-		$this->load->view('seller/header');
+			$this->load->helper('url');
+		$this->load->library('session');
+		if(!$this->session->has_userdata('username')|| $this->session->userdata('auth') != "SELLER"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('seller/header',$sess);
 		$this->load->view('seller/editauction');
 		$this->load->view('seller/footer');
+		}	
+	}
+	public function editauction(){
+		$retrivevaltmp = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
 		
+		$retriveval = array('sauctionid'=>$retrivevaltmp);
+		
+		$this->load->model('Admin_model');
+		$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
+		$this->load->helper('url');
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('seller/header',$sess);
+		$this->load->view('seller/editauction', $data);
+		$this->load->view('seller/footer');
 	}
 	
+	public function editauction_alert(){
+		$retrivevaltmp = $this->uri->segment(3);
+		$retrivevaltmp2 = urldecode($this->uri->segment(4));
+		echo '<script language="javascript">';
+			echo 'alert("'.$retrivevaltmp2.'")';  //not showing an alert box.
+			echo '</script>';
+		$retriveval = array('sname'=>$retrivevaltmp);
+		$this->load->model('Admin_model');
+		$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
+		$this->load->helper('url');
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('seller/header',$sess);
+		$this->load->view('seller/editauction', $data);
+		$this->load->view('seller/footer');
+	}
+	
+	public function delete_auction(){
+	
+		$retrivevaltmpdel = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
+		$retrivevaldel = array('sauctionid'=>$retrivevaltmpdel);
+		$this->load->model('Admin_model');
+		if($retrivevaltmpdel){
+			$this->Admin_model->delete_data('auction', $retrivevaldel);
+	
+		}
+		$this->load->helper('url');
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('seller/header',$sess);
+		$this->load->view('seller/editforthcom');
+		$this->load->view('seller/footer');
+}
 }
