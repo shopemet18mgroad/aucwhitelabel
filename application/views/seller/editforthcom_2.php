@@ -34,8 +34,8 @@
 					<td>Category</td>
 					 <td>Description</td>
 					 <td>Location Of Lot</td>
-					 <td>EMD Details</td>
 					 <td>Expected Price</td>
+					 <td>Starting Bid Price</td>
 					<td>Quantity</td>
 					<td>Unit Of Measurment</td>
 					<td>Bid Base</td>
@@ -59,8 +59,8 @@
 					<td><?php echo $sqldat[0]->scategory; ?></td>
 					<td><?php echo $sqldat[0]->sdescription; ?></td>
 					<td><?php echo $sqldat[0]->slotlocation; ?></td>
-					<td><?php echo $sqldat[0]->semddetail; ?></td>
 					<td><?php echo $sqldat[0]->sprice; ?></td>
+					<td><?php echo $sqldat[0]->sstartbidprice; ?></td>
 					<td><?php echo $sqldat[0]->sqty; ?></td>
 					<td><?php echo $sqldat[0]->sunitmeasurment; ?></td>
 					<td><?php echo $sqldat[0]->sbidbase; ?></td>

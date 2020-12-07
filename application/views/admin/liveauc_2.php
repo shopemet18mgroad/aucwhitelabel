@@ -37,7 +37,7 @@
 				<tbody>
 				<tr>
 					
-					<td><a href="#"></a><?php echo $sqldata[0]->sauctionid; ?></td>
+					<td><a href="#"></a><?php echo $sqldata[0]->sauctionid; ?><input type="hidden" id="refsel" name="refsel" value="<?php echo str_ireplace('/','-',$sqldata[0]->sauctionid); ?>"></td>
 					<td><?php echo $sqldata[0]->scompanyname; ?></td>
 					<td><?php echo $sqldata[0]->saucstartdate_time; ?></td>
 					<td><?php echo $sqldata[0]->saucclosedate_time; ?></td>
@@ -70,7 +70,7 @@
 				</tr>
 				</thead>
 
-				<tbody>
+				<tbody id="ajaxreloadadminlive">
 				
 				<?php foreach($sqldatalot as $sqlot){?>
 				<tr>												
@@ -80,8 +80,8 @@
 					<td><?php echo $bal; ?></td>
 					<td><?php echo $sqlot->sqty; ?></td>
 					<td><?php echo $sqlot->sunitmeasurment; ?></td>
-					<td><?php echo $sqlot->sstartbidprice; ?></td>
-					<td><?php echo $sqlot->sbidfinalprice; ?></td>
+					<td><?php echo $sqlot->sprice; ?></td>
+					<td><?php if($sqlot->cbidval){echo $sqlot->cbidval;} ?></td>
 					
 				</tr>
 				<?php }?>

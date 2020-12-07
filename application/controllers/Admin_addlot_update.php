@@ -35,8 +35,8 @@ class Admin_addlot_update extends CI_Controller {
 		$scategory  = $this->input->post('scategory');
 		$sdescription = $this->input->post('sdescription');
 		$slotlocation = $this->input->post('slotlocation');
-		$semddetail = $this->input->post('semddetail');
 		$sprice  = $this->input->post('sprice');
+		$sstartbidprice  = $this->input->post('sstartbidprice');
 		$sqty = $this->input->post('sqty');
 		$sunitmeasurment = $this->input->post('sunitmeasurment');
 		$sbidbase  = $this->input->post('sbidbase');
@@ -96,7 +96,7 @@ class Admin_addlot_update extends CI_Controller {
 		
 		
 		//==================================================================
-		$data2 = array('sauctionid' => $sauctionid,'sname' => $sname, 'slotno' => $slotno, 'slotname' => $slotname, 'scategory' => $scategory, 'sdescription' => $sdescription, 'slotlocation'=> $slotlocation,  'semddetail' => $semddetail,  'sprice' => $sprice,   'sqty' => $sqty,  'sunitmeasurment' => $sunitmeasurment,  'sbidbase' => $sbidbase,  'sgst' => $sgst,'shsncode' => $shsncode,  'sothertax' => $sothertax,  'semdamount' => $semdamount,  'sliftingperiod2' => $sliftingperiod2,  'sliftingperiod' => $sliftingperiod, 'spcbcertificate' => $spcbcertificate);
+		$data2 = array('sauctionid' => $sauctionid,'sname' => $sname, 'slotno' => $slotno, 'slotname' => $slotname, 'scategory' => $scategory, 'sdescription' => $sdescription, 'slotlocation'=> $slotlocation,  'sprice' => $sprice, 'sstartbidprice' => $sstartbidprice, 'sqty' => $sqty,  'sunitmeasurment' => $sunitmeasurment,  'sbidbase' => $sbidbase,  'sgst' => $sgst,'shsncode' => $shsncode,  'sothertax' => $sothertax,  'semdamount' => $semdamount,  'sliftingperiod2' => $sliftingperiod2,  'sliftingperiod' => $sliftingperiod, 'spcbcertificate' => $spcbcertificate);
 		//$this->load->view('xya', $data);
 		$datainserr = "Data Inserted Successfully";
 		$updatech = array('sauctionid' => $sauctionid,'slotno' => $slotno);

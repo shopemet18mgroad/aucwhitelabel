@@ -34,7 +34,7 @@
 					 <td>Seller Company Name</td>
 					 <td>Venue Of Inspection</td>
 					 <td>Inspection Date & Time</td>
-					 <td>Starting Bid Price</td>
+					 <td>EMD Details</td>
 					<td>Last Date Of Submiting EMD</td>
 					<td>Online Auction Start And Close Date</td>
 					<td>Aucjunction Terms & Conditions</td>
@@ -55,7 +55,7 @@
 					<td><?php echo $sqldat[0]->scompanyname; ?></td>
 					<td><?php echo $sqldat[0]->svinspection; ?></td>
 					<td><?php echo $sqldat[0]->sfrominpectdate_time; ?><br><?php echo $sqldat[0]->stoinpectdate_time; ?></td>
-					<td><?php echo $sqldat[0]->sstartbidprice; ?></td>
+					<td><?php echo $sqldat[0]->semddetail; ?></td>
 					<td><?php echo $sqldat[0]->slastdateemdsub; ?></td>
 					<td><?php echo $sqldat[0]->saucstartdate_time; ?><br><?php echo $sqldat[0]->saucclosedate_time; ?></td>
 					<td><?php if ($sqldat[0]->sterms_condiaccept == 1){

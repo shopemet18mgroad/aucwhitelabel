@@ -174,6 +174,7 @@ function validate_password(){
 			 }); 
  }
  </script>
+<script></script>
  <script>
  function executeQuery() {
   var contents = $('#ref').val(); 

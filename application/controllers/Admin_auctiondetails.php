@@ -53,7 +53,7 @@ class Admin_auctiondetails extends CI_Controller {
 			echo '<th>Seller Company Name</th>';
 			echo '<th>Venue Of Inspection</th>';
 			echo '<th>Inspection Date & Time</th>';
-			echo '<th>Starting Bid Price</th>';
+			echo '<td>EMD Details</td>';
 			echo '<th>Last Date Of Submiting EMD</th>';
 			echo '<th>Online Auction Start And Close Date</th>';
 			echo '<th>Aucjunction Terms & Conditions</th>';
@@ -77,7 +77,7 @@ class Admin_auctiondetails extends CI_Controller {
 				echo '<td>'.$dat['scompanyname'].'</td>';
 				echo '<td>'.$dat['svinspection'].'</td>';
 				echo '<td>'.$dat['sfrominpectdate_time'].$dat['stoinpectdate_time'].'</td>';
-				echo '<td>'.$dat['sstartbidprice'].'</td>';
+				echo '<td>'.$dat['semddetail'].'</td>';
 				echo '<td>'.$dat['slastdateemdsub'].'</td>';
 				echo '<td>'.$dat['saucstartdate_time'].$dat['saucclosedate_time'].'</td>';
 				echo '<td>';

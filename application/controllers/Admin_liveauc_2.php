@@ -68,12 +68,39 @@ class Admin_liveauc_2 extends CI_Controller {
 		$retriveval = array('sauctionid'=>$retrivevaltmp);
 		$this->load->model('Admin_model');
 		$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
-		
-	
-				
 		$this->load->helper('url');
 		$this->load->view('admin/header');
 		$this->load->view('admin/liveauc_2', $data);
 		$this->load->view('admin/footer');
+	}
+	public function get_table_ajax(){
+		
+		$retrivevaltmp = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
+		$retriveval = array('sauctionid'=>$retrivevaltmp);
+		$this->load->model('Admin_model');
+		$sqldata = $this->Admin_model->getdatafromtable('auction',$retriveval);
+		$sqldatalot = $this->Admin_model->getdatafromtable('addlot',$retriveval);
+		//echo gmdate("H:i:s", floor($datediff / (60)));
+		date_default_timezone_set('Asia/Kolkata');
+		$time =  Date('Y-m-d H:i:s');
+		$datediff = (strtotime($time) - strtotime($sqldata[0]->saucclosedate_time));
+		$bal = gmdate("H:i:s", floor($datediff / (60)));
+		
+		if($sqldatalot){
+			foreach($sqldatalot as $sqlot){
+				
+				echo '<tr>';
+				echo '<td>'.$sqlot->slotname.'</td>';
+				echo '<td>'.$sqlot->slotlocation.'</td>';
+				echo '<td>'.$sqldata[0]->saucclosedate_time.'</td>';
+				echo '<td>'.$bal.'</td>';
+				echo '<td>'.$sqlot->sqty.'</td>';
+				echo '<td>'.$sqlot->sunitmeasurment.'</td>';
+				echo '<td>'.$sqlot->sprice.'</td>';
+				echo '<td>'.$sqlot->cbidval.'</td>';
+				echo '</tr>';
+			}
+		}
+
 	}
 }

@@ -2,7 +2,7 @@
 	//include('./header.php');
 ?>
     <!---  body  design  -->
-	     <div class="container-fluid">
+	     <div id="<?php echo base_url();?>buyers_registeration" class="container-fluid">
    <div class="row w-100">
 	 <div class="col-md-10 offset-sm-1 p-2">
     <div class="card shadow mb-4 ml-4">

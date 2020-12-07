@@ -84,10 +84,12 @@ From:
     <input class="form-control w-75" type="datetime-local"  id="stoinpectdate_time" name="stoinpectdate_time" value="<?php echo date('Y-m-d\TH:i', strtotime($sqldata[0]->stoinpectdate_time)); ?>">
 </td>
 	 </tr>
-<tr>
-		<td>Starting Bid Price</td>
-		<td><input class="form-control w-50" type="text" id="sstartbidprice" name="sstartbidprice" value="<?php echo $sqldata[0]->sstartbidprice; ?>"></td>
+	 
+	 <tr>
+		<td>EMD Details</td>
+		<td><textarea class="form-control w-75" type="text" id="semddetail" name="semddetail" value="<?php echo $sqldata[0]->semddetail; ?>"><?php echo $sqldata[0]->semddetail; ?></textarea></td>
 	</tr>
+	
 
 <tr>
 		<td>Last Date Of Submiting EMD</td>
