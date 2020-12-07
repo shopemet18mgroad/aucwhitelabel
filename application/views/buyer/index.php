@@ -46,6 +46,10 @@
 							
 							</tr> 
 							<tr>
+								<td>Company Name</td>
+								<td><?php echo $sqldata[0]->bcompany; ?></td>
+							</tr> 
+							<tr>
 								<td>Contact Person</td>
 								<td><?php echo $sqldata[0]->bcontactperson; ?></td>
 							</tr>  
