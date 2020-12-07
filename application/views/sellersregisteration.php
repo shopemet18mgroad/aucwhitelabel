@@ -217,7 +217,7 @@ $(document).ready(function(){
         
 $(".gst").change(function () {      
 var inputvalues = $(this).val();      
-  var regex = /^([0-9]){2}([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}([0-9]){1}([a-zA-Z]){1}([0-9]){1}?$/;    
+  var regex = /^([0-9]){2}([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}([0-9]){1}([a-zA-Z]){1}([0-9A-Z]){1}?$/;    
   if(!regex.test(inputvalues)){      
   $(".gst").val("");    
   swal("Alert!","Invalid gst no", "error");    
