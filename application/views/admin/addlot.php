@@ -79,21 +79,16 @@
 				<option value="Delhi">Hydrabad</option>
 				</select></td>
 	</tr>
-	
-	
-	<tr>
-		<td>EMD Details</td>
-		<td><textarea class="form-control w-75" type="text" id="semddetail" name="semddetail"></textarea></td>
-	</tr>
-	
-	
-	
 	<tr>
 
 		<td>Expected Price</td>
 		<td><input class="form-control w-50" type="text" id="sprice" name="sprice"></td>
 	</tr>
 	
+	<tr>
+		<td>Starting Bid Price</td>
+		<td><input class="form-control w-50" type="text" id="sstartbidprice" name="sstartbidprice"></td>
+	</tr>
 	
 	<tr>
 		<td>Unit Of Measurment</td>
@@ -127,8 +122,6 @@
 
 	<td><input class="form-control w-50" type="text" id="sgst" name="sgst" placeholder="Exp. Max 28%"></td>
 
-	<td><input class="form-control w-50" type="text" id="sgst" name="sgst" placeholder="Exp.18%" value="%"></td>
-    </tr>
 	<tr>
 		<td>HSN Code.</td>
 		<td><input class="form-control w-50" type="text" id="shsncode" name="shsncode"></td>

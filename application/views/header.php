@@ -22,7 +22,7 @@
    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </head>
-	<body class="">
+	<body class="" data-spy="scroll" data-target="#myScrollspy">
 	<div class="container-fluid top-header">
 		<div class="row">
 				<div class="col-md-12 contact-header">
@@ -84,7 +84,7 @@
 			</div>
 	     </div>
 		 <div class="mynav">
-			 <nav class="navbar navbar-expand-lg navbar-dark navbarclr">
+			 <nav class="navbar navbar-expand-lg navbar-dark navbarclr" id="myScrollspy">
 				  
 				  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -99,7 +99,7 @@
 						<a class="nav-link" href="<?php echo base_url();?>contact_us">Contact Us</a>
 					  </li>
 					 <li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						  Registration
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
