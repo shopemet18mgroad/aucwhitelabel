@@ -40,10 +40,10 @@
 		</td>
 	  </tr>
 	  
-	  <tr>
+	  <!--<tr>
 		  <td>Lot No.</td>
 		  <td style="color:blue;"><input class="form-control w-50"  type="text" id="slotno" name="slotno" aria-label="Search" readonly></td>
-	  </tr>
+	  </tr>-->
       
 	  <tr>
 	   

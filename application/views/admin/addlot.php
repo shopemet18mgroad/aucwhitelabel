@@ -1,5 +1,6 @@
 <?php 
 	//include('./header.php');
+	
 ?>
       
 
@@ -31,7 +32,7 @@
     <tbody>
 	<form name="myForm"  action="<?php echo base_url();?>Admin_addlot_info" method="POST" enctype="multipart/form-data">
 	<tr>
-		  <td width="11%">Auction Id</td>
+		  <td width="2%">Auction Id</td>
 		  <td width="4%" style="text-color:blue;"> <input type="text" class="form-control w-50" id="sauctionid" name="sauctionid" value="<?php echo $auctionid; ?>" readonly></td>
 	  </tr>
 	  <tr>
@@ -40,15 +41,19 @@
 		</td>
 	  </tr>
 	  
-	  <tr>
+	  <!-- <tr>
 		  <td>Lot No.</td>
-		  <td style="color:blue;"><input class="form-control w-50"  type="text" id="slotno" name="slotno" aria-label="Search" readonly></td>
-	  </tr>
+		  
+		  <td style="color:blue;">
+		  <input class="form-control float-left w-50"  type="number" id="slotno" name="slotno" aria-label="Search" >
+		
+		 </td>
+	  </tr> -->
       
 	  <tr>
 	   
 		  <td>Lot Name</td>
-		  <td><input class="form-control w-50" type="text" id="slotname" name="slotname" onclick="auction_id1()"></td>
+		  <td><input class="form-control w-50" type="text" id="slotname" name="slotname" onkeyup="validate_lotno()"></td>
 	  </tr>
 	  <tr>
 		  <td width="11%">Category</td>
@@ -186,20 +191,30 @@
   <!-- End of Page Wrapper -->
 
   <!-- Scroll to Top Button-->
-	
+<script>
+  /* function validate_lotno(){
+	  var val = document.getElementById("slotno").value;
+		if(val != ''){
+			 $.get('<?php echo base_url() .'admin_addlot_info/validate_lotno/'; ?>'+val, function(data2){				 
+				 if($.trim(data2) == "BYE"){
+					swal("Alert!",  "Lot No. Already Exists", "error");
+					document.getElementById("slotno").value = "";
+					return false;
+				}else{
+					return true;
+				}
+			 });
+			
+		}else{
+			swal("Alert!",  "Please Enter Lot Name!", "error");
+			return false;
+		}
+  } */
+  </script>	
 <?php 
 	//include('./footer.php');
 ?>
-<script>
-/* $(document).ready(function(){
-        //var counter = $('#TextBox').val();
-        $('#AddButton').click( function() {
-            var counter = $('#slotno').val();
-            counter++ ;
-            $('#slotno').val(counter);
-    });
-}); */
-</script>
 </body>
 
 </html>
+

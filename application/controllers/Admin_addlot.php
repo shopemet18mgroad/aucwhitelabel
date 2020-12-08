@@ -28,7 +28,8 @@ class Admin_addlot extends CI_Controller {
 			echo 'alert("'.$errormsg.'")';
 			echo '</script>';
 		}
-		
+
+	
 		//echo $this->session->userdata('auth');
 		if(!$this->session->has_userdata('username')  || $this->session->userdata('auth') != "ADMIN"){
 			$datainserr = "Invalid Login Session";
@@ -44,6 +45,6 @@ class Admin_addlot extends CI_Controller {
 	} 
 
 
-	
+		
 	
 }

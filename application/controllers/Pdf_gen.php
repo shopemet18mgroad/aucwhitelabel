@@ -32,7 +32,7 @@ class Pdf_gen extends CI_Controller
 			$data['sqldata2']= $query2;
 			$data['sauctionid'] = $aucf;
 			//print_r($aucf); die;
-			$this->load->view('Pdf_File2',$data);
+			//$this->load->view('Pdf_File2',$data);
       $data2 = array(
         'title' => $aucf,
         'data' => 'List Of Lots');

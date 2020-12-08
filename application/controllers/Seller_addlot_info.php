@@ -70,6 +70,17 @@ class Seller_addlot_info extends CI_Controller {
 					
 			
 			$this->load->model('Admin_model');
+			
+			$srr = array('sauctionid'=>$sauctionid);
+			$data1 = $this->Admin_model->getdatafromtable('addlot',$srr);
+				if($data1){
+					$lottmp = count($data1);
+					 //echo "Hi"; die;
+					$slotno = $lottmp + 1;
+				}else{
+					$slotno = 1;
+				}
+			
 			$data = array('sauctionid' => $sauctionid, 'sname' => $sname, 'slotno' => $slotno, 'slotname' => $slotname, 'scategory' => $scategory, 'sdescription' => $sdescription, 'slotlocation'=> $slotlocation, 'sprice' => $sprice,'sstartbidprice' => $sstartbidprice, 'sqty' => $sqty, 'sunitmeasurment' => $sunitmeasurment, 'sbidbase' => $sbidbase, 'sgst' => $sgst,'shsncode' => $shsncode, 'sothertax' => $sothertax, 'semdamount' => $semdamount,'sliftingperiod2' => $sliftingperiod2, 'sliftingperiod' => $sliftingperiod,  'spcbcertificate' => $spcbcertificate);
 			
 			$status = $this->Admin_model->insert('addlot', $data);
@@ -120,6 +131,16 @@ class Seller_addlot_info extends CI_Controller {
 			$spcbcertificate = $this->input->post('spcbcertificate');
 			 
 			 $this->load->model('Admin_model');
+			 
+			 $srr = array('sauctionid'=>$sauctionid);
+			$data1 = $this->Admin_model->getdatafromtable('addlot',$srr);
+				if($data1){
+					$lottmp = count($data1);
+					 //echo "Hi"; die;
+					$slotno = $lottmp + 1;
+				}else{
+					$slotno = 1;
+				}
 			 
 			 $data5 = array('sauctionid' => $sauctionid,'sname' => $sname, 'slotno' => $slotno, 'slotname' => $slotname, 'scategory' => $scategory, 'sdescription' => $sdescription, 'slotlocation'=> $slotlocation, 'sprice' => $sprice,'sstartbidprice' => $sstartbidprice, 'sqty' => $sqty, 'sunitmeasurment' => $sunitmeasurment, 'sbidbase' => $sbidbase, 'sgst' => $sgst,'shsncode' => $shsncode, 'sothertax' => $sothertax, 'semdamount' => $semdamount,'sliftingperiod2' => $sliftingperiod2, 'sliftingperiod' => $sliftingperiod,  'spcbcertificate' => $spcbcertificate);
 			 $status1 = $this->Admin_model->insert('addlot', $data5);

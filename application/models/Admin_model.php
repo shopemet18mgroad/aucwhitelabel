@@ -90,7 +90,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return $query->result();
 		}
 		
-		 
+		 public function maxbidlotno($sauctionid,$slotno){
+			$this->db->select('*');
+			$this->db->select_max('slotno');
+			$this->db->from('addlot');
+			$this->db->where('sauctionid =', $sauctionid);
+			//$this->db->where('slotno =',$slotno);
+			$query = $this->db->get();
+			return $query->result();
+		}
 
 	 public function dateclosedauc($table, $date){
 			$this->db->select('*');
