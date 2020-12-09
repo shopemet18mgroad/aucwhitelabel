@@ -82,17 +82,6 @@
 	
 	
 	<tr>
-
-		<td>Expected Price</td>
-		<td><input class="form-control w-50" type="text" id="sprice" name="sprice"></td>
-	</tr>
-	<tr>
-		<td>Starting Bid Price</td>
-		<td><input class="form-control w-50" type="text" id="sstartbidprice" name="sstartbidprice"></td>
-	</tr>
-	
-	
-	<tr>
 		<td>Unit Of Measurment</td>
 		<td><select class="form-control w-50" id="sunitmeasurment" name="sunitmeasurment">
 				<option value="KG" selected>KG</option>
@@ -135,6 +124,17 @@
 		<td>EMD Amount</td>
 		<td><input class="form-control w-50" type="text" id="semdamount" name="semdamount"></td>
     </tr>	
+	
+	<tr>
+
+		<td>Expected Price</td>
+		<td><input class="form-control w-50" type="text" id="sprice" name="sprice"></td>
+	</tr>
+	<tr>
+		<td>Starting Bid Price</td>
+		<td><input class="form-control w-50" type="text" id="sstartbidprice" name="sstartbidprice"></td>
+	</tr>
+	
 	<tr>
 		<td>Lifting Period</td>
 		<td><input class="form-control w-75" type="datetime-local" id="sliftingperiod2" name="sliftingperiod2">

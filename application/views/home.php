@@ -91,7 +91,7 @@
 									<a class="nav-link active border border-primary border-bottom-0" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Upcoming Auctions</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link border border-primary border-bottom-0" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Today's Auctions</a>
+									<a class="nav-link border border-primary border-bottom-0" id="home2-tab" data-toggle="tab" href="#home2" role="tab" aria-controls="home2" aria-selected="false">Today's Auctions</a>
 								</li>
 								<li class="nav-item">
 									<a class="nav-link border border-primary border-bottom-0" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">ALL</a>
@@ -101,11 +101,12 @@
 							<div class="tab-content w-100">
 								<div class="tab-pane h-100 p-3 active border border-primary" id="home" role="tabpanel" aria-labelledby="home-tab" onclick="one()">
 										<div class="table-holder"> 
-											<table class="table table-bordered"  id="dataTable">
+											<table class="table table-bordered display" id="" >
 												<thead class="thead-auc">
 													<tr>
 														
 														<th width="30%">AUCTION ID</th>
+														<th width="20%">Lot No</th>
 														<th width="30%">DESCRIPTION</th>
 														<th width="30%">DATE & TIME</th>
 														
@@ -118,6 +119,7 @@
 													
 																						
 					<td><?php echo $sqldat->sauctionid; ?></td>
+					<td><?php echo $sqldat->slotno; ?></td>
 					<td><?php echo $sqldat->sdescription; ?></td>
 					<td><?php echo $sqldat->saucstartdate_time; ?></td>
 														
@@ -135,11 +137,12 @@
 								
 					<div class="tab-pane h-100 p-3 border border-primary" id="home2" role="tabpanel" aria-labelledby="home-tab">
 										<div class="table-holder"> 
-											<table class="table table-bordered">
+											<table class="table table-bordered display" id="">
 												<thead class="thead-auc">
 													<tr>
 														
 														<th width="30%">AUCTION ID</th>
+														<th width="20%">Lot No</th>
 														<th width="30%">DESCRIPTION</th>
 														<th width="30%">DATE & TIME</th>
 														
@@ -154,24 +157,16 @@
 										</div> 			
 								
 									</div>
-								
-								
-								
-								
-								
-								<div class="tab-pane h-100 p-3 border border-primary" id="profile" role="tabpanel" aria-labelledby="profile-tab">No Records Found</div>
-								<div class="tab-pane h-100 p-3 border border-primary" id="messages" role="tabpanel" aria-labelledby="messages-tab">Upcoming Events 3</div>
-								<div class="tab-pane h-100 p-3 border border-primary" id="settings" role="tabpanel" aria-labelledby="settings-tab">Upcoming Events 4</div>
-								
-								
-								<div class="tab-pane h-100 p-3 border border-primary" id="all" role="tabpanel" aria-labelledby="all-tab">
-								
+									
+							<div class="tab-pane h-100 p-3 border border-primary" id="all" role="tabpanel" aria-labelledby="all-tab">
+								<div class="table-holder"> 
 										
-									<table class="table table-bordered text-center" id="dataTable" >
+									<table class="table table-bordered text-center display" id="">
 												<thead class="thead-auc">
 													<tr>
 														
 														<th width="30%">AUCTION ID</th>
+														<th width="20%">Lot No</th>
 														<th width="30%">DESCRIPTION</th>
 														<th width="30%">DATE & TIME</th>
 														
@@ -183,6 +178,7 @@
 													<tr>
 														
 					<td><?php echo $sql->sauctionid; ?></td>
+					<td><?php echo $sql->slotno; ?></td>
 					<td><?php echo $sql->sdescription; ?></td>
 					<td><?php echo $sql->saucstartdate_time; ?></td>
 													</tr>
@@ -191,30 +187,23 @@
 																												
 												</tbody>
 											</table>
-									
-			<!--<div class="row mt-1">
-			<div class="col-sm-12 col-md-9">
-				<div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
-				<ul class="pagination offset-lg-11">
-				<li class="paginate_button page-item previous disabled" id="dataTable_previous">
-				<a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
-				</li>
-				<li class="paginate_button page-item active">
-				<a href="#home" aria-controls="dataTable" id="home" data-dt-idx="1" tabindex="0" class="page-link">1</a>
-				</li>
-				
-				<li class="paginate_button page-item next disabled" id="dataTable_next">
-				<a href="#" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page-link">Next</a>
-				</li>
-				</ul>
-				</div>
+									</div>
 			
-			</div>									
-								</div>-->	
 								</div>
+								
+								
+								
+								
+								<div class="tab-pane h-100 p-3 border border-primary" id="profile" role="tabpanel" aria-labelledby="profile-tab">No Records Found</div>
+								<div class="tab-pane h-100 p-3 border border-primary" id="messages" role="tabpanel" aria-labelledby="messages-tab">Upcoming Events 3</div>
+								<div class="tab-pane h-100 p-3 border border-primary" id="settings" role="tabpanel" aria-labelledby="settings-tab">Upcoming Events 4</div>
+								
+								</div>
+								
+								
 							
 							
-							</div>
+							
 		 
 						</div>
 				
@@ -306,7 +295,11 @@ function one(){
 	x.id="home2";
 	
 }</script>
-
+<script>
+$(document).ready(function() {
+    $('table.display').DataTable();
+} );
+</script>
 
 
 		<?php 

@@ -34,14 +34,15 @@
 					<td>Category</td>
 					 <td>Description</td>
 					 <td>Location Of Lot</td>
-					 <td>Expected Price</td>
-					 <td>Starting Bid Price</td>
 					<td>Quantity</td>
 					<td>Unit Of Measurment</td>
 					<td>Bid Base</td>
 					<td>GST</td>
+					<td>HSN Code.</td>
 					<td>Other Tax</td>
 					<td>EMD Amount</td>
+					<td>Expected Price</td>
+					 <td>Starting Bid Price</td>
 					<td>Lifting Period</td>
 					<td>PCB Certificate</td>
 					<td>Action</td>
@@ -59,14 +60,15 @@
 					<td><?php echo $sqldat[0]->scategory; ?></td>
 					<td><?php echo $sqldat[0]->sdescription; ?></td>
 					<td><?php echo $sqldat[0]->slotlocation; ?></td>
-					<td><?php echo $sqldat[0]->sprice; ?></td>
-					<td><?php echo $sqldat[0]->sstartbidprice; ?></td>
 					<td><?php echo $sqldat[0]->sqty; ?></td>
 					<td><?php echo $sqldat[0]->sunitmeasurment; ?></td>
 					<td><?php echo $sqldat[0]->sbidbase; ?></td>
 					<td><?php echo $sqldat[0]->sgst; ?></td>
+					<td><?php echo $sqldat[0]->shsncode; ?></td>
 					<td><?php echo $sqldat[0]->sothertax; ?></td>
 					<td><?php echo $sqldat[0]->semdamount; ?></td>
+					<td><?php echo $sqldat[0]->sprice; ?></td>
+					<td><?php echo $sqldat[0]->sstartbidprice; ?></td>
 					<td><?php echo $sqldat[0]->sliftingperiod; ?><?php echo $sqldat[0]->sliftingperiod2; ?></td>
 					<td><?php if($sqldat[0]->spcbcertificate == 1)
 								{ 

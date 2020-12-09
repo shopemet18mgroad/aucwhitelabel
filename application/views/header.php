@@ -17,10 +17,17 @@
   <!-- Custom styles for this template-->
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
   <link href="<?php echo base_url()."web_files/";?>vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <link href="https://code.jquery.com/jquery-3.5.1.js" rel="stylesheet">
+  <link href="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js" rel="stylesheet">
+  <!--<link href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet">-->
    <script src=" https://github.com/superRaytin/paginationjs"></script>
    <script src=" http://pagination.js.org"></script>
    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
+   <script>
+   div.dataTables_wrapper {
+        margin-bottom: 3em;
+    }
+</script>
 </head>
 	<body class="" data-spy="scroll" data-target="#myScrollspy">
 	<div class="container-fluid top-header">
