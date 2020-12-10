@@ -23,7 +23,7 @@
 
 			<table class="table table-striped table-bordered table-sm text-center mt-5 w-auto small ml-4" id="datatable" width="100%" cellspacing="0">
 			<thead class="bg-info  text-white text-center">
-					<th colspan="12"><b>EMD</b></th>
+					<th colspan="13"><b>EMD</b></th>
 				</thead>
 				<thead class="bg-primary text-white">
 				<tr>
@@ -34,6 +34,7 @@
 					 <td>View DD Image</td>
 					 <td>EMD Payment</td>
 					 <td>EMD Pay By DD</td>
+					 <td>EMD Request</td>
 					
 				</tr>
 					<!--<tr>
@@ -53,15 +54,15 @@
         <?php foreach($sqldat as $sqldata){?>  
        
 				<tr>
-				
+					
 					<td><b><a href="<?php echo base_url();?>'buyer_mylist/index/'.urlencode($sqldata['auctionid'])
-				"><?php echo $sqldata->auctionid; ?><?php echo $aucencode = str_ireplace('/','-',$sqldata->auctionid); ?></b></a></td>
+				"><?php echo $aucencode = str_ireplace('/','-',$sqldata->auctionid); ?></b></a></td>
 					<td><?php echo $sqldata->lotno; ?></td>
 					<td><?php echo $sqldata->aucstartdate_time;?><br><?php echo $sqldata->aucclosedate_time;?></td>
 					<td><?php  if($sqldata->emdpaid == 0) {echo 'Emd Not Paid';}else{echo 'Emd Paid';} ?></td>
 				
 					<td><a href="" data-toggle="modal" data-target="#myModal<?php echo"$k";?>">
-					<button type="submit" class="btn btn-info btn-sm w-50">
+					<button type="submit" class="btn btn-info btn-sm w-75">
 					<i class="fa fa-eye" aria-hidden="true"></i>
 					</button>
 					</a>
@@ -99,6 +100,11 @@
 					<input type="submit" id="" class="btn btn-primary " name="submit" value="Upload">
 		 
 					</td>
+					
+					<td>
+					<a href="<?php echo base_url()."Buyer_Mylist_dd_upload/emdreq/".$sessi."/".$aucencode."/".urlencode($sqldata->lotno);?>">
+					<button  type="button" class="btn btn-primary w-auto small">Emd Request</button></a>
+					</td>
 			
 					 <?php $k++;}?> 
 
@@ -133,7 +139,6 @@
 
   </div>
   <!-- End of Page Wrapper -->
-
   <!-- Scroll to Top Button-->
  <?php 
 	//include('./footer.php');
