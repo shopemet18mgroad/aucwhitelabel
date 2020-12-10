@@ -132,6 +132,11 @@
     </tr>	
 	<tr>
 
+		<td>Minimum Increament</td>
+		<td><input class="form-control w-50" type="text" id="sminincre" name="sminincre"></td>
+	</tr>
+	<tr>
+
 		<td>Expected Price</td>
 		<td><input class="form-control w-50" type="text" id="sprice" name="sprice"></td>
 	</tr>

@@ -24,7 +24,17 @@ class Agreementforseller extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('session');
 		$data = $this->session->flashdata('txdata');
-		$this->load->view('header');
+			
+			//echo $this->session->userdata('auth');
+		if(!$this->session->has_userdata('username')  || $this->session->userdata('auth') != "ADMIN"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		
+		
+		$this->load->view('header',$sess);
 		$this->load->view('agreementforseller',$data);
 		$this->load->view('footer');
 	}
