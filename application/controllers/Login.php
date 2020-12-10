@@ -24,6 +24,24 @@ class Login extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('session');
 		$this->session->sess_expiration = '3600';
+		if($this->input->post('remember_me'))
+		{
+    // Get the LONGER exporation for Remember Me, which is set in the config
+    $remember_me_expiration = (int) $this->config->item('remember_me_expiration');
+    
+    $this->config->set_item('sess_expiration', $remember_me_expiration);
+		}
+	$this->input->set_cookie(array(
+    'name' => 'RememberMe', 
+    'value' => 'something', 
+    'expire' => '604800', 
+    'domain' => '.example.com', 
+    'path' => '/',
+    'secure' => true,
+    'httponly' => true,
+	)); 
+
+
 		if($this->input->post('user')){
 			if($this->input->post('optradio')=="Buyer"){
 				$table = "buyerprofile";
@@ -66,7 +84,9 @@ class Login extends CI_Controller {
 				  die;
 			  }
 			  die;
+			  
 		}else{
+			
 			$this->load->view('header');
 			$this->load->view('login');
 			$this->load->view('footer');
