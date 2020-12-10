@@ -134,6 +134,13 @@
     </tr>
 	<tr>
 
+		<td>Minimum Increament</td>
+		<td><input class="form-control w-50" type="text" id="sminincre" name="sminincre" value="<?php echo $sqldata[0]->sminincre; ?>"></td>
+	</tr>
+
+	
+	<tr>
+
 		<td>Expected Price</td>
 		<td><input class="form-control w-50" type="text" id="sprice" name="sprice" value="<?php echo $sqldata[0]->sprice; ?>"></td>
 	</tr>

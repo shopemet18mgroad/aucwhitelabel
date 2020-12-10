@@ -35,6 +35,7 @@ class Admin_addlot_update extends CI_Controller {
 		$scategory  = $this->input->post('scategory');
 		$sdescription = $this->input->post('sdescription');
 		$slotlocation = $this->input->post('slotlocation');
+		$sminincre = $this->input->post('sminincre');
 		$sprice  = $this->input->post('sprice');
 		$sstartbidprice  = $this->input->post('sstartbidprice');
 		$sqty = $this->input->post('sqty');

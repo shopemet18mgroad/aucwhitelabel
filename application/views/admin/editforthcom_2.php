@@ -41,6 +41,7 @@
 					<td>HSN Code.</td>
 					<td>Other Tax</td>
 					<td>EMD Amount</td>
+					<td>Minimum Increament</td>
 					<td>Expected Price</td>
 					 <td>Starting Bid Price</td>
 					<td>Lifting Period</td>
@@ -67,6 +68,7 @@
 					<td><?php echo $sqldat[0]->shsncode; ?></td>
 					<td><?php echo $sqldat[0]->sothertax; ?></td>
 					<td><?php echo $sqldat[0]->semdamount; ?></td>
+					<td><?php echo $sqldat[0]->sminincre; ?></td>
 					<td><?php echo $sqldat[0]->sprice; ?></td>
 					<td><?php echo $sqldat[0]->sstartbidprice; ?></td>
 					<td><?php echo $sqldat[0]->sliftingperiod; ?><?php echo $sqldat[0]->sliftingperiod2; ?></td>

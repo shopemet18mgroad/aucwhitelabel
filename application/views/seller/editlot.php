@@ -130,6 +130,11 @@
 		<td>EMD Amount</td>
 		<td><input class="form-control w-50" type="text" id="semdamount" name="semdamount" value="<?php echo $sqldata[0]->semdamount; ?>"></td>
     </tr>	
+	<tr>
+
+		<td>Minimum Increament</td>
+		<td><input class="form-control w-50" type="text" id="sminincre" name="sminincre" value="<?php echo $sqldata[0]->sminincre; ?>"></td>
+	</tr>
 	
 	<tr>
 

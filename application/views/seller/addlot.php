@@ -123,7 +123,12 @@
 	<tr>
 		<td>EMD Amount</td>
 		<td><input class="form-control w-50" type="text" id="semdamount" name="semdamount"></td>
-    </tr>	
+    </tr>
+	<tr>
+
+		<td>Minimum Increament</td>
+		<td><input class="form-control w-50" type="text" id="sminincre" name="sminincre"></td>
+	</tr>	
 	
 	<tr>
 
