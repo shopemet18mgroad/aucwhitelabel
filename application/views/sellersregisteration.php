@@ -53,6 +53,7 @@
 								<select class="form-control w-75  p-1" id="saddress" name="saddress[]">
 									<option value="select" selected>SELECT</option>
 									<option value="Corporate Office">Corporate Office</option>
+									<option value="Manufacturing Unit">Manufacturing Unit</option>
 									<option value="Headquarter">Headquarter</option>
 								
 									</select>

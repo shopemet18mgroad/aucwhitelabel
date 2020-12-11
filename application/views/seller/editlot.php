@@ -83,19 +83,6 @@
 	</tr>
 
 	
-	
-	<tr>
-
-		<td>Expected Price</td>
-		<td><input class="form-control w-50" type="text" id="sprice" name="sprice" value="<?php echo $sqldata[0]->sprice; ?>"></td>
-	</tr>
-	
-	<tr>
-		<td>Starting Bid Price</td>
-		<td><input class="form-control w-50" type="text" id="sstartbidprice" name="sstartbidprice" value="<?php echo $sqldata[0]->sstartbidprice; ?>"></td>
-	</tr>
-
-	
 	</tr>
 		<td>Qty</td>
 		<td><input class="form-control w-50" type="text" id="sqty" name="sqty" value="<?php echo $sqldata[0]->sqty; ?>"></td>
@@ -143,6 +130,23 @@
 		<td>EMD Amount</td>
 		<td><input class="form-control w-50" type="text" id="semdamount" name="semdamount" value="<?php echo $sqldata[0]->semdamount; ?>"></td>
     </tr>	
+	<tr>
+
+		<td>Minimum Increament</td>
+		<td><input class="form-control w-50" type="text" id="sminincre" name="sminincre" value="<?php echo $sqldata[0]->sminincre; ?>"></td>
+	</tr>
+	
+	<tr>
+
+		<td>Expected Price</td>
+		<td><input class="form-control w-50" type="text" id="sprice" name="sprice" value="<?php echo $sqldata[0]->sprice; ?>"></td>
+	</tr>
+	
+	<tr>
+		<td>Starting Bid Price</td>
+		<td><input class="form-control w-50" type="text" id="sstartbidprice" name="sstartbidprice" value="<?php echo $sqldata[0]->sstartbidprice; ?>"></td>
+	</tr>
+
 	<tr>
 		<td>Lifting Period</td>
 		<td><input class="form-control w-75" type="datetime-local" id="sliftingperiod2" name="sliftingperiod2" value="<?php echo date('Y-m-d\TH:i', strtotime($sqldata[0]->sliftingperiod2)); ?>">

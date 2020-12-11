@@ -150,17 +150,8 @@
 				  </div>
 				</nav>
 		</div>
-		<div class="container-fluid">
-			 <div class="row">
-					<img class="imgsize-header" src="<?php echo base_url()."web_files/";?>images/aucjuntionbanner.png"></img>
-			 </div>	
-		</div>
-		<div class="container-fluid noticeboard">
-			<div class="noticeboard-icon"><i class="fa fa-bell" aria-hidden="true"></i></div>
-			<div class="row marqueebox">
-			 <marquee><p>Aucjunction10200001 are Scheduled on October 2020&nbsp;|&nbsp;Aucjunction10200002 are Scheduled on October 2020&nbsp;|&nbsp;Aucjunction10200003 are Scheduled on October 2020</p><p></p></marquee>
-			</div>
-		</div>
+		
+		
 		
 		
 		

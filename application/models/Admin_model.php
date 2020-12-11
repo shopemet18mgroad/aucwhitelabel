@@ -52,6 +52,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return $query->result();
 		}
 		
+		public function datebetweenhome($date){
+			$this->db->select('*');
+			$this->db->from('auction');
+			$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid');
+			$this->db->where('saucstartdate_time <=', $date);
+			$this->db->where('saucclosedate_time >=', $date);
+			$query = $this->db->get();
+			return $query->result();
+		}
+		
 		public function getsessdatafromtable($table, $data,$sessi) {
 			$this->db->where('sname =', $sessi);
 			 $query = $this->db->get_where($table, $data,$sessi); 
@@ -138,6 +148,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$query = $this->db->get();
 			return $query->result();
 		}
+		
 		
 		public function getdatafromtablejoinallauc(){
 			$this->db->select('*');

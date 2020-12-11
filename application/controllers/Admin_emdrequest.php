@@ -44,7 +44,7 @@ class Admin_emdrequest extends CI_Controller {
 			die;
 		}else{
 		$this->load->model('Admin_model');
-		$emdrequest = array('emdrequest'=>false);
+		$emdrequest = array('emdrequest'=>3);
 		$query = $this->Admin_model->getdatafromtable('biddercart', $emdrequest);
 		$data['sqldat']= $query;
 		

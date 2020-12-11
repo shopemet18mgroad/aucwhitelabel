@@ -68,7 +68,7 @@ class Registrationb extends CI_Controller {
 		$update = array('bagreement'=>true,'bagreementdate'=>$datad);
 		$this->load->model('Admin_model');
 		$this->Admin_model->update_custom('buyerprofile',$update,'busername',$dataw);
-		$this->load->view('header');
+		$this->load->view('header2');
 		$this->load->view('registrationb',$uname);
 		$this->load->view('footer');
 		
@@ -81,7 +81,7 @@ class Registrationb extends CI_Controller {
 		$pass = array('username'=> $dataw);
 		$this->load->model('Admin_model');
 		$this->Admin_model->update_custom('buyerprofile',$update,'busername',$dataw);
-		$this->load->view('header');
+		$this->load->view('header2');
 		$this->load->view('registrationb', $pass);
 		$this->load->view('footer');
 		

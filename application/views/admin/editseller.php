@@ -99,6 +99,7 @@
 											echo '<select class="form-control w-50  p-1" name="saddress[]">';
 											echo '<option value="'.$companyltype[$i].'">'.$companyltype[$i].'</option>';
 											echo '<option value="Corporate-Office">Corporate Office</option>';
+											echo '<option value="Manufacturing Unit">Manufacturing Unit</option>';
 											echo '<option value="Headquarter">Headquarter</option>';
 											echo '</select>';
 											echo '';
