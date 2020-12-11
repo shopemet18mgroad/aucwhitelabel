@@ -58,12 +58,11 @@ class Sellers_registeration extends CI_Controller {
 			$susername = $this->input->post('susername');
 			//$spassword = $this->input->post('spassword');
 			$spassword = base64_encode($this->input->post('spassword'));
-
             $captcha = $this->input->post('captcha');
             $sessCaptcha = $this->session->userdata('captchaCode');
             if($captcha === $sessCaptcha){
               $this->load->model('Admin_model');
-			  $data = array('scomapnyname' => $scomapnyname,'sname' => $sname, 'ssellertype' => $ssellertype, 'scontactperson' => $scontactperson, 'sdesignation'=> $sdesignation, 'span' => $span, 'saddress' => $saddress2, 'saddresscount' => $saddresscount, 'scity' => $scity, 'sgst' => $sgst, 'semail' => $semail, 'sphone' => $sphone, 'slocation' => $slocation, 'spin' => $spin, 'sstate' => $sstate, 'spcb' => $spcb, 'scin' => $scin, 'scountry' => $scountry, 'susername' => $susername, 'spassword' => $spassword);
+			  $data = array('scomapnyname' => $scomapnyname,'sname' => $sname, 'ssellertype' => $ssellertype, 'scontactperson' => $scontactperson, 'sdesignation'=> $sdesignation, 'span' => $span, 'saddress' => $saddress2, 'saddresscount' => $saddresscount, 'scity' => $scity, 'sgst' => $sgst, 'semail' => $semail, 'sphone' => $sphone, 'slocation' => $slocation, 'spin' => $spin, 'sstate' => $sstate, 'spcb' => $spcb, 'scin' => $scin, 'scountry' => $scountry, 'susername' => $susername, 'spassword' => $spassword, 'servperc' => $servperc);
 			  // check if company name exisyt before storing
 			  
 			  $status = $this->Admin_model->insert('sellerprofile', $data);
@@ -104,7 +103,7 @@ class Sellers_registeration extends CI_Controller {
 		$data['ImgFileName'] = $captcha['filename'];
         // Load the view
 		//$this->load->helper('url');
-		$this->load->view('header');
+		$this->load->view('header2');
 		$this->load->view('sellersregisteration',$data);
 		$this->load->view('footer');
         

@@ -90,8 +90,10 @@ The Contract will remain valid for 1 time sale/ 6 months/ 1 year of this Agreeme
 </p>
 <p class="para">
 <b>10.	Service Charge</b><br>
+<form action="./AgreementSellercharg" method="POST">
 10.1	The seller shall be entitled to a service charge of
 <input class="percent" type="text" value="%" name="servperc" maxlength="6" size="4">
+</form>
  on the basis of the Delivery Order / sale invoice issued through this auction over the Aucjunction portal.<br>
 10.2	The service charge is exclusive of any other taxes and duties levied by the Statutory Authorities of different States and Central Government. Service Charge will be calculated on the amount realised excluding Excise Duty and Sales Tax<br>
 </p>
@@ -158,7 +160,7 @@ Signature and Seal.
 
 
 		<div class="text-center" style="position:relative;background-color:#2e3192;">
-		<a href="<?php echo base_url()."registration/index/".$username."/".$date;?>"><button type="button" name="submit" class="btn btn-primary mt-2">Agree</button></a>
+		<a href="<?php echo base_url()."registration/index/".$username."/".$date;?>"><input type="button" name="submit2" class="btn btn-primary mt-2 col-3 mt-2 w-50" value="Agree"></a>
 		<a href="<?php echo base_url();?>home"><button type="button" class="btn btn-primary mt-2">Disagree</button></a>
 	</div>
 

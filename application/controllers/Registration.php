@@ -33,7 +33,7 @@ class Registration extends CI_Controller {
 		
 	
 		//$this->Admin_model->update_custom('buyerprofile',$update2,'busername',$dataw);
-		$this->load->view('header');
+		$this->load->view('header2');
 		$this->load->view('registration',$uname);
 		$this->load->view('footer');
 		
@@ -46,7 +46,7 @@ class Registration extends CI_Controller {
 		$pass = array('username'=> $dataw);
 		$this->load->model('Admin_model');
 		$this->Admin_model->update_custom('sellerprofile',$update,'susername',$dataw);
-		$this->load->view('header');
+		$this->load->view('header2');
 		$this->load->view('registration', $pass);
 		$this->load->view('footer');
 		
