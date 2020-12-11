@@ -160,7 +160,7 @@ Signature and Seal.
 
 
 		<div class="text-center" style="position:relative;background-color:#2e3192;">
-		<a href="<?php echo base_url()."registration/index/".$username."/".$date;?>"><input type="button" name="submit2" class="btn btn-primary mt-2 col-3 mt-2 w-50" value="Agree"></a>
+		<a href="<?php echo base_url()."registration/index/".$username."/".$date;?>"><input type="button" name="submit2" class="btn btn-primary mt-2 col-3 mt-2 w-25" value="Agree"></a>
 		<a href="<?php echo base_url();?>home"><button type="button" class="btn btn-primary mt-2">Disagree</button></a>
 	</div>
 

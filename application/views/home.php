@@ -150,8 +150,13 @@
 													</tr>
 												</thead>
 												<tbody>
-													
-																
+												<?php foreach($sqldata as $s){?>
+													<tr><td><?php echo $s->sauctionid; ?></td>
+													<td><?php echo $s->slotno; ?></td>
+													<td><?php echo $s->sdescription; ?></td>
+													<td><?php echo $s->saucstartdate_time; ?></td>
+													</tr>
+													<?php }?>			
 												</tbody>
 											</table>
 										</div> 			

@@ -21,10 +21,13 @@ class Home extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper('url');
+		$this->load->helper(array('url','html','date'));
+		date_default_timezone_set('Asia/Kolkata');
+		$time =  Date('Y-m-d H:i:s');
 		$this->load->model('Admin_model');	
 		$data['sqldata1'] = $this->Admin_model->getdatafromtablehomejoin();
-		
-		
+		$data['sqldata'] = $this->Admin_model->datebetweenhome($time);
+		//print_r($data['sqldata']); die;
 		$data['lnews'] = $this->Admin_model->gettablenews('latestnews');
 		$data['all'] = $this->Admin_model->getdatafromtablejoinallauc();
 		 /*  echo "<pre>";
