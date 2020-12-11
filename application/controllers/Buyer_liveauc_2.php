@@ -231,7 +231,7 @@ echo '</table>';
 	} 
 	public function get_currency(){
 		$data = urldecode($this->uri->segment(3));
-		$this->load->library('currency');
+		$this->load->library('Currency');
 		echo $this->currency->getIndianCurrency($data);
 		die;
 	}
@@ -261,7 +261,7 @@ echo '</table>';
 		$dataforupdate3 = array('aucclosedate_time' => $newtimestamp2);
 		$dataforupdate4 = array('saucclosedate_time' => $newtimestamp2);
 		$dataforupdate5 = array('bidderusername' => $username, 'sauctionid'=>$auctionid,'slotno'=>$lotno,'Date_time'=>$time,'bidamount'=>$bitval);
-		if(!$query2[0]->status){
+		if($query2[0]->status){
 			if($query2[0]->cbidval >= $bitval){
 				echo "Higher Bid Value";
 				die;
