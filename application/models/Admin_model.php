@@ -58,6 +58,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid');
 			$this->db->where('saucstartdate_time <=', $date);
 			$this->db->where('saucclosedate_time >=', $date);
+			$this->db->where('status =', 1);
 			$query = $this->db->get();
 			return $query->result();
 		}
