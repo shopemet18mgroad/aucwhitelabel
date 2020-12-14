@@ -24,7 +24,7 @@ class Seller_liveauc extends CI_Controller {
 		date_default_timezone_set('Asia/Kolkata');
 		$time =  Date('Y-m-d H:i:s');
 		$this->load->model('Admin_model');
-		$data['sqldata'] = $this->Admin_model->datebetween('auction',$time);
+		$data['sqldata'] = $this->Admin_model->datebetween5($time);
 		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		//$check_array = array('dat'=>);

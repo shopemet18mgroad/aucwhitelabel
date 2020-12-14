@@ -107,7 +107,7 @@
 	  </tr>
 	  <tr>
 	  <td><b>Phone No. *</b></td>
-	  <td><input  class="form-control w-100" type="text" id="bphone" name="bphone" size="50" pattern="[1-9]{1}[0-9]{9}" title="Enter 10 digit mobile number" required></td>
+	  <td><input  class="form-control w-100" type="text" id="bphone" name="bphone" size="50"  required></td>
 	  </tr>
 	  <tr>
 	  <td><b>Pan No.</b></td>

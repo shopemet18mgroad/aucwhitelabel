@@ -42,7 +42,7 @@ class Buyer_Mylist_dd_upload extends CI_Controller {
 			}
 			$kaa++;
 		}
-		echo $kab;
+		//echo $kab;
 		//$auc = urldecode($this->uri->segment(4));
 		
 		//$this->load->library('session');

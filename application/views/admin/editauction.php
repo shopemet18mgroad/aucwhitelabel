@@ -329,7 +329,8 @@ Bidders participating in AucJunction Auctions should verify with the selling com
     </tbody>
   </table>
   
-  <center><input  type="submit" name="submit" onclick="return validatestart()" class="btn btn-info" value="Update Auction" data-dismiss="modal"></center>
+  <center><input  type="submit" name="submit" onclick="return validatestart()" class="btn btn-info" value="Update Auction" data-dismiss="modal">
+  <a href="<?php echo base_url();?>Admin_editauction"><button  class="btn btn-info">Cancel</button></a></center>
  	 </form>
 			</div>
             </div>

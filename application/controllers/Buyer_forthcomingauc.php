@@ -57,7 +57,7 @@ class Buyer_forthcomingauc extends CI_Controller {
 	public function get_table(){
 		$datatoquerydb = $this->uri->segment(3);
 		$this->load->model('Admin_model');
-		$data = $this->Admin_model->get_lookalike('addlot','sdescription',$datatoquerydb);
+		$data = $this->Admin_model->get_lookalike2('addlot','sdescription',$datatoquerydb);
 		if(count($data)){
 			  
 			

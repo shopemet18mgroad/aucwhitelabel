@@ -140,7 +140,7 @@ The Contract will remain valid for 1 time sale/ 6 months/ 1 year of this Agreeme
 <div>
 For and On Behalf of <br>                                                                                               
 M/S&nbsp;<span><b><?php echo $company;?></b></span><br>	                                                                    
-By its  &nbsp;<span><b><?php echo $designation;?>&nbsp;</b></span>Shri &nbsp;<span><b><?php echo $sname;?></b></span>                      
+By its  &nbsp;<span><b><?php echo $designation;?>&nbsp;</b></span>Mr./Mrs./Miss. &nbsp;<span><b><?php echo $sname;?></b></span>                      
 <br><br><br>
 Signature with Seal.
 </div>
@@ -160,7 +160,7 @@ Signature and Seal.
 
 
 		<div class="text-center" style="position:relative;background-color:#2e3192;">
-		<a href="<?php echo base_url()."registration/index/".$username."/".$date;?>"><input type="button" name="submit2" class="btn btn-primary mt-2 col-3 mt-2" size="10" value="Agree"></a>
+		<a href="<?php echo base_url()."registration/index/".$username."/".$date;?>"><button type="button" class="btn btn-primary mt-2">Agree</button></a>
 		<a href="<?php echo base_url();?>home"><button type="button" class="btn btn-primary mt-2">Disagree</button></a>
 	</div>
 

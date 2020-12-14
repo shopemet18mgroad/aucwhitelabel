@@ -69,7 +69,7 @@
 					<td><?php echo $sqldat[0]->semdamount; ?></td>
 					<td><?php echo $sqldat[0]->sprice; ?></td>
 					<td><?php echo $sqldat[0]->sstartbidprice; ?></td>
-					<td><?php echo $sqldat[0]->sliftingperiod; ?><?php echo $sqldat[0]->sliftingperiod2; ?></td>
+					<td><?php echo $sqldat[0]->sliftingperiod; ?><br><?php echo $sqldat[0]->sliftingperiod2; ?></td>
 					<td><?php if($sqldat[0]->spcbcertificate == 1)
 								{ 
 							echo 'Yes';

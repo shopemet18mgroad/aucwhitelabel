@@ -44,7 +44,12 @@
 							</tr>
 						<tr>
 							<td class="btxt">Company Type:</td>
-							<td><input class="form-control w-50" type="text" id="ssellertype" name="ssellertype" required></td>
+							<td><select class="form-control w-50" style="text-align-last:center;" id="ssellertype" name="ssellertype">
+							<option value="Govt Regd Company" selected>Govt Regd Company</option>
+							<option value="Ltd, Pvt Ltd, LLP, Corp">Ltd, Pvt Ltd, LLP, Corp</option>
+							<option value="Partnership, Proprietorship, OPC" >Partnership, Proprietorship, OPC</option>
+							<option value="Other">Other</option>
+							</select></td>
 						</tr>  
 						<tr>
 							<td class="btxt">Contact Person:</td>

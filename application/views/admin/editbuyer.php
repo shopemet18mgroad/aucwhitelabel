@@ -62,7 +62,7 @@
 						</tr> 
 						<tr>
 							<td class="btxt">Pan Number:</td>
-							<td><input class="form-control w-50" type="text" id="bpan" name="bpan" value="<?php echo $sqldata[0]->bpan; ?>"></td>
+							<td><input class="form-control w-50 pan" type="text" id="bpan" name="bpan" value="<?php echo $sqldata[0]->bpan; ?>"></td>
 						</tr> 
 						<tr>
 							<td class="btxt">PCB Licence NO:</td>
@@ -81,7 +81,7 @@
 						</tr>
 						<tr>
 							<td class="btxt">Phone:</td>
-							<td><input class="form-control w-50" type="text" id="bphone" name="bphone"value="<?php echo $sqldata[0]->bphone; ?>"></td>
+							<td><input class="form-control w-50" type="text" id="bphone" name="bphone"value="<?php echo $sqldata[0]->bphone; ?>" required></td>
 						</tr>
 						<tr>
 					
@@ -185,7 +185,7 @@
 					</table>					
 			<button type="submit" name="submit" class="btn btn-info offset-sm-4 mt-2" onclick="return ValidateNo1();">Update</button>
 												
-				<button type="submit2" class="btn btn-info offset-sm-1 mt-2">Cancel</button>
+				<a href="<?php echo base_url();?>Admin_editbuyer"><button  class="btn btn-info offset-sm-1 mt-2">Cancel</button></a>
 					</form>							
 				
               </div>
@@ -260,6 +260,21 @@
  }
 
  </script>
+ <script type="text/javascript">    
+$(document).ready(function(){     
+        
+$(".pan").change(function () {      
+var inputvalues = $(this).val();      
+  var regex = /[A-Z]{5}[0-9]{4}[A-Z]{1}$/;    
+  if(!regex.test(inputvalues)){      
+  $(".pan").val("");    
+  swal("Alert!","Invalid PAN no", "error");    
+  return regex.test(inputvalues);    
+  }    
+});      
+    
+});    
+</script> 
  <?php 
 	//include('./footerdata.php');
 ?>

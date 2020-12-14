@@ -24,7 +24,7 @@ class Seller_liveauc_2 extends CI_Controller {
 		$this->load->library('session');
 		/* $this->load->library('currency');
 		echo $this->currency->getIndianCurrency(7288);die; */
-		if(!$this->session->has_userdata('username')|| $this->session->userdata('auth') != "SELLER")){
+		if(!$this->session->has_userdata('username')|| $this->session->userdata('auth') != "SELLER"){
 			$datainserr = "Invalid Login Session";
 			header('location: '.base_url().'login/index_error/'.$datainserr);
 			die;
