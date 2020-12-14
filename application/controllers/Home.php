@@ -33,6 +33,7 @@ class Home extends CI_Controller {
 		 /*  echo "<pre>";
 		print_r($data['all']); 
 		echo "</pre>";die;  */ 
+		
 		$this->load->view('header');
 		$this->load->view('home',$data);
 		$this->load->view('footer');

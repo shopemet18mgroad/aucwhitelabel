@@ -49,10 +49,20 @@
  function validatearry(){
 	   var company = document.getElementById('scomapnyname').value;
 	   var user = document.getElementById('susername').value;
+	   var phoneNo = document.getElementById("sphone").value;
 	   if(company == '' || user == ''){
 		   swal("Alert!", "Company Name or UserName Cannot Be Left Blank", "error");
 					return false;
 			}
+			
+			if (phoneNo.value.length < 10 || phoneNo.value.length > 10) {
+    swal("Alert!", "Mobile No. is not valid, Please Enter 10 Digit Mobile No.", "error");
+    return false;
+  }
+  else if (phoneNo.value == "") {
+    swal("Alert!","Please enter your Mobile No.","error");
+    return false;
+  }
 			
 	 	var selectname = document.getElementsByName('saddress[]');
 		var textareablselect = document.getElementsByName('saddresscount[]');
@@ -295,11 +305,20 @@
  function validatearry2(){
 	   var company = document.getElementById('bcompany').value;
 	   var user = document.getElementById('busername').value;
+	   var phoneNo = document.getElementById("bphone").value;
 	   if(company == '' || user == ''){
 		   swal("Alert!", "Company Name or UserName Cannot Be Left Blank", "error");
 					return false;
 			}
-			
+	
+	if (phoneNo.value.length < 10 || phoneNo.value.length > 10) {
+    swal("Alert!", "Mobile No. is not valid, Please Enter 10 Digit Mobile No.", "error");
+    return false;
+  }
+  else if (phoneNo.value == "") {
+    swal("Alert!","Please enter your Mobile No.","error");
+    return false;
+  }
 	 
 		var signeddoc = document.getElementsByName('bsigneddocument[]');
 

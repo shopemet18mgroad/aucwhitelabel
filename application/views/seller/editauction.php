@@ -42,6 +42,8 @@
 				<option value="Minor Metals" >Minor Metals</option>
 				<option value="Plain paper">Plain paper</option>
 				<option value="Granules">Granules</option>
+				<option value="General">General</option>
+				<option value="PCB">PCB</option>
 				<option value="All Construction Materials">All Construction Materials</option>
 				</select>
 			</td>
@@ -318,7 +320,8 @@ Bidders participating in AucJunction Auctions should verify with the selling com
     </tbody>
   </table>
   
-  <center><input  type="submit" name="submit" onclick="return validatestart_edit()" class="btn btn-info" value="Update Auction" data-dismiss="modal"></center>
+  <center><input  type="submit" name="submit" onclick="return validatestart_edit()" class="btn btn-info" value="Update Auction" data-dismiss="modal">
+  <a href="<?php echo base_url();?>Seller_editauction"><button  class="btn btn-info">Cancel</button></a></center>
  	 </form>
 			</div>
             </div>

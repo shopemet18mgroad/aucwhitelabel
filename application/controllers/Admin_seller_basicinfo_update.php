@@ -30,13 +30,13 @@ class Admin_seller_basicinfo_update extends CI_Controller {
 		$this->load->model('Admin_model');
 		$sname = $this->input->post('sname');
 		$scomapnyname = $this->input->post('scomapnyname');
-		$scompanytype = $this->input->post('scompanytype');
+		$ssellertype = $this->input->post('ssellertype');
 		$scontactperson  = $this->input->post('scontactperson');
 		$sdesignation = $this->input->post('sdesignation');
-		$susername = $this->input->post('susername');
+		//$susername = $this->input->post('susername');
 		//$spassword = password_hash('default_auc123',PASSWORD_BCRYPT);
-		$spassword = base64_encode('default_auc123');
-
+		//$spassword = base64_encode('default_auc123');
+		$spassword = base64_encode($this->input->post('spassword'));
 		$scin  = $this->input->post('scin');
 		$sgst  = $this->input->post('sgst');
 		$span  = $this->input->post('span');
@@ -111,13 +111,13 @@ class Admin_seller_basicinfo_update extends CI_Controller {
 		
 		
 		//==================================================================
-		$data2 = array('sname' => $sname, 'scompanytype' => $scompanytype, 'scontactperson' => $scontactperson, 'sdesignation' => $sdesignation, 'susername' => $susername, 'spassword'=> $spassword, 'scin' => $scin, 'sgst' => $sgst, 'span' => $span,'spcb' => $spcb, 'semail' => $semail, 'sphone' => $sphone , 'saddress' => $saddress2, 'saddresscount' => $saddresscount, 'spin' => $spin, 'sstate' => $sstate, 'scountry' => $scountry, 'sbankername' => $sbankername, 'saccountnumber' => $saccountnumber, 'sbranch' => $sbranch, 'sifsccode' => $sifsccode, 'suploadprofilepic' => $pic_array, 'ssigneddocument' => $doc_array);
+		$data2 = array('sname' => $sname,'scomapnyname' => $scomapnyname, 'ssellertype' => $ssellertype, 'scontactperson' => $scontactperson, 'sdesignation' => $sdesignation,'spassword'=> $spassword, 'scin' => $scin, 'sgst' => $sgst, 'span' => $span,'spcb' => $spcb, 'semail' => $semail, 'sphone' => $sphone , 'saddress' => $saddress2, 'saddresscount' => $saddresscount, 'spin' => $spin, 'sstate' => $sstate, 'scountry' => $scountry, 'sbankername' => $sbankername, 'saccountnumber' => $saccountnumber, 'sbranch' => $sbranch, 'sifsccode' => $sifsccode, 'suploadprofilepic' => $pic_array, 'ssigneddocument' => $doc_array);
 		//$this->load->view('xya', $data);
 		$datainserr = "Data Inserted Successfully";
 		$updatech = array('scomapnyname' => $scomapnyname);
 		$status = $this->Admin_model->update_custom('sellerprofile',$data2,$updatech,$updatech);
 		// $status = $this->Admin_model->insert('sellerprofile', $data2);
-		header('location: '.base_url().'admin_dashboard/index/'.$datainserr);
+		header('location: '.base_url().'admin_sellereditprofile/index/'.$datainserr);
 		//$this->load->view('admin/header');
 		//$this->load->view('admin/salesreport');
 		//$this->load->view('admin/footer');

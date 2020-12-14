@@ -80,7 +80,7 @@
 					<td><?php echo $bal; ?></td>
 					<td><?php echo $sqlot->sqty; ?></td>
 					<td><?php echo $sqlot->sunitmeasurment; ?></td>
-					<td><?php echo $sqlot->sprice; ?></td>
+					<td><?php echo $sqlot->sstartbidprice; ?></td>
 					<td><?php if($sqlot->cbidval){echo $sqlot->cbidval;} ?></td>
 					
 				</tr>

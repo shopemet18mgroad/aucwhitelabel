@@ -63,7 +63,7 @@
 		 </form>		  
                   
                   <div class="text-center">
-                    <a class="small text-white" href="forgot-password.php">Forgot Password?</a>
+                    <a class="small text-white" href="<?php echo base_url()."dofoget"?>">Forgot Password?</a>
                   </div>
                 
                 </div>

@@ -55,7 +55,7 @@ class Home_Login extends CI_Controller {
 				  }
 			  }else{
 				  $datainserr = "Invalid Password";
-				  header('location: '.base_url().'Home_Login/index_error/'.$datainserr);
+				  header('location: '.base_url().'Home/index/'.$datainserr);
 				  die;
 			  }
 			  die;

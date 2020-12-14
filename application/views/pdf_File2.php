@@ -42,7 +42,7 @@ th, td {
 
 	<h2><u><?php echo $sqldata2[0]->scompanyname; ?></u></h2>
 	
-<pre><?php echo $sqldata[0]->slotlocation; ?></pre>
+<pre><?php echo $sql[0]->saddresscount; ?></pre>
 
 	<div class="bara w-100">
 		<p><strong>ONLINE AUCTION PLATFORM AND SUPPORT SERVICES PROVIDED BY AUCJUNCTION</strong></p>
@@ -90,7 +90,7 @@ annexed hereto and as per schedule of programme given below. </p>
   
   <tr>
     <td><a href ="#"></a>EMD Details</td>
-    <td><?php echo $sqldata[0]->semdamount; ?></td>
+    <td><?php echo $sqldata[0]->semddetail; ?></td>
  
   </tr>
  
@@ -102,7 +102,8 @@ annexed hereto and as per schedule of programme given below. </p>
   
   <tr>
     <td>On-Line Auction Date and time</td>
-    <td><?php echo $sqldata2[0]->sonlineaucdate_time; ?>
+    <td><?php echo $sqldata2[0]->saucstartdate_time; ?><br>
+	<?php echo $sqldata2[0]->saucclosedate_time; ?>
 </td>
  
   </tr>
@@ -140,13 +141,13 @@ No.</b></th>
 </tr>
 <?php foreach($sqldata as $sqldat){?>	
   <tr>
-    <td><?php echo $sqldat->id; ?></td>
+    <td><?php echo $sqldat->slotno; ?></td>
     <td><?php echo $sqldat->slotname; ?></td>
 	<td><?php echo $sqldat->sqty?></td>
 	<td><?php echo $sqldat->sunitmeasurment; ?></td>
 	<td><?php echo $sqldat->sbidbase; ?></td>
 	<td><?php echo $sqldat->sgst; ?></td>
-	<td><?php echo $sqldat->slotname; ?></td>
+	<td><?php echo $sqldat->sothertax; ?></td>
 	<td><?php if($sqldat->spcbcertificate == 1) {echo 'Y';} ?>
 	<?php if($sqldat->spcbcertificate == 0) {echo 'N';} ?></td>
 	<td><?php echo $sqldat->semdamount; ?></td>

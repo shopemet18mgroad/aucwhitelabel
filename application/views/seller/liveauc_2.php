@@ -81,7 +81,7 @@
 					<td><?php echo $sqlot->sqty; ?></td>
 					<td><?php echo $sqlot->sunitmeasurment; ?></td>
 					<td><?php echo $sqlot->sstartbidprice; ?></td>
-					<td><?php echo $sqlot->sbidfinalprice; ?></td>
+					<td><?php  echo $sqlot->cbidval; ?></td>
 					
 				</tr>
 				<?php }?>

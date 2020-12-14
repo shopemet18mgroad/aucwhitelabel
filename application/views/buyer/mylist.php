@@ -2,7 +2,7 @@
 	//include('./header.php');
 ?>
         <!-- End of Topbar -->
-
+	
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
@@ -103,13 +103,14 @@
 					
 					<td>
 					<a href="<?php echo base_url()."Buyer_Mylist_dd_upload/emdreq/".$sessi."/".$aucencode."/".urlencode($sqldata->lotno);?>">
-					<button  type="button" class="btn btn-primary w-auto small">Emd Request</button></a>
+					<button type='submit2'  onclick="this.disabled=true" class="btn btn-primary w-auto small" >Emd Request</button></a>
+					
 					</td>
-			
+				
 					 <?php $k++;}?> 
 
 				</tr>
-			
+		
 							
 				</tbody>
 		 </table>
@@ -138,6 +139,13 @@
     <!-- End of Content Wrapper -->
 
   </div>
+  
+<script>
+$('form').submit2(function() {
+  $(this).find("button[type='submit2']").prop('disabled',true);
+});
+</script>
+		
   <!-- End of Page Wrapper -->
   <!-- Scroll to Top Button-->
  <?php 

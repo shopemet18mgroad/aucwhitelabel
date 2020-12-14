@@ -72,7 +72,7 @@
 							</tr>
 							<tr>
 								<td>Country</td>
-								<td><?php echo $sqldata[0]->bcountry; ?></td>
+								<td>India</td>
 							</tr>
 							
 							<tr>

@@ -146,7 +146,7 @@ The Contract will remain valid from (Date) of Registration to 1 (One) Year of th
 <div>
 For and On Behalf of <br>                                                                                               
 M/S&nbsp;<span><b><?php echo $company;?></b></span><br>	                                                                    
-By its  &nbsp;<span><b><?php echo $designation;?>&nbsp;</b></span>Shri &nbsp;<span><b><?php echo $bname;?></b></span>                      
+By its  &nbsp;<span><b><?php echo $designation;?>&nbsp;</b></span>Mr./Mrs./Miss.&nbsp;<span><b><?php echo $bname;?></b></span>                      
 <br><br><br>
 Signature with Seal.
 </div>

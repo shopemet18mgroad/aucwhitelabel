@@ -31,7 +31,7 @@ class Admin_liveauc extends CI_Controller {
 			die;
 		}else{
 		$this->load->model('Admin_model');
-		$data['sqldata'] = $this->Admin_model->datebetween('auction',$time);
+		$data['sqldata'] = $this->Admin_model->datebetween5($time);
 
 		
 		$sess = array('sessi'=>$this->session->userdata('username'));

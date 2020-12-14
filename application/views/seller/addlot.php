@@ -59,6 +59,8 @@
 				<option value="Minor Metals" >Minor Metals</option>
 				<option value="Plain paper">Plain paper</option>
 				<option value="Granules">Granules</option>
+				<option value="General">General</option>
+				<option value="PCB">PCB</option>
 				<option value="All Construction Materials">All Construction Materials</option>
 				</select>
 			</td>
@@ -85,7 +87,7 @@
 		<td>Unit Of Measurment</td>
 		<td><select class="form-control w-50" id="sunitmeasurment" name="sunitmeasurment">
 				<option value="KG" selected>KG</option>
-				<option value="Matric Tone">Matric Tone</option>
+				<option value="Metric Tone">Metric Tone</option>
 				<option value="Lot">Lot</option>
 				<option value="Litters">Litters</option>
 				<option value="Numbers">Numbers</option>
@@ -100,7 +102,7 @@
 		<td>Bid Base</td>
 		<td><select class="form-control w-50" id="sbidbase" name="sbidbase">
 				<option value="KG" selected>KG</option>
-				<option value="Matric Tone">Matric Tone</option>
+				<option value="Metric Tone">Metric Tone</option>
 				<option value="Lot">Lot</option>
 				<option value="Litters">Litters</option>
 				<option value="Numbers">Numbers</option>

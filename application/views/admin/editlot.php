@@ -60,6 +60,8 @@
 				<option value="Minor Metals" >Minor Metals</option>
 				<option value="Plain paper">Plain paper</option>
 				<option value="Granules">Granules</option>
+				<option value="General">General</option>
+				<option value="PCB">PCB</option>
 				<option value="All Construction Materials">All Construction Materials</option>
 				</select>
 			</td>
@@ -95,7 +97,7 @@
 		<td><select class="form-control w-50" id="sunitmeasurment" name="sunitmeasurment" value="<?php echo $sqldata[0]->sunitmeasurment; ?>">
 				<option value="<?php echo $sqldata[0]->sunitmeasurment; ?>"><?php echo $sqldata[0]->sunitmeasurment; ?></option>
 				<option value="KG">KG</option>
-				<option value="Matric Tone">Matric Tone</option>
+				<option value="Metric Tone">Metric Tone</option>
 				<option value="Lot">Lot</option>
 				<option value="Litters">Litters</option>
 				<option value="Numbers">Numbers</option>
@@ -108,7 +110,7 @@
 		<td><select class="form-control w-50" id="sbidbase" name="sbidbase" value="<?php echo $sqldata[0]->sbidbase; ?>">
 				<option value="<?php echo $sqldata[0]->sunitmeasurment; ?>" selected><?php echo $sqldata[0]->sunitmeasurment; ?></option>
 				<option value="KG">KG</option>
-				<option value="Matric Tone">Matric Tone</option>
+				<option value="Metric Tone">Metric Tone</option>
 				<option value="Lot">Lot</option>
 				<option value="Litters">Litters</option>
 				<option value="Numbers">Numbers</option>
@@ -176,6 +178,7 @@ if($sqldata[0]->spcbcertificate){echo "unchecked";}else{echo "checked";}		?>>
 
  
  <input type="submit"  name="submit" onclick="return validatelot()" class="btn btn-info text-white" value="Update Lot" data-dismiss="modal">
+ <a href="<?php echo base_url();?>Admin_editlot"><button  class="btn btn-info">Cancel</button></a>
   </center>
   </form>
 			</div>

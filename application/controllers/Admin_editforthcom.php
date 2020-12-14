@@ -85,9 +85,11 @@ class Admin_editforthcom extends CI_Controller {
 				echo $dat['sauctionid'];
 				$aucfl = unserialize($dat['sterms_condiupload']);
 				$passaucid = str_ireplace('/','-',$dat['sauctionid']);
+				
 				echo '</a>';
 				echo '</td>';
 				echo '<td>'.$dat['sname'].'</td>';
+				$snm = urlencode($dat['sname']);
 				echo '<td>'.$dat['scategory'].'</td>';
 				echo '<td>'.$dat['scompanyname'].'</td>';
 				echo '<td>'.$dat['svinspection'].'</td>';
@@ -109,7 +111,7 @@ class Admin_editforthcom extends CI_Controller {
 				//$aucfl = unserialize ($dat['sterms_condiupload']);
 				//echo '<td>'.implode (",",$aucfl).'</td>';
 				//echo '<td><a href="'.base_url().'Admin_editauction/editauction/'.urlencode($dat['sname']).'">';
-				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$passaucid.'" target="_blank"><i class="fa fa-download"></i></a></td>';
+				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$passaucid.'/'.urlencode($dat['sname']).'" target="_blank"><i class="fa fa-download"></i></a></td>';
 				//echo '</a>';
 				//echo '</td>';
 
