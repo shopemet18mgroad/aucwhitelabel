@@ -41,8 +41,11 @@ th, td {
 <body>
 
 	<h2><u><?php echo $sqldata2[0]->scompanyname; ?></u></h2>
-	
-<pre><?php echo $sql[0]->saddresscount; ?></pre>
+	<?php $companyltype = unserialize($sql[0]->saddress);
+	$companyaddress = unserialize($sql[0]->saddresscount);?>
+
+<pre><?php echo $companyltype[0] ;?><br>
+<?php echo $companyaddress[0] ;?></pre>
 
 	<div class="bara w-100">
 		<p><strong>ONLINE AUCTION PLATFORM AND SUPPORT SERVICES PROVIDED BY AUCJUNCTION</strong></p>
@@ -383,6 +386,20 @@ in applicable tax rates that are promulgated by the Government from time to time
 </p>												
 <br><br>
 
+
+ <table style="width:100%">
+  <tr>
+    <th style="color:red"><center>Upload terms & Conditions</center></th>
+ 
+
+  </tr>
+
+   <tr>
+    <td><?php echo $sqldata2[0]->sterms_text; ?>
+</td>
+   
+  </tr>
+  </table >
 			
 <!--
 </body>

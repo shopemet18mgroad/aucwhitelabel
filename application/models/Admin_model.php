@@ -162,6 +162,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return $query->result();
 		}
 		
+		
+		
 		public function getdatafromtablejoinallauc(){
 			$this->db->select('*');
 			 $this->db->from('auction');

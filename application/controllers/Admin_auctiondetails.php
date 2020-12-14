@@ -85,11 +85,11 @@ class Admin_auctiondetails extends CI_Controller {
 				echo 'Accepted';
 				}
 				echo '</td>';
-				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$passaucid.urlencode($dat['sname']).serialize($dat['sterms_condiupload']).'" target="_blank">';
+				echo '<td>';
 				if(isset($aucfl[0])){
 				echo $aucfl[0];	
 				}
-				echo '</a></td>';
+				echo '</td>';
 				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$passaucid.urlencode($dat['sname']).'" target="_blank"><i class="fa fa-download"></i></a></td>';
 				echo '<td><a href="'.base_url().'Admin_editauction/editauction/'.$passaucid.'">';
 				echo '<i class="fa fa-edit"></i>';
