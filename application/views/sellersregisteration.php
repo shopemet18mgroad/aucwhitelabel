@@ -123,7 +123,7 @@
       </tr>
 	   <tr>
         <td><b>Phone *</b></td>
-        <td><input class="form-control w-100" type="text" id="sphone" name="sphone" size="50"  pattern="[1-9]{1}[0-9]{9}" title="Enter 10 digit mobile number" required></td>      
+        <td><input class="form-control w-100" type="text" id="sphone" name="sphone" size="50"   title="Enter 10 digit mobile number" required></td>      
       </tr>
 	 <tr>
 	  <td><b>User Name *</b></td>
@@ -156,7 +156,7 @@
 	   </tbody>
 	   </table>
 		<div class="text-center">
-    <input type="submit" name="submit2" id="btn1" onclick="return validate1()" value=" Proceed" class="btn btn-primary col-3 mt-2 w-100">
+    <input type="submit" name="submit2" id="btn1" onclick="return validate1()" value=" Proceed" class="btn btn-primary col-3 mt-2 w-25">
 	<button type="reset" class="btn btn-primary col-3 mt-2">Reset</button>
 		</div>
 		</form>

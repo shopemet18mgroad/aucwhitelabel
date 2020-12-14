@@ -30,7 +30,7 @@ class Admin_seller_basicinfo_add extends CI_Controller {
 		$this->load->model('Admin_model');
 		$sname = $this->input->post('sname');
 		$scomapnyname = $this->input->post('scomapnyname');
-		$scompanytype = $this->input->post('scompanytype');
+		$ssellertype = $this->input->post('ssellertype');
 		$scontactperson  = $this->input->post('scontactperson');
 		$sdesignation = $this->input->post('sdesignation');
 		$susername = $this->input->post('susername');
@@ -76,7 +76,7 @@ class Admin_seller_basicinfo_add extends CI_Controller {
 		 
 		
 		//==================================================================
-		$data2 = array('sname' => $sname, 'scomapnyname' => $scomapnyname, 'scompanytype' => $scompanytype, 'scontactperson' => $scontactperson, 'sdesignation' => $sdesignation, 'susername' => $susername, 'spassword'=> $spassword, 'scin' => $scin, 'sgst' => $sgst, 'span' => $span,'spcb' => $spcb, 'semail' => $semail, 'sphone' => $sphone , 'saddress' => $saddress2, 'saddresscount' => $saddresscount, 'spin' => $spin,'scity' => $scity, 'sstate' => $sstate, 'scountry' => $scountry, 'sbankername' => $sbankername, 'saccountnumber' => $saccountnumber, 'sbranch' => $sbranch, 'sifsccode' => $sifsccode, 'suploadprofilepic' => $pic_array, 'ssigneddocument' => $doc_array);
+		$data2 = array('sname' => $sname, 'scomapnyname' => $scomapnyname, 'ssellertype' => $ssellertype, 'scontactperson' => $scontactperson, 'sdesignation' => $sdesignation, 'susername' => $susername, 'spassword'=> $spassword, 'scin' => $scin, 'sgst' => $sgst, 'span' => $span,'spcb' => $spcb, 'semail' => $semail, 'sphone' => $sphone , 'saddress' => $saddress2, 'saddresscount' => $saddresscount, 'spin' => $spin,'scity' => $scity, 'sstate' => $sstate, 'scountry' => $scountry, 'sbankername' => $sbankername, 'saccountnumber' => $saccountnumber, 'sbranch' => $sbranch, 'sifsccode' => $sifsccode, 'suploadprofilepic' => $pic_array, 'ssigneddocument' => $doc_array);
 		//$this->load->view('xya', $data);
 		
 		

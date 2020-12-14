@@ -62,7 +62,7 @@ class Login extends CI_Controller {
 				  }
 			  }else{
 				  $datainserr = "Invalid Password";
-				  header('location: '.base_url().'Login/index_error/'.$datainserr);
+				  header('location: '.base_url().'login/index_error/'.$datainserr);
 				  die;
 			  }
 			  die;

@@ -42,7 +42,7 @@
 	 							 </tr>
 						<tr>												
 							<td class="btxt">Company Name:</td>
-							<td><input class="form-control w-50" type="text" id="bcompany" name="bcompany" value="<?php echo $sqldata[0]->bcompany; ?>"></td>
+							<td><input class="form-control w-50" type="text" id="bcompany" name="bcompany" value="<?php echo $sqldata[0]->bcompany; ?>" readonly></td>
 							</tr>
 						<tr>
 							<td class="btxt">Company Type:</td>
@@ -183,7 +183,7 @@
 										
 						</tbody>
 					</table>					
-			<button type="submit" name="submit" class="btn btn-info offset-sm-4 mt-2">Update</button>
+			<button type="submit" name="submit" class="btn btn-info offset-sm-4 mt-2" onclick="return ValidateNo1();">Update</button>
 												
 				<button type="submit2" class="btn btn-info offset-sm-1 mt-2">Cancel</button>
 					</form>							
@@ -243,6 +243,22 @@
 			
 			});
  
+ </script>
+ <script>
+
+ function ValidateNo1() {
+  var phoneNo = document.getElementById('bphone');
+
+   if (phoneNo.value.length < 10 || phoneNo.value.length > 10) {
+    swal("Alert!", "Mobile No. is not valid, Please Enter 10 Digit Mobile No.", "error");
+    return false;
+  }
+  else if (phoneNo.value == "") {
+    swal("Alert!","Please enter your Mobile No.","error");
+    return false;
+  }
+ }
+
  </script>
  <?php 
 	//include('./footerdata.php');

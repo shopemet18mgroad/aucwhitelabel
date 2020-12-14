@@ -28,7 +28,7 @@ class Admin_buyer_basicinfo_update extends CI_Controller {
 		$bcompany = $this->input->post('bcompany');
 		$bcomptype = $this->input->post('bcomptype');
 		$bcontactperson  = $this->input->post('bcontactperson');
-		$busername = $this->input->post('busername');
+		//$busername = $this->input->post('busername');
 		//$bpassword = password_hash('default_auc123',PASSWORD_BCRYPT);
 		$bpassword = base64_encode('default_auc123');
 
@@ -39,7 +39,6 @@ class Admin_buyer_basicinfo_update extends CI_Controller {
 		$bemail  = $this->input->post('bemail');
 		$bphone  = $this->input->post('bphone');
 		$baddress  = $this->input->post('baddress');
-		
 		$bpin  = $this->input->post('bpin');
 		$bstate  = $this->input->post('bstate');
 		$bcountry  = $this->input->post('bcountry');
@@ -110,7 +109,7 @@ class Admin_buyer_basicinfo_update extends CI_Controller {
 		
 		
 		//==================================================================
-		$data2 = array('bname' => $bname, 'bcomptype' => $bcomptype, 'bcontactperson' => $bcontactperson,'busername' => $busername, 'bpassword'=> $bpassword, 'bcin' => $bcin, 'bgst' => $bgst,'bpan' => $bpan,'bpcb' => $bpcb, 'bemail' => $bemail, 'bphone' => $bphone,'baddress' => $baddress, 'bpin' => $bpin, 'bstate' => $bstate, 'bcountry' => $bcountry, 'bbankname' => $bbankname, 'baccountnumber' => $baccountnumber, 'bbranch' => $bbranch, 'bifsccode' => $bifsccode, 'buploadimagepic' => $pic_array, 'bsigneddocument' => $doc_array);
+		$data2 = array('bname' => $bname,'bcompany' => $bcompany, 'bcomptype' => $bcomptype, 'bcontactperson' => $bcontactperson, 'bpassword'=> $bpassword, 'bcin' => $bcin, 'bgst' => $bgst,'bpan' => $bpan,'bpcb' => $bpcb, 'bemail' => $bemail, 'bphone' => $bphone,'baddress' => $baddress, 'bpin' => $bpin, 'bstate' => $bstate, 'bcountry' => $bcountry, 'bbankname' => $bbankname, 'baccountnumber' => $baccountnumber, 'bbranch' => $bbranch, 'bifsccode' => $bifsccode, 'buploadimagepic' => $pic_array, 'bsigneddocument' => $doc_array);
 		//$this->load->view('xya', $data);
 		$datainserr = "Data Inserted Successfully";
 		$updatech = array('bcompany' => $bcompany);

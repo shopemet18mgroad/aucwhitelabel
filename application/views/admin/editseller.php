@@ -40,11 +40,18 @@
 	 							 </tr>
 						<tr>												
 							<td class="btxt">Company Name:</td>
-							<td><input class="form-control w-50" type="text" id="scomapnyname" name="scomapnyname" value="<?php echo $sqldata[0]->scomapnyname; ?>"></td>
+							<td><input class="form-control w-50" type="text" id="scomapnyname" name="scomapnyname" value="<?php echo $sqldata[0]->scomapnyname; ?>" readonly></td>
 							</tr>
 						<tr>
 							<td class="btxt">Seller Type:</td>
-								<td><input class="form-control w-50" type="text" id="ssellertype" name="ssellertype" value="<?php echo $sqldata[0]->ssellertype; ?>"></td>
+								<td><select class="form-control w-50" style="text-align-last:center;" id="ssellertype" name="ssellertype">
+								<option value="<?php echo $sqldata[0]->ssellertype; ?>" selected><?php echo $sqldata[0]->ssellertype; ?></option>
+								<option value="Govt Regd Company">Govt Regd Company</option>
+								<option value="Ltd, Pvt Ltd, LLP, Corp">Ltd, Pvt Ltd, LLP, Corp</option>
+								<option value="Partnership, Proprietorship, OPC" >Partnership, Proprietorship, OPC</option>
+								<option value="Other">Other</option>
+								</select>
+							</td>
 						</tr>  
 						<tr>
 							<td class="btxt">Contact Person:</td>
@@ -75,7 +82,7 @@
 						<tbody>
 						<tr>
 							<td class="btxt">Email:</td>
-							<td><input class="form-control w-50" type="email" id="semail" name="semail" value="<?php echo $sqldata[0]->semail; ?>"></td>
+							<td><input class="form-control w-50" type="email" id="semail" name="semail" value="<?php echo $sqldata[0]->semail; ?>" required></td>
 						</tr>
 						<tr>
 							<td class="btxt">Phone:</td>
@@ -222,7 +229,7 @@
 							?>
 						</tbody>
 					</table>								
-				<button type="submit" class="btn btn-info offset-sm-4 mt-2">Update</button>
+				<input type="submit" class="btn btn-info offset-sm-4 mt-2" value="Update" onclick="return ValidateNo();">
 												
 				<button type="submit2" class="btn btn-info offset-sm-1 mt-2">Back</button>
 												
@@ -314,7 +321,25 @@
 			});
  
  </script>
+ <script>
  
+ </script>
+ 
+ <script>
+ function ValidateNo() {
+  var phoneNo = document.getElementById('sphone');
+
+   if (phoneNo.value.length < 10 || phoneNo.value.length > 10) {
+    swal("Alert!", "Mobile No. is not valid, Please Enter 10 Digit Mobile No.", "error");
+    return false;
+  }
+  else if (phoneNo.value == "") {
+    swal("Alert!","Please enter your Mobile No.","error");
+    return false;
+  }
+ }
+ </script>
+
   <?php 
 	//include('./footerdata.php');
 ?>

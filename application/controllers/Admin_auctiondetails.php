@@ -90,7 +90,7 @@ class Admin_auctiondetails extends CI_Controller {
 				echo $aucfl[0];	
 				}
 				echo '</td>';
-				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$passaucid.'" target="_blank"><i class="fa fa-download"></i></a></td>';
+				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$passaucid.urlencode($dat['sname']).'" target="_blank"><i class="fa fa-download"></i></a></td>';
 				echo '<td><a href="'.base_url().'Admin_editauction/editauction/'.$passaucid.'">';
 				echo '<i class="fa fa-edit"></i>';
 				echo '</a>';

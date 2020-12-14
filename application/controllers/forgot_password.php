@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class forgot_password extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -21,21 +21,8 @@ class Home extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper('url');
-		$this->load->helper(array('url','html','date'));
-		date_default_timezone_set('Asia/Kolkata');
-		$time =  Date('Y-m-d H:i:s');
-		$this->load->model('Admin_model');	
-		$data['sqldata1'] = $this->Admin_model->getdatafromtablehomejoin();
-		$data['sqldata'] = $this->Admin_model->datebetweenhome($time);
-		//print_r($data['sqldata']); die;
-		$data['lnews'] = $this->Admin_model->gettablenews('latestnews');
-		$data['all'] = $this->Admin_model->getdatafromtablejoinallauc();
-		 /*  echo "<pre>";
-		print_r($data['all']); 
-		echo "</pre>";die;  */ 
-		
 		$this->load->view('header');
-		$this->load->view('home',$data);
+		$this->load->view('forgotpassword');
 		$this->load->view('footer');
 		
 	}

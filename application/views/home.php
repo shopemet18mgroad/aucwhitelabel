@@ -46,7 +46,7 @@
 								<div class="nw newswrapper ">
 								
 								<ul>
-								<?php foreach($lnews as $sqld){?>
+								<?php if(isset($lnews)){foreach($lnews as $sqld){?>
 								
 								<li  class="odd" >
 								<marquee direction="up">
@@ -62,7 +62,7 @@
 								</li>-->
 								
 								
-								<?php }?>
+								<?php }}?>
 								<!--<li><a href="">Aucjunction10200003</a>
 								<p>FERROUS Mild Steel ( MS) Scrap Stainless Steel ( SS) Scrap – BENGALURU, KARNATAKA on October 2020</p>
 								</li>-->
@@ -114,7 +114,7 @@
 													</tr>
 												</thead>
 												<tbody>
-												<?php foreach($sqldata1 as $sqldat){?>
+												<?php if(isset($sqldata1)){foreach($sqldata1 as $sqldat){?>
 													<tr>
 													
 																						
@@ -124,7 +124,7 @@
 					<td><?php echo $sqldat->saucstartdate_time; ?></td>
 														
 													</tr>
-													<?php }?>
+												<?php }}?>
 																				
 												</tbody>
 											</table>
@@ -150,13 +150,13 @@
 													</tr>
 												</thead>
 												<tbody>
-												<?php foreach($sqldata as $s){?>
+												<?php if(isset($sqldata)){foreach($sqldata as $s){?>
 													<tr><td><?php echo $s->sauctionid; ?></td>
 													<td><?php echo $s->slotno; ?></td>
 													<td><?php echo $s->sdescription; ?></td>
 													<td><?php echo $s->saucstartdate_time; ?></td>
 													</tr>
-													<?php }?>			
+												<?php }}?>			
 												</tbody>
 											</table>
 										</div> 			
@@ -179,7 +179,7 @@
 													</tr>
 												</thead>
 												<tbody>
-													<?php foreach($all as $sql){?>
+													<?php if(isset($all)){ foreach($all as $sql){?>
 													<tr>
 														
 					<td><?php echo $sql->sauctionid; ?></td>
@@ -187,7 +187,7 @@
 					<td><?php echo $sql->sdescription; ?></td>
 					<td><?php echo $sql->saucstartdate_time; ?></td>
 													</tr>
-													<?php }?>
+													<?php }}?>
 																
 																												
 												</tbody>

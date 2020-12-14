@@ -60,6 +60,8 @@
 				<option value="Minor Metals" >Minor Metals</option>
 				<option value="Plain paper">Plain paper</option>
 				<option value="Granules">Granules</option>
+				<option value="General">General</option>
+				<option value="PCB">PCB</option>
 				<option value="All Construction Materials">All Construction Materials</option>
 				</select>
 			</td>
