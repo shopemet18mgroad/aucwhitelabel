@@ -38,7 +38,7 @@ class Pdf_gen extends CI_Controller
         'data' => 'List Of Lots');
 	 $ci = &get_instance();
     $data['data'] = $data2;
-    $ci->load->view("about_us",$data);	 
+    $ci->load->view("pdf_File2",$data);	 
     // Get output html
     $html = $ci->output->get_output();
 // add external css library
