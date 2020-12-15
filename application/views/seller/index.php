@@ -86,7 +86,7 @@
 							</tr>
 							<tr>
 								<td>Country</td>
-								<td><?php echo $sqldata[0]->scountry; ?></td>
+								<td>India</td>
 							</tr>
 													
 						</tbody>
