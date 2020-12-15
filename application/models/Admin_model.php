@@ -71,14 +71,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		} 
 		
 		
-		public function datebetweensess($table, $date, $sessi){
+		public function datebetweensess($date, $sessi){
 			$this->db->select('*');
-			$this->db->from($table);
+			//$this->db->from($table);
+			 $this->db->from('biddercart');
+			$this->db->join('addlot', 'addlot.sauctionid = biddercart.auctionid');
+			$this->db->where('status =', 1);
 			$this->db->where('aucstartdate_time <=', $date);
 			$this->db->where('aucclosedate_time >=', $date);
 			$this->db->where('bidderusername =', $sessi);
 			$this->db->where('emdrequest =', 1);
 			$this->db->or_where('emd_paid_dd =', 1);
+			$query = $this->db->get();
+			return $query->result();
+		}
+		
+		public function datebetween5($date){
+			$this->db->select('*');
+			//$this->db->from($table);
+			 $this->db->from('auction');
+			$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid');
+			$this->db->where('status =', 1);
+			$this->db->where('saucstartdate_time <=', $date);
+			$this->db->where('saucclosedate_time >=', $date);
 			$query = $this->db->get();
 			return $query->result();
 		}
@@ -152,17 +167,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return $query->result();
 		}
 		
-		public function datebetween5($date){
-			$this->db->select('*');
-			//$this->db->from($table);
-			 $this->db->from('auction');
-			$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid');
-			$this->db->where('status =', 1);
-			$this->db->where('saucstartdate_time <=', $date);
-			$this->db->where('saucclosedate_time >=', $date);
-			$query = $this->db->get();
-			return $query->result();
-		}
+		
 		
 		
 		
