@@ -85,7 +85,7 @@ class Admin_editforthcom extends CI_Controller {
 				echo $dat['sauctionid'];
 				$aucfl = unserialize($dat['sterms_condiupload']);
 				$passaucid = str_ireplace('/','-',$dat['sauctionid']);
-				
+					
 				echo '</a>';
 				echo '</td>';
 				echo '<td>'.$dat['sname'].'</td>';
@@ -102,11 +102,13 @@ class Admin_editforthcom extends CI_Controller {
 				echo 'Accepted';
 				}
 				echo '</td>';
+				 
 				echo '<td>';
 				if(isset($aucfl[0])){
-				echo $aucfl[0];	
+				echo '<a href="'.base_url().'web_files/uploads/'. $aucfl[0].'" target="_blank">';
+				echo '<i class="fa fa-download"></i>';
 				}
-				echo '</td>';
+				echo '</a></td>';
 				//echo '<td>'.$uploadfl[0].'</td>';
 				//$aucfl = unserialize ($dat['sterms_condiupload']);
 				//echo '<td>'.implode (",",$aucfl).'</td>';

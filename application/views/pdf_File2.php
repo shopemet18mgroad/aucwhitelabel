@@ -93,13 +93,13 @@ annexed hereto and as per schedule of programme given below. </p>
   
   <tr>
     <td><a href ="#"></a>EMD Details</td>
-    <td><?php echo $sqldata[0]->semddetail; ?></td>
+    <td><?php echo $sqldata2[0]->semddetail; ?></td>
  
   </tr>
  
   <tr>
     <td>Last Date and time to receive EMD</td>
-    <td><?php echo $sqldata[0]->slastdateemdsub ?></td>
+    <td><?php echo $sqldata2[0]->slastdateemdsub ?></td>
  
   </tr>
   

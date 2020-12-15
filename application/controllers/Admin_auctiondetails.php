@@ -40,7 +40,7 @@ class Admin_auctiondetails extends CI_Controller {
 		$this->load->model('Admin_model');
 		$data = $this->Admin_model->get_lookalike('auction','sauctionid',$datatoquerydb);
 		if(count($data)){
-			echo '<table class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';
+			echo '<table class="table table-striped table-bordered table-sm text-center mt-5 w-auto small" width="100%" cellspacing="0">';
 			echo '<thead class="bg-warning text-white">';
 		echo '<tr>';
 			echo '<th colspan="13">Auction Details</th>';
@@ -87,9 +87,10 @@ class Admin_auctiondetails extends CI_Controller {
 				echo '</td>';
 				echo '<td>';
 				if(isset($aucfl[0])){
-				echo $aucfl[0];	
+				echo '<a href="'.base_url().'web_files/uploads/'. $aucfl[0].'" target="_blank">';
+				echo '<i class="fa fa-download"></i>';
 				}
-				echo '</td>';
+				echo '</a></td>';
 				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$passaucid.urlencode($dat['sname']).'" target="_blank"><i class="fa fa-download"></i></a></td>';
 				echo '<td><a href="'.base_url().'Admin_editauction/editauction/'.$passaucid.'">';
 				echo '<i class="fa fa-edit"></i>';

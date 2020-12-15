@@ -48,7 +48,7 @@
 				<?php foreach($sqld as $sqldat[0]){?>
 				<tr>
 				<?php $passaucid = str_ireplace('/','-',$sqldat[0]->sauctionid);
-				?>
+				$aucfl = unserialize ($sqldat[0]->sterms_condiupload);?>
 					<td><a href="<?php echo base_url()."Seller_editforthcom_2/editforthcom_2/".$passaucid;?>"><b><?php echo str_ireplace("/","-",$sqldat[0]->sauctionid);?></b></a></td>
 					<td><?php echo $sqldat[0]->sname; ?></td>
 					<td><?php echo $sqldat[0]->scategory; ?></td>
@@ -61,10 +61,14 @@
 					<td><?php if ($sqldat[0]->sterms_condiaccept == 1){
 									echo 'Accepted';}?>
 									</td>
-					<td><?php $aucfl = unserialize($sqldat[0]->sterms_condiupload);
-							if(isset($aucfl[0])){
-								echo $aucfl[0];	
-								}?></td>
+					
+				
+				<td>
+					<?php if(isset($aucfl[0])){?>	
+				<a href="<?php echo base_url().'/web_files/uploads/'.$aucfl[0];?>" target="_blank"  ><?php echo '<i class="fa fa-download"></i>' ; ?>
+					</a></td>
+					<?php }?>
+			
 					<td><a href="<?php echo base_url().'/pdf_gen/auc_no/'.$passaucid;?>" target="_blank"><i class="fa fa-download"></i></a></td>			
 					
 
@@ -73,7 +77,7 @@
 
 						<a href="<?php echo base_url()."Seller_editauction/delete_auction/".$passaucid;?>"  class="btn btn-danger btn-sm text-white delete-confirm"><i class="fa fa-trash fa-sm"></i></a></td>	
 				</tr>
-			<?php }?>
+				<?php }?>
 				</tbody>
 			
 		 </table>

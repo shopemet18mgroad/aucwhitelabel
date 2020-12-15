@@ -160,6 +160,7 @@
 							</tr> 
 							
 									<?php 
+									$aucf = unserialize($sqldata[0]->bsigneddocument);
 							if(unserialize($sqldata[0]->bsigneddocument) != NULL){
 								$file = unserialize($sqldata[0]->bsigneddocument);
 								  foreach($file as $fl){
@@ -169,7 +170,11 @@
 								echo '<textarea class="form-control float-left mt-2 p-2 w-50" type="text" id="bsigneddocumentex" name="bsigneddocumentex[]" readonly>'.$fl.'</textarea>';
 								echo '<input type="hidden" id="bsigneddocumentexcom" name="bsigneddocumentexcom[]" value="'.$fl.'">';
 								echo '<a class="add_field_button1"><button type="button" onclick="$(this).parents(\'#filess\').remove()" class="btn btn-sm btn-primary ml-1 mb-5 mt-3">  <i class="fa fa-minus text-white"></i></button></a>';
-								
+								if(isset($aucf[0])){
+								echo '<a href="'.base_url().'web_files/uploads/'. $aucf[0].'" target="_blank">';
+								echo '<i class="fa fa-download ml-5 mb-5 mt-3"></i>';
+								}
+								echo '</a>';
 								echo '</div></td>';
 								echo '';
 								echo '</tr>';
