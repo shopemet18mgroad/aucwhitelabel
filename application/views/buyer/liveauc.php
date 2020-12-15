@@ -33,7 +33,7 @@
 					<tr>												
 					<td><a href="<?php echo base_url()."Buyer_liveauc_2/index/".str_ireplace('/','-',$sqldat->auctionid)."|".$sqldat->lotno;?>"><?php echo $sqldat->auctionid;?></a>
 					</td>
-					<td><?php echo $sqldat->lotno;?></td>
+					<td><?php echo $sqldat->slotno;?></td>
 					<td><?php echo $sqldat->description;?></td>
 					</tr>
 			 <?php }?>	
