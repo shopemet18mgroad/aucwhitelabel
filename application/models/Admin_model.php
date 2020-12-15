@@ -77,6 +77,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->where('aucstartdate_time <=', $date);
 			$this->db->where('aucclosedate_time >=', $date);
 			$this->db->where('bidderusername =', $sessi);
+			$this->db->where('emdrequest =', 3);
 			$query = $this->db->get();
 			return $query->result();
 		}
