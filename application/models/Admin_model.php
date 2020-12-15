@@ -71,12 +71,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		} 
 		
 		
-		public function datebetweensess($date, $sessi){
+		public function datebetweensess($table, $date, $sessi){
 			$this->db->select('*');
-			//$this->db->from($table);
-			 $this->db->from('biddercart');
-			$this->db->join('addlot', 'addlot.sauctionid = biddercart.auctionid');
-			$this->db->where('status =', 1);
+			$this->db->from($table);
 			$this->db->where('aucstartdate_time <=', $date);
 			$this->db->where('aucclosedate_time >=', $date);
 			$this->db->where('bidderusername =', $sessi);
