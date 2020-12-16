@@ -104,7 +104,7 @@ class Buyer_forthcomingauc extends CI_Controller {
 				echo '';
 
 				echo '<td>';
-				echo'<button type="button" id="'.$aucencode.'|'.$dat['slotno'].'|'.urlencode($dat['sdescription']).'" onClick="addtocart(this.id)">';
+				echo'<button type="button" id="'.$aucencode.'|'.$dat['slotno'].'|'.$dat['sdescription'].'" onClick="addtocart(this.id)">';
 				echo'<i class="fas fa-heart" id="'.$aucencode.'|'.$dat['slotno'].'|'.$dat['sdescription'].'"></i>';
 				echo'</button>';
 				echo '</td>';
