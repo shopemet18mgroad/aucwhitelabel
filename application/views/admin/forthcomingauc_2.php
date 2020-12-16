@@ -85,7 +85,7 @@
 					<th>Lot Name</th>
 					<th>Lot Description</th>
 					<th>Quantity</th>
-					<th>Unit Of Measurment</th>
+					<th>Unit Of Measurement</th>
 					<th>Bid Base</th>
 					<th>GST</th>
 					<th>Location</th>
