@@ -23,21 +23,37 @@ class Seller_liveauc extends CI_Controller {
 		$this->load->helper(array('url','html','date'));
 		date_default_timezone_set('Asia/Kolkata');
 		$time =  Date('Y-m-d H:i:s');
-		$this->load->model('Admin_model');
-		$data['sqldata'] = $this->Admin_model->datebetween5($time);
 		$this->load->library('session');
+		if(!$this->session->has_userdata('username')  || $this->session->userdata('auth') != "SELLER"){
+			$datainserr = "Invalid Login Session";
+			header('location: '.base_url().'login/index_error/'.$datainserr);
+			die;
+		}else{
+		$this->load->model('Admin_model');
+		$this->load->library('session');
+		$sess['sessi'] = $this->session->userdata('username');
+		//$active = array('susername'=>$sess['sessi']);
+		$data['sqldata'] = $this->Admin_model->datebetween8($time,$sess['sessi']);
+	
+		
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		//$check_array = array('dat'=>);
 		$this->load->view('seller/header',$sess);
 		$this->load->view('seller/liveauc',$data);
 		$this->load->view('seller/footer');
 		
-	}
+	}}
 	
 	public function get_table(){
 		$datatoquerydb = $this->uri->segment(3);
+		$this->load->helper(array('url','html','date'));
+		date_default_timezone_set('Asia/Kolkata');
+		$time =  Date('Y-m-d H:i:s');
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$active = array('susername'=>$sess['sessi']);
 		$this->load->model('Admin_model');
-		$data = $this->Admin_model->get_lookalike('auction','sauctionid',$datatoquerydb);
+		$data = $this->Admin_model->get_lookalikesess8('sauctionid',$datatoquerydb,$time,$active );
 		if(count($data)){
 			
 			echo '<table class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';

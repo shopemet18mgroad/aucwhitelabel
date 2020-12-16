@@ -37,8 +37,11 @@ class Admin_forthcomingauc extends CI_Controller {
 	
 	public function get_table(){
 		$datatoquerydb = $this->uri->segment(3);
+		$this->load->helper(array('url','html','date'));
+		date_default_timezone_set('Asia/Kolkata');
+		$time =  Date('Y-m-d H:i:s');
 		$this->load->model('Admin_model');
-		$data = $this->Admin_model->get_lookalike('auction','sname',$datatoquerydb);
+		$data = $this->Admin_model->get_lookalike5('auction','sname',$datatoquerydb,$time);
 		if(count($data)){
 			echo '<table class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';
 			echo '<thead class="bg-primary text-white">';
@@ -52,14 +55,15 @@ class Admin_forthcomingauc extends CI_Controller {
 			echo '<tbody>';
 			foreach($data as $dat){
 				echo '<tr>';
-				echo '<td><a href="'.base_url().'admin_forthcomingauc_2/forthcomingauc_2/'.urlencode($dat['sname']).
+				$passaucid2 = str_ireplace('/','-',$dat['sauctionid']);
+				echo '<td><a href="'.base_url().'admin_forthcomingauc_2/forthcomingauc_2/'.urlencode($dat['sname']).'/'.$passaucid2.
 				'">';
 				echo $dat['sauctionid'];
 				$passaucid = str_ireplace('/','-',$dat['sauctionid']);
 				echo '</a>';
 				echo '</td>';
 				echo '<td>'.$dat['sname'].'</td>';
-				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$passaucid.'" target="_blank"><i class="fa fa-download"></i></a></td>';
+				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$passaucid.'/'.urlencode($dat['sname']).'" target="_blank"><i class="fa fa-download"></i></a></td>';
 				echo '<td>'.$dat['saucstartdate_time'].'</td>';
 				
 				echo '</tr>';
