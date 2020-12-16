@@ -153,7 +153,7 @@ class Buyer_forthcomingauc extends CI_Controller {
 		$datexp = explode('|',$dat);
 		$auctionid = str_ireplace('-','/',$datexp[0]);
 		$lotno = $datexp[1];
-		$description = $datexp[2];
+		$description = urldecode($datexp[2]);
 		//print_r($sdescription); die;
 		$data = array('sauctionid'=>$auctionid);
 		$data2 = array('sauctionid'=>$auctionid,'slotno'=>$lotno,'sdescription'=>$description);		

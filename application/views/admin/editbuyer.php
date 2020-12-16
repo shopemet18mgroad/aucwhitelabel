@@ -188,7 +188,8 @@
 										
 						</tbody>
 					</table>					
-			<button type="submit" name="submit" class="btn btn-info offset-sm-4 mt-2" onclick="return ValidateNo1();">Update</button>
+			
+			<input type="submit" class="btn btn-info offset-sm-4 mt-2" value="Update" onclick="return ValidateNo1();">
 												
 				<a href="<?php echo base_url();?>Admin_editbuyer"><button  class="btn btn-info offset-sm-1 mt-2">Cancel</button></a>
 					</form>							
