@@ -104,7 +104,7 @@ class Buyer_forthcomingauc extends CI_Controller {
 				echo '';
 
 				echo '<td>';
-				echo'<button type="button" id="'.$aucencode.'|'.$dat['slotno'].'|'.$dat['sdescription'].'" onClick="addtocart(this.id)">';
+				echo'<button type="button" id="'.$aucencode.'|'.$dat['slotno'].'|'.urlencode($dat['sdescription']).'" onClick="addtocart(this.id)">';
 				echo'<i class="fas fa-heart" id="'.$aucencode.'|'.$dat['slotno'].'|'.$dat['sdescription'].'"></i>';
 				echo'</button>';
 				echo '</td>';
@@ -153,7 +153,7 @@ class Buyer_forthcomingauc extends CI_Controller {
 		$datexp = explode('|',$dat);
 		$auctionid = str_ireplace('-','/',$datexp[0]);
 		$lotno = $datexp[1];
-		$description = $datexp[2];
+		$description = urldecode($datexp[2]);
 		//print_r($sdescription); die;
 		$data = array('sauctionid'=>$auctionid);
 		$data2 = array('sauctionid'=>$auctionid,'slotno'=>$lotno,'sdescription'=>$description);		
