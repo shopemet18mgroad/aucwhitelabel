@@ -35,7 +35,7 @@
 					 <td>Description</td>
 					 <td>Location Of Lot</td>
 					<td>Quantity</td>
-					<td>Unit Of Measurment</td>
+					<td>Unit Of Measurement</td>
 					<td>Bid Base</td>
 					<td>GST</td>
 					<td>HSN Code.</td>

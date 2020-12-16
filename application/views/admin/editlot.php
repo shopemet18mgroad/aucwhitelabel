@@ -93,7 +93,7 @@
 	</tr>
 	
 	<tr>
-		<td>Unit Of Measurment</td>
+		<td>Unit Of Measurement</td>
 		<td><select class="form-control w-50" id="sunitmeasurment" name="sunitmeasurment" value="<?php echo $sqldata[0]->sunitmeasurment; ?>">
 				<option value="<?php echo $sqldata[0]->sunitmeasurment; ?>"><?php echo $sqldata[0]->sunitmeasurment; ?></option>
 				<option value="KG">KG</option>

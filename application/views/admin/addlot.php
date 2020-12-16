@@ -88,7 +88,7 @@
 	</tr>
 	
 	<tr>
-		<td>Unit Of Measurment</td>
+		<td>Unit Of Measurement</td>
 		<td><select class="form-control w-50" id="sunitmeasurment" name="sunitmeasurment">
 				<option value="KG" selected>KG</option>
 				<option value="Metric Tone">Metric Tone</option>
