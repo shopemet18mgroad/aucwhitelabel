@@ -42,7 +42,7 @@
 					<td>Other Tax</td>
 					<td>EMD Amount</td>
 					<td>Expected Price</td>
-					 <td>Starting Bid Price</td>
+					<td>Starting Bid Price</td>
 					<td>Lifting Period</td>
 					<td>PCB Certificate</td>
 					<td>Action</td>

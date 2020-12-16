@@ -63,7 +63,7 @@
 				
 				<td><?php  if($sqldata->emdrequest == 3 ) {echo 'Pending';}				?></td>
 				
-				<td><button type="submit" name="submit" id="<?php echo $sqldata->lotno.'|'.str_ireplace('/','-',$sqldata->auctionid);?>" onclick="buyer_set_deactive_emd(this.id)" class="btn btn-info btn-sm">Approve</button></td>	
+				<td><button type="submit" name="submit" id="<?php echo $sqldata->lotno.'|'.str_ireplace('/','-',$sqldata->auctionid).'|'.$sqldata->bidderusername;?>" onclick="buyer_set_deactive_emd(this.id)" class="btn btn-info btn-sm">Approve</button></td>	
 				
 				</tr>
 				
