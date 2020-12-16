@@ -21,6 +21,9 @@ class Seller_liveauc_2 extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper('url');
+		$this->load->helper(array('url','html','date'));
+		date_default_timezone_set('Asia/Kolkata');
+		$time =  Date('Y-m-d H:i:s');
 		$this->load->library('session');
 		/* $this->load->library('currency');
 		echo $this->currency->getIndianCurrency(7288);die; */
@@ -36,8 +39,10 @@ class Seller_liveauc_2 extends CI_Controller {
 		//$datediff = (strtotime($time) - strtotime($data['sqldata'][0]->saucclosedate_time));
 		//echo floor($datediff / (60));
 		//echo gmdate("H:i:s", floor($datediff / (60)));
-		$data['sqldatalot'] = $this->Admin_model->getdatafromtable('addlot',$retriveval);
 		$sess = array('sessi'=>$this->session->userdata('username'));
+		$sess['sessi'] = $this->session->userdata('username');
+		$data['sqldatalot'] = $this->Admin_model->datebetween8($time,$sess['sessi']);
+		
 		$this->load->view('seller/header',$sess);
 		$this->load->view('seller/liveauc_2',$data);
 		$this->load->view('seller/footer');
