@@ -23,7 +23,7 @@
               <div class="table-responsive">
 			     <table class="table table-striped w-auto small table-bordered mt-4 text-center" id="dataTable" width="100%" cellspacing="0">
 				<thead class="bg-warning  text-white text-center">
-					<th colspan="21"><b>Lot Details</b></th>
+					<th colspan="21"><b>Auction Details</b></th>
 				</thead>
 				<thead class="bg-primary text-white">
 				
@@ -45,7 +45,7 @@
 				</thead>
 
 				<tbody>
-				<?php foreach($sqld as $sqldat[0]){?>
+				<?php  foreach($sqld as $sqldat[0]){?>
 				<tr>
 				<?php $passaucid = str_ireplace('/','-',$sqldat[0]->sauctionid);
 				$aucfl = unserialize ($sqldat[0]->sterms_condiupload);?>
@@ -69,7 +69,7 @@
 					</a></td>
 					<?php }?>
 			
-					<td><a href="<?php echo base_url().'/pdf_gen/auc_no/'.$passaucid;?>" target="_blank"><i class="fa fa-download"></i></a></td>			
+					<td><a href="<?php echo base_url()."/pdf_gen/auc_no/".$passaucid.'/'.urlencode($sqldat[0]->sname);?>" target="_blank"><i class="fa fa-download"></i></a></td>			
 					
 
 

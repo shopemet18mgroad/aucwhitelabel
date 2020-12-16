@@ -37,8 +37,11 @@ class Admin_auctiondetails extends CI_Controller {
 	
 	public function get_table(){
 		$datatoquerydb = $this->uri->segment(3);
+		$this->load->helper(array('url','html','date'));
+		date_default_timezone_set('Asia/Kolkata');
+		$time =  Date('Y-m-d H:i:s');
 		$this->load->model('Admin_model');
-		$data = $this->Admin_model->get_lookalike('auction','sauctionid',$datatoquerydb);
+		$data = $this->Admin_model->get_lookalike5('auction','sauctionid',$datatoquerydb,$time);
 		if(count($data)){
 			echo '<table class="table table-striped table-bordered table-sm text-center mt-5 w-auto small" width="100%" cellspacing="0">';
 			echo '<thead class="bg-warning text-white">';
@@ -91,7 +94,7 @@ class Admin_auctiondetails extends CI_Controller {
 				echo '<i class="fa fa-download"></i>';
 				}
 				echo '</a></td>';
-				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$passaucid.urlencode($dat['sname']).'" target="_blank"><i class="fa fa-download"></i></a></td>';
+				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$passaucid.'/'.urlencode($dat['sname']).'" target="_blank"><i class="fa fa-download"></i></a></td>';
 				echo '<td><a href="'.base_url().'Admin_editauction/editauction/'.$passaucid.'">';
 				echo '<i class="fa fa-edit"></i>';
 				echo '</a>';

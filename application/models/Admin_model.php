@@ -94,7 +94,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$query = $this->db->get();
 			return $query->result();
 		}
-		
+		public function datebetween8($date,$sessi){
+			$this->db->select('*');
+			//$this->db->from($table);
+			 $this->db->from('auction');
+			$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid');
+			$this->db->join('sellerprofile', 'sellerprofile.sname = auction.sname');
+			$this->db->where('status =', 1);
+			$this->db->where('saucstartdate_time <=', $date);
+			$this->db->where('saucclosedate_time >=', $date);
+			$this->db->where('susername =', $sessi);
+			$query = $this->db->get();
+			return $query->result();
+		}
 		public function datebetweensess2($table, $date, $sessi){
 			$this->db->select('*');
 			$this->db->from($table);
@@ -151,6 +163,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->from($table);
 			$this->db->join($table2, "$table.$joincolname = $table2.$joincolname");
 			$this->db->where("$table2.sname", $compdata);
+			$query = $this->db->get();
+			return $query->result();
+		}
+		
+		public function getdatafromtablejoin7($table,$table2,$joincolname,$compdata){
+			$this->db->select('*');
+			$this->db->from($table);
+			$this->db->join($table2, "$table.$joincolname = $table2.$joincolname");
+			$this->db->where("$table2.sauctionid", $compdata);
 			$query = $this->db->get();
 			return $query->result();
 		}
@@ -253,7 +274,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return $q->result_array();
 		  }
 		
-		
+		 public function get_lookalike5($table,$col,$query,$date){			  
+			$this->db->from($table);
+			$this->db->like($col,$query);
+			$this->db->where('saucstartdate_time <=', $date);
+			$this->db->where('saucclosedate_time >=', $date);
+			$q = $this->db->get();
+			return $q->result_array();
+		  }
 		public function select()  
       {  
          //data is retrive from this query  

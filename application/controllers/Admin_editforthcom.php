@@ -51,8 +51,11 @@ class Admin_editforthcom extends CI_Controller {
 	
 	public function get_table(){
 		$datatoquerydb = $this->uri->segment(3);
+		$this->load->helper(array('url','html','date'));
+		date_default_timezone_set('Asia/Kolkata');
+		$time =  Date('Y-m-d H:i:s');
 		$this->load->model('Admin_model');
-		$data = $this->Admin_model->get_lookalike('auction','sauctionid',$datatoquerydb);
+		$data = $this->Admin_model->get_lookalike5('auction','sauctionid',$datatoquerydb,$time);
 		if(count($data)){
 			echo '<table class="table table-striped table-bordered table-sm text-center w-auto small mt-5" width="100%" cellspacing="0">';
 			echo '<thead class="bg-warning text-white">';

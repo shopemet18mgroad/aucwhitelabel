@@ -24,8 +24,8 @@ class Admin_forthcomingauc_2 extends CI_Controller {
 		$this->load->library('session');
 		//echo $this->session->userdata('auth');
 		if(!$this->session->has_userdata('username')  || $this->session->userdata('auth') != "ADMIN"){
-			$datainserr = "Invalid Login Session";
-			header('location: '.base_url().'login/index_error/'.$datainserr);
+		$datainserr = "Invalid Login Session";
+		header('location: '.base_url().'login/index_error/'.$datainserr);
 			die;
 		}else{
 		$sess = array('sessi'=>$this->session->userdata('username'));
@@ -40,11 +40,15 @@ class Admin_forthcomingauc_2 extends CI_Controller {
 	public function forthcomingauc_2(){
 	
 		$retrivevaltmp = urldecode($this->uri->segment(3));
-
+		$retrivevaltmp2 = urldecode(str_ireplace('-','/',$this->uri->segment(4)));
+		
 		$retriveval = array('sname'=>$retrivevaltmp);
 		$this->load->model('Admin_model');
 
-		$data['sqldata'] = $this->Admin_model->getdatafromtablejoin('addlot','auction','sauctionid',$retrivevaltmp);
+		$data['sqldata'] = $this->Admin_model->getdatafromtablejoin7('addlot','auction','sauctionid',$retrivevaltmp2);
+		//echo '<pre>';
+		//print_r($data['sqldata']); die;
+		//echo '</pre>';
 		$data['sellerinfo'] = $this->Admin_model->getdatafromtable('sellerprofile',$retriveval);
 
 		$this->load->helper('url');
@@ -57,11 +61,11 @@ class Admin_forthcomingauc_2 extends CI_Controller {
 	}
 	public function forthcomingauc_2_alert(){
 		$retrivevaltmp = $this->uri->segment(3);
-		$retrivevaltmp2 = urldecode($this->uri->segment(4));
+		$retrivevaltmp2 = urldecode(str_ireplace('-','/',$this->uri->segment(4)));
 		echo '<script language="javascript">';
 			echo 'alert("'.$retrivevaltmp2.'")';  //not showing an alert box.
 			echo '</script>';
-		$retriveval = array('sname'=>$retrivevaltmp);
+		$retriveval = array('sauctionid'=>$retrivevaltmp2);
 		$this->load->model('Admin_model');
 		
 		$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
@@ -75,32 +79,38 @@ class Admin_forthcomingauc_2 extends CI_Controller {
 	public function approve(){
 		$this->load->helper('url');
 		$retrivevaltmp = str_ireplace('-','/',$this->uri->segment(3));
-		$retrivevaltmp = urldecode($retrivevaltmp);
+		
+		$retrivevaltmp1 = urldecode($retrivevaltmp);
+	
 		$retrivevaltmp2 = urldecode($this->uri->segment(4));
+			
 		$retrivevaltmp3 = urldecode($this->uri->segment(5));
+		//print_r($retrivevaltmp3 ); die;
 		$data2 = array('status'=>true);
-		$updatech = array('sname'=>$retrivevaltmp3,'sauctionid'=>$retrivevaltmp,'slotno'=>$retrivevaltmp2);
+		$updatech = array('sname'=>$retrivevaltmp3,'slotno'=>$retrivevaltmp2,'sauctionid'=>$retrivevaltmp1);
 		$this->load->model('Admin_model');
 		//$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
 		$status = $this->Admin_model->update_custom('addlot',$data2,$updatech,$updatech);
-	
+		$retrivevaltmp5 = str_ireplace('/','-',$this->uri->segment(3));
 		 //$status = $this->Admin_model->insert('sellerprofile', $data2);
-		header('location: '.base_url().'admin_forthcomingauc_2/forthcomingauc_2/'.urlencode($retrivevaltmp3));
+		header('location: '.base_url().'admin_forthcomingauc_2/forthcomingauc_2/'.$retrivevaltmp3.'/'.$retrivevaltmp5);
 		
 		
 	}
 	public function reject(){
 		$this->load->helper('url');
 		$retrivevaltmp = str_ireplace('-','/',$this->uri->segment(3));
+		$retrivevaltmp1 = urldecode($retrivevaltmp);
 		$retrivevaltmp2 = urldecode($this->uri->segment(4));
 		$retrivevaltmp3 = urldecode($this->uri->segment(5));
 		$data2 = array('status'=>2);
-		$updatech = array('sname'=>$retrivevaltmp3,'sauctionid'=>$retrivevaltmp,'slotno'=>$retrivevaltmp2);
+		$updatech = array('sname'=>$retrivevaltmp3,'sauctionid'=>$retrivevaltmp1,'slotno'=>$retrivevaltmp2);
 		$this->load->model('Admin_model');
 		//$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
 		$status = $this->Admin_model->update_custom('addlot',$data2,$updatech,$updatech);
 		// $status = $this->Admin_model->insert('sellerprofile', $data2);
-		header('location: '.base_url().'admin_forthcomingauc_2/forthcomingauc_2/'.urlencode($retrivevaltmp3));
+		$retrivevaltmp5 = str_ireplace('/','-',$this->uri->segment(3));
+		header('location: '.base_url().'admin_forthcomingauc_2/forthcomingauc_2/'.$retrivevaltmp3.'/'.$retrivevaltmp5);
 		
 		die;
 	}
