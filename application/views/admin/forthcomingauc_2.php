@@ -83,8 +83,10 @@
 				<tr>
 					<th>Lot No</th>
 					<th>Lot Name</th>
-					<th width="30%">Lot Description</th>
+					<th>Lot Description</th>
 					<th>Quantity</th>
+					<th>Unit Of Measurment</th>
+					<th>Bid Base</th>
 					<th>GST</th>
 					<th>Location</th>
 					<th>Action</th>
@@ -107,6 +109,8 @@
 					<td><?php echo $sqldat->slotname; ?></td>
 					<td><?php echo $sqldat->sdescription; ?></td>
 					<td><?php echo $sqldat->sqty; ?></td>
+					<td><?php echo $sqldat->sunitmeasurment	; ?></td>
+					<td><?php echo $sqldat->sbidbase; ?></td>
 					<td><?php echo $sqldat->sgst; ?></td>
 					<td><?php echo $sqldat->slotlocation;?>
 					</td>
