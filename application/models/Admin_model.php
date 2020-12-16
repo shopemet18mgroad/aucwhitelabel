@@ -279,7 +279,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->like($col,$query);
 			$this->db->where('saucstartdate_time <=', $date);
 			$this->db->where('saucclosedate_time >=', $date);
-			$q = $this->db->get();
+			
 			return $q->result_array();
 		  }
 		public function select()  
@@ -290,7 +290,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       }
 		
 	
-		  
 		 
 		  
    }
