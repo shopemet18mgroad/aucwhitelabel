@@ -224,6 +224,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$query = $this->db->get_where($table, array("prod_id"=>$id));
 			return $query->result();
 		  } 
+		  
+		    public function get_distinctforauc($table,$col,$sname) { 
+			$this->db->select($col);
+			$this->db->distinct();
+			//$query = $this->db->get($table);
+			$query = $this->db->get_where($table, array("sname" => $sname));
+			return $query->result();
+		  } 
 		   
 		  public function get_lookalike($table,$col,$query){			  
 			$this->db->from($table);

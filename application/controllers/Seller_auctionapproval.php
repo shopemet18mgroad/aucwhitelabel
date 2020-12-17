@@ -32,14 +32,23 @@ class Seller_auctionapproval extends CI_Controller {
 			header('location: '.base_url().'login/index_error/'.$datainserr);
 			die;
 		}else{
-		$sess = array('sessi'=>$this->session->userdata('username'));
 		
-
+		$sess['sessi']= "Altec";
+		
 		$this->load->model('Admin_model');
 		$sapproval = array('sapproval'=>false);
-		$data['sqldat'] = $this->Admin_model->getdatafromtable('biddercart', $sapproval); 
+		$snamechk = array('susername'=>$sess['sessi']);
+		$data['sqld'] = $this->Admin_model->getdatafromtable('sellerprofile', $snamechk);
+		$snameseller= $data['sqld'][0]->sname;		
 		
-	//print_r($data['sqldat'][1]); die;
+		$data['sqldat'] = $this->Admin_model->get_distinctforauc('addlot', 'sauctionid', $snameseller); 
+		
+		$data['sqldata'] = $this->Admin_model->getdataASC('biddercart', );
+		/* foreach(){
+			
+		} */
+		
+		//print_r($data['sqldat']); die;
 	//$data['sqldat'] = $this->Admin_model->datebetweensess2('biddercart',$time,$sess['sessi']);
 		
 		   $xr = 0;
