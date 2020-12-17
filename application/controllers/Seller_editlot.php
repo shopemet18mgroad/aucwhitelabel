@@ -80,19 +80,25 @@ class Seller_editlot extends CI_Controller {
 	} 
 
 	public function deletelot(){
-		$retrivevaltmpdel = urldecode($this->uri->segment(3));
-		$retrivevaldel = array('slotno'=>$retrivevaltmpdel);
+		$this->load->helper('url');
+		$retrivevalauc = str_ireplace('-','/',$this->uri->segment(3));
+		$retrivevaltmp1 = urldecode($retrivevalauc);
+		$retriveval2 = urldecode($this->uri->segment(4));
+		
+		
+		$retrivevaldel = array('sauctionid'=>$retrivevaltmp1,'slotno'=>$retriveval2);
 		$this->load->model('Admin_model');
-		if($retrivevaltmpdel){
+		if($retrivevalauc){
 			$this->Admin_model->delete_data('addlot', $retrivevaldel);
 	
 		}
 		$this->load->helper('url');
 		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
-		$this->load->view('seller/header',$sess);
-		$this->load->view('seller/editforthcom');
-		$this->load->view('seller/footer');
+		header('location: '.base_url().'Seller_editforthcom/index/'.$retrivevaltmp1);
+		//$this->load->view('seller/header',$sess);
+		//$this->load->view('seller/editforthcom');
+		//$this->load->view('seller/footer');
 	}
 	
 }

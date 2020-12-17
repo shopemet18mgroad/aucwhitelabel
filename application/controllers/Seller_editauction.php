@@ -79,8 +79,9 @@ class Seller_editauction extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
-		$this->load->view('seller/header',$sess);
-		$this->load->view('seller/editforthcom');
-		$this->load->view('seller/footer');
+		header('location: '.base_url().'Seller_editforthcom/index/'.$retrivevaltmpdel);
+		//$this->load->view('seller/header',$sess);
+		//$this->load->view('seller/editforthcom');
+		//$this->load->view('seller/footer');
 }
 }
