@@ -45,20 +45,20 @@
 				</thead>
 
 				<tbody>
-				<?php  foreach($sqld as $sqldat[0]){?>
+				<?php  foreach($sqld as $sqldat){?>
 				<tr>
-				<?php $passaucid = str_ireplace('/','-',$sqldat[0]->sauctionid);
-				$aucfl = unserialize ($sqldat[0]->sterms_condiupload);?>
-					<td><a href="<?php echo base_url()."Seller_editforthcom_2/editforthcom_2/".$passaucid;?>"><b><?php echo str_ireplace("/","-",$sqldat[0]->sauctionid);?></b></a></td>
-					<td><?php echo $sqldat[0]->sname; ?></td>
-					<td><?php echo $sqldat[0]->scategory; ?></td>
-					<td><?php echo $sqldat[0]->scompanyname; ?></td>
-					<td><?php echo $sqldat[0]->svinspection; ?></td>
-					<td><?php echo $sqldat[0]->sfrominpectdate_time; ?><br><?php echo $sqldat[0]->stoinpectdate_time; ?></td>
-					<td><?php echo $sqldat[0]->semddetail; ?></td>
-					<td><?php echo $sqldat[0]->slastdateemdsub; ?></td>
-					<td><?php echo $sqldat[0]->saucstartdate_time; ?><br><?php echo $sqldat[0]->saucclosedate_time; ?></td>
-					<td><?php if ($sqldat[0]->sterms_condiaccept == 1){
+				<?php $passaucid = str_ireplace('/','-',$sqldat->sauctionid);
+				$aucfl = unserialize ($sqldat->sterms_condiupload);?>
+					<td><a href="<?php echo base_url()."Seller_editforthcom_2/editforthcom_2/".$passaucid;?>"><b><?php echo str_ireplace("/","-",$sqldat->sauctionid);?></b></a></td>
+					<td><?php echo $sqldat->sname; ?></td>
+					<td><?php echo $sqldat->scategory; ?></td>
+					<td><?php echo $sqldat->scompanyname; ?></td>
+					<td><?php echo $sqldat->svinspection; ?></td>
+					<td><?php echo $sqldat->sfrominpectdate_time; ?><br><?php echo $sqldat->stoinpectdate_time; ?></td>
+					<td><?php echo $sqldat->semddetail; ?></td>
+					<td><?php echo $sqldat->slastdateemdsub; ?></td>
+					<td><?php echo $sqldat->saucstartdate_time; ?><br><?php echo $sqldat->saucclosedate_time; ?></td>
+					<td><?php if ($sqldat->sterms_condiaccept == 1){
 									echo 'Accepted';}?>
 									</td>
 					
@@ -69,7 +69,7 @@
 					</a></td>
 					<?php }?>
 			
-					<td><a href="<?php echo base_url()."/pdf_gen/auc_no/".$passaucid.'/'.urlencode($sqldat[0]->sname);?>" target="_blank"><i class="fa fa-download"></i></a></td>			
+					<td><a href="<?php echo base_url()."/pdf_gen/auc_no/".$passaucid.'/'.urlencode($sqldat->sname);?>" target="_blank"><i class="fa fa-download"></i></a></td>			
 					
 
 
