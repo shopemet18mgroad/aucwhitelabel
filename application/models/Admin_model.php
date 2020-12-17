@@ -250,16 +250,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return $q->result_array();
 		  }
 		  
-			public function getdataASC($table, $data) { 
-			$this->db->order_by("bidvalue", "desc");
+			public function getdataDSC($table, $data) { 
+			$this->db->order_by("bidamount", "DESC");
 			//$this->db->limit(5)
 			$query = $this->db->get_where($table, $data); 
 			 return $query->result();
 		}
-			
+		
+			 public function get_lookalikebuysess($table,$col,$query,$sessi){			  
+			$this->db->from($table);
+			$this->db->like($col,$query);
+			$this->db->where('bidderusername =', $sessi);
+			$q = $this->db->get();
+			return $q->result_array();
+		  }
 			
 			public function admindateclosedauc($table, $date, $data){
-			$this->db->select('*');
+			//$this->db->select('*');
 			$this->db->from($table);
 			//$this->db->where('aucstartdate_time <=', $date);
 			$this->db->where('aucclosedate_time <', $date);

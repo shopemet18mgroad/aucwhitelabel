@@ -37,8 +37,11 @@ class Buyer_detailedauc extends CI_Controller {
 	
 	public function get_table(){
 		$datatoquerydb = $this->uri->segment(3);
-		$this->load->model('Admin_model');		
-		$data = $this->Admin_model->get_lookalike('auction','sauctionid',$datatoquerydb);
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->model('Admin_model');	
+	//$retriveval = array('bidderusername'=>$sess['sessi']);		
+		$data = $this->Admin_model->get_lookalikebuysess('biddingdata','sauctionid',$datatoquerydb,$sess['sessi']);
 		if(count($data)){
 			echo '<table class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';
 			echo '<thead class="bg-warning  text-white text-center">';
@@ -46,27 +49,21 @@ class Buyer_detailedauc extends CI_Controller {
 			echo '<thead class="bg-primary text-white">';
 			echo '<tr>';
 			echo '<th>Auction Id</th>';
-			echo '<th>Company Name</th>';
-			echo '<th>Location</th>';
-			echo '<th>Starting Date</th>';
 			echo '<th>Closing Date</th>';
-			echo '<th>Download</th>';
 			echo '</tr>';
 			echo '</thead>';
 			echo '<tbody>';
 			foreach($data as $dat){
 				echo '<tr>';
-				echo '<td><a href="'.base_url().'buyer_viewdetail/viewdetail/'.str_ireplace('/','-',$dat['sauctionid']).
+				$passaucid = str_ireplace('/','-',$dat['sauctionid']);
+				$pass = urlencode($dat['slotno']);
+				echo '<td><a href="'.base_url().'buyer_viewdetail/viewdetail/'.$passaucid.
 				'">';
 				echo $dat['sauctionid'];
 				$passaucid = str_ireplace('/','-',$dat['sauctionid']);
 				echo '</a>';
 				echo '</td>';
-				echo '<td>'.$dat['scompanyname'].'</td>';
-				echo '<td>'.$dat['svinspection'].'</td>';
-				echo '<td>'.$dat['sonlineaucdate_time'].'</td>';
-				echo '<td>'.$dat['saucclosedate_time'].'</td>';
-				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$passaucid.'/'.urlencode($dat['sname']).'" target="_blank"><i class="fa fa-download"></i></a></td>';
+				echo '<td>'.$dat['Date_time'].'</td>';
 			
 				echo '</tr>';
 			}

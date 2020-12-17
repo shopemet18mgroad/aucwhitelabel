@@ -22,7 +22,7 @@
               <div class="table-responsive">
 		
 		
-		<table class="table table-striped table-bordered table-sm text-center mt-5" id="dataTable" width="100%" cellspacing="0">
+		<table class="table table-striped table-bordered table-sm text-center mt-5 display" id="dataTable" width="100%" cellspacing="0">
 		<thead class="bg-warning text-white">
 		<tr>
 		<th colspan="12">Bidding Data</th>
@@ -32,7 +32,6 @@
 					<td>Auction Id</td>
 					<td>Lot No</td>
 					<td>Close Time</td>
-					<td>Bid Value</td>
 					<td>Final Bid Amount</td>
 				</tr>
 				</thead>
@@ -44,7 +43,6 @@
 					<td><b><?php echo $sqldata[0]->sauctionid; ?></b></td>
 					<td><?php echo $sqldata[0]->slotno; ?></td>
 					<td><?php echo $sqldata[0]->Date_time; ?></td>
-					<td><?php echo $sqldata[0]->bidvalue; ?></td>
 					<td><?php echo $sqldata[0]->bidamount; ?></td>
 				</tr>
 			<?php }?>
@@ -78,6 +76,11 @@
   <?php 
 	//include('./footer.php');
 ?>
+<script>
+$(document).ready(function() {
+    $('table.display').DataTable();
+} );
+</script>
 </body>
 
 </html>

@@ -32,7 +32,7 @@ class Buyer_occupied extends CI_Controller {
 		}else{
 		$sess = array('sessi'=>$this->session->userdata('username'));
 
-
+		
 		$data['sqldat'] = $this->Admin_model->datebetweensess2('biddercart',$time,$sess['sessi']);
 		
 		   $xr = 0;
@@ -43,6 +43,11 @@ class Buyer_occupied extends CI_Controller {
 		$auclottmp = $datsql->lotno;
 		$username = $sess['sessi'];
 		$mybitvalref = $datsql->mybid_val;
+		$abc = array('auctionid'=>$auctmp,'lotno'=>$auclottmp,'bidderusername'=>$username );
+		$act = $this->Admin_model->getdatafromtable('biddercart', $abc);
+		//print_r($act); die;
+		$approv =$act[0]->sapproval;
+		
 		//$active2 = array('auctionid'=>$auctmp,'lotno'=>$auclottmp,'bidderusername'=>$sess['sessi']);
 		//$query = $this->Admin_model->getdatafromtable('biddingdata', $active2);
 		//$tmpbidval = $query[0]->mybid_val;
@@ -50,10 +55,19 @@ class Buyer_occupied extends CI_Controller {
 		//$data['bidamt'] = $this->Admin_model->getdatafromtable('biddingdata', $active3); 
 		//$data['tmpbidamt'] = $data['bidamt'][0]->bidamount; 
 		$datap = $this->Admin_model->maxbidvalue($auctmp, $auclottmp);
+		
 		$mybitvalrec = $datap[0]->bidderusername;
 		$aucbidamount = $datap[0]->bidamount;
 		$mybitvaldatetime = $datap[0]->Date_time;
-		if($username === $mybitvalrec){
+		$approval = $datap[0]->sapproval;
+		//print_r($approval);die;
+		if ($approv){
+			$approval = true;
+		}
+		else{
+			$approval = false;
+		}
+		if($username === $mybitvalrec && $approval == true){
 			$data['sqldatarec'][$xr] = $auctmp.'|'.$auclottmp.'|'.$aucbidamount.'|'.$mybitvaldatetime;
 			$xr++;
 		}else{
