@@ -91,15 +91,15 @@
 	</tr>
 	
 	<tr>
-		<td>Unit Of Measurment</td>
+		<td>Unit Of Measurement</td>
 		<td><select class="form-control w-50" id="sunitmeasurment" name="sunitmeasurment" value="<?php echo $sqldata[0]->sunitmeasurment; ?>">
 				<option value="<?php echo $sqldata[0]->sunitmeasurment; ?>"><?php echo $sqldata[0]->sunitmeasurment; ?></option>
 				<option value="KG">KG</option>
-				<option value="Metric Tone">Metric Tone</option>
+				<option value="Metric Ton">Metric Ton</option>
 				<option value="Lot">Lot</option>
-				<option value="Litters">Litters</option>
-				<option value="Numbers">Numbers</option>
-				<option value="Meters">Meters</option>
+				<option value="Liter">Liter</option>
+				<option value="Number">Number</option>
+				<option value="Meter">Meter</option>
 				</select></td>
 	</tr>
 	
@@ -108,11 +108,11 @@
 		<td><select class="form-control w-50" id="sbidbase" name="sbidbase" value="<?php echo $sqldata[0]->sbidbase; ?>">
 				<option value="<?php echo $sqldata[0]->sunitmeasurment; ?>" selected><?php echo $sqldata[0]->sunitmeasurment; ?></option>
 				<option value="KG">KG</option>
-				<option value="Metric Tone">Metric Tone</option>
+				<option value="Metric Ton">Metric Ton</option>
 				<option value="Lot">Lot</option>
-				<option value="Litters">Litters</option>
-				<option value="Numbers">Numbers</option>
-				<option value="Meters">Meters</option>
+				<option value="Liter">Liter</option>
+				<option value="Number">Number</option>
+				<option value="Meter">Meter</option>
 				</select></td>
 	</tr>
 	<tr>

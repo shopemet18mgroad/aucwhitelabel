@@ -91,11 +91,11 @@
 		<td>Unit Of Measurement</td>
 		<td><select class="form-control w-50" id="sunitmeasurment" name="sunitmeasurment">
 				<option value="KG" selected>KG</option>
-				<option value="Metric Tone">Metric Tone</option>
+				<option value="Metric Ton">Metric Ton</option>
 				<option value="Lot">Lot</option>
-				<option value="Litters">Litters</option>
-				<option value="Numbers">Numbers</option>
-				<option value="Meters">Meters</option>
+				<option value="Liter">Liter</option>
+				<option value="Number">Number</option>
+				<option value="Meter">Meter</option>
 				</select></td>
 	</tr>
 	<tr>
@@ -107,11 +107,11 @@
 		<td>Bid Base</td>
 		<td><select class="form-control w-50" id="sbidbase" name="sbidbase">
 				<option value="KG" selected>KG</option>
-				<option value="Metric Tone">Metric Tone</option>
+				<option value="Metric Ton">Metric Ton</option>
 				<option value="Lot">Lot</option>
-				<option value="Litters">Litters</option>
-				<option value="Numbers">Numbers</option>
-				<option value="Meters">Meters</option>
+				<option value="Liter">Liter</option>
+				<option value="Number">Number</option>
+				<option value="Meter">Meter</option>
 				</select></td>
 	</tr>
 	<tr>
