@@ -119,6 +119,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return $query->result();
 		}
 		
+		public function adminbidhistory(){
+			$this->db->select('*');
+			//$this->db->from($table);
+			 $this->db->from('auction');
+			$this->db->join('biddercart', 'biddercart.auctionid = auction.sauctionid');
+			$query = $this->db->get();
+			return $query->result();
+		}
 		public function datebetweensess2($table, $date, $sessi){
 			$this->db->select('*');
 			$this->db->from($table);
