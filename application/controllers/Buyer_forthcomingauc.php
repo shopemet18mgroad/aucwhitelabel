@@ -55,6 +55,7 @@ class Buyer_forthcomingauc extends CI_Controller {
 	}
 	
 	public function get_table(){
+		$time =  Date('Y-m-d H:i:s');
 		$datatoquerydb = $this->uri->segment(3);
 		$this->load->model('Admin_model');
 		$data = $this->Admin_model->get_lookalike2('addlot','sdescription',$datatoquerydb);
@@ -82,8 +83,13 @@ class Buyer_forthcomingauc extends CI_Controller {
 			echo '</tr>';
 			echo '</thead>';
 			echo '<tbody>';
+			
 			foreach($data as $dat){
-				echo '<tr>';
+				$sauc = str_ireplace('/','-',$dat['sauctionid'])
+				$saucqarray = array('auctionid'=>$sauc,'saucclosedate_time >'=>$time);
+				$respdata = $this->Admin_model->getdatafromtable('auction',$saucqarray);
+				if($respdata){
+					echo '<tr>';
 
 				 echo '<td style="color:blue">'; 
 
@@ -109,6 +115,31 @@ class Buyer_forthcomingauc extends CI_Controller {
 				echo'</button>';
 				echo '</td>';
 				echo '</tr>';
+				}else{
+					echo '<tr>';
+				echo '<th>Auction Id</th>';
+				echo '<th>Lot Name</th>';
+				echo '<th>Lot Description</th>';
+				echo '<th>Seller / Company Name</th>';
+				echo '<th>Quantity</th>';
+				echo '<th>GST</th>';
+				echo '<th>Location</th>';
+				echo '<th>Add to Mylist</th>';
+				echo '</tr>';
+				echo '</thead>';
+				echo '<tbody>';
+				echo '<tr>';
+				echo '<td><a href="'.base_url().'#">';
+				echo '<td>No Records Found</td>';
+				echo '<td>No Records Found</td>';
+				echo '<td>No Records Found</td>';
+				echo '<td>No Records Found</td>';
+				echo '<td>No Records Found</td>';
+				echo '<td>No Records Found</td>';
+				echo '<td>No Records Found</td>';
+				echo '</tr>';
+				}
+				
 			}
 			echo '</tbody>';
 			echo '</table>';
