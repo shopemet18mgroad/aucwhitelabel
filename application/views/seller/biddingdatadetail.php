@@ -32,7 +32,7 @@
 					<td>Lot No</td>
 					<td>Bidder User Name</td>
 					<td>Close Time</td>
-					<td>Final Bid Amount</td>
+					<td>Bidding Amount</td>
 				</tr>
 				</thead>
 

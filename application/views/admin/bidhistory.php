@@ -27,13 +27,12 @@
 		<tr>
 		<th colspan="12">Bidding History</th>
 		</tr>
-		<thead class="bg-primary text-white">
-			<tr>
+			<tr class="bg-primary text-white">
 					<td>Auction Id</td>
 					<td>Lot No</td>
 					<td>Bidder User Name</td>
 					<td>Close Time</td>
-					<td>Final Bid Amount</td>
+					<td>Bidding Amount</td>
 				</tr>
 				</thead>
 
