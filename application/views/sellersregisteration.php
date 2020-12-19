@@ -23,12 +23,12 @@
       </tr>
 	    <tr>
         <td><b>Seller Name</b></td>
-        <td><input class="form-control w-100" type="text" id="sname" name="sname" size="50" ></td>
+        <td><input class="form-control w-100" onkeyup="validate_scompanyname()" type="text" id="sname" name="sname" size="50" ></td>
       </tr>
       <tr>
         <td><b>Type of seller</b></td>
         <td><select class="form-control w-100" style="text-align-last:center;" id="ssellertype" name="ssellertype">
-			<option value="Govt Regd Company" selected>Govt Regd Company</option>
+			<option value="Govt Regd Company"  selected>Govt Regd Company</option>
 			<option value="Ltd, Pvt Ltd, LLP, Corp">Ltd, Pvt Ltd, LLP, Corp</option>
 			<option value="Partnership, Proprietorship, OPC" >Partnership, Proprietorship, OPC</option>
 			<option value="Other">Other</option>
@@ -36,7 +36,7 @@
       </tr>
 	  <tr>
         <td><b>Contact Person *</b></td>
-        <td><input class="form-control w-100" type="text" id="scontactperson" name="scontactperson" size="50" ></td>
+        <td><input class="form-control w-100" onkeyup="validate_sname()" type="text" id="scontactperson" name="scontactperson" size="50" ></td>
       </tr>
 		<tr>
         <td><b>Contact Person Designation *</b></td>

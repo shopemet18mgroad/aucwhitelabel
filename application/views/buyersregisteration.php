@@ -24,7 +24,7 @@
 		</tr>
 	  <tr>
 		  <td width="20%"><b>Buyer Name</b></td>
-		  <td width="20%"><input class="form-control w-100" type="text" id="bname" name="bname" size="50" ></td>
+		  <td width="20%"><input class="form-control w-100" onkeyup="validate_bcompany()"  type="text" id="bname" name="bname" size="50" ></td>
 		</tr>
       <tr>
         <td><b>Company Type</b></td>
@@ -39,7 +39,7 @@
 
 		<tr>
 		  <td><b>Buyer's Location</b></td>
-		  <td><input class="form-control w-100" type="text" id="bbuyerlocation" name="bbuyerlocation" size="50"></td>
+		  <td><input class="form-control w-100" onkeyup="validate_bname()" type="text" id="bbuyerlocation" name="bbuyerlocation" size="50"></td>
 		</tr>
 	   <tr>
 	  <td><b>Contact Person *</b></td>
