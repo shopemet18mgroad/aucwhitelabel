@@ -19,11 +19,11 @@
     <tbody>
       <tr>
         <td width="20%"><b>Company Name *</b></td>
-        <td width="20%"><input class="form-control w-100" type="text" id="scomapnyname" name="scomapnyname" size="50" ></td>       
+        <td width="20%"><input class="form-control w-100" type="text" onkeyup="validate_sname()" id="scomapnyname" name="scomapnyname" size="50" ></td>       
       </tr>
 	    <tr>
         <td><b>Seller Name</b></td>
-        <td><input class="form-control w-100" onkeyup="validate_scompanyname()" type="text" id="sname" name="sname" size="50" ></td>
+        <td><input class="form-control w-100"  type="text" id="sname" name="sname" size="50" readonly></td>
       </tr>
       <tr>
         <td><b>Type of seller</b></td>
@@ -36,7 +36,7 @@
       </tr>
 	  <tr>
         <td><b>Contact Person *</b></td>
-        <td><input class="form-control w-100" onkeyup="validate_sname()" type="text" id="scontactperson" name="scontactperson" size="50" ></td>
+        <td><input class="form-control w-100" onkeyup="validate_scompanyname()" type="text" id="scontactperson" name="scontactperson" size="50" ></td>
       </tr>
 		<tr>
         <td><b>Contact Person Designation *</b></td>

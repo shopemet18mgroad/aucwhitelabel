@@ -173,6 +173,24 @@ if(scomapnyname == '' || ssellertype == '' || scontactperson == '' || span == ''
 	}
    
   </script>
+  
+  <script>
+ function validate_sname(){
+	  var cat2 = document.getElementById('scomapnyname').value;
+	 if(cat2){
+		  document.getElementById('sname').value = cat2 ;
+	 }
+ }
+ </script>
+ 
+  <script>
+ function validate_bname(){
+	  var cat2 = document.getElementById('bcompany').value;
+	 if(cat2){
+		  document.getElementById('bname').value = cat2 ;
+	 }
+ }
+ </script>
    <script>
   function validate_scompanyname(){
 	  var val = document.getElementById("scomapnyname").value;
@@ -194,27 +212,6 @@ if(scomapnyname == '' || ssellertype == '' || scontactperson == '' || span == ''
   }
   </script>
  
-<script>
-  function validate_sname(){
-	  var val = document.getElementById("bname").value;
-		if(val != ''){
-			 $.get('<?php echo base_url() .'sellers_registeration/validate_sname/'; ?>'+val, function(data2){				 
-				 if($.trim(data2) == "BYE"){
-					swal("Alert!",  "Seller Name Already Exists", "error");
-					document.getElementById("sname").value = "";
-					return false;
-				}else{
-					return true;
-				}
-			 });
-			
-		}else{
-			swal("Alert!",  "Please Enter Seller Name!", "error");
-			return false;
-		}
-  }
-
-   </script>
   
   
   <script>
@@ -342,27 +339,6 @@ if( bcompany == '' || bcomptype == '' || bbuyertype == '' || bbuyerlocation == '
 
    </script>
   
-  <script>
-  function validate_bname(){
-	  var val = document.getElementById("bname").value;
-		if(val != ''){
-			 $.get('<?php echo base_url() .'Buyers_registeration/validate_bname/'; ?>'+val, function(data2){				 
-				 if($.trim(data2) == "BYE"){
-					swal("Alert!",  "Buyer Name Already Exists", "error");
-					document.getElementById("bname").value = "";
-					return false;
-				}else{
-					return true;
-				}
-			 });
-			
-		}else{
-			swal("Alert!",  "Please Enter Buyer Name!", "error");
-			return false;
-		}
-  }
-
-   </script>
   
   <script>
   function validate_username1(){

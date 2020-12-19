@@ -120,17 +120,7 @@ class Sellers_registeration extends CI_Controller {
 			  }
 		
 	}
-	 public function validate_sname(){
-		$dat = urldecode($this->uri->segment(3));
-		$check_db = array('sname' => $dat);
-		$this->load->model('Admin_model');
-			  if($this->Admin_model->check('sellerprofile', $check_db)){
-				  echo "BYE";
-			  }else{
-				  echo "HI";
-			  }
-		
-	}
+	
 	
     public function validate_username(){
 		$dat = urldecode($this->uri->segment(3));

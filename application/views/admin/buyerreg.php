@@ -37,15 +37,15 @@
 						<tr><td><img class="img-fluid" src="<?php echo base_url()."web_files/";?>img/manimg.jpg" alt="Chania" width="40" height="35"></td></tr>
 						<tr>
 							<td class="btxt">Buyer Name:</td>
-							<td><input class="form-control w-50" type="text" id="bname" name="bname" required></td>
+							<td><input class="form-control w-50" type="text" id="bname" name="bname" readonly></td>
 	 							 </tr>
 						<tr>												
 							<td class="btxt">Company Name:</td>
-							<td><input class="form-control w-50" type="text" id="bcompany" name="bcompany" required></td>
+							<td><input class="form-control w-50" type="text" onkeyup="validate_adminbname()" id="bcompany" name="bcompany" required></td>
 							</tr>
 						<tr>
 							<td class="btxt">Company Type:</td>
-							<td><input class="form-control w-50" type="text" id="bcomptype" name="bcomptype" required></td>
+							<td><input class="form-control w-50" onkeyup="validate_adminbcompany()" type="text" id="bcomptype" name="bcomptype" required></td>
 						</tr>  
 						<tr>
 							<td class="btxt">Contact Person:</td>

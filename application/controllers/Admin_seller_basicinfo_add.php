@@ -110,8 +110,19 @@ class Admin_seller_basicinfo_add extends CI_Controller {
             }
 			return $flname;
     }*/
+	 
 	
-	
+	public function validate_adminscompany(){
+		$dat = urldecode($this->uri->segment(3));
+		$check_db = array('scomapnyname' => $dat);
+		$this->load->model('Admin_model');
+			  if($this->Admin_model->check('sellerprofile', $check_db)){
+				  echo "BYE";
+			  }else{
+				  echo "HI";
+			  }
+		
+	}
 	
 	private function upload_files($nameid)
     {	
