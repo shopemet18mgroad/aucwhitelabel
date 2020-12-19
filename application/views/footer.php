@@ -194,7 +194,27 @@ if(scomapnyname == '' || ssellertype == '' || scontactperson == '' || span == ''
   }
   </script>
  
+<script>
+  function validate_sname(){
+	  var val = document.getElementById("bname").value;
+		if(val != ''){
+			 $.get('<?php echo base_url() .'sellers_registeration/validate_sname/'; ?>'+val, function(data2){				 
+				 if($.trim(data2) == "BYE"){
+					swal("Alert!",  "Seller Name Already Exists", "error");
+					document.getElementById("sname").value = "";
+					return false;
+				}else{
+					return true;
+				}
+			 });
+			
+		}else{
+			swal("Alert!",  "Please Enter Seller Name!", "error");
+			return false;
+		}
+  }
 
+   </script>
   
   
   <script>
@@ -248,7 +268,7 @@ function validate(){
 	//var ssigneddocument = document.getElementsByName("ssigneddocument");
 	//var AnswerInput = document.getElementsByName("saddresscount");
 	
-if(bcompany == '' || bcomptype == '' || bbuyertype == '' || bbuyerlocation == '' || bcontactperson == '' || bdesignation == ''|| baddress == '' || bcity == '' || bpin == '' || bstate == '' || bcountry == '' || bemail == '' || phoneNo == '' || bpan == '' || busername == '' || bpassword == '' || bconfirmpassword == '' || bgst == ''|| bcapcha == '' ){
+if( bcompany == '' || bcomptype == '' || bbuyertype == '' || bbuyerlocation == '' || bcontactperson == '' || bdesignation == ''|| baddress == '' || bcity == '' || bpin == '' || bstate == '' || bcountry == '' || bemail == '' || phoneNo == '' || bpan == '' || busername == '' || bpassword == '' || bconfirmpassword == '' || bgst == ''|| bcapcha == '' ){
 		swal("Alert!",  "Company, Company Type, Buyer Type, Buyer's Location, Contact Person, Postal Address, City, Pin, State/Union Ter, E-Mail, Phone No, Pan No, User Name, Password , Confirm Password , GST No, Security Code  cannot leave any feild blank!", "error");
 		return false;
 	}
