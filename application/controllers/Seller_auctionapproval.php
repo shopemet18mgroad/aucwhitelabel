@@ -32,55 +32,56 @@ class Seller_auctionapproval extends CI_Controller {
 			header('location: '.base_url().'login/index_error/'.$datainserr);
 			die;
 		}else{
-		
-		$sess['sessi']= "Altec";
+		$sess['sessi'] = $this->session->userdata('username');
+		//$sess['sessi']= "Altec";
 		
 		$this->load->model('Admin_model');
 		$sapproval = array('sapproval'=>false);
 		$snamechk = array('susername'=>$sess['sessi']);
 		$data['sqld'] = $this->Admin_model->getdatafromtable('sellerprofile', $snamechk);
-		$snameseller= $data['sqld'][0]->sname;		
+		$snameseller= $data['sqld'][0]->sname;	
+	
+	    $snamechk2a = array('sname'=>$snameseller,'saucclosedate_time <'=>$time,);
 		
-		$data['sqldat'] = $this->Admin_model->get_distinctforauc('addlot', 'sauctionid', $snameseller); 
-		
-		$data['sqldata'] = $this->Admin_model->getdataASC('biddercart', );
-		/* foreach(){
+		 $aucdetails = $this->Admin_model->getdatafromtable('auction', $snamechk2a); 
+	
+		if($aucdetails){
 			
-		} */
-		
-		//print_r($data['sqldat']); die;
-	//$data['sqldat'] = $this->Admin_model->datebetweensess2('biddercart',$time,$sess['sessi']);
-		
-		   $xr = 0;
-		   $xdata = array(); 
-		   
-		   	foreach($data['sqldat'] as $datsql){ 	
-		$auctmp = $datsql->auctionid;
-		$auclottmp = $datsql->lotno;
-		$username = $sess['sessi'];
-		$mybitvalref = $datsql->mybid_val;
-		
-		$datap = $this->Admin_model->maxbidvalue($auctmp, $auclottmp);
-		$mybitvalrec = $datap[0]->bidderusername;
-		$aucbidamount = $datap[0]->bidamount;
-		$mybitvaldatetime = $datap[0]->Date_time;
-		$myapproval = $datap[0]->sapproval;
-		if($username === $mybitvalrec){
-			$data['sqldatarec'][$xr] = $auctmp.'|'.$auclottmp.'|'.$mybitvalrec.'|'.$aucbidamount.'|'.$mybitvaldatetime.'|'.$myapproval;
-			$xr++;
-		}else{
-			
+		foreach($aucdetails as $aucdet){
+			$auct = $aucdet->sauctionid;
+			$aucdetarray = array('sauctionid'=>$auct);
+			$data['sqldat'] = $this->Admin_model->getdatafromtable('addlot',$aucdetarray );
+			$xr = 0;
+				$xdata = array(); 
+				   
+				foreach($data['sqldat'] as $datsql){ 	
+				
+				$auctmp = $datsql->sauctionid;
+				
+				$auclottmp = $datsql->slotno;
+				$username = $sess['sessi'];
+				
+				$datap = $this->Admin_model->maxbidvalue($auctmp, $auclottmp);
+				 
+				$mybitvalrec = $datap[0]->bidderusername;
+				$aucbidamount = $datap[0]->bidamount;
+				$mybitvaldatetime = $datap[0]->Date_time;
+				
+				$bidderdatsql = array('bidderusername'=> $mybitvalrec,'mybid_val'=>$aucbidamount, 'auctionid'=>$auctmp,'lotno'=> $auclottmp);
+				$bidderdatsqloutput = $this->Admin_model->getdatafromtable('biddercart',$bidderdatsql);
+				$bidderdatsqloutput[0]-> sapproval;
+				if(!$bidderdatsqloutput[0]-> sapproval){$data['sqldatarec'][] = $auctmp.'|'.$auclottmp.'|'.$mybitvalrec.'|'.$aucbidamount.'|'.$mybitvaldatetime;
+					}
+				
+					
+				}
+				
+		//$xr++;
 		}
-		
+
 		}
-		/* $this->load->model('Admin_model');
-		$sapproval = array('sapproval'=>false);
-		
-		$query = $this->Admin_model->getdatafromtable('biddercart', $sapproval);
-		
-		$data2['sqldat2']= $query;
-		
-		$this->load->library('session'); */
+	
+
 		$sess = array('sessi'=>$this->session->userdata('username'));		
 					
 		 
