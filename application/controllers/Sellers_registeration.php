@@ -108,8 +108,32 @@ class Sellers_registeration extends CI_Controller {
 		$this->load->view('footer');
         
     }
+	
+	public function validate_scompanyname(){
+		$dat = urldecode($this->uri->segment(3));
+		$check_db = array('scomapnyname' => $dat);
+		$this->load->model('Admin_model');
+			  if($this->Admin_model->check('sellerprofile', $check_db)){
+				  echo "BYE";
+			  }else{
+				  echo "HI";
+			  }
+		
+	}
+	 public function validate_sname(){
+		$dat = urldecode($this->uri->segment(3));
+		$check_db = array('sname' => $dat);
+		$this->load->model('Admin_model');
+			  if($this->Admin_model->check('sellerprofile', $check_db)){
+				  echo "BYE";
+			  }else{
+				  echo "HI";
+			  }
+		
+	}
+	
     public function validate_username(){
-		$dat = $this->uri->segment(3);
+		$dat = urldecode($this->uri->segment(3));
 		$check_db = array('susername' => $dat);
 		$this->load->model('Admin_model');
 			  if($this->Admin_model->check('sellerprofile', $check_db)){

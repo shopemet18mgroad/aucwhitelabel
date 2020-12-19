@@ -173,6 +173,50 @@ if(scomapnyname == '' || ssellertype == '' || scontactperson == '' || span == ''
 	}
    
   </script>
+   <script>
+  function validate_scompanyname(){
+	  var val = document.getElementById("scomapnyname").value;
+		if(val != ''){
+			 $.get('<?php echo base_url() .'sellers_registeration/validate_scompanyname/'; ?>'+val, function(data2){				 
+				 if($.trim(data2) == "BYE"){
+					swal("Alert!",  "Seller Company Name Already Exists", "error");
+					document.getElementById("scomapnyname").value = "";
+					return false;
+				}else{
+					return true;
+				}
+			 });
+			
+		}else{
+			swal("Alert!",  "Please Enter Seller Company Name!", "error");
+			return false;
+		}
+  }
+  </script>
+ 
+<script>
+  function validate_sname(){
+	  var val = document.getElementById("bname").value;
+		if(val != ''){
+			 $.get('<?php echo base_url() .'sellers_registeration/validate_sname/'; ?>'+val, function(data2){				 
+				 if($.trim(data2) == "BYE"){
+					swal("Alert!",  "Seller Name Already Exists", "error");
+					document.getElementById("sname").value = "";
+					return false;
+				}else{
+					return true;
+				}
+			 });
+			
+		}else{
+			swal("Alert!",  "Please Enter Seller Name!", "error");
+			return false;
+		}
+  }
+
+   </script>
+  
+  
   <script>
   function validate_username(){
 	  var val = document.getElementById("susername").value;
@@ -224,7 +268,7 @@ function validate(){
 	//var ssigneddocument = document.getElementsByName("ssigneddocument");
 	//var AnswerInput = document.getElementsByName("saddresscount");
 	
-if(bcompany == '' || bcomptype == '' || bbuyertype == '' || bbuyerlocation == '' || bcontactperson == '' || bdesignation == ''|| baddress == '' || bcity == '' || bpin == '' || bstate == '' || bcountry == '' || bemail == '' || phoneNo == '' || bpan == '' || busername == '' || bpassword == '' || bconfirmpassword == '' || bgst == ''|| bcapcha == '' ){
+if( bcompany == '' || bcomptype == '' || bbuyertype == '' || bbuyerlocation == '' || bcontactperson == '' || bdesignation == ''|| baddress == '' || bcity == '' || bpin == '' || bstate == '' || bcountry == '' || bemail == '' || phoneNo == '' || bpan == '' || busername == '' || bpassword == '' || bconfirmpassword == '' || bgst == ''|| bcapcha == '' ){
 		swal("Alert!",  "Company, Company Type, Buyer Type, Buyer's Location, Contact Person, Postal Address, City, Pin, State/Union Ter, E-Mail, Phone No, Pan No, User Name, Password , Confirm Password , GST No, Security Code  cannot leave any feild blank!", "error");
 		return false;
 	}
@@ -275,6 +319,51 @@ if(bcompany == '' || bcomptype == '' || bbuyertype == '' || bbuyerlocation == ''
 	}
    
   </script>
+  
+  <script>
+  function validate_bcompany(){
+	  var val = document.getElementById("bcompany").value;
+		if(val != ''){
+			 $.get('<?php echo base_url() .'Buyers_registeration/validate_bcompany/'; ?>'+val, function(data2){				 
+				 if($.trim(data2) == "BYE"){
+					swal("Alert!",  "Buyer Company Already Exists", "error");
+					document.getElementById("bcompany").value = "";
+					return false;
+				}else{
+					return true;
+				}
+			 });
+			
+		}else{
+			swal("Alert!",  "Please Enter Buyer Company Name!", "error");
+			return false;
+		}
+  }
+
+   </script>
+  
+  <script>
+  function validate_bname(){
+	  var val = document.getElementById("bname").value;
+		if(val != ''){
+			 $.get('<?php echo base_url() .'Buyers_registeration/validate_bname/'; ?>'+val, function(data2){				 
+				 if($.trim(data2) == "BYE"){
+					swal("Alert!",  "Buyer Name Already Exists", "error");
+					document.getElementById("bname").value = "";
+					return false;
+				}else{
+					return true;
+				}
+			 });
+			
+		}else{
+			swal("Alert!",  "Please Enter Buyer Name!", "error");
+			return false;
+		}
+  }
+
+   </script>
+  
   <script>
   function validate_username1(){
 	  var val = document.getElementById("busername").value;

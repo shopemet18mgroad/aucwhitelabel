@@ -41,7 +41,7 @@ class Buyer_detailedauc extends CI_Controller {
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->model('Admin_model');	
 	//$retriveval = array('bidderusername'=>$sess['sessi']);		
-		$data = $this->Admin_model->get_lookalikebuysess('biddingdata','sauctionid',$datatoquerydb,$sess['sessi']);
+		$data = $this->Admin_model->get_lookalikebuysess('biddercart','auctionid',$datatoquerydb,$sess['sessi']);
 		if(count($data)){
 			echo '<table class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';
 			echo '<thead class="bg-warning  text-white text-center">';
@@ -49,21 +49,23 @@ class Buyer_detailedauc extends CI_Controller {
 			echo '<thead class="bg-primary text-white">';
 			echo '<tr>';
 			echo '<th>Auction Id</th>';
+			echo '<th>Lot No</th>';
 			echo '<th>Closing Date</th>';
 			echo '</tr>';
 			echo '</thead>';
 			echo '<tbody>';
 			foreach($data as $dat){
 				echo '<tr>';
-				$passaucid = str_ireplace('/','-',$dat['sauctionid']);
-				$pass = urlencode($dat['slotno']);
+				$passaucid = str_ireplace('/','-',$dat['auctionid']);
+				$pass = urlencode($dat['lotno']);
 				echo '<td><a href="'.base_url().'buyer_viewdetail/viewdetail/'.$passaucid.
-				'">';
-				echo $dat['sauctionid'];
-				$passaucid = str_ireplace('/','-',$dat['sauctionid']);
+				"/".$dat['lotno'].'">';
+				echo $dat['auctionid'];
+				$passaucid = str_ireplace('/','-',$dat['auctionid']);
 				echo '</a>';
 				echo '</td>';
-				echo '<td>'.$dat['Date_time'].'</td>';
+				echo '<td>'.$dat['lotno'].'</td>';
+				echo '<td>'.$dat['aucclosedate_time'].'</td>';
 			
 				echo '</tr>';
 			}

@@ -120,6 +120,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$query = $this->db->get();
 			return $query->result();
 		}
+		
+		public function sellerbiddetails($sessi){
+			$this->db->select('*');
+			//$this->db->from($table);
+			 $this->db->from('auction');
+			$this->db->join('biddercart', 'biddercart.auctionid = auction.sauctionid');
+			$this->db->join('sellerprofile', 'sellerprofile.sname = auction.sname');
+			$this->db->where('susername =', $sessi);
+			$query = $this->db->get();
+			return $query->result();
+		}
+		
+		public function adminbidhistory(){
+			$this->db->select('*');
+			//$this->db->from($table);
+			 $this->db->from('auction');
+			$this->db->join('biddercart', 'biddercart.auctionid = auction.sauctionid');
+			$query = $this->db->get();
+			return $query->result();
+		}
 		public function datebetweensess2($table, $date, $sessi){
 			$this->db->select('*');
 			$this->db->from($table);
@@ -252,9 +272,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$q = $this->db->get();
 			return $q->result_array();
 		  }
+		  public function get_lookalikesellerbid($table,$col,$query){
+			//$this->db->select('*');
+			 $this->db->from($table);
+			 $this->db->like($col,$query);
+			//$this->db->where('susername =', $sessi);
+			$q = $this->db->get();
+			return $q->result_array();
+		  }
 		  
-		  
-		
 		public function get_lookalikesess($table,$col,$query,$sessi){			  
 			$this->db->from($table);
 			$this->db->like($col,$query);
@@ -278,6 +304,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$q = $this->db->get();
 			return $q->result_array();
 		  }
+			
 			
 			public function admindateclosedauc($table, $date, $data){
 			//$this->db->select('*');

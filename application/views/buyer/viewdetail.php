@@ -27,8 +27,8 @@
 		<tr>
 		<th colspan="12">Bidding Data</th>
 		</tr>
-		<thead class="bg-primary text-white">
-			<tr>
+		
+			<tr class="bg-primary text-white">
 					<td>Auction Id</td>
 					<td>Lot No</td>
 					<td>Close Time</td>
