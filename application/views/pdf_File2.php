@@ -37,7 +37,11 @@ th, td {
 	height: 40px;
 	background-color:grey;
 	color: #ffffff;
-}</style>
+}
+.tablefont{
+	font-size: 14px;
+}
+</style>
 <body>
 
 	<h2><u><?php echo $sqldata2[0]->scompanyname; ?></u></h2>
@@ -80,8 +84,8 @@ annexed hereto and as per schedule of programme given below. </p>
  
   </tr>
   <tr>
-    <td>Inspection of Auction Property</td>
-    <td><?php echo $sqldata[0]->sfrominpectdate_time; ?>&nbsp; to &nbsp; <?php echo $sqldata[0]->stoinpectdate_time; ?></td>
+    <td>Inspection Date/Time</td>
+    <td><?php echo $sqldata2[0]->sfrominpectdate_time; ?>&nbsp; to &nbsp; <?php echo $sqldata2[0]->stoinpectdate_time; ?></td>
     
   </tr>
   <tr>
@@ -126,13 +130,17 @@ whose validity has expired)</td>
 		<p><strong>DETAILS OF AUCTION PROPERTY</strong></p>
 	</div>
 	<br>
-	<table style="width:100%">
+	<table class="tablefont" style="width:100%">
   <tr>
-    <th style="background:#ffff"><b>Item
-No.</b></th>
-    <th style="color:red"><b>Material Description</b>
+    <th style="background:#ffff"><b>Lot
+No.</b>
+</th>
+</th>
+    <th style="color:red"><b>Lot Name</b>
 </th> 
-<th><b>Quantity(Approx.) </th>
+<th><b>Material Description</b>
+</th> 
+<th><b>Quantity(Approx.)</th>
 <th><b>UOM</b></th>
 <th><b>Bid Basis(Per UOM </b></th>
 <th><b>GST(%)</b></th>
@@ -146,6 +154,7 @@ No.</b></th>
   <tr>
     <td><?php echo $sqldat->slotno; ?></td>
     <td><?php echo $sqldat->slotname; ?></td>
+	<td><?php echo $sqldat->sdescription; ?></td>
 	<td><?php echo $sqldat->sqty?></td>
 	<td><?php echo $sqldat->sunitmeasurment; ?></td>
 	<td><?php echo $sqldat->sbidbase; ?></td>

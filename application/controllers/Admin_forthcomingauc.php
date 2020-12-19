@@ -47,7 +47,7 @@ class Admin_forthcomingauc extends CI_Controller {
 			echo '<thead class="bg-primary text-white">';
 			echo '<tr>';
 			echo '<th>Auction Id</th>';
-			echo '<th>Seller Name</th>';
+			echo '<th>Company Name</th>';
 			echo '<th>Download</th>';
 			echo '<th>Start Date/Time</th>';
 			echo '</tr>';
@@ -62,7 +62,7 @@ class Admin_forthcomingauc extends CI_Controller {
 				$passaucid = str_ireplace('/','-',$dat['sauctionid']);
 				echo '</a>';
 				echo '</td>';
-				echo '<td>'.$dat['sname'].'</td>';
+				echo '<td>'.$dat['scompanyname'].'</td>';
 				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$passaucid.'/'.urlencode($dat['sname']).'" target="_blank"><i class="fa fa-download"></i></a></td>';
 				echo '<td>'.$dat['saucstartdate_time'].'</td>';
 				

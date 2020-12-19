@@ -52,6 +52,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return $query->result();
 		}
 		
+		
+		public function datebetweenaucappr($table, $date){
+			$this->db->select('*');
+			 $this->db->from('auction');
+			$this->db->join('biddercart', 'biddercart.auctionid = auction.sauctionid');
+			$this->db->join('sellerprofile', 'sellerprofile.sname = auction.sname');
+			
+			$this->db->where('aucclosedate_time <', $date);
+			//$this->db->where('susername =', $sessi);
+			$query = $this->db->get();
+			return $query->result();
+		}
+		
 		public function datebetweenhome($date){
 			$this->db->select('*');
 			$this->db->from('auction');
@@ -244,6 +257,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$query = $this->db->get_where($table, array("prod_id"=>$id));
 			return $query->result();
 		  } 
+		  
+		    public function get_distinctforauc($table,$col,$sname) { 
+			$this->db->select($col);
+			$this->db->distinct();
+			//$query = $this->db->get($table);
+			$query = $this->db->get_where($table, array("sname" => $sname));
+			return $query->result();
+		  } 
 		   
 		  public function get_lookalike($table,$col,$query){			  
 			$this->db->from($table);
@@ -274,6 +295,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$query = $this->db->get_where($table, $data); 
 			 return $query->result();
 		}
+
 		
 			 public function get_lookalikebuysess($table,$col,$query,$sessi){			  
 			$this->db->from($table);
