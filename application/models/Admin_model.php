@@ -90,8 +90,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->where('aucstartdate_time <=', $date);
 			$this->db->where('aucclosedate_time >=', $date);
 			$this->db->where('bidderusername =', $sessi);
-			$this->db->where('emdrequest =', 1);
-			//$this->db->or_where('emd_paid_dd =', 1);
+			$this->db->or_where('emdrequest =', 1);
+			$this->db->or_where('emd_paid_dd =', 1);
 			$query = $this->db->get();
 			return $query->result();
 		}
