@@ -125,7 +125,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->select('*');
 			//$this->db->from($table);
 			 $this->db->from('auction');
-			$this->db->join('biddercart', 'biddercart.auctionid = auction.sauctionid');
+			$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid');
 			$this->db->join('sellerprofile', 'sellerprofile.sname = auction.sname');
 			$this->db->where('susername =', $sessi);
 			$query = $this->db->get();
@@ -136,7 +136,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->select('*');
 			//$this->db->from($table);
 			 $this->db->from('auction');
-			$this->db->join('biddercart', 'biddercart.auctionid = auction.sauctionid');
+			$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid');
 			$query = $this->db->get();
 			return $query->result();
 		}

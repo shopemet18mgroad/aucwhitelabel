@@ -72,16 +72,7 @@
 	  </tr>
 	  <tr>  												
 		<td>Location Of Lot</td>
-		<td><select class="form-control w-50" id="slotlocation" name="slotlocation" value="<?php echo $sqldata[0]->slotlocation; ?>">
-				
-				<option value="<?php echo $sqldata[0]->slotlocation; ?>" selected><?php echo $sqldata[0]->slotlocation; ?></option>
-				<option value="Mangalore">Mangalore</option>
-				<option value="Bangalore" >Bangalore</option>
-				<option value="Mysore">Mysore</option>
-				<option value="Mumbai">Mumbai</option>
-				<option value="Delhi">Delhi</option>
-				<option value="Hydrabad">Hydrabad</option>
-				</select></td>
+		<td><input class="form-control w-50" type="text" id="slotlocation" name="slotlocation" value="<?php echo $sqldata[0]->slotlocation; ?>"></td>
 	</tr>
 
 	
