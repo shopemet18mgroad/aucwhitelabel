@@ -59,7 +59,7 @@ class admin_bidwinner extends CI_Controller {
 				$mybitvaldatetime = $datap[0]->Date_time;
 				$bidderdatsql = array('bidderusername'=> $mybitvalrec,'mybid_val'=>$aucbidamount, 'auctionid'=>$auctmp,'lotno'=> $auclottmp);
 				$bidderdatsqloutput = $this->Admin_model->getdatafromtable('biddercart',$bidderdatsql);
-				$bidderdatsqloutput[0]-> sapproval;
+				$bidderdatsqloutput[0]->sapproval;
 				if(!$bidderdatsqloutput[0]-> sapproval){$data['sqldatarec'][] = $auctmp.'|'.$auclottmp.'|'.$mybitvalrec.'|'.$aucbidamount.'|'.$mybitvaldatetime;
 					}
 				

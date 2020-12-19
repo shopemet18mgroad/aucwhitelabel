@@ -21,7 +21,7 @@
               <div class="table-responsive">
 			  
 			  
-	<input type="hidden" id="ref" value="<?php echo str_ireplace('/','-',$sqldata[0]->auctionid)."|".$sqldata2[0]->slotno; ?>">
+	<input type="hidden" id="ref" value="<?php echo str_ireplace('/','-',$sqldata[0]->sauctionid)."|".$sqldata2[0]->slotno; ?>">
 	<div id="ajaxauc" class="ajaxauc">
 		<table class="table table-striped table-bordered table-sm text-center w-auto small ml-5" width="100%" cellspacing="0" >
 				<thead class="bg-info text-white text-center">

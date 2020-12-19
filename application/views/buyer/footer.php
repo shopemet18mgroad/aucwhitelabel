@@ -85,7 +85,7 @@
 				$('#ajaxrslt_forthcomingauc1').html(data);
 			});
 		});
-
+  }
  </script>
  <script>
   /*  $(function(){
