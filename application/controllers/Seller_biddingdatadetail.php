@@ -36,11 +36,14 @@ class Seller_biddingdatadetail extends CI_Controller {
 	}
 	public function biddetail2(){
 		$retrivevaltmp = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
-		$retriveval = array('sauctionid'=>$retrivevaltmp);
+		
+		$retrivevaltmp2 = urldecode($this->uri->segment(4));
+		//print_r($retrivevaltmp2); die;
+		$retriveval = array('sauctionid'=>$retrivevaltmp,'slotno'=>$retrivevaltmp2);
 		$this->load->model('Admin_model');
 		
-		$data['sqldata'] = $this->Admin_model->getdataASC('biddingdata',$retriveval);
-		//print_r($data['sqldata']); die;
+		$data['sqldata'] = $this->Admin_model->getdataDSC('biddingdata',$retriveval);
+		
 		
 		$this->load->helper('url');
 		$this->load->library('session');

@@ -36,15 +36,22 @@
 						<tr>
 						 <form action = "<?php echo base_url();?>admin_seller_basicinfo_update" method="POST" enctype="multipart/form-data">
 							<td class="btxt">Seller Name:</td>
-							<td><input class="form-control w-50" type="text" id="sname" name="sname" value="<?php echo $sqldata[0]->sname; ?>"></td>
+							<td><input class="form-control w-50" type="text" id="sname" name="sname" value="<?php echo $sqldata[0]->sname; ?>" readonly></td>
 	 							 </tr>
 						<tr>												
 							<td class="btxt">Company Name:</td>
-							<td><input class="form-control w-50" type="text" id="scomapnyname" name="scomapnyname" value="<?php echo $sqldata[0]->scomapnyname; ?>"></td>
+							<td><input class="form-control w-50" type="text" id="scomapnyname" name="scomapnyname" value="<?php echo $sqldata[0]->scomapnyname; ?>" readonly></td>
 							</tr>
 						<tr>
 							<td class="btxt">Seller Type:</td>
-								<td><input class="form-control w-50" type="text" id="ssellertype" name="ssellertype" value="<?php echo $sqldata[0]->ssellertype; ?>"></td>
+								<td><select class="form-control w-50" style="text-align-last:center;" id="ssellertype" name="ssellertype">
+								<option value="<?php echo $sqldata[0]->ssellertype; ?>" selected><?php echo $sqldata[0]->ssellertype; ?></option>
+								<option value="Govt Regd Company">Govt Regd Company</option>
+								<option value="Ltd, Pvt Ltd, LLP, Corp">Ltd, Pvt Ltd, LLP, Corp</option>
+								<option value="Partnership, Proprietorship, OPC" >Partnership, Proprietorship, OPC</option>
+								<option value="Other">Other</option>
+								</select>
+							</td>
 						</tr>  
 						<tr>
 							<td class="btxt">Contact Person:</td>
@@ -56,7 +63,7 @@
 						</tr>  
 						<tr>
 							<td class="btxt">Pan Number:</td>
-							<td><input class="form-control w-50" type="text" id="span" name="span" value="<?php echo $sqldata[0]->span; ?>"></td>
+							<td><input class="form-control w-50 pan" type="text" id="span" name="span" value="<?php echo $sqldata[0]->span; ?>"></td>
 						</tr>
 						<tr>
 							<td class="btxt">GST:</td>
@@ -75,7 +82,7 @@
 						<tbody>
 						<tr>
 							<td class="btxt">Email:</td>
-							<td><input class="form-control w-50" type="email" id="semail" name="semail" value="<?php echo $sqldata[0]->semail; ?>"></td>
+							<td><input class="form-control w-50" type="email" id="semail" name="semail" value="<?php echo $sqldata[0]->semail; ?>" required></td>
 						</tr>
 						<tr>
 							<td class="btxt">Phone:</td>
@@ -85,6 +92,7 @@
 								<td>Address</td>
 								<td>
 								<?php
+								
 								$companyltype = unserialize($sqldata[0]->saddress);
 								$companyaddress = unserialize($sqldata[0]->saddresscount);
 								 $xj = 0;
@@ -99,6 +107,7 @@
 											echo '<select class="form-control w-50  p-1" name="saddress[]">';
 											echo '<option value="'.$companyltype[$i].'">'.$companyltype[$i].'</option>';
 											echo '<option value="Corporate-Office">Corporate Office</option>';
+											echo '<option value="Manufacturing Unit">Manufacturing Unit</option>';
 											echo '<option value="Headquarter">Headquarter</option>';
 											echo '</select>';
 											echo '';
@@ -199,6 +208,7 @@
 								
 							</tr> 
 							<?php 
+							$aucf = unserialize($sqldata[0]->ssigneddocument);
 							if(unserialize($sqldata[0]->ssigneddocument) != NULL){
 								$file = unserialize($sqldata[0]->ssigneddocument);
 								  foreach($file as $fl){
@@ -208,7 +218,11 @@
 								echo '<textarea class="form-control float-left mt-2 p-2 w-50" type="text" id="ssigneddocumentex" name="ssigneddocumentex[]" readonly>'.$fl.'</textarea>';
 								echo '<input type="hidden" id="ssigneddocumentexcom" name="ssigneddocumentexcom[]" value="'.$fl.'">';
 								echo '<a class="add_field_button1"><button type="button" onclick="$(this).parents(\'#filess\').remove()" class="btn btn-sm btn-primary ml-1 mb-5 mt-3">  <i class="fa fa-minus text-white"></i></button></a>';
-								
+								if(isset($aucf[0])){
+								echo '<a href="'.base_url().'web_files/uploads/'. $aucf[0].'" target="_blank">';
+								echo '<i class="fa fa-download ml-5 mb-5 mt-3"></i>';
+								}
+								echo '</a>';
 								echo '</div></td>';
 								echo '';
 								echo '</tr>';
@@ -221,9 +235,9 @@
 							?>
 						</tbody>
 					</table>								
-				<button type="submit" class="btn btn-info offset-sm-4 mt-2">Update</button>
+				<input type="submit" class="btn btn-info offset-sm-4 mt-2" value="Update" onclick="return ValidateNo();">
 												
-				<button type="submit2" class="btn btn-info offset-sm-1 mt-2">Back</button>
+				<a href="<?php echo base_url();?>Admin_editseller"><button  class="btn btn-info offset-sm-1 mt-2">Back</button></a>
 												
 				</form>
               </div>
@@ -313,7 +327,41 @@
 			});
  
  </script>
+ <script>
  
+ </script>
+ 
+ <script>
+ function ValidateNo() {
+  var phoneNo = document.getElementById('sphone');
+
+   if (phoneNo.value.length < 10 || phoneNo.value.length > 10) {
+    swal("Alert!", "Mobile No. is not valid, Please Enter 10 Digit Mobile No.", "error");
+    return false;
+  }
+  else if (phoneNo.value == "") {
+    swal("Alert!","Please enter your Mobile No.","error");
+    return false;
+  }
+ }
+ </script>
+ 
+ <script type="text/javascript">    
+$(document).ready(function(){     
+        
+$(".pan").change(function () {      
+var inputvalues = $(this).val();      
+  var regex = /[A-Z]{5}[0-9]{4}[A-Z]{1}$/;    
+  if(!regex.test(inputvalues)){      
+  $(".pan").val("");    
+  swal("Alert!","Invalid PAN no", "error");    
+  return regex.test(inputvalues);    
+  }    
+});      
+    
+});    
+</script> 
+
   <?php 
 	//include('./footerdata.php');
 ?>

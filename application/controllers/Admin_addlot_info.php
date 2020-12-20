@@ -44,13 +44,13 @@ class Admin_addlot_info extends CI_Controller {
 			if($this->input->post('submit')){
 			$sauctionid = $this->input->post('sauctionid');
 			$sname = $this->input->post('sname');
-			 $slotno = $this->input->post('slotno'); 
+			$slotno = $this->input->post('slotno'); 
 			$slotname = $this->input->post('slotname');
 			$scategory = $this->input->post('scategory');
 			$sdescription = $this->input->post('sdescription');
-			$slotlocation = $this->input->post('slotlocation');
-			$semddetail = $this->input->post('semddetail');	
+			$slotlocation = $this->input->post('slotlocation');	
 			$slastdateemdsub = $this->input->post('slastdateemdsub');
+			$sminincre = $this->input->post('sminincre');
 			$sprice = $this->input->post('sprice');
 			$sstartbidprice = $this->input->post('sstartbidprice');
 			$sqty = $this->input->post('sqty');
@@ -72,7 +72,18 @@ class Admin_addlot_info extends CI_Controller {
 					
 			
 			$this->load->model('Admin_model');
-			$data = array('sauctionid' => $sauctionid, 'sname' => $sname, 'slotno' => $slotno, 'slotname' => $slotname, 'scategory' => $scategory, 'sdescription' => $sdescription, 'slotlocation'=> $slotlocation, 'semddetail' => $semddetail, 'sprice' => $sprice, 'sqty' => $sqty, 'sunitmeasurment' => $sunitmeasurment, 'sbidbase' => $sbidbase, 'sgst' => $sgst,'shsncode' => $shsncode, 'sothertax' => $sothertax, 'semdamount' => $semdamount,'sliftingperiod2' => $sliftingperiod2, 'sliftingperiod' => $sliftingperiod,  'spcbcertificate' => $spcbcertificate);
+			
+			$srr = array('sauctionid'=>$sauctionid);
+			$data1 = $this->Admin_model->getdatafromtable('addlot',$srr);
+				if($data1){
+					$lottmp = count($data1);
+					 //echo "Hi"; die;
+					$slotno = $lottmp + 1;
+				}else{
+					$slotno = 1;
+				}
+			
+			$data = array('sauctionid' => $sauctionid, 'sname' => $sname, 'slotno' => $slotno, 'slotname' => $slotname, 'scategory' => $scategory, 'sdescription' => $sdescription, 'slotlocation'=> $slotlocation,'sminincre' => $sminincre, 'sprice' => $sprice,'sstartbidprice' => $sstartbidprice, 'sqty' => $sqty, 'sunitmeasurment' => $sunitmeasurment, 'sbidbase' => $sbidbase, 'sgst' => $sgst,'shsncode' => $shsncode, 'sothertax' => $sothertax, 'semdamount' => $semdamount,'sliftingperiod2' => $sliftingperiod2, 'sliftingperiod' => $sliftingperiod,  'spcbcertificate' => $spcbcertificate);
 			
 			$status = $this->Admin_model->insert('addlot', $data);
 			
@@ -88,16 +99,18 @@ class Admin_addlot_info extends CI_Controller {
 		
 			}
 			
+			
 			//echo $this->session->userdata('auth');
 		if(!$this->session->has_userdata('username')  || $this->session->userdata('auth') != "ADMIN"){
 			$datainserr = "Invalid Login Session";
 			header('location: '.base_url().'login/index_error/'.$datainserr);
 			die;
 		}else{
+	
 		$sess = array('sessi'=>$this->session->userdata('username'));
 			
 		$this->load->view('admin/header',$sess);
-		$this->load->view('admin/addlot');
+		$this->load->view('admin/addlot',$data);
 		$this->load->view('admin/footer');
 		}
 	}
@@ -109,8 +122,9 @@ class Admin_addlot_info extends CI_Controller {
 			$scategory = $this->input->post('scategory');
 			$sdescription = $this->input->post('sdescription');
 			$slotlocation = $this->input->post('slotlocation');
-			$semddetail = $this->input->post('semddetail');	
+			$sminincre = $this->input->post('sminincre');
 			$sprice = $this->input->post('sprice');
+			$sstartbidprice = $this->input->post('sstartbidprice');
 			$sqty = $this->input->post('sqty');
 			$sunitmeasurment = $this->input->post('sunitmeasurment');
 			$sbidbase = $this->input->post('sbidbase');
@@ -125,7 +139,18 @@ class Admin_addlot_info extends CI_Controller {
 			 
 			 $this->load->model('Admin_model');
 			 
-			 $data5 = array('sauctionid' => $sauctionid,'sname' => $sname, 'slotno' => $slotno, 'slotname' => $slotname, 'scategory' => $scategory, 'sdescription' => $sdescription, 'slotlocation'=> $slotlocation, 'semddetail' => $semddetail, 'sprice' => $sprice, 'sqty' => $sqty, 'sunitmeasurment' => $sunitmeasurment, 'sbidbase' => $sbidbase, 'sgst' => $sgst,'shsncode' => $shsncode, 'sothertax' => $sothertax, 'semdamount' => $semdamount,'sliftingperiod2' => $sliftingperiod2, 'sliftingperiod' => $sliftingperiod,  'spcbcertificate' => $spcbcertificate);
+			 $srr = array('sauctionid'=>$sauctionid);
+			$data1 = $this->Admin_model->getdatafromtable('addlot',$srr);
+				if($data1){
+					$lottmp = count($data1);
+					 //echo "Hi"; die;
+					$slotno = $lottmp + 1;
+				}else{
+					$slotno = 1;
+				}
+			 
+			 
+			 $data5 = array('sauctionid' => $sauctionid,'sname' => $sname, 'slotno' => $slotno, 'slotname' => $slotname, 'scategory' => $scategory, 'sdescription' => $sdescription, 'slotlocation'=> $slotlocation,'sminincre' => $sminincre, 'sprice' => $sprice,'sstartbidprice' => $sstartbidprice, 'sqty' => $sqty, 'sunitmeasurment' => $sunitmeasurment, 'sbidbase' => $sbidbase, 'sgst' => $sgst,'shsncode' => $shsncode, 'sothertax' => $sothertax, 'semdamount' => $semdamount,'sliftingperiod2' => $sliftingperiod2, 'sliftingperiod' => $sliftingperiod,  'spcbcertificate' => $spcbcertificate);
 			 $status1 = $this->Admin_model->insert('addlot', $data5);
 			 
 			 	 $transfer1 = array('auctionid' => $sauctionid, 'category' => $scategory,'sname' => $sname, 'lotno' => $slotno);
@@ -147,13 +172,33 @@ class Admin_addlot_info extends CI_Controller {
 		}else{
 		$sess = array('sessi'=>$this->session->userdata('username'));
          $this->load->view('admin/header');
-		$this->load->view('admin/addlot');
+		$this->load->view('admin/addlot',$data5 );
 		$this->load->view('admin/footer');
 
 			  }
 	}	
 		
 	}
+	
+public function validate_lotno(){
+		
+		$this->load->model('Admin_model');
+		$data = $this->Admin_model->gettable('addlot');
+		//print_r($dat);die;
+		$dat = array($data->slotno);
+		
+		$dat = $this->uri->segment(3);
+		
+		$check_db = array('slotno' => $dat);
+		$this->load->model('Admin_model');
+			  if($this->Admin_model->check('addlot', $check_db)){
+				  echo "BYE";
+			  }else{
+				  echo "HI";
+			  }
+		
+	}	
+
 }
             
 			

@@ -55,9 +55,10 @@ class Buyer_forthcomingauc extends CI_Controller {
 	}
 	
 	public function get_table(){
+		$time =  Date('Y-m-d H:i:s');
 		$datatoquerydb = $this->uri->segment(3);
 		$this->load->model('Admin_model');
-		$data = $this->Admin_model->get_lookalike('addlot','sdescription',$datatoquerydb);
+		$data = $this->Admin_model->get_lookalike2('addlot','sdescription',$datatoquerydb);
 		if(count($data)){
 			  
 			
@@ -69,7 +70,9 @@ class Buyer_forthcomingauc extends CI_Controller {
 			echo '<thead class="bg-primary text-white">';
 			echo '<tr>';
 			echo '<th>Auction Id</th>';
+			echo '<th>Lot No</th>';
 			echo '<th>Lot Name</th>';
+			echo '<th>Auction Start Time</th>';
 			echo '<th>Category</th>';
 			echo '<th>Lot Description</th>';
 			echo '<th>Seller / Company Name</th>';
@@ -81,33 +84,43 @@ class Buyer_forthcomingauc extends CI_Controller {
 			echo '</tr>';
 			echo '</thead>';
 			echo '<tbody>';
+			
 			foreach($data as $dat){
-				echo '<tr>';
+				$sauc = str_ireplace('/','-',$dat['sauctionid']);
+				$saucqarray = array('sauctionid'=>$sauc,'saucclosedate_time >'=>$time);
+				$respdata = $this->Admin_model->getdatafromtable('auction',$saucqarray);
+				if($respdata){
+					echo '<tr>';
 
-				 echo '<td style="color:blue"><a href="'.base_url().'buyer_mylist/my_cart/'.urlencode($dat['sdescription']).
-				'">'; 
+				 echo '<td style="color:blue">'; 
 
 
-				echo $dat['sauctionid'];	
+				//echo $dat['sauctionid'];	
 				echo $aucencode = str_ireplace('/','-',$dat['sauctionid']);
-				echo '</a>'; 
+				//echo '</a>'; 
 				echo '</td>'; 
+				echo '<td>'.$dat['slotno'].'</td>';
 				echo '<td>'.$dat['slotname'].'</td>';
+				echo '<td>'.$respdata[0]->saucstartdate_time.'</td>';
 				echo '<td>'.$dat['scategory'].'</td>';
 				echo '<td>'.$dat['sdescription'].'</td>';
 				echo '<td>'.$dat['sname'].'</td>';
 				echo '<td>'.$dat['sqty'].'</td>';
 				echo '<td>'.$dat['sgst'].'</td>';
 				echo '<td>'.$dat['slotlocation'].'</td>';
-				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$aucencode.'" target="_blank"><i class="fa fa-download"></i></a></td>';
+				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$aucencode.'/'.urlencode($dat['sname']).'" target="_blank"><i class="fa fa-download"></i></a></td>';
 				echo '';
 
 				echo '<td>';
-				echo'<button type="button" id="'.$aucencode.'|'.$dat['slotno'].'" onClick="addtocart(this.id)">';
-				echo'<i class="fas fa-heart" id="'.$aucencode.'|'.$dat['slotno'].'"></i>';
+				echo'<button type="button" id="'.$aucencode.'|'.$dat['slotno'].'|'.str_ireplace(',','%2C',$dat['sdescription']).'" onClick="addtocart(this.id)">';
+				echo'<i class="fas fa-heart" id="'.$aucencode.'|'.$dat['slotno'].'|'.$dat['sdescription'].'"></i>';
 				echo'</button>';
 				echo '</td>';
 				echo '</tr>';
+				}else{
+					
+				}
+				
 			}
 			echo '</tbody>';
 			echo '</table>';
@@ -117,6 +130,7 @@ class Buyer_forthcomingauc extends CI_Controller {
 			echo '<tr>';
 			echo '<th>Auction Id</th>';
 			echo '<th>Lot Name</th>';
+			echo '<th>Auction Start Time</th>';
 			echo '<th>Lot Description</th>';
 			echo '<th>Seller / Company Name</th>';
 			echo '<th>Quantity</th>';
@@ -128,6 +142,7 @@ class Buyer_forthcomingauc extends CI_Controller {
 			echo '<tbody>';
 			echo '<tr>';
 				echo '<td><a href="'.base_url().'#">';
+				echo '<td>No Records Found</td>';
 				echo '<td>No Records Found</td>';
 				echo '<td>No Records Found</td>';
 				echo '<td>No Records Found</td>';
@@ -152,8 +167,10 @@ class Buyer_forthcomingauc extends CI_Controller {
 		$datexp = explode('|',$dat);
 		$auctionid = str_ireplace('-','/',$datexp[0]);
 		$lotno = $datexp[1];
+		$description = urldecode($datexp[2]);
+		//print_r($sdescription); die;
 		$data = array('sauctionid'=>$auctionid);
-		$data2 = array('sauctionid'=>$auctionid,'slotno'=>$lotno);		
+		$data2 = array('sauctionid'=>$auctionid,'slotno'=>$lotno,'sdescription'=>$description);		
 		$dat4 = $this->Admin_model->getdatafromtable('addlot',$data2);
 		$dat3 = $this->Admin_model->getdatafromtable('auction',$data);
 		$aucstart = $dat3[0]->saucstartdate_time;
@@ -162,7 +179,7 @@ class Buyer_forthcomingauc extends CI_Controller {
 		$aucstartbidprice = $dat4[0]->sprice;
 		$bcheck = array('bidderusername'=>$bidderuname,'auctionid'=>$auctionid,'lotno'=>$lotno);
 		$cartdata = array(
-		'bidderusername'  => $bidderuname,'auctionid'=>$auctionid,'lotno' => $lotno,'aucstartdate_time'=>$aucstart,'aucclosedate_time'=>$aucend,'bidstart'=>$aucstartbid,'bidprice'=>$aucstartbidprice);
+		'bidderusername'  => $bidderuname,'auctionid'=>$auctionid,'lotno' => $lotno,'description' => $description,'aucstartdate_time'=>$aucstart,'aucclosedate_time'=>$aucend,'bidstart'=>$aucstartbid,'bidprice'=>$aucstartbidprice);
 		if($this->Admin_model->check('biddercart',$bcheck)){
 			echo "EX";
 		}else{

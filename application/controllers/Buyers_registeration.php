@@ -102,13 +102,27 @@ class Buyers_registeration extends CI_Controller {
 		$data['ImgFileName'] = $captcha['filename'];
         // Load the view
 		//$this->load->helper('url');
-		$this->load->view('header');
+		$this->load->view('header2');
 		$this->load->view('buyersregisteration',$data);
 		$this->load->view('footer');
         
     }
+	public function validate_bcompany(){
+		$dat = urldecode($this->uri->segment(3));
+		$check_db = array('bcompany' => $dat);
+		$this->load->model('Admin_model');
+			  if($this->Admin_model->check('buyerprofile', $check_db)){
+				  echo "BYE";
+			  }else{
+				  echo "HI";
+			  }
+		
+	}
+	
+	
+	
     public function validate_username1(){
-		$dat = $this->uri->segment(3);
+		$dat = urldecode($this->uri->segment(3));
 		$check_db = array('busername' => $dat);
 		$this->load->model('Admin_model');
 			  if($this->Admin_model->check('buyerprofile', $check_db)){

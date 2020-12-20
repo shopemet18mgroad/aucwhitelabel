@@ -42,7 +42,7 @@ class Buyer_Mylist_dd_upload extends CI_Controller {
 			}
 			$kaa++;
 		}
-		echo $kab;
+		//echo $kab;
 		//$auc = urldecode($this->uri->segment(4));
 		
 		//$this->load->library('session');
@@ -90,6 +90,9 @@ class Buyer_Mylist_dd_upload extends CI_Controller {
 			}else{
 				$doc_array = serialize($doc_array);
 			}
+			
+			
+				
 			$data4 = array ('upload_dd' => $doc_array);
 			$datainserr = "Data Inserted Successfully";
 			$username = urldecode($username);
@@ -101,9 +104,6 @@ class Buyer_Mylist_dd_upload extends CI_Controller {
 			} 
 			 header('location: '.base_url().'buyer_mylist/index/'.$datainserr);
 		}
-		
-		
-		 
 		//=================================================================================================
 		//==================================================================
 		
@@ -120,8 +120,37 @@ class Buyer_Mylist_dd_upload extends CI_Controller {
 		} */ 
 		//$this->load->view('xya', $data);
 		
-	 	
 		}
+		
+		
+		public function emdreq(){
+		$this->load->helper('url');
+			
+		$retrivevaltmp =($this->uri->segment(3));
+		
+		$retrivevaltmp = urldecode($retrivevaltmp);
+	//print_r($retrivevaltmp); die;
+		$retrivevaltmp2 = urldecode(str_ireplace('-','/',$this->uri->segment(4)));
+			
+		$retrivevaltmp3 = urldecode($this->uri->segment(5));
+		
+		$data2 = array('emdrequest'=>3);
+		$datainserr = "Data Inserted Successfully";
+		$updatech = array('bidderusername'=>$retrivevaltmp,'auctionid'=>$retrivevaltmp2,'lotno'=>$retrivevaltmp3);
+		$this->load->model('Admin_model');
+		
+		
+		$status2 = $this->Admin_model->update_custom('biddercart',$data2,$updatech,$updatech);
+	
+		if($status2){
+				
+			} 
+			 header('location: '.base_url().'buyer_mylist/index/'.$datainserr);
+				
+	
+}
+	 	
+		
 		
 		
 	

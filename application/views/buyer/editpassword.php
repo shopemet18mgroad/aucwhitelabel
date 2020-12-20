@@ -58,7 +58,7 @@
 												
 			<input type="reset" class="btn btn-primary offset-sm-1 mt-2" value="Reset">
 					</form>							
-				<a href=""><button type="button" class="btn btn-primary offset-sm-1 mt-2">Cancel</button></a>
+				<a href="buyer_dashboard"><button type="button" class="btn btn-primary offset-sm-1 mt-2">Cancel</button></a>
 				
 								
               </div>

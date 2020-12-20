@@ -90,7 +90,11 @@ The Contract will remain valid for 1 time sale/ 6 months/ 1 year of this Agreeme
 </p>
 <p class="para">
 <b>10.	Service Charge</b><br>
-10.1	The seller shall be entitled to a service charge of 10% on the basis of the Delivery Order / sale invoice issued through this auction over the Aucjunction portal.<br>
+<form action="./AgreementSellercharg" method="POST">
+10.1	The seller shall be entitled to a service charge of
+<input class="percent" type="text" value="%" name="servperc" maxlength="6" size="4">
+
+ on the basis of the Delivery Order / sale invoice issued through this auction over the Aucjunction portal.<br>
 10.2	The service charge is exclusive of any other taxes and duties levied by the Statutory Authorities of different States and Central Government. Service Charge will be calculated on the amount realised excluding Excise Duty and Sales Tax<br>
 </p>
 <p class="termstxt2">SELLER TERMS AND CONDITIONS</p>
@@ -136,7 +140,7 @@ The Contract will remain valid for 1 time sale/ 6 months/ 1 year of this Agreeme
 <div>
 For and On Behalf of <br>                                                                                               
 M/S&nbsp;<span><b><?php echo $company;?></b></span><br>	                                                                    
-By its  &nbsp;<span><b><?php echo $designation;?>&nbsp;</b></span>Shri &nbsp;<span><b><?php echo $sname;?></b></span>                      
+By its  &nbsp;<span><b><?php echo $designation;?>&nbsp;</b></span>Mr./Mrs./Miss. &nbsp;<span><b><?php echo $sname;?></b></span>                      
 <br><br><br>
 Signature with Seal.
 </div>
@@ -161,11 +165,63 @@ Signature and Seal.
 	</div>
 
 </div>
-
+</form>
 </div>      <!---  body  design  -->
 </div>
 </div>
         <!---  footer  -->
+<script>
+		//Get human input: 
+document.querySelector('.percent').addEventListener('input', function(e){
+  //Separate the percent sign from the number:
+  let int = e.target.value.slice(0, e.target.value.length - 1);
+  
+  /* If there is no number (just the percent sign), rewrite
+     it so it persists and move the cursor just before it.*/
+  if (int.includes('%')) {
+    e.target.value = '%';
+  }
+  /* If the whole has been written and we are starting the
+     fraction rewrite to include the decimal point and percent 
+     sign. The fraction is a sigle digit. Cursor is moved to 
+     just ahead of this digit.*/
+  else if(int.length >= 3 && int.length <= 4 && !int.includes('.')){
+    e.target.value = int.slice(0,2) + '.' + int.slice(2,3) + '%';
+    e.target.setSelectionRange(4, 4);
+  }
+  /* If the we have a double digit fraction we split up, format it
+     and print that. Cursor is already in the right place.*/
+  else if(int.length >= 5 & int.length <= 6){
+    let whole = int.slice(0, 2);
+    let fraction = int.slice(3, 5);
+    e.target.value = whole + '.' + fraction + '%';
+  }
+  /* If we're still just writing the whole (first 2 digits), just 
+     print that with the percent sign. Also if the element has just
+     been clicked on we want the cursor before the percent sign.*/
+  else {
+    e.target.value = int + '%';
+    e.target.setSelectionRange(e.target.value.length-1, e.target.value.length-1);
+  }
+  console.log(getInt(e.target.value));
+});
+
+/* For consuption by robots, the number is best written as an 
+   interger, so we do that remembering it contains 2 or less
+   decimal places*/
+function getInt(val){
+  //So as not to breakup a potential fraction
+  let v = parseFloat(val);
+  //If we only have the whole:
+  if(v % 1 === 0){
+    return v;  
+  //If the numberis a fraction  
+  }else{
+    let n = v.toString().split('.').join('');
+    return parseInt(n);
+  }
+}
+</script>
 
    <?php 
 	//include('./footer.php');

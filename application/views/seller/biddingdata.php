@@ -20,24 +20,33 @@
           <div class="card shadow mb-4">
             <div class="card-body">
               <div class="table-responsive">
-			 <form class="form-inline">
-					<div class="form-group mr-4 offset-sm-4">
-						<td colspan="5">
-						<!-- <form action="/action_page.php"> -->
-								<label for="gettable"></label>
-								<input type="text" class="form-control gettable" id="gettable_biddata" placeholder="Enter Company Name To Fetch Result"  size="70" name="search">
-								
-								<!--<button class="form-control" type="submit"><i class="fa fa-search"></i></button>-->
+			 <table class="table table-striped table-bordered table-sm text-center mt-5" id="dataTable" width="100%" cellspacing="0">
+		<thead class="bg-warning text-white">
+		<tr>
+		<th colspan="12">Bidding History</th>
+		</tr>
+		
+		
+			<tr class="bg-primary text-white">
+					<td>Auction Id</td>
+					<td>Lot No</td>
+					<td>Close Time</td>
 					
-						<!-- </form> -->
-					</td>
-				</div>
-			</form>
-		<div class="ajaxrslt" id="ajaxrslt_biddata">
-			<!----Insert Ajax Table Here------>
+				</tr>
+				</thead>
+
+				<tbody>
+				<?php foreach($sqldata as $sqldata[0]){?>
+				<tr>
+				
+					<td><b><a href="<?php echo base_url()."Seller_biddingdatadetail/biddetail2/".str_ireplace('/','-',$sqldata[0]->sauctionid)."/".$sqldata[0]->slotno;?>"><?php echo $sqldata[0]->sauctionid; ?></b></td>
+					<td><?php echo $sqldata[0]->slotno; ?></td>
+					<td><?php echo $sqldata[0]->saucclosedate_time; ?></td>
+				</tr>
+			<?php }?>
+				</tbody>
 			
-			<!---- ------>
-		</div>
+		 </table>
 		</div>
 		</div>
 		   <!--Pagination -->
@@ -64,7 +73,11 @@
 
   </div>
   <!-- End of Page Wrapper -->
-
+<script>
+$(document).ready(function() {
+    $('table.display').DataTable();
+} );
+</script>
   <!-- Scroll to Top Button-->
 <?php 
 	//include('./footer.php');

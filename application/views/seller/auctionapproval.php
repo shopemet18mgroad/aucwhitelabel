@@ -41,7 +41,7 @@
 		<th>Auction Id</th>
 		<th>Lot No</th>		
 		<th>Buyer Name</th>
-		<th>date/Time</th>
+		<th>Date/Time</th>
 		<th>My Bid Value</th>
 		<th>Status</th>
 		<th>Action</th>

@@ -32,44 +32,47 @@ class admin_bidwinner extends CI_Controller {
 		}else{
 		$this->load->model('Admin_model');
 		$sapproval = array('sapproval'=>false);
-		$data['sqldat'] = $this->Admin_model->getdatafromtable('biddercart', $sapproval);
+		$snamechk2a = array('saucclosedate_time <'=>$time,);
 		
-				//print_r($data['sqldat']); die;
-		
-		$xr = 0;
-		   $xdata = array(); 
-		   
-		 foreach($data['sqldat'] as $datsql){ 	
-		$auctmp = $datsql->auctionid;
-		$lotmp = $datsql->lotno;
-		
-		
-		//$mybitvalref = $datsql->mybid_val;
+		$aucdetails = $this->Admin_model->getdatafromtable('auction', $snamechk2a); 
+	
+		if($aucdetails){
+			
+		foreach($aucdetails as $aucdet){
+			$auct = $aucdet->sauctionid;
+			$aucdetarray = array('sauctionid'=>$auct);
+			$data['sqldat'] = $this->Admin_model->getdatafromtable('addlot',$aucdetarray );
+			$xr = 0;
+				$xdata = array(); 
+				   
+				foreach($data['sqldat'] as $datsql){ 	
+				
+				$auctmp = $datsql->sauctionid;
+				
+				$auclottmp = $datsql->slotno;
+				//$username = $sess['sessi'];
+				
+				$datap = $this->Admin_model->maxbidvalue($auctmp, $auclottmp);
+				 
+				$mybitvalrec = $datap[0]->bidderusername;
+				$aucbidamount = $datap[0]->bidamount;
+				$mybitvaldatetime = $datap[0]->Date_time;
+				$bidderdatsql = array('bidderusername'=> $mybitvalrec,'mybid_val'=>$aucbidamount, 'auctionid'=>$auctmp,'lotno'=> $auclottmp);
+				$bidderdatsqloutput = $this->Admin_model->getdatafromtable('biddercart',$bidderdatsql);
+				$bidderdatsqloutput[0]->sapproval;
+				if(!$bidderdatsqloutput[0]-> sapproval){$data['sqldatarec'][] = $auctmp.'|'.$auclottmp.'|'.$mybitvalrec.'|'.$aucbidamount.'|'.$mybitvaldatetime;
+					}
+				
+			
 					
-
-		//print_r($mybitvalref); die;
-		$datap = $this->Admin_model->maxbidvalue($auctmp,$lotmp);
-		//print_r($datap); die;
-
-		$myauction = $datap[0]->sauctionid;
-		$mylotno = $datap[0]->slotno;
-		$mybitvalrec = $datap[0]->bidderusername;
-		$aucbidamount = $datap[0]->bidamount;
-		//print_r($aucbidamount); die;
-		$mybitvaldatetime = $datap[0]->Date_time;
-		//$myapproval = $datap[0]->sapproval;
-		 if($aucbidamount){   
-			$data['sqldatarec'][$xr] = $myauction.'|'.$mylotno.'|'.$mybitvalrec.'|'.$aucbidamount.'|'.$mybitvaldatetime;
-			
-			$xr++; 
-		   } else{
-			
-		}    
-		
+					
+				}
+				
+		//$xr++;
 		}
-		//print_r($data['sqldatarec']);die;
-		
-		
+
+		}
+	
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('admin/header',$sess);
 		$this->load->view('admin/bidwinner',$data);

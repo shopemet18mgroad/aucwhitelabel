@@ -39,6 +39,8 @@
 				<option value="Minor Metals" >Minor Metals</option>
 				<option value="Plain paper">Plain paper</option>
 				<option value="Granules">Granules</option>
+				<option value="General">General</option>
+				<option value="PCB">PCB</option>
 				<option value="All Construction Materials">All Construction Materials</option>
 				</select>
 			</td>
@@ -81,11 +83,11 @@ From:
     <input class="form-control w-75" type="datetime-local"  id="stoinpectdate_time" name="stoinpectdate_time">
 </td>
 	</tr>
-	  
 	  <tr>
-		<td>Starting Bid Price</td>
-		<td><input class="form-control w-50" type="text" id="sstartbidprice" name="sstartbidprice"></td>
+		<td>EMD Details</td>
+		<td><textarea class="form-control w-75" type="text" id="semddetail" name="semddetail"></textarea></td>
 	</tr>
+	  
 	<tr>
 		<td>Last Date Of Submiting EMD</td>
 		<td><input class="form-control w-50" type="date" id="slastdateemdsub" name="slastdateemdsub"></td>

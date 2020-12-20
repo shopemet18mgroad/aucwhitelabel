@@ -111,7 +111,7 @@ function validate1(){
 	var scountry = document.getElementById("scountry").value;
 	var slocation = document.getElementById("slocation").value;
 	var semail = document.getElementById("semail").value;
-	var sphone = document.getElementById("sphone").value;
+	var phoneNo = document.getElementById("sphone").value;
 	var susername = document.getElementById("susername").value;
 	var spassword = document.getElementById("spassword").value;
 	var sconfirmpassword = document.getElementById("sconfirmpassword").value;
@@ -124,10 +124,19 @@ function validate1(){
 	//var AnswerInput = document.getElementsByName("saddresscount");
 	
 	
-if(scomapnyname == '' || ssellertype == '' || scontactperson == '' || span == '' || sstreet == '' || scity == '' || spin == '' || sstate == '' || scountry == '' || slocation == '' || semail == '' || sphone == '' || susername == '' || spassword == '' || sconfirmpassword == '' || sgst == '' || scapcha == '' ){
+if(scomapnyname == '' || ssellertype == '' || scontactperson == '' || span == '' || sstreet == '' || scity == '' || spin == '' || sstate == '' || scountry == '' || slocation == '' || semail == '' || phoneNo == '' || susername == '' || spassword == '' || sconfirmpassword == '' || sgst == '' || scapcha == '' ){
 		swal("Alert!",  "Company Name, Type of seller, Contact Person, Pan, Street, City, Pin, State/Union Ter., Location, E-Mail, Phone No, User Name, Password , Confirm Password , GST No, Security Code  cannot leave any feild blank!", "error");
 		return false;
 	}
+	if (phoneNo.value.length < 10 || phoneNo.value.length > 10) {
+    swal("Alert!", "Mobile No. is not valid, Please Enter 10 Digit Mobile No.", "error");
+    return false;
+  }
+  else if (phoneNo.value == "") {
+    swal("Alert!","Please enter your Mobile No.","error");
+    return false;
+  }
+	
 	if(spassword != sconfirmpassword){
 		swal("Alert!",  "Password and Confirm Password Should Match!", "error");
 		return false;
@@ -164,6 +173,47 @@ if(scomapnyname == '' || ssellertype == '' || scontactperson == '' || span == ''
 	}
    
   </script>
+  
+  <script>
+ function validate_sname(){
+	  var cat2 = document.getElementById('scomapnyname').value;
+	 if(cat2){
+		  document.getElementById('sname').value = cat2 ;
+	 }
+ }
+ </script>
+ 
+  <script>
+ function validate_bname(){
+	  var cat2 = document.getElementById('bcompany').value;
+	 if(cat2){
+		  document.getElementById('bname').value = cat2 ;
+	 }
+ }
+ </script>
+   <script>
+  function validate_scompanyname(){
+	  var val = document.getElementById("scomapnyname").value;
+		if(val != ''){
+			 $.get('<?php echo base_url() .'sellers_registeration/validate_scompanyname/'; ?>'+val, function(data2){				 
+				 if($.trim(data2) == "BYE"){
+					swal("Alert!",  "Seller Company Name Already Exists", "error");
+					document.getElementById("scomapnyname").value = "";
+					return false;
+				}else{
+					return true;
+				}
+			 });
+			
+		}else{
+			swal("Alert!",  "Please Enter Seller Company Name!", "error");
+			return false;
+		}
+  }
+  </script>
+ 
+  
+  
   <script>
   function validate_username(){
 	  var val = document.getElementById("susername").value;
@@ -204,7 +254,7 @@ function validate(){
 	var bstate = document.getElementById("bstate").value;
 	var bcountry = document.getElementById("bcountry").value;
 	var bemail = document.getElementById("bemail").value;
-	var bphone = document.getElementById("bphone").value;
+	var phoneNo = document.getElementById("bphone").value;
 	var bpan = document.getElementById("bpan").value;
 	var busername = document.getElementById("busername").value;
 	var bpassword = document.getElementById("bpassword").value;
@@ -215,10 +265,19 @@ function validate(){
 	//var ssigneddocument = document.getElementsByName("ssigneddocument");
 	//var AnswerInput = document.getElementsByName("saddresscount");
 	
-if(bcompany == '' || bcomptype == '' || bbuyertype == '' || bbuyerlocation == '' || bcontactperson == '' || bdesignation == ''|| baddress == '' || bcity == '' || bpin == '' || bstate == '' || bcountry == '' || bemail == '' || bphone == '' || bpan == '' || busername == '' || bpassword == '' || bconfirmpassword == '' || bgst == ''|| bcapcha == '' ){
+if( bcompany == '' || bcomptype == '' || bbuyertype == '' || bbuyerlocation == '' || bcontactperson == '' || bdesignation == ''|| baddress == '' || bcity == '' || bpin == '' || bstate == '' || bcountry == '' || bemail == '' || phoneNo == '' || bpan == '' || busername == '' || bpassword == '' || bconfirmpassword == '' || bgst == ''|| bcapcha == '' ){
 		swal("Alert!",  "Company, Company Type, Buyer Type, Buyer's Location, Contact Person, Postal Address, City, Pin, State/Union Ter, E-Mail, Phone No, Pan No, User Name, Password , Confirm Password , GST No, Security Code  cannot leave any feild blank!", "error");
 		return false;
 	}
+	
+	if (phoneNo.value.length < 10 || phoneNo.value.length > 10) {
+    swal("Alert!", "Mobile No. is not valid, Please Enter 10 Digit Mobile No.", "error");
+    return false;
+  }
+  else if (phoneNo.value == "") {
+    swal("Alert!","Please enter your Mobile No.","error");
+    return false;
+  }
 	
 	if(bpassword != bconfirmpassword){
 		swal("Alert!",  "Password and Confirm Password Should Match!", "error");
@@ -257,6 +316,30 @@ if(bcompany == '' || bcomptype == '' || bbuyertype == '' || bbuyerlocation == ''
 	}
    
   </script>
+  
+  <script>
+  function validate_bcompany(){
+	  var val = document.getElementById("bcompany").value;
+		if(val != ''){
+			 $.get('<?php echo base_url() .'Buyers_registeration/validate_bcompany/'; ?>'+val, function(data2){				 
+				 if($.trim(data2) == "BYE"){
+					swal("Alert!",  "Buyer Company Already Exists", "error");
+					document.getElementById("bcompany").value = "";
+					return false;
+				}else{
+					return true;
+				}
+			 });
+			
+		}else{
+			swal("Alert!",  "Please Enter Buyer Company Name!", "error");
+			return false;
+		}
+  }
+
+   </script>
+  
+  
   <script>
   function validate_username1(){
 	  var val = document.getElementById("busername").value;

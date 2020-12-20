@@ -17,19 +17,26 @@
   <!-- Custom styles for this template-->
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
   <link href="<?php echo base_url()."web_files/";?>vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <link href="https://code.jquery.com/jquery-3.5.1.js" rel="stylesheet">
+  <link href="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js" rel="stylesheet">
+  <!--<link href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet">-->
    <script src=" https://github.com/superRaytin/paginationjs"></script>
    <script src=" http://pagination.js.org"></script>
    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
+   <script>
+   div.dataTables_wrapper {
+        margin-bottom: 3em;
+    }
+</script>
 </head>
-	<body class="">
+	<body class="" data-spy="scroll" data-target="#myScrollspy">
 	<div class="container-fluid top-header">
 		<div class="row">
 				<div class="col-md-12 contact-header">
 					<div class="social pull-right">
 						<ul>
 							<li><a href="<?php echo base_url()."login"?>"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp Dashboard Login</a></li>
-							<li><i class="fa fa-phone" aria-hidden="true"></i>&nbsp Helpline No: +91 9980596460</li>
+							<li><i class="fa fa-phone" aria-hidden="true"></i>&nbsp Helpline No: +91 9945454505</li>
 							<li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
 							<li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
 							<li><a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
@@ -84,7 +91,7 @@
 			</div>
 	     </div>
 		 <div class="mynav">
-			 <nav class="navbar navbar-expand-lg navbar-dark navbarclr">
+			 <nav class="navbar navbar-expand-lg navbar-dark navbarclr" id="myScrollspy">
 				  
 				  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -99,7 +106,7 @@
 						<a class="nav-link" href="<?php echo base_url();?>contact_us">Contact Us</a>
 					  </li>
 					 <li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						  Registration
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">

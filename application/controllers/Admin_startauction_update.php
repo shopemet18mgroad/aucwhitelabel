@@ -35,7 +35,7 @@ class Admin_startauction_update extends CI_Controller {
 		$svinspection  = $this->input->post('svinspection');
 		$sfrominpectdate_time  = $this->input->post('sfrominpectdate_time');
 		$stoinpectdate_time  = $this->input->post('stoinpectdate_time');
-		$sstartbidprice  = $this->input->post('sstartbidprice');
+		$semddetail = $this->input->post('semddetail');
 		$slastdateemdsub  = $this->input->post('slastdateemdsub');
 		$saucstartdate_time  = $this->input->post('saucstartdate_time');
 		$saucclosedate_time  = $this->input->post('saucclosedate_time');
@@ -86,7 +86,7 @@ class Admin_startauction_update extends CI_Controller {
 		
 		
 		//==================================================================
-		$data2 = array('scategory' => $scategory, 'sauctionid' => $sauctionid, 'sname' => $sname, 'scompanyname' => $scompanyname, 'svinspection' => $svinspection, 'svinspection' => $svinspection,'sfrominpectdate_time' => $sfrominpectdate_time, 'stoinpectdate_time' => $stoinpectdate_time, 'sstartbidprice' => $sstartbidprice, 'slastdateemdsub' => $slastdateemdsub, 'saucstartdate_time' => $saucstartdate_time, 'saucclosedate_time' => $saucclosedate_time, 'sterms_condiaccept'=> $sterms_condiaccept, 'sterms_condiupload' => $doc_array,'sterms_text' => $sterms_text);
+		$data2 = array('scategory' => $scategory, 'sauctionid' => $sauctionid, 'sname' => $sname, 'scompanyname' => $scompanyname, 'svinspection' => $svinspection, 'svinspection' => $svinspection,'sfrominpectdate_time' => $sfrominpectdate_time, 'stoinpectdate_time' => $stoinpectdate_time, 'semddetail' => $semddetail, 'slastdateemdsub' => $slastdateemdsub, 'saucstartdate_time' => $saucstartdate_time, 'saucclosedate_time' => $saucclosedate_time, 'sterms_condiaccept'=> $sterms_condiaccept, 'sterms_condiupload' => $doc_array,'sterms_text' => $sterms_text);
 		//$this->load->view('xya', $data);
 		$datainserr = "Data Inserted Successfully";
 		$updatech = array('sauctionid' => $sauctionid);

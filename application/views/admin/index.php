@@ -36,19 +36,24 @@
 						<tr><td><img class="img-fluid" src="<?php echo base_url()."web_files/";?>img/manimg.jpg" alt="Chania" width="40" height="35"></td></tr>
 						<tr>
 							<td class="btxt">Seller Name:</td>
-							<td><input class="form-control w-50" type="text" id="sname" name="sname" required></td>
+							<td><input class="form-control w-50" type="text" id="sname" name="sname" readonly></td>
 	 							 </tr>
 						<tr>												
 							<td class="btxt">Company Name:</td>
-							<td><input class="form-control w-50" type="text" id="scomapnyname" name="scomapnyname" required></td>
+							<td><input class="form-control w-50" onkeyup="validate_adminsname()" type="text" id="scomapnyname" name="scomapnyname" required></td>
 							</tr>
 						<tr>
 							<td class="btxt">Company Type:</td>
-							<td><input class="form-control w-50" type="text" id="ssellertype" name="ssellertype" required></td>
+							<td><select class="form-control w-50" style="text-align-last:center;"  id="ssellertype" name="ssellertype">
+							<option value="Govt Regd Company" selected>Govt Regd Company</option>
+							<option value="Ltd, Pvt Ltd, LLP, Corp">Ltd, Pvt Ltd, LLP, Corp</option>
+							<option value="Partnership, Proprietorship, OPC" >Partnership, Proprietorship, OPC</option>
+							<option value="Other">Other</option>
+							</select></td>
 						</tr>  
 						<tr>
 							<td class="btxt">Contact Person:</td>
-							<td><input class="form-control w-50" type="text" id="scontactperson" name="scontactperson" required></td>
+							<td><input class="form-control w-50" onkeyup="validate_adminscompany()" type="text" id="scontactperson" name="scontactperson" required></td>
 						</tr>
 						<tr>
 							<td class="btxt">Contact Person Designation:</td>
@@ -96,6 +101,7 @@
 								<select class="form-control w-50  p-1" id="saddress" name="saddress[]">
 									<option value="select" selected>SELECT</option>
 									<option value="Corporate Office">Corporate Office</option>
+									<option value="Manufacturing Unit">Manufacturing Unit</option>
 									<option value="Headquarter">Headquarter</option>
 								
 									</select>

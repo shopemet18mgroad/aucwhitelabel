@@ -60,6 +60,8 @@
 				<option value="Minor Metals" >Minor Metals</option>
 				<option value="Plain paper">Plain paper</option>
 				<option value="Granules">Granules</option>
+				<option value="General">General</option>
+				<option value="PCB">PCB</option>
 				<option value="All Construction Materials">All Construction Materials</option>
 				</select>
 			</td>
@@ -70,32 +72,9 @@
 	  </tr>
 	  <tr>  												
 		<td>Location Of Lot</td>
-		<td><select class="form-control w-50" id="slotlocation" name="slotlocation" value="<?php echo $sqldata[0]->slotlocation; ?>">
-				
-				<option value="<?php echo $sqldata[0]->slotlocation; ?>" selected><?php echo $sqldata[0]->slotlocation; ?></option>
-				<option value="Mangalore">Mangalore</option>
-				<option value="Bangalore" >Bangalore</option>
-				<option value="Mysore">Mysore</option>
-				<option value="Mumbai">Mumbai</option>
-				<option value="Delhi">Delhi</option>
-				<option value="Hydrabad">Hydrabad</option>
-				</select></td>
+		<td><input class="form-control w-50" type="text" id="slotlocation" name="slotlocation" value="<?php echo $sqldata[0]->slotlocation; ?>"></td>
 	</tr>
-	
-	</tr>
-	
-	<tr>
-		<td>EMD Details</td>
-		<td><textarea class="form-control w-75" type="text" id="semddetail" name="semddetail" value="<?php echo $sqldata[0]->semddetail; ?>"><?php echo $sqldata[0]->semddetail; ?></textarea></td>
-	</tr>
-	
-	
-	
-	<tr>
 
-		<td>Expected Price</td>
-		<td><input class="form-control w-50" type="text" id="sprice" name="sprice" value="<?php echo $sqldata[0]->sprice; ?>"></td>
-	</tr>
 	
 	</tr>
 		<td>Qty</td>
@@ -103,15 +82,15 @@
 	</tr>
 	
 	<tr>
-		<td>Unit Of Measurment</td>
+		<td>Unit Of Measurement</td>
 		<td><select class="form-control w-50" id="sunitmeasurment" name="sunitmeasurment" value="<?php echo $sqldata[0]->sunitmeasurment; ?>">
 				<option value="<?php echo $sqldata[0]->sunitmeasurment; ?>"><?php echo $sqldata[0]->sunitmeasurment; ?></option>
 				<option value="KG">KG</option>
-				<option value="Matric Tone">Matric Tone</option>
+				<option value="Metric Ton">Metric Ton</option>
 				<option value="Lot">Lot</option>
-				<option value="Litters">Litters</option>
-				<option value="Numbers">Numbers</option>
-				<option value="Meters">Meters</option>
+				<option value="Liter">Liter</option>
+				<option value="Number">Number</option>
+				<option value="Meter">Meter</option>
 				</select></td>
 	</tr>
 	
@@ -120,11 +99,11 @@
 		<td><select class="form-control w-50" id="sbidbase" name="sbidbase" value="<?php echo $sqldata[0]->sbidbase; ?>">
 				<option value="<?php echo $sqldata[0]->sunitmeasurment; ?>" selected><?php echo $sqldata[0]->sunitmeasurment; ?></option>
 				<option value="KG">KG</option>
-				<option value="Matric Tone">Matric Tone</option>
+				<option value="Metric Ton">Metric Ton</option>
 				<option value="Lot">Lot</option>
-				<option value="Litters">Litters</option>
-				<option value="Numbers">Numbers</option>
-				<option value="Meters">Meters</option>
+				<option value="Liter">Liter</option>
+				<option value="Number">Number</option>
+				<option value="Meter">Meter</option>
 				</select></td>
 	</tr>
 	<tr>
@@ -144,6 +123,23 @@
 		<td>EMD Amount</td>
 		<td><input class="form-control w-50" type="text" id="semdamount" name="semdamount" value="<?php echo $sqldata[0]->semdamount; ?>"></td>
     </tr>	
+	<tr>
+
+		<td>Minimum Increament</td>
+		<td><input class="form-control w-50" type="text" id="sminincre" name="sminincre" value="<?php echo $sqldata[0]->sminincre; ?>"></td>
+	</tr>
+	
+	<tr>
+
+		<td>Expected Price</td>
+		<td><input class="form-control w-50" type="text" id="sprice" name="sprice" value="<?php echo $sqldata[0]->sprice; ?>"></td>
+	</tr>
+	
+	<tr>
+		<td>Starting Bid Price</td>
+		<td><input class="form-control w-50" type="text" id="sstartbidprice" name="sstartbidprice" value="<?php echo $sqldata[0]->sstartbidprice; ?>"></td>
+	</tr>
+
 	<tr>
 		<td>Lifting Period</td>
 		<td><input class="form-control w-75" type="datetime-local" id="sliftingperiod2" name="sliftingperiod2" value="<?php echo date('Y-m-d\TH:i', strtotime($sqldata[0]->sliftingperiod2)); ?>">
@@ -169,6 +165,7 @@ if($sqldata[0]->spcbcertificate){echo "unchecked";}else{echo "checked";}		?>>
   <center>
 	
  <input type="submit"  name="submit" onclick="return validatelot()" class="btn btn-info text-white" value="Update Lot" data-dismiss="modal">
+ <a href="<?php echo base_url();?>Seller_editlot"><button  class="btn btn-info">Cancel</button></a>
   </center>
   </form>
 			</div>

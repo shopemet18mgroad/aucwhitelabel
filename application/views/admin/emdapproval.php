@@ -54,6 +54,7 @@
 				</thead>
 				<tbody>
 				<tr>
+				<?php $k=0;?>
 				<?php foreach($sqldat as $sqldata){?><td><b><?php echo $sqldata->auctionid; ?></b></td>
 				 <td><?php echo $sqldata->lotno; ?></td>
 				 <td></td> <td><?php echo $sqldata->bidderusername; ?></td>
@@ -61,21 +62,24 @@
 			
 				
 				<td><?php  if($sqldata->emd_paid_dd == 0) {echo 'DD';}				?></td>
-					<td><a href="" data-toggle="modal" data-target="#myModal">
+			<td><a href="" data-toggle="modal" data-target="#myModal<?php echo"$k";?>">
 					<button type="submit" class="btn btn-info btn-sm w-50">
 					<i class="fa fa-eye" aria-hidden="true"></i>
 					</button>
 					</a>
 				
-				<div class="modal" id="myModal">
-					<div class="modal-dialog modal-sm">
+				<div class="modal" id="myModal<?php echo"$k";?>">
+					<div class="modal-dialog modal-lg">
 					  <div class="modal-content">
 					  
-			
+						<!-- Modal Header -->
+						
 						
 						<!-- Modal body -->
 						<div class="modal-body">
-						<img src="<?php echo $sqldata->upload_dd;?>" class="img-fluid" alt="DD image">
+
+						<img src="<?php $im = unserialize($sqldata->upload_dd); echo base_url().'web_files/uploads/'.$im[0];?>" class="img-fluid" alt="<?php echo $im[0];?>">
+
 						</div>
 						
 						<!-- Modal footer -->
@@ -88,10 +92,11 @@
 				  </div>
 					</td>
 				<td><button type="submit" name="submit" id="<?php echo $sqldata->lotno.'|'.str_ireplace('/','-',$sqldata->auctionid);?>" onclick="buyer_set_deactive_emd_dd(this.id)" class="btn btn-info btn-sm">Approve</button></td>	
-														
+						<?php $k++;?> 							
 				</tr>
 						<?php }  
-         ?> 							
+         ?> 	
+			 
 				
 				</tbody>
 		 </table>

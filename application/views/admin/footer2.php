@@ -49,10 +49,20 @@
  function validatearry(){
 	   var company = document.getElementById('scomapnyname').value;
 	   var user = document.getElementById('susername').value;
+	   var phoneNo = document.getElementById("sphone").value;
 	   if(company == '' || user == ''){
 		   swal("Alert!", "Company Name or UserName Cannot Be Left Blank", "error");
 					return false;
 			}
+			
+			if (phoneNo.value.length < 10 || phoneNo.value.length > 10) {
+    swal("Alert!", "Mobile No. is not valid, Please Enter 10 Digit Mobile No.", "error");
+    return false;
+  }
+  else if (phoneNo.value == "") {
+    swal("Alert!","Please enter your Mobile No.","error");
+    return false;
+  }
 			
 	 	var selectname = document.getElementsByName('saddress[]');
 		var textareablselect = document.getElementsByName('saddresscount[]');
@@ -81,6 +91,69 @@
  }
  
  </script>
+ 
+  <script>
+ function validate_adminsname(){
+	  var cat2 = document.getElementById('scomapnyname').value;
+	 if(cat2){
+		  document.getElementById('sname').value = cat2 ;
+	 }
+ }
+ </script>
+ <script>
+ function validate_adminbname(){
+	  var cat2 = document.getElementById('bcompany').value;
+	 if(cat2){
+		  document.getElementById('bname').value = cat2 ;
+	 }
+ }
+ </script>
+   
+   <script>
+  function validate_adminscompany(){
+	  var val = document.getElementById("scomapnyname").value;
+		if(val != ''){
+			 $.get('<?php echo base_url() .'Admin_seller_basicinfo_add/validate_adminsname/'; ?>'+val, function(data2){				 
+				 if($.trim(data2) == "BYE"){
+					swal("Alert!",  "Seller Company Name Already Exists", "error");
+					document.getElementById("scomapnyname").value = "";
+					return false;
+				}else{
+					return true;
+				}
+			 });
+			
+		}else{
+			swal("Alert!",  "Please Enter Seller Name!", "error");
+			return false;
+		}
+  }
+
+   </script>
+   
+   <script>
+  function validate_adminbcompany(){
+	  var val = document.getElementById("bcompany").value;
+		if(val != ''){
+			 $.get('<?php echo base_url() .'Admin_buyer_basicinfo_add/validate_adminbcompany/'; ?>'+val, function(data2){				 
+				 if($.trim(data2) == "BYE"){
+					swal("Alert!",  "Buyer Company Name Already Exists", "error");
+					document.getElementById("bcompany").value = "";
+					return false;
+				}else{
+					return true;
+				}
+			 });
+			
+		}else{
+			swal("Alert!",  "Please Enter Buyer Company Name!", "error");
+			return false;
+		}
+  }
+
+   </script>
+ 
+ 
  <script>
  function validate_user(){
 	 var user = document.getElementById('susername').value;
@@ -295,11 +368,20 @@
  function validatearry2(){
 	   var company = document.getElementById('bcompany').value;
 	   var user = document.getElementById('busername').value;
+	   var phoneNo = document.getElementById("bphone").value;
 	   if(company == '' || user == ''){
 		   swal("Alert!", "Company Name or UserName Cannot Be Left Blank", "error");
 					return false;
 			}
-			
+	
+	if (phoneNo.value.length < 10 || phoneNo.value.length > 10) {
+    swal("Alert!", "Mobile No. is not valid, Please Enter 10 Digit Mobile No.", "error");
+    return false;
+  }
+  else if (phoneNo.value == "") {
+    swal("Alert!","Please enter your Mobile No.","error");
+    return false;
+  }
 	 
 		var signeddoc = document.getElementsByName('bsigneddocument[]');
 

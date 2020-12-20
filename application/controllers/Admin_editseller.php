@@ -41,6 +41,7 @@ class Admin_editseller extends CI_Controller {
 		$retriveval = array('scomapnyname'=>$retrivevaltmp);
 		$this->load->model('Admin_model');
 		$data['sqldata'] = $this->Admin_model->getdatafromtable('sellerprofile',$retriveval);
+		//print_r($data['sqldata']);die;
 		$this->load->helper('url');
 		$this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));

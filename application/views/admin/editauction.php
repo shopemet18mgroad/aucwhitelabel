@@ -42,6 +42,8 @@
 				<option value="Minor Metals" >Minor Metals</option>
 				<option value="Plain paper">Plain paper</option>
 				<option value="Granules">Granules</option>
+				<option value="General">General</option>
+				<option value="PCB">PCB</option>
 				<option value="All Construction Materials">All Construction Materials</option>
 				</select>
 			</td>
@@ -83,9 +85,10 @@ From:
 </td>
 	 </tr>
 <tr>
-		<td>Starting Bid Price</td>
-		<td><input class="form-control w-50" type="text" id="sstartbidprice" name="sstartbidprice" value="<?php echo $sqldata[0]->sstartbidprice; ?>"></td>
+		<td>EMD Details</td>
+		<td><textarea class="form-control w-75" type="text" id="semddetail" name="semddetail" value="<?php echo $sqldata[0]->semddetail; ?>"><?php echo $sqldata[0]->semddetail; ?></textarea></td>
 	</tr>
+	
 
 <tr>
 		<td>Last Date Of Submiting EMD</td>
@@ -326,7 +329,8 @@ Bidders participating in AucJunction Auctions should verify with the selling com
     </tbody>
   </table>
   
-  <center><input  type="submit" name="submit" onclick="return validatestart()" class="btn btn-info" value="Update Auction" data-dismiss="modal"></center>
+  <center><input  type="submit" name="submit" onclick="return validatestart()" class="btn btn-info" value="Update Auction" data-dismiss="modal">
+  <a href="<?php echo base_url();?>Admin_editauction"><button  class="btn btn-info">Cancel</button></a></center>
  	 </form>
 			</div>
             </div>

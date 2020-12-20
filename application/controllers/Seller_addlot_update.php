@@ -35,8 +35,9 @@ class Seller_addlot_update extends CI_Controller {
 		$scategory  = $this->input->post('scategory');
 		$sdescription = $this->input->post('sdescription');
 		$slotlocation = $this->input->post('slotlocation');
-		$semddetail = $this->input->post('semddetail');
+		$sminincre = $this->input->post('sminincre');
 		$sprice  = $this->input->post('sprice');
+		$sstartbidprice  = $this->input->post('sstartbidprice');
 		$sqty = $this->input->post('sqty');
 		$sunitmeasurment = $this->input->post('sunitmeasurment');
 		$sbidbase  = $this->input->post('sbidbase');
@@ -47,6 +48,10 @@ class Seller_addlot_update extends CI_Controller {
 		$sliftingperiod2 = $this->input->post('sliftingperiod2');
 		$sliftingperiod = $this->input->post('sliftingperiod');
 		$spcbcertificate = $this->input->post('spcbcertificate');
+		$status = $this->input->post('status');
+		if($status){
+			$status = false;
+		}
 		/* $dataact = array();
 		$datacomp = array();
 		$dataact = $this->input->post('ssigneddocumentex');
@@ -96,7 +101,7 @@ class Seller_addlot_update extends CI_Controller {
 		
 		
 		//==================================================================
-		$data2 = array('sauctionid' => $sauctionid,'sname' => $sname, 'slotno' => $slotno, 'slotname' => $slotname, 'scategory' => $scategory, 'sdescription' => $sdescription, 'slotlocation'=> $slotlocation,  'semddetail' => $semddetail,  'sprice' => $sprice,   'sqty' => $sqty,  'sunitmeasurment' => $sunitmeasurment,  'sbidbase' => $sbidbase,  'sgst' => $sgst,'shsncode' => $shsncode,  'sothertax' => $sothertax,  'semdamount' => $semdamount,  'sliftingperiod2' => $sliftingperiod2,  'sliftingperiod' => $sliftingperiod, 'spcbcertificate' => $spcbcertificate,);
+		$data2 = array('sauctionid' => $sauctionid,'sname' => $sname, 'slotno' => $slotno, 'slotname' => $slotname, 'scategory' => $scategory, 'sdescription' => $sdescription, 'slotlocation'=> $slotlocation,'sminincre' => $sminincre, 'sprice' => $sprice,'sstartbidprice' => $sstartbidprice, 'sqty' => $sqty,  'sunitmeasurment' => $sunitmeasurment,  'sbidbase' => $sbidbase,  'sgst' => $sgst,'shsncode' => $shsncode,  'sothertax' => $sothertax,  'semdamount' => $semdamount,  'sliftingperiod2' => $sliftingperiod2,  'sliftingperiod' => $sliftingperiod, 'spcbcertificate' => $spcbcertificate,'status' => $status);
 		//$this->load->view('xya', $data);
 		$datainserr = "Data Inserted Successfully";
 		$updatech = array('sauctionid' => $sauctionid ,'slotno' => $slotno);

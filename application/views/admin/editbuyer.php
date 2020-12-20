@@ -38,11 +38,11 @@
 						 <form action="<?php echo base_url();?>admin_buyer_basicinfo_update" method="POST" enctype="multipart/form-data">
 						<tr>
 							<td class="btxt">Buyer Name:</td>
-							<td><input class="form-control w-50" type="text" id="bname" name="bname"value="<?php echo $sqldata[0]->bname; ?>"></td>
+							<td><input class="form-control w-50" type="text" id="bname" name="bname"value="<?php echo $sqldata[0]->bname; ?>" readonly></td>
 	 							 </tr>
 						<tr>												
 							<td class="btxt">Company Name:</td>
-							<td><input class="form-control w-50" type="text" id="bcompany" name="bcompany" value="<?php echo $sqldata[0]->bcompany; ?>"></td>
+							<td><input class="form-control w-50" type="text" id="bcompany" name="bcompany" value="<?php echo $sqldata[0]->bcompany; ?>" readonly></td>
 							</tr>
 						<tr>
 							<td class="btxt">Company Type:</td>
@@ -62,7 +62,7 @@
 						</tr> 
 						<tr>
 							<td class="btxt">Pan Number:</td>
-							<td><input class="form-control w-50" type="text" id="bpan" name="bpan" value="<?php echo $sqldata[0]->bpan; ?>"></td>
+							<td><input class="form-control w-50 pan" type="text" id="bpan" name="bpan" value="<?php echo $sqldata[0]->bpan; ?>"></td>
 						</tr> 
 						<tr>
 							<td class="btxt">PCB Licence NO:</td>
@@ -81,7 +81,7 @@
 						</tr>
 						<tr>
 							<td class="btxt">Phone:</td>
-							<td><input class="form-control w-50" type="text" id="bphone" name="bphone"value="<?php echo $sqldata[0]->bphone; ?>"></td>
+							<td><input class="form-control w-50" type="text" id="bphone" name="bphone"value="<?php echo $sqldata[0]->bphone; ?>" required></td>
 						</tr>
 						<tr>
 					
@@ -160,6 +160,7 @@
 							</tr> 
 							
 									<?php 
+									$aucf = unserialize($sqldata[0]->bsigneddocument);
 							if(unserialize($sqldata[0]->bsigneddocument) != NULL){
 								$file = unserialize($sqldata[0]->bsigneddocument);
 								  foreach($file as $fl){
@@ -169,7 +170,11 @@
 								echo '<textarea class="form-control float-left mt-2 p-2 w-50" type="text" id="bsigneddocumentex" name="bsigneddocumentex[]" readonly>'.$fl.'</textarea>';
 								echo '<input type="hidden" id="bsigneddocumentexcom" name="bsigneddocumentexcom[]" value="'.$fl.'">';
 								echo '<a class="add_field_button1"><button type="button" onclick="$(this).parents(\'#filess\').remove()" class="btn btn-sm btn-primary ml-1 mb-5 mt-3">  <i class="fa fa-minus text-white"></i></button></a>';
-								
+								if(isset($aucf[0])){
+								echo '<a href="'.base_url().'web_files/uploads/'. $aucf[0].'" target="_blank">';
+								echo '<i class="fa fa-download ml-5 mb-5 mt-3"></i>';
+								}
+								echo '</a>';
 								echo '</div></td>';
 								echo '';
 								echo '</tr>';
@@ -183,9 +188,10 @@
 										
 						</tbody>
 					</table>					
-			<button type="submit" name="submit" class="btn btn-info offset-sm-4 mt-2">Update</button>
+			
+			<input type="submit" class="btn btn-info offset-sm-4 mt-2" value="Update" onclick="return ValidateNo1();">
 												
-				<button type="submit2" class="btn btn-info offset-sm-1 mt-2">Cancel</button>
+				<a href="<?php echo base_url();?>Admin_editbuyer"><button  class="btn btn-info offset-sm-1 mt-2">Cancel</button></a>
 					</form>							
 				
               </div>
@@ -244,6 +250,37 @@
 			});
  
  </script>
+ <script>
+
+ function ValidateNo1() {
+  var phoneNo = document.getElementById('bphone');
+
+   if (phoneNo.value.length < 10 || phoneNo.value.length > 10) {
+    swal("Alert!", "Mobile No. is not valid, Please Enter 10 Digit Mobile No.", "error");
+    return false;
+  }
+  else if (phoneNo.value == "") {
+    swal("Alert!","Please enter your Mobile No.","error");
+    return false;
+  }
+ }
+
+ </script>
+ <script type="text/javascript">    
+$(document).ready(function(){     
+        
+$(".pan").change(function () {      
+var inputvalues = $(this).val();      
+  var regex = /[A-Z]{5}[0-9]{4}[A-Z]{1}$/;    
+  if(!regex.test(inputvalues)){      
+  $(".pan").val("");    
+  swal("Alert!","Invalid PAN no", "error");    
+  return regex.test(inputvalues);    
+  }    
+});      
+    
+});    
+</script> 
  <?php 
 	//include('./footerdata.php');
 ?>

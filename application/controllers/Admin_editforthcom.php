@@ -51,6 +51,9 @@ class Admin_editforthcom extends CI_Controller {
 	
 	public function get_table(){
 		$datatoquerydb = $this->uri->segment(3);
+		$this->load->helper(array('url','html','date'));
+		date_default_timezone_set('Asia/Kolkata');
+		$time =  Date('Y-m-d H:i:s');
 		$this->load->model('Admin_model');
 		$data = $this->Admin_model->get_lookalike('auction','sauctionid',$datatoquerydb);
 		if(count($data)){
@@ -67,7 +70,7 @@ class Admin_editforthcom extends CI_Controller {
 			echo '<th>Seller Company Name</th>';
 			echo '<th>Venue Of Inspection</th>';
 			echo '<th>Inspection Date & Time</th>';
-			echo '<th>Starting Bid Price</th>';
+			echo '<td>EMD Details</td>';
 			echo '<th>Last Date Of Submiting EMD</th>';
 			echo '<th>Online Auction Start And Close Date</th>';
 			echo '<th>Aucjunction Terms & Conditions</th>';
@@ -85,14 +88,16 @@ class Admin_editforthcom extends CI_Controller {
 				echo $dat['sauctionid'];
 				$aucfl = unserialize($dat['sterms_condiupload']);
 				$passaucid = str_ireplace('/','-',$dat['sauctionid']);
+					
 				echo '</a>';
 				echo '</td>';
 				echo '<td>'.$dat['sname'].'</td>';
+				$snm = urlencode($dat['sname']);
 				echo '<td>'.$dat['scategory'].'</td>';
 				echo '<td>'.$dat['scompanyname'].'</td>';
 				echo '<td>'.$dat['svinspection'].'</td>';
 				echo '<td>'.$dat['sfrominpectdate_time'].$dat['stoinpectdate_time'].'</td>';
-				echo '<td>'.$dat['sstartbidprice'].'</td>';
+				echo '<td>'.$dat['semddetail'].'</td>';
 				echo '<td>'.$dat['slastdateemdsub'].'</td>';
 				echo '<td>'.$dat['saucstartdate_time'].$dat['saucclosedate_time'].'</td>';
 				echo '<td>';
@@ -100,16 +105,18 @@ class Admin_editforthcom extends CI_Controller {
 				echo 'Accepted';
 				}
 				echo '</td>';
+				 
 				echo '<td>';
 				if(isset($aucfl[0])){
-				echo $aucfl[0];	
+				echo '<a href="'.base_url().'web_files/uploads/'. $aucfl[0].'" target="_blank">';
+				echo '<i class="fa fa-download"></i>';
 				}
-				echo '</td>';
+				echo '</a></td>';
 				//echo '<td>'.$uploadfl[0].'</td>';
 				//$aucfl = unserialize ($dat['sterms_condiupload']);
 				//echo '<td>'.implode (",",$aucfl).'</td>';
 				//echo '<td><a href="'.base_url().'Admin_editauction/editauction/'.urlencode($dat['sname']).'">';
-				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$passaucid.'" target="_blank"><i class="fa fa-download"></i></a></td>';
+				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$passaucid.'/'.urlencode($dat['sname']).'" target="_blank"><i class="fa fa-download"></i></a></td>';
 				//echo '</a>';
 				//echo '</td>';
 
@@ -194,3 +201,8 @@ echo "        }\n";
 echo "    });\n";
 echo "});\n";
 echo "</script>\n";
+
+
+
+
+

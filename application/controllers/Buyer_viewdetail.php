@@ -39,10 +39,16 @@ class Buyer_viewdetail extends CI_Controller {
 	
 	  public function viewdetail(){
 		$retrivevaltmp = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
-		$retriveval = array('sauctionid'=>$retrivevaltmp);
+		$retrivevaltmp2 = urldecode($this->uri->segment(4));
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->model('Admin_model');
 		
-		$data['sqldata'] = $this->Admin_model->getdataASC('biddingdata',$retriveval);
+		
+		$retriveval = array('sauctionid'=>$retrivevaltmp,'slotno'=>$retrivevaltmp2);
+		
+		$data['sqldata'] = $this->Admin_model->getdataDSC('biddingdata',$retriveval);
+		
 		//print_r($data['sqldata']); die;
 		
 		$this->load->helper('url');

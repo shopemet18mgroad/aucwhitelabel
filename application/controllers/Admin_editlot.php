@@ -78,10 +78,16 @@ class Admin_editlot extends CI_Controller {
 		$this->load->view('admin/footer');
 	} 
 	public function deletelot(){
-		$retrivevaltmpdel = urldecode($this->uri->segment(3));
-		$retrivevaldel = array('slotno'=>$retrivevaltmpdel);
+		$this->load->helper('url');
+		$retrivevaltmp = str_ireplace('-','/',$this->uri->segment(3));
+		$retrivevaltmp1 = urldecode($retrivevaltmp);
+		$retrivevaltmp2 = urldecode($this->uri->segment(4));
+		
+		
+		$retrivevaldel = array('sauctionid'=>$retrivevaltmp1,'slotno'=>$retrivevaltmp2);
+		
 		$this->load->model('Admin_model');
-		if($retrivevaltmpdel){
+		if($retrivevaltmp){
 			$this->Admin_model->delete_data('addlot', $retrivevaldel);
 	
 		}

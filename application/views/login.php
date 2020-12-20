@@ -27,7 +27,7 @@
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
-                        <input type="checkbox" class="custom-control-input" id="customCheck">
+                        <input type="checkbox" class="custom-control-input" id="customCheck" name="remember_me">
                         <label class="custom-control-label" for="customCheck">Remember Me</label>
                       </div>
                     </div>
@@ -63,7 +63,7 @@
 		 </form>		  
                   
                   <div class="text-center">
-                    <a class="small text-white" href="forgot-password.php">Forgot Password?</a>
+                    <a class="small text-white" href="<?php echo base_url()."dofoget"?>">Forgot Password?</a>
                   </div>
                 
                 </div>

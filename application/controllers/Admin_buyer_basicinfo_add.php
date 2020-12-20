@@ -85,6 +85,18 @@ class Admin_buyer_basicinfo_add extends CI_Controller {
 		//$this->load->view('admin/footer');
 		
 	}
+	
+	public function validate_adminbcompany(){
+		$dat = urldecode($this->uri->segment(3));
+		$check_db = array('bcompany' => $dat);
+		$this->load->model('Admin_model');
+			  if($this->Admin_model->check('buyerprofile', $check_db)){
+				  echo "BYE";
+			  }else{
+				  echo "HI";
+			  }
+		
+	}
 	private function upload_files($nameid)
     {	
 	$countfiles = count($_FILES[$nameid]['name']);

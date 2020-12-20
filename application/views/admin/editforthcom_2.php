@@ -34,14 +34,16 @@
 					<td>Category</td>
 					 <td>Description</td>
 					 <td>Location Of Lot</td>
-					 <td>EMD Details</td>
-					 <td>Expected Price</td>
 					<td>Quantity</td>
-					<td>Unit Of Measurment</td>
+					<td>Unit Of Measurement</td>
 					<td>Bid Base</td>
 					<td>GST</td>
+					<td>HSN Code.</td>
 					<td>Other Tax</td>
 					<td>EMD Amount</td>
+					<td>Minimum Increament</td>
+					<td>Expected Price</td>
+					 <td>Starting Bid Price</td>
 					<td>Lifting Period</td>
 					<td>PCB Certificate</td>
 					<td>Action</td>
@@ -59,15 +61,17 @@
 					<td><?php echo $sqldat[0]->scategory; ?></td>
 					<td><?php echo $sqldat[0]->sdescription; ?></td>
 					<td><?php echo $sqldat[0]->slotlocation; ?></td>
-					<td><?php echo $sqldat[0]->semddetail; ?></td>
-					<td><?php echo $sqldat[0]->sprice; ?></td>
 					<td><?php echo $sqldat[0]->sqty; ?></td>
 					<td><?php echo $sqldat[0]->sunitmeasurment; ?></td>
 					<td><?php echo $sqldat[0]->sbidbase; ?></td>
 					<td><?php echo $sqldat[0]->sgst; ?></td>
+					<td><?php echo $sqldat[0]->shsncode; ?></td>
 					<td><?php echo $sqldat[0]->sothertax; ?></td>
 					<td><?php echo $sqldat[0]->semdamount; ?></td>
-					<td><?php echo $sqldat[0]->sliftingperiod; ?><?php echo $sqldat[0]->sliftingperiod2; ?></td>
+					<td><?php echo $sqldat[0]->sminincre; ?></td>
+					<td><?php echo $sqldat[0]->sprice; ?></td>
+					<td><?php echo $sqldat[0]->sstartbidprice; ?></td>
+					<td><?php echo $sqldat[0]->sliftingperiod; ?><br><?php echo $sqldat[0]->sliftingperiod2; ?></td>
 					<td><?php if($sqldat[0]->spcbcertificate == 1)
 								{ 
 							echo 'Yes';
@@ -79,7 +83,7 @@
 
 					<td><a href="<?php echo base_url()."Admin_editlot/editlot/".str_ireplace("/","-",$sqldat[0]->sauctionid)."/".urlencode($sqldat[0]->slotno);?>" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a>
 
-						<a href="<?php echo base_url()."Admin_editlot/deletelot/".urlencode($sqldat[0]->slotno);?>" class="btn btn-danger btn-sm text-white delete-confirm"><i class="fa fa-trash fa-sm"></i></a></td>	
+						<a href="<?php echo base_url()."Admin_editlot/deletelot/".str_ireplace("/","-",$sqldat[0]->sauctionid)."/".urlencode($sqldat[0]->slotno);?>" class="btn btn-danger btn-sm text-white delete-confirm"><i class="fa fa-trash fa-sm"></i></a></td>	
 				</tr>
 			<?php }?>
 				</tbody>

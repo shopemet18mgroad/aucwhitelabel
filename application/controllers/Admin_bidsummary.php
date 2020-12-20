@@ -28,9 +28,15 @@ class Admin_bidsummary extends CI_Controller {
 			header('location: '.base_url().'login/index_error/'.$datainserr);
 			die;
 		}else{
+			$this->load->model('Admin_model');
+		
+		$data['sqldata'] = $this->Admin_model->adminbidhistory();
+		//echo '<pre>';
+		//print_r($data['sqldata']);die;
+		//echo '</pre>';
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('admin/header',$sess);
-		$this->load->view('admin/bidsummary');
+		$this->load->view('admin/bidsummary',$data);
 		$this->load->view('admin/footer');
 		}
 	}
@@ -38,7 +44,7 @@ class Admin_bidsummary extends CI_Controller {
 	public function get_table(){
 		$datatoquerydb = $this->uri->segment(3);
 		$this->load->model('Admin_model');		
-		$data = $this->Admin_model->get_lookalike('auction','sauctionid',$datatoquerydb);
+		$data = $this->Admin_model->get_lookalike('addlot','sauctionid',$datatoquerydb);
 		if(count($data)){
 			echo '<table class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';
 			echo '<thead class="bg-warning  text-white text-center">';
@@ -46,11 +52,9 @@ class Admin_bidsummary extends CI_Controller {
 			echo '<thead class="bg-primary text-white">';
 			echo '<tr>';
 			echo '<th>Auction Id</th>';
-			echo '<th>Company Name</th>';
+			echo '<th>Lot No</th>';
 			echo '<th>Location</th>';
-			echo '<th>Starting Date</th>';
-			echo '<th>Closing Date</th>';
-			echo '<th>Download</th>';
+			
 			echo '</tr>';
 			echo '</thead>';
 			echo '<tbody>';
@@ -62,11 +66,9 @@ class Admin_bidsummary extends CI_Controller {
 				$passaucid = str_ireplace('/','-',$dat['sauctionid']);
 				echo '</a>';
 				echo '</td>';
-				echo '<td>'.$dat['scompanyname'].'</td>';
-				echo '<td>'.$dat['svinspection'].'</td>';
-				echo '<td>'.$dat['sonlineaucdate_time'].'</td>';
-				echo '<td>'.$dat['saucclosedate_time'].'</td>';
-				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$passaucid.'" target="_blank"><i class="fa fa-download"></i></a></td>';
+				echo '<td>'.$dat['slotno'].'</td>';
+				echo '<td>'.$dat['slotlocation'].'</td>';
+			
 			
 				echo '</tr>';
 			}
@@ -77,11 +79,8 @@ class Admin_bidsummary extends CI_Controller {
 			echo '<thead class="bg-primary text-white">';
 			echo '<tr>';
 			echo '<th>Auction Id</th>';
-			echo '<th>Company Name</th>';
+			echo '<th>Lot No</th>';
 			echo '<th>Location</th>';
-			echo '<th>Starting Date</th>';
-			echo '<th>Closing Date</th>';
-			echo '<th>Download</th>';
 			echo '</tr>';
 			echo '</thead>';
 			echo '<tbody>';
@@ -90,8 +89,7 @@ class Admin_bidsummary extends CI_Controller {
 				echo '<td>No Records Found</td>';
 				echo '<td>No Records Found</td>';
 				echo '<td>No Records Found</td>';
-				echo '<td>No Records Found</td>';
-				echo '<td>No Records Found</td>';
+				
 				echo '</tr>';
 			echo '</tbody>';
 			echo '</table>';

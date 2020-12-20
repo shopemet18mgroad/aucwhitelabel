@@ -45,6 +45,10 @@
 								<td><?php echo $sqldata[0]->sname; ?></td>
 							</tr> 
 							<tr>
+								<td>Company Name</td>
+								<td><?php echo $sqldata[0]->scomapnyname; ?></td>
+							</tr> 
+							<tr>
 								<td>Contact Person</td>
 								<td><?php echo $sqldata[0]->scontactperson; ?></td>
 							</tr>  
@@ -82,7 +86,7 @@
 							</tr>
 							<tr>
 								<td>Country</td>
-								<td><?php echo $sqldata[0]->scountry; ?></td>
+								<td>India</td>
 							</tr>
 													
 						</tbody>
@@ -170,6 +174,7 @@
 								<td></td>
 							</tr> 
 								<?php 
+								$aucf = unserialize($sqldata[0]->ssigneddocument);
 							if(unserialize($sqldata[0]->ssigneddocument) != NULL){
 								$file = unserialize($sqldata[0]->ssigneddocument);
 								  foreach($file as $fl){
@@ -179,8 +184,13 @@
 								echo '<textarea class="form-control float-left mt-2 p-2 w-50" type="text" id="ssigneddocumentex" name="ssigneddocumentex[]" readonly>'.$fl.'</textarea>';
 								echo '<input type="hidden" id="ssigneddocumentexcom" name="ssigneddocumentexcom[]" value="'.$fl.'">';
 								echo '<a class="add_field_button1"><button type="button" onclick="$(this).parents(\'#filess\').remove()" class="btn btn-sm btn-primary ml-1 mb-5 mt-3">  <i class="fa fa-minus text-white"></i></button></a>';
-								
+								if(isset($aucf[0])){
+								echo '<a href="'.base_url().'web_files/uploads/'. $aucf[0].'" target="_blank">';
+								echo '<i class="fa fa-download ml-5 mb-5 mt-3"></i>';
+								}
+								echo '</a>';
 								echo '</div></td>';
+							
 								echo '';
 								echo '</tr>';
 								  }

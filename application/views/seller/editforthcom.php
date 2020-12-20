@@ -23,7 +23,7 @@
               <div class="table-responsive">
 			     <table class="table table-striped w-auto small table-bordered mt-4 text-center" id="dataTable" width="100%" cellspacing="0">
 				<thead class="bg-warning  text-white text-center">
-					<th colspan="21"><b>Lot Details</b></th>
+					<th colspan="21"><b>Auction Details</b></th>
 				</thead>
 				<thead class="bg-primary text-white">
 				
@@ -34,7 +34,7 @@
 					 <td>Seller Company Name</td>
 					 <td>Venue Of Inspection</td>
 					 <td>Inspection Date & Time</td>
-					 <td>Starting Bid Price</td>
+					 <td>EMD Details</td>
 					<td>Last Date Of Submiting EMD</td>
 					<td>Online Auction Start And Close Date</td>
 					<td>Aucjunction Terms & Conditions</td>
@@ -45,27 +45,31 @@
 				</thead>
 
 				<tbody>
-				<?php foreach($sqld as $sqldat[0]){?>
+				<?php  foreach($sqld as $sqldat){?>
 				<tr>
-				<?php $passaucid = str_ireplace('/','-',$sqldat[0]->sauctionid);
-				?>
-					<td><a href="<?php echo base_url()."Seller_editforthcom_2/editforthcom_2/".$passaucid;?>"><b><?php echo str_ireplace("/","-",$sqldat[0]->sauctionid);?></b></a></td>
-					<td><?php echo $sqldat[0]->sname; ?></td>
-					<td><?php echo $sqldat[0]->scategory; ?></td>
-					<td><?php echo $sqldat[0]->scompanyname; ?></td>
-					<td><?php echo $sqldat[0]->svinspection; ?></td>
-					<td><?php echo $sqldat[0]->sfrominpectdate_time; ?><br><?php echo $sqldat[0]->stoinpectdate_time; ?></td>
-					<td><?php echo $sqldat[0]->sstartbidprice; ?></td>
-					<td><?php echo $sqldat[0]->slastdateemdsub; ?></td>
-					<td><?php echo $sqldat[0]->saucstartdate_time; ?><br><?php echo $sqldat[0]->saucclosedate_time; ?></td>
-					<td><?php if ($sqldat[0]->sterms_condiaccept == 1){
+				<?php $passaucid = str_ireplace('/','-',$sqldat->sauctionid);
+				$aucfl = unserialize ($sqldat->sterms_condiupload);?>
+					<td><a href="<?php echo base_url()."Seller_editforthcom_2/editforthcom_2/".$passaucid;?>"><b><?php echo str_ireplace("/","-",$sqldat->sauctionid);?></b></a></td>
+					<td><?php echo $sqldat->sname; ?></td>
+					<td><?php echo $sqldat->scategory; ?></td>
+					<td><?php echo $sqldat->scompanyname; ?></td>
+					<td><?php echo $sqldat->svinspection; ?></td>
+					<td><?php echo $sqldat->sfrominpectdate_time; ?><br><?php echo $sqldat->stoinpectdate_time; ?></td>
+					<td><?php echo $sqldat->semddetail; ?></td>
+					<td><?php echo $sqldat->slastdateemdsub; ?></td>
+					<td><?php echo $sqldat->saucstartdate_time; ?><br><?php echo $sqldat->saucclosedate_time; ?></td>
+					<td><?php if ($sqldat->sterms_condiaccept == 1){
 									echo 'Accepted';}?>
 									</td>
-					<td><?php $aucfl = unserialize($sqldat[0]->sterms_condiupload);
-							if(isset($aucfl[0])){
-								echo $aucfl[0];	
-								}?></td>
-					<td><a href="<?php echo base_url().'/pdf_gen/auc_no/'.$passaucid;?>" target="_blank"><i class="fa fa-download"></i></a></td>			
+					
+				
+				<td>
+					<?php if(isset($aucfl[0])){?>	
+				<a href="<?php echo base_url().'/web_files/uploads/'.$aucfl[0];?>" target="_blank"  ><?php echo '<i class="fa fa-download"></i>' ; ?>
+					</a></td>
+					<?php }?>
+			
+					<td><a href="<?php echo base_url()."/pdf_gen/auc_no/".$passaucid.'/'.urlencode($sqldat->sname);?>" target="_blank"><i class="fa fa-download"></i></a></td>			
 					
 
 
@@ -73,7 +77,7 @@
 
 						<a href="<?php echo base_url()."Seller_editauction/delete_auction/".$passaucid;?>"  class="btn btn-danger btn-sm text-white delete-confirm"><i class="fa fa-trash fa-sm"></i></a></td>	
 				</tr>
-			<?php }?>
+				<?php }?>
 				</tbody>
 			
 		 </table>

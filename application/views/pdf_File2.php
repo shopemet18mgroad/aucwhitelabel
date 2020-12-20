@@ -37,12 +37,19 @@ th, td {
 	height: 40px;
 	background-color:grey;
 	color: #ffffff;
-}</style>
+}
+.tablefont{
+	font-size: 14px;
+}
+</style>
 <body>
 
 	<h2><u><?php echo $sqldata2[0]->scompanyname; ?></u></h2>
-	
-<pre><?php echo $sqldata[0]->slotlocation; ?></pre>
+	<?php $companyltype = unserialize($sql[0]->saddress);
+	$companyaddress = unserialize($sql[0]->saddresscount);?>
+
+<pre><?php echo $companyltype[0] ;?><br>
+<?php echo $companyaddress[0] ;?></pre>
 
 	<div class="bara w-100">
 		<p><strong>ONLINE AUCTION PLATFORM AND SUPPORT SERVICES PROVIDED BY AUCJUNCTION</strong></p>
@@ -77,8 +84,8 @@ annexed hereto and as per schedule of programme given below. </p>
  
   </tr>
   <tr>
-    <td>Inspection of Auction Property</td>
-    <td><?php echo $sqldata[0]->sfrominpectdate_time; ?>&nbsp; to &nbsp; <?php echo $sqldata[0]->stoinpectdate_time; ?></td>
+    <td>Inspection Date/Time</td>
+    <td><?php echo $sqldata2[0]->sfrominpectdate_time; ?>&nbsp; to &nbsp; <?php echo $sqldata2[0]->stoinpectdate_time; ?></td>
     
   </tr>
   <tr>
@@ -90,19 +97,20 @@ annexed hereto and as per schedule of programme given below. </p>
   
   <tr>
     <td><a href ="#"></a>EMD Details</td>
-    <td><?php echo $sqldata[0]->semdamount; ?></td>
+    <td><?php echo $sqldata2[0]->semddetail; ?></td>
  
   </tr>
  
   <tr>
     <td>Last Date and time to receive EMD</td>
-    <td><?php echo $sqldata[0]->slastdateemdsub ?></td>
+    <td><?php echo $sqldata2[0]->slastdateemdsub ?></td>
  
   </tr>
   
   <tr>
     <td>On-Line Auction Date and time</td>
-    <td><?php echo $sqldata2[0]->sonlineaucdate_time; ?>
+    <td><?php echo $sqldata2[0]->saucstartdate_time; ?><br>
+	<?php echo $sqldata2[0]->saucclosedate_time; ?>
 </td>
  
   </tr>
@@ -122,13 +130,17 @@ whose validity has expired)</td>
 		<p><strong>DETAILS OF AUCTION PROPERTY</strong></p>
 	</div>
 	<br>
-	<table style="width:100%">
+	<table class="tablefont" style="width:100%">
   <tr>
-    <th style="background:#ffff"><b>Item
-No.</b></th>
-    <th style="color:red"><b>Material Description</b>
+    <th style="background:#ffff"><b>Lot
+No.</b>
+</th>
+</th>
+    <th style="color:red"><b>Lot Name</b>
 </th> 
-<th><b>Quantity(Approx.) </th>
+<th><b>Material Description</b>
+</th> 
+<th><b>Quantity(Approx.)</th>
 <th><b>UOM</b></th>
 <th><b>Bid Basis(Per UOM </b></th>
 <th><b>GST(%)</b></th>
@@ -140,13 +152,14 @@ No.</b></th>
 </tr>
 <?php foreach($sqldata as $sqldat){?>	
   <tr>
-    <td><?php echo $sqldat->id; ?></td>
+    <td><?php echo $sqldat->slotno; ?></td>
     <td><?php echo $sqldat->slotname; ?></td>
+	<td><?php echo $sqldat->sdescription; ?></td>
 	<td><?php echo $sqldat->sqty?></td>
 	<td><?php echo $sqldat->sunitmeasurment; ?></td>
 	<td><?php echo $sqldat->sbidbase; ?></td>
 	<td><?php echo $sqldat->sgst; ?></td>
-	<td><?php echo $sqldat->slotname; ?></td>
+	<td><?php echo $sqldat->sothertax; ?></td>
 	<td><?php if($sqldat->spcbcertificate == 1) {echo 'Y';} ?>
 	<?php if($sqldat->spcbcertificate == 0) {echo 'N';} ?></td>
 	<td><?php echo $sqldat->semdamount; ?></td>
@@ -382,6 +395,20 @@ in applicable tax rates that are promulgated by the Government from time to time
 </p>												
 <br><br>
 
+
+ <table style="width:100%">
+  <tr>
+    <th style="color:red"><center>Upload terms & Conditions</center></th>
+ 
+
+  </tr>
+
+   <tr>
+    <td><?php echo $sqldata2[0]->sterms_text; ?>
+</td>
+   
+  </tr>
+  </table >
 			
 <!--
 </body>

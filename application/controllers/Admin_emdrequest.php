@@ -44,7 +44,7 @@ class Admin_emdrequest extends CI_Controller {
 			die;
 		}else{
 		$this->load->model('Admin_model');
-		$emdrequest = array('emdrequest'=>false);
+		$emdrequest = array('emdrequest'=>3);
 		$query = $this->Admin_model->getdatafromtable('biddercart', $emdrequest);
 		$data['sqldat']= $query;
 		
@@ -61,15 +61,19 @@ class Admin_emdrequest extends CI_Controller {
 		public function setdeactive_buyer_emd(){
 		
 		$compnameurl = $this->uri->segment(3);
+		//print_r($compnameurl); die;
+		//$compnameurl3 = urldecode($this->uri->segment(4));
+		
 		$compnameurl = urldecode($compnameurl);
 		$compnameurl2 = explode('|',$compnameurl);
+		$compnameurl3 = explode('|',$compnameurl);
 		$compname = $compnameurl2[0];
 	
 		$comp = str_ireplace('-','/',$compnameurl2[1]);
-		
+		$com = urldecode($compnameurl3[2]);
 		$this->load->model('Admin_model');
 		$emdrequest = array('emdrequest'=>true);
-		$adaction2 = array('lotno'=>$compname,'auctionid'=>$comp);
+		$adaction2 = array('lotno'=>$compname,'auctionid'=>$comp,'bidderusername'=>$com);
 		$query = $this->Admin_model->update_custom('biddercart',$emdrequest, $adaction2, $adaction2);
 		if($compname){
 			echo "HI";

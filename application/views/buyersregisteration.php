@@ -2,7 +2,7 @@
 	//include('./header.php');
 ?>
     <!---  body  design  -->
-	     <div class="container-fluid">
+	     <div id="<?php echo base_url();?>buyers_registeration" class="container-fluid">
    <div class="row w-100">
 	 <div class="col-md-10 offset-sm-1 p-2">
     <div class="card shadow mb-4 ml-4">
@@ -20,11 +20,11 @@
 		
 		<tr>
 		  <td width="20%"><b>Company *</b></td>
-		  <td width="20%"><input class="form-control w-100" type="text" id="bcompany" name="bcompany" size="50" ></td>
+		  <td width="20%"><input class="form-control w-100" type="text" id="bcompany" name="bcompany" onkeyup="validate_bname()" size="50" ></td>
 		</tr>
 	  <tr>
 		  <td width="20%"><b>Buyer Name</b></td>
-		  <td width="20%"><input class="form-control w-100" type="text" id="bname" name="bname" size="50" ></td>
+		  <td width="20%"><input class="form-control w-100"   type="text" id="bname" name="bname" size="50" readonly></td>
 		</tr>
       <tr>
         <td><b>Company Type</b></td>
@@ -39,7 +39,7 @@
 
 		<tr>
 		  <td><b>Buyer's Location</b></td>
-		  <td><input class="form-control w-100" type="text" id="bbuyerlocation" name="bbuyerlocation" size="50"></td>
+		  <td><input class="form-control w-100" type="text" onkeyup="validate_bcompany()" id="bbuyerlocation" name="bbuyerlocation" size="50"></td>
 		</tr>
 	   <tr>
 	  <td><b>Contact Person *</b></td>
@@ -107,7 +107,7 @@
 	  </tr>
 	  <tr>
 	  <td><b>Phone No. *</b></td>
-	  <td><input  class="form-control w-100" type="text" id="bphone" name="bphone" size="50" pattern="[1-9]{1}[0-9]{9}" title="Enter 10 digit mobile number" required></td>
+	  <td><input  class="form-control w-100" type="text" id="bphone" name="bphone" size="50"  required></td>
 	  </tr>
 	  <tr>
 	  <td><b>Pan No.</b></td>
@@ -176,7 +176,7 @@ $(document).ready(function(){
         
 $(".gst").change(function () {      
 var inputvalues = $(this).val();      
-  var regex = /^([0-9]){2}([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}([0-9]){1}([a-zA-Z]){1}([0-9]){1}?$/;    
+  var regex = /^([0-9]){2}([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}([0-9]){1}([a-zA-Z]){1}([0-9A-Z]){1}?$/;    
   if(!regex.test(inputvalues)){      
   $(".gst").val("");    
   swal("Alert!","Invalid gst no", "error");    

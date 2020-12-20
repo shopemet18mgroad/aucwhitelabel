@@ -18,9 +18,9 @@ class Email_send extends CI_Controller {
     $to =  $this->input->post('from');  // User email pass here
     $subject = 'Welcome To Aucjunction';
 
-    $from = 'shopemet18@gmail.com';              // Pass here your mail id
+    $from = 'shopemet.1.net@gmail.com';              // Pass here your mail id
 
-    $emailContent = '<!DOCTYPE><html><head></head><body><table width="600px" style="border:1px solid #cccccc;margin: auto;border-spacing:0;"><tr><td style="background:#000000;padding-left:3%"><img src="http://elevenstechwebtutorials.com/assets/logo/logo.png" width="300px" vspace=10 /></td></tr>';
+    $emailContent = '<!DOCTYPE><html><head></head><body><table width="600px" style="border:1px solid #cccccc;margin: auto;border-spacing:0;"><tr><td style="background:#000000;padding-left:3%"><img src="img/aucjunction.jpg" width="300px" vspace=10 /></td></tr>';
     $emailContent .='<tr><td style="height:20px"></td></tr>';
 
 
@@ -28,7 +28,7 @@ class Email_send extends CI_Controller {
 
 
     $emailContent .='<tr><td style="height:20px"></td></tr>';
-    $emailContent .= "<tr><td style='background:#000000;color: #999999;padding: 2%;text-align: center;font-size: 13px;'><p style='margin-top:1px;'><a href='http://elevenstechwebtutorials.com/' target='_blank' style='text-decoration:none;color: #60d2ff;'>www.elevenstechwebtutorials.com</a></p></td></tr></table></body></html>";
+    $emailContent .= "<tr><td style='background:#000000;color: #999999;padding: 2%;text-align: center;font-size: 13px;'><p style='margin-top:1px;'><a href='http://Aucjunction.com/' target='_blank' style='text-decoration:none;color: #60d2ff;'>www.Aucjunction.com</a></p></td></tr></table></body></html>";
                 
 
 
@@ -37,8 +37,8 @@ class Email_send extends CI_Controller {
     $config['smtp_port']    = '465';
     $config['smtp_timeout'] = '60';
 
-    $config['smtp_user']    = 'shopemet18@gmail.com';    //Important
-    $config['smtp_pass']    = 'Bhilai098';  //Important
+    $config['smtp_user']    = 'shopemet.1.net@gmail.com';    //Important
+    $config['smtp_pass']    = 'shopemet@1';  //Important
 
     $config['charset']    = 'utf-8';
     $config['newline']    = "\r\n";

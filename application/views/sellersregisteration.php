@@ -2,12 +2,12 @@
 	//include('./header.php');
 ?>
     <!---  body  design  -->
-     <div class="container-fluid">
+     <div  id="<?php echo base_url();?>sellers_registeration" class="container-fluid">
    <div class="row w-100">
 	 <div class="col-md-10 offset-sm-1 p-2" >
     <div class="card shadow mb-4 ml-4">
 	
-  <div class="card-header py-3 d-flex bg-info flex-row align-items-center justify-content-center ">
+  <div  class="card-header py-3 d-flex bg-info flex-row align-items-center justify-content-center">
       <h6 class="m-0 font-weight-bold text-white text-center">SELLER'S REGISTRATION FORM<br>(All field's marked with * are mandatory)</h6><br>
   </div>
    
@@ -19,16 +19,16 @@
     <tbody>
       <tr>
         <td width="20%"><b>Company Name *</b></td>
-        <td width="20%"><input class="form-control w-100" type="text" id="scomapnyname" name="scomapnyname" size="50" ></td>       
+        <td width="20%"><input class="form-control w-100" type="text" onkeyup="validate_sname()" id="scomapnyname" name="scomapnyname" size="50" ></td>       
       </tr>
 	    <tr>
         <td><b>Seller Name</b></td>
-        <td><input class="form-control w-100" type="text" id="sname" name="sname" size="50" ></td>
+        <td><input class="form-control w-100"  type="text" id="sname" name="sname" size="50" readonly></td>
       </tr>
       <tr>
         <td><b>Type of seller</b></td>
         <td><select class="form-control w-100" style="text-align-last:center;" id="ssellertype" name="ssellertype">
-			<option value="Govt Regd Company" selected>Govt Regd Company</option>
+			<option value="Govt Regd Company"  selected>Govt Regd Company</option>
 			<option value="Ltd, Pvt Ltd, LLP, Corp">Ltd, Pvt Ltd, LLP, Corp</option>
 			<option value="Partnership, Proprietorship, OPC" >Partnership, Proprietorship, OPC</option>
 			<option value="Other">Other</option>
@@ -36,7 +36,7 @@
       </tr>
 	  <tr>
         <td><b>Contact Person *</b></td>
-        <td><input class="form-control w-100" type="text" id="scontactperson" name="scontactperson" size="50" ></td>
+        <td><input class="form-control w-100" onkeyup="validate_scompanyname()" type="text" id="scontactperson" name="scontactperson" size="50" ></td>
       </tr>
 		<tr>
         <td><b>Contact Person Designation *</b></td>
@@ -53,6 +53,7 @@
 								<select class="form-control w-75  p-1" id="saddress" name="saddress[]">
 									<option value="select" selected>SELECT</option>
 									<option value="Corporate Office">Corporate Office</option>
+									<option value="Manufacturing Unit">Manufacturing Unit</option>
 									<option value="Headquarter">Headquarter</option>
 								
 									</select>
@@ -122,7 +123,7 @@
       </tr>
 	   <tr>
         <td><b>Phone *</b></td>
-        <td><input class="form-control w-100" type="text" id="sphone" name="sphone" size="50"  pattern="[1-9]{1}[0-9]{9}" title="Enter 10 digit mobile number" required></td>      
+        <td><input class="form-control w-100" type="text" id="sphone" name="sphone" size="50"   title="Enter 10 digit mobile number" required></td>      
       </tr>
 	 <tr>
 	  <td><b>User Name *</b></td>
@@ -155,7 +156,7 @@
 	   </tbody>
 	   </table>
 		<div class="text-center">
-    <input type="submit" name="submit2" id="btn1" onclick="return validate1()" value=" Proceed" class="btn btn-primary col-3 mt-2 w-100">
+    <input type="submit" name="submit2" id="btn1" onclick="return validate1()" value=" Proceed" class="btn btn-primary col-3 mt-2 w-25">
 	<button type="reset" class="btn btn-primary col-3 mt-2">Reset</button>
 		</div>
 		</form>
@@ -217,7 +218,7 @@ $(document).ready(function(){
         
 $(".gst").change(function () {      
 var inputvalues = $(this).val();      
-  var regex = /^([0-9]){2}([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}([0-9]){1}([a-zA-Z]){1}([0-9]){1}?$/;    
+  var regex = /^([0-9]){2}([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}([0-9]){1}([a-zA-Z]){1}([0-9A-Z]){1}?$/;    
   if(!regex.test(inputvalues)){      
   $(".gst").val("");    
   swal("Alert!","Invalid gst no", "error");    

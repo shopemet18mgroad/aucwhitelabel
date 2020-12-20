@@ -83,8 +83,10 @@
 				<tr>
 					<th>Lot No</th>
 					<th>Lot Name</th>
-					<th width="30%">Lot Description</th>
+					<th>Lot Description</th>
 					<th>Quantity</th>
+					<th>Unit Of Measurement</th>
+					<th>Bid Base</th>
 					<th>GST</th>
 					<th>Location</th>
 					<th>Action</th>
@@ -94,13 +96,12 @@
 				<tbody>
 
 
-				<?php $urlsendind =  str_ireplace('/','-',$sqldata[0]->sauctionid);?>
 
 <?php $urlsendind =  str_ireplace('/','-',$sqldata[0]->sauctionid);?>
 
 
 
-				<?php $urlsendind =  str_ireplace('/','-',$sqldata[0]->sauctionid);?>
+				
 
 
 				<?php foreach($sqldata as $sqldat){if(!$sqldat->status){?>
@@ -108,10 +109,12 @@
 					<td><?php echo $sqldat->slotname; ?></td>
 					<td><?php echo $sqldat->sdescription; ?></td>
 					<td><?php echo $sqldat->sqty; ?></td>
+					<td><?php echo $sqldat->sunitmeasurment	; ?></td>
+					<td><?php echo $sqldat->sbidbase; ?></td>
 					<td><?php echo $sqldat->sgst; ?></td>
 					<td><?php echo $sqldat->slotlocation;?>
 					</td>
-					<td><a href="<?php  echo base_url()."Admin_forthcomingauc_2/approve/".$urlsendind."/".urldecode($sqldat->slotno).'/'.urlencode($sqldat->sname);  ?>"><button type="button" class="btn btn-info" name="accept" >Accept</button></a>
+					<td><a href="<?php  echo base_url()."Admin_forthcomingauc_2/approve/".$urlsendind."/".urldecode($sqldat->slotno)."/".urlencode($sqldat->sname) ?>"><button type="button" class="btn btn-info" name="accept" >Accept</button></a>
 						<a href="<?php  echo base_url()."Admin_forthcomingauc_2/reject/".$urlsendind."/".urldecode($sqldat->slotno).'/'.urlencode($sqldat->sname);?>"><button type="button" class="btn btn-info">Reject</button></a></td>
 
 
