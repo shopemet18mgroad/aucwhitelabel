@@ -119,7 +119,17 @@ class Buyers_registeration extends CI_Controller {
 		
 	}
 	
-	
+	public function validate_bgst(){
+		$dat = urldecode($this->uri->segment(3));
+		$check_db = array('bgst' => $dat);
+		$this->load->model('Admin_model');
+			  if($this->Admin_model->check('buyerprofile', $check_db)){
+				  echo "BYE";
+			  }else{
+				  echo "HI";
+			  }
+		
+	}
 	
     public function validate_username1(){
 		$dat = urldecode($this->uri->segment(3));
