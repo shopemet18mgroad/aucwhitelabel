@@ -115,7 +115,7 @@ class Buyer_forthcomingauc extends CI_Controller {
 				echo '<td>';
 				$desc = str_ireplace(',','%2C',$dat['sdescription']);
 				$desc2 = str_ireplace('(','%28',$desc );
-				$desc3 = str_ireplace(')','%29',$desc );
+				$desc3 = str_ireplace(')','%29',$desc2 );
 				echo'<button type="button" id="'.$aucencode.'|'.$dat['slotno'].'|'.$desc3.'" onClick="addtocart(this.id)">';
 				echo'<i class="fas fa-heart" id="'.$aucencode.'|'.$dat['slotno'].'|'.$desc3.'"></i>';
 				echo'</button>';
