@@ -89,6 +89,7 @@ class Buyer_forthcomingauc extends CI_Controller {
 				$sauc = str_ireplace('/','-',$dat['sauctionid']);
 				$saucqarray = array('sauctionid'=>$sauc,'saucclosedate_time >'=>$time);
 				$respdata = $this->Admin_model->getdatafromtable('auction',$saucqarray);
+			
 				if($respdata){
 					echo '<tr>';
 
