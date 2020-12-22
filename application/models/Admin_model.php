@@ -159,6 +159,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$query = $this->db->get();
 			return $query->result();
 		}
+	
 		
 		 public function maxbidlotno($sauctionid,$slotno){
 			$this->db->select('*');

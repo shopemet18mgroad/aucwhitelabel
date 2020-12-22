@@ -44,42 +44,58 @@ class Seller_auctionapproval extends CI_Controller {
 	    $snamechk2a = array('sname'=>$snameseller,'saucclosedate_time <'=>$time,);
 		
 		 $aucdetails = $this->Admin_model->getdatafromtable('auction', $snamechk2a); 
-	
+			
 		if($aucdetails){
 			
 		foreach($aucdetails as $aucdet){
 			$auct = $aucdet->sauctionid;
-			$aucdetarray = array('sauctionid'=>$auct);
-			$data['sqldat'] = $this->Admin_model->getdatafromtable('addlot',$aucdetarray );
+			$aucdetarray = array('auctionid'=>$auct);
+			$data['sqldat'] = $this->Admin_model->getdatafromtable('biddercart',$aucdetarray );
+				
 			$xr = 0;
 				$xdata = array(); 
 				   
 				foreach($data['sqldat'] as $datsql){ 	
 				
-				$auctmp = $datsql->sauctionid;
+				$auctmp = $datsql->auctionid;
 				
-				$auclottmp = $datsql->slotno;
-				$username = $sess['sessi'];
+				$auclottmp = $datsql->lotno;
+				$busername = $datsql->bidderusername;
+				$mybitvalref = $datsql->mybid_val;
+				
+				$abc = array('auctionid'=>$auctmp,'lotno'=>$auclottmp,'bidderusername'=>$busername );
+				$act = $this->Admin_model->getdatafromtable('biddercart', $abc);
+			
+			
+				$approv =$act[0]->sapproval;
+				
 				
 				$datap = $this->Admin_model->maxbidvalue($auctmp, $auclottmp);
-				 
-				$mybitvalrec = $datap[0]->bidderusername;
+			
+				
 				$aucbidamount = $datap[0]->bidamount;
 				$mybitvaldatetime = $datap[0]->Date_time;
+				$mybitvalrec = $datap[0]->bidderusername;
+				$approv =$datap[0]->sapproval;
+					//print_r($approv); die;
+				//$bidderdatsql = array('bidderusername'=> $mybitvalrec,'bidamount'=>$aucbidamount, 'sauctionid'=>$auctmp,'slotno'=> $auclottmp);
+				//$bidderdatsqloutput = $this->Admin_model->getdatafromtable('biddingdata',$bidderdatsql);
 				
-				$bidderdatsql = array('bidderusername'=> $mybitvalrec,'mybid_val'=>$aucbidamount, 'auctionid'=>$auctmp,'lotno'=> $auclottmp);
-				$bidderdatsqloutput = $this->Admin_model->getdatafromtable('biddercart',$bidderdatsql);
-				$bidderdatsqloutput[0]-> sapproval;
-				if(!$bidderdatsqloutput[0]-> sapproval){$data['sqldatarec'][] = $auctmp.'|'.$auclottmp.'|'.$mybitvalrec.'|'.$aucbidamount.'|'.$mybitvaldatetime;
+				//$bidderapproval = $bidderdatsqloutput->sapproval;
+			
+				if($aucbidamount === $mybitvalref ){$data['sqldatarec'][] = $auctmp.'|'.$auclottmp.'|'.$mybitvalrec.'|'.$aucbidamount.'|'.$mybitvaldatetime;
+				
+					$xr++;
 					}
 				
 					
-				}
+		}
+		}
 				
-		//$xr++;
+		
 		}
 
-		}
+		
 	
 
 		$sess = array('sessi'=>$this->session->userdata('username'));		

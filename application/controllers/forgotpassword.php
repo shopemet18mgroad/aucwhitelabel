@@ -1,6 +1,6 @@
 <?php
 
-class dofoget extends CI_Controller
+class forgotpassword extends CI_Controller
 {
 public function __construct() {
 parent::__construct();
@@ -11,7 +11,9 @@ parent::__construct();
 	}
 	    public function index(){
 			$data="";
+			$this->load->view('header2');
 			$this->load->view('forgotpassword',$data);
+			$this->load->view('footer');
 		}
 
 	public function doforget()
