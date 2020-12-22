@@ -9,44 +9,63 @@ parent::__construct();
 		$this->load->library('email');
 		
 	}
-	    public function index(){
-			$data="";
+	   public function index()
+	{
+		
+		$this->load->helper('url');
+		$this->load->library('session');
+		$this->session->sess_expiration = '3600';
+		if($this->input->post('email')){
+			if($this->input->post('optradio')=="Buyer"){
+				$table = "buyerprofile";
+				$colname = "bemail";
+				$colname2 = "bphone";
+			}else if($this->input->post('optradio')=="Seller"){
+				$table = "sellerprofile";
+				$colname = "semail";
+				$colname2 = "sphone";
+			}
+			$email = $this->input->post('email');
+			$phoneno = $this->input->post('phoneno');
+			$check_db = array($colname => $email);
+			$this->load->model('Admin_model');
+			  if($this->Admin_model->check($table, $check_db)){
+				  if($table == "buyerprofile"){
+					  $newdata = array('bemail'=>$email);
+					  header('location: '.base_url().'Reset_Password');
+					  die;
+				  }else if($table == "sellerprofile"){
+					  $newdata = array('semail'=>$email);
+					  header('location: '.base_url().'Reset_Password');
+					  die;
+				  }
+			  }else{
+				  $datainserr = "Invalid Email Id";
+				  header('location: '.base_url().'forgotpassword/index_error/'.$datainserr);
+				  die;
+			  }
+			  die;
+			  
+		}else{
+			
 			$this->load->view('header2');
-			$this->load->view('forgotpassword',$data);
+			$this->load->view('forgotpassword');
 			$this->load->view('footer');
 		}
-
-	public function doforget()
-	{
-	    $this->load->helper('url');
-		$email= $this->input->post('emailid');
-		$this->load->library('form_validation');
-		$this->form_validation->set_rules('emailid','emailid','required|xss_clean|trim');
-		 if ($this->form_validation->run() == FALSE)
-			{
-	
-				$this->load->view('forgetpassword');
-	 
-			}
-			else
-			{
-		$q = $this->db->query("select * from sellerprofile where emailid='" . $email . "'");
-        if ($q->num_rows > 0) {
-            $r = $q->result();
-            $user=$r[0];
-			$this->load->helper('string');
-			$password= random_string('alnum',6);
-			$this->db->where('susername', $user->susername);
-			$this->db->update('sellerprofile',array('password'=>$password,'pass_encryption'=>MD5($password)));
-			$this->load->library('email');
-			$this->email->from('contact@example.com', 'sampletest');
-			$this->email->to($user->emailid); 	
-			$this->email->subject('Password reset');
-			$this->email->message('You have requested the new password, Here is you new password:'. $password);	
-			$this->email->send();
-		    $this->session->set_flashdata('message','Password has been reset and has been sent to email');		
-		   redirect('display_doforget');
-		   }
-		   }
+		
+		
 	}
+	public function index_error(){
+			$alertmsg = $this->uri->segment(3);
+			$alertmsg = urldecode($alertmsg);
+			echo '<script language="javascript">';
+			echo 'alert("'.$alertmsg.'")';  //not showing an alert box.
+			echo '</script>';
+			$this->load->view('header');
+			$this->load->view('forgotpassword');
+			$this->load->view('footer');
+			
+	}
+
+	
 }

@@ -86,7 +86,7 @@ class Buyer_forthcomingauc extends CI_Controller {
 			echo '<tbody>';
 			
 			foreach($data as $dat){
-				$sauc = str_ireplace('/','-',$dat['sauctionid']);
+				$sauc = str_ireplace('-','/',$dat['sauctionid']);
 				$saucqarray = array('sauctionid'=>$sauc,'saucclosedate_time >'=>$time);
 				$respdata = $this->Admin_model->getdatafromtable('auction',$saucqarray);
 			
@@ -113,8 +113,11 @@ class Buyer_forthcomingauc extends CI_Controller {
 				echo '';
 
 				echo '<td>';
-				echo'<button type="button" id="'.$aucencode.'|'.$dat['slotno'].'|'.str_ireplace(',','%2C',$dat['sdescription']).'" onClick="addtocart(this.id)">';
-				echo'<i class="fas fa-heart" id="'.$aucencode.'|'.$dat['slotno'].'|'.$dat['sdescription'].'"></i>';
+				$desc = str_ireplace(',','%2C',$dat['sdescription']);
+				$desc2 = str_ireplace('(','%28',$desc );
+				$desc3 = str_ireplace(')','%29',$desc );
+				echo'<button type="button" id="'.$aucencode.'|'.$dat['slotno'].'|'.$desc3.'" onClick="addtocart(this.id)">';
+				echo'<i class="fas fa-heart" id="'.$aucencode.'|'.$dat['slotno'].'|'.$desc3.'"></i>';
 				echo'</button>';
 				echo '</td>';
 				echo '</tr>';
