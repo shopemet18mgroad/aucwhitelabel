@@ -20,11 +20,21 @@ class Search extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->helper('url');
+		
+		if($this->input->post('submit')){
+			$this->load->helper('url');
+			$this->load->model('Admin_model');
+			$search = $this->input->post('search');
+			$newdata = array('search'=>$search);
+						
+		}
+		else{
+
 		$this->load->view('header');
 		$this->load->view('search');
 		$this->load->view('footer');
 		
-	}
+		}
 	
+}
 }
