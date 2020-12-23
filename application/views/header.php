@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php// print_r($newdata);die;?>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -139,9 +140,9 @@
 					 
 					</ul>
 					<div class="srmfldnav">
-						<form method="post" action="<?php echo base_url();?>search" class="form-inline my-2 my-lg-0">
-						  <input class="form-control mr-sm-2" type="search" placeholder="Search For the product here" aria-label="Search For the product here" size="50" required>
-						  <button href="#" class="btn btn-outline-light my-2 my-sm-0" type="submit" ><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+						<form method="post" action="<?php echo base_url();?>Search" class="form-inline my-2 my-lg-0">
+						  <input class="form-control mr-sm-2" type="search" placeholder="Search For the product here" name="search" aria-label="Search For the product here" size="50" required>
+						  <button href="#" class="btn btn-outline-light my-2 my-sm-0" name="submit" type="submit" ><i class="fa fa-search" aria-hidden="true"></i> Search</button>
 						 				   	
 						 
 						</form>
