@@ -132,7 +132,7 @@
         </tr>
 		<tr>
 			<td><b>PCB Licence NO</b></td>
-			<td><input class="form-control w-50" type="text" id="bpcb" name="bpcb" required></td>
+			<td><input class="form-control w-50" onkeyup="validate_bgst()" type="text" id="bpcb" name="bpcb" required></td>
 		</tr> 
 		<tr>
 			<td><b>CIN Number</b></td>

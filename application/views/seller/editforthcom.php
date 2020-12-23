@@ -69,7 +69,7 @@
 					</a></td>
 					<?php }?>
 			
-					<td><a href="<?php echo base_url()."/pdf_gen/auc_no/".$passaucid.'/'.urlencode($sqldat->sname);?>" target="_blank"><i class="fa fa-download"></i></a></td>			
+					<td><a href="<?php echo base_url()."/pdf_gen/auc_no/".$passaucid.'/'.($sqldat->sname);?>" target="_blank"><i class="fa fa-download"></i></a></td>			
 					
 
 

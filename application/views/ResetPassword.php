@@ -16,19 +16,20 @@
               <div class="col-lg-6 bg-info">
                 <div class="p-3">
                   <div class="text-center">
-                    <h1 class="h2 text-gray-900 text-white mb-4">Forgot Password</h1>
+                    <h1 class="h2 text-gray-900 text-white mb-4">Reset Password</h1>
                   </div>
                   <form class="user" action="<?php echo base_url()."";?>" method="post">
                     <div class="form-group">
-                      <input type="text" name="email" class="form-control form-control-user" id="email" aria-describedby="emailHelp" placeholder="Enter Email Address..." required>
+                      <input type="text" name="OTP" class="form-control form-control-user" id="otp" aria-describedby="emailHelp" placeholder="Enter OTP" required>
                     </div>
-					<center><p class="text-gray-900 text-white "><b>OR</b></p></center>
                     <div class="form-group">
-                      <input type="text" name="phoneno" class="form-control form-control-user" id="phoneno" placeholder="Enter Phone No.">
+                      <input type="password" name="password" class="form-control form-control-user" id="password" placeholder="Enter Old Password">
                     </div>
-                   
+                   <div class="form-group">
+                      <input type="password" name="password" class="form-control form-control-user" id="password" placeholder="Enter New Password">
+                    </div>
                     <button name="submit" type="submit"  class="btn btn-primary btn-user btn-block">
-                      <b>Sent OTP</b>
+                      <b>SUBMIT</b>
                     </button>
                     <!-- <hr>
                     <a href="index.html" class="btn btn-google btn-user btn-block">
@@ -39,19 +40,7 @@
                     </a> -->
                  
 				  <hr>
-				  <div class="text-center">
-				  <div class="form-check-inline">
-  <label class="form-check-label">
-    <input type="radio" class="form-check-input" value="Buyer" name="optradio" checked>Buyer
-  </label>
-</div>
-<div class="form-check-inline">
-  <label class="form-check-label">
-    <input type="radio" class="form-check-input" value="Seller" name="optradio">Seller
-  </label>
-</div>
-
-	</div>			  
+					  
 		 </form>		  
                   
                  

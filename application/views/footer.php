@@ -211,7 +211,46 @@ if(scomapnyname == '' || ssellertype == '' || scontactperson == '' || span == ''
 		}
   }
   </script>
- 
+ <script>
+  function validate_sgst(){
+	  var val = document.getElementById("sgst").value;
+		if(val != ''){
+			 $.get('<?php echo base_url() .'sellers_registeration/validate_sgst/'; ?>'+val, function(data2){				 
+				 if($.trim(data2) == "BYE"){
+					swal("Alert!",  "GST No. Already Exists", "error");
+					document.getElementById("sgst").value = "";
+					return false;
+				}else{
+					return true;
+				}
+			 });
+			
+		}else{
+			swal("Alert!",  "Please Enter GST No.!", "error");
+			return false;
+		}
+  }
+  </script>
+  <script>
+  function validate_bgst(){
+	  var val = document.getElementById("bgst").value;
+		if(val != ''){
+			 $.get('<?php echo base_url() .'Buyers_registeration/validate_bgst/'; ?>'+val, function(data2){				 
+				 if($.trim(data2) == "BYE"){
+					swal("Alert!",  "GST No. Already Exists", "error");
+					document.getElementById("bgst").value = "";
+					return false;
+				}else{
+					return true;
+				}
+			 });
+			
+		}else{
+			swal("Alert!",  "Please Enter GST No.!", "error");
+			return false;
+		}
+  }
+  </script>
   
   
   <script>
