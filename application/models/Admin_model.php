@@ -346,7 +346,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
          return $query;  
       }
 		
-		
+		public function get_lookalikesearch($table,$col1,$col2,$query){			  
+			$this->db->from($table);
+			$this->db->like($col1,$col2,$query);
+			$q = $this->db->get();
+			return $q->result_array();
+		  }
 	
 		 
 		  

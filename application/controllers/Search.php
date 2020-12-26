@@ -26,15 +26,17 @@ class Search extends CI_Controller {
 			$this->load->model('Admin_model');
 			$search = $this->input->post('search');
 			$newdata = array('search'=>$search);
-						
+			$datatoquerydb = $this->uri->segment(3);
+		$data = $this->Admin_model->get_lookalikesearch('addlot','sdescription','scategory',$datatoquerydb);
+			print_r($data);die;			
 		}
-		else{
+		
 
 		$this->load->view('header');
 		$this->load->view('search');
 		$this->load->view('footer');
 		
-		}
+	
 	
 }
 }
