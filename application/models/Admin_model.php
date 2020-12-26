@@ -281,6 +281,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$q = $this->db->get();
 			return $q->result_array();
 		  }
+		  public function get_lookalikefromsearch($table,$col,$col2,$query){
+			 $this->db->select('*');
+			 $this->db->from($table);
+			 $this->db->like($col,$query);
+			 $this->db->or_like($col2,$query);
+			//$this->db->where('susername =', $sessi);
+			$q = $this->db->get();
+			return $q->result_array();
+		  }
 		  
 		public function get_lookalikesess($table,$col,$query,$sessi){			  
 			$this->db->from($table);

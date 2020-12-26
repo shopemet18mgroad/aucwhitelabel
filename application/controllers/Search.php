@@ -21,22 +21,23 @@ class Search extends CI_Controller {
 	public function index()
 	{
 		
-		if($this->input->post('submit')){
+		if($this->input->post('search')){
 			$this->load->helper('url');
 			$this->load->model('Admin_model');
 			$search = $this->input->post('search');
-			$newdata = array('search'=>$search);
-			$datatoquerydb = $this->uri->segment(3);
-		$data = $this->Admin_model->get_lookalikesearch('addlot','sdescription','scategory',$datatoquerydb);
-			print_r($data);die;			
-		}
-		
-
-		$this->load->view('header');
-		$this->load->view('search');
-		$this->load->view('footer');
-		
 	
+
+			$searchresp['searchresult'] =  $this->Admin_model->get_lookalikefromsearch('addlot','scategory','sdescription',$search);
+			//print_r($searchresp['searchresult']);die;
+			$this->load->view('header');
+			$this->load->view('search',$searchresp);
+			$this->load->view('footer');		
+		}else{
+			$this->load->view('header');
+			$this->load->view('home');
+			$this->load->view('footer');	
+		}
+
 	
 }
 }
