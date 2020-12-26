@@ -25,7 +25,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		public function getdatafromtable($table, $data) { 
 			 $query = $this->db->get_where($table, $data); 
 			 return $query->result();
-		} 
+		}
+			
 		
 		public function get1datafromtable($table, $data) { 
 			 $this->db->select('scomapnyname');

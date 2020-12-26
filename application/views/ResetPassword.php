@@ -18,17 +18,17 @@
                   <div class="text-center">
                     <h1 class="h2 text-gray-900 text-white mb-4">Reset Password</h1>
                   </div>
-                  <form class="user" action="<?php echo base_url()."";?>" method="post">
+                  <form class="user" action="<?php echo base_url()."";?>" onsubmit ="return validateForm()" method="post">
                     <div class="form-group">
-                      <input type="text" name="OTP" class="form-control form-control-user" id="otp" aria-describedby="emailHelp" placeholder="Enter OTP" required>
+                      <input type="text" name="OTP" class="form-control form-control-user" id="OTP" maxlength="4" placeholder="Enter OTP">
                     </div>
                     <div class="form-group">
-                      <input type="password" name="password" class="form-control form-control-user" id="password" placeholder="Enter Old Password">
+                      <input type="password" name="newpassword" class="form-control form-control-user" id="newpassword" placeholder="Enter New Password"><span id = "message1" style="color:white"> </span>
                     </div>
                    <div class="form-group">
-                      <input type="password" name="password" class="form-control form-control-user" id="password" placeholder="Enter New Password">
+                      <input type="password" name="confirmpassword" class="form-control form-control-user" id="confirmpassword" placeholder="Enter Confirm Password"><span id = "message2" style="color:white"> </span>
                     </div>
-                    <button name="submit" type="submit"  class="btn btn-primary btn-user btn-block">
+                    <button name="submit" type="submit" onclick="return validateForm()" class="btn btn-primary btn-user btn-block">
                       <b>SUBMIT</b>
                     </button>
                     <!-- <hr>
@@ -59,3 +59,35 @@
 
 
 
+<script>
+function validateForm() {
+    //collect form data in JavaScript variables	
+	var ah = document.getElementById("OTP").value;
+    var pw1 = document.getElementById("newpassword").value;
+    var pw2 = document.getElementById("confirmpassword").value;
+   
+  if(ah == ''){
+		swal("Alert!",  "Please Enter OTP!", "error");
+		return false;
+	}
+    //check empty password field
+
+    //minimum password length validation
+    if(pw1.length < 8) {
+      document.getElementById("message1").innerHTML = "**Password length must be atleast 8 characters";
+      return false;
+    }
+
+    //maximum length of password validation
+    if(pw1.length > 15) {
+      document.getElementById("message1").innerHTML = "**Password length must not exceed 15 characters";
+      return false;
+    }
+	if(pw1 != pw2) {
+      document.getElementById("message2").innerHTML = "**Passwords are not same";
+      return false;
+    }
+  
+     
+ }
+</script> 

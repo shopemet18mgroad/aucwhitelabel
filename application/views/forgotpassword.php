@@ -18,16 +18,15 @@
                   <div class="text-center">
                     <h1 class="h2 text-gray-900 text-white mb-4">Forgot Password</h1>
                   </div>
-                  <form class="user" action="<?php echo base_url()."";?>" method="post">
+                  <form name="myform" class="user"  action="<?php echo base_url()."forgotpassword";?>" method="post">
                     <div class="form-group">
-                      <input type="text" name="email" class="form-control form-control-user" id="email" aria-describedby="emailHelp" placeholder="Enter Email Address..." required>
+                      <input type="text" name="email" class="form-control form-control-user" id="email" aria-describedby="emailHelp" placeholder="Enter Email Address...">
                     </div>
-					<center><p class="text-gray-900 text-white "><b>OR</b></p></center>
+					<center><p class="text-gray-900 text-white"><b>OR</b></p></center>
                     <div class="form-group">
                       <input type="text" name="phoneno" class="form-control form-control-user" id="phoneno" placeholder="Enter Phone No.">
                     </div>
-                   
-                    <button name="submit" type="submit"  class="btn btn-primary btn-user btn-block">
+                    <button name="submit" type="submit" class="btn btn-primary btn-user btn-block">
                       <b>Sent OTP</b>
                     </button>
                     <!-- <hr>

@@ -142,8 +142,8 @@
 					<div class="srmfldnav">
 						<form method="post" action="<?php echo base_url();?>Search" class="form-inline my-2 my-lg-0">
 						  <input class="form-control mr-sm-2" type="search" placeholder="Search For the product here" name="search" aria-label="Search For the product here" size="50" required>
-						  <input href="#" class="btn btn-outline-light my-2 my-sm-0" name="submit" type="submit" value="Search" >
-						 				   	
+						  <button href="#" class="btn btn-outline-light my-2 my-sm-0" name="submit" type="submit"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+						  				   	
 						 
 						</form>
 					</div>

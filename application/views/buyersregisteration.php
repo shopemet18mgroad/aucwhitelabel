@@ -119,11 +119,11 @@
 	  </tr>
 	  <tr>
         <td><b>Password *</b></td>
-        <td><input class="form-control w-100" type="password" id="bpassword" name="bpassword" size="50" onkeyup="validate_username1()"><span id = "message1" style="color:red"> </span></td>       
+        <td><input class="form-control w-100" type="password" id="bpassword" name="bpassword" size="50" onkeyup="validate_username1()"><span id = "message1" style="color:white"> </span></td>       
       </tr>
 	  <tr>
         <td><b>Confirm Password *</b></td>
-        <td><input class="form-control w-100" type="password" id="bconfirmpassword" name="bconfirmpassword" size="50"><span id = "message2" style="color:red"> </span></td>       
+        <td><input class="form-control w-100" type="password" id="bconfirmpassword" name="bconfirmpassword" size="50"><span id = "message2" style="color:white"> </span></td>       
       </tr>
 	  
 	  <tr>
