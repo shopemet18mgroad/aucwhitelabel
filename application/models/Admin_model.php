@@ -59,7 +59,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			 $this->db->from('auction');
 			$this->db->join('biddercart', 'biddercart.auctionid = auction.sauctionid');
 			$this->db->join('sellerprofile', 'sellerprofile.sname = auction.sname');
-			
 			$this->db->where('aucclosedate_time <', $date);
 			//$this->db->where('susername =', $sessi);
 			$query = $this->db->get();
@@ -84,7 +83,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			 return $query->result();
 		} 
 		
-		
+		public function getdatafromtableReset($table, $sessi) {
+			 $this->db->select('*');
+			$this->db->from($table);
+			$this->db->where('email =', $sessi);
+			$query = $this->db->get();
+			return $query->result();
+		}
 		public function datebetweensess($table, $date, $sessi){
 			$this->db->select('*');
 			$this->db->from($table);

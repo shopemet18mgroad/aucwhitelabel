@@ -18,9 +18,9 @@
                   <div class="text-center">
                     <h1 class="h2 text-gray-900 text-white mb-4">Reset Password</h1>
                   </div>
-                  <form class="user" action="<?php echo base_url()."";?>" onsubmit ="return validateForm()" method="post">
+                  <form class="user" action="<?php echo base_url()."Reset_Password";?>" onsubmit ="return validateForm()" method="post">
                     <div class="form-group">
-                      <input type="text" name="OTP" class="form-control form-control-user" id="OTP" maxlength="4" placeholder="Enter OTP">
+                      <input type="text" name="otp" class="form-control form-control-user" id="otp" maxlength="4" placeholder="Enter OTP">
                     </div>
                     <div class="form-group">
                       <input type="password" name="newpassword" class="form-control form-control-user" id="newpassword" placeholder="Enter New Password"><span id = "message1" style="color:white"> </span>
