@@ -142,7 +142,7 @@ parent::__construct();
 							//return redirect('Reset_Password');
 							
 					   }
-								
+						$this->session->set_userdata($newdata);		
 					  header('location: '.base_url().'Reset_Password');
 				  die;
 				  }
@@ -257,7 +257,7 @@ parent::__construct();
 							$this->session->set_flashdata('msg_class','alert-success');
 							//return redirect('Reset_Password');
 					   }
-					
+					$this->session->set_userdata($newdata);
 					  header('location: '.base_url().'Reset_Password');
 					  die;
 				  }
