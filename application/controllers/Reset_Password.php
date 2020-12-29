@@ -51,17 +51,21 @@ parent::__construct();
 		$datainserr = "Data Inserted Successfully";
 		$updatech = array('busername' => $user);
 		
-		$data3 = array('susername' =>$user,'sname' =>$name,'spassword' => $newpassword);
-		//$this->load->view('xya', $data);
-		$datainserr = "Data Inserted Successfully";
-		$updatech2 = array('susername' => $user);
+		
 		
 		
 		
 		
 		if($email){
 		$status = $this->Admin_model->update_custom('buyerprofile',$data2,$updatech,$updatech);
-		}else if($email){
+		}
+		if($email){
+		
+		
+		$data3 = array('susername' =>$user,'sname' =>$name,'spassword' => $newpassword);
+		//$this->load->view('xya', $data);
+		$datainserr = "Data Inserted Successfully";
+		$updatech2 = array('susername' => $user);
 		
 		$status2 = $this->Admin_model->update_custom('sellerprofile',$data3,$updatech2,$updatech2);
 		}
