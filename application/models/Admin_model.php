@@ -215,12 +215,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$query = $this->db->get();
 			return $query->result();
 		}
-		public function getdatafromtablehomejoin(){
+		public function getdatafromtablehomejoin($time){
 			$this->db->select('*');
 			 $this->db->from('auction');
 			$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid');
 			$this->db->where('status =', 1);
-			$this->db->limit(4);
+			$this->db->where('saucstartdate_time >=', $time);
+			//$this->db->limit(4);
 			$query = $this->db->get();
 			return $query->result();
 		}
