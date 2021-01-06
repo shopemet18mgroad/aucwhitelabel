@@ -92,6 +92,7 @@ function validate_password_seller(){
  function auction_id(){
 	 var cat = document.getElementById('scategory').value;
 	  var cat2 = document.getElementById('srefid').value;
+	  var res = cat2.replace(" ", "-");
 	   var d = new Date();
 	   var m = d.getHours();
 	   var n = d.getMinutes();
@@ -100,8 +101,9 @@ function validate_password_seller(){
 		 swal("Alert!", "Please Select Categoery First", "error");
 		 return false;
 	 }
-	 if(cat2.length<20){
-		  document.getElementById('sauctionid').value = "AUC/"+cat2+"/"+cat+"/"+m+"/"+n+"/"+s;
+	 
+	 if(res.length<20){
+		  document.getElementById('sauctionid').value = "AUC/"+res+"/"+cat+"/"+m+"/"+n+"/"+s;
 	 }
  }
  </script>
