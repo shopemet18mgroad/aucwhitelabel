@@ -49,7 +49,7 @@ class Seller_auctionapproval extends CI_Controller {
 			
 		foreach($aucdetails as $aucdet){
 			$auct = $aucdet->sauctionid;
-			$aucdetarray = array('auctionid'=>$auct);
+			$aucdetarray = array('auctionid'=>$auct,'sapproval'=>false);
 			$data['sqldat'] = $this->Admin_model->getdatafromtable('biddercart',$aucdetarray );
 				
 			$xr = 0;
@@ -58,7 +58,7 @@ class Seller_auctionapproval extends CI_Controller {
 				foreach($data['sqldat'] as $datsql){ 	
 				
 				$auctmp = $datsql->auctionid;
-				
+			
 				$auclottmp = $datsql->lotno;
 				$busername = $datsql->bidderusername;
 				$mybitvalref = $datsql->mybid_val;
@@ -74,9 +74,14 @@ class Seller_auctionapproval extends CI_Controller {
 			
 				
 				$aucbidamount = $datap[0]->bidamount;
-				$mybitvaldatetime = $datap[0]->Date_time;
-				$mybitvalrec = $datap[0]->bidderusername;
-				$approv =$datap[0]->sapproval;
+				
+				$maxvalue = array('bidamount'=>$aucbidamount);
+				$bidder = $this->Admin_model->getdatafromtable('biddingdata',$maxvalue);
+				//print_r($bidder);die;
+				$mybitvaldatetime = $bidder[0]->Date_time;
+				$mybitvalrec = $bidder[0]->bidderusername;
+				//
+				$approv =$bidder[0]->sapproval;
 					//print_r($approv); die;
 				//$bidderdatsql = array('bidderusername'=> $mybitvalrec,'bidamount'=>$aucbidamount, 'sauctionid'=>$auctmp,'slotno'=> $auclottmp);
 				//$bidderdatsqloutput = $this->Admin_model->getdatafromtable('biddingdata',$bidderdatsql);
@@ -114,16 +119,20 @@ class Seller_auctionapproval extends CI_Controller {
 		$compnameurl = urldecode($compnameurl);
 		//print_r($compnameurl); die;
 		$compnameurl2 = explode('|',$compnameurl);
-		$compname = $compnameurl2[0];
+		$lotno = $compnameurl2[0];
 	
-		$comp = str_ireplace('-','/',$compnameurl2[1]);
+		$auctionid = str_ireplace('-','/',$compnameurl2[1]);
+		$biddername = $compnameurl2[2];
+		$bidamount = $compnameurl2[3];
+		//$datetime = $compnameurl2[4];
 		//print_r($comp); die;
 		$this->load->model('Admin_model');
 		$sapproval = array('sapproval'=>true);
-		$adaction2 = array('lotno'=>$compname,'auctionid'=>$comp);
 		
+		$adaction2 = array('lotno'=>$lotno,'auctionid'=>$auctionid,'bidderusername'=>$biddername,'mybid_val'=>$bidamount);
+		//print_r($adaction2);die;
 		$query = $this->Admin_model->update_custom('biddercart',$sapproval, $adaction2, $adaction2);
-		if($compname){
+		if($lotno){
 			echo "HI";
 		}else{
 			echo "BYE";

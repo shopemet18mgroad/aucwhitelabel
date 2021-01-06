@@ -157,7 +157,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		} 
 		
 		public function maxbidvalue($auction,$lot){
-			$this->db->select('*');
+			//$this->db->select('*');
 			$this->db->select_max('bidamount');
 			$this->db->from('biddingdata');
 			$this->db->where('sauctionid =', $auction);
