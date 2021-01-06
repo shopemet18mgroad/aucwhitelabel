@@ -58,21 +58,17 @@ class admin_bidwinner extends CI_Controller {
 				$approv =$d->sapproval;
 				
 				$datap = $this->Admin_model->maxbidvalue($auctmp, $auclottmp);
-				 
+				// print_r($datap);die;
 				$mybitvalrec = $datap[0]->bidderusername;
 				$aucbidamount = $datap[0]->bidamount;
 				$mybitvaldatetime = $datap[0]->Date_time;
 				$approval = $datap[0]->sapproval;
-				if ($approv){
-			$approval = false;
-		}
-		else{
-			$approval = true;
-		}
+				
+				
 				//$bidderdatsql = array('bidderusername'=> $mybitvalrec,'mybid_val'=>$aucbidamount, 'auctionid'=>$auctmp,'lotno'=> $auclottmp);
 				//$bidderdatsqloutput = $this->Admin_model->getdatafromtable('biddercart',$bidderdatsql);
 				//$bidderdatsqloutput->sapproval;
-				if($biddername === $mybitvalrec && $approval == false){$data['sqldatarec'][] = $auctmp.'|'.$auclottmp.'|'.$mybitvalrec.'|'.$aucbidamount.'|'.$mybitvaldatetime;
+				if($mybitvalrec === $biddername){$data['sqldatarec'][] = $auctmp.'|'.$auclottmp.'|'.$mybitvalrec.'|'.$aucbidamount.'|'.$mybitvaldatetime;
 					}
 				
 			
@@ -97,11 +93,12 @@ class admin_bidwinner extends CI_Controller {
 		$compnameurl = $this->uri->segment(3);
 		
 		$compnameurl = urldecode($compnameurl);
-		//print_r($compnameurl); die;
+		
 		$compnameurl2 = explode('|',$compnameurl);
 		$compname = $compnameurl2[0];
 	
 		$comp = str_ireplace('-','/',$compnameurl2[1]);
+		
 		//print_r($comp); die;
 		$this->load->model('Admin_model');
 		$sapproval = array('sapproval'=>true);

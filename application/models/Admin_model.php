@@ -177,11 +177,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return $query->result();
 		}
 
-	 public function dateclosedauc($table, $date){
+	 public function dateclosedauc($date){
 			$this->db->select('*');
-			$this->db->from($table);
+			//$this->db->from($table);
 			//$this->db->where('aucstartdate_time <=', $date);
-			$this->db->where('aucclosedate_time <', $date);
+			$this->db->from('auction');
+			$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid');
+			$this->db->where('saucclosedate_time <', $date);
 			//$this->db->where('bidderusername =', $sessi);
 			$query = $this->db->get();
 			return $query->result();

@@ -113,6 +113,7 @@ if($diff <= 0){
 					<?php
 					if($sqldata2[0]->sstartbidprice >= $sqldata2[0]->cbidval){
 						$datbid = $sqldata2[0]->sstartbidprice;
+						$datbid = 
 					}else{
 						$datbid = $sqldata2[0]->cbidval;
 					}  

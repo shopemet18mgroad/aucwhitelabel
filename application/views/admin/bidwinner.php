@@ -68,7 +68,7 @@
 						 ?></b></td>
 						
 					
-						<td><button type="submit" name="submit" id="<?php echo $datareciver[1].'|'.str_ireplace('/','-', $datareciver[0]);?>" onclick="winner_set_deactive(this.id)" class="btn btn-info btn-sm">Approve</button></td>	
+						<td><a type="submit" name="submit" id="<?php echo $datareciver[1].'|'.str_ireplace('/','-', $datareciver[0]);?>" onclick="winner_set_deactive(this.id)"><button  class="btn btn-info btn-sm">Approve</button></a></td>	
 
 					</tr>
 					

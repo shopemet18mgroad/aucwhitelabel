@@ -33,7 +33,7 @@ class Admin_closedauc extends CI_Controller {
 		$this->load->model('Admin_model');
 		
 
-		$data['sqldat'] = $this->Admin_model->dateclosedauc('biddercart',$time);
+		$data['sqldat'] = $this->Admin_model->dateclosedauc($time);
 		
 		   
 		   
@@ -41,14 +41,14 @@ class Admin_closedauc extends CI_Controller {
 		   $xdata = array(); 
 		   
 		 foreach($data['sqldat'] as $datsql){ 	
-		$auctmp = $datsql->auctionid;
-		$lotmp = $datsql->lotno;
+		$auctmp = $datsql->sauctionid;
+		$lotmp = $datsql->slotno;
 		//$auclottmp = $datsql->lotno;
 			
 
 		//$username = $sess['sessi'];
 		
-		$mybitvalref = $datsql->mybid_val;
+		//$mybitvalref = $datsql->mybid_val;
 			
 		//print_r($mybitvalref); die;
 		$datap = $this->Admin_model->maxbidvalue($auctmp,$lotmp);
@@ -58,6 +58,8 @@ class Admin_closedauc extends CI_Controller {
 		$mybitvalrec = $datap[0]->bidderusername;
 		$aucbidamount = $datap[0]->bidamount;
 		$mybitvaldatetime = $datap[0]->Date_time;
+	
+		
 		//$myapproval = $datap[0]->sapproval;
 	  if($aucbidamount){  
 			$data['sqldatarec'][$xr] = $auctmp.'|'.$lotmp.'|'.$mybitvalrec.'|'.$aucbidamount.'|'.$mybitvaldatetime;
