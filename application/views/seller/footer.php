@@ -100,7 +100,7 @@ function validate_password_seller(){
 		 swal("Alert!", "Please Select Categoery First", "error");
 		 return false;
 	 }
-	 if(cat2.length<11){
+	 if(cat2.length<20){
 		  document.getElementById('sauctionid').value = "AUC/"+cat2+"/"+cat+"/"+m+"/"+n+"/"+s;
 	 }
  }
