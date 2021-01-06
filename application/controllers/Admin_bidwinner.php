@@ -32,7 +32,7 @@ class admin_bidwinner extends CI_Controller {
 		}else{
 		$this->load->model('Admin_model');
 		$sapproval = array('sapproval'=>false);
-		$snamechk2a = array('saucclosedate_time <'=>$time,);
+		$snamechk2a = array('saucclosedate_time <'=>$time);
 		
 		$aucdetails = $this->Admin_model->getdatafromtable('auction', $snamechk2a); 
 	

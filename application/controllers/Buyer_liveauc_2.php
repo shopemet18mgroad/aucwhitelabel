@@ -150,6 +150,7 @@ echo '<td>'.$query[0]->mybid_val.'</td>';
 echo '<td>'.$query2[0]->cbidval.'</td>';
 if($query2[0]->sstartbidprice >= $query2[0]->cbidval){
 	$datbid = $query2[0]->sstartbidprice;
+	$datbid = $query2[0]->sstartbidprice + $query2[0]->sminincre;
 }else{
 	$datbid = $query2[0]->cbidval;
 }   
