@@ -93,6 +93,7 @@ function validate_password_seller(){
 	 var cat = document.getElementById('scategory').value;
 	  var cat2 = document.getElementById('srefid').value;
 	  var res = cat2.replace(" ", "");
+	  res = res.replace("-", "");
 	   var d = new Date();
 	   var m = d.getHours();
 	   var n = d.getMinutes();
