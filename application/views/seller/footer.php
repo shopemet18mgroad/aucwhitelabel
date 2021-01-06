@@ -103,7 +103,7 @@ function validate_password_seller(){
 	 }
 	 
 	 if(cat2.length<20){
-		  document.getElementById('sauctionid').value = "AUC/"+res+"/"+cat2+"/"+m+"/"+n+"/"+s;
+		  document.getElementById('sauctionid').value = "AUC/"+res+"/"+cat+"/"+m+"/"+n+"/"+s;
 	 }
  }
  </script>
