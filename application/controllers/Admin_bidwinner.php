@@ -40,39 +40,41 @@ class admin_bidwinner extends CI_Controller {
 			
 		foreach($aucdetails as $aucdet){
 			$auct = $aucdet->sauctionid;
-			$aucdetarray = array('sauctionid'=>$auct);
-			$data['sqldat'] = $this->Admin_model->getdatafromtable('addlot',$aucdetarray );
+			$aucdetarray = array('auctionid'=>$auct,'sapproval'=>false);
+			$data['sqldat'] = $this->Admin_model->getdatafromtable('biddercart',$aucdetarray );
+			
 			$xr = 0;
 				$xdata = array(); 
 				   
 				foreach($data['sqldat'] as $datsql){ 	
 				
-				$auctmp = $datsql->sauctionid;
+				$auctmp = $datsql->auctionid;
 				
-				$auclottmp = $datsql->slotno;
-				//$username = $sess['sessi'];
-				$auc = array('auctionid'=>$auctmp,'lotno'=>$auclottmp);
-				$dat['sql']= $this->Admin_model->getdatafromtable('biddercart',$auc );
-				foreach($dat['sql'] as $d){
-				$biddername =$d->bidderusername;
-				$approv =$d->sapproval;
+				$auclottmp = $datsql->lotno;
+				$busername = $datsql->bidderusername;
+				$mybitvalref = $datsql->mybid_val;
+				
 				
 				$datap = $this->Admin_model->maxbidvalue($auctmp, $auclottmp);
 				// print_r($datap);die;
-				$mybitvalrec = $datap[0]->bidderusername;
 				$aucbidamount = $datap[0]->bidamount;
-				$mybitvaldatetime = $datap[0]->Date_time;
-				$approval = $datap[0]->sapproval;
+				$maxvalue = array('bidamount'=>$aucbidamount);
+			
+				$bidder = $this->Admin_model->getdatafromtable('biddingdata',$maxvalue);
+				
+				$mybitvalrec = $bidder[0]->bidderusername;
+				
+				$mybitvaldatetime = $bidder[0]->Date_time;
+				$approval = $bidder[0]->sapproval;
 				
 				
-				//$bidderdatsql = array('bidderusername'=> $mybitvalrec,'mybid_val'=>$aucbidamount, 'auctionid'=>$auctmp,'lotno'=> $auclottmp);
-				//$bidderdatsqloutput = $this->Admin_model->getdatafromtable('biddercart',$bidderdatsql);
-				//$bidderdatsqloutput->sapproval;
-				if($mybitvalrec === $biddername){$data['sqldatarec'][] = $auctmp.'|'.$auclottmp.'|'.$mybitvalrec.'|'.$aucbidamount.'|'.$mybitvaldatetime;
+				
+				if($aucbidamount){$data['sqldatarec'][] = $auctmp.'|'.$auclottmp.'|'.$mybitvalrec.'|'.$aucbidamount.'|'.$mybitvaldatetime;
+				$xr++;
 					}
 				
 			
-				}
+				
 					
 				}
 				

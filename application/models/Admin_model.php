@@ -143,6 +143,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			//$this->db->from($table);
 			 $this->db->from('auction');
 			$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid');
+			//$this->db->where('saucclosedate_time >=', $date);
 			$query = $this->db->get();
 			return $query->result();
 		}
@@ -357,6 +358,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			
 			return $q->result_array();
 		  }
+		  
+		  public function get_lookalikehistory($col,$query,$date){			  
+			$this->db->from('auction');
+			$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid');
+			$this->db->like($col,$query);
+			$this->db->where('saucclosedate_time >', $date);
+			
+			return $q->result_array();
+		  }
+		  
 		public function select()  
       {  
          //data is retrive from this query  

@@ -82,11 +82,7 @@ class Seller_auctionapproval extends CI_Controller {
 				$mybitvalrec = $bidder[0]->bidderusername;
 				//
 				$approv =$bidder[0]->sapproval;
-					//print_r($approv); die;
-				//$bidderdatsql = array('bidderusername'=> $mybitvalrec,'bidamount'=>$aucbidamount, 'sauctionid'=>$auctmp,'slotno'=> $auclottmp);
-				//$bidderdatsqloutput = $this->Admin_model->getdatafromtable('biddingdata',$bidderdatsql);
-				
-				//$bidderapproval = $bidderdatsqloutput->sapproval;
+					
 			
 				if($aucbidamount === $mybitvalref ){$data['sqldatarec'][] = $auctmp.'|'.$auclottmp.'|'.$mybitvalrec.'|'.$aucbidamount.'|'.$mybitvaldatetime;
 				
