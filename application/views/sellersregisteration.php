@@ -104,7 +104,7 @@
 			<option value="Telangana">Telangana</option>
 			<option value="Tripura" >Tripura</option>
 			<option value="Uttar Pradesh">Uttar Pradesh</option>
-			<option value="Uttarascountrykhand">Uttarascountrykhand</option>
+			<option value="Uttarakhand">Uttarakhand</option>
 			<option value="West Bengal" >West Bengal</option>
 			</select></td>      
       </tr>	
