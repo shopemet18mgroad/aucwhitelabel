@@ -144,6 +144,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			 $this->db->from('auction');
 			$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid');
 			//$this->db->where('saucclosedate_time >=', $date);
+			$this->db->order_by('addlot.id','DESC');
 			$query = $this->db->get();
 			return $query->result();
 		}
@@ -158,7 +159,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		} 
 		
 		public function maxbidvalue($auction,$lot){
-			//$this->db->select('*');
+			$this->db->select('*');
 			$this->db->select_max('bidamount');
 			$this->db->from('biddingdata');
 			$this->db->where('sauctionid =', $auction);
@@ -218,12 +219,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$query = $this->db->get();
 			return $query->result();
 		}
-		public function getdatafromtablehomejoin($time){
+		public function getdatafromtablehomejoin($date){
 			$this->db->select('*');
 			 $this->db->from('auction');
 			$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid');
 			$this->db->where('status =', 1);
-			$this->db->where('saucstartdate_time >=', $time);
+			$this->db->where('saucstartdate_time >=', $date);
 			//$this->db->limit(4);
 			$query = $this->db->get();
 			return $query->result();
@@ -356,6 +357,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->where('saucstartdate_time <=', $date);
 			$this->db->where('saucclosedate_time >=', $date);
 			
+			return $q->result_array();
+		  }
+		  
+		  public function get_adminforthlookalike($table,$col,$query,$date){			  
+			$this->db->from($table);
+			$this->db->like($col,$query);
+			$this->db->where('saucstartdate_time >=', $date);
+			$q = $this->db->get();
 			return $q->result_array();
 		  }
 		  

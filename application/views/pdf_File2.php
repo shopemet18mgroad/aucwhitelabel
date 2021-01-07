@@ -49,7 +49,8 @@ th, td {
 	$companyaddress = unserialize($sql[0]->saddresscount);?>
 
 <pre><?php echo $companyltype[0] ;?><br>
-<?php echo $companyaddress[0] ;?></pre>
+<?php echo $companyaddress[0] ;?><br>
+Phone No.<?php echo $sql[0]->sphone ;?></pre>
 
 	<div class="bara w-100">
 		<p><strong>ONLINE AUCTION PLATFORM AND SUPPORT SERVICES PROVIDED BY AUCJUNCTION</strong></p>
@@ -71,8 +72,8 @@ annexed hereto and as per schedule of programme given below. </p>
 	
 	<table style="width:100%">
   <tr>
-    <th style="color:red"></th>
-    <th style="color:red">Online
+    
+    <th colspan="2" style="color:red;text-align:center;">Online
 </th> 
 
   </tr>

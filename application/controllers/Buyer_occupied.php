@@ -50,11 +50,15 @@ class Buyer_occupied extends CI_Controller {
 		
 	 
 		$datap = $this->Admin_model->maxbidvalue($auctmp, $auclottmp);
-		
-		$mybitvalrec = $datap[0]->bidderusername;
 		$aucbidamount = $datap[0]->bidamount;
-		$mybitvaldatetime = $datap[0]->Date_time;
-		$approval = $datap[0]->sapproval;
+		$maxvalue = array('bidamount'=>$aucbidamount);
+			
+		$bidder = $this->Admin_model->getdatafromtable('biddingdata',$maxvalue);
+		
+		$mybitvalrec = $bidder[0]->bidderusername;
+		
+		$mybitvaldatetime = $bidder[0]->Date_time;
+		$approval = $bidder[0]->sapproval;
 		//print_r($approval);die;
 		if ($approv){
 			$approval = true;

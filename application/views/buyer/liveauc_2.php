@@ -46,8 +46,8 @@
 				
 					<td><?php echo $sqldata[0]->bidderusername; ?></td>
 					
-					<td><?php echo $sqldata[0]->aucstartdate_time; ?></td>
-					<td><?php echo $sqldata[0]->aucclosedate_time; ?></td>
+					<td><?php echo $st; ?></td>
+					<td><?php echo $ct; ?></td>
 					<td><a href="#"><u>Click here</u></a></td>
 				</tr>
 				</tbody>
@@ -73,7 +73,7 @@
 					<th>Live Status</th>					
 					<th width="18%">Bid</th>
 					<th>Autobid</th>
-					<th width="10%">Status</th>
+					
 				</tr>
 				</thead>
 
@@ -90,7 +90,7 @@
 			$hours = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24 - $days*60*60*24)/ (60*60));  
 $minutes = floor(($diff - $years * 365*60*60*24  - $months*30*60*60*24 - $days*60*60*24 - $hours*60*60)/ 60);  
 $seconds = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24 - $days*60*60*24 - $hours*60*60 - $minutes*60)); 
-$Remaining = $days." Days ".$hours." Hours ".$minutes." Minutes ";
+$Remaining = $hours." Hours ".$minutes." Minutes ".$seconds."Seconds";
 if($diff <= 0){
 			$condtion = false;
 		}else{
@@ -101,7 +101,7 @@ if($diff <= 0){
 				<tr><td><?php echo $sqldata2[0]->slotno; ?></td>												
 					<td><?php echo $sqldata2[0]->slotname; ?> </td>
 					<td><?php echo $sqldata2[0]->slotlocation; ?></td>
-					<td><?php echo $sqldata[0]->aucclosedate_time; ?></td>
+					<td><?php echo $st; ?></td>
 					<td><?php echo $Remaining; ?></td>
 					<td><?php echo $sqldata2[0]->sqty; ?></td>
 					<td><?php echo $sqldata2[0]->sunitmeasurment; ?></td>
@@ -133,8 +133,8 @@ $sessa2 = str_ireplace('@','%40',$sessi);
 				  <?php if($sqldata[0]->abidding){?>
 					<td>
 				  <a href="<?php echo base_url().'Buyer_liveauc_2/buyer_autobid_disable/'.str_ireplace('/','-',$sqldata[0]->auctionid)."|".$sqldata2[0]->slotno;?>"><button type="button" class="btn btn-info" >Disable AutoBid</button></a></td><?php }else{?><td>
-				  <a href="<?php echo base_url().'Buyer_liveauc_2/buyer_autobid/'.str_ireplace('/','-',$sqldata[0]->auctionid)."|".$sqldata2[0]->slotno;?>"><button type="button" class="btn btn-info" >AutoBid</button></a></td><?php }?>
-					<td><a href="<?php echo base_url();?>buyer_biddinglivestatus"><button type="button" class="btn btn-info btn-sm p-2"><b>Live Status</b></button></a></td>
+				  <a href="<?php echo base_url().'Buyer_liveauc_2/buyer_autobid/'.str_ireplace('/','-',$sqldata[0]->auctionid)."|".$sqldata2[0]->slotno;?>"><button type="button" class="btn btn-info" disabled>AutoBid</button></a></td><?php }?>
+					
 				</tr>
 				<?php }else{
 					echo '<tr><td>No Live Data</td>';
@@ -149,7 +149,6 @@ echo '<td>No Auctions</td>';
 echo '<td>No Auctions</td>';
 echo '<td>No Auctions</td>';
 echo '</td>';
-echo '<td>No Auctions</td>';
 echo '<td>No Auctions</td>';
 echo '</tr>';
 echo '';

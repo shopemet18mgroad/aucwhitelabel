@@ -56,9 +56,13 @@ class Buyer_lostproduct extends CI_Controller {
 		//$data['bidamt'] = $this->Admin_model->getdatafromtable('biddingdata', $active3); 
 		//$data['tmpbidamt'] = $data['bidamt'][0]->bidamount; 
 		$datap = $this->Admin_model->maxbidvalue($auctmp, $auclottmp);
-		$mybitvalrec = $datap[0]->bidderusername;
 		$aucbidamount = $datap[0]->bidamount;
-		$mybitvaldatetime = $datap[0]->Date_time;
+		$maxvalue = array('bidamount'=>$aucbidamount);
+			
+		$bidder = $this->Admin_model->getdatafromtable('biddingdata',$maxvalue);
+		
+		$mybitvalrec = $bidder[0]->bidderusername;
+		$mybitvaldatetime = $bidder[0]->Date_time;
 		if($username === $mybitvalrec){
 			
 		}else{

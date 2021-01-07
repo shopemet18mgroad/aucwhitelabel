@@ -33,6 +33,7 @@ class Admin_bidsummary extends CI_Controller {
 			$this->load->model('Admin_model');
 		
 		$data['sqldata'] = $this->Admin_model->adminbidhistory();
+		
 		//echo '<pre>';
 		//print_r($data['sqldata']);die;
 		//echo '</pre>';

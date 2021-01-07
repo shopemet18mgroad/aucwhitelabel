@@ -41,7 +41,7 @@ class Admin_forthcomingauc extends CI_Controller {
 		date_default_timezone_set('Asia/Kolkata');
 		$time =  Date('Y-m-d H:i:s');
 		$this->load->model('Admin_model');
-		$data = $this->Admin_model->get_lookalike('auction','sname',$datatoquerydb);
+		$data = $this->Admin_model->get_adminforthlookalike('auction','sname',$datatoquerydb,$time);
 		if(count($data)){
 			echo '<table class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';
 			echo '<thead class="bg-primary text-white">';
