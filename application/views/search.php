@@ -13,26 +13,34 @@
 							<div class="tab-content w-100">
 								<div class="tab-pane h-100 p-3 active border border-primary" id="home" role="tabpanel" aria-labelledby="home-tab" onclick="one()">
 										<div class="table-holder"> 
-											<table class="table table-bordered">
+											<table class="table table-bordered display" id="">
 												<thead class="thead-auc">
 													<tr>
 														<th width="10%">SL No</th>
 														<th width="30%">AUCTION ID</th>
 														<th width="30%">DESCRIPTION</th>
-														<th width="30%">DATE & TIME</th>
+														<th width="30%">LOCATION</th>
 														
 														
 													</tr>
 												</thead>
 												<tbody>
-												
-													<tr>
-														<td>No Records found</td>
-														<td>No Records found</td>
-														<td>No Records found</td>
-														<td>No Records found</td>
+													<?php if($searchresult){
+														//print_r($searchresult);die;
+														$xr = 1;
+													foreach($searchresult as $searchres){?>
+														<tr>
+														<td><?php echo $xr;?></td>
+														<td><?php echo $searchres['sauctionid'];?></td>
+														<td><?php echo $searchres['sdescription'];?></td>
+														<td><?php echo $searchres['slotlocation'];?></td>
 													</tr>
-																						
+														
+													<?php $xr++;}}
+														?>
+													
+													
+										
 												</tbody>
 											</table>
 										</div> 
@@ -74,7 +82,11 @@
 			
 		  </div>
 		</div>
-	
+	<script>
+$(document).ready(function() {
+    $('table.display').DataTable();
+} );
+</script>
 		<?php 
 	//include('./footer.php');
 	?>

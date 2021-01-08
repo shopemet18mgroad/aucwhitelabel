@@ -21,6 +21,8 @@ class Admin_bidsummary extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper('url');
+		date_default_timezone_set('Asia/Kolkata');
+		$time =  Date('Y-m-d H:i:s');
 		$this->load->library('session');
 		//echo $this->session->userdata('auth');
 		if(!$this->session->has_userdata('username')  || $this->session->userdata('auth') != "ADMIN"){
@@ -31,6 +33,7 @@ class Admin_bidsummary extends CI_Controller {
 			$this->load->model('Admin_model');
 		
 		$data['sqldata'] = $this->Admin_model->adminbidhistory();
+		
 		//echo '<pre>';
 		//print_r($data['sqldata']);die;
 		//echo '</pre>';
@@ -43,8 +46,10 @@ class Admin_bidsummary extends CI_Controller {
 	
 	public function get_table(){
 		$datatoquerydb = $this->uri->segment(3);
+		date_default_timezone_set('Asia/Kolkata');
+		$time =  Date('Y-m-d H:i:s');
 		$this->load->model('Admin_model');		
-		$data = $this->Admin_model->get_lookalike('addlot','sauctionid',$datatoquerydb);
+		$data = $this->Admin_model->get_lookalikehistory('sauctionid',$datatoquerydb,$time);
 		if(count($data)){
 			echo '<table class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';
 			echo '<thead class="bg-warning  text-white text-center">';
@@ -54,7 +59,6 @@ class Admin_bidsummary extends CI_Controller {
 			echo '<th>Auction Id</th>';
 			echo '<th>Lot No</th>';
 			echo '<th>Location</th>';
-			
 			echo '</tr>';
 			echo '</thead>';
 			echo '<tbody>';

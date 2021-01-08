@@ -86,10 +86,9 @@ class Buyer_forthcomingauc extends CI_Controller {
 			echo '<tbody>';
 			
 			foreach($data as $dat){
-				$sauc = str_ireplace('-','/',$dat['sauctionid']);
+				$sauc = str_ireplace('/','-',$dat['sauctionid']);
 				$saucqarray = array('sauctionid'=>$sauc,'saucclosedate_time >'=>$time);
 				$respdata = $this->Admin_model->getdatafromtable('auction',$saucqarray);
-			
 				if($respdata){
 					echo '<tr>';
 
@@ -97,7 +96,7 @@ class Buyer_forthcomingauc extends CI_Controller {
 
 
 				//echo $dat['sauctionid'];	
-				echo $aucencode = str_ireplace('/','-',$dat['sauctionid']);
+				echo $aucencode = str_ireplace('-','/',$dat['sauctionid']);
 				//echo '</a>'; 
 				echo '</td>'; 
 				echo '<td>'.$dat['slotno'].'</td>';
@@ -109,15 +108,12 @@ class Buyer_forthcomingauc extends CI_Controller {
 				echo '<td>'.$dat['sqty'].'</td>';
 				echo '<td>'.$dat['sgst'].'</td>';
 				echo '<td>'.$dat['slotlocation'].'</td>';
-				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$aucencode.'/'.($dat['sname']).'" target="_blank"><i class="fa fa-download"></i></a></td>';
+				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$aucencode.'/'.urlencode($dat['sname']).'" target="_blank"><i class="fa fa-download"></i></a></td>';
 				echo '';
 
 				echo '<td>';
-				$desc = str_ireplace(',','%2C',$dat['sdescription']);
-				$desc2 = str_ireplace('(','%28',$desc );
-				$desc3 = str_ireplace(')','%29',$desc2 );
-				echo'<button type="button" id="'.$aucencode.'|'.$dat['slotno'].'|'.$desc3.'" onClick="addtocart(this.id)">';
-				echo'<i class="fas fa-heart" id="'.$aucencode.'|'.$dat['slotno'].'|'.$desc3.'"></i>';
+				echo'<button type="button" id="'.$aucencode.'|'.$dat['slotno'].'|'.str_ireplace(',','%2C',$dat['sdescription']).'" onClick="addtocart(this.id)">';
+				echo'<i class="fas fa-heart" id="'.$aucencode.'|'.$dat['slotno'].'|'.$dat['sdescription'].'"></i>';
 				echo'</button>';
 				echo '</td>';
 				echo '</tr>';

@@ -62,7 +62,7 @@
 						<td style="color:green;"><b><?php echo "Winner"?></b></td>
 						
 						
-						<td><button type="submit" name="submit" id="<?php echo $datareciver[1].'|'.str_ireplace('/','-', $datareciver[0]);?>" onclick="seller_set(this.id)" class="btn btn-info btn-sm">Approve</button></td>	
+						<td><button type="submit" name="submit" id="<?php echo $datareciver[1].'|'.str_ireplace('/','-', $datareciver[0]).'|'.$datareciver[2].'|'.$datareciver[3].'|'.$datareciver[4];?>" onclick="seller_set(this.id)" class="btn btn-info btn-sm">Approve</button></td>	
 
 					</tr>
 	<?php  }} ?>

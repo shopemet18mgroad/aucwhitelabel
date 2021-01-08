@@ -83,7 +83,7 @@
 	
 	<tr>
 		<td>Unit Of Measurement</td>
-		<td><select class="form-control w-50" id="sunitmeasurment" name="sunitmeasurment" value="<?php echo $sqldata[0]->sunitmeasurment; ?>">
+		<td><select class="form-control w-50" onchange="change();" id="sunitmeasurment" name="sunitmeasurment" value="<?php echo $sqldata[0]->sunitmeasurment; ?>">
 				<option value="<?php echo $sqldata[0]->sunitmeasurment; ?>"><?php echo $sqldata[0]->sunitmeasurment; ?></option>
 				<option value="KG">KG</option>
 				<option value="Metric Ton">Metric Ton</option>
@@ -192,7 +192,23 @@ if($sqldata[0]->spcbcertificate){echo "unchecked";}else{echo "checked";}		?>>
   <!-- End of Page Wrapper -->
 
   <!-- Scroll to Top Button-->
-	
+	<script>
+  function change() {
+  if (document.getElementById('sunitmeasurment').value == 'KG')
+    document.getElementById("sbidbase").value = 'KG';
+  else if (document.getElementById('sunitmeasurment').value == 'Metric Ton')
+    document.getElementById("sbidbase").value = 'Metric Ton';
+  else if (document.getElementById('sunitmeasurment').value == 'Lot')
+    document.getElementById("sbidbase").value = 'Lot';
+  else if (document.getElementById('sunitmeasurment').value == 'Liter')
+    document.getElementById("sbidbase").value = 'Liter';
+  else if (document.getElementById('sunitmeasurment').value == 'Number')
+    document.getElementById("sbidbase").value = 'Number';
+  else if (document.getElementById('sunitmeasurment').value == 'Meter')
+    document.getElementById("sbidbase").value = 'Meter';
+};
+
+  </script>
 <?php 
 	//include('./footer.php');
 ?>

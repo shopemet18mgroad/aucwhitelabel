@@ -104,7 +104,7 @@
 			<option value="Telangana">Telangana</option>
 			<option value="Tripura" >Tripura</option>
 			<option value="Uttar Pradesh">Uttar Pradesh</option>
-			<option value="Uttarascountrykhand">Uttarascountrykhand</option>
+			<option value="Uttarakhand">Uttarakhand</option>
 			<option value="West Bengal" >West Bengal</option>
 			</select></td>      
       </tr>	
@@ -131,11 +131,11 @@
 	  </tr>
 	  <tr>
         <td><b>Password *</b></td>
-        <td><input class="form-control w-100" type="password" id="spassword" name="spassword" size="50" onkeyup="validate_username()"><span id = "message1" style="color:red"> </span></td>       
+        <td><input class="form-control w-100" type="password" id="spassword" name="spassword" size="50" onkeyup="validate_username()"><span id = "message1" style="color:white"> </span></td>       
       </tr>
 	  <tr>
         <td><b>Confirm Password *</b></td>
-        <td><input class="form-control w-100" type="password" id="sconfirmpassword" name="sconfirmpassword" size="50"><span id = "message2" style="color:red"> </span></td>       
+        <td><input class="form-control w-100" type="password" id="sconfirmpassword" name="sconfirmpassword" size="50"><span id = "message2" style="color:white"> </span></td>       
       </tr>
 	  <tr>
         <td><b>GST No.</b></td>
@@ -143,7 +143,7 @@
         </tr>
 		 <tr>
         <td><b>CIN Number</b></td>
-        <td><input class="form-control w-100" type="text" id="scin" name="scin" size="50"></td>
+        <td><input class="form-control w-100" onkeyup="validate_sgst()" type="text" id="scin" name="scin" size="50"></td>
       </tr>
 	   <tr>
         <td><b>PCB License Number</b></td>

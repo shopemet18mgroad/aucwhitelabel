@@ -40,6 +40,17 @@ class Buyer_liveauc_2 extends CI_Controller {
 		$query = $this->Admin_model->getdatafromtable('biddercart', $active);
 		$query2 = $this->Admin_model->getdatafromtable('addlot', $active2);
 		$data['sqldata'] = $query;
+		
+		$aucstarttime = $data['sqldata'][0]->aucstartdate_time;
+		$tmp1 = explode('.',$aucstarttime);
+		$aucstarttime = $tmp1[0];
+		$data['st'] = $aucstarttime;
+		
+		$aucclosetime = $data['sqldata'][0]->aucclosedate_time;
+		$tmp = explode('.',$aucclosetime);
+		$aucclosetime = $tmp[0];
+		$data['ct'] = $aucclosetime;
+		
 		$data['sqldata2'] = $query2;
 		$data['sessi'] = $sess['sessi'];
 		$this->load->view('buyer/header',$sess);
@@ -63,6 +74,17 @@ class Buyer_liveauc_2 extends CI_Controller {
 		$active = array('bidderusername'=>$sess['sessi'],'auctionid'=>$auctionid,'lotno'=>$lotno,);
 		$active2 = array('sauctionid'=>$auctionid,'slotno'=>$lotno,);
 		$query = $this->Admin_model->getdatafromtable('biddercart', $active);
+		
+		$aucstarttime = $query[0]->aucstartdate_time;
+		$tm = explode('.',$aucstarttime);
+		$aucstarttime = $tm[0];
+		$st = $aucstarttime;
+		
+		$aucclosetime = $query[0]->aucclosedate_time;
+		$t = explode('.',$aucclosetime);
+		$aucclosetime = $t[0];
+		$ct = $aucclosetime;
+		
 		$query2 = $this->Admin_model->getdatafromtable('addlot', $active2);
 		$diff = strtotime($query[0]->aucclosedate_time)-strtotime($time);
 		$years = floor($diff / (365*60*60*24));  
@@ -71,7 +93,7 @@ class Buyer_liveauc_2 extends CI_Controller {
 			$hours = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24 - $days*60*60*24)/ (60*60));  
 $minutes = floor(($diff - $years * 365*60*60*24  - $months*30*60*60*24 - $days*60*60*24 - $hours*60*60)/ 60);  
 $seconds = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24 - $days*60*60*24 - $hours*60*60 - $minutes*60)); 
-$Remaining = $days." Days ".$hours." Hours ".$minutes." Minutes ";
+$Remaining =$hours." Hours ".$minutes." Minutes ".$seconds."Seconds";
 		if($diff <= 0){
 			$condtion = false;
 		}else{
@@ -105,8 +127,8 @@ echo '<td><a href="#">'.$query[0]->auctionid.'</a></td>';
 echo '';
 echo '<td>'.$query[0]->bidderusername.'</td>';
 echo '';
-echo '<td>'.$query[0]->aucstartdate_time.'</td>';
-echo '<td>'.$query[0]->aucclosedate_time.'</td>';
+echo '<td>'.$st.'</td>';
+echo '<td>'.$ct.'</td>';
 echo '<td><a href="#"><u>Click here</u></a></td>';
 echo '</tr>';
 echo '</tbody>';
@@ -132,7 +154,6 @@ echo '<th>My Bid</th>';
 echo '<th>Live Status</th>';
 echo '<th width="18%">Bid</th>';
 echo '<th>Autobid</th>';
-echo '<th width="10%">Status</th>';
 echo '</tr>';
 echo '</thead>';
 if($condtion){
@@ -141,7 +162,7 @@ echo '<tbody>';
 echo '<tr><td>'.$query2[0]->slotno.'</td>';
 echo '<td>'.$query2[0]->slotname.'</td>';
 echo '<td>'.$query2[0]->slotlocation.'</td>';
-echo '<td>'.$query[0]->aucclosedate_time.'</td>';
+echo '<td>'.$st.'</td>';
 echo '<td>'.$Remaining.'</td>';
 echo '<td>'.$query2[0]->sqty.'</td>';
 echo '<td>'.$query2[0]->sunitmeasurment.'</td>';
@@ -150,6 +171,7 @@ echo '<td>'.$query[0]->mybid_val.'</td>';
 echo '<td>'.$query2[0]->cbidval.'</td>';
 if($query2[0]->sstartbidprice >= $query2[0]->cbidval){
 	$datbid = $query2[0]->sstartbidprice;
+	$datbid = $query2[0]->sstartbidprice + $query2[0]->sminincre;
 }else{
 	$datbid = $query2[0]->cbidval;
 }   
@@ -169,10 +191,10 @@ echo '<td><a href="'.base_url().'Buyer_liveauc_2/buyer_autobid_disable/'.str_ire
 	echo '<button type="submit" class="btn btn-info" id="'.$id.'" onclick="bid_manual(this.id)">Bid</button></div>';
 	echo '';
 	echo '</td>';
-echo '<td><a href="'.base_url().'Buyer_liveauc_2/buyer_autobid/'.str_ireplace('/','-',$query[0]->auctionid).'|'.$query2[0]->slotno.'"><button type="button" class="btn btn-info">AutoBid</button></a></td>';
+echo '<td><a href="'.base_url().'Buyer_liveauc_2/buyer_autobid/'.str_ireplace('/','-',$query[0]->auctionid).'|'.$query2[0]->slotno.'"><button type="button" class="btn btn-info" disabled>AutoBid</button></a></td>';
 }
 
-echo '<td><a href="'.base_url().'buyer_biddinglivestatus"><button type="button" class="btn btn-info btn-sm p-2"><b>Live Status</b></button></a></td>';
+
 echo '</tr>';
 echo '';
 echo '</tbody>';
@@ -192,7 +214,6 @@ echo '<td>No Auctions</td>';
 echo '<td>No Auctions</td>';
 echo '<td>No Auctions</td>';
 echo '</td>';
-echo '<td>No Auctions</td>';
 echo '<td>No Auctions</td>';
 echo '</tr>';
 echo '';
@@ -262,9 +283,16 @@ echo '</table>';
 		$dataforupdate4 = array('saucclosedate_time' => $newtimestamp2);
 		$dataforupdate5 = array('bidderusername' => $username, 'sauctionid'=>$auctionid,'slotno'=>$lotno,'Date_time'=>$time,'bidamount'=>$bitval);
 		if($query2[0]->status){
+			 $sbid = $query2[0]->sstartbidprice;
+			 $inval = $query2[0]->sminincre;
+			 $total = $sbid + $inval;
 			if($query2[0]->cbidval >= $bitval){
-				echo "Higher Bid Value";
+				if($bitval < total){
+					echo "Higher Bid Value";
 				die;
+				}else {echo "Higher Bid Value";
+				die;
+			}
 			}else{
 				if($diff > 1 && $diff < 180){
 					$this->Admin_model->update_custom('addlot',$dataforupdate,$active2,$active2);

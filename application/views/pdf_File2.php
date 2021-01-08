@@ -49,7 +49,8 @@ th, td {
 	$companyaddress = unserialize($sql[0]->saddresscount);?>
 
 <pre><?php echo $companyltype[0] ;?><br>
-<?php echo $companyaddress[0] ;?></pre>
+<?php echo $companyaddress[0] ;?><br>
+Phone No.<?php echo $sql[0]->sphone ;?></pre>
 
 	<div class="bara w-100">
 		<p><strong>ONLINE AUCTION PLATFORM AND SUPPORT SERVICES PROVIDED BY AUCJUNCTION</strong></p>
@@ -71,9 +72,8 @@ annexed hereto and as per schedule of programme given below. </p>
 	
 	<table style="width:100%">
   <tr>
-    <th style="color:red">Mode of EMD Payment
-(Refer Clause IV – Participation)</th>
-    <th style="color:red">Online
+    
+    <th colspan="2" style="color:red;text-align:center;">Online
 </th> 
 
   </tr>
@@ -239,12 +239,6 @@ In case you forget the log in password, the only way you can change your log in 
 clicking on the &quot;Lost Password&quot; link on the home page of the website. You will receive a
 verification code on your registered e-mail address and your registered mobile phone. Using the
 verification code, you can change your log in password.<br><br>
-<span class="heading">TRANSACTION PASSWORD</span><br><br>
-To have an additional layer of security, Bidders participating in auctions must set up a
-transaction password. Participating bidders must enter this transaction password to authenticate
-their entry into the virtual auction room and place their bids. Bidders can set their transaction
-password and must confirm the same with the OTP that will be sent to their registered mobile
-number and their registered e-mail ID. Transaction password is session specific.<br><br>
 
 <span class="heading">TIME</span><br><br>
 Time wherever mentioned in any page of the website refers to Indian Standard Time (IST) i.e.

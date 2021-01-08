@@ -60,7 +60,7 @@
 					<input type="submit" class="btn btn-primary offset-sm-3 mt-2" name="submit" value="Update">
 												
 				<input type="reset" class="btn btn-primary offset-sm-1 mt-2" value="Reset">
-					</form>							
+			</form>							
 				<a href='<?php echo base_url();?>seller_dashboard'><button type="button" class="btn btn-primary offset-sm-1 mt-2">Cancel</button></a>
 						
               </div>

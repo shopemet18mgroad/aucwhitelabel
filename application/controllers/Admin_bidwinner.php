@@ -21,6 +21,7 @@ class admin_bidwinner extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper(array('url','html','date'));
+		$data = array();
 		date_default_timezone_set('Asia/Kolkata');
 		$time =  Date('Y-m-d H:i:s');
 		$this->load->library('session'); 
@@ -32,7 +33,7 @@ class admin_bidwinner extends CI_Controller {
 		}else{
 		$this->load->model('Admin_model');
 		$sapproval = array('sapproval'=>false);
-		$snamechk2a = array('saucclosedate_time <'=>$time,);
+		$snamechk2a = array('saucclosedate_time <'=>$time);
 		
 		$aucdetails = $this->Admin_model->getdatafromtable('auction', $snamechk2a); 
 	
@@ -40,31 +41,42 @@ class admin_bidwinner extends CI_Controller {
 			
 		foreach($aucdetails as $aucdet){
 			$auct = $aucdet->sauctionid;
-			$aucdetarray = array('sauctionid'=>$auct);
-			$data['sqldat'] = $this->Admin_model->getdatafromtable('addlot',$aucdetarray );
+			$aucdetarray = array('auctionid'=>$auct,'sapproval'=>false);
+			$data['sqldat'] = $this->Admin_model->getdatafromtable('biddercart',$aucdetarray );
+			
 			$xr = 0;
 				$xdata = array(); 
 				   
 				foreach($data['sqldat'] as $datsql){ 	
 				
-				$auctmp = $datsql->sauctionid;
+				$auctmp = $datsql->auctionid;
 				
-				$auclottmp = $datsql->slotno;
-				//$username = $sess['sessi'];
+				$auclottmp = $datsql->lotno;
+				$busername = $datsql->bidderusername;
+				$mybitvalref = $datsql->mybid_val;
+				$approv = $datsql->sapproval;
+				
 				
 				$datap = $this->Admin_model->maxbidvalue($auctmp, $auclottmp);
-				 
-				$mybitvalrec = $datap[0]->bidderusername;
+				// print_r($datap);die;
 				$aucbidamount = $datap[0]->bidamount;
-				$mybitvaldatetime = $datap[0]->Date_time;
-				$bidderdatsql = array('bidderusername'=> $mybitvalrec,'mybid_val'=>$aucbidamount, 'auctionid'=>$auctmp,'lotno'=> $auclottmp);
-				$bidderdatsqloutput = $this->Admin_model->getdatafromtable('biddercart',$bidderdatsql);
-				$bidderdatsqloutput[0]->sapproval;
-				if(!$bidderdatsqloutput[0]-> sapproval){$data['sqldatarec'][] = $auctmp.'|'.$auclottmp.'|'.$mybitvalrec.'|'.$aucbidamount.'|'.$mybitvaldatetime;
+				$maxvalue = array('bidamount'=>$aucbidamount);
+			
+				$bidder = $this->Admin_model->getdatafromtable('biddingdata',$maxvalue);
+				
+				$mybitvalrec = $bidder[0]->bidderusername;
+				
+				$mybitvaldatetime = $bidder[0]->Date_time;
+				$approval = $bidder[0]->sapproval;
+				
+				//print_r($approval); die;
+				
+				if($mybitvalrec){$data['sqldatarec'][] = $auctmp.'|'.$auclottmp.'|'.$mybitvalrec.'|'.$aucbidamount.'|'.$mybitvaldatetime;
+				$xr++;
 					}
 				
 			
-					
+				
 					
 				}
 				
@@ -85,15 +97,18 @@ class admin_bidwinner extends CI_Controller {
 		$compnameurl = $this->uri->segment(3);
 		
 		$compnameurl = urldecode($compnameurl);
-		//print_r($compnameurl); die;
+		
 		$compnameurl2 = explode('|',$compnameurl);
 		$compname = $compnameurl2[0];
 	
 		$comp = str_ireplace('-','/',$compnameurl2[1]);
+		$biddername = $compnameurl2[2];
+		$bidamount = $compnameurl2[3];
+		
 		//print_r($comp); die;
 		$this->load->model('Admin_model');
 		$sapproval = array('sapproval'=>true);
-		$adaction2 = array('lotno'=>$compname,'auctionid'=>$comp);
+		$adaction2 = array('lotno'=>$compname,'auctionid'=>$comp,'bidderusername'=>$biddername,'mybid_val'=>$bidamount);
 		
 		$query = $this->Admin_model->update_custom('biddercart',$sapproval, $adaction2, $adaction2);
 		if($compname){

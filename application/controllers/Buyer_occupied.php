@@ -48,18 +48,17 @@ class Buyer_occupied extends CI_Controller {
 		//print_r($act); die;
 		$approv =$act[0]->sapproval;
 		
-		//$active2 = array('auctionid'=>$auctmp,'lotno'=>$auclottmp,'bidderusername'=>$sess['sessi']);
-		//$query = $this->Admin_model->getdatafromtable('biddingdata', $active2);
-		//$tmpbidval = $query[0]->mybid_val;
-		//$active3 = array('sauctionid'=>$auctmp,'slotno'=>$auclottmp);
-		//$data['bidamt'] = $this->Admin_model->getdatafromtable('biddingdata', $active3); 
-		//$data['tmpbidamt'] = $data['bidamt'][0]->bidamount; 
+	 
 		$datap = $this->Admin_model->maxbidvalue($auctmp, $auclottmp);
-		
-		$mybitvalrec = $datap[0]->bidderusername;
 		$aucbidamount = $datap[0]->bidamount;
-		$mybitvaldatetime = $datap[0]->Date_time;
-		$approval = $datap[0]->sapproval;
+		$maxvalue = array('bidamount'=>$aucbidamount);
+			
+		$bidder = $this->Admin_model->getdatafromtable('biddingdata',$maxvalue);
+		
+		$mybitvalrec = $bidder[0]->bidderusername;
+		
+		$mybitvaldatetime = $bidder[0]->Date_time;
+		$approval = $bidder[0]->sapproval;
 		//print_r($approval);die;
 		if ($approv){
 			$approval = true;
