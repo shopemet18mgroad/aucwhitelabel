@@ -60,7 +60,7 @@ class Buyer_lostproduct extends CI_Controller {
 		$maxvalue = array('bidamount'=>$aucbidamount);
 			
 		$bidder = $this->Admin_model->getdatafromtable('biddingdata',$maxvalue);
-		
+		if(count($bidder)){
 		$mybitvalrec = $bidder[0]->bidderusername;
 		$mybitvaldatetime = $bidder[0]->Date_time;
 		if($username === $mybitvalrec){
@@ -87,7 +87,7 @@ class Buyer_lostproduct extends CI_Controller {
 		else{
 			echo "not ok";
 	}   */ 
-				 	} 
+		} }
 		 
 
 		//$check_array = array('dat'=>);

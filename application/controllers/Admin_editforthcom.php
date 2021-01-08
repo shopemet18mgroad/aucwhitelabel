@@ -96,10 +96,19 @@ class Admin_editforthcom extends CI_Controller {
 				echo '<td>'.$dat['scategory'].'</td>';
 				echo '<td>'.$dat['scompanyname'].'</td>';
 				echo '<td>'.$dat['svinspection'].'</td>';
-				echo '<td>'.$dat['sfrominpectdate_time'].$dat['stoinpectdate_time'].'</td>';
+				echo '<td>'.$dat['sfrominpectdate_time'].'<br>'.'<br>'.$dat['stoinpectdate_time'].'</td>';
 				echo '<td>'.$dat['semddetail'].'</td>';
 				echo '<td>'.$dat['slastdateemdsub'].'</td>';
-				echo '<td>'.$dat['saucstartdate_time'].$dat['saucclosedate_time'].'</td>';
+				$aucstarttime = $dat['saucstartdate_time'];
+		$tmp1 = explode('.',$aucstarttime);
+		$aucstarttime = $tmp1[0];
+		$data['st'] = $aucstarttime;
+		
+		$aucclosetime = $dat['saucclosedate_time'];
+		$tmp = explode('.',$aucclosetime);
+		$aucclosetime = $tmp[0];
+		$data['ct'] = $aucclosetime;
+				echo '<td>'.$aucstarttime.'<br>'.'<br>'.$aucclosetime.'</td>';
 				echo '<td>';
 				if ($dat['sterms_condiaccept'] == 1){
 				echo 'Accepted';

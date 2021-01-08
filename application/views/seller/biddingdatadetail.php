@@ -43,7 +43,10 @@
 					<td><b><?php echo $sqldata[0]->sauctionid; ?></b></td>
 					<td><?php echo $sqldata[0]->slotno; ?></td>
 					<td><?php echo $sqldata[0]->bidderusername; ?></td>
-					<td><?php echo $sqldata[0]->Date_time; ?></td>
+					<td><?php $aucclosetime = $sqldata[0]->Date_time;
+							  $tmp = explode('.',$aucclosetime);
+							  $aucclosetime = $tmp[0];
+							  echo $aucclosetime; ?></td>
 					<td><?php echo $sqldata[0]->bidamount; ?></td>
 				</tr>
 			<?php }?>

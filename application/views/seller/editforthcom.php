@@ -54,10 +54,18 @@
 					<td><?php echo $sqldat->scategory; ?></td>
 					<td><?php echo $sqldat->scompanyname; ?></td>
 					<td><?php echo $sqldat->svinspection; ?></td>
-					<td><?php echo $sqldat->sfrominpectdate_time; ?><br><?php echo $sqldat->stoinpectdate_time; ?></td>
+					<td><?php echo $sqldat->sfrominpectdate_time; ?><br><br><?php echo $sqldat->stoinpectdate_time; ?></td>
 					<td><?php echo $sqldat->semddetail; ?></td>
 					<td><?php echo $sqldat->slastdateemdsub; ?></td>
-					<td><?php echo $sqldat->saucstartdate_time; ?><br><?php echo $sqldat->saucclosedate_time; ?></td>
+					<td><?php $aucstarttime = $sqldat->saucstartdate_time;
+							  $tmp = explode('.',$aucstarttime);
+							  $aucstarttime = $tmp[0];
+							  echo $aucstarttime; ?><br><br>
+							  <?php 
+							  $aucclosetime = $sqldat->saucclosedate_time;
+							  $tmp = explode('.',$aucclosetime);
+							  $aucclosetime = $tmp[0];
+							  echo $aucclosetime; ?></td>
 					<td><?php if ($sqldat->sterms_condiaccept == 1){
 									echo 'Accepted';}?>
 									</td>

@@ -102,7 +102,11 @@ class Buyer_forthcomingauc extends CI_Controller {
 				echo '</td>'; 
 				echo '<td>'.$dat['slotno'].'</td>';
 				echo '<td>'.$dat['slotname'].'</td>';
-				echo '<td>'.$respdata[0]->saucstartdate_time.'</td>';
+				$aucstarttime = $respdata[0]->saucstartdate_time;
+				$tm = explode('.',$aucstarttime);
+				$aucstarttime = $tm[0];
+				$st = $aucstarttime;
+				echo '<td>'.$st.'</td>';
 				echo '<td>'.$dat['scategory'].'</td>';
 				echo '<td>'.$dat['sdescription'].'</td>';
 				echo '<td>'.$dat['sname'].'</td>';

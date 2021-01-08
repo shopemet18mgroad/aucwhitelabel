@@ -56,7 +56,10 @@
 						<td><?php echo $datareciver[0]; ?></td>
 						<td><?php echo $datareciver[1]; ?></td>
 						<td><?php echo $datareciver[2];?></td>
-						<td><?php echo $datareciver[4]; ?></td>
+						<td><?php $aucclosetime = $datareciver[4];
+								  $tmp = explode('.',$aucclosetime);
+							      $aucclosetime = $tmp[0];
+						          echo $aucclosetime; ?></td>
 						<td><?php echo $datareciver[3]; ?></td>
 						
 						<td style="color:green;"><b><?php echo "Winner"?></b></td>

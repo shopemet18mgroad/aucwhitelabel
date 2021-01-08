@@ -55,7 +55,11 @@
 						<td><?php echo $datareciver[0]; ?></td>
 						<td><?php echo $datareciver[1]; ?></td>
 						<td><?php echo $datareciver[2];?></td>
-						<td><?php echo $datareciver[4]; ?></td>
+						<td><?php $aucclosettime = $datareciver[4];
+							  $tmp = explode('.',$aucclosettime);
+							  $aucclosettime = $tmp[0];
+							  echo $aucclosettime;
+						 ?></td>
 						<td><?php echo $datareciver[3]; ?></td>
 						<td style="color:orange;"><b><?php if($datareciver[2]){
 						echo "Shortlisted"	;

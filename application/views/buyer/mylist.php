@@ -58,7 +58,7 @@
 					<td><b><a href="<?php echo base_url();?>'buyer_mylist/index/'.urlencode($sqldata['auctionid'])
 				"><?php echo $aucencode = str_ireplace('/','-',$sqldata->auctionid); ?></b></a></td>
 					<td><?php echo $sqldata->lotno; ?></td>
-					<td><?php echo $st;?><br><?php echo $sqldata->aucclosedate_time;?></td>
+					<td><?php echo $st;?><br><?php echo $ct;?></td>
 					<td><?php  if($sqldata->emdpaid == 0) {echo 'Emd Not Paid';}else{echo 'Emd Paid';} ?></td>
 				
 					<td><a href="" data-toggle="modal" data-target="#myModal<?php echo"$k";?>">

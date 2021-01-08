@@ -58,6 +58,10 @@ class Buyer_detailedauc extends CI_Controller {
 				echo '<tr>';
 				$passaucid = str_ireplace('/','-',$dat['auctionid']);
 				$pass = urlencode($dat['lotno']);
+				$aucclosetime = $dat['aucclosedate_time'];
+				$t = explode('.',$aucclosetime);
+				$aucclosetime = $t[0];
+				$ct = $aucclosetime;
 				echo '<td><a href="'.base_url().'buyer_viewdetail/viewdetail/'.$passaucid.
 				"/".$dat['lotno'].'">';
 				echo $dat['auctionid'];
@@ -65,7 +69,7 @@ class Buyer_detailedauc extends CI_Controller {
 				echo '</a>';
 				echo '</td>';
 				echo '<td>'.$dat['lotno'].'</td>';
-				echo '<td>'.$dat['aucclosedate_time'].'</td>';
+				echo '<td>'.$ct.'</td>';
 			
 				echo '</tr>';
 			}

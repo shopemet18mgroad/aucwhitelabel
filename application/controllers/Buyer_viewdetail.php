@@ -49,6 +49,7 @@ class Buyer_viewdetail extends CI_Controller {
 		
 		$data['sqldata'] = $this->Admin_model->getdataDSC('biddingdata',$retriveval);
 		
+		
 		//print_r($data['sqldata']); die;
 		
 		$this->load->helper('url');

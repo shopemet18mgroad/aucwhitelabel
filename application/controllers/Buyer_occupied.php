@@ -54,7 +54,7 @@ class Buyer_occupied extends CI_Controller {
 		$maxvalue = array('bidamount'=>$aucbidamount);
 			
 		$bidder = $this->Admin_model->getdatafromtable('biddingdata',$maxvalue);
-		
+		if(count($bidder)){
 		$mybitvalrec = $bidder[0]->bidderusername;
 		
 		$mybitvaldatetime = $bidder[0]->Date_time;
@@ -71,6 +71,8 @@ class Buyer_occupied extends CI_Controller {
 			$xr++;
 		}else{
 			
+		}
+		}
 		}
 		//print_r($tmpbidamt); die;
 	//print_r($data);die;
@@ -102,5 +104,4 @@ class Buyer_occupied extends CI_Controller {
 }
 
 
-}
 }

@@ -41,7 +41,11 @@
 				
 					<td><b><a href="<?php echo base_url()."Seller_biddingdatadetail/biddetail2/".str_ireplace('/','-',$sqldata[0]->sauctionid)."/".$sqldata[0]->slotno;?>"><?php echo $sqldata[0]->sauctionid; ?></b></td>
 					<td><?php echo $sqldata[0]->slotno; ?></td>
-					<td><?php echo $sqldata[0]->saucclosedate_time; ?></td>
+					<td><?php $aucclosetime = $sqldata[0]->saucclosedate_time;
+							  $tmp = explode('.',$aucclosetime);
+							  $aucclosetime = $tmp[0];
+					
+							  echo $aucclosetime; ?></td>
 				</tr>
 			<?php }?>
 				</tbody>

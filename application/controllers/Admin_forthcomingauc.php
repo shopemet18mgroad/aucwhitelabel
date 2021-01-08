@@ -64,7 +64,11 @@ class Admin_forthcomingauc extends CI_Controller {
 				echo '</td>';
 				echo '<td>'.$dat['scompanyname'].'</td>';
 				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$passaucid.'/'.($dat['sname']).'" target="_blank"><i class="fa fa-download"></i></a></td>';
-				echo '<td>'.$dat['saucstartdate_time'].'</td>';
+				$aucstarttime = $dat['saucstartdate_time'];
+				$tmp1 = explode('.',$aucstarttime);
+				$aucstarttime = $tmp1[0];
+				//$data['st'] = $aucstarttime;
+				echo '<td>'.$aucstarttime.'</td>';
 				
 				echo '</tr>';
 			}
