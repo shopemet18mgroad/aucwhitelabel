@@ -101,7 +101,7 @@ if($diff <= 0){
 				<tr><td><?php echo $sqldata2[0]->slotno; ?></td>												
 					<td><?php echo $sqldata2[0]->slotname; ?> </td>
 					<td><?php echo $sqldata2[0]->slotlocation; ?></td>
-					<td><?php echo $st; ?></td>
+					<td><?php echo $ct; ?></td>
 					<td><?php echo $Remaining; ?></td>
 					<td><?php echo $sqldata2[0]->sqty; ?></td>
 					<td><?php echo $sqldata2[0]->sunitmeasurment; ?></td>

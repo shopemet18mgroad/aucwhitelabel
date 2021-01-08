@@ -193,6 +193,7 @@ $(document).ready(function() {
   setTimeout(executeQuery, 30000);
 });
  </script>
+ 
  <script>
  function  bid_manual(v){
 	 var k = document.getElementById('bid').value;

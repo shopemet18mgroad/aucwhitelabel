@@ -120,6 +120,7 @@ class Admin_buyer_basicinfo_add extends CI_Controller {
           //Load upload library
           $this->load->library('upload',$config); 
 		$this->upload->initialize($config);
+		
           // File upload
           if($this->upload->do_upload('file')){
             // Get data about the file

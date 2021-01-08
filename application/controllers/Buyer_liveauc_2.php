@@ -162,7 +162,7 @@ echo '<tbody>';
 echo '<tr><td>'.$query2[0]->slotno.'</td>';
 echo '<td>'.$query2[0]->slotname.'</td>';
 echo '<td>'.$query2[0]->slotlocation.'</td>';
-echo '<td>'.$st.'</td>';
+echo '<td>'.$ct.'</td>';
 echo '<td>'.$Remaining.'</td>';
 echo '<td>'.$query2[0]->sqty.'</td>';
 echo '<td>'.$query2[0]->sunitmeasurment.'</td>';
@@ -365,5 +365,22 @@ echo '</table>';
 		$this->Admin_model->update_custom('biddercart',$dataforupdate,$active,$active);
 		header('location: '.base_url().'buyer_liveauc_2/index/'.$auctionid.'|'.$auclot);
 		
+	}
+	public function get_table_ajax_liveauc_index(){
+		date_default_timezone_set('Asia/Kolkata');
+		$time =  Date('Y-m-d H:i:s');
+		$this->load->model('Admin_model');
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		//print_r($sess['sessi']);die;
+		$datalivemenu = $this->Admin_model->datebetweensess('biddercart',$time,$sess['sessi']);
+		foreach($datalivemenu as $datamenu){
+			echo "<tr>\n";
+			echo "<td><a href=".base_url()."Buyer_liveauc_2/index/".str_ireplace('/','-',$datamenu->auctionid)."|".$datamenu->lotno.">".$datamenu->auctionid."</a></td>\n";
+			//echo "<td><a href=\". base_url()."Buyer_liveauc_2/index/".str_ireplace('/','-',$datamenu->auctionid)."|".$datamenu->lotno.">".$datamenu->auctionid.">"</a></td>\n";
+			echo "<td>".$datamenu->lotno."</td>\n";
+			echo "<td>".$datamenu->description."</td>\n";
+			echo "</tr>";
+		}
 	}
 }

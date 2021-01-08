@@ -28,7 +28,7 @@
 					<th>Description</th>
 				</tr>
 				</thead>
-				<tbody>
+				<tbody id="liveauc">
 			 <?php foreach($sqldata as $sqldat){?>
 					<tr>												
 					<td><a href="<?php echo base_url()."Buyer_liveauc_2/index/".str_ireplace('/','-',$sqldat->auctionid)."|".$sqldat->lotno;?>"><?php echo $sqldat->auctionid;?></a>
@@ -58,7 +58,20 @@
     </div>
     <!-- End of Content Wrapper -->
 </div>
+<script>
+  function executeQuery2() {
+  var contents = $('#ref').val(); 
+			$.get('<?php echo base_url() .'Buyer_liveauc_2/get_table_ajax_liveauc_index/'; ?>', function(data){
+				$('#ajaxauc').html(data);
+	});
+  setTimeout(executeQuery2, 30000); // you could choose not to continue on failure...
+}
 
+$(document).ready(function() {
+  // run the first time; all subsequent calls will take care of themselves
+  setTimeout(executeQuery2, 30000);
+});
+ </script>
   <!-- End of Page Wrapper -->
 
   <!-- Scroll to Top Button-->
