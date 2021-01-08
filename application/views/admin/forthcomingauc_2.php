@@ -38,8 +38,14 @@
 				<tbody>
 				<tr>
 					<td><b><?php echo $sqldata[0]->sauctionid; ?></b></td>
-					<td><?php echo $sqldata[0]->saucstartdate_time; ?></td>
-					<td><?php echo $sqldata[0]->saucclosedate_time; ?></td>
+					<td><?php $aucstarttime = $sqldata[0]->saucstartdate_time;
+							  $tmp = explode('.',$aucstarttime);
+							  $aucstarttime = $tmp[0];
+							  echo $aucstarttime; ?></td>
+					<td><?php $aucclosetime = $sqldata[0]->saucclosedate_time;
+							  $tmp = explode('.',$aucclosetime);
+							  $aucclosetime = $tmp[0];
+							  echo $aucclosetime; ?></td>
 					<td><?php echo $sqldata[0]->semdamount; ?></td>
 				</tr>
 				</tbody>

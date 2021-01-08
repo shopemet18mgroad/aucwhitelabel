@@ -57,7 +57,10 @@
 						<td><?php echo $datareciver[0]; ?></td>
 						<td><?php echo $datareciver[1];	?></td>
 						<td><?php echo $datareciver[2]; ?></td>
-						<td><?php echo $datareciver[4];?></td>
+						<td><?php $aucclosetime = $datareciver[4];
+							  $tmp = explode('.',$aucclosetime);
+							  $aucclosetime = $tmp[0];
+							  echo $aucclosetime;?></td>
 						<td><?php echo $datareciver[3]; ?></td>
 						<td style="color:green;"><b><?php if($datareciver[3]){
 						echo "Winner"	;
@@ -68,7 +71,7 @@
 						 ?></b></td>
 						
 					
-						<td><a type="submit" name="submit" id="<?php echo $datareciver[1].'|'.str_ireplace('/','-', $datareciver[0]).'|'.$datareciver[2].'|'.$datareciver[3].'|'.$datareciver[4];?>" onclick="winner_set_deactive(this.id)"><button  class="btn btn-info btn-sm">Approve</button></a></td>	
+						<td><a type="submit" name="submit" id="<?php echo $datareciver[1].'|'.str_ireplace('/','-', $datareciver[0]).'|'.$datareciver[2].'|'.$datareciver[3];?>" onclick="winner_set_deactive(this.id)"><button  class="btn btn-info btn-sm">Approve</button></a></td>	
 
 					</tr>
 					

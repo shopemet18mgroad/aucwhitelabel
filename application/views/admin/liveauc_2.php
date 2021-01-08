@@ -39,8 +39,14 @@
 					
 					<td><a href="#"></a><?php echo $sqldata[0]->sauctionid; ?><input type="hidden" id="refsel" name="refsel" value="<?php echo str_ireplace('/','-',$sqldata[0]->sauctionid); ?>"></td>
 					<td><?php echo $sqldata[0]->scompanyname; ?></td>
-					<td><?php echo $sqldata[0]->saucstartdate_time; ?></td>
-					<td><?php echo $sqldata[0]->saucclosedate_time; ?></td>
+					<td><?php $aucstarttime = $sqldata[0]->saucstartdate_time;
+							  $tmp = explode('.',$aucstarttime);
+							  $aucstarttime = $tmp[0];
+							  echo $aucstarttime; ?></td>
+					<td><?php $aucclosetime = $sqldata[0]->saucclosedate_time;
+							  $tmp = explode('.',$aucclosetime);
+							  $aucclosetime = $tmp[0];
+							  echo $aucclosetime; ?></td>
 					<td><a href="#"><u>Click here</u></a></td>
 					<?php 
 					date_default_timezone_set('Asia/Kolkata');
@@ -76,7 +82,10 @@
 				<tr>												
 					<td><?php echo $sqlot->slotname; ?></td>
 					<td><?php echo $sqlot->slotlocation; ?></td>
-					<td><?php echo $sqldata[0]->saucclosedate_time; ?></td>
+					<td><?php $aucclosetime = $sqldata[0]->saucclosedate_time;
+							  $tmp = explode('.',$aucclosetime);
+							  $aucclosetime = $tmp[0];
+							  echo $aucclosetime; ?></td>
 					<td><?php echo $bal; ?></td>
 					<td><?php echo $sqlot->sqty; ?></td>
 					<td><?php echo $sqlot->sunitmeasurment; ?></td>

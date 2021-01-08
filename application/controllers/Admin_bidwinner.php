@@ -63,7 +63,7 @@ class admin_bidwinner extends CI_Controller {
 				$maxvalue = array('bidamount'=>$aucbidamount);
 			
 				$bidder = $this->Admin_model->getdatafromtable('biddingdata',$maxvalue);
-				
+				if(count($bidder)){
 				$mybitvalrec = $bidder[0]->bidderusername;
 				
 				$mybitvaldatetime = $bidder[0]->Date_time;
@@ -71,14 +71,14 @@ class admin_bidwinner extends CI_Controller {
 				
 				//print_r($approval); die;
 				
-				if($mybitvalrec){$data['sqldatarec'][] = $auctmp.'|'.$auclottmp.'|'.$mybitvalrec.'|'.$aucbidamount.'|'.$mybitvaldatetime;
+				if($aucbidamount === $mybitvalref){$data['sqldatarec'][] = $auctmp.'|'.$auclottmp.'|'.$mybitvalrec.'|'.$aucbidamount.'|'.$mybitvaldatetime;
 				$xr++;
 					}
 				
 			
 				
 					
-				}
+				}}
 				
 		//$xr++;
 		}

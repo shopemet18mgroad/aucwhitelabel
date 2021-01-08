@@ -66,6 +66,11 @@ class Buyer_mylist extends CI_Controller {
 		$tmp1 = explode('.',$aucstarttime);
 		$aucstarttime = $tmp1[0];
 		$data['st'] = $aucstarttime;
+		
+		$aucclosetime = $data['sqldat'][0]->aucclosedate_time;
+		$tmp = explode('.',$aucclosetime);
+		$aucclosetime = $tmp[0];
+		$data['ct'] = $aucclosetime;
 		}
 		$data['sessi']= $sess2;
 		$this->load->view('buyer/header',$sess);

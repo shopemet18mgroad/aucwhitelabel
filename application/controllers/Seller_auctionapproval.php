@@ -78,6 +78,7 @@ class Seller_auctionapproval extends CI_Controller {
 				$maxvalue = array('bidamount'=>$aucbidamount);
 				$bidder = $this->Admin_model->getdatafromtable('biddingdata',$maxvalue);
 				//print_r($bidder);die;
+				if(count($bidder)){
 				$mybitvaldatetime = $bidder[0]->Date_time;
 				$mybitvalrec = $bidder[0]->bidderusername;
 				//
@@ -89,7 +90,7 @@ class Seller_auctionapproval extends CI_Controller {
 					$xr++;
 					}
 				
-					
+				}
 		}
 		}
 				
