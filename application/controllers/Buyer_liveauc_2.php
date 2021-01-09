@@ -103,7 +103,7 @@ $Remaining =$hours." Hours ".$minutes." Minutes ".$seconds."Seconds";
 				//$diff = abs($time - $sqldata[0]->aucclosedate_time);  
 			
 		//$datfnl = floor($datediff / (3600)).":".floor($datediff / (60));
-		
+echo '<input type="hidden" id="telapsed" value="'.$diff.'">';		
 echo '<table class="table table-striped table-bordered table-sm text-center w-auto small ml-5" width="100%" cellspacing="0" >';
 echo '<thead class="bg-info text-white text-center">';
 echo '<th colspan="7">Auction Details</th>';
@@ -113,6 +113,7 @@ echo '<tr>';
 echo '';
 echo '<th width="22%">Auction Id</th>';
 echo '<th>User Name</th>';
+echo '<th>Time Elapsed</th>';
 echo '<th>Auction Start Date</th>';
 echo '<th>Auction Close Date</th>';
 echo '<th>Seller Terms & Condition</th>';
@@ -126,6 +127,8 @@ echo '';
 echo '<td><a href="#">'.$query[0]->auctionid.'</a></td>';
 echo '';
 echo '<td>'.$query[0]->bidderusername.'</td>';
+echo '';
+echo '<td><h6 id="timer" style="color:red">Synchronizing Time</h6></td>';
 echo '';
 echo '<td>'.$st.'</td>';
 echo '<td>'.$ct.'</td>';
@@ -146,7 +149,7 @@ echo '<th width="8%">Lot No</th>';
 echo '<th>Lot Name</th>';
 echo '<th>Location</th>';
 echo '<th>Close Time</th>';
-echo '<th>Time Left</th>';
+//echo '<th>Time Left</th>';
 echo '<th>Quantity</th>';
 echo '<th>Unit</th>';
 echo '<th>Start Price</th>';
@@ -163,7 +166,7 @@ echo '<tr><td>'.$query2[0]->slotno.'</td>';
 echo '<td>'.$query2[0]->slotname.'</td>';
 echo '<td>'.$query2[0]->slotlocation.'</td>';
 echo '<td>'.$ct.'</td>';
-echo '<td>'.$Remaining.'</td>';
+//echo '<td>'.$Remaining.'</td>';
 echo '<td>'.$query2[0]->sqty.'</td>';
 echo '<td>'.$query2[0]->sunitmeasurment.'</td>';
 echo '<td>'.$query2[0]->sstartbidprice.'</td>';
@@ -214,7 +217,6 @@ echo '<td>No Auctions</td>';
 echo '<td>No Auctions</td>';
 echo '<td>No Auctions</td>';
 echo '</td>';
-echo '<td>No Auctions</td>';
 echo '</tr>';
 echo '';
 echo '</tbody>';
@@ -282,19 +284,15 @@ echo '</table>';
 		$dataforupdate3 = array('aucclosedate_time' => $newtimestamp2);
 		$dataforupdate4 = array('saucclosedate_time' => $newtimestamp2);
 		$dataforupdate5 = array('bidderusername' => $username, 'sauctionid'=>$auctionid,'slotno'=>$lotno,'Date_time'=>$time,'bidamount'=>$bitval);
-		if($query2[0]->status){
-			 $sbid = $query2[0]->sstartbidprice;
+			$sbid = $query2[0]->sstartbidprice;
 			 $inval = $query2[0]->sminincre;
-			 $total = $sbid + $inval;
-			if($query2[0]->cbidval >= $bitval){
-				if($bitval < total){
-					echo "Higher Bid Value";
+			 $total = $sbid + $inval; 
+		if($query2[0]->status){
+			if($query2[0]->cbidval >= $bitval || $bitval < $total){
+				echo "Higher Bid Value";
 				die;
-				}else {echo "Higher Bid Value";
-				die;
-			}
 			}else{
-				if($diff > 1 && $diff < 180){
+				if($diff >= 5 && $diff < 180){
 					$this->Admin_model->update_custom('addlot',$dataforupdate,$active2,$active2);
 					$this->Admin_model->update_custom('biddercart',$dataforupdate2,$active3,$active3);
 					$this->Admin_model->update_custom('biddercart',$dataforupdate3,$active4,$active4);
@@ -302,10 +300,16 @@ echo '</table>';
 					$this->Admin_model->insert('biddingdata', $dataforupdate5);
 					//$this->Admin_model->update_custom('auction',$dataforupdate4,$active2,$active4);
 				}else{
-					$this->Admin_model->update_custom('addlot',$dataforupdate,$active2,$active2);
-					$this->Admin_model->update_custom('biddercart',$dataforupdate2,$active3,$active3);
-					//$this->Admin_model->update_custom('biddingdata',$dataforupdate5,$active2,$active4);
-					$this->Admin_model->insert('biddingdata', $dataforupdate5);
+					if($diff < 5){
+						echo "Bidding Closed";
+						die;
+					}else{
+						$this->Admin_model->update_custom('addlot',$dataforupdate,$active2,$active2);
+						$this->Admin_model->update_custom('biddercart',$dataforupdate2,$active3,$active3);
+						//$this->Admin_model->update_custom('biddingdata',$dataforupdate5,$active2,$active4);
+						$this->Admin_model->insert('biddingdata', $dataforupdate5);
+					}
+					
 				}
 				echo "Done";
 				//header('location: '.base_url().'Buyer_liveauc_2/index/'.$auctionid.'|'.$lotno);
@@ -375,8 +379,10 @@ echo '</table>';
 		//print_r($sess['sessi']);die;
 		$datalivemenu = $this->Admin_model->datebetweensess('biddercart',$time,$sess['sessi']);
 		foreach($datalivemenu as $datamenu){
+			$auclink = str_ireplace('/','-',$datamenu->auctionid);
+			$auclink = str_ireplace(' ','%20',$auclink);
 			echo "<tr>\n";
-			echo "<td><a href=".base_url()."Buyer_liveauc_2/index/".str_ireplace('/','-',$datamenu->auctionid)."|".$datamenu->lotno.">".$datamenu->auctionid."</a></td>\n";
+			echo "<td><a href=".base_url()."Buyer_liveauc_2/index/".$auclink.'|'.$datamenu->lotno.">".$datamenu->auctionid."</a></td>\n";
 			//echo "<td><a href=\". base_url()."Buyer_liveauc_2/index/".str_ireplace('/','-',$datamenu->auctionid)."|".$datamenu->lotno.">".$datamenu->auctionid.">"</a></td>\n";
 			echo "<td>".$datamenu->lotno."</td>\n";
 			echo "<td>".$datamenu->description."</td>\n";

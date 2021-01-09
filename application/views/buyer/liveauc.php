@@ -59,14 +59,15 @@
     <!-- End of Content Wrapper -->
 </div>
 <script>
-  function executeQuery2() {
-  var contents = $('#ref').val(); 
-			$.get('<?php echo base_url() .'Buyer_liveauc_2/get_table_ajax_liveauc_index/'; ?>', function(data){
-				$('#ajaxauc').html(data);
-	});
-  setTimeout(executeQuery2, 30000); // you could choose not to continue on failure...
-}
 
+
+function executeQuery2() {
+var contents = $('#ref').val(); 
+		$.get('<?php echo base_url() .'Buyer_liveauc_2/get_table_ajax_liveauc_index/'; ?>', function(data){
+			$('#liveauc').html(data);
+});
+setTimeout(executeQuery2, 30000); // you could choose not to continue on failure...
+}
 $(document).ready(function() {
   // run the first time; all subsequent calls will take care of themselves
   setTimeout(executeQuery2, 30000);
