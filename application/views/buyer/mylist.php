@@ -77,7 +77,9 @@
 						<!-- Modal body -->
 						<div class="modal-body">
 
-						<img src="<?php $im = unserialize($sqldata->upload_dd); echo base_url().'web_files/uploads/'.$im[0];?>" class="img-fluid" alt="<?php echo $im[0];?>">
+						<img src="<?php $im = unserialize($sqldata->upload_dd); 
+						if($im){
+						echo base_url().'web_files/uploads/'.$im[0];?>" class="img-fluid" alt="<?php echo $im[0];}?>">
 
 						</div>
 						

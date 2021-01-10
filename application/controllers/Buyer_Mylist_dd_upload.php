@@ -35,6 +35,7 @@ class Buyer_Mylist_dd_upload extends CI_Controller {
 		//$data1 = $this->session->flashdata('txdata');
 		//$this->input->post('auc');
 		$auc = $this->input->post('auc');
+		
 		$kaa=0;
 		foreach($_FILES['upload_dd']['name'] as $b){
 			if($b != ""){
@@ -103,6 +104,7 @@ class Buyer_Mylist_dd_upload extends CI_Controller {
 				
 			} 
 			 header('location: '.base_url().'buyer_mylist/index/'.$datainserr);
+		
 		}
 		//=================================================================================================
 		//==================================================================
