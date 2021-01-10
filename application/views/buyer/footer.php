@@ -179,20 +179,8 @@ function validate_password(){
 
 
 </script>
- <script>
- function executeQuery() {
-  var contents = $('#ref').val(); 
-			$.get('<?php echo base_url() .'Buyer_liveauc_2/get_table_ajax/'; ?>'+contents, function(data){
-				$('#ajaxauc').html(data);
-	});
-  setTimeout(executeQuery, 30000); // you could choose not to continue on failure...
-}
-
-$(document).ready(function() {
-  // run the first time; all subsequent calls will take care of themselves
-  setTimeout(executeQuery, 30000);
-});
- </script>
+ 
+ 
  <script>
  function  bid_manual(v){
 	 var k = document.getElementById('bid').value;

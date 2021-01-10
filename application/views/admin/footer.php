@@ -531,17 +531,12 @@ $('.delete-confirm').on('click', function (event) {
 });
 </script>
  <script>
- function admin_live_auc() {
-  var contents = $('#refsel').val(); 
-			$.get('<?php echo base_url() .'Admin_liveauc_2/get_table_ajax/'; ?>'+contents, function(data){
+ 
+$(document).ready(function() {
+  $.get('<?php echo base_url() .'Game_play/check_game_time/'; ?>', function(data){
+	  alert(data);
 				$('#ajaxreloadadminlive').html(data);
 	});
-  setTimeout(admin_live_auc, 60000); // you could choose not to continue on failure...
-}
-
-$(document).ready(function() {
-  // run the first time; all subsequent calls will take care of themselves
-  setTimeout(admin_live_auc, 60000);
 });
  </script>
  

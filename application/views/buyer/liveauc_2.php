@@ -32,6 +32,7 @@
 				
 					<th width="22%">Auction Id</th>
 					<th>User Name</th>
+					<th>Time Elasped</th>
 					<th>Auction Start Date</th>
 					<th>Auction Close Date</th>
 					<th>Seller Terms & Condition</th>
@@ -43,9 +44,9 @@
 				<tr>
 				
 					<td><a href="#"><?php echo $sqldata[0]->auctionid; ?></a> </td>
-				
-					<td><?php echo $sqldata[0]->bidderusername; ?></td>
 					
+					<td><?php echo $sqldata[0]->bidderusername; ?></td>
+					<td><h6 id="timer" style="color:red">Synchronizing Time</h6></td>
 					<td><?php echo $st; ?></td>
 					<td><?php echo $ct; ?></td>
 					<td><a href="#"><u>Click here</u></a></td>
@@ -65,7 +66,7 @@
 					<th>Lot Name</th>
 					<th>Location</th>
 					<th>Close Time</th>
-					<th>Time Left</th>
+					<!--<th>Time Left</th> -->
 					<th>Quantity</th>
 					<th>Unit</th>
 					<th>Start Price</th>
@@ -97,12 +98,13 @@ if($diff <= 0){
 			$condtion = true;
 		}
 				?>
+				<input type="hidden" id="telapsed" value="<?php echo $diff;?>">
 				<?php if($condtion){?>
 				<tr><td><?php echo $sqldata2[0]->slotno; ?></td>												
 					<td><?php echo $sqldata2[0]->slotname; ?> </td>
 					<td><?php echo $sqldata2[0]->slotlocation; ?></td>
-					<td><?php echo $st; ?></td>
-					<td><?php echo $Remaining; ?></td>
+					<td><?php echo $ct; ?></td>
+					<!-- <td><?php echo $Remaining; ?></td> -->
 					<td><?php echo $sqldata2[0]->sqty; ?></td>
 					<td><?php echo $sqldata2[0]->sunitmeasurment; ?></td>
 					<td><?php echo $sqldata2[0]->sstartbidprice; ?></td>
@@ -149,7 +151,6 @@ echo '<td>No Auctions</td>';
 echo '<td>No Auctions</td>';
 echo '<td>No Auctions</td>';
 echo '</td>';
-echo '<td>No Auctions</td>';
 echo '</tr>';
 echo '';
 				}				
@@ -179,7 +180,40 @@ echo '';
 
     </div>
     <!-- End of Content Wrapper -->
+<script>
+function telapsed() {
+	
+  	
+  setInterval(function(){
+	  var d = $('#telapsed').val(); 
+    var h = Math.floor(d / 3600);
+    var m = Math.floor(d % 3600 / 60);
+    var s = Math.floor(d % 3600 % 60);
+    var disp = h + "Hours:" + m + " Minutes:" + s + " Seconds"; 
+	if(d <= 0){
+		$('#timer').html('Auction Closed');
+		return false;
+	}
+	  $('#timer').html(disp); d--; $('#telapsed').val(d);
+  }, 1000); // you could choose not to continue on failure...
+}
 
+
+ function executeQuery() {
+  var contents = $('#ref').val(); 
+			$.get('<?php echo base_url() .'Buyer_liveauc_2/get_table_ajax/'; ?>'+contents, function(data){
+				$('#ajaxauc').html(data);
+	});
+  setTimeout(executeQuery, 30000); // you could choose not to continue on failure...
+}
+
+$(document).ready(function() {
+	setTimeout(telapsed, 1000);
+  // run the first time; all subsequent calls will take care of themselves
+  setTimeout(executeQuery, 30000);
+  
+});
+ </script>
   </div>
   <!-- End of Page Wrapper -->
 
