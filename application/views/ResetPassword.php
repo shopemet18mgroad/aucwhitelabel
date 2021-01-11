@@ -18,15 +18,15 @@
                   <div class="text-center">
                     <h1 class="h2 text-gray-900 text-white mb-4">Reset Password</h1>
                   </div>
-                  <form class="user" action="<?php echo base_url()."Reset_Password/resetpass/";?>" onsubmit ="return validateForm()" method="post">
+                  <form class="user" action="<?php echo base_url()."Reset_Password/resetpass/";?>" method="post">
                     <div class="form-group">
                       <input type="text" name="otp" class="form-control form-control-user" id="otp" maxlength="5" placeholder="Enter OTP">
                     </div>
                     <div class="form-group">
-                      <input type="password" name="newpassword" class="form-control form-control-user" id="newpassword" placeholder="Enter New Password"><span id = "message1" style="color:white"> </span>
+                      <input type="password" name="newpassword" class="form-control form-control-user" id="newpassword" placeholder="Enter New Password"><span id = "message1" style="color:white"></span>
                     </div>
                    <div class="form-group">
-                      <input type="password" name="confirmpassword" class="form-control form-control-user" id="confirmpassword" placeholder="Enter Confirm Password"><span id = "message2" style="color:white"> </span>
+                      <input type="password" name="confirmpassword" class="form-control form-control-user" id="confirmpassword" placeholder="Enter Confirm Password"><span id = "message2" style="color:white"></span>
                     </div>
                     <button name="submit" type="submit" onclick="return validateForm()" class="btn btn-primary btn-user btn-block">
                       <b>SUBMIT</b>
@@ -62,7 +62,7 @@
 <script>
 function validateForm() {
     //collect form data in JavaScript variables	
-	var ah = document.getElementById("OTP").value;
+	var ah = document.getElementById("otp").value;
     var pw1 = document.getElementById("newpassword").value;
     var pw2 = document.getElementById("confirmpassword").value;
    

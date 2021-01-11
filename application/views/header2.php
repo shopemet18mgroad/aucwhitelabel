@@ -81,9 +81,13 @@
 							<input type="checkbox" class="custom-control-input ltype" id="customCheck" name="ltype" value="Bidder">
 							<label class="custom-control-label" for="customCheck">Bidder</label>
 							
+							<a class="pl-3" href="<?php echo base_url()."forgotpassword";?>"><b><u>Forgot Password?</u></b></a>
+							
 						  </div>
 						</div>
+						
 						  </form>  
+						
 					</div>
 				
 				</div>

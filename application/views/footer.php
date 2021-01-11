@@ -424,8 +424,7 @@ if( bcompany == '' || bcomptype == '' || bbuyertype == '' || bbuyerlocation == '
 
   }
   </script>
-   
-   
+     
    
    <script>
   function validate_tanc(){
