@@ -274,7 +274,7 @@ echo '</table>';
 		$dataforupdate2 = array('mybid_val' => $bitval);
 		$active2 = array('sauctionid'=>$auctionid,'slotno'=>$lotno);
 		$active3 = array('bidderusername'=>$username,'auctionid'=>$auctionid,'lotno'=>$lotno);
-		$active4 = array('auctionid'=>$auctionid);
+		$active4 = array('auctionid'=>$auctionid,'lotno'=>$lotno);
 		//$query = $this->Admin_model->getdatafromtable('biddercart', $active);
 		$query2 = $this->Admin_model->getdatafromtable('addlot', $active2);
 		$query3 = $this->Admin_model->getdatafromtable('biddercart', $active3);

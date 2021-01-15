@@ -39,14 +39,14 @@
 			</form> -->
 		
 		<table class="table table-striped table-bordered table-sm text-center mt-5"  id="dataTable" width="100%" cellspacing="0">
-				<thead class="bg-primary text-white">
+				<thead class="bg-primary text-white" role="rowgroup">
 				<tr><th colspan="8" class="bg-info">Occupied Bidding Products</th></tr>
 				<tr>
-					<th>Auction Id</th>
-					<th>Lot No</th>
-					<th>date/Time</th>
-					<th>My Bid Value</th>
-					<th>Status</th>
+					<th scope="col">Auction Id</th>
+					<th scope="col">Lot No</th>
+					<th scope="col">date/Time</th>
+					<th scope="col">My Bid Value</th>
+					<th scope="col">Status</th>
 					
 					
 				</tr>
@@ -54,16 +54,16 @@
 				<tbody>
 				<?php if(isset($sqldatarec)){ foreach($sqldatarec as $sqldata){ $datareciver = explode('|',$sqldata);?>
 					<tr>												
-						<td><?php echo $datareciver[0]; ?></td>
-						<td><?php echo $datareciver[1]; ?></td>
-						<td><?php $aucclosetime = $datareciver[3];
+						<td data-label="Auction Id"><?php echo $datareciver[0]; ?></td>
+						<td data-label="Lot No"><?php echo $datareciver[1]; ?></td>
+						<td data-label="date/Time"><?php $aucclosetime = $datareciver[3];
 							  $tmp = explode('.',$aucclosetime);
 							  $aucclosetime = $tmp[0];
 						echo $aucclosetime	; ?>
 						</td>
-						<td><?php echo $datareciver[2];?>
+						<td data-label="My Bid Value"><?php echo $datareciver[2];?>
 						</td>
-						<td><?php echo "Winner"?></td>
+						<td data-label="Status"><?php echo "Winner"?></td>
 					</tr>
 				<?php  }} ?>
 						
