@@ -22,8 +22,10 @@
 			  
 			  
 	<input type="hidden" id="ref" value="<?php echo str_ireplace('/','-',$sqldata[0]->auctionid)."|".$sqldata2[0]->slotno; ?>">
+	<input type="hidden" id="total-lot" value="<?php echo count($sqldata2);?>">
+	
 	<div id="ajaxauc" class="ajaxauc">
-	<?php foreach($sqldata2 as $sqld){?>
+	<?php $lottimesync = 0; foreach($sqldata2 as $sqld){?>
 		<table class="table table-striped table-bordered table-sm text-center w-auto small ml-5" width="100%" cellspacing="0" >
 				<thead class="bg-info text-white text-center">
 					<th colspan="7">Auction Details</th>
@@ -47,7 +49,7 @@
 					<td><a href="#"><?php echo $sqldata[0]->auctionid; ?></a> </td>
 					
 					<td><?php echo $sqldata[0]->bidderusername; ?></td>
-					<td><h6 id="timer" style="color:red">Synchronizing Time</h6></td>
+					<td><h6 id="timer-<?php echo $lottimesync;?>" style="color:red">Synchronizing Time</h6></td>
 					<td><?php echo $st; ?></td>
 					<td><?php echo $ct; ?></td>
 					<td><a href="#"><u>Click here</u></a></td>
@@ -100,7 +102,7 @@ if($diff <= 0){
 		}
 				?>
 				
-				<input type="hidden" id="telapsed" value="<?php echo $diff;?>">
+				<input type="hidden" id="telapsed-<?php echo $lottimesync;?>" value="<?php echo $diff;?>">
 				<?php if($condtion){?>
 				<tr><td><?php echo $sqld->slotno; ?></td>												
 					<td><?php echo $sqld->slotname; ?> </td>
@@ -156,7 +158,8 @@ echo '<td>No Auctions</td>';
 echo '</td>';
 echo '</tr>';
 echo '';
-				}				
+				}	
+			$lottimesync++;	
 	}?>
 				
 				
@@ -185,7 +188,29 @@ echo '';
     <!-- End of Content Wrapper -->
 <script>
 function telapsed() {
-	
+	var totallot = $('#total-lot').val();
+	var i = 1;
+	if(totallot){
+				setInterval(function(){
+					for(i=0;i<totallot;i++){
+					var dvar = '#telapsed-'+i;
+					var dtvar = '#timer-'+i;
+			  var d = $(dvar).val();
+			var h = Math.floor(d / 3600);
+			var m = Math.floor(d % 3600 / 60);
+			var s = Math.floor(d % 3600 % 60);
+			var disp = h + "Hours:" + m + " Minutes:" + s + " Seconds"; 
+			if(d <= 0){
+				$(dtvar).html('Auction Closed');
+				return false;
+			}
+			  $(dtvar).html(disp); d--; $(dvar).val(d);
+			   //$(dtvar).html('Auction Closed'+i);
+		  } // you could choose not to continue on failure...
+		 
+				}, 1000);
+		//Run Foreach loop here
+	}
   	
   setInterval(function(){
 	  var d = $('#telapsed').val(); 
@@ -207,7 +232,7 @@ function telapsed() {
 			$.get('<?php echo base_url() .'Buyer_liveauc_2/get_table_ajax/'; ?>'+contents, function(data){
 				$('#ajaxauc').html(data);
 	});
-  setTimeout(executeQuery, 30000); // you could choose not to continue on failure...
+  setTimeout(executeQuery, 90000); // you could choose not to continue on failure...
 }
 
 $(document).ready(function() {
