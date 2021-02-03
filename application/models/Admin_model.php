@@ -90,9 +90,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$query = $this->db->get();
 			return $query->result();
 		}
-		public function datebetweensess($table, $date, $sessi){
+		public function datebetweensess($table,$date,$sessi){
 			$this->db->select('*');
-			$this->db->from($table);
+			$this->db->group_by('auctionid');
+			$this->db->from('biddercart');
+			$this->db->join('auction', 'auction.sauctionid = biddercart.auctionid');
 			$this->db->where('aucstartdate_time <=', $date);
 			$this->db->where('aucclosedate_time >=', $date);
 			$this->db->where('bidderusername =', $sessi);

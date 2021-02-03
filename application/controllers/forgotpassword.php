@@ -57,7 +57,10 @@ parent::__construct();
 
 						 $from = 'shopemet.1.net@gmail.com';              // Pass here your mail id
 
-						 $emailContent = '<!DOCTYPE><html><head></head><body><table width="600px" style="border:1px solid #cccccc;margin: auto;border-spacing:0;"><tr><td style="background:#000000;padding-left:3%"><img src="web_files/images/aucjuntn.jpg" width="300px" vspace=10 /></td></tr>';
+						 $emailContent = '<!DOCTYPE><html><head></head><body>
+						 <p>Hi  '.$busername.',</p>
+						 <p>Please Enter the OTP code '.$otp.' to create new password.</p>
+						 <table width="600px" style="border:1px solid #cccccc;margin: auto;border-spacing:0;"><tr><td style="background:#000000;padding-left:3%"><img src="<?php echo base_url()."web_files/";?>img/aucjunction.jpg" class="img-fluid" alt="" width="20%;"></td></tr>';
 						 $emailContent .='<tr><td style="height:20px"></td></tr>';
 						 $emailContent .='<td><center>'.$otp.'</center></td>';
 
@@ -102,7 +105,8 @@ parent::__construct();
 
 						   $from = 'shopemet.1.net@gmail.com';              // Pass here your mail id
 
-						   $emailContent = '<!DOCTYPE><html><head></head><body><table width="600px" style="border:1px solid #cccccc;margin: auto;border-spacing:0;"><tr><td style="background:#000000;padding-left:3%"><img src="web_files/images/aucjuntn.jpg" width="300px" vspace=10 /></td></tr>';
+						   $emailContent = '<!DOCTYPE><html><head></head><body>
+						   <table width="600px" style="border:1px solid #cccccc;margin: auto;border-spacing:0;"><tr><td style="background:#000000;padding-left:3%"><img src="web_files/images/aucjuntn.jpg" width="300px" vspace=10 /></td></tr>';
 						   $emailContent .='<tr><td style="height:20px"></td></tr>';
 						   $emailContent .='<td>'.$otp.'</td>';
 

@@ -31,12 +31,13 @@ class Buyer_liveauc_2 extends CI_Controller {
 		$vararray = urldecode($variable);
 		$vararray2 = explode('|',$vararray);
 		$auctionid = str_ireplace('-','/',$vararray2[0]);
-		$lotno = $vararray2[1];
+		//$lotno = $vararray2[1];
+		
 		$sess = $this->session->userdata('username');
 		$this->load->model('Admin_model');
 		$sess = array('sessi'=>$this->session->userdata('username'));
-		$active = array('bidderusername'=>$sess['sessi'],'auctionid'=>$auctionid,'lotno'=>$lotno,);
-		$active2 = array('sauctionid'=>$auctionid,'slotno'=>$lotno,);
+		$active = array('bidderusername'=>$sess['sessi'],'auctionid'=>$auctionid);
+		$active2 = array('sauctionid'=>$auctionid);
 		$query = $this->Admin_model->getdatafromtable('biddercart', $active);
 		$query2 = $this->Admin_model->getdatafromtable('addlot', $active2);
 		$data['sqldata'] = $query;
@@ -86,6 +87,7 @@ class Buyer_liveauc_2 extends CI_Controller {
 		$ct = $aucclosetime;
 		
 		$query2 = $this->Admin_model->getdatafromtable('addlot', $active2);
+		
 		$diff = strtotime($query[0]->aucclosedate_time)-strtotime($time);
 		$years = floor($diff / (365*60*60*24));  
 			$months = floor(($diff - $years * 365*60*60*24)/ (30*60*60*24));   
@@ -103,10 +105,14 @@ $Remaining =$hours." Hours ".$minutes." Minutes ".$seconds."Seconds";
 				//$diff = abs($time - $sqldata[0]->aucclosedate_time);  
 			
 		//$datfnl = floor($datediff / (3600)).":".floor($datediff / (60));
-echo '<input type="hidden" id="telapsed" value="'.$diff.'">';		
+echo '<input type="hidden" id="telapsed" value="'.$diff.'">';	
+foreach($query2 as $que){
 echo '<table class="table table-striped table-bordered table-sm text-center w-auto small ml-5" width="100%" cellspacing="0" >';
+
 echo '<thead class="bg-info text-white text-center">';
+echo '<tr>';
 echo '<th colspan="7">Auction Details</th>';
+echo '</tr>';
 echo '</thead>';
 echo '<thead class="bg-primary text-white">';
 echo '<tr>';
@@ -162,35 +168,35 @@ echo '</thead>';
 if($condtion){
 	echo '';
 echo '<tbody>';
-echo '<tr><td>'.$query2[0]->slotno.'</td>';
-echo '<td>'.$query2[0]->slotname.'</td>';
-echo '<td>'.$query2[0]->slotlocation.'</td>';
+echo '<tr><td>'.$que->slotno.'</td>';
+echo '<td>'.$que->slotname.'</td>';
+echo '<td>'.$que->slotlocation.'</td>';
 echo '<td>'.$ct.'</td>';
 //echo '<td>'.$Remaining.'</td>';
-echo '<td>'.$query2[0]->sqty.'</td>';
-echo '<td>'.$query2[0]->sunitmeasurment.'</td>';
-echo '<td>'.$query2[0]->sstartbidprice.'</td>';
+echo '<td>'.$que->sqty.'</td>';
+echo '<td>'.$que->sunitmeasurment.'</td>';
+echo '<td>'.$que->sstartbidprice.'</td>';
 echo '<td>'.$query[0]->mybid_val.'</td>';
-echo '<td>'.$query2[0]->cbidval.'</td>';
-if($query2[0]->sstartbidprice >= $query2[0]->cbidval){
-	$datbid = $query2[0]->sstartbidprice;
-	$datbid = $query2[0]->sstartbidprice + $query2[0]->sminincre;
+echo '<td>'.$que->cbidval.'</td>';
+if($que->sstartbidprice >= $que->cbidval){
+	$datbid = $que->sstartbidprice;
+	$datbid = $que->sstartbidprice + $que->sminincre;
 }else{
-	$datbid = $query2[0]->cbidval;
+	$datbid = $que->cbidval;
 }   
 
 //$sessa2 = urlencode($sess['sessi']);
 $sessa2 = str_ireplace('@','%40',$sess['sessi']);
-$id = $sessa2."|".str_ireplace('/','-',$query[0]->auctionid)."|".$query2[0]->slotno;
+$id = $sessa2."|".str_ireplace('/','-',$query[0]->auctionid)."|".$que->slotno;
 echo '<td><div class="form-group row ml-2">';
 if($query[0]->abidding){
-	echo '<input class="form-control col-sm-7 mr-2" type="number" value="'.$datbid.'" min="0" step="'.$query2[0]->sminincre.'" id="bid" name="bid" readonly>';
+	echo '<input class="form-control col-sm-7 mr-2" type="number" value="'.$datbid.'" min="0" step="'.$que->sminincre.'" id="bid" name="bid" readonly>';
 	echo '<button type="submit" class="btn btn-info" id="'.$id.'" onclick="bid_manual(this.id)" disabled>Bid</button></div>';
 	echo '';
 	echo '</td>';
-echo '<td><a href="'.base_url().'Buyer_liveauc_2/buyer_autobid_disable/'.str_ireplace('/','-',$query[0]->auctionid).'|'.$query2[0]->slotno.'"><button type="button" class="btn btn-info">Disable AutoBid</button></a></td>';
+echo '<td><a href="'.base_url().'Buyer_liveauc_2/buyer_autobid_disable/'.str_ireplace('/','-',$query[0]->auctionid).'|'.$que->slotno.'"><button type="button" class="btn btn-info">Disable AutoBid</button></a></td>';
 }else{
-	echo '<input class="form-control col-sm-7 mr-2" type="number" value="'.$datbid.'" min="0" step="'.$query2[0]->sminincre.'" id="bid" name="bid">';
+	echo '<input class="form-control col-sm-7 mr-2" type="number" value="'.$datbid.'" min="0" step="'.$que->sminincre.'" id="bid" name="bid">';
 	echo '<button type="submit" class="btn btn-info" id="'.$id.'" onclick="bid_manual(this.id)">Bid</button></div>';
 	echo '';
 	echo '</td>';
@@ -201,9 +207,8 @@ echo '<td><a href="'.base_url().'Buyer_liveauc_2/buyer_autobid/'.str_ireplace('/
 echo '</tr>';
 echo '';
 echo '</tbody>';
-	
 }else{
-	echo '';
+echo '';
 echo '<tbody>';
 echo '<tr><td>No Live Data</td>';
 echo '<td>No Auctions</td>';
@@ -219,12 +224,13 @@ echo '<td>No Auctions</td>';
 echo '</td>';
 echo '</tr>';
 echo '';
+	}
+	}
 echo '</tbody>';
-}
-
+	
 
 echo '</table>';
-		
+	
 	}
 	
 	
@@ -384,8 +390,8 @@ echo '</table>';
 			echo "<tr>\n";
 			echo "<td><a href=".base_url()."Buyer_liveauc_2/index/".$auclink.'|'.$datamenu->lotno.">".$datamenu->auctionid."</a></td>\n";
 			//echo "<td><a href=\". base_url()."Buyer_liveauc_2/index/".str_ireplace('/','-',$datamenu->auctionid)."|".$datamenu->lotno.">".$datamenu->auctionid.">"</a></td>\n";
-			echo "<td>".$datamenu->lotno."</td>\n";
-			echo "<td>".$datamenu->description."</td>\n";
+			echo "<td>".$datamenu->sname."</td>\n";
+			//echo "<td>".$datamenu->description."</td>\n";
 			echo "</tr>";
 		}
 	}

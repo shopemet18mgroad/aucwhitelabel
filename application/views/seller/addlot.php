@@ -61,6 +61,14 @@
 				<option value="Granules">Granules</option>
 				<option value="General">General</option>
 				<option value="PCB">PCB</option>
+				<option value="Dismantling">Dismantling</option>
+				<option value="E Waste">E Waste</option>
+				<option value="Machineries">Machineries</option>
+				<option value="Properties">Properties</option>
+				<option value="Miscellaneous">Miscellaneous</option>
+				<option value="Timbers">Timbers</option>
+				<option value="Transformers">Transformers</option>
+				<option value="Hazardous">Hazardous</option>
 				<option value="All Construction Materials">All Construction Materials</option>
 				</select>
 			</td>

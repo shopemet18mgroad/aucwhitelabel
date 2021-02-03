@@ -23,6 +23,7 @@
 			  
 	<input type="hidden" id="ref" value="<?php echo str_ireplace('/','-',$sqldata[0]->auctionid)."|".$sqldata2[0]->slotno; ?>">
 	<div id="ajaxauc" class="ajaxauc">
+	<?php foreach($sqldata2 as $sqld){?>
 		<table class="table table-striped table-bordered table-sm text-center w-auto small ml-5" width="100%" cellspacing="0" >
 				<thead class="bg-info text-white text-center">
 					<th colspan="7">Auction Details</th>
@@ -98,37 +99,39 @@ if($diff <= 0){
 			$condtion = true;
 		}
 				?>
+				
 				<input type="hidden" id="telapsed" value="<?php echo $diff;?>">
 				<?php if($condtion){?>
-				<tr><td><?php echo $sqldata2[0]->slotno; ?></td>												
-					<td><?php echo $sqldata2[0]->slotname; ?> </td>
-					<td><?php echo $sqldata2[0]->slotlocation; ?></td>
+				<tr><td><?php echo $sqld->slotno; ?></td>												
+					<td><?php echo $sqld->slotname; ?> </td>
+					<td><?php echo $sqld->slotlocation; ?></td>
 					<td><?php echo $ct; ?></td>
 					<!-- <td><?php echo $Remaining; ?></td> -->
-					<td><?php echo $sqldata2[0]->sqty; ?></td>
-					<td><?php echo $sqldata2[0]->sunitmeasurment; ?></td>
-					<td><?php echo $sqldata2[0]->sstartbidprice; ?></td>
+					<td><?php echo $sqld->sqty; ?></td>
+					<td><?php echo $sqld->sunitmeasurment; ?></td>
+					<td><?php echo $sqld->sstartbidprice; ?></td>
 					<td><?php echo $sqldata[0]->mybid_val; ?></td>
-					<td><?php echo $sqldata2[0]->cbidval; ?></td>
+					<td><?php echo $sqld->cbidval; ?></td>
 					
 					<td><div class="form-group row ml-2">
 					<?php
-					if($sqldata2[0]->sstartbidprice >= $sqldata2[0]->cbidval){
-						$datbid = $sqldata2[0]->sstartbidprice;
+					if($sqld->sstartbidprice >= $sqld->cbidval){
+					
+						$datbid = $sqld->sstartbidprice;
 
 						$datbid = 
 
-						$datbid = $sqldata2[0]->sstartbidprice + $sqldata2[0]->sminincre;
+						$datbid = $sqld->sstartbidprice + $sqld->sminincre;
 
 					}else{
-						$datbid = $sqldata2[0]->cbidval;
+						$datbid = $sqld->cbidval;
 					}  
 					
 //$sessa2 = urlencode($sess['sessi']);
 $sessa2 = str_ireplace('@','%40',$sessi);
 					?> 
-					<input class="form-control col-sm-7 mr-2" type="number" value="<?php echo $datbid; ?>" min="0" step="<?php echo $sqldata2[0]->sminincre; ?>" id="bid" name="bid" <?php if($sqldata[0]->abidding){echo "readonly";}else{echo "";} ?>>
-					<button type="submit" id="<?php echo $sessa2.'|'.str_ireplace('/','-',$sqldata[0]->auctionid)."|".$sqldata2[0]->slotno; ?>" class="btn btn-info" onclick="bid_manual(this.id)" <?php if($sqldata[0]->abidding){echo "disabled";}else{echo "";} ?>>Bid</button></div>
+					<input class="form-control col-sm-7 mr-2" type="number" value="<?php echo $datbid; ?>" min="0" step="<?php echo $sqld->sminincre; ?>" id="bid" name="bid" <?php if($sqldata[0]->abidding){echo "readonly";}else{echo "";} ?>>
+					<button type="submit" id="<?php echo $sessa2.'|'.str_ireplace('/','-',$sqldata[0]->auctionid)."|".$sqld->slotno; ?>" class="btn btn-info" onclick="bid_manual(this.id)" <?php if($sqldata[0]->abidding){echo "disabled";}else{echo "";} ?>>Bid</button></div>
 							
 					
 				  </td>
@@ -154,7 +157,7 @@ echo '</td>';
 echo '</tr>';
 echo '';
 				}				
-					?>
+	}?>
 				
 				
 				</tbody>
