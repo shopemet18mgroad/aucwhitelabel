@@ -105,6 +105,7 @@ $Remaining =$hours." Hours ".$minutes." Minutes ".$seconds."Seconds";
 				//$diff = abs($time - $sqldata[0]->aucclosedate_time);  
 			
 		//$datfnl = floor($datediff / (3600)).":".floor($datediff / (60));
+		$lottimesync = 0;
 echo '<input type="hidden" id="telapsed" value="'.$diff.'">';	
 foreach($query2 as $que){
 echo '<table class="table table-striped table-bordered table-sm text-center w-auto small ml-5" width="100%" cellspacing="0" >';
@@ -225,6 +226,7 @@ echo '</td>';
 echo '</tr>';
 echo '';
 	}
+	$lottimesync++;
 	}
 echo '</tbody>';
 	

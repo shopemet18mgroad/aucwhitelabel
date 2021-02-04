@@ -1,5 +1,6 @@
  <?php 
 	//include('./header.php');
+	
 ?>
         <!-- End of Topbar -->
 
@@ -19,13 +20,13 @@
           <div class="card shadow mb-4">
             <div class="card-body">
               <div class="table-responsive">
-			  
-			  
-	<input type="hidden" id="ref" value="<?php echo str_ireplace('/','-',$sqldata[0]->auctionid)."|".$sqldata2[0]->slotno; ?>">
-	<input type="hidden" id="total-lot" value="<?php echo count($sqldata2);?>">
+			  <input type="hidden" id="total-lot" value="<?php echo count($sqldata2);?>">
+		<?php $lottimesync = 0; foreach($sqldata2 as $sqld){?>	  
+	<input type="hidden" id="ref-<?php echo $lottimesync;?>" value="<?php echo str_ireplace('/','-',$sqldata[$lottimesync]->auctionid)."|".$sqld->slotno; ?>">
+	
 	
 	<div id="ajaxauc" class="ajaxauc">
-	<?php $lottimesync = 0; foreach($sqldata2 as $sqld){?>
+	
 		<table class="table table-striped table-bordered table-sm text-center w-auto small ml-5" width="100%" cellspacing="0" >
 				<thead class="bg-info text-white text-center">
 					<th colspan="7">Auction Details</th>
@@ -46,9 +47,9 @@
 				<form action="<?php echo base_url();?>" method="POST"  enctype="multipart/form-data">
 				<tr>
 				
-					<td><a href="#"><?php echo $sqldata[0]->auctionid; ?></a> </td>
+					<td><a href="#"><?php echo $sqldata[$lottimesync]->auctionid; ?></a> </td>
 					
-					<td><?php echo $sqldata[0]->bidderusername; ?></td>
+					<td><?php echo $sqldata[$lottimesync]->bidderusername; ?></td>
 					<td><h6 id="timer-<?php echo $lottimesync;?>" style="color:red">Synchronizing Time</h6></td>
 					<td><?php echo $st; ?></td>
 					<td><?php echo $ct; ?></td>
@@ -112,7 +113,7 @@ if($diff <= 0){
 					<td><?php echo $sqld->sqty; ?></td>
 					<td><?php echo $sqld->sunitmeasurment; ?></td>
 					<td><?php echo $sqld->sstartbidprice; ?></td>
-					<td><?php echo $sqldata[0]->mybid_val; ?></td>
+					<td><?php echo $sqldata[$lottimesync]->mybid_val; ?></td>
 					<td><?php echo $sqld->cbidval; ?></td>
 					
 					<td><div class="form-group row ml-2">
@@ -121,7 +122,7 @@ if($diff <= 0){
 					
 						$datbid = $sqld->sstartbidprice;
 
-						$datbid = 
+						//$datbid = 
 
 						$datbid = $sqld->sstartbidprice + $sqld->sminincre;
 
@@ -132,15 +133,15 @@ if($diff <= 0){
 //$sessa2 = urlencode($sess['sessi']);
 $sessa2 = str_ireplace('@','%40',$sessi);
 					?> 
-					<input class="form-control col-sm-7 mr-2" type="number" value="<?php echo $datbid; ?>" min="0" step="<?php echo $sqld->sminincre; ?>" id="bid" name="bid" <?php if($sqldata[0]->abidding){echo "readonly";}else{echo "";} ?>>
-					<button type="submit" id="<?php echo $sessa2.'|'.str_ireplace('/','-',$sqldata[0]->auctionid)."|".$sqld->slotno; ?>" class="btn btn-info" onclick="bid_manual(this.id)" <?php if($sqldata[0]->abidding){echo "disabled";}else{echo "";} ?>>Bid</button></div>
+					<input class="form-control col-sm-7 mr-2" type="number" value="<?php echo $datbid; ?>" min="0" step="<?php echo $sqld->sminincre; ?>" id="bid-<?php echo $lottimesync;?>" name="bid" <?php if($sqldata[$lottimesync]->abidding){echo "readonly";}else{echo "";} ?>>
+					<button type="submit" id="<?php echo $sessa2.'|'.str_ireplace('/','-',$sqldata[$lottimesync]->auctionid)."|".$sqld->slotno; ?>" class="btn btn-info" onclick="bid_manual(this.id)" <?php if($sqldata[$lottimesync]->abidding){echo "disabled";}else{echo "";} ?>>Bid</button></div>
 							
 					
 				  </td>
-				  <?php if($sqldata[0]->abidding){?>
+				  <?php if($sqldata[$lottimesync]->abidding){?>
 					<td>
-				  <a href="<?php echo base_url().'Buyer_liveauc_2/buyer_autobid_disable/'.str_ireplace('/','-',$sqldata[0]->auctionid)."|".$sqldata2[0]->slotno;?>"><button type="button" class="btn btn-info" >Disable AutoBid</button></a></td><?php }else{?><td>
-				  <a href="<?php echo base_url().'Buyer_liveauc_2/buyer_autobid/'.str_ireplace('/','-',$sqldata[0]->auctionid)."|".$sqldata2[0]->slotno;?>"><button type="button" class="btn btn-info" disabled>AutoBid</button></a></td><?php }?>
+				  <a href="<?php echo base_url().'Buyer_liveauc_2/buyer_autobid_disable/'.str_ireplace('/','-',$sqldata[$lottimesync]->auctionid)."|".$sqld->slotno;?>"><button type="button" class="btn btn-info" >Disable AutoBid</button></a></td><?php }else{?><td>
+				  <a href="<?php echo base_url().'Buyer_liveauc_2/buyer_autobid/'.str_ireplace('/','-',$sqldata[$lottimesync]->auctionid)."|".$sqld->slotno;?>"><button type="button" class="btn btn-info" disabled>AutoBid</button></a></td><?php }?>
 					
 				</tr>
 				<?php }else{
@@ -189,7 +190,7 @@ echo '';
 <script>
 function telapsed() {
 	var totallot = $('#total-lot').val();
-	var i = 1;
+	//var i = 1;
 	if(totallot){
 				setInterval(function(){
 					for(i=0;i<totallot;i++){
@@ -232,7 +233,7 @@ function telapsed() {
 			$.get('<?php echo base_url() .'Buyer_liveauc_2/get_table_ajax/'; ?>'+contents, function(data){
 				$('#ajaxauc').html(data);
 	});
-  setTimeout(executeQuery, 90000); // you could choose not to continue on failure...
+  setTimeout(executeQuery, 30000); // you could choose not to continue on failure...
 }
 
 $(document).ready(function() {

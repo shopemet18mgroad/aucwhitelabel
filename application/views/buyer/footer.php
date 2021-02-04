@@ -183,7 +183,9 @@ function validate_password(){
  
  <script>
  function  bid_manual(v){
-	 var k = document.getElementById('bid').value;
+	 var spd = v.split("|");
+	 var spdvar = "bid-"+(spd[2]-1);
+	 var k = document.getElementById(spdvar).value;
 	 $.get('<?php echo base_url() .'Buyer_liveauc_2/get_currency/'; ?>'+k, function(data){
 		 if(data){
 			 swal({
