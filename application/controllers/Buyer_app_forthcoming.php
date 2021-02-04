@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Buyer_app_forthcomingauc extends CI_Controller {
+class Buyer_app_forthcoming extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.

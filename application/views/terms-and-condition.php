@@ -76,16 +76,16 @@ use and for maintaining and protecting the confidentiality of their User ID and 
 
 <span class="fontbld">FORGOT PASSWORD</span></br></br>
 In case you forget the log in password, the only way you can change your log in password is by
-clicking on the &quot;Lost Password&quot; link on the home page of the website. You will receive a
+clicking on the &quot;Reset Password&quot; link on the home page of the website. You will receive a
 verification code on your registered e-mail address and your registered mobile phone. Using the
 verification code, you can change your log in password.</br></br>
-<span class="fontbld">TRANSACTION PASSWORD</span></br></br>
+<!-- <span class="fontbld">TRANSACTION PASSWORD</span></br></br>
 To have an additional layer of security, Bidders participating in auctions must set up a
 transaction password. Participating bidders must enter this transaction password to authenticate
 their entry into the virtual auction room and place their bids. Bidders can set their transaction
 password and must confirm the same with the OTP that will be sent to their registered mobile
 number and their registered e-mail ID. Transaction password is session specific.</br></br>
-
+ -->
 <span class="fontbld">TIME</span></br></br>
 Time wherever mentioned in any page of the website refers to Indian Standard Time (IST) i.e.
 UTC + 05.30 hrs. All the timings of the Online Bid shall be based on the time indicated by the

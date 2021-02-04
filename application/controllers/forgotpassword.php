@@ -57,19 +57,17 @@ parent::__construct();
 
 						 $from = 'shopemet.1.net@gmail.com';              // Pass here your mail id
 
-						 $emailContent = '<!DOCTYPE><html><head></head><body>
-						 <p>Hi  '.$busername.',</p>
-						 <p>Please Enter the OTP code '.$otp.' to create new password.</p>
-						 <table width="600px" style="border:1px solid #cccccc;margin: auto;border-spacing:0;"><tr><td style="background:#000000;padding-left:3%"><img src="<?php echo base_url()."web_files/";?>img/aucjunction.jpg" class="img-fluid" alt="" width="20%;"></td></tr>';
-						 $emailContent .='<tr><td style="height:20px"></td></tr>';
-						 $emailContent .='<td><center>'.$otp.'</center></td>';
-
-
-						 $emailContent .= $this->input->post('otp');  //   Post message available here
-			
-						 $emailContent .='<tr><td style="height:20px"></td></tr>';
-						 $emailContent .= "<tr><td style='background:#;color: #999999;padding: 2%;text-align: center;font-size: 13px;'><p style='margin-top:1px;'><a href='http://Aucjunction.com/' target='_blank' style='text-decoration:none;color: #60d2ff;'>www.Aucjunction.com</a></p></td></tr></table></body></html>";
-                
+						 $emailContent = '<!DOCTYPE><html><head>
+						 </head><body>
+						 <div class="container">
+						 <div class="card ml-5 mr-5">
+						 <img src="https://www.aucjunction.com/web_files/images/aucjuntn.jpg" class="responsive mt-4" alt="" width="20%;">
+						 <div class="card-body ml-4">
+						 <p>Dear '.$busername.',</p>
+						 <p>OTP to reset your password is : <h1>'.$otp.'</h1></p>
+						 <p>Note: This is a system generated mail. Please do not reply to it.</p></div>
+						 </div>
+						 </div></body></html>"';
 
 
 						 $config['protocol']    = 'smtp';
@@ -105,16 +103,17 @@ parent::__construct();
 
 						   $from = 'shopemet.1.net@gmail.com';              // Pass here your mail id
 
-						   $emailContent = '<!DOCTYPE><html><head></head><body>
-						   <table width="600px" style="border:1px solid #cccccc;margin: auto;border-spacing:0;"><tr><td style="background:#000000;padding-left:3%"><img src="web_files/images/aucjuntn.jpg" width="300px" vspace=10 /></td></tr>';
-						   $emailContent .='<tr><td style="height:20px"></td></tr>';
-						   $emailContent .='<td>'.$otp.'</td>';
-
-
-						   $emailContent .= $this->input->post('otp');  //   Post message available here
-			
-						   $emailContent .='<tr><td style="height:20px"></td></tr>';
-						   $emailContent .= "<tr><td style='background:#000000;color: #999999;padding: 2%;text-align: center;font-size: 13px;'><p style='margin-top:1px;'><a href='http://Aucjunction.com/' target='_blank' style='text-decoration:none;color: #60d2ff;'>www.Aucjunction.com</a></p></td></tr></table></body></html>";
+						   $emailContent = '<!DOCTYPE><html><head>
+							</head><body>
+							<div class="container">
+							<div class="card ml-5 mr-5">
+							<img src="https://www.aucjunction.com/web_files/images/aucjuntn.jpg" class="responsive mt-4" alt="" width="20%;">
+							<div class="card-body ml-4">
+							<p>Dear '.$busername.',</p>
+							<p>OTP to reset your password is : <h1>'.$otp.'</h1></p>
+							<p>Note: This is a system generated mail. Please do not reply to it.</p></div>
+							</div>
+							</div></body></html>"';
                 
 
 
@@ -176,15 +175,17 @@ parent::__construct();
 
 						   $from = 'shopemet.1.net@gmail.com';              // Pass here your mail id
 
-						   $emailContent = '<!DOCTYPE><html><head></head><body><table width="600px" style="border:1px solid #cccccc;margin: auto;border-spacing:0;"><tr><td style="background:#000000;padding-left:3%"><img src="web_files/images/aucjuntn.jpg" width="300px" vspace=10 /></td></tr>';
-						   $emailContent .='<tr><td style="height:20px"></td></tr>';
-						   $emailContent .='<td>'.$otp.'</td>';
-
-
-						   $emailContent .= $this->input->post('otp');  //   Post message available here
-			
-						   $emailContent .='<tr><td style="height:20px"></td></tr>';
-						   $emailContent .= "<tr><td style='background:#000000;color: #999999;padding: 2%;text-align: center;font-size: 13px;'><p style='margin-top:1px;'><a href='http://Aucjunction.com/' target='_blank' style='text-decoration:none;color: #60d2ff;'>www.Aucjunction.com</a></p></td></tr></table></body></html>";
+						   $emailContent = '<!DOCTYPE><html><head>
+							</head><body>
+							<div class="container">
+							<div class="card ml-5 mr-5">
+							<img src="https://www.aucjunction.com/web_files/images/aucjuntn.jpg" class="responsive mt-4" alt="" width="20%;">
+							<div class="card-body ml-4">
+							<p>Dear '.$susername.',</p>
+							<p>OTP to reset your password is : <h1>'.$otp.'</h1></p>
+							<p>Note: This is a system generated mail. Please do not reply to it.</p></div>
+							</div>
+							</div></body></html>"';
                 
 
 
@@ -222,15 +223,17 @@ parent::__construct();
 
 						   $from = 'shopemet.1.net@gmail.com';              // Pass here your mail id
 
-						   $emailContent = '<!DOCTYPE><html><head></head><body><table width="600px" style="border:1px solid #cccccc;margin: auto;border-spacing:0;"><tr><td style="background:#000000;padding-left:3%"><img src="web_files/images/aucjuntn.jpg" width="300px" vspace=10 /></td></tr>';
-						   $emailContent .='<tr><td style="height:20px"></td></tr>';
-						   $emailContent .='<td>'.$otp.'</td>';
-
-
-						   $emailContent .= $this->input->post('otp');  //   Post message available here
-			
-						   $emailContent .='<tr><td style="height:20px"></td></tr>';
-						   $emailContent .= "<tr><td style='background:#000000;color: #999999;padding: 2%;text-align: center;font-size: 13px;'><p style='margin-top:1px;'><a href='http://Aucjunction.com/' target='_blank' style='text-decoration:none;color: #60d2ff;'>www.Aucjunction.com</a></p></td></tr></table></body></html>";
+						    $emailContent = '<!DOCTYPE><html><head>
+							</head><body>
+							<div class="container">
+							<div class="card ml-5 mr-5">
+							<img src="https://www.aucjunction.com/web_files/images/aucjuntn.jpg" class="responsive mt-4" alt="" width="20%;">
+							<div class="card-body ml-4">
+							<p>Dear '.$susername.',</p>
+							<p>OTP to reset your password is : <h1>'.$otp.'</h1></p>
+							<p>Note: This is a system generated mail. Please do not reply to it.</p></div>
+							</div>
+							</div></body></html>"';
                 
 
 
