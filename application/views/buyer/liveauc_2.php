@@ -213,23 +213,26 @@ function telapsed() {
 		//Run Foreach loop here
 	}
   	
-  setInterval(function(){
+  /* setInterval(function(){
 	  var d = $('#telapsed').val(); 
     var h = Math.floor(d / 3600);
     var m = Math.floor(d % 3600 / 60);
     var s = Math.floor(d % 3600 % 60);
     var disp = h + "Hours:" + m + " Minutes:" + s + " Seconds"; 
 	if(d <= 0){
-		$('#timer').html('Auction Closed');
+		$(dtvar).html('Auction Closed');
 		return false;
 	}
 	  $('#timer').html(disp); d--; $('#telapsed').val(d);
-  }, 1000); // you could choose not to continue on failure...
+  }, 1000); // you could choose not to continue on failure... */
 }
 
 
  function executeQuery() {
-  var contents = $('#ref').val(); 
+	 var totallot = $('#total-lot').val();
+	 //alert(totallot);
+  var contents = $('#ref-0').val(); 
+  
 			$.get('<?php echo base_url() .'Buyer_liveauc_2/get_table_ajax/'; ?>'+contents, function(data){
 				$('#ajaxauc').html(data);
 	});
@@ -237,7 +240,7 @@ function telapsed() {
 }
 
 $(document).ready(function() {
-	setTimeout(telapsed, 1000);
+	setTimeout(telapsed, 1000)
   // run the first time; all subsequent calls will take care of themselves
   setTimeout(executeQuery, 30000);
   

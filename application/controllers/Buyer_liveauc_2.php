@@ -72,23 +72,24 @@ class Buyer_liveauc_2 extends CI_Controller {
 		$sess = $this->session->userdata('username');
 		$this->load->model('Admin_model');
 		$sess = array('sessi'=>$this->session->userdata('username'));
-		$active = array('bidderusername'=>$sess['sessi'],'auctionid'=>$auctionid,'lotno'=>$lotno,);
-		$active2 = array('sauctionid'=>$auctionid,'slotno'=>$lotno,);
+		$active = array('bidderusername'=>$sess['sessi'],'auctionid'=>$auctionid/*, 'lotno'=>$lotno, */);
+		$active2 = array('sauctionid'=>$auctionid/* ,'slotno'=>$lotno, */);
 		$query = $this->Admin_model->getdatafromtable('biddercart', $active);
-		
-		$aucstarttime = $query[0]->aucstartdate_time;
+		$query2 = $this->Admin_model->getdatafromtable('addlot', $active2);
+		$lottimesync = 0;
+		foreach($query as $quer){
+		$aucstarttime = $quer->aucstartdate_time;
 		$tm = explode('.',$aucstarttime);
 		$aucstarttime = $tm[0];
 		$st = $aucstarttime;
-		
-		$aucclosetime = $query[0]->aucclosedate_time;
+		$aucclosetime = $quer->aucclosedate_time;
 		$t = explode('.',$aucclosetime);
 		$aucclosetime = $t[0];
 		$ct = $aucclosetime;
 		
-		$query2 = $this->Admin_model->getdatafromtable('addlot', $active2);
 		
-		$diff = strtotime($query[0]->aucclosedate_time)-strtotime($time);
+		
+		$diff = strtotime($quer->aucclosedate_time)-strtotime($time);
 		$years = floor($diff / (365*60*60*24));  
 			$months = floor(($diff - $years * 365*60*60*24)/ (30*60*60*24));   
 			$days = floor(($diff - $years * 365*60*60*24 -  $months*30*60*60*24)/ (60*60*24)); 
@@ -105,9 +106,10 @@ $Remaining =$hours." Hours ".$minutes." Minutes ".$seconds."Seconds";
 				//$diff = abs($time - $sqldata[0]->aucclosedate_time);  
 			
 		//$datfnl = floor($datediff / (3600)).":".floor($datediff / (60));
-		$lottimesync = 0;
-echo '<input type="hidden" id="telapsed" value="'.$diff.'">';	
-foreach($query2 as $que){
+		
+		
+echo '<input type="hidden" id="telapsed-'.$lottimesync.'" value="'.$diff.'">';	
+//foreach($query2 as $que){
 echo '<table class="table table-striped table-bordered table-sm text-center w-auto small ml-5" width="100%" cellspacing="0" >';
 
 echo '<thead class="bg-info text-white text-center">';
@@ -131,11 +133,11 @@ echo '<tbody>';
 echo '<form action="<?php echo base_url();?>" method="POST"  enctype="multipart/form-data">';
 echo '<tr>';
 echo '';
-echo '<td><a href="#">'.$query[0]->auctionid.'</a></td>';
+echo '<td><a href="#">'.$quer->auctionid.'</a></td>';
 echo '';
-echo '<td>'.$query[0]->bidderusername.'</td>';
+echo '<td>'.$quer->bidderusername.'</td>';
 echo '';
-echo '<td><h6 id="timer" style="color:red">Synchronizing Time</h6></td>';
+echo '<td><h6 id="timer-'.$lottimesync.'" style="color:red">Synchronizing Time</h6></td>';
 echo '';
 echo '<td>'.$st.'</td>';
 echo '<td>'.$ct.'</td>';
@@ -169,39 +171,39 @@ echo '</thead>';
 if($condtion){
 	echo '';
 echo '<tbody>';
-echo '<tr><td>'.$que->slotno.'</td>';
-echo '<td>'.$que->slotname.'</td>';
-echo '<td>'.$que->slotlocation.'</td>';
+echo '<tr><td>'.$query2[$lottimesync]->slotno.'</td>';
+echo '<td>'.$query2[$lottimesync]->slotname.'</td>';
+echo '<td>'.$query2[$lottimesync]->slotlocation.'</td>';
 echo '<td>'.$ct.'</td>';
 //echo '<td>'.$Remaining.'</td>';
-echo '<td>'.$que->sqty.'</td>';
-echo '<td>'.$que->sunitmeasurment.'</td>';
-echo '<td>'.$que->sstartbidprice.'</td>';
-echo '<td>'.$query[0]->mybid_val.'</td>';
-echo '<td>'.$que->cbidval.'</td>';
-if($que->sstartbidprice >= $que->cbidval){
-	$datbid = $que->sstartbidprice;
-	$datbid = $que->sstartbidprice + $que->sminincre;
+echo '<td>'.$query2[$lottimesync]->sqty.'</td>';
+echo '<td>'.$query2[$lottimesync]->sunitmeasurment.'</td>';
+echo '<td>'.$query2[$lottimesync]->sstartbidprice.'</td>';
+echo '<td>'.$quer->mybid_val.'</td>';
+echo '<td>'.$query2[$lottimesync]->cbidval.'</td>';
+if($query2[$lottimesync]->sstartbidprice >= $query2[$lottimesync]->cbidval){
+	$datbid = $query2[$lottimesync]->sstartbidprice;
+	$datbid = $query2[$lottimesync]->sstartbidprice + $query2[$lottimesync]->sminincre;
 }else{
-	$datbid = $que->cbidval;
+	$datbid = $query2[$lottimesync]->cbidval;
 }   
 
 //$sessa2 = urlencode($sess['sessi']);
 $sessa2 = str_ireplace('@','%40',$sess['sessi']);
-$id = $sessa2."|".str_ireplace('/','-',$query[0]->auctionid)."|".$que->slotno;
+$id = $sessa2."|".str_ireplace('/','-',$quer->auctionid)."|".$query2[$lottimesync]->slotno;
 echo '<td><div class="form-group row ml-2">';
-if($query[0]->abidding){
-	echo '<input class="form-control col-sm-7 mr-2" type="number" value="'.$datbid.'" min="0" step="'.$que->sminincre.'" id="bid" name="bid" readonly>';
+if($quer->abidding){
+	echo '<input class="form-control col-sm-7 mr-2" type="number" value="'.$datbid.'" min="0" step="'.$query2[$lottimesync]->sminincre.'" id="bid-'.$lottimesync.'" name="bid" readonly>';
 	echo '<button type="submit" class="btn btn-info" id="'.$id.'" onclick="bid_manual(this.id)" disabled>Bid</button></div>';
 	echo '';
 	echo '</td>';
-echo '<td><a href="'.base_url().'Buyer_liveauc_2/buyer_autobid_disable/'.str_ireplace('/','-',$query[0]->auctionid).'|'.$que->slotno.'"><button type="button" class="btn btn-info">Disable AutoBid</button></a></td>';
+echo '<td><a href="'.base_url().'Buyer_liveauc_2/buyer_autobid_disable/'.str_ireplace('/','-',$quer->auctionid).'|'.$query2[$lottimesync]->slotno.'"><button type="button" class="btn btn-info">Disable AutoBid</button></a></td>';
 }else{
-	echo '<input class="form-control col-sm-7 mr-2" type="number" value="'.$datbid.'" min="0" step="'.$que->sminincre.'" id="bid" name="bid">';
+	echo '<input class="form-control col-sm-7 mr-2" type="number" value="'.$datbid.'" min="0" step="'.$query2[$lottimesync]->sminincre.'" id="bid-'.$lottimesync.'" name="bid">';
 	echo '<button type="submit" class="btn btn-info" id="'.$id.'" onclick="bid_manual(this.id)">Bid</button></div>';
 	echo '';
 	echo '</td>';
-echo '<td><a href="'.base_url().'Buyer_liveauc_2/buyer_autobid/'.str_ireplace('/','-',$query[0]->auctionid).'|'.$query2[0]->slotno.'"><button type="button" class="btn btn-info" disabled>AutoBid</button></a></td>';
+echo '<td><a href="'.base_url().'Buyer_liveauc_2/buyer_autobid/'.str_ireplace('/','-',$quer->auctionid).'|'.$query2[$lottimesync]->slotno.'"><button type="button" class="btn btn-info" disabled>AutoBid</button></a></td>';
 }
 
 
