@@ -35,37 +35,69 @@ class Seller_viewrecentsoldproduct extends CI_Controller {
 		
 
 		$this->load->model('Admin_model');
-		$sapproval = array('sapproval'=>true);
-		$data['sqldat'] = $this->Admin_model->getdatafromtable('biddercart', $sapproval); 
+		$sapproval = array('sapproval'=>false);
+		$snamechk = array('susername'=>$sess['sessi']);
+		$data['sqld'] = $this->Admin_model->getdatafromtable('sellerprofile', $snamechk);
+		$snameseller= $data['sqld'][0]->sname;	
+	
+	    $snamechk2a = array('sname'=>$snameseller,'saucclosedate_time <'=>$time,);
 		
-	//print_r($data['sqldat'][1]); die;
-	//$data['sqldat'] = $this->Admin_model->datebetweensess2('biddercart',$time,$sess['sessi']);
-		
-		   $xr = 0;
-		   $xdata = array(); 
-		   
-		foreach($data['sqldat'] as $datsql){ 	
-		$auctmp = $datsql->auctionid;
-		$auclottmp = $datsql->lotno;
-		$username = $sess['sessi'];
-		$mybitvalref = $datsql->mybid_val;
-		
-		$datap = $this->Admin_model->maxbidvalue($auctmp, $auclottmp);
-		$mybitvalrec = $datap[0]->bidderusername;
-		$aucbidamount = $datap[0]->bidamount;
-		$mybitvaldatetime = $datap[0]->Date_time;
-		$myapproval = $datap[0]->sapproval;
-		if($username === $mybitvalrec){
-			$data['sqldatarec'][$xr] = $auctmp.'|'.$auclottmp.'|'.$mybitvalrec.'|'.$aucbidamount.'|'.$mybitvaldatetime.'|'.$myapproval;
-			$xr++;
-		}else{
+		 $aucdetails = $this->Admin_model->getdatafromtable('auction', $snamechk2a); 
 			
+		if($aucdetails){
+			
+		foreach($aucdetails as $aucdet){
+			$auct = $aucdet->sauctionid;
+			$aucdetarray = array('auctionid'=>$auct,'sapproval'=>true);
+			$data['sqldat'] = $this->Admin_model->getdatafromtable('biddercart',$aucdetarray );
+				
+			$xr = 0;
+				$xdata = array(); 
+				   
+				foreach($data['sqldat'] as $datsql){ 	
+				
+				$auctmp = $datsql->auctionid;
+			
+				$auclottmp = $datsql->lotno;
+				$busername = $datsql->bidderusername;
+				$mybitvalref = $datsql->mybid_val;
+				
+				$abc = array('auctionid'=>$auctmp,'lotno'=>$auclottmp,'bidderusername'=>$busername );
+				$act = $this->Admin_model->getdatafromtable('biddercart', $abc);
+			
+			
+				$approv =$act[0]->sapproval;
+				
+				
+				$datap = $this->Admin_model->maxbidvalue($auctmp, $auclottmp);
+			
+				
+				$aucbidamount = $datap[0]->bidamount;
+				
+				$maxvalue = array('bidamount'=>$aucbidamount);
+				$bidder = $this->Admin_model->getdatafromtable('biddingdata',$maxvalue);
+				//print_r($bidder);die;
+				if(count($bidder)){
+				$mybitvaldatetime = $bidder[0]->Date_time;
+				$mybitvalrec = $bidder[0]->bidderusername;
+				//
+				$approv =$bidder[0]->sapproval;
+					
+			
+				if($aucbidamount === $mybitvalref ){$data['sqldatarec'][] = $auctmp.'|'.$auclottmp.'|'.$mybitvalrec.'|'.$aucbidamount.'|'.$mybitvaldatetime;
+				
+					$xr++;
+					}
+				
+				}
 		}
+		}
+				
 		
 		}
 		
 		$sess = array('sessi'=>$this->session->userdata('username'));		
-		$this->load->helper('url');
+		
 		$this->load->view('seller/header',$sess);
 		$this->load->view('seller/viewrecentsoldproduct',$data);
 		$this->load->view('seller/footer');

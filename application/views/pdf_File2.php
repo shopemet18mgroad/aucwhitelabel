@@ -7,7 +7,7 @@
 	text-align: center;
 	padding-top:1px;
 	height: 40px;
-	background-color: #51adc2;
+	background-color: green;
 	color: #ffffff;
 	
 }

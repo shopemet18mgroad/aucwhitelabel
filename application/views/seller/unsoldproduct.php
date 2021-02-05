@@ -61,7 +61,7 @@
 		<td><?php echo $sqldata->sqty; ?></td>
 		<td><?php echo $sqldata->sgst; ?></td>
 		<td><?php echo $sqldata->slotlocation; ?></td>
-		<td><a href="<?php  echo base_url()."Seller_reauction/index/".str_ireplace('/','-',$sqldata->sauctionid);?>"><input type="button" class="btn btn-primary btn-sm" value="Reauction"></a></td>
+		<td><a href="<?php  echo base_url()."Seller_reauction/index/".str_ireplace('/','-',$sqldata->sauctionid).'/'.$sqldata->slotno;?>"><input type="button" class="btn btn-primary btn-sm" value="Reauction"></a></td>
 		
 			
 		</tr>

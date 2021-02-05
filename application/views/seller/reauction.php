@@ -1,5 +1,6 @@
 <?php 
 	//include('./header.php');
+	$relot = $scomps[0]->slotno;
 ?>
         <!-- End of Topbar -->
 
@@ -33,7 +34,7 @@
 
 	  <tr>
 		  <td>Seller Name</td>
-		  <td><input class="form-control w-50"  type="text" id="sname" name="sname" value="<?php echo  $scomp[0]->sname;?>" readonly>
+		  <td><input class="form-control w-50"  type="text" id="sname" name="sname" value="<?php echo $scomp[0]->sname;?>" readonly>
 		  </td>
 	  </tr>
 
@@ -68,7 +69,7 @@
     </tbody>
   </table>
   
-  <center><input type="submit" name="submit" class="btn btn-info" value="ReAuction" data-dismiss="modal"></center>
+  <center><a href="<?php echo base_url()."Seller_relot/index/".str_ireplace('/','-',$scomp[0]->sauctionid).'/'.$scomp[0]->sname.'/'.$relot;?>"><input type="button" name="submit" class="btn btn-info" value="ReAuction" data-dismiss="modal"></a></center>
  	 </form>
 
 			</div>

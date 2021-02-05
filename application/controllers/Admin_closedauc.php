@@ -56,8 +56,8 @@ class Admin_closedauc extends CI_Controller {
 		$aucbidamount = $datap[0]->bidamount;
 		//$myauction = $datap[0]->sauctionid;
 		//$mylotno = $datap[0]->slotno;
-		$maxvalue = array('bidamount'=>$aucbidamount);
-		$bidder = $this->Admin_model->getdatafromtable('biddingdata',$maxvalue);
+		$maxvalue = array('sauctionid'=>$auctmp,'slotno'=>$lotmp,'bidamount'=>$aucbidamount);
+		$bidder = $this->Admin_model->getdataDSCclosedate('biddingdata',$maxvalue);
 		if(count($bidder)){
 		$mybitvaldatetime = $bidder[0]->Date_time;
 		$mybitvalrec = $bidder[0]->bidderusername;

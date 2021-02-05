@@ -104,11 +104,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return $query->result();
 		}
 		
-		public function datebetween5($date){
+		public function datebetween5($table,$date){
 			$this->db->select('*');
 			//$this->db->from($table);
-			 $this->db->from('auction');
-			$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid');
+			$this->db->group_by('addlot.sauctionid');
+			$this->db->from('addlot');
+			$this->db->join('auction', 'auction.sauctionid = addlot.sauctionid');
 			$this->db->where('status =', 1);
 			$this->db->where('saucstartdate_time <=', $date);
 			$this->db->where('saucclosedate_time >=', $date);
@@ -378,7 +379,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			
 			return $q->result_array();
 		  }
-		  
+		  public function getdataDSCclosedate($table, $data) { 
+			//$this->db->limit(5)
+			$this->db->order_by("Date_time", "DESC");
+			$query = $this->db->get_where($table, $data); 
+			 return $query->result();
+		}
 		public function select()  
       {  
          //data is retrive from this query  

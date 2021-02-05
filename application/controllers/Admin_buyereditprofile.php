@@ -42,12 +42,13 @@ class Admin_buyereditprofile extends CI_Controller {
 			echo '<table class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';
 			echo '<thead class="bg-primary text-white">';
 			echo '<tr>';
+			echo '<th>S.No.</th>';
 			echo '<th>Buyer Name</th>';
 			echo '<th>Company Name</th>';
 			echo '<th>Contact Person</th>';
 			echo '<th>Location</th>';
 			echo '<th>City</th>';
-			//echo '<th>Subscription</th>';
+			echo '<th>Pincode</th>';
 			echo '<th>Status</th>';
 			echo '<th>Action</th>';
 			echo '</tr>';
@@ -55,17 +56,27 @@ class Admin_buyereditprofile extends CI_Controller {
 			echo '<tbody>';
 			foreach($data as $dat){
 				echo '<tr>';
-				echo '<td>'.$dat['bname'].'</td>';
+				echo '<td>'.$dat['id'].'</td>';
+				echo '<td width="5%">'.$dat['bname'].'</td>';
 				echo '<td>'.$dat['bcompany'].'</td>';
 				echo '<td>'.$dat['bcontactperson'].'</td>';
 				echo '<td>'.$dat['baddress'].'</td>';
 				echo '<td>'.$dat['bcity'].'</td>';
 				echo '<td>'.$dat['bpin'].'</td>';
-				echo '<td><a href="'.base_url().'admin_editbuyer/edit_buyer/'.$dat['bcompany'].'">';
+				$status = $dat['adaction'];
+				if($status == 1){
+				echo '<td style="color:green;"><b>'."ACTIVE".'</b></td>';
+				}else{
+				echo '<td style="color:red;"><b>'."INACTIVE".'</b></td>';	
+				}
+				echo '<td width="10%"><a href="'.base_url().'admin_editbuyer/edit_buyer/'.$dat['bcompany'].'">';
 				echo '<i class="fa fa-edit"></i>';
 				echo '</a>';
 				echo '<a href="'.base_url().'admin_editbuyer/delete_buyer/'.$dat['bcompany'].'" class="btn btn-sm text-white delete-confirm">';
 				echo '<i class="fa fa-trash" style="color:black"></i>';
+				echo '</a>';
+				echo '<a href="'.base_url().'Admin_buyereditprofile/INACTIVE/'.$dat['bcompany'].'" class="btn btn-sm text-white ">';
+				echo '<i class="fa fa-window-close" aria-hidden="true"  style="color:red"></i>';
 				echo '</a>';
 				echo '</td>';
 				echo '</td>';
@@ -111,6 +122,27 @@ class Admin_buyereditprofile extends CI_Controller {
 
 	}
 	
+	public function INACTIVE(){
+		$this->load->helper('url');
+		$this->load->library('session');
+		$dat = urldecode($this->uri->segment(3));
+		$data = array('bcompany'=>$dat);
+		$this->load->model('Admin_model');
+		$dat4 = $this->Admin_model->getdatafromtable('buyerprofile',$data);
+			
+		$Buyername = $dat4[0]->bname;	
+		$companyname = $dat4[0]->bcompany;
+		$username = $dat4[0]->busername;
+		
+		$update = array('adaction'  => false);
+		
+		$updatecheck = array('bname'=>$Buyername,'bcompany'=>$companyname,'busername'=>$username);
+		$status = $this->Admin_model->update_custom('buyerprofile',$update,$updatecheck,$updatecheck);
+		
+		
+		header('location: '.base_url().'Admin_buyereditprofile/index/');
+		die;
+	}
 	
 }
 echo "<script>\n";

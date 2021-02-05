@@ -203,7 +203,7 @@
 		 swal("Alert!", "Please Select Categoery First", "error");
 		 return false;
 	 }
-	 if(cat2.length<6){
+	 if(cat2.length<21){
 		  document.getElementById('sauctionid').value = "AUC/"+cat2+"/"+cat+"/"+m+"/"+n+"/"+s;
 	 }
  }
