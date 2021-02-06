@@ -101,7 +101,7 @@
                   <div class="card-body text-center">
                     <i class="fa fa-globe fa-5x mb-3" aria-hidden="true"></i>
                     <h4 class="text-uppercase mb-5">Contact Info</h4>
-                    <p>Email: info@shopemet.com</br>Phone: +91 9980596460</br>URL:www.rawmet24.com</br>URL:www.aucjunction.com</p>
+                    <p>Email: admin@aucjunction.com</br>Phone: +91 9980596460</br>URL:www.rawmet24.com</br>URL:www.aucjunction.com</p>
                   </div>
                 </div>
 			</div>	

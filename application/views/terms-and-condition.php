@@ -93,10 +93,7 @@ Server hosting the Auction Engine. It shall be the endeavour of AucJunction to e
 Server Time reflects as closely as possible the Indian Standard Time (IST) i.e. UTC + 05.30 hrs.
 However, in the event of any deviations between the Server Time and the Indian Standard
 Time, the functioning of the Auction Engine (including Start, Operation &amp; closure of auctions)
-would be guided by the Server Time. Bidders participating in the auctions are advised to refresh
-
-the right-side window of the Auction room to check the exact Server Time that is displayed
-there.</br></br>
+would be guided by the Server Time.</br></br>
 
 <span class="fontbld">TERM OF AGREEMENT</span>
 This Agreement shall continue to be in full force and effect for so long as you are using the
@@ -139,7 +136,7 @@ logging into the website.</br></br>
 note that multiple login from the same IP Address will not be permitted.</br></br>
 <span class="fontbld">3.2 Time Extension - </span>If any market-leading bid (bid higher/lower than the highest/lowest at the
 point in time) is received in the last three minutes of closing time, the closing time will be
-extended automatically by three minutes. Please note, Time Extension as mentioned in the
+extended automatically by five minutes. Please note, Time Extension as mentioned in the
 bidding room will apply and three minutes is only an example.</br></br>
 <span class="fontbld">3.3 Bids - </span>All bids placed are legally valid bids and are to be considered as bids from the Bidder
 himself. Once the bid is placed, the Bidders cannot modify or withdraw the bid for whatever any

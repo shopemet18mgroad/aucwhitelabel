@@ -48,7 +48,7 @@
 				</tr>
 				</thead>
 				<tbody>
-   	<?php if(isset($sqldatarec)){ foreach($sqldatarec as $sqldata){ $datareciver = explode('|',$sqldata);?>
+   	<?php if(isset($sqldatarec)){ $s = array_unique($sqldatarec); foreach($s as $sqldata){ $datareciver = explode('|',$sqldata);?>
 		
 					<tr>												
 						

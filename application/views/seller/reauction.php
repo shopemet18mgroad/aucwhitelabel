@@ -56,8 +56,9 @@
 
 	  <tr>
 		<td>Auction Start And End Date</td>
-		<td><input class="form-control w-75" id="saucstartdate_time" name="saucstartdate_time" type="datetime-local" ><br>
-		<input class="form-control w-75" id="saucclosedate_time" name="saucclosedate_time" type="datetime-local" >
+		<td><input class="form-control w-50" id="saucstartdate_time" name="saucstartdate_time" type="datetime-local" value="<?php echo date('Y-m-d\TH:i', strtotime($scomp[0]->saucstartdate_time)); ?>">
+		
+		<input class="form-control w-50" id="saucclosedate_time" name="saucclosedate_time" type="datetime-local" value="<?php echo date('Y-m-d\TH:i', strtotime($scomp[0]->saucclosedate_time)); ?>">
 		</td>
 	</tr>
 	
@@ -69,7 +70,8 @@
     </tbody>
   </table>
   
-  <center><a href="<?php echo base_url()."Seller_relot/index/".str_ireplace('/','-',$scomp[0]->sauctionid).'/'.$scomp[0]->sname.'/'.$relot;?>"><input type="button" name="submit" class="btn btn-info" value="ReAuction" data-dismiss="modal"></a></center>
+  <center><a  href="<?php echo base_url()."Seller_relot/index/".str_ireplace('/','-',$scomp[0]->sauctionid).'/'.$scomp[0]->sname.'/'.$relot;?>"><button type="button" class="btn btn-info">ReAuction</button></a>
+  </center>
  	 </form>
 
 			</div>

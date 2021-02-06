@@ -54,19 +54,29 @@ class Admin_salesreport extends CI_Controller {
 
 		$myauction = $datap[0]->sauctionid;
 		$mylotno = $datap[0]->slotno;
-		$mybitvalrec = $datap[0]->bidderusername;
+		//$mybitvalrec = $datap[0]->bidderusername;
 		$aucbidamount = $datap[0]->bidamount;
 		//print_r($aucbidamount); die;
-		$mybitvaldatetime = $datap[0]->Date_time;
+		//$mybitvaldatetime = $datap[0]->Date_time;
 		//$myapproval = $datap[0]->sapproval;
+		
+				$maxvalue = array('sauctionid'=>$auctmp,'slotno'=>$lotmp,'bidamount'=>$aucbidamount);
+				$bidder = $this->Admin_model->getdatafromtable('biddingdata',$maxvalue);
+				//print_r($bidder);die;
+				if(count($bidder)){
+				$mybitvaldatetime = $bidder[0]->Date_time;
+				$mybitvalrec = $bidder[0]->bidderusername;
+				//
+				$approv =$bidder[0]->sapproval;
+
 		 if($aucbidamount){   
-			$data['sqldatarec'][$xr] = $myauction.'|'.$mylotno.'|'.$mybitvalrec.'|'.$aucbidamount.'|'.$mybitvaldatetime;
+			$data['sqldatarec'][$xr] = $auctmp.'|'.$lotmp.'|'.$mybitvalrec.'|'.$aucbidamount.'|'.$mybitvaldatetime;
 			
 			$xr++; 
 		   } else{
 			
 		}    
-		
+				}
 		}
 		
 		
