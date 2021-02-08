@@ -41,17 +41,18 @@ class Buyer_liveauc_2 extends CI_Controller {
 		$query = $this->Admin_model->getdatafromtable('biddercart', $active);
 		$query2 = $this->Admin_model->getdatafromtable('addlot', $active2);
 		$data['sqldata'] = $query;
-		
-		$aucstarttime = $data['sqldata'][0]->aucstartdate_time;
+		$jk = count($query2);
+		for($i=0;$i<$jk;$i++){
+		$aucstarttime = $data['sqldata'][$i]->aucstartdate_time;
 		$tmp1 = explode('.',$aucstarttime);
 		$aucstarttime = $tmp1[0];
-		$data['st'] = $aucstarttime;
+		$data['st'][$i] = $aucstarttime;
 		
-		$aucclosetime = $data['sqldata'][0]->aucclosedate_time;
+		$aucclosetime = $data['sqldata'][$i]->aucclosedate_time;
 		$tmp = explode('.',$aucclosetime);
 		$aucclosetime = $tmp[0];
-		$data['ct'] = $aucclosetime;
-		
+		$data['ct'][$i] = $aucclosetime;
+		}
 		$data['sqldata2'] = $query2;
 		$data['sessi'] = $sess['sessi'];
 		$this->load->view('buyer/header',$sess);

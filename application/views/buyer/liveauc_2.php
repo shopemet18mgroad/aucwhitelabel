@@ -1,6 +1,6 @@
  <?php 
 	//include('./header.php');
-	
+	//print_r($sqldata); die;
 ?>
         <!-- End of Topbar -->
 
@@ -51,8 +51,8 @@
 					
 					<td><?php echo $sqldata[$lottimesync]->bidderusername; ?></td>
 					<td><h6 id="timer-<?php echo $lottimesync;?>" style="color:red">Synchronizing Time</h6></td>
-					<td><?php echo $st; ?></td>
-					<td><?php echo $ct; ?></td>
+					<td><?php echo $st[$lottimesync]; ?></td>
+					<td><?php echo $ct[$lottimesync]; ?></td>
 					<td><a href="#"><u>Click here</u></a></td>
 				</tr>
 				</tbody>
@@ -86,7 +86,7 @@
 				<?php 
 				date_default_timezone_set('Asia/Kolkata');
 				$time =  Date('Y-m-d H:i:s');
-				$diff = (strtotime($sqldata[0]->aucclosedate_time) - strtotime($time));
+				$diff = (strtotime($sqldata[$lottimesync]->aucclosedate_time) - strtotime($time));
 				//$diff = abs($time - $sqldata[0]->aucclosedate_time);  
 			//$diff = strtotime($query[0]->aucclosedate_time)-strtotime($time);
 		$years = floor($diff / (365*60*60*24));  
@@ -108,7 +108,7 @@ if($diff <= 0){
 				<tr><td><?php echo $sqld->slotno; ?></td>												
 					<td><?php echo $sqld->slotname; ?> </td>
 					<td><?php echo $sqld->slotlocation; ?></td>
-					<td><?php echo $ct; ?></td>
+					<td><?php echo $ct[$lottimesync]; ?></td>
 					<!-- <td><?php echo $Remaining; ?></td> -->
 					<td><?php echo $sqld->sqty; ?></td>
 					<td><?php echo $sqld->sunitmeasurment; ?></td>
