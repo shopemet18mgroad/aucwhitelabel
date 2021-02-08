@@ -92,7 +92,7 @@
                     <i class="fa fa-map-marker fa-5x mb-3" aria-hidden="true"></i>
                     <h4 class="text-uppercase mb-5">Corp Office - 2</h4>
                    <p>Address: </br>
-					#1755, SVS Complex, Kengeri Satellite Town, Bangalore - 560 060.</p>
+					#23, 3rd Floor, Binnamangala 1st Stage, Indra Nagar,<br> Bangalore - 560 038.<br>Landmark: Behind Asha Sweets</p>
                   </div>
                 </div>
 			</div>

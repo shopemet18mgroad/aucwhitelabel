@@ -38,6 +38,7 @@ class Seller_reauction_update extends CI_Controller {
 		$this->load->model('Admin_model');
 		$date =  Date('Y-m-d');
 		
+		$slotno = $this->input->post('slotno');
 		$sname = $this->input->post('sname');
 		$sauctionid = $this->input->post('sauctionid');
 		$scompanyname = $this->input->post('scompanyname');
@@ -46,15 +47,14 @@ class Seller_reauction_update extends CI_Controller {
 	
 		 $data2 = array('sname' => $sname,'sauctionid' => $sauctionid, 'scompanyname' => $scompanyname,'saucstartdate_time' => $saucstartdate_time, 'saucclosedate_time' => $saucclosedate_time);
 		//$this->load->view('xya', $data);
-		$datainserr = "Data Inserted Successfully";
+		//$datainserr = "Data Inserted Successfully";
 		$updatech = array('sauctionid' => $sauctionid);
 		$status = $this->Admin_model->update_custom('auction',$data2,$updatech,$updatech);
-		
 	
-		header('location: '.base_url().'Seller_relot/index/'.$datainserr);
+		header('location: '.base_url().'Seller_relot/relot2/'.str_ireplace('/','-',$sauctionid).'/'.$sname.'/'.$slotno);
+	
+	}
 	
 		
-	
-		
-}
+
 }

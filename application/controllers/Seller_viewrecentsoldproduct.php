@@ -43,13 +43,15 @@ class Seller_viewrecentsoldproduct extends CI_Controller {
 	    $snamechk2a = array('sname'=>$snameseller,'saucclosedate_time <'=>$time,);
 		
 		 $aucdetails = $this->Admin_model->getdatafromtable('auction', $snamechk2a); 
-			
+			//print_r($aucdetails); die;
 		if($aucdetails){
 			
 		foreach($aucdetails as $aucdet){
 			$auct = $aucdet->sauctionid;
 			$aucdetarray = array('auctionid'=>$auct,'sapproval'=>true);
 			$data['sqldat'] = $this->Admin_model->getdatafromtable('biddercart',$aucdetarray );
+			
+			
 				
 			$xr = 0;
 				$xdata = array(); 

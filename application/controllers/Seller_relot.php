@@ -29,17 +29,51 @@ class Seller_relot extends CI_Controller {
 			die;
 		}else{
 			$sess = array('sessi'=>$this->session->userdata('username'));
-			$this->load->model('Admin_model');
-			$auc = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
-			$sname = urldecode($this->uri->segment(4));
-			$lot = urldecode($this->uri->segment(5));
-			$retriveval1 = array('sauctionid'=>$auc,'sname'=>$sname,'slotno'=>$lot);
-		$data['scomps'] = $this->Admin_model->getdatafromtable('addlot', $retriveval1);
-		//print_r($data['scomps']); die;
 		$this->load->view('seller/header',$sess);
-		$this->load->view('seller/relot',$data);
+		$this->load->view('seller/relot');
 		$this->load->view('seller/footer');
 		
 	}
+	}
+	
+	public function relot2(){
+
+		$auc = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
+		
+		$sname = urldecode($this->uri->segment(4));
+		$slotno = urldecode($this->uri->segment(5));
+		//print_r($slotno); die;
+		
+		$retriveval1 = array('sauctionid'=>$auc,'sname'=>$sname,'slotno'=>$slotno);
+		$this->load->model('Admin_model');
+		
+		$data['scomps'] = $this->Admin_model->getdatafromtable('addlot', $retriveval1);
+		//echo '<pre>';
+		//print_r($data['scomps']);die;
+		//echo '</pre>';
+		$this->load->helper('url');
+		
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('seller/header',$sess);
+		$this->load->view('seller/relot',$data);
+		$this->load->view('seller/footer');
+	}
+	public function relot2_alert(){
+		$retrivevaltmp = $this->uri->segment(3);
+		$retrivevaltmp2 = urldecode(str_ireplace('-','/',$this->uri->segment(4)));
+		echo '<script language="javascript">';
+			echo 'alert("'.$retrivevaltmp2.'")';  //not showing an alert box.
+			echo '</script>';
+		$retriveval = array('sauctionid'=>$retrivevaltmp2);
+		$this->load->model('Admin_model');
+		
+		$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
+		$this->load->helper('url');
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('seller/header',$sess);
+		$this->load->view('seller/relot');
+		$this->load->view('seller/footer');
 	}
 }

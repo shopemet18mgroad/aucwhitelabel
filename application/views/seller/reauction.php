@@ -34,7 +34,8 @@
 
 	  <tr>
 		  <td>Seller Name</td>
-		  <td><input class="form-control w-50"  type="text" id="sname" name="sname" value="<?php echo $scomp[0]->sname;?>" readonly>
+		  <td><input class="form-control w-50"  type="hidden" id="slotno" name="slotno" value="<?php echo $scomps[0]->slotno;?>" readonly>
+		  <input class="form-control w-50"  type="text" id="sname" name="sname" value="<?php echo $scomp[0]->sname;?>" readonly>
 		  </td>
 	  </tr>
 
@@ -70,7 +71,8 @@
     </tbody>
   </table>
   
-  <center><a  href="<?php echo base_url()."Seller_relot/index/".str_ireplace('/','-',$scomp[0]->sauctionid).'/'.$scomp[0]->sname.'/'.$relot;?>"><button type="button" class="btn btn-info">ReAuction</button></a>
+  <center><a  href="<?php echo base_url()."Seller_relot/relot2/".str_ireplace('/','-',$scomp[0]->sauctionid).'/'.$scomp[0]->sname.'/'.$relot;?>"><input type="submit" class="btn btn-info" value="ReAuction">
+  <!--<button type="button" class="btn btn-info">ReAuction</button>--></a>
   </center>
  	 </form>
 

@@ -52,10 +52,13 @@ class Seller_reauction extends CI_Controller {
 		$data['scomps'] = $this->Admin_model->getdatafromtable('addlot', $retriveval1);
 		//print_r($data['scomps']); die;
 	//print_r($data['scomp']); die;
+	
 		$this->load->view('seller/header',$sess);
 		$this->load->view('seller/reauction',$data);
 		$this->load->view('seller/footer');
 		
 	}
 	}
+	
+	
 }
