@@ -206,9 +206,11 @@ function telapsed() {
 			var disp = h + "Hours:" + m + " Minutes:" + s + " Seconds"; 
 			if(d <= 0){
 				$(dtvar).html('Auction Closed');
-				return false;
+				//return false;
+			}else{
+				$(dtvar).html(disp); d--; $(dvar).val(d);
 			}
-			  $(dtvar).html(disp); d--; $(dvar).val(d);
+			  
 			   //$(dtvar).html('Auction Closed'+i);
 		  } // you could choose not to continue on failure...
 		 
