@@ -38,10 +38,12 @@ class Buyer_liveauc_2 extends CI_Controller {
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$active = array('bidderusername'=>$sess['sessi'],'auctionid'=>$auctionid);
 		$active2 = array('sauctionid'=>$auctionid);
-		$query = $this->Admin_model->getdatafromtable('biddercart', $active);
+		$query = $this->Admin_model->get('biddercart', $active);
 		$query2 = $this->Admin_model->getdatafromtable('addlot', $active2);
 		$data['sqldata'] = $query;
-		$jk = count($query2);
+		
+		
+		$jk = count($query);
 		for($i=0;$i<$jk;$i++){
 		$aucstarttime = $data['sqldata'][$i]->aucstartdate_time;
 		$tmp1 = explode('.',$aucstarttime);
@@ -54,6 +56,9 @@ class Buyer_liveauc_2 extends CI_Controller {
 		$data['ct'][$i] = $aucclosetime;
 		}
 		$data['sqldata2'] = $query2;
+		//echo '<pre>';
+		//print_r($data['sqldata2']); die;
+		//echo '</pre>';
 		$data['sessi'] = $sess['sessi'];
 		$this->load->view('buyer/header',$sess);
 		$this->load->view('buyer/liveauc_2', $data);
@@ -75,7 +80,7 @@ class Buyer_liveauc_2 extends CI_Controller {
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$active = array('bidderusername'=>$sess['sessi'],'auctionid'=>$auctionid/*, 'lotno'=>$lotno, */);
 		$active2 = array('sauctionid'=>$auctionid/* ,'slotno'=>$lotno, */);
-		$query = $this->Admin_model->getdatafromtable('biddercart', $active);
+		$query = $this->Admin_model->get('biddercart', $active);
 		$query2 = $this->Admin_model->getdatafromtable('addlot', $active2);
 		$lottimesync = 0;
 		
@@ -305,11 +310,12 @@ echo '</table>';
 				die;
 			}else{
 				if($diff >= 5 && $diff < 180){
+					$this->Admin_model->insert('biddingdata', $dataforupdate5);
 					$this->Admin_model->update_custom('addlot',$dataforupdate,$active2,$active2);
 					$this->Admin_model->update_custom('biddercart',$dataforupdate2,$active3,$active3);
 					$this->Admin_model->update_custom('biddercart',$dataforupdate3,$active4,$active4);
 					$this->Admin_model->update_custom('auction',$dataforupdate4,$active2,$active4);
-					$this->Admin_model->insert('biddingdata', $dataforupdate5);
+					
 					//$this->Admin_model->update_custom('auction',$dataforupdate4,$active2,$active4);
 				}else{
 					if($diff < 5){
@@ -320,6 +326,7 @@ echo '</table>';
 						$this->Admin_model->update_custom('biddercart',$dataforupdate2,$active3,$active3);
 						//$this->Admin_model->update_custom('biddingdata',$dataforupdate5,$active2,$active4);
 						$this->Admin_model->insert('biddingdata', $dataforupdate5);
+						
 					}
 					
 				}

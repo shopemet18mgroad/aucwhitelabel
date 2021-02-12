@@ -104,6 +104,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return $query->result();
 		}
 		
+		public function get($table, $data) { 
+		$this->db->where('emdrequest =', 1 <> 'emd_paid_dd =', 1);
+			 $query = $this->db->get_where($table, $data); 
+			 return $query->result();
+		}
+		
 		public function datebetween5($table,$date){
 			$this->db->select('*');
 			//$this->db->from($table);

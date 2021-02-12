@@ -206,6 +206,7 @@ function validate_password(){
 				});
 				var res = v.split("|");
 		  var tvar = res[1]+'|'+res[2];
+		 
 				$.get('<?php echo base_url() .'Buyer_liveauc_2/get_table_ajax/'; ?>'+tvar, function(data3){
 				$('#ajaxauc').html(data3);
 				});

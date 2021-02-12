@@ -24,7 +24,7 @@ firm, proprietor’s personal PAN card is required.
 Bank&#39;s Letter-head. If such verification is done on Customer&#39;s Letter-head, then the full Address
 of the Branch of the Bank must be mentioned.
 </br></br>
-<span class="fontbld">5.</span> Two Passport size Color Photographs of the Proprietor / Partner / Director ( for issue of
+<!--<span class="fontbld">5.</span> Two Passport size Color Photographs of the Proprietor / Partner / Director ( for issue of
 Photo ID card by AUCJUNCTION) - The Proprietor / Partner / Director ( or a person authorized by the
 Director in case of Public / Private limited Company) of the Customer&#39;s Firm will be required to
 put his specimen signature on the ID Card. In case of Proprietorship / Partnership Firm, the
@@ -33,8 +33,8 @@ office. In case of Public / Private Limited Company, this may be done by request
 Networks Pvt Ltd to send the impanelment agreement where it can be signed and return to
 Shopemet Networks Pvt Ltd. It will be the Customer&#39;s responsibility to ensure that he obtains the
 duly authorized Copy of Impanelment agreement from Shopement Networks Pvt Ltd.
-</br></br>
-<span class="fontbld">6.</span> Notarized Photocopies of Valid Registration Certificates from Central and State Pollution
+</br></br>-->
+<span class="fontbld">5.</span> Notarized Photocopies of Valid Registration Certificates from Central and State Pollution
 Control Boards for Hazardous Waste items (If applicable) - It may be noted that on receipt of the
 said Certificates, Shopement Networks Pvt Ltd will record the Validity Period of the Customer&#39;s
 CPCB certificate in the buyer registration Form on the website and only thereafter the registered
@@ -45,18 +45,18 @@ always be the Customer&#39;s responsibility to ensure that both his SPCB &amp; C
 kept valid or duly revalidated within the prescribed time for the purpose of participating in the e-
 Auction in accordance with the stipulated special Terms &amp; Conditions if the particular eAuction.
 </br></br>
-<span class="fontbld">7.</span> Copy of email confirmation Letter received from Shopement Networks Pvt ltd after successful
+<span class="fontbld">6.</span> Copy of email confirmation Letter received from Shopement Networks Pvt ltd after successful
 completion of on-line registration and containing buyer registration details of the Customer -
 This should be duly counter-signed by the Customer and returend to Shopement Networks Pvt
 Ltd along with his offline documents for verification.
 </br></br>
-<span class="fontbld">8.</span> Copy of partnership deed to be submitted for partnership firms.
+<span class="fontbld">7.</span> Copy of partnership deed to be submitted for partnership firms.
 Originals of the above documents may please be produced for verification at the time of
 Shopmet’s Executive visits your Office/Factory.</p>
 <p><span class="textsize">Registration fee:</span></p>
 </br>
 <p class="aboutus-text">In order to participate in our on-line E-auctions, you are requested to pay a one-time non-
-refundable Subscription fee of Rs, 7850/- ( Rs 7850 + service tax @ 18 % of 1413 ) in form of
+refundable Subscription fee of Rs, 8850/- ( Rs 7500 + service tax @ 18 % of 1350 ) in form of
 DD/Online Payment using our Payment Gateway in favour of Shopemet Networks Pvt Ltd
 payable at respective Region / Branch at any office of Shopemet Networks Pvt Ltd within 10
 days otherwise your details will be deleted from our database.</p>
