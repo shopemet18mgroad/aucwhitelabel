@@ -187,6 +187,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$query = $this->db->get();
 			return $query->result();
 		}
+		public function totalmaxvaluebuyer($busername){
+			$this->db->select('*');
+			$this->db->select_sum('mybid_val');
+			$this->db->select_sum('sapproval');
+			$this->db->from('biddercart');
+			$this->db->join('buyerprofile', 'buyerprofile.busername = biddercart.bidderusername');
+			//$this->db->where('auctionid =', $auct);
+			$this->db->where('bidderusername =', $busername);
+			$query = $this->db->get();
+			return $query->result();
+		}
+	
+	public function totalmaxvalueseller($sname){
+			$this->db->select('*');
+			$this->db->select_sum('biddercart.mybid_val');
+			$this->db->select_sum('biddercart.sapproval');
+			$this->db->from('biddercart');
+			$this->db->join('auction', 'auction.sauctionid = biddercart.auctionid');
+			$this->db->join('sellerprofile', 'sellerprofile.sname = auction.sname');
+			//$this->db->where('auctionid =', $auct);
+			$this->db->where('auction.sname =', $sname);
+			$query = $this->db->get();
+			return $query->result();
+		}
 
 	 public function dateclosedauc($date){
 			$this->db->select('*');
