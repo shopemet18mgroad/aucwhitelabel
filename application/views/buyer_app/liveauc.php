@@ -20,21 +20,20 @@
           <div class="card shadow mb-4">
             <div class="card-body">
               <div class="table-responsive">
-			  <table class="table table-striped table-sm text-center table-bordered " id="dataTable" width="100%" cellspacing="0">
-				<thead class="bg-primary text-white">
-				<tr>
-					<th scope="col" width="60%">Click for Auction</th>
-					<th scope="col">Lot No.</th>
-					<th scope="col">Description</th>
+			  <table class="table table-striped table-center table-sm  text-center table-bordered " id="dataTable" width="100%" cellspacing="0">
+				<thead>
+				<tr class="bg-primary text-white">
+					<th width="60%">Click for Auction</th>
+					<th>Seller Name</th>
+				
 				</tr>
 				</thead>
 				<tbody id="liveauc">
-			 <?php foreach($sqldata as $sqldat){?>
+			 <?php foreach ($sqldata as $sqldat){?>
 					<tr>												
-					<td data-label="Click for Auction"><a href="<?php echo base_url()."Buyer_liveauc_2/index/".str_ireplace('/','-',$sqldat->auctionid)."|".$sqldat->lotno;?>"><?php echo $sqldat->auctionid;?></a>
+					<td data-label="Auction Id"><a href="<?php echo base_url()."Buyer_app_liveauc_2/index/".str_ireplace('/','-',$sqldat->auctionid);?>"><?php echo $sqldat->auctionid;?></a>
 					</td>
-					<td data-label="Lot No."><?php echo $sqldat->lotno;?></td>
-					<td data-label="Description"><?php echo $sqldat->description;?></td>
+					<td data-label="Seller Name"><?php echo $sqldat->sname; ?></td>
 					</tr>
 			 <?php }?>	
 				</tbody>

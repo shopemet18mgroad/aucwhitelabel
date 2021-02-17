@@ -62,25 +62,25 @@ class Buyer_app_forthcoming extends CI_Controller {
 		if(count($data)){
 			  
 			
-			echo '<table id="myTable" class="table table-striped table-bordered table-sm text-center mt-5" w-auto small width="100%" cellspacing="0">';
+			echo '<table id="myTable" class="table table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';
 			echo '<thead class="bg-warning text-white">';
 			echo '<tr>';
 			echo '<th colspan="12">Add Lot In Your List</th>';
 			echo '</tr>';
 			echo '<thead class="bg-primary text-white">';
-			echo '<tr class="row header">';
-			echo '<th  class="cell">Auction Id</th>';
-			echo '<th  class="cell">Lot No</th>';
-			echo '<th  class="cell">Lot Name</th>';
-			echo '<th  class="cell">Auction Start Time</th>';
-			echo '<th  class="cell">Category</th>';
-			echo '<th  class="cell">Lot Description</th>';
-			echo '<th  class="cell">Seller / Company Name</th>';
-			echo '<th  class="cell">Quantity</th>';
-			echo '<th  class="cell">GST</th>';
-			echo '<th  class="cell">Location</th>';
-			echo '<th  class="cell">Download</th>';
-			echo '<th  class="cell">Add to Mylist</th>';
+			echo '<tr>';
+			echo '<th>Auction Id</th>';
+			echo '<th>Lot No</th>';
+			echo '<th>Lot Name</th>';
+			echo '<th>Auction Start Time</th>';
+			echo '<th>Category</th>';
+			echo '<th>Lot Description</th>';
+			echo '<th>Seller / Company Name</th>';
+			echo '<th>Quantity</th>';
+			echo '<th>GST</th>';
+			echo '<th>Location</th>';
+			echo '<th>Download</th>';
+			echo '<th>Add to Mylist</th>';
 			echo '</tr>';
 			echo '</thead>';
 			echo '<tbody>';
@@ -91,9 +91,9 @@ class Buyer_app_forthcoming extends CI_Controller {
 				$respdata = $this->Admin_model->getdatafromtable('auction',$saucqarray);
 			
 				if($respdata){
-					echo '<tr class="row">';
+					echo '<tr>';
 
-				 echo '<td style="color:blue" class="cell" data-title="Auction Id">'; 
+				 echo '<td style="color:blue" data-label="Auction Id">'; 
 
 
 				//echo $dat['sauctionid'];	
@@ -101,22 +101,22 @@ class Buyer_app_forthcoming extends CI_Controller {
 				//echo '</a>'; 
 				echo '</td>'; 
 				echo '<td data-label="Lot No">'.$dat['slotno'].'</td>';
-				echo '<td>'.$dat['slotname'].'</td>';
+				echo '<td data-label="Lot Name">'.$dat['slotname'].'</td>';
 				$aucstarttime = $respdata[0]->saucstartdate_time;
 				$tm = explode('.',$aucstarttime);
 				$aucstarttime = $tm[0];
 				$st = $aucstarttime;
-				echo '<td>'.$st.'</td>';
-				echo '<td>'.$dat['scategory'].'</td>';
-				echo '<td>'.$dat['sdescription'].'</td>';
-				echo '<td>'.$dat['sname'].'</td>';
-				echo '<td>'.$dat['sqty'].'</td>';
-				echo '<td>'.$dat['sgst'].'</td>';
-				echo '<td>'.$dat['slotlocation'].'</td>';
-				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$aucencode.'/'.($dat['sname']).'" target="_blank"><i class="fa fa-download"></i></a></td>';
+				echo '<td data-label="Auction Start Time">'.$st.'</td>';
+				echo '<td data-label="Category">'.$dat['scategory'].'</td>';
+				echo '<td data-label="Lot Description">'.$dat['sdescription'].'</td>';
+				echo '<td data-label="Seller / Company Name">'.$dat['sname'].'</td>';
+				echo '<td data-label="Quantity">'.$dat['sqty'].'</td>';
+				echo '<td data-label="GST">'.$dat['sgst'].'</td>';
+				echo '<td data-label="Location">'.$dat['slotlocation'].'</td>';
+				echo '<td data-label="Download"><a href="'.base_url().'/pdf_gen/auc_no/'.$aucencode.'/'.($dat['sname']).'" target="_blank"><i class="fa fa-download"></i></a></td>';
 				echo '';
 
-				echo '<td>';
+				echo '<td data-label="Add to Mylist">';
 				$desc = str_ireplace(',','%2C',$dat['sdescription']);
 				$desc2 = str_ireplace('(','%28',$desc );
 				$desc3 = str_ireplace(')','%29',$desc2 );

@@ -49,7 +49,7 @@
 <script>
 		$('.gettable').on('keyup', function(){
 			var contents = $('#gettable').val(); 
-			$.get('<?php echo base_url() .'buyer_liveauc/get_table/'; ?>'+contents, function(data){
+			$.get('<?php echo base_url() .'buyer_app_liveauc/get_table/'; ?>'+contents, function(data){
 				$('#ajaxrslt').html(data);
 			});
 		});
@@ -59,7 +59,7 @@
  <script>
 		$('.gettable').on('keyup', function(){
 			var contents = $('#gettable').val(); 
-			$.get('<?php echo base_url() .'buyer_liveauc2/get_table/'; ?>'+contents, function(data){
+			$.get('<?php echo base_url() .'Buyer_app_liveauc_2/get_table/'; ?>'+contents, function(data){
 				$('#ajaxrslt').html(data);
 			});
 		});
@@ -81,7 +81,7 @@
 
 		$('#gettable_forthcomingauc').on('keyup', function(){
 			var contents = $('#gettable_forthcomingauc').val(); 
-			$.get('<?php echo base_url() .'buyer_forthcomingauc/get_table/'; ?>'+contents, function(data){
+			$.get('<?php echo base_url() .'Buyer_app_forthcoming/get_table/'; ?>'+contents, function(data){
 				$('#ajaxrslt_forthcomingauc1').html(data);
 			});
 		});
@@ -102,7 +102,7 @@
     $('#gettable_forthcomingauc').change( function(){
 		
 		var contents = $('#gettable_forthcomingauc').val(); 
-			 $.get('<?php echo base_url() .'buyer_forthcomingauc/get_table/'; ?>'+contents, function(data){
+			 $.get('<?php echo base_url() .'Buyer_app_forthcoming/get_table/'; ?>'+contents, function(data){
 				$('#ajaxrslt_forthcomingauc').html(data);
 			});
 
@@ -121,7 +121,7 @@
 	
 	$('#gettable_forth').on('keyup', function(){
 			var contents = $('#gettable_forth').val(); 
-			$.get('<?php echo base_url() .'buyer_forthcomingauc/get_table/'; ?>'+contents, function(data){
+			$.get('<?php echo base_url() .'Buyer_app_forthcoming/get_table/'; ?>'+contents, function(data){
 				$('#ajaxrslt_forthcomingauc').html(data);
 			});
 		});
@@ -130,7 +130,7 @@
 <script>
 
 function addtocart(v){
-  $.get('<?php echo base_url() .'buyer_forthcomingauc/Addtocart/'; ?>'+v, function(data){
+  $.get('<?php echo base_url() .'Buyer_app_forthcoming/Addtocart/'; ?>'+v, function(data){
 	  if($.trim(data)=="EX"){
 		  document.getElementById(v).style.color="blue";
 		  return false;
@@ -183,8 +183,12 @@ function validate_password(){
  
  <script>
  function  bid_manual(v){
-	 var k = document.getElementById('bid').value;
-	 $.get('<?php echo base_url() .'Buyer_liveauc_2/get_currency/'; ?>'+k, function(data){
+	
+	 var spd = v.split("|");
+	 var spdvar = "bid-"+(spd[2]-1);
+	 var k = document.getElementById(spdvar).value;
+	 // alert(k);return false;
+	 $.get('<?php echo base_url() .'Buyer_app_liveauc_2/get_currency/'; ?>'+k, function(data){
 		 if(data){
 			 swal({
   title: "Are you sure?", 
@@ -195,14 +199,15 @@ function validate_password(){
 })
 .then((willDelete) => {
   if (willDelete) {
-	  $.get('<?php echo base_url() .'Buyer_liveauc_2/storebidval/'; ?>'+v+'|'+k, function(data2){
+	  $.get('<?php echo base_url() .'Buyer_app_liveauc_2/storebidval/'; ?>'+v+'|'+k, function(data2){
 		  if($.trim(data2) == "Done"){
 			  swal("You Bid Has Been Placed!", {
 				  icon: "success",
 				});
 				var res = v.split("|");
 		  var tvar = res[1]+'|'+res[2];
-				$.get('<?php echo base_url() .'Buyer_liveauc_2/get_table_ajax/'; ?>'+tvar, function(data3){
+		 
+				$.get('<?php echo base_url() .'Buyer_app_liveauc_2/get_table_ajax/'; ?>'+tvar, function(data3){
 				$('#ajaxauc').html(data3);
 				});
 				
@@ -232,10 +237,10 @@ function validate_password(){
 	 var a = $('#bidperunit').val();
 	 var b = $('#bidmax').val();
 	 
-	 $.get('<?php echo base_url() .'Buyer_liveauc_2/buyer_autobid_set/'; ?>'+a+'|'+b+'|'+v, function(dataab){
+	 $.get('<?php echo base_url() .'Buyer_app_liveauc_2/buyer_autobid_set/'; ?>'+a+'|'+b+'|'+v, function(dataab){
 		 if($.trim(dataab) == "Done"){
 			 var res = v.split("|");
-			window.location = '<?php echo base_url() .'Buyer_liveauc_2/index/'; ?>'+res[1]+'|'+res[2];
+			window.location = '<?php echo base_url() .'Buyer_app_liveauc_2/index/'; ?>'+res[1]+'|'+res[2];
 		 }else{
 			  swal("Something Went Wrong Please Try again!", {
 				  icon: "error",

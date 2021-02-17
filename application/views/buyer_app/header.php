@@ -56,7 +56,7 @@
 </style>
  
 <style>
-<!--
+
 /* body {
   font-family: "Open Sans", sans-serif;*/
   line-height: 1.25;
@@ -123,6 +123,7 @@ table th {
     display: block;
     font-size: .8em;
     text-align: right;
+	margin-left: 2px;
   }
   
   table td::before {
@@ -139,192 +140,17 @@ table th {
   table td:last-child {
     border-bottom: 0;
   }
-}-->
+}
+
+
 </style> 
-<style>
-#body
-  font-family: 'Helvetica Neue', Helvetica, Arial
-  font-size: 14px
-  line-height: 20px
-  font-weight: 400
-  color: #3b3b3b
-  -webkit-font-smoothing: antialiased
-  font-smoothing: antialiased
-  background: #2b2b2b
-  
-  @media screen and (max-width: 580px)
-    font-size: 16px
-    line-height: 22px
 
-.wrapper
-  margin: 0 auto
-  padding: 40px
-  max-width: 800px
-
-.table
-  margin: 0 0 40px 0
-  width: 100%
-  box-shadow: 0 1px 3px rgba(0,0,0,0.2)
-  display: table
-  @media screen and (max-width: 580px)
-    display: block
-
-.row
-  display: table-row
-  background: #f6f6f6
-  
-  &:nth-of-type(odd)
-    background: #e9e9e9
-  
-  &.header
-    font-weight: 900
-    color: #ffffff
-    background: #ea6153
-  
-  &.green
-    background: #27ae60
-  
-  &.blue
-    background: #2980b9
-   
-  @media screen and (max-width: 580px)
-    padding: 14px 0 7px
-    display: block
-    
-    &.header
-      padding: 0
-      height: 6px
-      
-      .cell
-        display: none
-    
-    .cell
-      margin-bottom: 10px
-      
-      &:before
-        margin-bottom: 3px
-        content: attr(data-title)
-        min-width: 98px
-        font-size: 10px
-        line-height: 10px
-        font-weight: bold
-        text-transform: uppercase
-        color: #969696
-        display: block
-
-.cell
-  padding: 6px 12px
-  display: table-cell
-  @media screen and (max-width: 580px)
-    padding: 2px 16px
-    display: block
-</style>
 </head>
 
 <body id="page-top" data-spy="scroll" data-target="#myScrollspy" data-offset="1">
 
   <!-- Page Wrapper -->
   <div id="wrapper">
-
-    <!-- Sidebar -->
-    <ul class="navbar-nav bg-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-      <!-- Sidebar - Brand -->
-      
-
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
-
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
-        <a class="nav-link" href="#">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-      <!-- Heading -->
-	<div class="sidebar-heading">
-		Buyer
-      </div>
-
-
-      <!-- Divider -->
-<!--<li class="nav-item">
-        <a class="nav-link collapsed" href="<?php echo base_url();?>buyer_dashboard" data-toggle="collapse" data-target="#myScrollspy" aria-expanded="true" aria-controls="collapseProduct">
-          <i class="fas fa-fw fa-user"></i>
-          <span>Update Profile</span>
-        </a>
-        <div id="myScrollspy" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="<?php echo base_url();?>buyer_dashboard">Personal</a>
-            <a class="collapse-item" href="#section2">Contact</a>
-            <a class="collapse-item" href="#section3">Password</a>
-            <a class="collapse-item" href="#section4">Account</a>
-			<a class="collapse-item" href="#section5">Documents</a>
-          </div>
-        </div>
-      </li>-->
-	  
-	
-      <!-- Divider -->
-      <!--<hr class="sidebar-divider">-->
-
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Manage
-      </div> 	
-	  
-	    <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url();?>Buyer_app_forthcomingauc">
-          <i class="fas fa-fw fa-gavel"></i>
-          <span>Forthcoming Auction</span></a>
-      </li>
-	  
-	  	  <!--<li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url();?>buyer_detailedauc">
-          <i class="fas fa-chart-bar"></i>
-          <span>Bidding Details</span></a>
-      </li>-->
-
-	<!-- <li class="nav-item">
-        <a class="nav-link collapsed" href="<?php echo base_url();?>buyer_occupied" data-toggle="collapse" data-target="#history" aria-expanded="true" aria-controls="collapseProduct">
-          <i class="fa fa-file"></i>
-          <span>History</span>
-        </a>
-        <div id="history" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="<?php echo base_url();?>buyer_occupied">Occupied Product</a>
-            <a class="collapse-item" href="<?php echo base_url();?>buyer_lostproduct">Lost Product</a>
-           </div>
-        </div>
-      </li>-->
-	
-
-	  
-	   <!--<li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url();?>buyer_mylist">
-          <i class="fas fa-fw fa-shopping-cart"></i>
-          <span>My List</span></a>
-      </li>-->
-	  
-	  <li class="nav-item">
-	  	<a class="nav-link" href="<?php echo base_url();?>buyer_liveauc"><i class="fas fa-fw fa-gavel"></i><span><b>Live Auction</b></span></a>
-	   	 </li>
-	   	
-      <!-- Divider -->
-      <hr class="sidebar-divider d-none d-md-block">
-
-      <!-- Sidebar Toggler (Sidebar) -->
-      <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-      </div>
-
-    </ul>
-    <!-- End of Sidebar -->
-
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
 
@@ -332,42 +158,27 @@ table th {
       <div id="content">
 
         <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+        <nav class="navbar navbar-expand navbar-light bg-white topbar static-top shadow">
 			<a class="sidebar-brand d-flex align-items-center justify-content-center" href="buyer_dashboard">
         <div class="sidebar-brand-img rotate-n-20 ">
-         <img src="<?php echo base_url()."web_files/";?>img/aucjunction.jpg" class="img-fluid" alt="" width="40%;">
+         <img src="<?php echo base_url()."web_files/";?>img/aucjunction.jpg" class="img-fluid" alt="" width="70%;">
         </div>
         
       </a>
-          <!-- Sidebar Toggle (Topbar) -->
-<!--           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-          </button> -->
-
-          <!-- Topbar Search 
-          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-            <div class="input-group">
-              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                  <i class="fas fa-search fa-sm"></i>
-                </button>
-              </div>
-            </div>
-          </form>-->
-		<div class="col-sm-5 w-auto">
-			<a href="<?php echo base_url();?>buyer_liveauc"><span class="blinking"><b>Live Auction</b></span></a>
+         
+		<div class="col-sm-7">
+			<a href="<?php echo base_url();?>Buyer_app_liveauc"><span class="blinking mr-5" ><b>Live Auction</b></span></a>
 		</div>
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 
             <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-            <li class="nav-item dropdown no-arrow d-sm-none">
+            <!--<li class="nav-item dropdown no-arrow d-sm-none">
               <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-search fa-fw"></i>
               </a>
               <!-- Dropdown - Messages -->
-              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+              <!--<div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
                 <form class="form-inline mr-auto w-100 navbar-search">
                   <div class="input-group">
                     <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
@@ -450,5 +261,39 @@ table th {
             </li>
 
           </ul>
-
         </nav>
+		<!--2nd nav bar-->
+	
+<nav class="navbar navbar-expand topbar mb-5 bg-primary static-top shadow">
+
+      <!-- Divider -->
+   	
+	  
+	    <div class="nav-item">
+        <a class="nav-link" href="<?php echo base_url();?>Buyer_app_forthcoming">
+          <i class="fas fa-fw fa-gavel mr-2" style="color:white;"></i>
+          <span style="color:white;">Forthcoming Auction</span></a>
+      </div>
+	  
+	  
+	   <div class="nav-item mr-3">
+        <a class="nav-link" href="<?php echo base_url();?>buyer_app_mylist">
+          <i class="fas fa-fw fa-shopping-cart mr-2" style="color:white;"></i>
+          <span style="color:white;">My List</span></a>
+      </div>
+	  
+	  <div class="nav-item">
+	  	<a class="nav-link" href="<?php echo base_url();?>buyer_app_liveauc"><i class="fas fa-fw fa-gavel mr-2" style="color:white;"></i><span style="color:white;"><b>Live Auction</b></span></a>
+	   	 </div>
+	   	
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+
+    </ul>
+        </nav>
+		

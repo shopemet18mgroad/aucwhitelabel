@@ -50,7 +50,8 @@ th, td {
 
 <pre><?php echo $companyltype[0] ;?><br>
 <?php echo $companyaddress[0] ;?><br>
-Phone No.<?php echo $sql[0]->sphone ;?></pre>
+For Further Information Contact To Aucjunction<br>
+Helpline No:+91 9945454505,08042332722 </pre>
 
 	<div class="bara w-100">
 		<p><strong>ONLINE AUCTION PLATFORM AND SUPPORT SERVICES PROVIDED BY AUCJUNCTION</strong></p>
