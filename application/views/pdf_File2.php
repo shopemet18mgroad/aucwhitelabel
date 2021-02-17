@@ -50,8 +50,7 @@ th, td {
 
 <pre><?php echo $companyltype[0] ;?><br>
 <?php echo $companyaddress[0] ;?><br>
-For Further Information Contact To Aucjunction<br>
-Helpline No:+91 9945454505,08042332722 </pre>
+ </pre>
 
 	<div class="bara w-100">
 		<p><strong>ONLINE AUCTION PLATFORM AND SUPPORT SERVICES PROVIDED BY AUCJUNCTION</strong></p>
@@ -91,7 +90,8 @@ annexed hereto and as per schedule of programme given below. </p>
   </tr>
   <tr>
     <td>Venue of Inspection</td>
-    <td><?php echo $sqldata2[0]->svinspection; ?>
+    <td>Contact To Aucjunction<br>
+Helpline No:+91 9945454505,08042332722
 </td>
    
   </tr>
