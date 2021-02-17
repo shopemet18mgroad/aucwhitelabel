@@ -64,10 +64,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$query = $this->db->get();
 			return $query->result();
 		}
-		
+		//Function for fetching the data by joining auction and addlot table
 		public function datebetweenhome($date){
 			$this->db->select('*');
 			$this->db->from('auction');
+		//Fetching the data for the  	
 			$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid');
 			$this->db->where('saucstartdate_time <=', $date);
 			$this->db->where('saucclosedate_time >=', $date);
@@ -228,7 +229,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			 $query = $this->db->get($table); 
 			 return $query->result();
 		} 
-		
+	//Fetching  news from database from latestnews 
 		public function gettablenews($table) {
 			$this->db->limit(2);			
 			 $query = $this->db->get($table); 
@@ -245,6 +246,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 		
 		public function getdatafromtablejoin7($table,$table2,$joincolname,$compdata){
+			
 			$this->db->select('*');
 			$this->db->from($table);
 			$this->db->join($table2, "$table.$joincolname = $table2.$joincolname");
@@ -252,11 +254,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$query = $this->db->get();
 			return $query->result();
 		}
+		
+		
+		//Joing aution table and addlot table and fetching all upcomming approved auction  data. 
 		public function getdatafromtablehomejoin($date){
 			$this->db->select('*');
 			 $this->db->from('auction');
-			$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid');
-			$this->db->where('status =', 1);
+			//Joing aution table and addlot table using sauctionid 
+			 $this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid');
+			//Fetching approved lots ,if it is approved lot  the satatus will be 1 else it is 0
+			 $this->db->where('status =', 1);
+			//comparing the date and time for filtering the aution lot according to the current time 
 			$this->db->where('saucstartdate_time >=', $date);
 			//$this->db->limit(4);
 			$query = $this->db->get();
@@ -266,28 +274,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 		
 		
-		
+		//Joining the two tables auction and addlot using sauction and fetching the 
 		public function getdatafromtablejoinallauc(){
 			$this->db->select('*');
 			 $this->db->from('auction');
-			$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid');
+			 $this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid');
 			//$this->db->where('status =', 1);
 			//$this->db->limit(4);
 			$query = $this->db->get();
 			return $query->result();
 		}
-		
+		//Query for deleting the data from the database 
 		  public function delete_data($table, $data) { 
 			 if ($this->db->delete($table, $data)) { 
 				return true; 
 			 } 
 		  } 
-   
+  		 //Query for Update a table with data and comp
 		  public function update($table,$data,$comp) { 
 			 $this->db->set($data); 
 			 $this->db->where("cat_name", $comp); 
 			 $this->db->update($table, $data); 
 		  } 
+		  
 		  public function update_custom($table,$data,$colname,$comp) { 
 			 $this->db->set($data); 
 			 $this->db->where($colname, $comp);
