@@ -22,9 +22,9 @@ class Buyer_app_liveauc_2 extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$this->load->library('session');
-		if(!$this->session->has_userdata('username')|| $this->session->userdata('auth') != "BUYER"){
+		if(!$this->session->has_userdata('username')|| $this->session->userdata('auth') != "Buyer_App"){
 			$datainserr = "Invalid Login Session";
-			header('location: '.base_url().'login/index_error/'.$datainserr);
+			header('location: '.base_url().'buyer_app_forthcoming/index_error/'.$datainserr);
 			die;
 		}else{
 		$variable = $this->uri->segment(3);
@@ -198,14 +198,14 @@ $sessa2 = str_ireplace('@','%40',$sess['sessi']);
 $id = $sessa2."|".str_ireplace('/','-',$quer->auctionid)."|".$query2[$lottimesync]->slotno;
 echo '<td data-label="Bid"><div class="form-group row ml-2">';
 if($quer->abidding){
-	echo '<input class="form-control col-sm-7 mr-2" type="number" value="'.$datbid.'" min="0" step="'.$query2[$lottimesync]->sminincre.'" id="bid-'.$lottimesync.'" name="bid" readonly>';
-	echo '<button type="submit" class="btn btn-info" id="'.$id.'" onclick="bid_manual(this.id)" disabled>Bid</button></div>';
+	echo '<input class="form-control w-50 ml-5  mr-1" type="number" value="'.$datbid.'" min="0" step="'.$query2[$lottimesync]->sminincre.'" id="bid-'.$lottimesync.'" name="bid" readonly>';
+	echo '<button type="submit" class="btn btn-info w-auto small w-25 ml-2" id="'.$id.'" onclick="bid_manual(this.id)" disabled>Bid</button></div>';
 	echo '';
 	echo '</td>';
 echo '<td data-label="Autobid"><a href="'.base_url().'Buyer_app_liveauc_2/buyer_autobid_disable/'.str_ireplace('/','-',$quer->auctionid).'|'.$query2[$lottimesync]->slotno.'"><button type="button" class="btn btn-info">Disable AutoBid</button></a></td>';
 }else{
-	echo '<input class="form-control col-sm-7 mr-2" type="number" value="'.$datbid.'" min="0" step="'.$query2[$lottimesync]->sminincre.'" id="bid-'.$lottimesync.'" name="bid">';
-	echo '<button type="submit" class="btn btn-info" id="'.$id.'" onclick="bid_manual(this.id)">Bid</button></div>';
+	echo '<input class="form-control w-50 ml-5 mr-1" type="number" value="'.$datbid.'" min="0" step="'.$query2[$lottimesync]->sminincre.'" id="bid-'.$lottimesync.'" name="bid">';
+	echo '<button type="submit" class="btn btn-info w-auto small w-25 ml-2" id="'.$id.'" onclick="bid_manual(this.id)">Bid</button></div>';
 	echo '';
 	echo '</td>';
 echo '<td data-label="Autobid"><a href="'.base_url().'Buyer_app_liveauc_2/buyer_autobid/'.str_ireplace('/','-',$quer->auctionid).'|'.$query2[$lottimesync]->slotno.'"><button type="button" class="btn btn-info" disabled>AutoBid</button></a></td>';

@@ -15,7 +15,7 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="<?php echo base_url()."logout/index/".$sessi;?>">Logout</a>
+          <a class="btn btn-primary" href="<?php echo base_url()."Buyer_app_login/index/".$sessi;?>">Logout</a>
         </div>
       </div>
     </div>
@@ -252,4 +252,251 @@ function validate_password(){
  </script>
 
 
+
+
+<!--buyer app registeration-->
+
+ 
+  <script>
+ function validate_bname(){
+	  var cat2 = document.getElementById('bcompany').value;
+	 if(cat2){
+		  document.getElementById('bname').value = cat2 ;
+	 }
+ }
+ </script>
+
+
+  <script>
+  function validate_bgst(){
+	  var val = document.getElementById("bgst").value;
+		if(val != ''){
+			 $.get('<?php echo base_url() .'Buyer_app_registeration/validate_bgst/'; ?>'+val, function(data2){				 
+				 if($.trim(data2) == "BYE"){
+					swal("Alert!",  "GST No. Already Exists", "error");
+					document.getElementById("bgst").value = "";
+					return false;
+				}else{
+					return true;
+				}
+			 });
+			
+		}else{
+			swal("Alert!",  "Please Enter GST No.!", "error");
+			return false;
+		}
+  }
+  </script>
+  
+  
+ 
+
+  
+ 
+ <!-----------------------buyer capcha----------------------------------->
+   <script>
+  
+function validate(){
+
+	var bcompany = document.getElementById("bcompany").value;
+	var bcomptype = document.getElementById("bcomptype").value;
+	var bbuyertype = document.getElementById("bbuyertype").value;
+	var bbuyerlocation = document.getElementById("bbuyerlocation").value;
+	var bcontactperson = document.getElementById("bcontactperson").value;
+	var bdesignation = document.getElementById("bdesignation").value;
+	var baddress = document.getElementById("baddress").value;
+	var bcity = document.getElementById("bcity").value;
+	var bpin = document.getElementById("bpin").value;
+	var bstate = document.getElementById("bstate").value;
+	var bcountry = document.getElementById("bcountry").value;
+	var bemail = document.getElementById("bemail").value;
+	var phoneNo = document.getElementById("bphone").value;
+	var bpan = document.getElementById("bpan").value;
+	var busername = document.getElementById("busername").value;
+	var bpassword = document.getElementById("bpassword").value;
+	var bconfirmpassword = document.getElementById("bconfirmpassword").value;
+	var bgst = document.getElementById("bgst").value;
+	var bcapcha = document.getElementById("captcha").value; 
+	//var saddress = document.getElementsByName("saddress");
+	//var ssigneddocument = document.getElementsByName("ssigneddocument");
+	//var AnswerInput = document.getElementsByName("saddresscount");
+	
+if( bcompany == '' || bcomptype == '' || bbuyertype == '' || bbuyerlocation == '' || bcontactperson == '' || bdesignation == ''|| baddress == '' || bcity == '' || bpin == '' || bstate == '' || bcountry == '' || bemail == '' || phoneNo == '' || bpan == '' || busername == '' || bpassword == '' || bconfirmpassword == '' || bgst == ''|| bcapcha == '' ){
+		swal("Alert!",  "Company, Company Type, Buyer Type, Buyer's Location, Contact Person, Postal Address, City, Pin, State/Union Ter, E-Mail, Phone No, Pan No, User Name, Password , Confirm Password , GST No, Security Code  cannot leave any feild blank!", "error");
+		return false;
+	}
+	
+	if (phoneNo.value.length < 10 || phoneNo.value.length > 10) {
+    swal("Alert!", "Mobile No. is not valid, Please Enter 10 Digit Mobile No.", "error");
+    return false;
+  }
+  else if (phoneNo.value == "") {
+    swal("Alert!","Please enter your Mobile No.","error");
+    return false;
+  }
+	
+	if(bpassword != bconfirmpassword){
+		swal("Alert!",  "Password and Confirm Password Should Match!", "error");
+		return false;
+	}
+	
+}
+  </script>
+ 
+ <script>
+  
+    $('.refreshCaptcha').on('click', function(){
+        $.get('<?php echo base_url() .'Buyer_app_registeration/refresh'; ?>', function(data){
+            $('#captImg').html(data);
+        });
+    });
+  </script>
+   <script>
+  function validate_cap1(){
+	  var captcha = document.getElementById("captcha").value;
+		if(captcha.length >= 4){
+			$.get('<?php echo base_url() .'Buyer_app_registeration/validate_capatcha/'; ?>'+captcha, function(data){
+            $('#captImg').html(data);
+				if($.trim(data) == "Bye"){
+					swal("Alert!",  "Invalid Captcha", "error");
+					document.getElementById("captcha").value = "";
+					return false;
+				}else{
+					return true;
+				}
+			});
+		}
+	 
+	 // var b = document.getElementById("bpassword").value;
+
+	}
+   
+  </script>
+  
+  <script>
+  function validate_bcompany(){
+	  var val = document.getElementById("bcompany").value;
+		if(val != ''){
+			 $.get('<?php echo base_url() .'Buyer_app_registeration/validate_bcompany/'; ?>'+val, function(data2){				 
+				 if($.trim(data2) == "BYE"){
+					swal("Alert!",  "Buyer Company Already Exists", "error");
+					document.getElementById("bcompany").value = "";
+					return false;
+				}else{
+					return true;
+				}
+			 });
+			
+		}else{
+			swal("Alert!",  "Please Enter Buyer Company Name!", "error");
+			return false;
+		}
+  }
+
+   </script>
+  
+  
+  <script>
+  function validate_username1(){
+	  var val = document.getElementById("busername").value;
+		if(val != ''){
+			 $.get('<?php echo base_url() .'Buyer_app_registeration/validate_username1/'; ?>'+val, function(data2){				 
+				 if($.trim(data2) == "BYE"){
+					swal("Alert!",  "Username Already Exists", "error");
+					document.getElementById("busername").value = "";
+					return false;
+				}else{
+					return true;
+				}
+			 });
+			
+		}else{
+			swal("Alert!",  "Please Enter User Name!", "error");
+			return false;
+		}
+  }
+
+   </script>
+   
+   
+      <script>
+  function validate_tanc2(){
+	   var agree = document.getElementById('agreement');
+	   var user = document.getElementById('user').value;
+	   if(agree.checked){
+				$.get('<?php echo base_url() .'registration/complete2/'; ?>'+user, function(data2){						
+				 if($.trim(data2) == "HI"){
+					swal("Thank You!", "Data Stored Successfully", "success");
+				}else{
+					alert(data2);
+					swal("Alert!", "Terms and condition Failed Store", "error");
+					return false;
+				}
+			 });
+	   }else{
+		    swal("Alert!", "Please Tick On Accept Agreement To Complete Registration", "error");
+			return false;
+	   }
+	  
+
+  }
+  </script>
+     
+   
+   <script>
+  function validate_tanc(){
+	   var agree = document.getElementById('agreement');
+	   var user = document.getElementById('user').value;
+	   if(agree.checked){
+				$.get('<?php echo base_url() .'registration/complete/'; ?>'+user,
+				
+				function(data2){						
+				 if($.trim(data2) == "HI"){
+					swal("Thank You!", "Data Stored Successfully", "success");
+					window.location = "<?php echo base_url() .'home/index/'; ?>" 
+				}else{
+					alert(data2);
+					swal("Alert!", "Terms and condition Failed Store", "error");
+					return false;
+				}
+			 });
+	   }else{
+		    swal("Alert!", "Please Tick On Accept Agreement To Complete Registration", "error");
+			return false;
+	   }
+	   
+	   
+
+  }
+  </script>
+  
+  <!------buyer--->
+  <script>
+  function validate_regb(){
+	   var agree = document.getElementById('agreement');
+	   var user = document.getElementById('user').value;
+	   if(agree.checked){
+				$.get('<?php echo base_url() .'registrationb/completebuyer/'; ?>'+user,
+				
+				function(data2){						
+				 if($.trim(data2) == "HI"){
+				 swal("Thank You!", "Data Stored Successfully", "success");
+				 
+				window.location = "<?php echo base_url() .'buyer_app_login/index/'; ?>" 
+				
+				 }else{
+					alert(data2);
+					swal("Alert!", "Terms and condition Failed Store", "error");
+					return false;
+				}
+				});
+	   }else{
+		    swal("Alert!", "Please Tick On Accept Agreement To Complete Registration", "error");
+			return false;
+	   }
+	   
+	   
+
+  }
+  </script>
 

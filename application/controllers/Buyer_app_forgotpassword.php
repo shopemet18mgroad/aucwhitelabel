@@ -1,6 +1,6 @@
 <?php
 
-class forgotpassword extends CI_Controller
+class Buyer_app_forgotpassword extends CI_Controller
 {
 public function __construct() {
 parent::__construct();
@@ -146,7 +146,7 @@ parent::__construct();
 							
 					   }
 						$this->session->set_userdata($newdata);		
-					  header('location: '.base_url().'Reset_Password');
+					  header('location: '.base_url().'Buyer_app_resetpassword');
 				  die;
 				  }
 				  
@@ -265,12 +265,12 @@ parent::__construct();
 							//return redirect('Reset_Password');
 					   }
 					$this->session->set_userdata($newdata);
-					  header('location: '.base_url().'Reset_Password');
+					  header('location: '.base_url().'Buyer_app_resetpassword');
 					  die;
 				  }
 			  }else{
 				  $datainserr = "Invalid Email Id";
-				  header('location: '.base_url().'forgotpassword/index_error/'.$datainserr);
+				  header('location: '.base_url().'Buyer_app_forgotpassword/index/'.$datainserr);
 				  die;
 			  }
 			  die;
@@ -311,7 +311,7 @@ parent::__construct();
 						   $status = $this->Admin_model->insert('resetpassword', $newdata);
 					   }
 
-					  header('location: '.base_url().'Reset_Password');
+					  header('location: '.base_url().'Buyer_app_resetpassword');
 				  die;
 				  }
 				  
@@ -337,21 +337,21 @@ parent::__construct();
 						   $status = $this->Admin_model->insert('resetpassword', $newdata);
 					   }
 					  
-					  header('location: '.base_url().'Reset_Password');
+					  header('location: '.base_url().'Buyer_app_resetpassword');
 					  die;
 				  }
 			  }else{
 				  $datainserr = "Invalid Phone No.";
-				  header('location: '.base_url().'forgotpassword/index_error/'.$datainserr);
+				  header('location: '.base_url().'Buyer_app_forgotpassword/index'.$datainserr);
 				  die;
 			  }
 			  die;
 			  
 		}else{
 			
-			$this->load->view('header2');
-			$this->load->view('forgotpassword');
-			$this->load->view('footer');
+			
+			$this->load->view('buyer_app/forgotpassword');
+			$this->load->view('buyer_app/footer');
 		}
 		
 		
@@ -362,9 +362,9 @@ parent::__construct();
 			echo '<script language="javascript">';
 			echo 'alert("'.$alertmsg.'")';  //not showing an alert box.
 			echo '</script>';
-			$this->load->view('header');
-			$this->load->view('forgotpassword');
-			$this->load->view('footer');
+		
+			$this->load->view('buyer_app/forgotpassword');
+			$this->load->view('buyer_app/footer');
 			
 	}
 

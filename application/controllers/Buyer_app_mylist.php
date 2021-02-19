@@ -50,9 +50,9 @@ class Buyer_app_mylist extends CI_Controller {
 		}
 		$this->load->model('Admin_model');
 		$this->load->library('session');
-		if(!$this->session->has_userdata('username')|| $this->session->userdata('auth') != "BUYER"){
+		if(!$this->session->has_userdata('username')|| $this->session->userdata('auth') != "Buyer_App"){
 			$datainserr = "Invalid Login Session";
-			header('location: '.base_url().'login/index_error/'.$datainserr);
+			header('location: '.base_url().'Buyer_app_login/index_error/'.$datainserr);
 			die;
 		}else{
 		//$data1 = $this->session->flashdata('txdata');

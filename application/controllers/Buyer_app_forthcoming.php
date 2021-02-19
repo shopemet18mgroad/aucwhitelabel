@@ -39,16 +39,16 @@ class Buyer_app_forthcoming extends CI_Controller {
 		$this->load->helper(array('url','html'));
 		$this->load->library('session');
 		
-		if(!$this->session->has_userdata('username')|| $this->session->userdata('auth') != "BUYER"){
+		if(!$this->session->has_userdata('username')|| $this->session->userdata('auth') != "Buyer_App"){
 			$datainserr = "Invalid Login Session";
-			header('location: '.base_url().'login/index_error/'.$datainserr);
+			header('location: '.base_url().'buyer_app_forthcoming/index_error/'.$datainserr);
 			die;
 		}else{
 		
 		
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('buyer_app/header',$sess);
-		$this->load->view('buyer_app/index');
+		$this->load->view('buyer_app/buyer_app_forthcoming');
 		$this->load->view('buyer_app/footer');
 		}
 		
@@ -150,14 +150,15 @@ class Buyer_app_forthcoming extends CI_Controller {
 			echo '<tbody>';
 			echo '<tr>';
 				echo '<td><a href="'.base_url().'#">';
-				echo '<td>No Records Found</td>';
-				echo '<td>No Records Found</td>';
-				echo '<td>No Records Found</td>';
-				echo '<td>No Records Found</td>';
-				echo '<td>No Records Found</td>';
-				echo '<td>No Records Found</td>';
-				echo '<td>No Records Found</td>';
-				echo '<td>No Records Found</td>';
+				echo '<td data-label="Lot No">No Records Found</td>';
+				echo '<td data-label="Lot Name">No Records Found</td>';
+				echo '<td data-label="Auction Start Time">No Records Found</td>';
+				echo '<td data-label="Lot Description">No Records Found</td>';
+				echo '<td data-label="Seller / Company Name">No Records Found</td>';
+				echo '<td data-label="Quantity">No Records Found</td>';
+				echo '<td data-label="GST">No Records Found</td>';
+				echo '<td data-label="Location">No Records Found</td>';
+				echo '<td data-label="Add to Mylist">No Records Found</td>';
 				echo '</tr>';
 			echo '</tbody>';
 			echo '</table>';

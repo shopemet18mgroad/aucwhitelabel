@@ -20,7 +20,7 @@
           <div class="card shadow mb-4">
             <div class="card-body">
               <div class="table-responsive">
-			  <table class="table table-striped table-center table-sm  text-center table-bordered " id="dataTable" width="100%" cellspacing="0">
+			  <table class="table table-center table-sm  text-center table-bordered " id="dataTable" width="100%" cellspacing="0">
 				<thead>
 				<tr class="bg-primary text-white">
 					<th width="60%">Click for Auction</th>

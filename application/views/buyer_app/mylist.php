@@ -87,9 +87,9 @@
 					<td data-label="EMD Pay By DD">
 					
 			
-					<input class="form-group w-auto"  multiple="multiple"  type="file" name="upload_dd[]">
+					<input class="form-group w-auto" style="position:relative;" multiple="multiple"  type="file" name="upload_dd[]">
 					<input type="hidden" name="auc[]" value="<?php echo $sessi.'|'.$aucencode.'|'.$sqldata->lotno;?>"> 
-					<input type="submit" id="" class="btn btn-primary " name="submit" value="Upload">
+					<input type="submit" id="" class="btn btn-primary"  name="submit" value="Upload">
 		 
 					</td>
 					
