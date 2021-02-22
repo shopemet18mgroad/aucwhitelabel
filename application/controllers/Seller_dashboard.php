@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Seller_dashboard extends CI_Controller {
+class Seller_dashboard extends CI_Controller
+{
 
 	/**
 	 * Index Page for this controller.
@@ -22,26 +23,30 @@ class Seller_dashboard extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$this->load->library('session');
-		if(!$this->session->has_userdata('username')|| $this->session->userdata('auth') != "SELLER"){
+		//Checking the whether the session is set with username or not 
+		//if session is set with the username will give access to the page or says invalid session
+		//it will check with the auth variable  is seller or not if not autologout
+		if (!$this->session->has_userdata('username') || $this->session->userdata('auth') != "SELLER") {
 			$datainserr = "Invalid Login Session";
-			header('location: '.base_url().'login/index_error/'.$datainserr);
+			header('location: ' . base_url() . 'login/index_error/' . $datainserr);
 			die;
-		}else{
-		$this->load->model('Admin_model');
-		$scomapnyname = $this->uri->segment(3);
-		
-		
-		$sess = array('sessi'=>$this->session->userdata('username'));
-			$active = array('susername'=>$sess['sessi']);
+		} else {
+			$this->load->model('Admin_model');
+			//$companyname has the value of company name 
+			$scomapnyname = $this->uri->segment(3);
+			//
+			//Checking the session
+			//$sess hold the value of username from the session 
+			$sess = array('sessi' => $this->session->userdata('username'));
+			//$active hold the username
+			$active = array('susername' => $sess['sessi']);
+			//Fetching data from the sellerprofile 
 			$query = $this->Admin_model->getdatafromtable('sellerprofile', $active);
-			$data['sqldata']= $query;
+			$data['sqldata'] = $query;
 			$data['scomapnyname'] = $scomapnyname;
-			$this->load->view('seller/header',$sess);
-			$this->load->view('seller/index',$data);
+			$this->load->view('seller/header', $sess);
+			$this->load->view('seller/index', $data);
 			$this->load->view('seller/footer');
 		}
-		
-		
 	}
-	
 }
