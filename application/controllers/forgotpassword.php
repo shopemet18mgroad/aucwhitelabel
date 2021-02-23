@@ -18,7 +18,7 @@ parent::__construct();
 		$this->load->helper('url');
 		$this->load->library('session');
 		$this->session->sess_expiration = '3600';
-		if($this->input->post('email')){
+		if($this->input->post('email')||$this->input->post('phoneno')){
 			if($this->input->post('optradio')=="Buyer"){
 				$table = "buyerprofile";
 				$colname = "bemail";
@@ -30,7 +30,7 @@ parent::__construct();
 			}
 			$email = $this->input->post('email');
 			$phoneno = $this->input->post('phoneno');
-			$check_db = array($colname => $email);
+			$check_db = array($colname => $email,$colname2 => $phoneno);
 			$this->load->model('Admin_model');
 			  if($this->Admin_model->check($table, $check_db)){
 				  if($table == "buyerprofile"){
@@ -40,10 +40,11 @@ parent::__construct();
 					  //$bname,$busername,$time 
 					  $bname = $newdata[0]->bname;
 					  $busername = $newdata[0]->busername;
+					  $bphone = $newdata[0]->bphone;
 					  $bemail = $newdata[0]->bemail;
 					  $otp = rand(00000,99999);
 					  
-					  $newdata = array('name'=>$bname,'username'=>$busername,'email'=>$bemail,'date_time'=>$time,'otp'=>$otp);
+					  $newdata = array('name'=>$bname,'username'=>$busername,'bphone'=>$bphone,'email'=>$bemail,'date_time'=>$time,'otp'=>$otp);
 					  
 					  //check db otp table username if exist update with otp for same user
 					   $check_db2a = array('username' => $busername);

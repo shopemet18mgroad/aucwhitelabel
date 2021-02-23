@@ -37,9 +37,11 @@ class Buyer_liveauc_2 extends CI_Controller {
 		$this->load->model('Admin_model');
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$active = array('bidderusername'=>$sess['sessi'],'auctionid'=>$auctionid);
-		$active2 = array('sauctionid'=>$auctionid);
+		$active2 = array('auctionid'=>$auctionid);
 		$query = $this->Admin_model->get('biddercart', $active);
-		$query2 = $this->Admin_model->getdatafromtable('addlot', $active2);
+		
+		$query2 = $this->Admin_model->getemdlot('biddercart', $auctionid,$sess['sessi']);
+		//echo '<pre>';print_r($query2);die;  echo '</pre>';
 		$data['sqldata'] = $query;
 		
 		
@@ -81,7 +83,7 @@ class Buyer_liveauc_2 extends CI_Controller {
 		$active = array('bidderusername'=>$sess['sessi'],'auctionid'=>$auctionid/*, 'lotno'=>$lotno, */);
 		$active2 = array('sauctionid'=>$auctionid/* ,'slotno'=>$lotno, */);
 		$query = $this->Admin_model->get('biddercart', $active);
-		$query2 = $this->Admin_model->getdatafromtable('addlot', $active2);
+		$query2 = $this->Admin_model->getemdlot('biddercart', $auctionid,$sess['sessi']);
 		$lottimesync = 0;
 		
 		foreach($query as $quer){

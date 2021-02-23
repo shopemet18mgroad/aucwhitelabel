@@ -111,6 +111,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			 return $query->result();
 		}
 		
+		public function getemdlot($table, $auctionid,$sessi) {
+			$this->db->select('*');			
+			$this->db->from('addlot');
+			$this->db->join('biddercart', 'biddercart.auctionid = addlot.sauctionid');
+			$this->db->where('emdrequest =', 1 <> 'emd_paid_dd =', 1);
+			$this->db->where('auctionid =', $auctionid);
+			$this->db->where('bidderusername =', $sessi);
+			$this->db->where('biddercart.lotno = addlot.slotno');
+			 $query = $this->db->get(); 
+			 return $query->result();
+		}
+		
 		public function datebetween5($table,$date){
 			$this->db->select('*');
 			//$this->db->from($table);
