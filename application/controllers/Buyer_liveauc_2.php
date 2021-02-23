@@ -180,6 +180,7 @@ echo '</thead>';
 if($condtion){
 	echo '';
 echo '<tbody>';
+$lot = $query2[$lottimesync]->slotno - 1;
 echo '<tr><td>'.$query2[$lottimesync]->slotno.'</td>';
 echo '<td>'.$query2[$lottimesync]->slotname.'</td>';
 echo '<td>'.$query2[$lottimesync]->slotlocation.'</td>';
@@ -202,13 +203,13 @@ $sessa2 = str_ireplace('@','%40',$sess['sessi']);
 $id = $sessa2."|".str_ireplace('/','-',$quer->auctionid)."|".$query2[$lottimesync]->slotno;
 echo '<td><div class="form-group row ml-2">';
 if($quer->abidding){
-	echo '<input class="form-control col-sm-7 mr-2" type="number" value="'.$datbid.'" min="0" step="'.$query2[$lottimesync]->sminincre.'" id="bid-'.$lottimesync.'" name="bid" readonly>';
+	echo '<input class="form-control col-sm-7 mr-2" type="number" value="'.$datbid.'" min="0" step="'.$query2[$lottimesync]->sminincre.'" id="bid-'.$lot.'" name="bid" readonly>';
 	echo '<button type="submit" class="btn btn-info" id="'.$id.'" onclick="bid_manual(this.id)" disabled>Bid</button></div>';
 	echo '';
 	echo '</td>';
 echo '<td><a href="'.base_url().'Buyer_liveauc_2/buyer_autobid_disable/'.str_ireplace('/','-',$quer->auctionid).'|'.$query2[$lottimesync]->slotno.'"><button type="button" class="btn btn-info">Disable AutoBid</button></a></td>';
 }else{
-	echo '<input class="form-control col-sm-7 mr-2" type="number" value="'.$datbid.'" min="0" step="'.$query2[$lottimesync]->sminincre.'" id="bid-'.$lottimesync.'" name="bid">';
+	echo '<input class="form-control col-sm-7 mr-2" type="number" value="'.$datbid.'" min="0" step="'.$query2[$lottimesync]->sminincre.'" id="bid-'.$lot.'" name="bid">';
 	echo '<button type="submit" class="btn btn-info" id="'.$id.'" onclick="bid_manual(this.id)">Bid</button></div>';
 	echo '';
 	echo '</td>';

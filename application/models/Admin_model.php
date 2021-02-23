@@ -111,9 +111,8 @@ class Admin_model extends CI_Model
 		$this->db->where('aucclosedate_time >=', $date);
 		$this->db->where('bidderusername =', $sessi);
 		$this->db->where('emdrequest =', 1 <> 'emd_paid_dd =', 1);
-
-			 $query = $this->db->get_where($table, $data); 
-			 return $query->result();
+		$query = $this->db->get(); 
+		return $query->result();
 		}
 		
 		public function getemdlot($table, $auctionid,$sessi) {
@@ -205,17 +204,7 @@ class Admin_model extends CI_Model
 			$query = $this->db->get();
 			return $query->result();
 		}
-		public function totalmaxvaluebuyer($busername){
-			$this->db->select('*');
-			$this->db->select_sum('mybid_val');
-			$this->db->select_sum('sapproval');
-			$this->db->from('biddercart');
-			$this->db->join('buyerprofile', 'buyerprofile.busername = biddercart.bidderusername');
-			//$this->db->where('auctionid =', $auct);
-			$this->db->where('bidderusername =', $busername);
-			$query = $this->db->get();
-			return $query->result();
-		}
+		
 	
 	public function totalmaxvalueseller($sname){
 			$this->db->select('*');
@@ -230,9 +219,6 @@ class Admin_model extends CI_Model
 			return $query->result();
 		}
 		//$this->db->or_where('emd_paid_dd =', 1);
-		$query = $this->db->get();
-		return $query->result();
-	}
 
 	public function get($table, $data)
 	{
@@ -241,91 +227,6 @@ class Admin_model extends CI_Model
 		return $query->result();
 	}
 
-	public function datebetween5($table, $date)
-	{
-		$this->db->select('*');
-		//$this->db->from($table);
-		$this->db->group_by('addlot.sauctionid');
-		$this->db->from('addlot');
-		$this->db->join('auction', 'auction.sauctionid = addlot.sauctionid');
-		$this->db->where('status =', 1);
-		$this->db->where('saucstartdate_time <=', $date);
-		$this->db->where('saucclosedate_time >=', $date);
-		$query = $this->db->get();
-		return $query->result();
-	}
-	// Fetching the data from table by joing auction and add lot
-	public function datebetween8($date, $sessi)
-	{
-		$this->db->select('*');
-		//$this->db->from($table);
-		$this->db->from('auction');
-		$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid');
-		$this->db->join('sellerprofile', 'sellerprofile.sname = auction.sname');
-		$this->db->where('status =', 1);
-		$this->db->where('saucstartdate_time <=', $date);
-		$this->db->where('saucclosedate_time >=', $date);
-		$this->db->where('susername =', $sessi);
-		$query = $this->db->get();
-		return $query->result();
-	}
-
-	public function sellerbiddetails($sessi)
-	{
-		$this->db->select('*');
-		//$this->db->from($table);
-		$this->db->from('auction');
-		$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid');
-		$this->db->join('sellerprofile', 'sellerprofile.sname = auction.sname');
-		$this->db->where('susername =', $sessi);
-		$query = $this->db->get();
-		return $query->result();
-	}
-
-	public function adminbidhistory()
-	{
-		$this->db->select('*');
-		//$this->db->from($table);
-		$this->db->from('auction');
-		$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid');
-		//$this->db->where('saucclosedate_time >=', $date);
-		$this->db->order_by('addlot.id', 'DESC');
-		$query = $this->db->get();
-		return $query->result();
-	}
-	public function datebetweensess2($table, $date, $sessi)
-	{
-		$this->db->select('*');
-		$this->db->from($table);
-		//$this->db->where('aucstartdate_time <=', $date);
-		$this->db->where('aucclosedate_time <', $date);
-		$this->db->where('bidderusername =', $sessi);
-		$query = $this->db->get();
-		return $query->result();
-	}
-
-	public function maxbidvalue($auction, $lot)
-	{
-		$this->db->select('*');
-		$this->db->select_max('bidamount');
-		$this->db->from('biddingdata');
-		$this->db->where('sauctionid =', $auction);
-		$this->db->where('slotno =', $lot);
-		$query = $this->db->get();
-		return $query->result();
-	}
-
-
-	public function maxbidlotno($sauctionid, $slotno)
-	{
-		$this->db->select('*');
-		$this->db->select_max('slotno');
-		$this->db->from('addlot');
-		$this->db->where('sauctionid =', $sauctionid);
-		//$this->db->where('slotno =',$slotno);
-		$query = $this->db->get();
-		return $query->result();
-	}
 	public function totalmaxvaluebuyer($busername)
 	{
 		$this->db->select('*');
@@ -339,19 +240,6 @@ class Admin_model extends CI_Model
 		return $query->result();
 	}
 
-	public function totalmaxvalueseller($sname)
-	{
-		$this->db->select('*');
-		$this->db->select_sum('biddercart.mybid_val');
-		$this->db->select_sum('biddercart.sapproval');
-		$this->db->from('biddercart');
-		$this->db->join('auction', 'auction.sauctionid = biddercart.auctionid');
-		$this->db->join('sellerprofile', 'sellerprofile.sname = auction.sname');
-		//$this->db->where('auctionid =', $auct);
-		$this->db->where('auction.sname =', $sname);
-		$query = $this->db->get();
-		return $query->result();
-	}
 
 
 	public function dateclosedauc($date)

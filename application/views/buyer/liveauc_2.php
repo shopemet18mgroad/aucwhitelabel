@@ -105,7 +105,8 @@ if($diff <= 0){
 				
 				<input type="hidden" id="telapsed-<?php echo $lottimesync;?>" value="<?php echo $diff;?>">
 				<?php if($condtion){?>
-				<tr><td><?php echo $sqldata2[$lottimesync]->slotno; ?></td>												
+				<tr><td><?php $lot = $sqldata2[$lottimesync]->slotno - 1;
+				echo $sqldata2[$lottimesync]->slotno; ?></td>												
 					<td><?php echo $sqldata2[$lottimesync]->slotname; ?> </td>
 					<td><?php echo $sqldata2[$lottimesync]->slotlocation; ?></td>
 					<td><?php echo $ct[$lottimesync]; ?></td>
@@ -133,7 +134,7 @@ if($diff <= 0){
 //$sessa2 = urlencode($sess['sessi']);
 $sessa2 = str_ireplace('@','%40',$sessi);
 					?> 
-					<input class="form-control col-sm-7 mr-2" type="number" value="<?php echo $datbid; ?>" min="0" step="<?php echo $sqldata2[$lottimesync]->sminincre; ?>" id="bid-<?php echo $lottimesync;?>" name="bid" <?php if($sqld->abidding){echo "readonly";}else{echo "";} ?>>
+					<input class="form-control col-sm-7 mr-2" type="number" value="<?php echo $datbid; ?>" min="0" step="<?php echo $sqldata2[$lottimesync]->sminincre; ?>" id="bid-<?php echo $lot;?>" name="bid" <?php if($sqld->abidding){echo "readonly";}else{echo "";} ?>>
 					<button type="submit" id="<?php echo $sessa2.'|'.str_ireplace('/','-',$sqld->auctionid)."|".$sqldata2[$lottimesync]->slotno; ?>" class="btn btn-info" onclick="bid_manual(this.id)" <?php if($sqld->abidding){echo "disabled";}else{echo "";} ?>>Bid</button></div>
 							
 					
