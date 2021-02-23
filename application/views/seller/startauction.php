@@ -50,6 +50,7 @@
 				<option value="Timbers">Timbers</option>
 				<option value="Transformers">Transformers</option>
 				<option value="Hazardous">Hazardous</option>
+				<option value="Plastic">Plastic</option>
 				<option value="All Construction Materials">All Construction Materials</option>
 				</select>
 			</td>

@@ -20,6 +20,7 @@ class Contact_us extends CI_Controller {
 	 */
 	public function index()
 	{
+		//Loading the contact us page 
 		$this->load->helper('url');
 		$this->load->view('header');
 		$this->load->view('contact_us');
