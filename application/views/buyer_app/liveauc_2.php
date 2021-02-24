@@ -141,8 +141,8 @@ $sessa2 = str_ireplace('@','%40',$sessi);
 				  </td>
 				  <?php if($sqld->abidding){?>
 					<td>
-				  <a href="<?php echo base_url().'Buyer_liveauc_2/buyer_autobid_disable/'.str_ireplace('/','-',$sqld->auctionid)."|".$sqldata2[$lottimesync]->slotno;?>"><button type="button" class="btn btn-info" >Disable AutoBid</button></a></td><?php }else{?><td>
-				  <a href="<?php echo base_url().'Buyer_liveauc_2/buyer_autobid/'.str_ireplace('/','-',$sqld->auctionid)."|".$sqldata2[$lottimesync]->slotno;?>"><button type="button" class="btn btn-info" disabled>AutoBid</button></a></td><?php }?>
+				  <a href="<?php echo base_url().'Buyer_app_liveauc_2/buyer_autobid_disable/'.str_ireplace('/','-',$sqld->auctionid)."|".$sqldata2[$lottimesync]->slotno;?>"><button type="button" class="btn btn-info" >Disable AutoBid</button></a></td><?php }else{?><td>
+				  <a href="<?php echo base_url().'Buyer_app_liveauc_2/buyer_autobid/'.str_ireplace('/','-',$sqld->auctionid)."|".$sqldata2[$lottimesync]->slotno;?>"><button type="button" class="btn btn-info" disabled>AutoBid</button></a></td><?php }?>
 					
 				</tr>
 				<?php }else{
@@ -239,7 +239,7 @@ function telapsed() {
 	 //alert(totallot);
   var contents = $('#ref-0').val(); 
   
-			$.get('<?php echo base_url() .'Buyer_liveauc_2/get_table_ajax/'; ?>'+contents, function(data){
+			$.get('<?php echo base_url() .'Buyer_app_liveauc_2/get_table_ajax/'; ?>'+contents, function(data){
 				$('#ajaxauc').html(data);
 	});
   setTimeout(executeQuery, 30000); // you could choose not to continue on failure...

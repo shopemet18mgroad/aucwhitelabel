@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Buyer_liveauc_2 extends CI_Controller {
+class Buyer_app_liveauc_2 extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -62,9 +62,9 @@ class Buyer_liveauc_2 extends CI_Controller {
 		//print_r($data['sqldata2']); die;
 		//echo '</pre>';
 		$data['sessi'] = $sess['sessi'];
-		$this->load->view('buyer/header',$sess);
-		$this->load->view('buyer/liveauc_2', $data);
-		$this->load->view('buyer/footer');
+		$this->load->view('buyer_app/header',$sess);
+		$this->load->view('buyer_app/liveauc_2', $data);
+		$this->load->view('buyer_app/footer');
 		}
 	}
 	public function get_table_ajax(){
@@ -207,13 +207,13 @@ if($quer->abidding){
 	echo '<button type="submit" class="btn btn-info" id="'.$id.'" onclick="bid_manual(this.id)" disabled>Bid</button></div>';
 	echo '';
 	echo '</td>';
-echo '<td><a href="'.base_url().'Buyer_liveauc_2/buyer_autobid_disable/'.str_ireplace('/','-',$quer->auctionid).'|'.$query2[$lottimesync]->slotno.'"><button type="button" class="btn btn-info">Disable AutoBid</button></a></td>';
+echo '<td><a href="'.base_url().'Buyer_app_liveauc_2/buyer_autobid_disable/'.str_ireplace('/','-',$quer->auctionid).'|'.$query2[$lottimesync]->slotno.'"><button type="button" class="btn btn-info">Disable AutoBid</button></a></td>';
 }else{
 	echo '<input class="form-control col-sm-7 mr-2" type="number" value="'.$datbid.'" min="0" step="'.$query2[$lottimesync]->sminincre.'" id="bid-'.$lot.'" name="bid">';
 	echo '<button type="submit" class="btn btn-info" id="'.$id.'" onclick="bid_manual(this.id)">Bid</button></div>';
 	echo '';
 	echo '</td>';
-echo '<td><a href="'.base_url().'Buyer_liveauc_2/buyer_autobid/'.str_ireplace('/','-',$quer->auctionid).'|'.$query2[$lottimesync]->slotno.'"><button type="button" class="btn btn-info" disabled>AutoBid</button></a></td>';
+echo '<td><a href="'.base_url().'Buyer_app_liveauc_2/buyer_autobid/'.str_ireplace('/','-',$quer->auctionid).'|'.$query2[$lottimesync]->slotno.'"><button type="button" class="btn btn-info" disabled>AutoBid</button></a></td>';
 }
 
 
@@ -254,9 +254,9 @@ echo '</table>';
 		$this->load->model('Admin_model');
 		$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
 		$this->load->helper('url');
-		$this->load->view('buyer/header');
-		$this->load->view('buyer/liveauc_2', $data);
-		$this->load->view('buyer/footer');
+		$this->load->view('buyer_app/header');
+		$this->load->view('buyer_app/liveauc_2', $data);
+		$this->load->view('buyer_app/footer');
 	}
 	 public function liveauc_2_alert(){
 		$retrivevaltmp = $this->uri->segment(3);
@@ -268,9 +268,9 @@ echo '</table>';
 		$this->load->model('Admin_model');
 		$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
 		$this->load->helper('url');
-		$this->load->view('buyer/header');
-		$this->load->view('buyer/liveauc_2', $data);
-		$this->load->view('buyer/footer');
+		$this->load->view('buyer_app/header');
+		$this->load->view('buyer_app/liveauc_2', $data);
+		$this->load->view('buyer_app/footer');
 	} 
 	public function get_currency(){
 		$data = urldecode($this->uri->segment(3));
@@ -356,9 +356,9 @@ echo '</table>';
 		$data['sqldata'] = $this->Admin_model->getdatafromtable('addlot',$active);
 		$data['sqldata2'] = $this->session->userdata('username');
 		 $sess = array('sessi'=>$this->session->userdata('username'));
-		$this->load->view('buyer/header',$sess);
-		$this->load->view('buyer/autobid',$data);
-		$this->load->view('buyer/footer');
+		$this->load->view('buyer_app/header',$sess);
+		$this->load->view('buyer_app/autobid',$data);
+		$this->load->view('buyer_app/footer');
 	}
 	public function buyer_autobid_set(){
 		$this->load->helper('url');
@@ -389,7 +389,7 @@ echo '</table>';
 		$active = array('bidderusername'=>$user,'auctionid'=>$auctionid2,'lotno'=>$auclot);
 		$dataforupdate = array('abidding'=>false);
 		$this->Admin_model->update_custom('biddercart',$dataforupdate,$active,$active);
-		header('location: '.base_url().'buyer_liveauc_2/index/'.$auctionid.'|'.$auclot);
+		header('location: '.base_url().'buyer_app_liveauc_2/index/'.$auctionid.'|'.$auclot);
 		
 	}
 	public function get_table_ajax_liveauc_index(){
@@ -404,7 +404,7 @@ echo '</table>';
 			$auclink = str_ireplace('/','-',$datamenu->auctionid);
 			$auclink = str_ireplace(' ','%20',$auclink);
 			echo "<tr>\n";
-			echo "<td><a href=".base_url()."Buyer_liveauc_2/index/".$auclink.'|'.$datamenu->lotno.">".$datamenu->auctionid."</a></td>\n";
+			echo "<td><a href=".base_url()."Buyer_app_liveauc_2/index/".$auclink.'|'.$datamenu->lotno.">".$datamenu->auctionid."</a></td>\n";
 			//echo "<td><a href=\". base_url()."Buyer_liveauc_2/index/".str_ireplace('/','-',$datamenu->auctionid)."|".$datamenu->lotno.">".$datamenu->auctionid.">"</a></td>\n";
 			echo "<td>".$datamenu->sname."</td>\n";
 			//echo "<td>".$datamenu->description."</td>\n";
