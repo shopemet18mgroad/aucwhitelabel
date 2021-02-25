@@ -75,7 +75,7 @@ class Seller_auctionapproval extends CI_Controller {
 				
 				$aucbidamount = $datap[0]->bidamount;
 				
-				$maxvalue = array('bidamount'=>$aucbidamount);
+				$maxvalue = array('sauctionid'=>$auctmp,'slotno'=>$auclottmp,'bidamount'=>$aucbidamount);
 				$bidder = $this->Admin_model->getdatafromtable('biddingdata',$maxvalue);
 				//print_r($bidder);die;
 				if(count($bidder)){
