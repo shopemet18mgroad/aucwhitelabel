@@ -21,7 +21,7 @@
                     <input type="text" name="user" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..." required>
                   </div>
                   <div class="form-group">
-                    <input type="password" name="pass" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password" required>
+                    <input type="password" name="pass" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password"><span id = "message1" style="color:white"></span>
                   </div>
                   <div class="form-group">
                     <div class="custom-control custom-checkbox small">
@@ -29,7 +29,7 @@
                       <label class="custom-control-label" for="customCheck">Remember Me</label>
                     </div>
                   </div>
-                  <button name="submit" type="submit" class="btn btn-primary btn-user btn-block">
+                  <button name="submit" type="submit" onclick="return validateFormLogin()" class="btn btn-primary btn-user btn-block">
                     Login
                   </button>
                   <hr>
@@ -66,3 +66,5 @@
   </div>
 
 </div>
+
+

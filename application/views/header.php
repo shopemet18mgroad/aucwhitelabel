@@ -159,7 +159,7 @@
 		<div class="container-fluid noticeboard">
 			<div class="noticeboard-icon"><i class="fa fa-bell" aria-hidden="true"></i></div>
 			<div class="row marqueebox">
-			 <marquee><p>Aucjunction10200001 are Scheduled on October 2020&nbsp;|&nbsp;Aucjunction10200002 are Scheduled on October 2020&nbsp;|&nbsp;Aucjunction10200003 are Scheduled on October 2020</p><p></p></marquee>
+			 <marquee><p>AUC/RP/Ferrous/12/44/28 are Scheduled on 26 Feb 2021&nbsp;|&nbsp;AUC/RP/Ferrous/12/44/28 are Scheduled on 26 Feb 2021&nbsp;|&nbsp;AUC/RP/Ferrous/12/44/28 are Scheduled on 26 Feb 2021</p><p></p></marquee>
 			</div>
 		</div>
 		

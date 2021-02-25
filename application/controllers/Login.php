@@ -63,7 +63,7 @@ class Login extends CI_Controller
 					die;
 				}
 			} else {
-				$datainserr = "Invalid Password";
+				$datainserr = "Invalid Password Password length must be 8 characters ";
 				header('location: ' . base_url() . 'login/index_error/' . $datainserr);
 				die;
 			}
