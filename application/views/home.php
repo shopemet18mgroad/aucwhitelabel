@@ -15,7 +15,7 @@
 									foreach ($lnews as $sqld) { ?>
 
 										<li class="odd">
-											<marquee direction="up">
+											<marquee direction="up"  behavior="scroll" onmouseover="this.stop();" onmouseout="this.start();">
 												<a href=""><?php echo $sqld->tittle; ?></a>
 												<p><?php echo $sqld->content; ?></p>
 											</marquee>

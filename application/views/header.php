@@ -160,7 +160,7 @@
 			<div class="noticeboard-icon"><i class="fa fa-bell" aria-hidden="true"></i></div>
 			<div class="row marqueebox">
 			
-			 <marquee><p><?php if (isset($sql)) {
+			 <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();"><p><?php if (isset($sql)) {
 				   foreach ($sql as $s) { ?><?php echo $s->sauctionid; ?> are Scheduled on <?php $saucstartdate_time = $s->saucstartdate_time;
 							  $tmp = explode('.',$saucstartdate_time);
 							  $saucstartdate_time = $tmp[0];
