@@ -84,6 +84,20 @@ class Admin_model extends CI_Model
 		$query = $this->db->get();
 		return $query->result();
 	}
+	
+	public function datebetweenhomemarquee($date)
+	{
+		$this->db->select('*');
+		$this->db->group_by('addlot.sauctionid');
+		$this->db->from('auction');
+		//Fetching the data by joining addlot and auction  where status is 1 (Approved auctions)
+		$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid');
+		//$this->db->where('saucstartdate_time <=', $date);
+		$this->db->where('saucclosedate_time >=', $date);
+		$this->db->where('status =', 1);
+		$query = $this->db->get();
+		return $query->result();
+	}
 	// 
 	public function getsessdatafromtable($table, $data, $sessi)
 	{
@@ -127,30 +141,58 @@ class Admin_model extends CI_Model
 			 return $query->result();
 		}
 		
+		public function getadminemdlot($table, $auctionid) {
+			$this->db->select('*');
+			$this->db->group_by('slotname');			
+			$this->db->from('addlot');
+			$this->db->join('biddercart', 'biddercart.auctionid = addlot.sauctionid');
+			$this->db->where('emdrequest =', 1 <> 'emd_paid_dd =', 1);
+			$this->db->where('sauctionid =', $auctionid);
+			//$this->db->where('bidderusername =', $sessi);
+			$this->db->where('biddercart.lotno = addlot.slotno');
+			 $query = $this->db->get(); 
+			 return $query->result();
+		}
+		
 		public function datebetween5($table,$date){
 			$this->db->select('*');
 			//$this->db->from($table);
-			$this->db->group_by('addlot.sauctionid');
-			$this->db->from('addlot');
-			$this->db->join('auction', 'auction.sauctionid = addlot.sauctionid');
-			$this->db->where('status =', 1);
-			$this->db->where('saucstartdate_time <=', $date);
-			$this->db->where('saucclosedate_time >=', $date);
+			$this->db->group_by('biddercart.auctionid');
+			$this->db->from('biddercart');
+			$this->db->join('auction', 'auction.sauctionid = biddercart.auctionid');
+			//$this->db->where('status =', 1);
+			$this->db->where('aucstartdate_time <=', $date);
+			$this->db->where('aucclosedate_time >=', $date);
+			$this->db->where('emdrequest =', 1 <> 'emd_paid_dd =', 1);
 			$query = $this->db->get();
 			return $query->result();
 		}
 		public function datebetween8($date,$sessi){
 			$this->db->select('*');
-			//$this->db->from($table);
+			$this->db->group_by('biddercart.auctionid');
 			 $this->db->from('auction');
-			$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid');
+			$this->db->join('biddercart', 'biddercart.auctionid = auction.sauctionid');
 			$this->db->join('sellerprofile', 'sellerprofile.sname = auction.sname');
-			$this->db->where('status =', 1);
-			$this->db->where('saucstartdate_time <=', $date);
-			$this->db->where('saucclosedate_time >=', $date);
+			//$this->db->where('status =', 1);
+			$this->db->where('aucstartdate_time <=', $date);
+			$this->db->where('aucclosedate_time >=', $date);
 			$this->db->where('susername =', $sessi);
+			$this->db->where('emdrequest =', 1 <> 'emd_paid_dd =', 1);
 			$query = $this->db->get();
 			return $query->result();
+		}
+		
+		public function getselleremdlot($table, $auctionid) {
+			$this->db->select('*');
+			$this->db->group_by('slotname');			
+			$this->db->from('addlot');
+			$this->db->join('biddercart', 'biddercart.auctionid = addlot.sauctionid');
+			$this->db->where('emdrequest =', 1 <> 'emd_paid_dd =', 1);
+			$this->db->where('sauctionid =', $auctionid);
+			//$this->db->where('bidderusername =', $sessi);
+			$this->db->where('biddercart.lotno = addlot.slotno');
+			 $query = $this->db->get(); 
+			 return $query->result();
 		}
 		
 		public function sellerbiddetails($sessi){

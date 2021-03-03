@@ -54,6 +54,8 @@
 					$datediff = (strtotime($time) - strtotime($sqldata[0]->saucclosedate_time));
 					$bal = gmdate("H:i:s", floor($datediff / (60)));
 					?>
+					
+			
 				</tr>
 				</tbody>
 			</table>
@@ -82,7 +84,7 @@
 				<tr>												
 					<td><?php echo $sqlot->slotname; ?></td>
 					<td><?php echo $sqlot->slotlocation; ?></td>
-					<td><?php $aucclosetime = $sqldata[0]->saucclosedate_time;
+					<td><?php $aucclosetime = $sqlot->aucclosedate_time;
 							  $tmp = explode('.',$aucclosetime);
 							  $aucclosetime = $tmp[0];
 							  echo $aucclosetime; ?></td>

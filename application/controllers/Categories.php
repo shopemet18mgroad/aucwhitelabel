@@ -29,7 +29,17 @@ class Categories extends CI_Controller {
 	public function type()
 	{
 		$this->load->helper('url');
-		$this->load->view('header');
+
+		$this->load->helper(array('url', 'html', 'date'));
+		//Setting  default time zone
+		date_default_timezone_set('Asia/Kolkata');
+		//initaliazing the current time 
+		$time =  Date('Y-m-d H:i:s');
+		//Loading Admin Model
+		$this->load->model('Admin_model');
+			$data['sql'] = $this->Admin_model->datebetweenhomemarquee($time);
+		
+		$this->load->view('header', $data);
 		$data = array('metal_type' => $this->uri->segment(3));
 		if($data['metal_type'] == 'Ferrous'){
 			$this->load->view('dummy-ferrous');

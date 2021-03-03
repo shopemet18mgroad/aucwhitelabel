@@ -24,6 +24,12 @@ class Login extends CI_Controller
 	{
 
 		$this->load->helper('url');
+
+		$this->load->helper(array('url', 'html', 'date'));
+		//Setting  default time zone
+		date_default_timezone_set('Asia/Kolkata');
+		//initaliazing the current time 
+		$time =  Date('Y-m-d H:i:s');
 		$this->load->library('session');
 		$this->session->sess_expiration = '3600';
 		if ($this->input->post('user')) {
@@ -70,7 +76,10 @@ class Login extends CI_Controller
 			die;
 		} else {
 
-			$this->load->view('header');
+			$this->load->model('Admin_model');
+		$data['sql'] = $this->Admin_model->datebetweenhomemarquee($time);
+		
+		$this->load->view('header', $data);
 			$this->load->view('login');
 			$this->load->view('footer');
 		}

@@ -23,17 +23,23 @@ class Search extends CI_Controller {
 		
 		if($this->input->post('search')){
 			$this->load->helper('url');
+			$this->load->helper(array('url', 'html', 'date'));
+			//Setting  default time zone
+			date_default_timezone_set('Asia/Kolkata');
+			//initaliazing the current time 
+			$time =  Date('Y-m-d H:i:s');
 			$this->load->model('Admin_model');
 			$search = $this->input->post('search');
 	
 
 			$searchresp['searchresult'] =  $this->Admin_model->get_lookalikefromsearch('addlot','scategory','sdescription',$search);
 			//print_r($searchresp['searchresult']);die;
-			$this->load->view('header');
+			$data['sql'] = $this->Admin_model->datebetweenhomemarquee($time);
+			$this->load->view('header', $data);
 			$this->load->view('search',$searchresp);
 			$this->load->view('footer');		
 		}else{
-			$this->load->view('header');
+			$this->load->view('header', $data);
 			$this->load->view('home');
 			$this->load->view('footer');	
 		}

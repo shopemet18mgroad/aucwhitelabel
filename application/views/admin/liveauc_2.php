@@ -51,7 +51,7 @@
 					<?php 
 					date_default_timezone_set('Asia/Kolkata');
 					$time =  Date('Y-m-d H:i:s');
-					$datediff = (strtotime($time) - strtotime($sqldata[0]->saucclosedate_time));
+					$datediff = (strtotime($time) - strtotime($sqldatalot[0]->aucclosedate_time));
 					$bal = gmdate("H:i:s", floor($datediff / (60)));
 					?>
 				</tr>
@@ -82,7 +82,7 @@
 				<tr>												
 					<td><?php echo $sqlot->slotname; ?></td>
 					<td><?php echo $sqlot->slotlocation; ?></td>
-					<td><?php $aucclosetime = $sqldata[0]->saucclosedate_time;
+					<td><?php $aucclosetime = $sqlot->aucclosedate_time;
 							  $tmp = explode('.',$aucclosetime);
 							  $aucclosetime = $tmp[0];
 							  echo $aucclosetime; ?></td>

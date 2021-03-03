@@ -41,11 +41,12 @@ class Home extends CI_Controller
 		$data['lnews'] = $this->Admin_model->gettablenews('latestnews');
 		//Fetching Data from the auction and add lot table. 
 		$data['all'] = $this->Admin_model->getdatafromtablejoinallauc();
-		/*  echo "<pre>";
-		print_r($data['all']);  
-		echo "</pre>";die;  */
+		$data['sql'] = $this->Admin_model->datebetweenhomemarquee($time);
+		 //echo "<pre>";
+		//print_r($data['sql']);  
+		//echo "</pre>";die;  
 		//Fetching all the data from  both tables and saving the the data into the variable called $data and passing all the values to the view.
-		$this->load->view('header');
+		$this->load->view('header',$data);
 		$this->load->view('home', $data);
 		$this->load->view('footer');
 	}

@@ -41,7 +41,7 @@ class Seller_liveauc_2 extends CI_Controller {
 		//echo gmdate("H:i:s", floor($datediff / (60)));
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$sess['sessi'] = $this->session->userdata('username');
-		$data['sqldatalot'] = $this->Admin_model->datebetween8($time,$sess['sessi']);
+		$data['sqldatalot'] = $this->Admin_model->getselleremdlot('biddercart',$retrivevaltmp);
 		
 		$this->load->view('seller/header',$sess);
 		$this->load->view('seller/liveauc_2',$data);

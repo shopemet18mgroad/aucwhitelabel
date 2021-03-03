@@ -37,7 +37,10 @@ class Admin_liveauc_2 extends CI_Controller {
 		//$datediff = (strtotime($time) - strtotime($data['sqldata'][0]->saucclosedate_time));
 		//echo floor($datediff / (60));
 		//echo gmdate("H:i:s", floor($datediff / (60)));
-		$data['sqldatalot'] = $this->Admin_model->getdatafromtable('addlot',$retriveval);
+		//$data['sqldatalot'] = $this->Admin_model->getdatafromtable('addlot',$retriveval);
+		$data['sqldatalot'] = $this->Admin_model->getadminemdlot('biddercart',$retrivevaltmp);
+		
+		//echo '<pre>'; print_r($data['sqldatalot']); die; echo '</pre>';
 		
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('admin/header',$sess);

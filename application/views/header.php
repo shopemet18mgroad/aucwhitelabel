@@ -159,7 +159,12 @@
 		<div class="container-fluid noticeboard">
 			<div class="noticeboard-icon"><i class="fa fa-bell" aria-hidden="true"></i></div>
 			<div class="row marqueebox">
-			 <marquee><p>AUC/RP/Ferrous/12/44/28 are Scheduled on 26 Feb 2021&nbsp;|&nbsp;AUC/RP/Ferrous/12/44/28 are Scheduled on 26 Feb 2021&nbsp;|&nbsp;AUC/RP/Ferrous/12/44/28 are Scheduled on 26 Feb 2021</p><p></p></marquee>
+			
+			 <marquee><p><?php if (isset($sql)) {
+				   foreach ($sql as $s) { ?><?php echo $s->sauctionid; ?> are Scheduled on <?php $saucstartdate_time = $s->saucstartdate_time;
+							  $tmp = explode('.',$saucstartdate_time);
+							  $saucstartdate_time = $tmp[0];
+							  echo $saucstartdate_time;?>&nbsp;|&nbsp;<?php }} ?></p></marquee>
 			</div>
 		</div>
 		

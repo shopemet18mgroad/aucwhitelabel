@@ -21,7 +21,17 @@ class Bidders_guide extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper('url');
-		$this->load->view('header');
+
+		$this->load->helper(array('url', 'html', 'date'));
+		//Setting  default time zone
+		date_default_timezone_set('Asia/Kolkata');
+		//initaliazing the current time 
+		$time =  Date('Y-m-d H:i:s');
+		//Loading Admin Model
+		$this->load->model('Admin_model');
+		$data['sql'] = $this->Admin_model->datebetweenhomemarquee($time);
+		
+		$this->load->view('header', $data);
 		$this->load->view('bidders-guide');
 		$this->load->view('footer');
 		
