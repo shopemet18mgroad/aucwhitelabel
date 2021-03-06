@@ -56,7 +56,8 @@ class Admin_seller_basicinfo_add extends CI_Controller {
 		$sifsccode  = $this->input->post('sifsccode');
 		$pic_array = self::upload_files('suploadprofilepic');
 		$doc_array = self::upload_files('ssigneddocument');
-
+		$sref  = $this->input->post('sref');
+		
 		if(!count($pic_array)){
 			echo '<script language="javascript">';
 			echo 'alert("Documents Upload Failed")';  //not showing an alert box.
@@ -76,7 +77,7 @@ class Admin_seller_basicinfo_add extends CI_Controller {
 		 
 		
 		//==================================================================
-		$data2 = array('sname' => $sname, 'scomapnyname' => $scomapnyname, 'ssellertype' => $ssellertype, 'scontactperson' => $scontactperson, 'sdesignation' => $sdesignation, 'susername' => $susername, 'spassword'=> $spassword, 'scin' => $scin, 'sgst' => $sgst, 'span' => $span,'spcb' => $spcb, 'semail' => $semail, 'sphone' => $sphone , 'saddress' => $saddress2, 'saddresscount' => $saddresscount, 'spin' => $spin,'scity' => $scity, 'sstate' => $sstate, 'scountry' => $scountry, 'sbankername' => $sbankername, 'saccountnumber' => $saccountnumber, 'sbranch' => $sbranch, 'sifsccode' => $sifsccode, 'suploadprofilepic' => $pic_array, 'ssigneddocument' => $doc_array);
+		$data2 = array('sname' => $sname, 'scomapnyname' => $scomapnyname, 'ssellertype' => $ssellertype, 'scontactperson' => $scontactperson, 'sdesignation' => $sdesignation, 'susername' => $susername, 'spassword'=> $spassword, 'scin' => $scin, 'sgst' => $sgst, 'span' => $span,'spcb' => $spcb, 'semail' => $semail, 'sphone' => $sphone , 'saddress' => $saddress2, 'saddresscount' => $saddresscount, 'spin' => $spin,'scity' => $scity, 'sstate' => $sstate, 'scountry' => $scountry, 'sbankername' => $sbankername, 'saccountnumber' => $saccountnumber, 'sbranch' => $sbranch, 'sifsccode' => $sifsccode, 'suploadprofilepic' => $pic_array, 'ssigneddocument' => $doc_array, 'sref' => $sref);
 		//$this->load->view('xya', $data);
 		
 		

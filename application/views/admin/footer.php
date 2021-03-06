@@ -218,12 +218,31 @@
 		});
 	
  </script>
+ <script>
+		$('#gettable_sellerref').on('keyup', function(){
+			var contents = $('#gettable_sellerref').val(); 
+			$.get('<?php echo base_url() .'Admin_sellereditbyref/get_table/'; ?>'+contents, function(data){
+				$('#ajaxrslt_sellerref').html(data);
+			});
+		});
+	
+ </script>
  
  <script>
 		$('#gettable_buyer').on('keyup', function(){
 			var contents = $('#gettable_buyer').val(); 
 			$.get('<?php echo base_url() .'admin_buyereditprofile/get_table/'; ?>'+contents, function(data){
 				$('#ajaxrslt_buyer').html(data);
+			});
+		});
+	
+ </script>
+ 
+ <script>
+		$('#gettable_buyerref').on('keyup', function(){
+			var contents = $('#gettable_buyerref').val(); 
+			$.get('<?php echo base_url() .'Admin_buyereditbyref/get_table/'; ?>'+contents, function(data){
+				$('#ajaxrslt_buyerref').html(data);
 			});
 		});
 	

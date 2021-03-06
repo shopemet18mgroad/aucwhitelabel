@@ -42,7 +42,7 @@ class Seller_biddingdatadetail extends CI_Controller {
 		$retriveval = array('sauctionid'=>$retrivevaltmp,'slotno'=>$retrivevaltmp2);
 		$this->load->model('Admin_model');
 		
-		$data['sqldata'] = $this->Admin_model->getdataDSC('biddingdata',$retriveval);
+		$data['sqldata'] = $this->Admin_model->getdataDSC('biddingdata',$retrivevaltmp,$retrivevaltmp2);
 		
 		
 		$this->load->helper('url');

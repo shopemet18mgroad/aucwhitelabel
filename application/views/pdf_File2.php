@@ -161,8 +161,8 @@ No.</b>
 	<td><?php echo $sqldat->sbidbase; ?></td>
 	<td><?php echo $sqldat->sgst; ?></td>
 	<td><?php echo $sqldat->sothertax; ?></td>
-	<td><?php if($sqldat->spcbcertificate == 1) {echo 'Y';} ?>
-	<?php if($sqldat->spcbcertificate == 0) {echo 'N';} ?></td>
+	<td><?php if($sqldat->spcbcertificate == 1) {echo '<p style="color:green;"><b>Y</b></p>';} ?>
+	<?php if($sqldat->spcbcertificate == 0) {echo '<p style="color:orange;" ><b>N</b></p>';} ?></td>
 	<td><?php echo $sqldat->semdamount; ?></td>
 </tr>
  
@@ -173,7 +173,7 @@ No.</b>
  <h2 class="bara">TERMS AND CONDITIONS</h2>
  <p class="aboutus-text">Welcome to AucJunction.com website (here in after referred to as &quot;the website&quot;).
 <br><br>
-The auctions and related services are provided by Aucjunction Pvt. Ltd. (hereinafter referred
+The auctions and related services are provided by Shopemet Networks Pvt. Ltd. (hereinafter referred
 to as &quot;AucJunction&quot;) on the website.
 <br><br>
 AucJunction is an e-commerce service provider mandated by the seller/buyer to facilitate

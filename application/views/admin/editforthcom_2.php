@@ -74,10 +74,10 @@
 					<td><?php echo $sqldat[0]->sliftingperiod; ?><br><?php echo $sqldat[0]->sliftingperiod2; ?></td>
 					<td><?php if($sqldat[0]->spcbcertificate == 1)
 								{ 
-							echo 'Yes';
+							echo '<p style="color:green;"><b>Yes</b></p>';
 							}
 							else{
-							echo 'No'	;
+							echo '<p style="color:orange;"><b>No</b></p>'	;
 							}; ?></td>
 
 

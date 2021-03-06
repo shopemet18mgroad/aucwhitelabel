@@ -233,6 +233,8 @@
 							
 							
 							?>
+							
+							<tr><td class="btxt">Reference</td><td><input class="form-control w-50" type="text" id="sref" name="sref" required></td></tr>
 						</tbody>
 					</table>								
 				<input type="submit" class="btn btn-info offset-sm-4 mt-2" value="Update" onclick="return ValidateNo();">

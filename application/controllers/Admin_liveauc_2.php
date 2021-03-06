@@ -22,6 +22,8 @@ class Admin_liveauc_2 extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$this->load->library('session');
+		date_default_timezone_set('Asia/Kolkata');
+				$time =  Date('Y-m-d H:i:s');
 		/* $this->load->library('currency');
 		echo $this->currency->getIndianCurrency(7288);die; */
 		//echo $this->session->userdata('auth');
@@ -38,7 +40,7 @@ class Admin_liveauc_2 extends CI_Controller {
 		//echo floor($datediff / (60));
 		//echo gmdate("H:i:s", floor($datediff / (60)));
 		//$data['sqldatalot'] = $this->Admin_model->getdatafromtable('addlot',$retriveval);
-		$data['sqldatalot'] = $this->Admin_model->getadminemdlot('biddercart',$retrivevaltmp);
+		$data['sqldatalot'] = $this->Admin_model->getadminemdlot('biddercart',$retrivevaltmp,$time);
 		
 		//echo '<pre>'; print_r($data['sqldatalot']); die; echo '</pre>';
 		
@@ -82,25 +84,15 @@ class Admin_liveauc_2 extends CI_Controller {
 		$retriveval = array('sauctionid'=>$retrivevaltmp);
 		$this->load->model('Admin_model');
 		$sqldata = $this->Admin_model->getdatafromtable('auction',$retriveval);
-		$sqldatalot = $this->Admin_model->getdatafromtable('addlot',$retriveval);
-		//echo gmdate("H:i:s", floor($datediff / (60)));
+		
 		date_default_timezone_set('Asia/Kolkata');
 		$time =  Date('Y-m-d H:i:s');
-		$datediff = (strtotime($time) - strtotime($sqldata[0]->saucclosedate_time));
-		$bal = gmdate("H:i:s", floor($datediff / (60)));
 		
-		if($sqldatalot){
-			foreach($sqldatalot as $sqlot){
+		if($sqldata){
+			foreach($sqldata as $sqlot){
 				
 				echo '<tr>';
-				echo '<td>'.$sqlot->slotname.'</td>';
-				echo '<td>'.$sqlot->slotlocation.'</td>';
-				echo '<td>'.$sqldata[0]->saucclosedate_time.'</td>';
-				echo '<td>'.$bal.'</td>';
-				echo '<td>'.$sqlot->sqty.'</td>';
-				echo '<td>'.$sqlot->sunitmeasurment.'</td>';
-				echo '<td>'.$sqlot->sprice.'</td>';
-				echo '<td>'.$sqlot->cbidval.'</td>';
+				echo '<td><a href='.base_url()."Admin_liveauc_2/index/".str_ireplace('/','-',$sqlot->sauctionid).">".$sqlot->sauctionid.'</td>';
 				echo '</tr>';
 			}
 		}

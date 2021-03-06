@@ -1,6 +1,8 @@
 <?php 
 	//include('./header.php');
 ?>
+<head> <meta http-equiv="refresh" content="10; url=<?php echo $_SERVER['PHP_SELF']; ?>">
+</head>
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -26,9 +28,10 @@
 					<th width="60%">Click for Auction</th>
 				</tr>
 				</thead>
-				<tbody>
+				<tbody id="admiliveauc">
 				<?php foreach($sqldata as $sqldat){?>
-				<tr>												
+				<tr>
+<input type="hidden" id="ref-0" value="<?php echo str_ireplace('/','-',$sqldat->sauctionid); ?>">				
 					<td><a href="<?php  echo base_url()."Admin_liveauc_2/index/".str_ireplace('/','-',$sqldat->sauctionid);?>"><?php echo $sqldat->sauctionid;?></a></td>
 				</tr>
 				<?php }?>
@@ -58,7 +61,6 @@
 
     
     <!-- End of Content Wrapper -->
-
 
   <!-- End of Page Wrapper -->
 

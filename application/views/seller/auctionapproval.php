@@ -39,7 +39,9 @@
 		<th colspan="13" class="bg-info">Auctions</th></tr>
      <tr>
 		<th>Auction Id</th>
-		<th>Lot No</th>		
+		<th>Lot No</th>
+		<th>Lot Name</th>
+		<th>Bid Base</th>		
 		<th>Buyer Name</th>
 		<th>Date/Time</th>
 		<th>My Bid Value</th>
@@ -56,16 +58,18 @@
 						<td><?php echo $datareciver[0]; ?></td>
 						<td><?php echo $datareciver[1]; ?></td>
 						<td><?php echo $datareciver[2];?></td>
-						<td><?php $aucclosetime = $datareciver[4];
+						<td><?php echo $datareciver[6];?></td>
+						<td><?php echo $datareciver[3];?></td>
+						<td><?php $aucclosetime = $datareciver[5];
 								  $tmp = explode('.',$aucclosetime);
 							      $aucclosetime = $tmp[0];
 						          echo $aucclosetime; ?></td>
-						<td><?php echo $datareciver[3]; ?></td>
+						<td><?php echo $datareciver[4]; ?></td>
 						
 						<td style="color:green;"><b><?php echo "Winner"?></b></td>
 						
 						
-						<td><button type="submit" name="submit" id="<?php echo $datareciver[1].'|'.str_ireplace('/','-', $datareciver[0]).'|'.$datareciver[2].'|'.$datareciver[3].'|'.$datareciver[4];?>" onclick="seller_set(this.id)" class="btn btn-info btn-sm">Approve</button></td>	
+						<td><button type="submit" name="submit" id="<?php echo $datareciver[1].'|'.str_ireplace('/','-', $datareciver[0]).'|'.$datareciver[3].'|'.$datareciver[4];?>" onclick="seller_set(this.id)" class="btn btn-info btn-sm">Approve</button></td>	
 
 					</tr>
 	<?php  }} ?>

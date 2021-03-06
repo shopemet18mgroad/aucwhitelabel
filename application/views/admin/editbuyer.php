@@ -185,7 +185,7 @@
 							
 							
 							?>
-										
+							<tr><td class="btxt">Reference</td><td><input class="form-control w-50" type="text" id="bref" name="bref" required></td></tr>			
 						</tbody>
 					</table>					
 			

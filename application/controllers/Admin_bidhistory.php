@@ -38,10 +38,11 @@ class Admin_bidhistory extends CI_Controller {
 		$retrivevaltmp = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
 		$retrivevaltmp2 = urldecode($this->uri->segment(4));
 		$retriveval = array('sauctionid'=>$retrivevaltmp,'slotno'=>$retrivevaltmp2);
+		
 		$this->load->model('Admin_model');
 		
-		$data['sqldata'] = $this->Admin_model->getdataDSC('biddingdata',$retriveval);
-		//print_r($data['sqldata']); die;
+		$data['sqldata'] = $this->Admin_model->getdataDSC('biddingdata',$retrivevaltmp,$retrivevaltmp2);
+		//echo '<pre>'; print_r($data['sqldata']); die; echo '</pre>';
 		
 		$this->load->helper('url');
 		$this->load->library('session');

@@ -74,6 +74,8 @@ class Seller_auctionapproval extends CI_Controller {
 			
 				
 				$aucbidamount = $datap[0]->bidamount;
+				$lotname = $datap[0]->slotname;
+				$Bidbase = $datap[0]->sbidbase;
 				
 				$maxvalue = array('sauctionid'=>$auctmp,'slotno'=>$auclottmp,'bidamount'=>$aucbidamount);
 				$bidder = $this->Admin_model->getdatafromtable('biddingdata',$maxvalue);
@@ -85,7 +87,7 @@ class Seller_auctionapproval extends CI_Controller {
 				$approv =$bidder[0]->sapproval;
 					
 			
-				if($aucbidamount === $mybitvalref ){$data['sqldatarec'][] = $auctmp.'|'.$auclottmp.'|'.$mybitvalrec.'|'.$aucbidamount.'|'.$mybitvaldatetime;
+				if($aucbidamount === $mybitvalref ){$data['sqldatarec'][] = $auctmp.'|'.$auclottmp.'|'.$lotname.'|'.$mybitvalrec.'|'.$aucbidamount.'|'.$mybitvaldatetime.'|'.$Bidbase;
 				
 					$xr++;
 					}
@@ -99,6 +101,7 @@ class Seller_auctionapproval extends CI_Controller {
 
 		
 	
+
 
 		$sess = array('sessi'=>$this->session->userdata('username'));		
 					

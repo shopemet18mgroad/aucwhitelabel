@@ -30,8 +30,10 @@
 			<tr class="bg-primary text-white">
 					<td>Auction Id</td>
 					<td>Lot No</td>
+					<td>Lot Name</td>
 					<td>Bidder User Name</td>
 					<td>Close Time</td>
+					<td>Bid Base</td>
 					<td>Bidding Amount</td>
 				</tr>
 				</thead>
@@ -42,11 +44,13 @@
 				
 					<td><b><?php echo $sqldata[0]->sauctionid; ?></b></td>
 					<td><?php echo $sqldata[0]->slotno; ?></td>
+					<td><?php echo $sqldata[0]->slotname; ?></td>
 					<td><?php echo $sqldata[0]->bidderusername; ?></td>
 					<td><?php $aucclosetime = $sqldata[0]->Date_time;
 							  $tmp = explode('.',$aucclosetime);
 							  $aucclosetime = $tmp[0];
 							  echo $aucclosetime; ?></td>
+					<td><?php echo $sqldata[0]->sbidbase; ?></td>		  
 					<td><?php echo $sqldata[0]->bidamount; ?></td>
 				</tr>
 			<?php }?>

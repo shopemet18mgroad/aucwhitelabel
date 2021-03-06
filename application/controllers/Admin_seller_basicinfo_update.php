@@ -60,6 +60,7 @@ class Admin_seller_basicinfo_update extends CI_Controller {
 		$datacomp = array();
 		$dataact = $this->input->post('ssigneddocumentex');
 		$datacomp = $this->input->post('ssigneddocumentexcom');
+		$sref  = $this->input->post('sref');
 		if($dataact && $datacomp){
 			$result = array_diff($dataact,$datacomp);
 			$result2 = array_intersect($dataact,$datacomp);
@@ -111,7 +112,7 @@ class Admin_seller_basicinfo_update extends CI_Controller {
 		
 		
 		//==================================================================
-		$data2 = array('sname' => $sname,'scomapnyname' => $scomapnyname, 'ssellertype' => $ssellertype, 'scontactperson' => $scontactperson, 'sdesignation' => $sdesignation,'spassword'=> $spassword, 'scin' => $scin, 'sgst' => $sgst, 'span' => $span,'spcb' => $spcb, 'semail' => $semail, 'sphone' => $sphone , 'saddress' => $saddress2, 'saddresscount' => $saddresscount, 'spin' => $spin, 'sstate' => $sstate, 'scountry' => $scountry, 'sbankername' => $sbankername, 'saccountnumber' => $saccountnumber, 'sbranch' => $sbranch, 'sifsccode' => $sifsccode, 'suploadprofilepic' => $pic_array, 'ssigneddocument' => $doc_array);
+		$data2 = array('sname' => $sname,'scomapnyname' => $scomapnyname, 'ssellertype' => $ssellertype, 'scontactperson' => $scontactperson, 'sdesignation' => $sdesignation,'spassword'=> $spassword, 'scin' => $scin, 'sgst' => $sgst, 'span' => $span,'spcb' => $spcb, 'semail' => $semail, 'sphone' => $sphone , 'saddress' => $saddress2, 'saddresscount' => $saddresscount, 'spin' => $spin, 'sstate' => $sstate, 'scountry' => $scountry, 'sbankername' => $sbankername, 'saccountnumber' => $saccountnumber, 'sbranch' => $sbranch, 'sifsccode' => $sifsccode, 'suploadprofilepic' => $pic_array, 'ssigneddocument' => $doc_array, 'sref' => $sref);
 		//$this->load->view('xya', $data);
 		$datainserr = "Data Inserted Successfully";
 		$updatech = array('scomapnyname' => $scomapnyname);

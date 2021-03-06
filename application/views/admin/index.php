@@ -174,7 +174,7 @@
 
 							</tr> 
 							
-									
+							<tr><td class="btxt">Reference</td><td><input class="form-control w-50" type="text" id="sref" name="sref" required></td></tr>		
 						</tbody>
 					</table>					
 				<a href="#"><button type="submit" name="sbt2" onclick="return validatearry()"class="btn btn-info offset-sm-4 mt-2">Submit</button></a>

@@ -62,6 +62,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="<?php echo base_url();?>admin_dashboard">Seller Profile</i></a>
             <a class="collapse-item" href="<?php echo base_url();?>admin_sellereditprofile">Edit Profile</a>
+			<a class="collapse-item" href="<?php echo base_url();?>Admin_sellereditbyref">Ref Edit Profile</a>
 			 <a class="collapse-item" href="<?php echo base_url();?>admin_sellerapproval">Seller Approval</a>
           </div>
         </div>
@@ -76,6 +77,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="<?php echo base_url();?>admin_buyerreg">Buyer Profile</a>
             <a class="collapse-item" href="<?php echo base_url();?>admin_buyereditprofile">Edit Profile</a>
+			<a class="collapse-item" href="<?php echo base_url();?>Admin_buyereditbyref">Ref Edit Profile</a>
 			<a class="collapse-item" href="<?php echo base_url();?>admin_buyerapproval">Buyer Approval</a>
           </div>
         </div>

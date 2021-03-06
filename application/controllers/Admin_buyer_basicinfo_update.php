@@ -52,6 +52,8 @@ class Admin_buyer_basicinfo_update extends CI_Controller {
 		$datacomp = array();
 		$dataact = $this->input->post('bsigneddocumentex');
 		$datacomp = $this->input->post('bsigneddocumentexcom');
+		$bref  = $this->input->post('bref');
+		
 		if($dataact && $datacomp){
 			$result = array_diff($dataact,$datacomp);
 			$result2 = array_intersect($dataact,$datacomp);
@@ -109,13 +111,13 @@ class Admin_buyer_basicinfo_update extends CI_Controller {
 		
 		
 		//==================================================================
-		$data2 = array('bname' => $bname,'bcompany' => $bcompany, 'bcomptype' => $bcomptype, 'bcontactperson' => $bcontactperson, 'bpassword'=> $bpassword, 'bcin' => $bcin, 'bgst' => $bgst,'bpan' => $bpan,'bpcb' => $bpcb, 'bemail' => $bemail, 'bphone' => $bphone,'baddress' => $baddress, 'bpin' => $bpin, 'bstate' => $bstate, 'bcountry' => $bcountry, 'bbankname' => $bbankname, 'baccountnumber' => $baccountnumber, 'bbranch' => $bbranch, 'bifsccode' => $bifsccode, 'buploadimagepic' => $pic_array, 'bsigneddocument' => $doc_array);
+		$data2 = array('bname' => $bname,'bcompany' => $bcompany, 'bcomptype' => $bcomptype, 'bcontactperson' => $bcontactperson, 'bpassword'=> $bpassword, 'bcin' => $bcin, 'bgst' => $bgst,'bpan' => $bpan,'bpcb' => $bpcb, 'bemail' => $bemail, 'bphone' => $bphone,'baddress' => $baddress, 'bpin' => $bpin, 'bstate' => $bstate, 'bcountry' => $bcountry, 'bbankname' => $bbankname, 'baccountnumber' => $baccountnumber, 'bbranch' => $bbranch, 'bifsccode' => $bifsccode, 'buploadimagepic' => $pic_array, 'bsigneddocument' => $doc_array, 'bref' => $bref);
 		//$this->load->view('xya', $data);
 		$datainserr = "Data Inserted Successfully";
 		$updatech = array('bcompany' => $bcompany);
 		$status = $this->Admin_model->update_custom('buyerprofile',$data2,$updatech,$updatech);
 		// $status = $this->Admin_model->insert('sellerprofile', $data2);
-		header('location: '.base_url().'Admin_buyerreg/index/'.$datainserr);
+		header('location: '.base_url().'admin_buyereditprofile/index/'.$datainserr);
 	die;
 		//$this->load->view('admin/header');
 		//$this->load->view('admin/salesreport');

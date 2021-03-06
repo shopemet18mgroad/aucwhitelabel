@@ -60,6 +60,8 @@ class admin_bidwinner extends CI_Controller {
 				$datap = $this->Admin_model->maxbidvalue($auctmp, $auclottmp);
 				
 				$aucbidamount = $datap[0]->bidamount;
+				$lotname = $datap[0]->slotname;
+				$bidbase = $datap[0]->sbidbase;
 				//$bdname = $datap[0]->bidderusername;
 				$maxvalue = array('sauctionid'=>$auctmp,'slotno'=>$auclottmp,'bidamount'=>$aucbidamount);
 				
@@ -72,13 +74,12 @@ class admin_bidwinner extends CI_Controller {
 				
 				//print_r($approval); die;
 				
-				if($aucbidamount === $mybitvalref){$data['sqldatarec'][] = $auctmp.'|'.$auclottmp.'|'.$mybitvalrec.'|'.$aucbidamount.'|'.$mybitvaldatetime;
+				if($aucbidamount === $mybitvalref){$data['sqldatarec'][] = $auctmp.'|'.$auclottmp.'|'.$lotname.'|'.$mybitvalrec.'|'.$aucbidamount.'|'.$mybitvaldatetime.'|'.$bidbase;
 				$xr++;
 					}
 				
 			
-				
-					
+									
 				}}
 				
 		//$xr++;

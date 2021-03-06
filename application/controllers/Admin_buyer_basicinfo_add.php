@@ -48,6 +48,7 @@ class Admin_buyer_basicinfo_add extends CI_Controller {
 		$bifsccode  = $this->input->post('bifsccode');
 		$pic_array1 = self::upload_files('buploadimagepic');
 		$doc_array1 = self::upload_files('bsigneddocument');
+		$bref  = $this->input->post('bref');
 		
 			if(!count($pic_array1)){
 			echo '<script language="javascript">';
@@ -74,7 +75,7 @@ class Admin_buyer_basicinfo_add extends CI_Controller {
 		//$count = count($bsigneddocument);
 		
 		
-		$data = array('bname' => $bname, 'bcompany' => $bcompany, 'bcomptype' => $bcomptype, 'bcontactperson' => $bcontactperson,'busername' => $busername,'bpassword'=> $bpassword, 'bcin' => $bcin,' bgst' => $bgst, 'bpcb' => $bpcb, 'bemail' => $bemail , 'bphone' => $bphone, 'baddress' => $baddress, 'bpin' => $bpin, 'bpan' => $bpan, 'bstate' => $bstate, 'bcountry' => $bcountry, 'bbankname' => $bbankname, 'baccountnumber' => $baccountnumber, 'bbranch' => $bbranch, 'bifsccode' => $bifsccode, 'buploadimagepic' => $pic_array1, 'bsigneddocument' => $doc_array1);
+		$data = array('bname' => $bname, 'bcompany' => $bcompany, 'bcomptype' => $bcomptype, 'bcontactperson' => $bcontactperson,'busername' => $busername,'bpassword'=> $bpassword, 'bcin' => $bcin,' bgst' => $bgst, 'bpcb' => $bpcb, 'bemail' => $bemail , 'bphone' => $bphone, 'baddress' => $baddress, 'bpin' => $bpin, 'bpan' => $bpan, 'bstate' => $bstate, 'bcountry' => $bcountry, 'bbankname' => $bbankname, 'baccountnumber' => $baccountnumber, 'bbranch' => $bbranch, 'bifsccode' => $bifsccode, 'buploadimagepic' => $pic_array1, 'bsigneddocument' => $doc_array1, 'bref' => $bref);
 		$datainserr = "Data Inserted Successfully";
 		$status = $this->Admin_model->insert('buyerprofile', $data);
 		header('location: '.base_url().'admin_buyerreg/index/'.$datainserr);

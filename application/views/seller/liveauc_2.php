@@ -1,6 +1,6 @@
 <?php 
 	//include('./header.php');
-?>
+?><head> <meta http-equiv="refresh" content="30; url=<?php echo $_SERVER['PHP_SELF']; ?>"></head>
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -81,6 +81,26 @@
 				<tbody>
 				
 				<?php foreach($sqldatalot as $sqlot){?>
+				<?php 
+				date_default_timezone_set('Asia/Kolkata');
+				$time =  Date('Y-m-d H:i:s');
+				$diff = (strtotime($sqlot->aucclosedate_time) - strtotime($time));
+				//$diff = abs($time - $sqldata[0]->aucclosedate_time);  
+			//$diff = strtotime($query[0]->aucclosedate_time)-strtotime($time);
+		$years = floor($diff / (365*60*60*24));  
+			$months = floor(($diff - $years * 365*60*60*24)/ (30*60*60*24));   
+			$days = floor(($diff - $years * 365*60*60*24 -  $months*30*60*60*24)/ (60*60*24)); 
+			$hours = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24 - $days*60*60*24)/ (60*60));  
+$minutes = floor(($diff - $years * 365*60*60*24  - $months*30*60*60*24 - $days*60*60*24 - $hours*60*60)/ 60);  
+$seconds = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24 - $days*60*60*24 - $hours*60*60 - $minutes*60)); 
+$Remaining = $hours." Hours ".$minutes." Minutes ".$seconds."Seconds";
+if($diff <= 0){
+			$condtion = false;
+		}else{
+			$condtion = true;
+		}
+				?>
+				
 				<tr>												
 					<td><?php echo $sqlot->slotname; ?></td>
 					<td><?php echo $sqlot->slotlocation; ?></td>
@@ -88,7 +108,12 @@
 							  $tmp = explode('.',$aucclosetime);
 							  $aucclosetime = $tmp[0];
 							  echo $aucclosetime; ?></td>
-					<td><?php echo $bal; ?></td>
+					<td><?php
+							  if(($sqlot->aucclosedate_time)> $time ) {
+							  echo $Remaining;
+							  } else{
+								  echo "Auction Closed";
+							  }?></td>
 					<td><?php echo $sqlot->sqty; ?></td>
 					<td><?php echo $sqlot->sunitmeasurment; ?></td>
 					<td><?php echo $sqlot->sstartbidprice; ?></td>

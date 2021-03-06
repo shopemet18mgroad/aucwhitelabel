@@ -143,7 +143,7 @@ class Admin_model extends CI_Model
 		
 		public function getadminemdlot($table, $auctionid) {
 			$this->db->select('*');
-			$this->db->group_by('slotname');			
+			$this->db->group_by('biddercart.lotno');			
 			$this->db->from('addlot');
 			$this->db->join('biddercart', 'biddercart.auctionid = addlot.sauctionid');
 			$this->db->where('emdrequest =', 1 <> 'emd_paid_dd =', 1);
@@ -230,8 +230,10 @@ class Admin_model extends CI_Model
 			$this->db->select('*');
 			$this->db->select_max('bidamount');
 			$this->db->from('biddingdata');
-			$this->db->where('sauctionid =', $auction);
-			$this->db->where('slotno =',$lot);
+			$this->db->join('addlot', 'addlot.sauctionid = biddingdata.sauctionid');
+			$this->db->where('biddingdata.sauctionid =', $auction);
+			$this->db->where('biddingdata.slotno =',$lot);
+			$this->db->where('biddingdata.slotno = addlot.slotno');
 			$query = $this->db->get();
 			return $query->result();
 		}
@@ -410,6 +412,8 @@ class Admin_model extends CI_Model
 		$q = $this->db->get();
 		return $q->result_array();
 	}
+	
+	
 	public function get_lookalikesellerbid($table, $col, $query)
 	{
 		//$this->db->select('*');
@@ -439,11 +443,16 @@ class Admin_model extends CI_Model
 		return $q->result_array();
 	}
 
-	public function getdataDSC($table, $data)
+	public function getdataDSC($table, $data, $data2)
 	{
-		$this->db->order_by("bidamount", "DESC");
-		//$this->db->limit(5)
-		$query = $this->db->get_where($table, $data);
+		$this->db->select('*');
+		$this->db->from('biddingdata'); 
+		$this->db->join('addlot', 'addlot.sauctionid = biddingdata.sauctionid');
+		$this->db->order_by("biddingdata.bidamount", "DESC");
+		$this->db->where('biddingdata.sauctionid =', $data);
+		$this->db->where('biddingdata.slotno =', $data2);
+		$this->db->where('biddingdata.slotno = addlot.slotno');
+		$query = $this->db->get();
 		return $query->result();
 	}
 

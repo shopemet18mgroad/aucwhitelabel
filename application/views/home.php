@@ -58,8 +58,9 @@
 										<tr>
 
 											<th width="30%">AUCTION ID</th>
-											<th width="20%">Lot No</th>
+											<th width="10%">Lot No</th>
 											<th width="30%">DESCRIPTION</th>
+											<th width="30%">QUANTITY</th>
 											<th width="30%">DATE & TIME</th>
 
 
@@ -74,6 +75,7 @@
 													<td><?php echo $sqldat->sauctionid; ?></td>
 													<td><?php echo $sqldat->slotno; ?></td>
 													<td><?php echo $sqldat->sdescription; ?></td>
+													<td><?php echo $sqldat->sqty; ?></td>
 													<td><?php echo $sqldat->saucstartdate_time; ?></td>
 
 												</tr>
@@ -93,6 +95,7 @@
 											<th width="30%">AUCTION ID</th>
 											<th width="20%">Lot No</th>
 											<th width="30%">DESCRIPTION</th>
+											<th width="30%">QUANTITY</th>
 											<th width="30%">DATE & TIME</th>
 
 
@@ -105,6 +108,7 @@
 													<td><?php echo $s->sauctionid; ?></td>
 													<td><?php echo $s->slotno; ?></td>
 													<td><?php echo $s->sdescription; ?></td>
+													<td><?php echo $s->sqty; ?></td>
 													<td><?php echo $s->saucstartdate_time; ?></td>
 												</tr>
 										<?php }
@@ -125,6 +129,7 @@
 											<th width="30%">AUCTION ID</th>
 											<th width="20%">Lot No</th>
 											<th width="30%">DESCRIPTION</th>
+											<th width="30%">QUANTITY</th>
 											<th width="30%">DATE & TIME</th>
 
 										</tr>
@@ -137,6 +142,7 @@
 													<td><?php echo $sql->sauctionid; ?></td>
 													<td><?php echo $sql->slotno; ?></td>
 													<td><?php echo $sql->sdescription; ?></td>
+													<td><?php echo $sql->sqty; ?></td>
 													<td><?php echo $sql->saucstartdate_time; ?></td>
 												</tr>
 										<?php }

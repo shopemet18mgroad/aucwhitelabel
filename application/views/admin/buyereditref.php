@@ -1,8 +1,6 @@
 <?php 
 	//include('./header.php');
 ?>
-<head> <meta http-equiv="refresh" content="10; url=<?php echo $_SERVER['PHP_SELF']; ?>">
-</head>
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -10,7 +8,7 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h2 class="h3 mb-0 text-gray-800">Live Auction</h2>
+            <h1 class="h3 mb-0 text-gray-800">Edit Profile</h1>
             
           </div>
 
@@ -22,30 +20,34 @@
           <div class="card shadow mb-4">
             <div class="card-body">
               <div class="table-responsive">
-				<table class="table table-striped table-sm text-center table-bordered " id="dataTable" width="100%" cellspacing="0">
-				<thead class="bg-primary text-white">
-				<tr>
-					<th width="60%">Click for Auction</th>
-				</tr>
-				</thead>
-				<tbody>
-				<?php foreach($sqldata as $sqldat){?>
-				<tr>												
-					<td><a href="<?php  echo base_url()."Seller_liveauc_2/index/".str_ireplace('/','-',$sqldat->sauctionid);?>"><?php echo $sqldat->sauctionid;?></a></td>
-				</tr>
-				<?php }?>
-				</tbody>
-		 </table>
-		</div>
-		</div>
+			   <form class="form-inline">
+					<div class="form-group mr-4 offset-sm-4">
+						<td colspan="5">
+						<form action="/action_page.php">
+							<label for="gettable"></label>
+								<input type="text" class="form-control gettable" id="gettable_buyerref" placeholder="Enter Company Name To Fetch Result"  size="70" name="search">
+								
+								<!--<button class="form-control" type="submit"><i class="fa fa-search"></i></button>-->
+					
+						</form>
+					</td>
+				</div>
+			
 		
-		
-		
+			</form>
+			<div class="ajaxrslt" id="ajaxrslt_buyerref">
+			<!----Insert Ajax Table Here------>
+			
+			<!---- ------>
+		</div>
+
+
+		</div>
+		</div>
+	
 		</div>
 		</div>
 		</div>
-			</div>
-				
           <!-- Content Row -->
 
           
@@ -58,14 +60,14 @@
      
       <!-- End of Footer -->
 
-    
+    </div>
     <!-- End of Content Wrapper -->
 
-
+  </div>
   <!-- End of Page Wrapper -->
 
   <!-- Scroll to Top Button-->
-<?php 
+ <?php 
 	//include('./footer.php');
 ?>
 </body>
