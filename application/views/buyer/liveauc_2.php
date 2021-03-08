@@ -164,13 +164,13 @@ echo '<td>No Auctions</td>';
 echo '</td>';
 echo '</tr>';
 echo '';
-	}	
+	}	}
 		$lottimesync++;	}
 		}?>
 				
 				
 				</tbody>
-		</table><?PHP }?>
+		</table>
 </div>
 
 		</div>

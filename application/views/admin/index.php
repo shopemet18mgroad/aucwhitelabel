@@ -60,6 +60,33 @@
 							<td><input class="form-control w-50" type="text" id="sdesignation" name="sdesignation" required></td>
 						</tr>
 						<tr>
+							<td class="btxt">Pan Number:</td>
+							<td><input class="form-control w-50" type="text" id="span" name="span" required></td>
+						</tr>
+						<tr>
+								<td>Address</td>
+								<td>
+								<div class="input_fields_wrap1">
+								<select class="form-control w-50  p-1" id="saddress" name="saddress[]">
+									<option value="select" selected>SELECT</option>
+									<option value="Corporate Office">Corporate Office</option>
+									<option value="Manufacturing Unit">Manufacturing Unit</option>
+									<option value="Headquarter">Headquarter</option>
+								
+									</select>
+									
+									<textarea class="form-control float-left mt-2 p-2 w-50" type="text" id="saddresscount" name="saddresscount[]" ></textarea>
+								<a class="add_field_button1"><button type="button" class="btn btn-sm btn-primary ml-1 mb-5 mt-3"> <i class="fa fa-plus text-white"></i></button></a>
+									</div>
+									</td>
+								
+							</tr>
+							<!-- City -->
+                <tr>
+                  <td>City</td>
+                  <td><input class="form-control w-50" type="text" id="scity" name="scity" size="50"></td>
+                </tr>
+						<tr>
 							<td class="btxt">UserName:</td>
 							<td><input class="form-control w-50" type="text" id="susername" name="susername" required></td>
 						</tr>
@@ -67,10 +94,7 @@
 							<td class="btxt">CIN Number:</td>
 							<td><input class="form-control w-50" type="text" id="scin" name="scin" onkeyup="validate_user()" required></td>
 						</tr> 
-						<tr>
-							<td class="btxt">Pan Number:</td>
-							<td><input class="form-control w-50" type="text" id="span" name="span" required></td>
-						</tr>						
+												
 						<tr>
 							<td class="btxt">GST:</td>
 							<td><input class="form-control w-50" type="text" id="sgst" name="sgst" onkeyup="validate_company()" required></td>
@@ -94,24 +118,7 @@
 							<td class="btxt">Phone:</td>
 							<td><input class="form-control w-50" type="text" id="sphone" name="sphone" required></td>
 						</tr>
-						<tr>
-								<td>Address</td>
-								<td>
-								<div class="input_fields_wrap1">
-								<select class="form-control w-50  p-1" id="saddress" name="saddress[]">
-									<option value="select" selected>SELECT</option>
-									<option value="Corporate Office">Corporate Office</option>
-									<option value="Manufacturing Unit">Manufacturing Unit</option>
-									<option value="Headquarter">Headquarter</option>
-								
-									</select>
-									
-									<textarea class="form-control float-left mt-2 p-2 w-50" type="text" id="saddresscount" name="saddresscount[]" ></textarea>
-								<a class="add_field_button1"><button type="button" class="btn btn-sm btn-primary ml-1 mb-5 mt-3"> <i class="fa fa-plus text-white"></i></button></a>
-									</div>
-									</td>
-								
-							</tr>
+						
 							<tr>
 							<td class="btxt">Pin:</td>
 							<td><input class="form-control w-50" type="text" id="spin" name="spin" required></td>

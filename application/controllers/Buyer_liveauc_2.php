@@ -115,7 +115,7 @@ $Remaining =$hours." Hours ".$minutes." Minutes ".$seconds."Seconds";
 				//$diff = abs($time - $sqldata[0]->aucclosedate_time);  
 			
 		//$datfnl = floor($datediff / (3600)).":".floor($datediff / (60));
-		
+if(($quer->aucclosedate_time)>$time){		
 		
 echo '<input type="hidden" id="telapsed-'.$lottimesync.'" value="'.$diff.'">';	
 //foreach($query2 as $que){
@@ -237,7 +237,7 @@ echo '<td>No Auctions</td>';
 echo '</td>';
 echo '</tr>';
 echo '';
-	}
+}}
 	$lottimesync++;
 	}
 echo '</tbody>';
