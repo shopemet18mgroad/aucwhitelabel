@@ -237,7 +237,7 @@ echo '<td>No Auctions</td>';
 echo '</td>';
 echo '</tr>';
 echo '';
-}}
+}}	
 	$lottimesync++;
 	}
 echo '</tbody>';

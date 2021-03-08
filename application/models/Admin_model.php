@@ -184,7 +184,7 @@ class Admin_model extends CI_Model
 		
 		public function getselleremdlot($table, $auctionid) {
 			$this->db->select('*');
-			$this->db->group_by('slotname');			
+			$this->db->group_by('biddercart.lotno');			
 			$this->db->from('addlot');
 			$this->db->join('biddercart', 'biddercart.auctionid = addlot.sauctionid');
 			$this->db->where('emdrequest =', 1 <> 'emd_paid_dd =', 1);
