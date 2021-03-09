@@ -1,7 +1,7 @@
 <?php 
 	//include('./header.php');
 ?>
-<head> <meta http-equiv="refresh" content="30; url=<?php echo $_SERVER['PHP_SELF']; ?>">
+<head> <meta http-equiv="refresh" content="30; url=<?php echo base_url()."admin_liveauc2"; ?>">
 </head>
         <!-- End of Topbar -->
 

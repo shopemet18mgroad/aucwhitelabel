@@ -33,23 +33,26 @@ class Admin_seller_basicinfo_add extends CI_Controller {
 		$ssellertype = $this->input->post('ssellertype');
 		$scontactperson  = $this->input->post('scontactperson');
 		$sdesignation = $this->input->post('sdesignation');
+		$span = $this->input->post('span');
+		$saddress  = $this->input->post('saddress');
+		$saddress2 = serialize($saddress);
+		$saddresscount  = $this->input->post('saddresscount');
+		$saddresscount = serialize($saddresscount);
+		$scity = $this->input->post('scity');
 		$susername = $this->input->post('susername');
 		//$spassword = password_hash('default_auc123',PASSWORD_BCRYPT);
-		$spassword = base64_encode('default_auc123');
+		$spassword = base64_encode($this->input->post('spassword'));
 		$scin  = $this->input->post('scin');
 		$sgst  = $this->input->post('sgst');
 		$span  = $this->input->post('span');
 		$spcb  = $this->input->post('spcb');
 		$semail  = $this->input->post('semail');
 		$sphone  = $this->input->post('sphone');
-		$saddress  = $this->input->post('saddress');
-		$saddress2 = serialize($saddress);
-		$saddresscount  = $this->input->post('saddresscount');
-		$saddresscount = serialize($saddresscount);
 		$spin  = $this->input->post('spin');
 		$scity = $this->input->post('scity');
 		$sstate  = $this->input->post('sstate');
 		$scountry  = $this->input->post('scountry');
+		$slocation = $this->input->post('slocation');
 		$sbankername  = $this->input->post('sbankername');
 		$saccountnumber  = $this->input->post('saccountnumber');
 		$sbranch  = $this->input->post('sbranch');
@@ -77,7 +80,7 @@ class Admin_seller_basicinfo_add extends CI_Controller {
 		 
 		
 		//==================================================================
-		$data2 = array('sname' => $sname, 'scomapnyname' => $scomapnyname, 'ssellertype' => $ssellertype, 'scontactperson' => $scontactperson, 'sdesignation' => $sdesignation, 'susername' => $susername, 'spassword'=> $spassword, 'scin' => $scin, 'sgst' => $sgst, 'span' => $span,'spcb' => $spcb, 'semail' => $semail, 'sphone' => $sphone , 'saddress' => $saddress2, 'saddresscount' => $saddresscount, 'spin' => $spin,'scity' => $scity, 'sstate' => $sstate, 'scountry' => $scountry, 'sbankername' => $sbankername, 'saccountnumber' => $saccountnumber, 'sbranch' => $sbranch, 'sifsccode' => $sifsccode, 'suploadprofilepic' => $pic_array, 'ssigneddocument' => $doc_array, 'sref' => $sref);
+		$data2 = array('sname' => $sname, 'scomapnyname' => $scomapnyname, 'ssellertype' => $ssellertype, 'scontactperson' => $scontactperson, 'sdesignation' => $sdesignation,'susername' => $susername, 'spassword'=> $spassword, 'scin' => $scin, 'sgst' => $sgst, 'span' => $span,'spcb' => $spcb, 'semail' => $semail, 'sphone' => $sphone , 'saddress' => $saddress2, 'saddresscount' => $saddresscount, 'spin' => $spin,'scity' => $scity, 'sstate' => $sstate, 'scountry' => $scountry,'slocation' => $slocation, 'sbankername' => $sbankername, 'saccountnumber' => $saccountnumber, 'sbranch' => $sbranch, 'sifsccode' => $sifsccode, 'suploadprofilepic' => $pic_array, 'ssigneddocument' => $doc_array, 'sref' => $sref);
 		//$this->load->view('xya', $data);
 		
 		

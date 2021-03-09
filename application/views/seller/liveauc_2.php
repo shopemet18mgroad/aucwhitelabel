@@ -1,6 +1,6 @@
 <?php 
 	//include('./header.php');
-?><head> <meta http-equiv="refresh" content="30; url=<?php echo $_SERVER['PHP_SELF']; ?>"></head>
+?><head> <meta http-equiv="refresh" content="30; url=<?php echo base_url()."seller_liveauc2"; ?>"></head>
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->

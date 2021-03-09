@@ -27,6 +27,7 @@ class Admin_buyer_basicinfo_add extends CI_Controller {
 		$bname = $this->input->post('bname');
 		$bcompany = $this->input->post('bcompany');
 		$bcomptype  = $this->input->post('bcomptype');
+		$bbuyerlocation = $this->input->post('bbuyerlocation');
 		$bcontactperson  = $this->input->post('bcontactperson');
 		$busername = $this->input->post('busername');
 		//$bpassword = password_hash('default_auc123',PASSWORD_BCRYPT);

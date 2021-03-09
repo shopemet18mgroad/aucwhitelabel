@@ -46,15 +46,37 @@
 						<tr>
 							<td class="btxt">Company Type:</td>
 							<td><input class="form-control w-50" onkeyup="validate_adminbcompany()" type="text" id="bcomptype" name="bcomptype" required></td>
-						</tr>  
+						</tr>
+						<!-- Buyer's Location -->
+								<tr>
+									<td>Buyer's Location</td>
+									<td><input class="form-control w-50" type="text" id="bbuyerlocation" name="bbuyerlocation" size="50"></td>
+								</tr>						
 						<tr>
 							<td class="btxt">Contact Person:</td>
 							<td><input class="form-control w-50" type="text" id="bcontactperson" name="bcontactperson" required></td>
 						</tr>
+						
+						<!-- Contact Person Designation -->
+								<tr>
+									<td>Contact Person Designation</td>
+									<td><input class="form-control w-50" type="text" id="bdesignation" name="bdesignation" size="50"></td>
+								</tr>
 						<tr>
 							<td class="btxt">UserName:</td>
 							<td><input class="form-control w-50" type="text" id="busername" name="busername" required></td>
 						</tr>
+						
+						<!-- Password -->
+								<tr>
+									<td>Password </td>
+									<td><input class="form-control w-50" type="password" id="bpassword" name="bpassword" size="50" onkeyup="validate_username1()"><span id="message1" style="color:white"> </span></td>
+								</tr>
+								<!-- Confirm Password  -->
+								<tr>
+									<td>Confirm Password</td>
+									<td><input class="form-control w-50" type="password" id="bconfirmpassword" name="bconfirmpassword" size="50"><span id="message2" style="color:white"> </span></td>
+								</tr>
 						<tr>
 							<td class="btxt">CIN Number:</td>
 							<td><input class="form-control w-50" type="text" id="bcin" name="bcin" onkeyup="validate_user2()" required></td>
@@ -90,6 +112,11 @@
 							<td class="btxt">Postal Address:</td>
 							<td><textarea class="form-control w-50" type="text" id="baddress" 	name="baddress" required></textarea></td>
 						</tr> 
+						<!-- City -->
+								<tr>
+									<td>City</td>
+									<td><input class="form-control w-50" type="text" id="bcity" name="bcity" size="50"></td>
+								</tr>
 						 
 						<tr>
 							<td class="btxt">Pincode:</td>
@@ -97,7 +124,37 @@
 						</tr> 
 						<tr>
 							<td class="btxt">State /Union Ter.:</td>
-							<td><input class="form-control w-50" type="text" id="bstate" name="bstate" required></td>
+							<td><select class="form-control w-50" style="text-align-last:center;" id="bstate" name="bstate">
+											<option value="Andra Pradesh" selected>Andra Pradesh</option>
+											<option value="Arunachal Pradesh">Arunachal Pradesh</option>
+											<option value="Assam">Assam</option>
+											<option value="Bihar">Bihar</option>
+											<option value="Chhattishgarh">Chhattishgarh</option>
+											<option value="Delhi">Delhi</option>
+											<option value="Goa">Goa</option>
+											<option value="Gujarat">Gujarat</option>
+											<option value="Harayana">Harayana</option>
+											<option value="Himachal Pradesh">Himachal Pradesh</option>
+											<option value="Jharkhand">Jharkhand</option>
+											<option value="Karnataka">Karnataka</option>
+											<option value="Kerala">Kerala</option>
+											<option value="Madhya Pradesh">Madhya Pradesh</option>
+											<option value="Maharashtra">Maharashtra</option>
+											<option value="Manipur">Manipur</option>
+											<option value="Meghalaya">Meghalaya</option>
+											<option value="Mizoram">Mizoram</option>
+											<option value="Nagaland">Nagaland</option>
+											<option value="Odisha">Odisha</option>
+											<option value="Punjab">Punjab</option>
+											<option value="Rajasthan">Rajasthan</option>
+											<option value="Sikkim">Sikkim</option>
+											<option value="Tamil Nadu">Tamil Nadu</option>
+											<option value="Telangana">Telangana</option>
+											<option value="Tripura">Tripura</option>
+											<option value="Uttar Pradesh">Uttar Pradesh</option>
+											<option value="Uttarakhand">Uttarakhand</option>
+											<option value="West Bengal">West Bengal</option>
+										</select></td>
 						</tr> 
 						<tr>
 							<td class="btxt">Country:</td>

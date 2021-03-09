@@ -30,7 +30,7 @@
                 <div class="card-body">
 					 <table class="table table-sm table-borderless">
 					 <thead><th width="45%">Basic Info</th>
-					 <form action = "<?php echo base_url();?>admin_seller_basicinfo_add" method="POST" enctype="multipart/form-data">
+					 <form action = "<?php echo base_url();?>admin_seller_basicinfo_add" method="POST" onsubmit="return validateForm()" enctype="multipart/form-data">
 					 </thead>
 						<tbody>
 						<tr><td><img class="img-fluid" src="<?php echo base_url()."web_files/";?>img/manimg.jpg" alt="Chania" width="40" height="35"></td></tr>
@@ -61,7 +61,7 @@
 						</tr>
 						<tr>
 							<td class="btxt">Pan Number:</td>
-							<td><input class="form-control w-50" type="text" id="span" name="span" required></td>
+							<td><input class="form-control w-50 pan" type="text" id="span" name="span" required></td>
 						</tr>
 						<tr>
 								<td>Address</td>
@@ -81,15 +81,21 @@
 									</td>
 								
 							</tr>
-							<!-- City -->
-                <tr>
-                  <td>City</td>
-                  <td><input class="form-control w-50" type="text" id="scity" name="scity" size="50"></td>
-                </tr>
+					
 						<tr>
 							<td class="btxt">UserName:</td>
 							<td><input class="form-control w-50" type="text" id="susername" name="susername" required></td>
 						</tr>
+						<!-- Password -->
+                <tr>
+                  <td>Password *</td>
+                  <td><input class="form-control w-50" type="password" id="spassword" name="spassword" size="50" onkeyup="validate_username()"><span id="message1" style="color:BLACK"> </span></td>
+                </tr>
+                <!-- Confirm Password -->
+                <tr>
+                  <td>Confirm Password *</td>
+                  <td><input class="form-control w-50" type="password" id="sconfirmpassword" name="sconfirmpassword" size="50"><span id="message2" style="color:BLACK"> </span></td>
+                </tr>
 						<tr>
 							<td class="btxt">CIN Number:</td>
 							<td><input class="form-control w-50" type="text" id="scin" name="scin" onkeyup="validate_user()" required></td>
@@ -97,7 +103,7 @@
 												
 						<tr>
 							<td class="btxt">GST:</td>
-							<td><input class="form-control w-50" type="text" id="sgst" name="sgst" onkeyup="validate_company()" required></td>
+							<td><input class="form-control w-50 gst" type="text" id="sgst" name="sgst" onkeyup="validate_company()" required></td>
 						</tr> 
 						<tr>
 							<td class="btxt">PCB Licence NO:</td>
@@ -123,14 +129,53 @@
 							<td class="btxt">Pin:</td>
 							<td><input class="form-control w-50" type="text" id="spin" name="spin" required></td>
 							</tr>
+									<!-- City -->
+							<tr>
+							<td>City</td>
+							<td><input class="form-control w-50" type="text" id="scity" name="scity" size="50"></td>
+							</tr>
 							<tr>
 							<td class="btxt">State:</td>
-							<td><input class="form-control w-50" type="text" id="sstate" name="sstate" required></td>
+							<td><select class="form-control w-50" style="text-align-last:center;" id="sstate" name="sstate">
+                      <option value="Karnataka" selected>Karnataka</option>
+                      <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                      <option value="Assam">Assam</option>
+                      <option value="Bihar">Bihar</option>
+                      <option value="Chhattishgarh">Chhattishgarh</option>
+                      <option value="Delhi">Delhi</option>
+                      <option value="Goa">Goa</option>
+                      <option value="Gujarat">Gujarat</option>
+                      <option value="Harayana">Harayana</option>
+                      <option value="Himachal Pradesh">Himachal Pradesh</option>
+                      <option value="Eleven">Jharkhand</option>
+                      <option value="Jharkhand">Andhra Pradesh</option>
+                      <option value="Kerala">Kerala</option>
+                      <option value="Madhya Pradesh">Madhya Pradesh</option>
+                      <option value="Maharashtra">Maharashtra</option>
+                      <option value="Manipur">Manipur</option>
+                      <option value="Meghalaya">Meghalaya</option>
+                      <option value="Mizoram">Mizoram</option>
+                      <option value="Nagaland">Nagaland</option>
+                      <option value="Odisha">Odisha</option>
+                      <option value="Punjab">Punjab</option>
+                      <option value="Rajasthan">Rajasthan</option>
+                      <option value="Sikkim">Sikkim</option>
+                      <option value="Tamil Nadu">Tamil Nadu</option>
+                      <option value="Telangana">Telangana</option>
+                      <option value="Tripura">Tripura</option>
+                      <option value="Uttar Pradesh">Uttar Pradesh</option>
+                      <option value="Uttarakhand">Uttarakhand</option>
+                      <option value="West Bengal">West Bengal</option>
+                    </select></td>
 							</tr>
 						<tr>
 							<td class="btxt">Country:</td>
 							<td><input class="form-control w-50" type="text" id="scountry" name="scountry" value="INDIA" readonly></td>
-						</tr>		
+						</tr>
+				<!-- Location -->
+					<tr>
+                  <td>Location</td>
+                  <td><input class="form-control w-50" type="text" id="slocation" name="slocation" size="50"></td></tr>				
 						</tbody>
 					</table>	
 
@@ -277,6 +322,65 @@
  
  </script>
  
+ <script type="text/javascript">
+  $(document).ready(function() {
+
+    $(".pan").change(function() {
+      var inputvalues = $(this).val();
+      var regex = /[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+      if (!regex.test(inputvalues)) {
+        $(".pan").val("");
+        swal("Alert!", "Invalid PAN no", "error");
+        return regex.test(inputvalues);
+      }
+    });
+
+  });
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+
+    $(".gst").change(function() {
+      var inputvalues = $(this).val();
+      var regex = /^([0-9]){2}([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}([0-9]){1}([a-zA-Z]){1}([0-9A-Z]){1}?$/;
+      if (!regex.test(inputvalues)) {
+        $(".gst").val("");
+        swal("Alert!", "Invalid gst no", "error");
+        return regex.test(inputvalues);
+      }
+    });
+
+  });
+</script>
+
+<script>
+  function validateForm() {
+    //collect form data in JavaScript variables
+    var pw1 = document.getElementById("spassword").value;
+    var pw2 = document.getElementById("sconfirmpassword").value;
+
+
+    //check empty password field
+
+    //minimum password length validation
+    if (pw1.length < 8) {
+      document.getElementById("message1").innerHTML = "**Password length must be atleast 8 characters";
+      return false;
+    }
+
+    //maximum length of password validation
+    if (pw1.length > 15) {
+      document.getElementById("message1").innerHTML = "**Password length must not exceed 15 characters";
+      return false;
+    }
+
+    if (pw1 != pw2) {
+      document.getElementById("message2").innerHTML = "**Passwords are not same";
+      return false;
+    }
+  }
+</script>
  
   <?php 
 	//include('./footerdata.php');
