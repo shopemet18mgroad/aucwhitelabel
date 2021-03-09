@@ -1,6 +1,6 @@
 <?php 
 	//include('./header.php');
-?><head> <meta http-equiv="refresh" content="30; url=<?php echo base_url()."seller_liveauc2"; ?>"></head>
+?><head> <meta http-equiv="refresh" content="30; url=<?php echo base_url()."seller_liveauc_2/index/".str_ireplace('/','-',$sqldata[0]->sauctionid); ?>"></head>
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->

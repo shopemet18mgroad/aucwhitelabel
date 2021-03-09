@@ -1,7 +1,9 @@
 <?php 
 	//include('./header.php');
 ?>
-<head> <meta http-equiv="refresh" content="30; url=<?php echo base_url()."admin_liveauc2"; ?>">
+<head> 
+<meta http-equiv="refresh" content="30; url=<?php echo base_url()."Admin_liveauc_2/index/".str_ireplace('/','-',$sqldata[0]->sauctionid); ?>"/>
+
 </head>
         <!-- End of Topbar -->
 
