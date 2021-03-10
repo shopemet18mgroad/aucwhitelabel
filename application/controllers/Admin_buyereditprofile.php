@@ -39,7 +39,7 @@ class Admin_buyereditprofile extends CI_Controller {
 		$this->load->model('Admin_model');
 		$data = $this->Admin_model->get_lookalike('buyerprofile','bcompany',$datatoquerydb);
 		if(count($data)){
-			echo '<table class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';
+			echo '<table class="table table-striped table-bordered table-sm w-auto small text-center mt-5" width="100%" cellspacing="0">';
 			echo '<thead class="bg-primary text-white">';
 			echo '<tr>';
 			echo '<th>S.No.</th>';
@@ -49,6 +49,7 @@ class Admin_buyereditprofile extends CI_Controller {
 			echo '<th>Location</th>';
 			echo '<th>City</th>';
 			echo '<th>Pincode</th>';
+			echo '<th>Date</th>';
 			echo '<th>Status</th>';
 			echo '<th>Action</th>';
 			echo '</tr>';
@@ -63,6 +64,7 @@ class Admin_buyereditprofile extends CI_Controller {
 				echo '<td>'.$dat['baddress'].'</td>';
 				echo '<td>'.$dat['bcity'].'</td>';
 				echo '<td>'.$dat['bpin'].'</td>';
+				echo '<td width="10%">'.$dat['bagreementdate'].'</td>';
 				$status = $dat['adaction'];
 				if($status == 1){
 				echo '<td style="color:green;"><b>'."ACTIVE".'</b></td>';

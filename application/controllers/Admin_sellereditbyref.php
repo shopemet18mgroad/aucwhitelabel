@@ -44,7 +44,7 @@ class Admin_sellereditbyref extends CI_Controller {
 		$this->load->model('Admin_model');
 		$data = $this->Admin_model->get_lookalike('sellerprofile','sref',$datatoquerydb);
 		if(count($data)){
-			echo '<table class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';
+			echo '<table class="table table-striped table-bordered table-sm w-auto small text-center mt-5" width="100%" cellspacing="0">';
 			echo '<thead class="bg-primary text-white">';
 			echo '<tr>';
 			echo '<th>S.No.</th>';
@@ -55,7 +55,7 @@ class Admin_sellereditbyref extends CI_Controller {
 			echo '<th>City</th>';
 			echo '<th>Pincode</th>';
 			echo '<th>Reference</th>';
-			echo '<th>Status</th>';
+			echo '<th>Date</th>';
 			echo '<th>Action</th>';
 			echo '</tr>';
 			echo '</thead>';
@@ -70,21 +70,10 @@ class Admin_sellereditbyref extends CI_Controller {
 				echo '<td>'.$dat['scity'].'</td>';
 				echo '<td>'.$dat['spin'].'</td>';
 				echo '<td>'.$dat['sref'].'</td>';
-				$status = $dat['adaction'];
-				if($status == 1){
-				echo '<td style="color:green;"><b>'."ACTIVE".'</b></td>';
-				}else{
-				echo '<td style="color:red;"><b>'."INACTIVE".'</b></td>';	
-				}
+				echo '<td>'.$dat['sagreementdate'].'</td>';
 				echo '<td width="10%"><a href="'.base_url().'admin_editseller/edit_seller/'.$dat['scomapnyname'].'">';	
 				echo '<i class="fa fa-edit"></i>';
-				echo '</a>';
-				echo '<a href="'.base_url().'admin_editseller/delete_seller/'.$dat['scomapnyname'].'" class="btn btn-sm text-white delete-confirm">';
-				echo '<i class="fa fa-trash" style="color:black"></i>';
-				echo '</a>';
-				echo '<a href="'.base_url().'Admin_sellereditprofile/INACTIVE/'.$dat['scomapnyname'].'" class="btn btn-sm text-white ">';
-				echo '<i class="fa fa-window-close" aria-hidden="true"  style="color:red"></i>';
-				echo '</a>';
+				echo '</a>';	
 				echo '</td>';
 				echo '</td>';
 				echo '</tr>';
@@ -130,47 +119,11 @@ class Admin_sellereditbyref extends CI_Controller {
 
 	}
 	
-	public function INACTIVE(){
-		$this->load->helper('url');
-		$this->load->library('session');
-		$dat = urldecode($this->uri->segment(3));
-		$data = array('scomapnyname'=>$dat);
-		$this->load->model('Admin_model');
-		$dat4 = $this->Admin_model->getdatafromtable('sellerprofile',$data);
-			
-		$sellername = $dat4[0]->sname;	
-		$companyname = $dat4[0]->scomapnyname;
-		$username = $dat4[0]->susername;
-		
-		$update = array('adaction'  => false);
-		
-		$updatecheck = array('sname'=>$sellername,'scomapnyname'=>$companyname,'susername'=>$username);
-		$status = $this->Admin_model->update_custom('sellerprofile',$update,$updatecheck,$updatecheck);
-		
-		
-		header('location: '.base_url().'Admin_sellereditprofile/index/');
-		die;
-	}
+	
 	
 	
 }
 
 
 
-echo "<script>\n";
-echo "$('.delete-confirm').on('click', function (event) {\n";
-echo "    event.preventDefault();\n";
-echo "    const url = $(this).attr('href');\n";
-echo "    swal({\n";
-echo "        title: 'Are you sure?',\n";
-echo "        text: 'This record and it`s details will be permanantly deleted!',\n";
-echo "        icon: 'warning',\n";
-echo "        buttons: [\"Cancel\", \"Yes!\"],\n";
-echo "    }).then(function(value) {\n";
-echo "        if (value) {\n";
-echo "            window.location.href = url;\n";
-echo "        }\n";
-echo "    });\n";
-echo "});\n";
-echo "</script>\n";
 

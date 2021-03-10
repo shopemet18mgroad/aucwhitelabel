@@ -393,13 +393,13 @@ in applicable tax rates that are promulgated by the Government from time to time
 
  <table style="width:100%">
   <tr>
-    <th style="color:red"><center>Upload terms & Conditions</center></th>
+    <th style="background-color:green;color:white;"><center>Special Terms & Conditions</center></th>
  
 
   </tr>
 
    <tr>
-    <td><?php echo $sqldata2[0]->sterms_text; ?>
+    <td style="color:Blue"><?php echo $sqldata2[0]->sterms_text; ?>
 </td>
    
   </tr>

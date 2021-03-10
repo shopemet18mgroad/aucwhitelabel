@@ -31,7 +31,7 @@
                 <div class="card-body">
 					 <table class="table table-sm table-borderless">
 					 <thead><th width="45%">Personal Info</th>
-					  <form action="<?php echo base_url();?>Admin_buyer_basicinfo_add" method="POST" enctype="multipart/form-data">
+					  <form action="<?php echo base_url();?>Admin_buyer_basicinfo_add" method="POST"onsubmit="return validateForm()" enctype="multipart/form-data">
 					 </thead>
 						<tbody>
 						<tr><td><img class="img-fluid" src="<?php echo base_url()."web_files/";?>img/manimg.jpg" alt="Chania" width="40" height="35"></td></tr>
@@ -50,7 +50,7 @@
 						<!-- Buyer's Location -->
 								<tr>
 									<td>Buyer's Location</td>
-									<td><input class="form-control w-50" type="text" id="bbuyerlocation" name="bbuyerlocation" size="50"></td>
+									<td><input class="form-control w-50" type="text" id="bbuyerlocation" name="bbuyerlocation" size="50" required></td>
 								</tr>						
 						<tr>
 							<td class="btxt">Contact Person:</td>
@@ -60,7 +60,7 @@
 						<!-- Contact Person Designation -->
 								<tr>
 									<td>Contact Person Designation</td>
-									<td><input class="form-control w-50" type="text" id="bdesignation" name="bdesignation" size="50"></td>
+									<td><input class="form-control w-50" type="text" id="bdesignation" name="bdesignation" size="50"required></td>
 								</tr>
 						<tr>
 							<td class="btxt">UserName:</td>
@@ -70,12 +70,12 @@
 						<!-- Password -->
 								<tr>
 									<td>Password </td>
-									<td><input class="form-control w-50" type="password" id="bpassword" name="bpassword" size="50" onkeyup="validate_username1()"><span id="message1" style="color:white"> </span></td>
+									<td><input class="form-control w-50" type="password" id="bpassword" name="bpassword" size="50" onkeyup="validate_username1()"><span id="message1" style="color:black"> </span></td>
 								</tr>
 								<!-- Confirm Password  -->
 								<tr>
 									<td>Confirm Password</td>
-									<td><input class="form-control w-50" type="password" id="bconfirmpassword" name="bconfirmpassword" size="50"><span id="message2" style="color:white"> </span></td>
+									<td><input class="form-control w-50" type="password" id="bconfirmpassword" name="bconfirmpassword" size="50"><span id="message2" style="color:black"> </span></td>
 								</tr>
 						<tr>
 							<td class="btxt">CIN Number:</td>
@@ -83,11 +83,11 @@
 						</tr>  
 						<tr>
 							<td class="btxt">GST:</td>
-							<td><input class="form-control w-50" type="text" id="bgst" name="bgst" onkeyup="validate_company2()"  required></td>
+							<td><input class="form-control w-50 gst" type="text" id="bgst" name="bgst" onkeyup="validate_company2()"  required></td>
 						</tr> 
 						<tr>
-							<td class="btxt">Pan Number</td>
-							<td><input class="form-control w-50" type="text" id="bpan" name="bpan" required></td>
+							<td class="btxt">Pan Number</td>		
+							<td><input class="form-control w-50 pan" type="text" id="bpan" name="bpan" required></td>
 						</tr> 
 						<tr>
 							<td class="btxt">PCB Licence NO:</td>
@@ -115,7 +115,7 @@
 						<!-- City -->
 								<tr>
 									<td>City</td>
-									<td><input class="form-control w-50" type="text" id="bcity" name="bcity" size="50"></td>
+									<td><input class="form-control w-50" type="text" id="bcity" name="bcity" size="50" required></td>
 								</tr>
 						 
 						<tr>
@@ -238,35 +238,66 @@
     <!-- End of Content Wrapper -->
 
   </div>
-  <!--<script>
- $(document).ready(function() {
- var max_fields  = 20;
- var wrapper     = $(".input_fields_wrap");
- var add_button  = $(".add_field_button");
+  <script type="text/javascript">
+	$(document).ready(function() {
 
- 
- var x=1;
- $(add_button).click(function(e) {
-   e.preventDefault();
-   if(x < max_fields){
-			x++;
-			$(wrapper).append('<div><input class="mt-2" type="file" id="bsigneddocument" name="bsigneddocument"><a href="#" class="remove_field"><button type="button" class="btn btn-sm btn-primary ml-1">  <i class="fa fa-minus text-white"></i></button></a></div>');
-   
-   }	
-			});
-			
-			
-			$(wrapper).on("click",".remove_field", function(e){
-			
-			e.preventDefault();
-			$(this).parent('div').remove();
-			x--;
-			
-			})
-			
-			});
- 
- </script>-->
+		$(".pan").change(function() {
+			var inputvalues = $(this).val();
+			var regex = /[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+			if (!regex.test(inputvalues)) {
+				$(".pan").val("");
+				swal("Alert!", "Invalid PAN no", "error");
+				return regex.test(inputvalues);
+			}
+		});
+
+	});
+</script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		$(".gst").change(function() {
+			var inputvalues = $(this).val();
+			var regex = /^([0-9]){2}([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}([0-9]){1}([a-zA-Z]){1}([0-9A-Z]){1}?$/;
+			if (!regex.test(inputvalues)) {
+				$(".gst").val("");
+				swal("Alert!", "Invalid gst no", "error");
+				return regex.test(inputvalues);
+			}
+		});
+
+	});
+</script>
+
+
+<script>
+  function validateForm() {
+    //collect form data in JavaScript variables
+    var pw1 = document.getElementById("bpassword").value;
+    var pw2 = document.getElementById("bconfirmpassword").value;
+
+
+    //check empty password field
+
+    //minimum password length validation
+    if (pw1.length < 8) {
+      document.getElementById("message1").innerHTML = "**Password length must be atleast 8 characters";
+      return false;
+    }
+
+    //maximum length of password validation
+    if (pw1.length > 15) {
+      document.getElementById("message1").innerHTML = "**Password length must not exceed 15 characters";
+      return false;
+    }
+
+    if (pw1 != pw2) {
+      document.getElementById("message2").innerHTML = "**Passwords are not same";
+      return false;
+    }
+  }
+</script>
  <?php 
 	//include('./footerdata.php');
 ?>

@@ -19,6 +19,7 @@ class Admin_buyer_basicinfo_update extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	 
+	 
 	 	public function index()
 	{
 		$this->load->library('fileupload');
