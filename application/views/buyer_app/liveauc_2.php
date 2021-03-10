@@ -23,7 +23,10 @@
 			  <input type="hidden" id="total-lot" value="<?php echo count($sqldata2);?>">
 		<?php $lottimesync = 0; if(isset($sqldata)){foreach($sqldata as $sqld){?>	  
 	<input type="hidden" id="ref-<?php echo $lottimesync;?>" value="<?php echo str_ireplace('/','-',$sqld->auctionid)."|".$sqldata2[$lottimesync]->slotno; ?>">
-	
+	<?php 
+	date_default_timezone_set('Asia/Kolkata');
+	$time =  Date('Y-m-d H:i:s');
+	if(($sqld->aucclosedate_time)>$time){?>
 	
 	<div id="ajaxauc" class="ajaxauc">
 	
@@ -158,7 +161,7 @@ echo '<td>No Auctions</td>';
 echo '</td>';
 echo '</tr>';
 echo '';
-		}	
+	}	}
 		$lottimesync++;	}
 	}?>
 				
