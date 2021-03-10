@@ -113,7 +113,7 @@ class Buyer_app_forthcoming extends CI_Controller {
 				echo '<td data-label="Quantity">'.$dat['sqty'].'</td>';
 				echo '<td data-label="GST">'.$dat['sgst'].'</td>';
 				echo '<td data-label="Location">'.$dat['slotlocation'].'</td>';
-				echo '<td data-label="Download"><a href="'.base_url().'/Buyer_app_pdf_gen/auc_no/'.$aucencode.'/'.($dat['sname']).'">hbjhb</a></td>';
+				echo '<td data-label="Download"><a href="'.base_url().'/Buyer_app_pdf_gen/auc_no/'.$aucencode.'/'.($dat['sname']).'"><i class="fa fa-download"></i></a></td>';
 				echo '';
 
 				echo '<td data-label="Add to Mylist">';
