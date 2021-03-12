@@ -32,11 +32,16 @@ class Pdf_gen extends CI_Controller
 			$query2 = $this->Admin_model->getdatafromtable('auction', $active);
 			//print_r($query2); die;
 			$query3 = $this->Admin_model->getdatafromtable('sellerprofile',$active2);
+		
+			//print_r($query4); die;
 			//print_r($query3); die;
 			$data['sqldata']= $query;
 				
 			$data['sqldata2']= $query2;
 			$data['sql']=$query3 ;
+			//$data['s']= '<img src="https://www.aucjunction.com/web_files/img/aucjunction.jpg" class="img-fluid" alt="" width="20%;">';
+			//$this -> mpdf_convert_pdf();
+			//print_r($data['s']); die;
 			$data['sauctionid'] = $aucf;
 			//print_r($aucf); die;
 			//$this->load->view('Pdf_File2',$data);
@@ -53,6 +58,7 @@ class Pdf_gen extends CI_Controller
     // Load pdf library
     $ci->load->library('pdf');
     $ci->dompdf->loadHtml($html);
+
     // setup size
     $ci->dompdf->setPaper('A4', 'portrait');
     // Render the HTML as PDF

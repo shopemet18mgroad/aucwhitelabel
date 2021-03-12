@@ -25,8 +25,8 @@
                   </div>
                   <div class="form-group">
                     <div class="custom-control custom-checkbox small">
-                      <input type="checkbox" class="custom-control-input" id="customCheck" name="remember_me">
-                      <label class="custom-control-label" for="customCheck">Remember Me</label>
+                      <input type="checkbox" class="custom-control-input" id="customCheck4" name="remember_me">
+                      <label class="custom-control-label" for="customCheck4">Remember Me</label>
                     </div>
                   </div>
                   <button name="submit" type="submit" onclick="return validateFormLogin()" class="btn btn-primary btn-user btn-block">

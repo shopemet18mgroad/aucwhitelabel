@@ -32,7 +32,7 @@ class Admin_buyer_basicinfo_update extends CI_Controller {
 		//$busername = $this->input->post('busername');
 		//$bpassword = password_hash('default_auc123',PASSWORD_BCRYPT);
 		//$bpassword = base64_encode('default_auc123');
-		$bpassword = base64_encode($this->input->post('bpassword'));
+		//$bpassword = base64_encode($this->input->post('bpassword'));
 		$bcin = $this->input->post('bcin');
 		$bgst = $this->input->post('bgst');
 		$bpan = $this->input->post('bpan');
@@ -112,7 +112,7 @@ class Admin_buyer_basicinfo_update extends CI_Controller {
 		
 		
 		//==================================================================
-		$data2 = array('bname' => $bname,'bcompany' => $bcompany, 'bcomptype' => $bcomptype, 'bcontactperson' => $bcontactperson, 'bpassword'=> $bpassword, 'bcin' => $bcin, 'bgst' => $bgst,'bpan' => $bpan,'bpcb' => $bpcb, 'bemail' => $bemail, 'bphone' => $bphone,'baddress' => $baddress, 'bpin' => $bpin, 'bstate' => $bstate, 'bcountry' => $bcountry, 'bbankname' => $bbankname, 'baccountnumber' => $baccountnumber, 'bbranch' => $bbranch, 'bifsccode' => $bifsccode, 'buploadimagepic' => $pic_array, 'bsigneddocument' => $doc_array, 'bref' => $bref);
+		$data2 = array('bname' => $bname,'bcompany' => $bcompany, 'bcomptype' => $bcomptype, 'bcontactperson' => $bcontactperson, 'bcin' => $bcin, 'bgst' => $bgst,'bpan' => $bpan,'bpcb' => $bpcb, 'bemail' => $bemail, 'bphone' => $bphone,'baddress' => $baddress, 'bpin' => $bpin, 'bstate' => $bstate, 'bcountry' => $bcountry, 'bbankname' => $bbankname, 'baccountnumber' => $baccountnumber, 'bbranch' => $bbranch, 'bifsccode' => $bifsccode, 'buploadimagepic' => $pic_array, 'bsigneddocument' => $doc_array, 'bref' => $bref);
 		//$this->load->view('xya', $data);
 		$datainserr = "Data Inserted Successfully";
 		$updatech = array('bcompany' => $bcompany);

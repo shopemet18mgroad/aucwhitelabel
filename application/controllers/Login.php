@@ -25,13 +25,14 @@ class Login extends CI_Controller
 
 		$this->load->helper('url');
 
-		$this->load->helper(array('url', 'html', 'date'));
+		$this->load->helper(array('url', 'html', 'date','cookie'));
 		//Setting  default time zone
 		date_default_timezone_set('Asia/Kolkata');
 		//initaliazing the current time 
 		$time =  Date('Y-m-d H:i:s');
 		$this->load->library('session');
 		$this->session->sess_expiration = '3600';
+	
 		if ($this->input->post('user')) {
 			if ($this->input->post('optradio') == "Buyer") {
 				$table = "buyerprofile";
@@ -46,15 +47,25 @@ class Login extends CI_Controller
 				$colname = "ausername";
 				$colname2 = "apassword";
 			}
+		
 			$user = $this->input->post('user');
 			$pass = $this->input->post('pass');
 			$pass = base64_encode($pass);
+			
+
+			//$remember = $this->input->post('remember_me');
 			$check_db = array($colname => $user, $colname2 => $pass, 'adaction' => true);
 			$this->load->model('Admin_model');
+			
 			if ($this->Admin_model->check($table, $check_db)) {
+			
 				if ($table == "buyerprofile") {
 					$newdata = array('username' => $user, 'auth' => 'BUYER', 'logged_in' => TRUE);
 					$this->session->set_userdata($newdata);
+						//if($remember){
+						//$this->session->set_userdata('remember_me', true);}
+						//$this->session->set_userdata('logged_in', $newdata);
+						
 					header('location: ' . base_url() . 'buyer_dashboard');
 					die;
 				} else if ($table == "sellerprofile") {
@@ -67,14 +78,15 @@ class Login extends CI_Controller
 					$this->session->set_userdata($newdata);
 					header('location: ' . base_url() . 'admin_dashboard');
 					die;
-				}
-			} else {
+			}}
+			else {
 				$datainserr = "Invalid Password Password length must be 8 characters ";
 				header('location: ' . base_url() . 'login/index_error/' . $datainserr);
 				die;
 			}
 			die;
-		} else {
+		}
+		else {
 
 			$this->load->model('Admin_model');
 		$data['sql'] = $this->Admin_model->datebetweenhomemarquee($time);
@@ -82,7 +94,7 @@ class Login extends CI_Controller
 		$this->load->view('header', $data);
 			$this->load->view('login');
 			$this->load->view('footer');
-		}
+	}
 	}
 	public function index_error()
 	{

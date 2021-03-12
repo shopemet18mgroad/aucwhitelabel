@@ -11,6 +11,9 @@
 	color: #ffffff;
 	
 }
+.wrapbox { width: 10em; margin: 0.5em; white-space: normal; vertical-align: top; display: inline-block; }
+
+.auto { line-break: auto; }
 
 table, th, td {
   border: 1px solid black;
@@ -48,7 +51,7 @@ th, td {
 	<?php $companyltype = unserialize($sql[0]->saddress);
 	$companyaddress = unserialize($sql[0]->saddresscount);?>
 
-<pre><?php echo $companyltype[0] ;?><br>
+<pre class="wrapbox auto"><?php echo $companyltype[0] ;?><br>
 <?php echo $companyaddress[0] ;?><br>
  </pre>
 
