@@ -53,7 +53,20 @@ class Login extends CI_Controller
 			$pass = base64_encode($pass);
 			
 
-			//$remember = $this->input->post('remember_me');
+			$remember = $this->input->post('remember_me');
+			if (isset($remember)){
+				$this->load->helper('cookie');
+                $cookie = array(
+                        'name'   => 'remember_me',
+                        'value'  => $user.'|'.$pass,                            
+                        'expire' => '3600',                                                                            
+                        'secure' => TRUE
+                        );
+               set_cookie($cookie);
+			}
+			
+			
+			//print_r($remember); die;
 			$check_db = array($colname => $user, $colname2 => $pass, 'adaction' => true);
 			$this->load->model('Admin_model');
 			
@@ -62,9 +75,7 @@ class Login extends CI_Controller
 				if ($table == "buyerprofile") {
 					$newdata = array('username' => $user, 'auth' => 'BUYER', 'logged_in' => TRUE);
 					$this->session->set_userdata($newdata);
-						//if($remember){
-						//$this->session->set_userdata('remember_me', true);}
-						//$this->session->set_userdata('logged_in', $newdata);
+						
 						
 					header('location: ' . base_url() . 'buyer_dashboard');
 					die;
@@ -90,9 +101,17 @@ class Login extends CI_Controller
 
 			$this->load->model('Admin_model');
 		$data['sql'] = $this->Admin_model->datebetweenhomemarquee($time);
-		
+		        if(get_cookie('remember_me')!=''){
+            $cookie = explode('|',get_cookie('remember_me'));
+			//print_r($cookie);
+			$cook['user'] = $cookie[0];
+			$cook['pass'] = $cookie[1];
+        }else{
+			$cook['user'] = '';
+			$cook['pass'] = '';
+		}
 		$this->load->view('header', $data);
-			$this->load->view('login');
+			$this->load->view('login',$cook);
 			$this->load->view('footer');
 	}
 	}

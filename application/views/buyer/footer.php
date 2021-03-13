@@ -187,8 +187,15 @@ function validate_password(){
 	 var spd = v.split("|");
 	 var spdvar = "bid-"+(spd[2]-1);
 	 var k = document.getElementById(spdvar).value;
+	 if(k % 1 < 0.5 && k % 1 > 0.1){
+		 swal("Amount has to be greater than "+k );
+		 return false
+	 }
+	 //alert(k); return false;
 	 // alert(k);return false;
+
 	 $.get('<?php echo base_url() .'Buyer_liveauc_2/get_currency/'; ?>'+k, function(data){
+
 		 if(data){
 			 swal({
   title: "Are you sure?", 
@@ -215,11 +222,14 @@ function validate_password(){
 			  swal("Higher Bid Value Exists!", {
 				  icon: "error",
 				});
+			
 		  }else{
 			  swal("Auction Closed!", {
 				  icon: "error",
 				});
 		  }
+		  
+		  
 		});
 	  
     

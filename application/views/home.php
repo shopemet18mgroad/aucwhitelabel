@@ -53,15 +53,17 @@
 					<div class="tab-content w-100">
 						<div class="tab-pane h-100 p-3 active border border-primary" id="home" role="tabpanel" aria-labelledby="home-tab" onclick="one()">
 							<div class="table-holder">
-								<table class="table table-bordered display" id="">
+							<font size="4" face="Arial" >
+
+								<table class="table table-bordered display w-auto small" id="">
 									<thead class="thead-auc">
 										<tr>
 
-											<th width="30%">AUCTION ID</th>
-											<th width="10%">Lot No</th>
-											<th width="30%">DESCRIPTION</th>
-											<th width="30%">QUANTITY</th>
-											<th width="30%">DATE & TIME</th>
+											<th width="38%">AUCTION ID</th>
+											<th width="2%">Lot No</th>
+											<th width="25%">DESCRIPTION</th>
+											<th width="2%">QUANTITY</th>
+											<th width="42%">DATE & TIME</th>
 
 
 										</tr>
@@ -75,28 +77,41 @@
 													<td><?php echo $sqldat->sauctionid; ?></td>
 													<td><?php echo $sqldat->slotno; ?></td>
 													<td><?php echo $sqldat->sdescription; ?></td>
-													<td><?php echo $sqldat->sqty; ?></td>
-													<td><?php echo $sqldat->saucstartdate_time; ?></td>
+													<td><?php echo $sqldat->sqty; ?><br><?php echo $sqldat->sunitmeasurment; ?></td>
+													<td><?php $aucstarttime = $sqldat->			saucstartdate_time;
+													$tmp = explode('.',$aucstarttime);
+													$aucstarttime = $tmp[0];
+													echo $aucstarttime;
+													echo '<br>To<br>';
+							  
+													$aucclosetime = $sqldat->saucclosedate_time;
+													$tmp = explode('.',$aucclosetime);
+													$aucclosetime = $tmp[0];
+													echo $aucclosetime;
+													
+													
+												 ?></td>
 
 												</tr>
 										<?php }
 										} ?>
 
 									</tbody>
-								</table>
+								</table></font>
 							</div>
 						</div>
 						<div class="tab-pane h-100 p-3 border border-primary" id="home2" role="tabpanel" aria-labelledby="home-tab">
 							<div class="table-holder">
-								<table class="table table-bordered display" id="">
+							<font size="4" face="Arial" >
+								<table class="table table-bordered display w-auto small" id="">
 									<thead class="thead-auc">
 										<tr>
 
-											<th width="30%">AUCTION ID</th>
-											<th width="20%">Lot No</th>
-											<th width="30%">DESCRIPTION</th>
-											<th width="30%">QUANTITY</th>
-											<th width="30%">DATE & TIME</th>
+											<th width="2%">AUCTION ID</th>
+											<th width="1%">Lot No</th>
+											<th width="2%">DESCRIPTION</th>
+											<th width="2%">QUANTITY</th>
+											<th width="76%">DATE & TIME</th>
 
 
 										</tr>
@@ -108,29 +123,41 @@
 													<td><?php echo $s->sauctionid; ?></td>
 													<td><?php echo $s->slotno; ?></td>
 													<td><?php echo $s->sdescription; ?></td>
-													<td><?php echo $s->sqty; ?></td>
-													<td><?php echo $s->saucstartdate_time; ?></td>
+													<td><?php echo $s->sqty; ?><br><?php echo $s->sunitmeasurment; ?></td>
+													<td><?php $aucstarttime = $s->			saucstartdate_time;
+													$tmp = explode('.',$aucstarttime);
+													$aucstarttime = $tmp[0];
+													echo $aucstarttime;
+													echo '<br>To<br>';
+													
+													$aucclosetime = $s->saucclosedate_time;
+													$tmp = explode('.',$aucclosetime);
+													$aucclosetime = $tmp[0];
+													echo $aucclosetime;
+													?></td>
 												</tr>
 										<?php }
 										} ?>
 									</tbody>
 								</table>
+								</font>
 							</div>
 
 						</div>
 
 						<div class="tab-pane h-100 p-3 border border-primary" id="all" role="tabpanel" aria-labelledby="all-tab">
 							<div class="table-holder">
-
-								<table class="table table-bordered text-center display" id="">
+							<font size="4" face="Arial" >
+								<table class="table table-bordered text-center display w-auto small" id="">
 									<thead class="thead-auc">
 										<tr>
 
-											<th width="30%">AUCTION ID</th>
-											<th width="20%">Lot No</th>
-											<th width="30%">DESCRIPTION</th>
-											<th width="30%">QUANTITY</th>
-											<th width="30%">DATE & TIME</th>
+											<th width="2%">AUCTION ID</th>
+											<th width="1%">Lot No</th>
+											<th width="1%">DESCRIPTION</th>
+											<th width="1%">QUANTITY</th>
+											<th width="86%">DATE & TIME</th>
+
 
 										</tr>
 									</thead>
@@ -142,13 +169,24 @@
 													<td><?php echo $sql->sauctionid; ?></td>
 													<td><?php echo $sql->slotno; ?></td>
 													<td><?php echo $sql->sdescription; ?></td>
-													<td><?php echo $sql->sqty; ?></td>
-													<td><?php echo $sql->saucstartdate_time; ?></td>
+													<td><?php echo $sql->sqty; ?><br><?php echo $sql->sunitmeasurment; ?></td>
+													<td><?php $aucstarttime = $sql->			saucstartdate_time;
+													$tmp = explode('.',$aucstarttime);
+													$aucstarttime = $tmp[0];
+													echo $aucstarttime;
+													echo '<br>To<br>';
+													
+													$aucclosetime = $sql->saucclosedate_time;
+													$tmp = explode('.',$aucclosetime);
+													$aucclosetime = $tmp[0];
+													echo $aucclosetime;
+													
+													?></td>
 												</tr>
 										<?php }
 										} ?>
 									</tbody>
-								</table>
+								</table></font>
 							</div>
 
 						</div>

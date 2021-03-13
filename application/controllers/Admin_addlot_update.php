@@ -64,11 +64,11 @@ class Admin_addlot_update extends CI_Controller {
 		//$this->load->view('xya', $data);
 		$datainserr = "Data Inserted Successfully";
 		$updatech = array('sauctionid' => $sauctionid,'slotno' => $slotno);
-		$status = $this->Admin_model->update_custom('addlot',$data2,$updatech,$updatech);
+		$status2 = $this->Admin_model->update_custom('addlot',$data2,$updatech,$updatech);
 		
-		if($status){
+		
 			header('location: '.base_url().'admin_editforthcom/index/'.$datainserr);
-		}	
+		
 		
 			
 		
