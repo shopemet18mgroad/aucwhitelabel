@@ -54,6 +54,7 @@ class Admin_salesreport extends CI_Controller {
 
 		$myauction = $datap[0]->sauctionid;
 		$mylotno = $datap[0]->slotno;
+		$lotname = $datap[0]->slotname;
 		//$mybitvalrec = $datap[0]->bidderusername;
 		$aucbidamount = $datap[0]->bidamount;
 		//print_r($aucbidamount); die;
@@ -70,7 +71,7 @@ class Admin_salesreport extends CI_Controller {
 				$approv =$bidder[0]->sapproval;
 
 		 if($aucbidamount){   
-			$data['sqldatarec'][$xr] = $auctmp.'|'.$lotmp.'|'.$mybitvalrec.'|'.$aucbidamount.'|'.$mybitvaldatetime;
+			$data['sqldatarec'][$xr] = $auctmp.'|'.$lotmp.'|'.$mybitvalrec.'|'.$aucbidamount.'|'.$mybitvaldatetime.'|'.$lotname;
 			
 			$xr++; 
 		   } else{

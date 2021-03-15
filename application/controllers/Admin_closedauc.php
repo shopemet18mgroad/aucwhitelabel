@@ -54,6 +54,7 @@ class Admin_closedauc extends CI_Controller {
 		$datap = $this->Admin_model->maxbidvalue($auctmp,$lotmp);
 		//print_r($datap); die;
 		$aucbidamount = $datap[0]->bidamount;
+		$lotname = $datap[0]->slotname;
 		//$myauction = $datap[0]->sauctionid;
 		//$mylotno = $datap[0]->slotno;
 		$maxvalue = array('sauctionid'=>$auctmp,'slotno'=>$lotmp,'bidamount'=>$aucbidamount);
@@ -66,7 +67,7 @@ class Admin_closedauc extends CI_Controller {
 		
 		//$myapproval = $datap[0]->sapproval;
 	  if($aucbidamount){  
-			$data['sqldatarec'][$xr] = $auctmp.'|'.$lotmp.'|'.$mybitvalrec.'|'.$aucbidamount.'|'.$mybitvaldatetime;
+			$data['sqldatarec'][$xr] = $auctmp.'|'.$lotmp.'|'.$mybitvalrec.'|'.$aucbidamount.'|'.$mybitvaldatetime.'|'.$lotname;
 			//print_r($data['sqldatarec']);die;
 			$xr++; 
 		 } else{

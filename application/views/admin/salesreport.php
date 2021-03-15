@@ -40,6 +40,7 @@
 				<tr>
 					<th>Auction Id</th>
 		<th>Lot No</th>
+		<th>Lot Name</th>
 		<th>Buyer</th>
 		<th>date/Time</th>
 		<th>Bid Amount</th>
@@ -54,6 +55,7 @@
 						
 						<td><?php echo $datareciver[0]; ?></td>
 						<td><?php echo $datareciver[1];	?></td>
+						<td><?php echo $datareciver[5]; ?></td>
 						<td><?php echo $datareciver[2]; ?></td>
 						<td><?php $aucclosetime = $datareciver[4];
 							  $tmp = explode('.',$aucclosetime);
