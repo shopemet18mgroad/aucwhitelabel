@@ -98,7 +98,8 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="<?php echo base_url();?>admin_liveauc">Live Auction</a>
             <a class="collapse-item" href="<?php echo base_url();?>admin_forthcomingauc">Forthcoming Auction<br> Approval</a>
-			 <a class="collapse-item" href="<?php echo base_url();?>admin_editforthcom">Edit Forthcoming Auction</a>
+			 <a class="collapse-item" href="<?php echo base_url();?>admin_editforthcom">Edit Auction</a>
+			 <a class="collapse-item" href="<?php echo base_url();?>Admin_editforthcom2">Edit Forthcoming Auction</a>
            </div>
         </div>
       </li>

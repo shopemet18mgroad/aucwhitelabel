@@ -183,7 +183,7 @@ if($sqldata[0]->spcbcertificate){echo "unchecked";}else{echo "checked";}		?>>
 
  
  <input type="submit"  name="submit" onclick="return validatelot()" class="btn btn-info text-white " value="Update Lot" data-dismiss="modal"> </form>
- <a href="<?php echo base_url();?>Admin_editlot"><button  class="btn btn-info">Cancel</button></a>
+ <a href="<?php echo base_url()."admin_editforthcom_2/editforthcom_2/".str_ireplace('/','-',$sqldata[0]->sauctionid);?>"><button  class="btn btn-info">Cancel</button></a>
  <a href="<?php echo base_url()."Admin_addanotherlot/index/".str_ireplace('/','-',$sqldata[0]->sauctionid).'/'.$sqldata[0]->sname.'/'.$sqldata[0]->slotno;?>"><button  class="btn btn-info text-white">Add Another Lot</button></a>
   </center>
  

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin_auctiondetails extends CI_Controller {
+class Admin_editforthcom2 extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -30,9 +30,23 @@ class Admin_auctiondetails extends CI_Controller {
 		}else{
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('admin/header',$sess);
-		$this->load->view('admin/auctiondetails');
+		$this->load->view('admin/editforthcom2');
 		$this->load->view('admin/footer');
 		}
+	}
+	public function index_alert()
+	{
+		$this->load->helper(array('url','html'));
+		$retrivevaltmp2 = urldecode($this->uri->segment(3));
+		echo '<script language="javascript">';
+			echo 'alert("'.$retrivevaltmp2.'")';  //not showing an alert box.
+			echo '</script>';
+		$this->load->library('session');
+		$sess = array('sessi'=>$this->session->userdata('username'));
+		$this->load->view('admin/header',$sess);
+		$this->load->view('admin/editforthcom2');
+		$this->load->view('admin/footer');
+		
 	}
 	
 	public function get_table(){
@@ -41,12 +55,12 @@ class Admin_auctiondetails extends CI_Controller {
 		date_default_timezone_set('Asia/Kolkata');
 		$time =  Date('Y-m-d H:i:s');
 		$this->load->model('Admin_model');
-		$data = $this->Admin_model->get_lookalike('auction','sauctionid',$datatoquerydb);
+		$data = $this->Admin_model->get_adminforthlookalike('auction','sauctionid',$datatoquerydb,$time);
 		if(count($data)){
-			echo '<table class="table table-striped table-bordered table-sm text-center mt-5 w-auto small" width="100%" cellspacing="0">';
+			echo '<table class="table table-striped table-bordered table-sm text-center w-auto small mt-5" width="100%" cellspacing="0">';
 			echo '<thead class="bg-warning text-white">';
 		echo '<tr>';
-			echo '<th colspan="13">Auction Details</th>';
+			echo '<th colspan="14">Auction Details</th>';
 			echo '</tr>';
 			echo '<thead class="bg-primary text-white">';
 			echo '<tr>';
@@ -67,38 +81,60 @@ class Admin_auctiondetails extends CI_Controller {
 			echo '</thead>';
 			echo '<tbody>';
 			foreach($data as $dat){
+				$uploadfl = unserialize($dat['sterms_condiupload']);
 				echo '<tr>';
 				echo '<td><a href="'.base_url().'admin_editforthcom_2/editforthcom_2/'.str_ireplace('/','-',$dat['sauctionid']).
 				'">';
 				echo $dat['sauctionid'];
-			 $aucfl = unserialize($dat['sterms_condiupload']);
-			 $passaucid = str_ireplace('/','-',$dat['sauctionid']);
+				$aucfl = unserialize($dat['sterms_condiupload']);
+				$passaucid = str_ireplace('/','-',$dat['sauctionid']);
+					
 				echo '</a>';
 				echo '</td>';
 				echo '<td>'.$dat['sname'].'</td>';
+				$snm = urlencode($dat['sname']);
 				echo '<td>'.$dat['scategory'].'</td>';
 				echo '<td>'.$dat['scompanyname'].'</td>';
 				echo '<td>'.$dat['svinspection'].'</td>';
-				echo '<td>'.$dat['sfrominpectdate_time'].$dat['stoinpectdate_time'].'</td>';
+				echo '<td>'.$dat['sfrominpectdate_time'].'<br>'.'<br>'.$dat['stoinpectdate_time'].'</td>';
 				echo '<td>'.$dat['semddetail'].'</td>';
 				echo '<td>'.$dat['slastdateemdsub'].'</td>';
-				echo '<td>'.$dat['saucstartdate_time'].$dat['saucclosedate_time'].'</td>';
+				$aucstarttime = $dat['saucstartdate_time'];
+		$tmp1 = explode('.',$aucstarttime);
+		$aucstarttime = $tmp1[0];
+		$data['st'] = $aucstarttime;
+		
+		$aucclosetime = $dat['saucclosedate_time'];
+		$tmp = explode('.',$aucclosetime);
+		$aucclosetime = $tmp[0];
+		$data['ct'] = $aucclosetime;
+				echo '<td>'.$aucstarttime.'<br>'.'<br>'.$aucclosetime.'</td>';
 				echo '<td>';
 				if ($dat['sterms_condiaccept'] == 1){
 				echo 'Accepted';
 				}
 				echo '</td>';
+				 
 				echo '<td>';
 				if(isset($aucfl[0])){
 				echo '<a href="'.base_url().'web_files/uploads/'. $aucfl[0].'" target="_blank">';
 				echo '<i class="fa fa-download"></i>';
 				}
 				echo '</a></td>';
-				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$passaucid.'/'.urlencode($dat['sname']).'" target="_blank"><i class="fa fa-download"></i></a></td>';
+				//echo '<td>'.$uploadfl[0].'</td>';
+				//$aucfl = unserialize ($dat['sterms_condiupload']);
+				//echo '<td>'.implode (",",$aucfl).'</td>';
+				//echo '<td><a href="'.base_url().'Admin_editauction/editauction/'.urlencode($dat['sname']).'">';
+				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$passaucid.'/'.($dat['sname']).'" target="_blank"><i class="fa fa-download"></i></a></td>';
+				//echo '</a>';
+				//echo '</td>';
+
+				//echo '<td><a href="'.base_url().'Admin_editauction/editauction/'.$dat['sname'].'($sqldat->sauctionid)">';
+
 				echo '<td><a href="'.base_url().'Admin_editauction/editauction/'.$passaucid.'">';
 				echo '<i class="fa fa-edit"></i>';
 				echo '</a>';
-			
+				
 				echo '<a href="'.base_url().'Admin_editauction/delete_auction/'.$passaucid.'" class="btn btn-sm text-white delete-confirm">';
 				echo '<i class="fa fa-trash" style="color:black"></i>';
 				echo '</a>';
@@ -130,7 +166,6 @@ class Admin_auctiondetails extends CI_Controller {
 			echo '<tbody>';
 			echo '<tr>';
 				echo '<td><a href="'.base_url().'#">';
-				echo '</td>';
 				echo '<td>No Records Found</td>';
 				echo '<td>No Records Found</td>';
 				echo '<td>No Records Found</td>';
@@ -158,7 +193,6 @@ class Admin_auctiondetails extends CI_Controller {
 
 
 	}
-	
 }
 echo "<script>\n";
 echo "$('.delete-confirm').on('click', function (event) {\n";
@@ -176,3 +210,8 @@ echo "        }\n";
 echo "    });\n";
 echo "});\n";
 echo "</script>\n";
+
+
+
+
+

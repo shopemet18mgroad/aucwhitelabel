@@ -67,7 +67,7 @@ class Admin_addlot_update extends CI_Controller {
 		$status2 = $this->Admin_model->update_custom('addlot',$data2,$updatech,$updatech);
 		
 		
-			header('location: '.base_url().'admin_editforthcom/index/'.$datainserr);
+			header('location: '.base_url().'admin_editforthcom_2/editforthcom_2/'.str_ireplace('/','-',$sauctionid));
 		
 		
 			

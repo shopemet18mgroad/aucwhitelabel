@@ -58,7 +58,7 @@ class Admin_buyereditprofile extends CI_Controller {
 			foreach($data as $dat){
 				echo '<tr>';
 				echo '<td>'.$dat['id'].'</td>';
-				echo '<td width="5%">'.$dat['bname'].'</td>';
+				echo '<td>'.$dat['bname'].'</td>';
 				echo '<td>'.$dat['bcompany'].'</td>';
 				echo '<td>'.$dat['bcontactperson'].'</td>';
 				echo '<td>'.$dat['baddress'].'</td>';
@@ -71,7 +71,7 @@ class Admin_buyereditprofile extends CI_Controller {
 				}else{
 				echo '<td style="color:red;"><b>'."INACTIVE".'</b></td>';	
 				}
-				echo '<td width="10%"><a href="'.base_url().'admin_editbuyer/edit_buyer/'.$dat['bcompany'].'">';
+				echo '<td width="12%"><a href="'.base_url().'admin_editbuyer/edit_buyer/'.$dat['bcompany'].'">';
 				echo '<i class="fa fa-edit"></i>';
 				echo '</a>';
 				echo '<a href="'.base_url().'admin_editbuyer/delete_buyer/'.$dat['bcompany'].'" class="btn btn-sm text-white delete-confirm">';

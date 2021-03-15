@@ -279,6 +279,16 @@
 		});
 	
  </script>
+ 
+ <script>
+		$('#gettable_editforth2').on('keyup', function(){
+			var contents = $('#gettable_editforth2').val(); 
+			$.get('<?php echo base_url() .'admin_editforthcom2/get_table/'; ?>'+contents, function(data){
+				$('#ajaxrslt_editforth2').html(data);
+			});
+		});
+	
+ </script>
 
  <script>
 		$('#gettable_editauction').on('keyup', function(){
