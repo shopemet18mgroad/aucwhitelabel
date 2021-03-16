@@ -123,7 +123,7 @@ class Login extends CI_Controller
 		echo 'alert("' . $alertmsg . '")';  //not showing an alert box.
 		echo '</script>';
 		$cook['user'] = '';
-			$cook['pass'] = '';
+		$cook['pass'] = '';
 		$this->load->view('header');
 		$this->load->view('login',$cook);
 		$this->load->view('footer');
