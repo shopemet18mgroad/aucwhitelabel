@@ -57,6 +57,7 @@ class Pdf_gen extends CI_Controller
     //$html .= '<link href="' .base_url().'web_files/css/style.css" rel="stylesheet">';
     // Load pdf library
     $ci->load->library('pdf');
+	// load html
     $ci->dompdf->loadHtml($html);
 
     // setup size
