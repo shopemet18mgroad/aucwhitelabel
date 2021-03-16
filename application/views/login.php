@@ -22,7 +22,7 @@
                     <input type="text" name="user" class="form-control form-control-user" id="exampleInputEmail" value="<?php echo $user; ?>" aria-describedby="emailHelp" placeholder="Enter Email Address..." required>
                   </div>
                   <div class="form-group">
-                    <input type="password" name="pass" class="form-control form-control-user" id="exampleInputPassword" value="<?php echo base64_decode($pass); ?>" placeholder="Password"><span id = "message1" style="color:white"></span>
+                    <input type="password" name="pass" class="form-control form-control-user" id="exampleInputPassword" value="<?php  echo base64_decode($pass);?>" placeholder="Password"><span id = "message1" style="color:white"></span>
                   </div>
                   <div class="form-group">
                     <div class="custom-control custom-checkbox small">

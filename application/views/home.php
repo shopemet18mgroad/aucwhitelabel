@@ -74,7 +74,7 @@
 												<tr>
 
 
-													<td><?php echo $sqldat->sauctionid; ?></td>
+													<td data-label="AUCTION ID"><?php echo $sqldat->sauctionid; ?></td>
 													<td><?php echo $sqldat->slotno; ?></td>
 													<td><?php echo $sqldat->sdescription; ?></td>
 													<td><?php echo $sqldat->sqty; ?><br><?php echo $sqldat->sunitmeasurment; ?></td>
