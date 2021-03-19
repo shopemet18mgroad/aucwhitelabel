@@ -1,33 +1,194 @@
-<?php 
-	//include('./header.php');
-?>
-
-<!---  body  design  -->
 
 
-<div class="content w-100">
-    <div class="middleboxtnc w-75">
-        <div class="middle w-100 text-white">
-            <h2 style="text-align:center"><b>AUCJUNCTION</b>
-                <h2>
-                    <h6 style="text-align:center">Partner Agreement - Buyer</h6>
-        </div>
-        <div class="blnkspc w-100">
-            <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                <div class="bar w-100">
+<!DOCTYPE html>
+
+<head>
+<style>
+  
+
+
+
+
+.middleboxtnc{
+    height:auto;
+	width: 700px;
+	padding-right: 1px;
+    background-color: #2e3192;
+    margin-left: auto;
+    margin-right: auto;
+    top: 50%;
+    bottom: 50%;
+    margin-top: 5px;
+	padding-bottom: 100px;
+	margin-bottom: -10px;
+	margin-top: 1px;
+
+	}
+	
+.middleboxt{
+    height:auto;
+	width: 900px;
+	padding-right: 10px;
+    background-color: #F9F9F9;
+    margin-left: auto;
+    margin-right: auto;
+    top: 50%;
+    bottom: 50%;
+    margin-top: 5px;
+	padding-bottom: 100px;
+	margin-bottom: -10px;
+	margin-top: 1px;
+	padding-top: 5px;
+	}
+
+.middle p{
+	
+	text-align: center;
+	padding-bottom: 0px;
+	}
+
+.middle addr{
+	text-align: center
+	}
+
+.blnkspc {
+    background-color: #FFFFFF;
+    width: 100%;
+	margin-bottom: -50px;
+	}
+
+.bar{
+	text-align: center;
+	padding-top:10px;
+	height: 50px;
+	width:700px;
+	background-color: #f38222;
+	color: #ffffff;
+	}
+.bara1{
+	text-align: center;
+	padding-top:10px;
+	height: 50px;
+	width:700px;
+	background-color: #2e3192;
+	color: #ffffff;
+	}
+.shead{
+	text-align: center;
+	padding-top:8px;
+	height: 75px;
+	width:900px;
+	background-color: #bdb6b6;
+	color: #FFFFFF;
+	
+}
+
+.termstxt2 {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    background-color: #A49E9C;
+    font-weight: bold;
+    margin: 5px;
+    line-height: normal;
+    padding: 5px;
+	}
+	
+.space{
+	background-color: #ffffff;
+	width: 700px;
+	margin:  1px;
+	overflow: hidden;
+	}
+
+.para{
+text-align:left;
+	padding-right: 30px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	overflow:none;
+	}
+
+.signature{
+	display: inline-flex;
+	font-size: 15Px;
+	padding-right: 30px;
+	margin: 2px;
+
+	
+}	
+
+.sign{
+		
+	display: inline-block;
+	font-size: 15Px;
+	
+
+	   padding-left:400px;
+	   
+
+}
+.long-content{
+	padding: 1px 1px;
+	margin: 8px 0;
+	background-color: #D3D3D3;
+	border: none;
+	border-bottom: 2px solid black;
+	}
+
+
+
+.content{
+	content:right;
+	}
+
+.middle addr{
+	text-align: center
+	}
+
+</style>
+	
+</head>
+<body>
+
+    
+
+ 
+            
+<div class="bar w-80">
+
+
+
+
                     <p><strong>AGREEMENT FOR BUYER</strong></p>
                 </div>
-
-
-                <div class="space w-100">
+                
+                
+                
+    <div class="bara1 ">            
+           <h2 style="text-align:center"><b>AUCJUNCTION</b>
+         
+             
+                 Partner Agreement - Buyer</h2>     
+                
+                
+                
+      </div>             
+                
+                
+                
+                
+                
+                
+                <div class="space w-80">
 
                     <p class="termstxt2">1. WELCOME TO AUCJUNCTION !</p>
                     <P class="para">Welcome to Aucjunction! Auctions related services will be provided on
                         www.aucjunction.com
-                        AucJunction is most reputed private online auction portal operating in the specialized space of
-                        buying and selling surplus inventories. We will provide a comprehensive online marketplace for
-                        companies to buy and sell residual and superfluous inventory - from raw material, disposals,
-                        machinery and industrial by-products to non-performing and stressed assets. Our service
+                        AucJunction is most reputed private online auction portal operating in the specialized
+						space of buying and selling surplus inventories. We will provide a comprehensive online
+						marketplace for companies to buy and sell residual and superfluous inventory - from raw
+						material,
+						disposals, machinery and industrial by-products to non-performing and stressed assets. Our service
                         offerings include tender management, Purchase and Sale of Industrial Scraps & disposals.
                     </P>
                     <P class="para">This Agreement made this&nbsp; <span><b><?php echo $date; ?></b></span>&nbsp; day of
@@ -140,8 +301,7 @@
                         cancelled/ withdrawn by the bidder if once places. The transactions will happen in Indian Rupees
                         only.<br>
 
-                    </p>
-                    <p class="para">
+                    
                         <b>12. E Auction Payment Procedure/Auction Floor</b><br>
                         12.1 Once the registration is completed with the registration fee, the partner will have an
                         access to auction floor, registered bidders will have user id and password. Only registered
@@ -170,8 +330,6 @@
                         13.4 The Auction can be withdrawn anytime before the start date as well as during the auction
                         without quoting any reason by the seller or auctioneer<br>
 
-                    </p>
-                    <p class="para">
                         <b>15. Goods Conditions After Sales</b><br>
                         15.1 Note AucJunction will not take any complaint after the sale.<br>
                         15.2 Quantities shown/Made in the lot are approximate and AucJunction will not be held
@@ -186,75 +344,99 @@
                         acts of irregularities & mis-conduct of the representative comes in to pick the stock.<br>
                         15.6 Buyer is not allowed to resale any item/part while the goods are still lying within the
                         premises<br>
-                    </p>
-                    <p class="para">
-                        16. All paper documentation for releasing materials will be made out in the name of the buyer
+						
+						  
+						16. All paper documentation for releasing materials will be made out in the name of the buyer
                         only, No interest will be paid on the amount deposited by the buyer condition mentioned herein
                         before<br>
+						 17. Buyer shall be responsible for any damage that may be caused to the premises machineries/
+                        equipments while taking away or removing of good
                     </p>
-                    <p class="para">
-                        17. Buyer shall be responsible for any damage that may be caused to the premises machineries/
-                        equipments while taking away or removing of goods.<br>
-                    </p>
-
-
+                    
+                      
+               
                     <div class="signature">
                         <div>
                             For and On Behalf of <br>
                             M/S&nbsp;<span><b><?php echo $company;?></b></span><br>
                             By its
                             &nbsp;<span><b><?php echo $designation;?>&nbsp;</b></span>Mr./Mrs./Miss.&nbsp;<span><b><?php echo $bname;?></b></span>
-                            <br><br><br>
+                            <br>
                             Signature with Seal.
                         </div>
 
 
                         <div class="sign">
-                            For and On Behalf of<br>
-                            Aucjunction ( Subsidary of Shopemet)<br>
-                            By Its President Shri Charith Dev M<br><br><br><br><br>
-                            Signature and Seal.
+						
+						 <div>
+                            For and On Behalf of <br>
+                            &nbsp;<span><b>Aucjunction ( Subsidary of Shopemet)</b></span><br>
+                            By Its President
+                            &nbsp;<span><b>Shri Charith Dev M&nbsp;</b></span><br>
+                            Signature with Seal.</br>
+                        </div>
+                          
 
                         </div>
-                    </div>
-            </table>
-            <div class="text-center" style="position:relative;">
-                <a href="<?php echo base_url()."registrationb/indexbuyer/".$username."/".$date;?>"><button type="button"
-                        class="btn btn-primary mt-2">Agree</button></a>
-                <a href="<?php echo base_url();?>home"><button type="button"
-                        class="btn btn-primary mt-2">Disagree</button></a>
-            </div>
-             <div class="text-center" style="position:relative;">
-             
+                    </div>    
+                       
+                   
 
-             
-             
-             
-             
-             
-             <!--<a href="<?php// echo base_url() . 'Agreementforbuyerpdf_gen/auc_no/'.urldecode($username)."/".urldecode($date)."/".urldecode($address)."/".urldecode($city)."/".urldecode($pin)."/".urldecode($company)."/".urldecode($designation)."/".urldecode($bname);?>" target="_blank">
 
-                                                    <i class="fa fa-download" aria-hidden="true"></i></a>-->
-             
-             
-             
-             
-             
-                
-            </div>
+
+
+
+
+     </table>
+
 
 
         </div>
 
     </div>
 
+   
+
+
+</body>
+</html>
 
 
 
 
-    <!---  body  design  -->
 
-    <!---  footer  -->
-    <?php 
-	//include('./footer.php');
-?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -341,6 +341,11 @@ in applicable tax rates that are promulgated by the Government from time to time
 
 			</div>
 			
+	
+			
+			
+			
+			
 			<!-- The Modal -->
   <div class="modal fade" id="myModalThanks">
     <div class="modal-dialog">
