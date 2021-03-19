@@ -2,6 +2,20 @@
 	//include('./header.php');
 	
 ?>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src=" https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.7.1/tinymce.min.js" referrerpolicy="origin"></script>
+<script>tinymce.init({
+selector:'textarea',
+  /* ... */
+  plugins: "textcolor colorpicker",
+  toolbar:
+    "undo redo | styleselect | fontselect | fontsizeselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | forecolor backcolor",
+font_formats:
+    "Andale Mono=andale mono,times; Arial=arial,helvetica,sans-serif; Arial Black=arial black,avant garde; Book Antiqua=book antiqua,palatino; Comic Sans MS=comic sans ms,sans-serif; Courier New=courier new,courier; Calibri=calibri, Georgia=georgia,palatino; Helvetica=helvetica; Impact=impact,chicago; Symbol=symbol; Tahoma=tahoma,arial,helvetica,sans-serif; Terminal=terminal,monaco; Times New Roman=times new roman,times; Trebuchet MS=trebuchet ms,geneva; Verdana=verdana,geneva; Webdings=webdings; Wingdings=wingdings,zapf dingbats",
+
+
+});</script> 
+
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -79,7 +93,7 @@
 	  </tr>
 	   <tr>
 		  <td>Description</td>
-		  <td><textarea class="form-control w-75" type="text" id="sdescription" name="sdescription" value="<?php echo $sqldata[0]->sdescription; ?>"><?php echo $sqldata[0]->sdescription; ?></textarea></td>
+		  <td><textarea class="form-control w-75" type="text" id="sdescription" name="sdescription" ><?php echo $sqldata[0]->sdescription; ?></textarea></td>
 	  </tr>
 	  <tr>  												
 		<td>Location Of Lot</td>
@@ -176,7 +190,7 @@ if($sqldata[0]->spcbcertificate){echo "unchecked";}else{echo "checked";}		?>>
   <center>
 	
  <input type="submit"  name="submit" onclick="return validatelot()" class="btn btn-info text-white" value="Update Lot" data-dismiss="modal"> </form>
- <a href="<?php echo base_url();?>Seller_editlot"><button  class="btn btn-info">Cancel</button></a>
+ <a href="<?php echo base_url()."Seller_editforthcom_2/editforthcom_2/".str_ireplace('/','-',$sqldata[0]->sauctionid);?>"><button  class="btn btn-info">Cancel</button></a>
  <a href="<?php echo base_url()."Seller_addanotherlot/index/".str_ireplace('/','-',$sqldata[0]->sauctionid).'/'.$sqldata[0]->sname.'/'.$sqldata[0]->slotno;?>"><button  class="btn btn-info text-white">Add Another Lot</button></a>
   </center>
  

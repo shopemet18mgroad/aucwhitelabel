@@ -43,36 +43,35 @@ class Admin_buyereditbyref extends CI_Controller {
 			echo '<thead class="bg-primary text-white">';
 			echo '<tr>';
 			echo '<th>S.No.</th>';
-			echo '<th>Buyer Name</th>';
 			echo '<th>Company Name</th>';
 			echo '<th>Contact Person</th>';
-			echo '<th>Location</th>';
+			echo '<th>Contact No.</th>';
+			echo '<th>Email Id</th>';
 			echo '<th>City</th>';
-			echo '<th>Pincode</th>';
 			echo '<th>Reference</th>';
 			echo '<th>Date</th>';
 			echo '<th>Action</th>';
 			echo '</tr>';
 			echo '</thead>';
 			echo '<tbody>';
+			 $row_count = 1;
 			foreach($data as $dat){
 				echo '<tr>';
-				echo '<td>'.$dat['id'].'</td>';
-				echo '<td width="5%">'.$dat['bname'].'</td>';
+				echo '<td>'.$row_count.'</td>';
 				echo '<td>'.$dat['bcompany'].'</td>';
 				echo '<td>'.$dat['bcontactperson'].'</td>';
-				echo '<td>'.$dat['baddress'].'</td>';
+				echo '<td>'.$dat['bphone'].'</td>';
+				echo '<td>'.$dat['bemail'].'</td>';
 				echo '<td>'.$dat['bcity'].'</td>';
-				echo '<td>'.$dat['bpin'].'</td>';
 				echo '<td>'.$dat['bref'].'</td>';
-				echo '<td>'.$dat['bagreementdate'].'</td>';
+				echo '<td  width="10%">'.$dat['bagreementdate'].'</td>';
 				echo '<td width="10%"><a href="'.base_url().'admin_editbuyer/edit_buyer/'.$dat['bcompany'].'">';
 				echo '<i class="fa fa-edit"></i>';
 				echo '</a>';
 				echo '</td>';
 				echo '</td>';
 				echo '</tr>';
-			}
+		$row_count++;	}
 			echo '</tbody>';
 			echo '</table>';
 		}else{

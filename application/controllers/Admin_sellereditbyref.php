@@ -44,31 +44,30 @@ class Admin_sellereditbyref extends CI_Controller {
 		$this->load->model('Admin_model');
 		$data = $this->Admin_model->get_lookalike('sellerprofile','sref',$datatoquerydb);
 		if(count($data)){
-			echo '<table class="table table-striped table-bordered table-sm w-auto small text-center mt-5" width="100%" cellspacing="0">';
+			echo '<table class="table table-striped table-bordered table-sm w-auto small text-center mt-5 ml-5" width="100%" cellspacing="0">';
 			echo '<thead class="bg-primary text-white">';
 			echo '<tr>';
 			echo '<th>S.No.</th>';
-			echo '<th>Seller Name</th>';
 			echo '<th>Company Name</th>';
 			echo '<th>Contact Person</th>';
-			echo '<th>Location</th>';
+			echo '<th>Contact No.</th>';
+			echo '<th>Email Id</th>';
 			echo '<th>City</th>';
-			echo '<th>Pincode</th>';
 			echo '<th>Reference</th>';
 			echo '<th>Date</th>';
 			echo '<th>Action</th>';
 			echo '</tr>';
 			echo '</thead>';
 			echo '<tbody>';
+			$row_count = 1;
 			foreach($data as $dat){
 				echo '<tr>';
-				echo '<td>'.$dat['id'].'</td>';				
-				echo '<td width="5%">'.$dat['sname'].'</td>';
+				echo '<td>'.$row_count.'</td>';				
 				echo '<td>'.$dat['scomapnyname'].'</td>';
 				echo '<td>'.$dat['scontactperson'].'</td>';
-				echo '<td>'.$dat['slocation'].'</td>';
+				echo '<td>'.$dat['sphone'].'</td>';
+				echo '<td>'.$dat['semail'].'</td>';
 				echo '<td>'.$dat['scity'].'</td>';
-				echo '<td>'.$dat['spin'].'</td>';
 				echo '<td>'.$dat['sref'].'</td>';
 				echo '<td>'.$dat['sagreementdate'].'</td>';
 				echo '<td width="10%"><a href="'.base_url().'admin_editseller/edit_seller/'.$dat['scomapnyname'].'">';	
@@ -77,7 +76,7 @@ class Admin_sellereditbyref extends CI_Controller {
 				echo '</td>';
 				echo '</td>';
 				echo '</tr>';
-			}
+		$row_count++;	}
 			echo '</tbody>';
 			echo '</table>';
 		}else{

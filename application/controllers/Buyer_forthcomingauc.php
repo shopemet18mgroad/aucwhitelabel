@@ -120,8 +120,8 @@ class Buyer_forthcomingauc extends CI_Controller {
 				$desc = str_ireplace(',','%2C',$dat['sdescription']);
 				$desc2 = str_ireplace('(','%28',$desc );
 				$desc3 = str_ireplace(')','%29',$desc2 );
-				echo'<button type="button" id="'.$aucencode.'|'.$dat['slotno'].'|'.$desc3.'" onClick="addtocart(this.id)">';
-				echo'<i class="fas fa-heart" id="'.$aucencode.'|'.$dat['slotno'].'|'.$desc3.'"></i>';
+				echo'<button type="button" id="'.$aucencode.'|'.$dat['slotno'].'" onClick="addtocart(this.id)">';
+				echo'<i class="fas fa-heart" id="'.$aucencode.'|'.$dat['slotno'].'"></i>';
 				echo'</button>';
 				echo '</td>';
 				echo '</tr>';
@@ -175,10 +175,9 @@ class Buyer_forthcomingauc extends CI_Controller {
 		$datexp = explode('|',$dat);
 		$auctionid = str_ireplace('-','/',$datexp[0]);
 		$lotno = $datexp[1];
-		$description = urldecode($datexp[2]);
 		//print_r($sdescription); die;
 		$data = array('sauctionid'=>$auctionid);
-		$data2 = array('sauctionid'=>$auctionid,'slotno'=>$lotno,'sdescription'=>$description);		
+		$data2 = array('sauctionid'=>$auctionid,'slotno'=>$lotno);		
 		$dat4 = $this->Admin_model->getdatafromtable('addlot',$data2);
 		$dat3 = $this->Admin_model->getdatafromtable('auction',$data);
 		$aucstart = $dat3[0]->saucstartdate_time;
@@ -187,7 +186,7 @@ class Buyer_forthcomingauc extends CI_Controller {
 		$aucstartbidprice = $dat4[0]->sprice;
 		$bcheck = array('bidderusername'=>$bidderuname,'auctionid'=>$auctionid,'lotno'=>$lotno);
 		$cartdata = array(
-		'bidderusername'  => $bidderuname,'auctionid'=>$auctionid,'lotno' => $lotno,'description' => $description,'aucstartdate_time'=>$aucstart,'aucclosedate_time'=>$aucend,'bidstart'=>$aucstartbid,'bidprice'=>$aucstartbidprice);
+		'bidderusername'  => $bidderuname,'auctionid'=>$auctionid,'lotno' => $lotno,'aucstartdate_time'=>$aucstart,'aucclosedate_time'=>$aucend,'bidstart'=>$aucstartbid,'bidprice'=>$aucstartbidprice);
 		if($this->Admin_model->check('biddercart',$bcheck)){
 			echo "EX";
 		}else{

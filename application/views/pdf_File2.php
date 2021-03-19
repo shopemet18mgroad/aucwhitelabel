@@ -9,6 +9,7 @@
 	height: 40px;
 	background-color: green;
 	color: #ffffff;
+	font-size: 14px;
 	
 }
 .wrapbox { width: 10em; margin: 0.5em; white-space: normal; vertical-align: top; display: inline-block; }
@@ -43,6 +44,7 @@ th, td {
 }
 .tablefont{
 	font-size: 14px;
+	text-align: center;
 }
 </style>
 <body>
@@ -76,7 +78,7 @@ annexed hereto and as per schedule of programme given below. </p>
 	<table style="width:100%">
   <tr>
     
-    <th colspan="2" style="color:red;text-align:center;">Online
+    <th colspan="2" style="color:red;text-align:center;margin-top:70px;">Online
 </th> 
 
   </tr>
@@ -130,21 +132,21 @@ whose validity has expired)</td>
 </table >
 
 <br>
-	<div class="bara w-100">
-		<p><strong>DETAILS OF AUCTION PROPERTY</strong></p>
-	</div>
-	<br>
-	<table class="tablefont" style="width:100%">
+	
+	
+	<table class="tablefont" style="width:100%;">
+	<tr><th colspan="10" class="bara w-100"><p><strong>DETAILS OF AUCTION PROPERTY</strong></p></th></tr>
   <tr>
+  
     <th style="background:#ffff"><b>Lot
 No.</b>
 </th>
 </th>
     <th style="color:red"><b>Lot Name</b>
 </th> 
-<th><b>Material Description</b>
+<th style="width:70%;"><b>Material Description</b>
 </th> 
-<th><b>Quantity(Approx.)</th>
+<th><b>Quantity<br>(Approx.)</th>
 <th><b>UOM</b></th>
 <th><b>Bid Basis(Per UOM </b></th>
 <th><b>GST(%)</b></th>
@@ -152,7 +154,7 @@ No.</b>
 <th><b>PCB Certificate Required (Y/N)</b></th>
 <th><b>EMD Value (Rs.)</b></th>
   
-  
+ <tbody> 
 </tr>
 <?php foreach($sqldata as $sqldat){?>	
   <tr>
@@ -170,9 +172,11 @@ No.</b>
 </tr>
  
   		<?php }  
-         ?> 	
+         ?> 
+</tbody>		 
   </table>
-  <br>
+
+<br>
  <h2 class="bara">TERMS AND CONDITIONS</h2>
  <p class="aboutus-text">Welcome to AucJunction.com website (here in after referred to as &quot;the website&quot;).
 <br><br>
