@@ -34,7 +34,7 @@
 					<th>EMD Amount</th>
 				</tr>
 				</thead>
-
+<?php if($sqldata){?>
 				<tbody>
 				<tr>
 					<td><b><?php echo $sqldata[0]->sauctionid; ?></b></td>
@@ -46,7 +46,7 @@
 							  $tmp = explode('.',$aucclosetime);
 							  $aucclosetime = $tmp[0];
 							  echo $aucclosetime; ?></td>
-					<td><?php echo $sqldata[0]->semdamount; ?></td>
+<td><?php echo $sqldata[0]->semdamount;} ?></td>
 				</tr>
 				</tbody>
 		 </table>
@@ -101,7 +101,7 @@
 
 				<tbody>
 
-
+<?php if($sqldata){?>
 
 <?php $urlsendind =  str_ireplace('/','-',$sqldata[0]->sauctionid);?>
 
@@ -125,7 +125,7 @@
 
 
 			</tr>
-				<?php }}?>
+<?php }}}?>
 		
 				</tbody>
 			 </table>

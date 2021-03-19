@@ -148,7 +148,7 @@ function validatelot(){
 	
 	var slotname = document.getElementById("slotname").value;
 	var scategory = document.getElementById("scategory").value;
-	var sdescription = document.getElementById("sdescription").value;
+	//var sdescription = document.getElementById("sdescription").value;
 	var slotlocation = document.getElementById("slotlocation").value;
 	var sunitmeasurment = document.getElementById("sunitmeasurment").value;
 	var sqty = document.getElementById("sqty").value;
@@ -164,9 +164,9 @@ function validatelot(){
 	var sliftingperiod = document.getElementById("sliftingperiod").value;
 	
 	
-	if(slotname == '' || scategory == '' || sdescription == '' || slotlocation == '' || sunitmeasurment == '' || sqty == '' || sbidbase == '' || sgst == '%' || shsncode == ''|| sothertax == '' || semdamount == '' || sminincre == ''|| sprice == '' ||sstartbidprice == ''|| sliftingperiod2 == ''|| sliftingperiod == '' ){
+	if(slotname == '' || scategory == '' || slotlocation == '' || sunitmeasurment == '' || sqty == '' || sbidbase == '' || sgst == '%' || shsncode == ''|| sothertax == '' || semdamount == '' || sminincre == ''|| sprice == '' ||sstartbidprice == ''|| sliftingperiod2 == ''|| sliftingperiod == '' ){
 	
-		swal("Alert!","lotname ,Category, lotlocation, description, frominpectdate&time ,toinpectdate_time, Emddetail,lastdateemdsub,price ,startbidprice, Quantity,Unitmeasurment  ,Bidbase ,gst,othertax,liftingperiod,emdamount, Minimum Increament cannot leave any field blank!", "error");
+		swal("Alert!","lotname ,Category, lotlocation, frominpectdate&time ,toinpectdate_time, Emddetail,lastdateemdsub,price ,startbidprice, Quantity,Unitmeasurment  ,Bidbase ,gst,othertax,liftingperiod,emdamount, Minimum Increament cannot leave any field blank!", "error");
 		return false;
 	}
 		
