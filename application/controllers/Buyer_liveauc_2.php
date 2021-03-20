@@ -413,22 +413,21 @@ echo '</table>';
 			$auclink = str_ireplace('/','-',$datamenu->auctionid);
 			$auclink = str_ireplace(' ','%20',$auclink);
 			echo "<tr>\n";
-			echo "<td><a href=".base_url()."Buyer_app_liveauc_2/index/".$auclink." data-toggle='modal' data-target='myModal'>".$datamenu->auctionid."</a></td>\n";
-			echo "<td>".$datamenu->sname."</td>\n";
+			echo "<td><a href=".base_url()."Buyer_liveauc_2/index/".$auclink."  data-toggle='myModal1' data-target='#myModal1'>".$datamenu->auctionid."</a></td>\n";
+			//echo "<td>".$datamenu->sname."</td>\n";
 			//echo "<td>".$datamenu->description."</td>\n";
 			echo "</tr>";
 			//The Modal
-echo '<div class="modal" id="myModal";>';
+echo '<div class="modal" id="myModal1";>';
 echo '<div class="modal-dialog">';
 echo '<div class="modal-content">';
 echo '';
-echo '<!-- Modal Header -->';
+
 echo '<div class="modal-header">';
 echo '<h6 class="modal-title"><b>WWW.AUCJUNCTION.COM Says</b></h6>';
 echo '<button type="button" class="close" data-dismiss="modal">&times;</button>';
 echo '</div>';
 echo '';
-echo '<!-- Modal body -->';
 echo '<div class="modal-body">';
 echo '<div class="form-check form-check-inline">';
 echo '<input type="checkbox" class="form-check-input" id="liveaucterms_condi" name="liveaucterms_condi" value="0">';
@@ -438,10 +437,10 @@ echo ' <b>I fully agree with the BUYER, SELLER and AUCJUNCTION Terma & Condition
 
 echo '</div>';
 echo '';
-echo '<!-- Modal footer -->';
+
 echo '<div class="modal-footer">';
 //echo '<!-- <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>-->';
-echo "<a href=".base_url()."Buyer_app_liveauc_2/index/".$auclink."></a>\n";
+echo "<a href=".base_url()."Buyer_app_liveauc_2/index/".$auclink.">OK</a>\n";
 echo '</div>';
 echo '';
 echo '</div>';
