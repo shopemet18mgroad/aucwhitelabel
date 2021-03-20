@@ -409,16 +409,16 @@ echo '</table>';
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		//print_r($sess['sessi']);die;
 		$datalivemenu = $this->Admin_model->datebetweensess('biddercart',$time,$sess['sessi']);
+		$count = 0;
 		foreach($datalivemenu as $datamenu){
 			$auclink = str_ireplace('/','-',$datamenu->auctionid);
 			$auclink = str_ireplace(' ','%20',$auclink);
 			echo "<tr>\n";
-			echo "<td><a href=".base_url()."Buyer_app_liveauc_2/index/".$auclink." data-toggle='modal' data-target='myModal'>".$datamenu->auctionid."</a></td>\n";
+			echo "<td><a href=".base_url()."Buyer_app_liveauc_2/index/".$auclink." data-toggle='modal' data-target='#myModal-1'>".$datamenu->auctionid."</a></td>\n";
 			echo "<td>".$datamenu->sname."</td>\n";
 			//echo "<td>".$datamenu->description."</td>\n";
 			echo "</tr>";
-			//The Modal
-echo '<div class="modal" id="myModal";>';
+echo '<div class="modal" id="myModal-1>';
 echo '<div class="modal-dialog">';
 echo '<div class="modal-content">';
 echo '';
@@ -432,23 +432,23 @@ echo '<!-- Modal body -->';
 echo '<div class="modal-body">';
 echo '<div class="form-check form-check-inline">';
 echo '<input type="checkbox" class="form-check-input" id="liveaucterms_condi" name="liveaucterms_condi" value="0">';
-echo '<label class="form-check-label" for="exampleCheck1">Yes</label>';
+echo '<label class="form-check-label" for="exampleCheck1"></label>';
 echo '</div>';
-echo ' <b>I fully agree with the BUYER, SELLER and AUCJUNCTION Terma & Conditions of this e-Auction.</b>';
-
+echo '<b>I fully agree with the BUYER, SELLER and AUCJUNCTION Terma & Conditions of this e-Auction.</b>';
+echo '';
 echo '</div>';
 echo '';
 echo '<!-- Modal footer -->';
 echo '<div class="modal-footer">';
-//echo '<!-- <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>-->';
-echo "<a href=".base_url()."Buyer_app_liveauc_2/index/".$auclink."></a>\n";
+echo '<!-- <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>-->';
+echo '<a href="<?php echo base_url()."Buyer_liveauc_2/index/".str_ireplace('/','-',$sqldat->auctionid);?>" type="button" class="btn btn-primary" onclick="return validat()">OK</a>';
 echo '</div>';
 echo '';
 echo '</div>';
 echo '</div>';
 echo '</div>';
 //<!--------Model --------->
-
+$count++;
 		}
 		
 				
