@@ -24,6 +24,7 @@
   <link href="<?php echo base_url()."web_files/";?>vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
   <script src="<?php echo base_url()."web_files/";?>js/js.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  
   <style>
 #heartstyle {
   color: red;  
