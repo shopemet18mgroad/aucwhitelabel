@@ -414,7 +414,7 @@ echo '</table>';
 			$auclink = str_ireplace('/','-',$datamenu->auctionid);
 			$auclink = str_ireplace(' ','%20',$auclink);
 			echo "<tr>\n";
-			echo "<td><a href=".base_url()."Buyer_app_liveauc_2/index/".$auclink." data-toggle='modal' data-target='#myModal-1'>".$datamenu->auctionid."</a></td>\n";
+			echo "<td><a href=".base_url()."Buyer_liveauc_2/index/".$auclink." data-toggle='modal' data-target='#myModal-1'>".$datamenu->auctionid."</a></td>\n";
 			echo "<td>".$datamenu->sname."</td>\n";
 			//echo "<td>".$datamenu->description."</td>\n";
 			echo "</tr>";
