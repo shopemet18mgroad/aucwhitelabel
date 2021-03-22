@@ -60,6 +60,13 @@ class Buyer_app_liveauc_2 extends CI_Controller {
 		//print_r($data['sqldata2']); die;
 		//echo '</pre>';
 		$data['sessi'] = $sess['sessi'];
+		
+		$data2 = array('liveaucterms_condi'=>true);
+		$updatech = array('bidderusername'=>$sess['sessi'],'auctionid'=>$auctionid);
+		$this->load->model('Admin_model');
+		//$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
+		$status = $this->Admin_model->update_custom('biddercart',$data2,$updatech,$updatech);
+		
 		$this->load->view('buyer_app/header',$sess);
 		$this->load->view('buyer_app/liveauc_2', $data);
 		$this->load->view('buyer_app/footer');
