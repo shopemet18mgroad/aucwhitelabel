@@ -19,25 +19,18 @@ class Agreementforsellerpdf_gen extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->model('Admin_model');
 
-	   $date = urldecode($this->uri->segment(3)); 
-		 $comp = urldecode($this->uri->segment(4));
-		  $city = urldecode($this->uri->segment(5));
-		   $pin = urldecode($this->uri->segment(6));
-		    $company = urldecode($this->uri->segment(7));
-			 $designation = urldecode($this->uri->segment(8));
-			 $sname = urldecode($this->uri->segment(9));
+	   $scompanyname = urldecode($this->uri->segment(3)); 
+	   
+	   
+	   $scomp = array('scomapnyname' => $scompanyname,'adaction' => true);
+	   
+	 
+		
 			 
 	  
+		$data['dat'] = $this->Admin_model->getdatafromtable('sellerprofile',$scomp );
 		
-		  
-		  $data['date'] =  $date;
-		  $data['comp'] = $comp ;
-		  $data['city'] = $city;
-		  $data['pin'] = $pin;
-		  $data['company'] = $company;
-		   $data['designation'] = $designation;
-		    $data['sname'] = $sname;
-			 
+		 
 	
 
 			
@@ -45,7 +38,7 @@ class Agreementforsellerpdf_gen extends CI_Controller {
 
 		
       $data2 = array(
-        'title' => $company,
+        'title' => $scompanyname,
         'data' => 'List Of Lots');
 		
 		//print_r( $data2);die;
@@ -65,8 +58,9 @@ class Agreementforsellerpdf_gen extends CI_Controller {
     // Render the HTML as PDF
     $ci->dompdf->render();
     // Output  PDF (1 = download and 0 = preview)
-    $ci->dompdf->stream($company.".pdf", array("Attachment" => 0));
-		
+    $ci->dompdf->stream($scompanyname.".pdf", array("Attachment" => 0));
+	
+   
   }
  }
 	?>

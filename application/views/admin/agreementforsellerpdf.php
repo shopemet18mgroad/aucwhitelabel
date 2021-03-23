@@ -195,9 +195,9 @@ Aucjunction is most reputed private online auction portal operating in the speci
 </P>
 
 <p class="para">
-
-This Agreement made on day of&nbsp; <span><b><?php echo $date; ?></b></span>&nbsp; Between 
-M/S  &nbsp; <span><b><?php echo $company;?></b></span><br>having its Registered office at <span><b><?php 
+This Agreement made on day of&nbsp; <span><b><?php echo $dat
+[0]-> $sagreementdate; ?></b></span>&nbsp; Between 
+M/S  &nbsp; <span><b><?php echo  $dat[0]->$scomapnyname;?></b></span><br>having its Registered office at <span><b><?php 
  echo  $comp.", ".$city.", ".$pin.".";?></b><span>
 herein called “ Partner Seller” AND  Aucjunction  ( Brand/Subsidary of Shopemet Networks Private Limited) having its Registered office at No 179, 2nd Floor, Mysore Road Cross, Bangalore 560002.
 

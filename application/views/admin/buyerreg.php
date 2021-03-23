@@ -47,6 +47,12 @@
 							<td class="btxt">Company Type:</td>
 							<td><input class="form-control w-50" onkeyup="validate_adminbcompany()" type="text" id="bcomptype" name="bcomptype" required></td>
 						</tr>
+						
+						
+						
+						
+						
+						
 						<!-- Buyer's Location -->
 								<tr>
 									<td>Buyer's Location</td>
@@ -212,7 +218,34 @@
 				</form>								
 				
               </div>
+	
+			  <table class="table table-sm table-borderless">
+					 <thead><th width="45%">Category Info</th>
+					  <form action="<?php echo base_url();?>Admin_basicinfocategory_add" method="POST" enctype="multipart/form-data">
+					 </thead>
+						<tbody>
+						
+						<tr>
+							<td class="btxt">Category Type:</td>
+							<td><input class="form-control w-50" type="text" id="catergory" name="catergory" required></td> 
+						</tr>
+						
+						</tbody>
+						</table>
+						<div class="col-md-12 text-center">
+            				<a href="#"><button type="submit" name="sb3" class="btn btn-info offset-sm-3 mt-2">Add</button></a>
+           
+        </div>
+						
+						
+				
+				
+												
+				
+			  
+		
             </div>
+			
 
             <!-- Pie Chart -->
 

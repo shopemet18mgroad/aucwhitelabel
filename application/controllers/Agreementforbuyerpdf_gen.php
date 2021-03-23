@@ -21,32 +21,28 @@ class Agreementforbuyerpdf_gen extends CI_Controller {
 		
 	
 		
-	   $username = urldecode($this->uri->segment(3)); 
-	   $date = urldecode($this->uri->segment(4)); 
-		 $address = urldecode($this->uri->segment(5));
-		  $city = urldecode($this->uri->segment(6));
-		   $pin = urldecode($this->uri->segment(7));
-		    $company = urldecode($this->uri->segment(8));
-			 $designation = urldecode($this->uri->segment(9));
-			 $bname = urldecode($this->uri->segment(10));
+	   $bcompany = urldecode($this->uri->segment(3)); 
+	   
+	   
+	 
+	   
+	   
+	   $scomp = array('bcompany' => $bcompany,'adaction' => true);
+	   
+	 
+		
+			 
+	  
+		$data['dat'] = $this->Admin_model->getdatafromtable('buyerprofile',$scomp ); 
+	   
+	   
+	   
+	   
+	   
 	  
 		
-		  $data['username'] = $username;
-		  $data['date'] =  $date;
-		  $data['address'] = $address ;
-		  $data['city'] = $city;
-		  $data['pin'] = $pin;
-		  $data['company'] = $company;
-		   $data['designation'] = $designation;
-		    $data['bname'] = $bname;
-	
-
-			
-			
-
-		
       $data2 = array(
-        'title' => $username,
+        'title' => $bcompany,
         'data' => 'List Of Lots');
 		
 		//print_r( $data2);die;
@@ -66,7 +62,7 @@ class Agreementforbuyerpdf_gen extends CI_Controller {
     // Render the HTML as PDF
     $ci->dompdf->render();
     // Output  PDF (1 = download and 0 = preview)
-    $ci->dompdf->stream($username.".pdf", array("Attachment" => 0));
+    $ci->dompdf->stream($bcompany.".pdf", array("Attachment" => 0));
 		
   }
  }
