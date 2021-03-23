@@ -2,6 +2,15 @@
 	//include('./header.php');
 	//print_r($sqldata); die;
 ?>
+<style>
+.square {
+  height: 50%;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  
+}
+</style>
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -19,7 +28,10 @@
 			<div class="col-xl-12 col-lg-7">
           <div class="card shadow mb-4">
             <div class="card-body">
+			<div class="row marqueebox">
 			
+			 <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();"><div class="square bg-primary w-auto small"><p><i class="fa fa-bell mr-2" aria-hidden="true"></i><b>Note: Bidders should give their bids for basic price exclusive of all taxes, All statutory taxes, charges, duties and any other levies<br> as application will have to be paid over and above the quoted price.<br> By Participating in bidding I agree to all the Terms & Conditions Of AUCJUNCTION, Seller and Buyer of the auction.</b></p></div></marquee>
+			</div>
 	
               <div class="table-responsive">
 			  <input type="hidden" id="total-lot" value="<?php echo count($sqldata2);?>">

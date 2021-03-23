@@ -114,7 +114,7 @@ font_formats:
 				<option value="Metric Ton">Metric Ton</option>
 				<option value="Lot">Lot</option>
 				<option value="Liter">Liter</option>
-				<option value="Number">Number</option>
+				<option value="NOS">NOS</option>
 				<option value="Meter">Meter</option>
 				</select></td>
 	</tr>
@@ -127,7 +127,7 @@ font_formats:
 				<option value="Metric Ton">Metric Ton</option>
 				<option value="Lot">Lot</option>
 				<option value="Liter">Liter</option>
-				<option value="Number">Number</option>
+				<option value="NOS">NOS</option>
 				<option value="Meter">Meter</option>
 				</select></td>
 	</tr>
@@ -228,8 +228,8 @@ if($sqldata[0]->spcbcertificate){echo "unchecked";}else{echo "checked";}		?>>
     document.getElementById("sbidbase").value = 'Lot';
   else if (document.getElementById('sunitmeasurment').value == 'Liter')
     document.getElementById("sbidbase").value = 'Liter';
-  else if (document.getElementById('sunitmeasurment').value == 'Number')
-    document.getElementById("sbidbase").value = 'Number';
+  else if (document.getElementById('sunitmeasurment').value == 'NOS')
+    document.getElementById("sbidbase").value = 'NOS';
   else if (document.getElementById('sunitmeasurment').value == 'Meter')
     document.getElementById("sbidbase").value = 'Meter';
 };

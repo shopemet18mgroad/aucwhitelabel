@@ -29,16 +29,48 @@
 				</tr>
 				</thead>
 				<tbody id="liveauc">
+				<?php $count = 1;?>
 			 <?php foreach ($sqldata as $sqldat){?>
 					<tr>												
-					<td><a href="<?php echo base_url()."Buyer_liveauc_2/index/".str_ireplace('/','-',$sqldat->auctionid);?>"><?php echo $sqldat->auctionid;?></a>
+					<td><a href="<?php echo base_url()."Buyer_liveauc_2/index/".str_ireplace('/','-',$sqldat->auctionid);?>" data-toggle="modal" data-target="#myModal-<?php echo $count; ?>"><?php echo $sqldat->auctionid;?></a>
 					</td>
 					<td><?php echo $sqldat->sname; ?></td>
 					</tr>
+							 <!-- The Modal -->
+<div class="modal" id="myModal-<?php echo $count;?>">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h6 class="modal-title"><b>WWW.AUCJUNCTION.COM Says</b></h6>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+	  <div class="form-check form-check-inline">
+			<input type="checkbox" class="form-check-input" id="liveaucterms_condi" name="liveaucterms_condi" value="0">
+			<label class="form-check-label" for="exampleCheck1"></label>
+			</div>
+	  <b>I fully agree with the BUYER, SELLER and AUCJUNCTION Terma & Conditions of this e-Auction.</b>
+       
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+       <!-- <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>-->
+		<a href="<?php echo base_url()."Buyer_liveauc_2/index/".str_ireplace('/','-',$sqldat->auctionid);?>" type="button" class="btn btn-primary" onclick="return validat()">OK</a>
+      </div>
+
+    </div>
+  </div>
+</div><?php $count++;?>	
 			 <?php }?>	
 				</tbody>
 		 </table>
-		
+
+		<!--------Model --------->
 		</div>
 		</div>
 		</div>
@@ -71,6 +103,19 @@ $(document).ready(function() {
   // run the first time; all subsequent calls will take care of themselves
   setTimeout(executeQuery2, 30000);
 });
+ </script>
+ <script>
+ function validat(){
+	 var liveaucterms_condi = document.getElementById("liveaucterms_condi").value;
+	 
+	 if( $('input[name="liveaucterms_condi"]:checked').length == 0 )
+		   
+			{
+				swal("Alert!",  "Please Accept terms and codition", "error");
+				return false;
+			}
+	 
+ }
  </script>
   <!-- End of Page Wrapper -->
 
