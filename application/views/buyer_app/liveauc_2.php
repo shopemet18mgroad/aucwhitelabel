@@ -4,17 +4,28 @@
 ?>
 <style>
 .square {
-  height: 50%;
-  width: 100%;
   color: #fff;
   text-align: center;
- 
-}
-  
+  margin-bottom:4px;
+}</style>
+ <style>
+        #blink {
+			 width: 260px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #fff;
+            transition: 0.5s;
+			 animation: blinker 1s linear infinite;
+        }
+		@keyframes blinker {
+ 50% {
+    opacity: 0;
+		}}
+    </style> 
 
 
 
-</style>
+
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -34,7 +45,7 @@
             <div class="card-body">
 			<div class="row marqueebox">
 			
-			 <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();"><div class="square bg-primary w-auto small"><p><i class="fa fa-bell mr-2" aria-hidden="true"></i><b>Note: Bidders should give their<br> bids for basic price exclusive of all<br> taxes, All statutory taxes, charges,<br> duties and any other levies<br> as application will have to be paid<br> over and above the quoted price.<br> By Participating in bidding<br> I agree to all the Terms & Conditions<br> Of AUCJUNCTION, Seller and Buyer of the<br> auction.</b></p></div></marquee>
+			<div class="square bg-primary w-auto small ml-3"><p id="blink"><i class="fa fa-bell mr-2" aria-hidden="true"></i><b>Note: Bidders should give their<br> bids for basic price exclusive of all<br> taxes, All statutory taxes, charges,<br> duties and any other levies<br> as application will have to be paid<br> over and above the quoted price.<br> By Participating in bidding<br> I agree to all the Terms & Conditions<br> Of AUCJUNCTION, Seller and Buyer of the auction.</b></p></div>
 			</div>
               <div class="table-responsive">
 			  <input type="hidden" id="total-lot" value="<?php echo count($sqldata2);?>">

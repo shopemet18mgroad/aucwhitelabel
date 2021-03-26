@@ -45,7 +45,7 @@ class Buyer_app_pdf_gen extends CI_Controller
         'data' => 'List Of Lots');
 	 $ci = &get_instance();
     $data['data'] = $data2;
-    $ci->load->view("buyer_app/pdf_File2",$data);	 
+    $ci->load->view("pdf_File2",$data);	 
     // Get output html
     $html = $ci->output->get_output();
 // add external css library

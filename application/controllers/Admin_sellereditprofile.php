@@ -124,11 +124,47 @@ class Admin_sellereditprofile extends CI_Controller {
 			echo '</tbody>';
 			echo '</table>';
 		}
-
+echo "<script>\n";
+echo "$('.delete-confirm').on('click', function (event) {\n";
+echo "    event.preventDefault();\n";
+echo "    const url = $(this).attr('href');\n";
+echo "    swal({\n";
+echo "        title: 'Are you sure?',\n";
+echo "        text: 'This record and it`s details will be permanantly deleted!',\n";
+echo "        icon: 'warning',\n";
+echo "        buttons: [\"Cancel\", \"Yes!\"],\n";
+echo "    }).then(function(value) {\n";
+echo "        if (value) {\n";
+echo "            window.location.href = url;\n";
+echo "        }\n";
+echo "    });\n";
+echo "});\n";
+echo "</script>\n";
 
 
 	}
-	
+	public function export_csv1(){ 
+		// file name 
+		$datatoquerydb = $this->uri->segment(3);
+		$this->load->model('Admin_model');
+		$filename = 'users_'.date('Ymd').'.csv'; 
+		header("Content-Description: File Transfer"); 
+		header("Content-Disposition: attachment; filename=$filename"); 
+		header("Content-Type: application/csv; ");
+	   // get data 
+	   $usersData = $this->Admin_model->getSellerUserDetails('sellerprofile','scomapnyname',$datatoquerydb);
+		//$usersData = $this->Admin_model->getSellerUserDetails();
+		//print_r($usersData); die;
+		// file creation 
+		$file = fopen('php://output','w');
+		$header = array("COMPANY NAME","CONTACT PERSON","CONTACT NO.","EMAIL ID","CITY","DATE"); 
+		fputcsv($file, $header);
+		foreach ($usersData as $key=>$line){ 
+			fputcsv($file,$line); 
+		}
+		fclose($file); 
+		exit; 
+	}
 	public function INACTIVE(){
 		$this->load->helper('url');
 		$this->load->library('session');
@@ -152,24 +188,8 @@ class Admin_sellereditprofile extends CI_Controller {
 	}
 	
 	
+
 }
 
 
-
-echo "<script>\n";
-echo "$('.delete-confirm').on('click', function (event) {\n";
-echo "    event.preventDefault();\n";
-echo "    const url = $(this).attr('href');\n";
-echo "    swal({\n";
-echo "        title: 'Are you sure?',\n";
-echo "        text: 'This record and it`s details will be permanantly deleted!',\n";
-echo "        icon: 'warning',\n";
-echo "        buttons: [\"Cancel\", \"Yes!\"],\n";
-echo "    }).then(function(value) {\n";
-echo "        if (value) {\n";
-echo "            window.location.href = url;\n";
-echo "        }\n";
-echo "    });\n";
-echo "});\n";
-echo "</script>\n";
 
