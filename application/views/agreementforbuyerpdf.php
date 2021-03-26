@@ -388,7 +388,7 @@ $dataUri2 = 'data:image/' . $type . ';base64,' . base64_encode($data2);
                         <b>10. Subscription Fee</b><br>
                         10.1 The buyer to access and Participate in the auction, should be a subscriber of
                         Aucjuction<br>
-                        10.2 Subscription Fee is Rs 8600/-(Inclusive of taxes) Non- refundable with a validity of 1 year
+                        10.2 Subscription Fee is Rs 8850/-(Inclusive of taxes) Non- refundable with a validity of 1 year
                         from the date of Subscription. Buyer can participate in any no of auction and bid during the
                         validity period.<br>
                     </p>
