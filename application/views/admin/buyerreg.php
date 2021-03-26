@@ -227,7 +227,7 @@
 						
 						<tr>
 							<td class="btxt">Category Type:</td>
-							<td><input class="form-control w-50" type="text" id="catergory" name="catergory" required></td> 
+							<td><input class="form-control w-50" type="text" id="name" name="name" required></td> 
 						</tr>
 						
 						</tbody>

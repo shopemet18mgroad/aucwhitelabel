@@ -48,7 +48,12 @@ th, td {
 }
 .small{
 word-wrap:break-word;
-table-layout:fixed
+table-layout:fixed;
+
+padding:2px;
+
+text-align:justify-all;
+
 }
 </style>
 <body>

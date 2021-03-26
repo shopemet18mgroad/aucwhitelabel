@@ -25,13 +25,13 @@ class Admin_basicinfocategory_add extends CI_Controller {
 		$this->load->helper(array('url','form','file','html'));
 		$this->load->model('Admin_model');
 		
-		$catergory = $this->input->post('catergory');
+		$name = $this->input->post('name');
 		
 			
 	
 		
 		
-		$data = array('catergory' => $catergory);
+		$data = array('name' => $name);
 		
 		
 		$datainserr = "Data Inserted Successfully";

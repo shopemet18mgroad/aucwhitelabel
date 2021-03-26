@@ -172,28 +172,28 @@
 
                     </p>
                     <p class="para">
-                        <b>15. Goods Conditions After Sales</b><br>
-                        15.1 Note AucJunction will not take any complaint after the sale.<br>
-                        15.2 Quantities shown/Made in the lot are approximate and AucJunction will not be held
+                        <b>14. Goods Conditions After Sales</b><br>
+                        14.1 Note AucJunction will not take any complaint after the sale.<br>
+                        14.2 Quantities shown/Made in the lot are approximate and AucJunction will not be held
                         responsible for any regards.<br>
-                        15.3 Goods shall remain under the risk of the buyer/Bidder from the date of purchase/offer and
+                        14.3 Goods shall remain under the risk of the buyer/Bidder from the date of purchase/offer and
                         the seller shall have no liability whatsoever for the safe-custody. <br>
-                        15.4 The Buyer has to remove the goods within the specified time/Date and the delivery to be
+                        14.4 The Buyer has to remove the goods within the specified time/Date and the delivery to be
                         made during working hours on all working days upon no due from the buyer/Aucjunction,
                         Transportation/loading of goods should be arranged the buyer.<br>
-                        15.5 If the original buyer wish to take delivery through his representative, he must authorise
+                        14.5 If the original buyer wish to take delivery through his representative, he must authorise
                         the lifter by a letter of authority on<span class=""> his own risk,</span>The buyer will be held responsible for any
                         acts of irregularities & mis-conduct of the representative comes in to pick the stock.<br>
-                        15.6 Buyer is not allowed to resale any item/part while the goods are still lying within the
+                        14.6 Buyer is not allowed to resale any item/part while the goods are still lying within the
                         premises<br>
                     </p>
                     <p class="para">
-                        16. All paper documentation for releasing materials will be made out in the name of the buyer
+                        15. All paper documentation for releasing materials will be made out in the name of the buyer
                         only, No interest will be paid on the amount deposited by the buyer condition mentioned herein
                         before<br>
                     </p>
                     <p class="para">
-                        17. Buyer shall be responsible for any damage that may be caused to the premises machineries/
+                        16. Buyer shall be responsible for any damage that may be caused to the premises machineries/
                         equipments while taking away or removing of goods.<br>
                     </p>
 

@@ -4,64 +4,6 @@
 
 <head>
 <style>
-#background{
-    position:absolute;
-
-    background:white;
-    display:block;
-    min-height:50%; 
-    min-width:50%;
-    color:yellow;
-}
-
-#content1{
-
-    z-index:1;
-}
-
-#bg-text
-{
-    color:lightgrey;
-    font-size:150px;
-    margin:20px;
-padding-top:600px;
-
-	
-	font-style: oblique;
-    transform:rotate(360deg);
-    -webkit-transform:rotate(360deg);
-}
-  
-
-
-#background1{
-    position:absolute;
-    z-index:0;
-    background:white;
-    display:block;
- 
-    min-width:50%;
-    color:yellow;
-}
-
-#content11{
-
-    z-index:1;
-}
-
-#bg-text1
-{
-    color:lightgrey;
-    font-size:150px;
-    margin-left:60px;
-	padding-top:500px;
-
-	
-	font-style: oblique;
-    transform:rotate(360deg);
-    -webkit-transform:rotate(360deg);
-}
-
 
 
 
@@ -200,16 +142,51 @@ text-align:left;
 .middle addr{
 	text-align: center
 	}
+.shoplogo{
+padding-left:400px;
 
-.bg-image{
-li {
-  background:
-    url(data:image/gif;base64,R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQAosJ6mu7fiyZeKqNKToQGDsM8hBADgUXoGAiqhSvp5QAnQKGIgUhwFUYLCVDFCrKUE1lBavAViFIDlTImbKC5Gm2hB0SlBCBMQiB0UjIQA7)
-    no-repeat
-    left center;
-  padding: 5px 0 5px 25px;
 }
+.writing{
+	
+	marign-top:20;
+	
+	
 }
+.shopemetlogo {
+padding-left:30px;
+marign:90px;
+opacity:0.2;
+  position: absolute;
+ 
+  z-index: -1;
+	
+}
+.shopemetlogo1 {
+padding-left:30px;
+marign:90px;
+opacity:0.2;
+  position: absolute;
+ 
+  z-index: -1;
+	
+}
+.shopemetlogo2 {
+
+
+
+ 
+
+	
+}
+
+.bara2{
+	text-align: center;
+	padding-top:10px;
+	height: 60px;
+	width:700px;
+	background-color: #2e3192;
+	color: #ffffff;
+	}
 
 
 
@@ -220,15 +197,46 @@ li {
 </head>
 <body>
 
-            
-<div class="bar w-80">
 
 
 
+<?php
 
-                    <p><strong>AGREEMENT FOR BUYER</strong></p>
-                </div>
-				 <div class="bara1 ">            
+$image =  base_url()."web_files/img/logo.png";
+$type = pathinfo($image, PATHINFO_EXTENSION);
+$data = file_get_contents($image);
+$dataUri = 'data:image/' . $type . ';base64,' . base64_encode($data);
+
+
+?>
+	
+<?php
+
+$image1 =  base_url()."web_files/img/maku.png";
+$type1 = pathinfo($image1, PATHINFO_EXTENSION);
+$data1 = file_get_contents($image1);
+$dataUri1 = 'data:image/' . $type . ';base64,' . base64_encode($data1);
+
+
+?>
+<div class="writing">
+
+<b>	SHOPEMET NETWORKS PVT LTD</b><br>
+
+<b>	CIN:</b>U74999KA2018PTC116853<br>
+</div>
+<div class="shoplogo">
+
+
+
+<img src="<?php echo $dataUri;?>" width="50%" height="70">
+<img src="<?php echo $dataUri1;?>" width="60%" height="60">
+
+
+
+</div>
+
+    <div class="bara1 ">            
            <h2 style="text-align:center"><b>AUCJUNCTION</b>
          
              
@@ -237,18 +245,26 @@ li {
                 
                 
       </div>
-	  
-	      
-	  
-	<div id="background">
-  <p id="bg-text">Shopemet</p>
-	</div>
+	  <div class="bar w-80">
+<p><strong>AGREEMENT FOR BUYER</strong></p>
+ </div>
+       
 
-	<div id="content1">
+
+
+<!--<h3 style="text-align:center;">AUCJUNCTION<br>
+Buyer Agreement</h3>-->
+ 
+
+
+
+	
+
+               
   
 
 <P class="para">This Agreement made this&nbsp; <span><b><?php echo $dat[0]->bagreementdate; ?></b></span>&nbsp; day of
-                        &nbsp;<span><b><?php echo$dat[0]->bagreementdate; ?></b></span> Between
+                        &nbsp;<span><b><?php echo $dat[0]->bagreementdate; ?></b></span> Between
                         M/S &nbsp; <span><b><?php echo $dat[0]-> bcompany;?></b></span><br>having its Registered office at
                         <span><b><?php echo $dat[0]-> baddress.", ". $dat[0]->bcity.", ". $dat[0]->bpin.".";?></b><span> herein called “ Partner
                                 Buyer/Bidder” AND Aucjunction ( Brand/Subsidary of Shopemet Networks Private Limited)
@@ -299,6 +315,28 @@ li {
                         ground rent subjected to the terms and conditions of the seller at e auction.<br>
 
                     </p>
+					
+					
+					
+					<?php
+
+$image2 =  base_url()."web_files/img/maku.png";
+$type2 = pathinfo($image2, PATHINFO_EXTENSION);
+$data2 = file_get_contents($image2);
+$dataUri2 = 'data:image/' . $type . ';base64,' . base64_encode($data2);
+
+
+?>
+	<div class="shopemetlogo">
+
+
+
+
+<img src="<?php echo $dataUri2;?>" width="80%" height="150">
+
+
+
+</div>
                     <p class="para">
                         <b>5. Content Upload</b><br>
                         5.1 Aucjunction is not responsible of the content posted by the Seller for the auction.<br>
@@ -331,10 +369,6 @@ li {
                             the auction.<br>
                             8.3 If Aucjunction obtains any information on the conduct of its employees will be treated
                             as Criminal Offence and will initiate strict disciplinary action.<br>
-							<div id="background1">
-  <p id="bg-text1">Shopemet</p>
-	</div>
-	<div id="content11">
                             8.4 The Buyer will not enter into an illegal agreement or understanding to restrict
                             competitiveness in the auction. <br>
 
@@ -366,7 +400,7 @@ li {
                         11.1 Bids on the Site are nothing but the conformation to Buy/purchase of Materials/Goods/Scrap
                         , At the end of an auction H1 (Heighest) bidder shall be accepted by the seller. Bids cannot be
                         cancelled/ withdrawn by the bidder if once places. The transactions will happen in Indian Rupees
-                        only.<br>
+                        only.<br><br>
 
                     
                         <b>12. E Auction Payment Procedure/Auction Floor</b><br>
@@ -382,6 +416,25 @@ li {
                         12.3.3 Breif Description of Materials and Approximate quantity in KGS/ Lots/ MT/ Nos <br>
 
                     </p>
+					<?php
+
+$image3 =  base_url()."web_files/img/maku.png";
+$type3 = pathinfo($image3, PATHINFO_EXTENSION);
+$data3 = file_get_contents($image3);
+$dataUri3 = 'data:image/' . $type . ';base64,' . base64_encode($data3);
+
+
+?>
+<div class="shopemetlogo1">
+
+
+
+
+<img src="<?php echo $dataUri3;?>" width="80%" height="150">
+
+
+
+</div>
                     <p class="para">
                         <b>13. AUTO/PROXY BIDDING</b><br>
                         13.1 Bidder will have an option of declaring his maximum value of bid and the competitors will
@@ -395,29 +448,34 @@ li {
                         PM.then the closing time will be automatically extended to 4-34 PM.<br>
                         13.3 Please note bid once given cannot be retracted.<br>
                         13.4 The Auction can be withdrawn anytime before the start date as well as during the auction
-                        without quoting any reason by the seller or auctioneer<br>
+                        without quoting any reason by the seller or auctioneer<br><br>
 
-                        <b>15. Goods Conditions After Sales</b><br>
-                        15.1 Note AucJunction will not take any complaint after the sale.<br>
-                        15.2 Quantities shown/Made in the lot are approximate and AucJunction will not be held
+                            <p class="para">
+                        <b>14. Goods Conditions After Sales</b><br>
+                        14.1 Note AucJunction will not take any complaint after the sale.<br>
+                        14.2 Quantities shown/Made in the lot are approximate and AucJunction will not be held
                         responsible for any regards.<br>
-                        15.3 Goods shall remain under the risk of the buyer/Bidder from the date of purchase/offer and
+                        14.3 Goods shall remain under the risk of the buyer/Bidder from the date of purchase/offer and
                         the seller shall have no liability whatsoever for the safe-custody. <br>
-                        15.4 The Buyer has to remove the goods within the specified time/Date and the delivery to be
+                        14.4 The Buyer has to remove the goods within the specified time/Date and the delivery to be
                         made during working hours on all working days upon no due from the buyer/Aucjunction,
                         Transportation/loading of goods should be arranged the buyer.<br>
-                        15.5 If the original buyer wish to take delivery through his representative, he must authorise
+                        14.5 If the original buyer wish to take delivery through his representative, he must authorise
                         the lifter by a letter of authority on<span class=""> his own risk,</span>The buyer will be held responsible for any
                         acts of irregularities & mis-conduct of the representative comes in to pick the stock.<br>
-                        15.6 Buyer is not allowed to resale any item/part while the goods are still lying within the
+                        14.6 Buyer is not allowed to resale any item/part while the goods are still lying within the
                         premises<br>
-						
-						  
-						16. All paper documentation for releasing materials will be made out in the name of the buyer
+                    </p>
+                    <p class="para">
+					<b>15. Goods Conditions After Sales</b><br>
+                        15.1 All paper documentation for releasing materials will be made out in the name of the buyer
                         only, No interest will be paid on the amount deposited by the buyer condition mentioned herein
                         before<br>
-						 17. Buyer shall be responsible for any damage that may be caused to the premises machineries/
-                        equipments while taking away or removing of good
+                    </p>
+                    <p class="para">
+					<b>16. Goods Conditions After Sales</b><br>
+                        16.1 Buyer shall be responsible for any damage that may be caused to the premises machineries/
+                        equipments while taking away or removing of goods.<br>
                     </p>
 					
 					
@@ -425,7 +483,9 @@ li {
 		</div>
 					
 					
-					
+				<br>
+				<br>
+				<br>
 	
 	
 	
@@ -435,7 +495,11 @@ li {
                             M/S&nbsp;<span><b><?php echo $dat[0]->bcompany;?></b></span><br>
                             By its
                             &nbsp;<span><b><?php echo $dat[0]-> bdesignation;?>&nbsp;</b></span>Mr./Mrs./Miss.&nbsp;<span><b><?php echo $dat[0]->bcontactperson;?></b></span>
-                            <br>
+                            <br><br>
+							<br>
+							<br>
+							<br>
+							
                             Signature with Seal.
                         </div>
 
@@ -447,12 +511,46 @@ li {
                             &nbsp;<span><b>Aucjunction ( Subsidary of Shopemet)</b></span><br>
                             By Its President
                             &nbsp;<span><b>Shri Charith Dev M&nbsp;</b></span>
-                            Signature with Seal.</br>
-                        </div>
-                          
+                           </br><br>
+							<?php
 
+$image4 =  base_url()."web_files/img/Invoice3.png";
+$type4 = pathinfo($image4, PATHINFO_EXTENSION);
+$data4 = file_get_contents($image4);
+$dataUri4 = 'data:image/' . $type . ';base64,' . base64_encode($data4);
+
+
+?>
+
+
+
+
+
+<img src="<?php echo $dataUri4;?>" width="50%" height="80" style="padding-left:10px">
+<br>
+
+                     
+           Signature with Seal.                
+</div>
                         </div>
                     </div>  
+					
+					
+					
+					
+					
+					 <div class="bara2 ">            
+           <strong>Reg Office: No.23,3rd Floor,
+Behind Asha sweets, Binnamangala
+1st stage, Indiranagar <br>
+Bangalore-560 002.<br>
+
+E:info@shopemet.com
+W:shopmet.com </strong>     
+                
+                
+                
+      </div>
 	  
 	  
 	  
