@@ -543,4 +543,13 @@ class Admin_model extends CI_Model
 		$q = $this->db->get();
 		return $q->result_array();
 	}
+	
+	
+	public function getSellerUserDetails($table, $col, $query){
+		$this->db->select('scomapnyname	,scontactperson,sphone,semail,scity,sref,sagreementdate');
+		$this->db->from($table);
+		$this->db->like($col, $query);
+		$q = $this->db->get();
+		return $q->result_array();
+	}
 }

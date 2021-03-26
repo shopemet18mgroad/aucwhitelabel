@@ -4,13 +4,28 @@
 ?>
 <style>
 .square {
-  height: 50%;
+  height: 40%;
   width: 100%;
   color: #fff;
   text-align: center;
+  margin-left:150px;
+  margin-bottom:4px;
   
 }
 </style>
+ <style>
+        #blink {
+            font-size: 12px;
+            font-weight: bold;
+            color: #fff;
+            transition: 0.5s;
+			 animation: blinker 1s linear infinite;
+        }
+		@keyframes blinker {
+ 50% {
+    opacity: 0;
+		}}
+    </style>
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -30,7 +45,7 @@
             <div class="card-body">
 			<div class="row marqueebox">
 			
-			 <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();"><div class="square bg-primary w-auto small"><p><i class="fa fa-bell mr-2" aria-hidden="true"></i><b>Note: Bidders should give their bids for basic price exclusive of all taxes, All statutory taxes, charges, duties and any other levies<br> as application will have to be paid over and above the quoted price.<br> By Participating in bidding I agree to all the Terms & Conditions Of AUCJUNCTION, Seller and Buyer of the auction.</b></p></div></marquee>
+			 <div class="square bg-primary w-auto small"><p id="blink"><i class="fa fa-bell mr-2" aria-hidden="true"></i><b>Note: Bidders should give their bids for basic price exclusive of all taxes, All statutory taxes, charges, duties and any other levies<br> as application will have to be paid over and above the quoted price.<br> By Participating in bidding I agree to all the Terms & Conditions Of AUCJUNCTION, Seller and Buyer of the auction.</b></p></div>
 			</div>
 	
               <div class="table-responsive">
@@ -273,7 +288,12 @@ $(document).ready(function() {
 
   <!-- Scroll to Top Button-->
  
-
+<script type="text/javascript">
+        //var blink = document.getElementById('blink');
+        //setInterval(function() {
+           // blink.style.opacity = (blink.style.opacity == 0 ? 1 : 0);
+        //}, 1000);
+    </script>
 
   <?php 
 	//include('./footer.php');

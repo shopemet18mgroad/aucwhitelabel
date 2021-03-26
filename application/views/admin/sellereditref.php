@@ -11,6 +11,7 @@
             
           </div>
 
+
           <!-- Content Row -->
           <div class="row">
 
@@ -18,6 +19,7 @@
 			<div class="col-xl-12 col-lg-7">
           <div class="card shadow mb-4">
             <div class="card-body">
+			
               <div class="table-responsive">
 			   <form class="form-inline">
 					<div class="form-group  offset-sm-2">
@@ -29,7 +31,7 @@
 								<!--<button class="form-control" type="submit"><i class="fa fa-search"></i></button>-->
 					
 						<!-- </form> -->
-					</td>
+					</td><a href='<?php echo base_url();?>Admin_sellereditbyref/export_csv' type="button" class="btn btn-info btn-sm ml-3"><b>Export</b></a><br><br>
 				</div>
 			
 		

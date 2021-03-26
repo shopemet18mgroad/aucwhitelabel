@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Industry_survey_form extends CI_Controller {
+class Enquiry_Form extends CI_Controller
+{
 
 	/**
 	 * Index Page for this controller.
@@ -20,12 +21,18 @@ class Industry_survey_form extends CI_Controller {
 	 */
 	public function index()
 	{
+
 		$this->load->helper('url');
-		$this->load->view('survey/header');
-		$this->load->view('survey/form2');
+
+		$this->load->helper(array('url', 'html', 'date'));
+		//Setting  default time zone
+		date_default_timezone_set('Asia/Kolkata');
+		//initaliazing the current time 
+		$time =  Date('Y-m-d H:i:s');
+		//Loading Admin Model
+		$this->load->model('Admin_model');
 		
-		
-		
+		 
+		$this->load->view('Enquiry Form');
 	}
-	
 }

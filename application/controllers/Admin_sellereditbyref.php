@@ -83,13 +83,14 @@ class Admin_sellereditbyref extends CI_Controller {
 			echo '<table class="table table-striped table-bordered table-sm text-center mt-5" width="100%" cellspacing="0">';
 			echo '<thead class="bg-primary text-white">';
 			echo '<tr>';
-			echo '<th>Seller Name</th>';
-			echo '<th>Company Type</th>';
+			echo '<th>S.No.</th>';
+			echo '<th>Company Name</th>';
 			echo '<th>Contact Person</th>';
-			echo '<th>Location</th>';
+			echo '<th>Contact No.</th>';
+			echo '<th>Email Id</th>';
 			echo '<th>City</th>';
-			echo '<th>Pincode</th>';
-			echo '<th>Status</th>';
+			echo '<th>Reference</th>';
+			echo '<th>Date</th>';
 			echo '<th>Action</th>';
 			echo '</tr>';
 			echo '</thead>';
@@ -118,7 +119,28 @@ class Admin_sellereditbyref extends CI_Controller {
 
 	}
 	
-	
+public function export_csv(){ 
+		// file name 
+		$datatoquerydb = $this->uri->segment(3);
+		$this->load->model('Admin_model');
+		$filename = 'users_'.date('Ymd').'.csv'; 
+		header("Content-Description: File Transfer"); 
+		header("Content-Disposition: attachment; filename=$filename"); 
+		header("Content-Type: application/csv; ");
+	   // get data 
+	   $usersData = $this->Admin_model->getSellerUserDetails('sellerprofile','sref',$datatoquerydb);
+		//$usersData = $this->Admin_model->getSellerUserDetails();
+		//print_r($usersData); die;
+		// file creation 
+		$file = fopen('php://output','w');
+		$header = array("COMPANY NAME","CONTACT PERSON","CONTACT NO.","EMAIL ID","CITY","REFERENCE","DATE"); 
+		fputcsv($file, $header);
+		foreach ($usersData as $key=>$line){ 
+			fputcsv($file,$line); 
+		}
+		fclose($file); 
+		exit; 
+	}	
 	
 	
 }
