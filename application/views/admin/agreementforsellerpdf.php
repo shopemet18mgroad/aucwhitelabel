@@ -6,21 +6,187 @@
 ?>
     
     <!---  body  design  -->
-    
-    
-		<div class= "content w-100">
 	
-		<div class="middleboxtnc w-75">
-			<div class="middle w-100  text-white">
-				<h2 style="text-align:center"><b>AUCJUNCTION</b><h2>
-					<h6 style="text-align:center">Partner Agreement - Seller</h6> 
-										
-							</div>
-		<div class="blnkspc w-100">
-			<table width="100%" border="0" cellspacing="0" cellpadding="0">
-			<div class="bar w-100">
-				<p><strong>AGREEMENT FOR SELLER</strong></p>
-			</div>
+
+<!DOCTYPE html>
+
+<head>
+<style>
+  
+
+
+
+
+.middleboxtnc{
+    height:auto;
+	width: 700px;
+	padding-right: 1px;
+    background-color: #2e3192;
+    margin-left: auto;
+    margin-right: auto;
+    top: 50%;
+    bottom: 50%;
+    margin-top: 5px;
+	padding-bottom: 100px;
+	margin-bottom: -10px;
+	margin-top: 1px;
+
+	}
+	
+.middleboxt{
+    height:auto;
+	width: 900px;
+	padding-right: 10px;
+    background-color: #F9F9F9;
+    margin-left: auto;
+    margin-right: auto;
+    top: 50%;
+    bottom: 50%;
+    margin-top: 5px;
+	padding-bottom: 100px;
+	margin-bottom: -10px;
+	margin-top: 1px;
+	padding-top: 5px;
+	}
+
+.middle p{
+	
+	text-align: center;
+	padding-bottom: 0px;
+	}
+
+.middle addr{
+	text-align: center
+	}
+
+.blnkspc {
+    background-color: #FFFFFF;
+    width: 100%;
+	margin-bottom: -50px;
+	}
+
+.bar{
+	text-align: center;
+	padding-top:10px;
+	height: 50px;
+	width:700px;
+	background-color: #f38222;
+	color: #ffffff;
+	}
+.bara1{
+	text-align: center;
+	padding-top:10px;
+	height: 50px;
+	width:700px;
+	background-color: #2e3192;
+	color: #ffffff;
+	}
+.shead{
+	text-align: center;
+	padding-top:8px;
+	height: 75px;
+	width:900px;
+	background-color: #bdb6b6;
+	color: #FFFFFF;
+	
+}
+
+.termstxt2 {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    background-color: #A49E9C;
+    font-weight: bold;
+    margin: 5px;
+    line-height: normal;
+    padding: 5px;
+	}
+	
+.space{
+	background-color: #ffffff;
+	width: 700px;
+	margin:  1px;
+	overflow: hidden;
+	}
+
+.para{
+text-align:left;
+	padding-right: 30px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	overflow:none;
+	}
+
+.signature{
+	display: inline-block;
+	font-size: 15Px;
+	padding-right: 30px;
+	margin: 2px;
+	margin-top: 10px;
+
+	
+}	
+
+.sign{
+		
+	display: inline-block;
+	font-size: 15Px;
+   padding-left:250px;
+	   
+
+}
+.long-content{
+	padding: 1px 1px;
+	margin: 8px 0;
+	background-color: #D3D3D3;
+	border: none;
+	border-bottom: 2px solid black;
+	}
+
+
+
+.content{
+	content:right;
+	}
+
+.middle addr{
+	text-align: center
+	}
+
+</style>
+</head>
+<body>
+
+
+            
+<div class="bar w-80">
+
+
+
+
+                    <p><strong>AGREEMENT FOR SELLER</strong></p>
+                </div>
+                
+                
+                
+    <div class="bara1 ">            
+           <h2 style="text-align:center"><b>AUCJUNCTION</b>
+         
+             
+                 Partner Agreement - Seller</h2>     
+                
+                
+                
+      </div> 
+
+
+
+
+
+
+
+    
+    
+		
 <div class="space w-100">
 
 <p class="termstxt2">1. WELCOME TO AUCJUNCTION !</p>
@@ -29,10 +195,10 @@ Aucjunction is most reputed private online auction portal operating in the speci
 </P>
 
 <p class="para">
-
-This Agreement made on day of&nbsp; <span><b><?php echo $date; ?></b></span>&nbsp; Between 
-M/S  &nbsp; <span><b><?php echo $company;?></b></span><br>having its Registered office at <span><b><?php $comp = unserialize($saddresscount);
- echo  $comp[0].", ".$city.", ".$pin.".";?></b><span>
+This Agreement made on day of&nbsp; <span><b><?php echo $dat
+[0]-> $sagreementdate; ?></b></span>&nbsp; Between 
+M/S  &nbsp; <span><b><?php echo  $dat[0]->$scomapnyname;?></b></span><br>having its Registered office at <span><b><?php 
+ echo  $comp.", ".$city.", ".$pin.".";?></b><span>
 herein called “ Partner Seller” AND  Aucjunction  ( Brand/Subsidary of Shopemet Networks Private Limited) having its Registered office at No 179, 2nd Floor, Mysore Road Cross, Bangalore 560002.
 
 The Contract will remain valid for 1 time sale/ 6 months/ 1 year of this Agreement which could be extended for such further period on such terms and conditions as mutually agreed upon by both the parties
@@ -93,9 +259,8 @@ The Contract will remain valid for 1 time sale/ 6 months/ 1 year of this Agreeme
 <b>10.	Service Charge</b><br>
 <form action="./AgreementSellercharg" method="POST">
 10.1	The seller shall be entitled to a service charge of
-<input class="percent" type="text" value="%" name="servperc" maxlength="6" size="4">
-
- on the basis of the Delivery Order / sale invoice issued through this auction over the Aucjunction portal.<br>
+<input class="percent" type="text" value="%" name="servperc" maxlength="3" size="4">
+on the basis of the Delivery Order / sale invoice issued through this auction over the Aucjunction portal.<br>
 10.2	The service charge is exclusive of any other taxes and duties levied by the Statutory Authorities of different States and Central Government. Service Charge will be calculated on the amount realised excluding Excise Duty and Sales Tax<br>
 </p>
 <p class="termstxt2">SELLER TERMS AND CONDITIONS</p>
@@ -135,80 +300,53 @@ The Contract will remain valid for 1 time sale/ 6 months/ 1 year of this Agreeme
 <p class="para">
 22.	Difference & Dispute arising between bidder/buyer & Aucjunction with respect to interpretation or implementation of policies shall be referred to a Sole Arbitrator to be appointed by CEO of Aucjunction India.
 </p>
-<br><br>
+<br>
 
 <div class="signature">
-<div>
+
 For and On Behalf of <br>                                                                                               
 M/S&nbsp;<span><b><?php echo $company;?></b></span><br>	                                                                    
-By its  &nbsp;<span><b><?php echo $designation;?>&nbsp;</b></span>Mr./Mrs./Miss. &nbsp;<span><b><?php echo $sname;?></b></span>                      
-<br><br><br>
+By its  &nbsp;<span><b><?php echo $designation;?>&nbsp;</b></span>Mr./Mrs./Miss. &nbsp;<span><b><?php echo $sname;?></b></span>  <br>                    
 Signature with Seal.
+
 </div>
 
-
 <div class="sign">
+
 For and On Behalf  of<br>
 Aucjunction ( Subsidary of Shopemet)<br>
-By Its President Shri Charith Dev M<br><br><br><br><br>
+By Its President Shri Charith Dev M<br>
 Signature and Seal.
 
 </div>
-</div>
+
+
 
 
 </table>
 
 
-		<div class="text-center" style="position:relative;background-color:#2e3192;">
-		<a href="<?php echo base_url()."registration/index/".$username."/".$date;?>"><button type="button" class="btn btn-primary mt-2">Agree</button></a>
-		<a href="<?php echo base_url();?>home"><button type="button" class="btn btn-primary mt-2">Disagree</button></a>
+		
 	
 	
 	
-						</div>
-		      
-        
-			 
 			
 			
 	
 	
-
 	
 	
 	
 	
+	
 
-
-
+</div>
 </form>
-	
-
-</div> 
-     <!---  body  design  -->
-	
-	 
+</div>      <!---  body  design  -->
 </div>
-
-             
-	
-             
-   <!-- <a href="<?php //echo base_url() . 'Agreementforsellerpdf_gen/auc_no/'.$date."/".urldecode($comp[0])."/".urlencode($city)."/".urlencode($pin)."/".urlencode($company)."/".urlencode($designation)."/".urlencode($sname);?>" target="_blank">
-
-                                                    <i class="fa fa-download" style="color:white;" aria-hidden="true"></i></a>   -->       
-             
-             
-         
-             
-             
-             
-             
-             
-                
-   
 </div>
-
+</body>
+</html>
 
         <!---  footer  -->
 <script>

@@ -1,27 +1,268 @@
-<?php 
-	//include('./header.php');
+<!--body desgin-->
+
+<!DOCTYPE html>
+
+<head>
+<style>
+  
+
+
+
+
+.middleboxtnc{
+    height:auto;
+	width: 700px;
+	padding-right: 1px;
+    background-color: #2e3192;
+    margin-left: auto;
+    margin-right: auto;
+    top: 50%;
+    bottom: 50%;
+    margin-top: 5px;
+	padding-bottom: 100px;
+	margin-bottom: -10px;
+	margin-top: 1px;
+
+	}
 	
-	//$comp = unserialize($saddress);
-	//print_r($comp); die;
+.middleboxt{
+    height:auto;
+	width: 900px;
+	padding-right: 10px;
+    background-color: #F9F9F9;
+    margin-left: auto;
+    margin-right: auto;
+    top: 50%;
+    bottom: 50%;
+    margin-top: 5px;
+	padding-bottom: 100px;
+	margin-bottom: -10px;
+	margin-top: 1px;
+	padding-top: 5px;
+	}
+
+.middle p{
+	
+	text-align: center;
+	padding-bottom: 0px;
+	}
+
+.middle addr{
+	text-align: center
+	}
+
+.blnkspc {
+    background-color: #FFFFFF;
+    width: 100%;
+	margin-bottom: -50px;
+	}
+
+.bar{
+	text-align: center;
+	padding-top:10px;
+	height: 50px;
+	width:700px;
+	background-color: #f38222;
+	color: #ffffff;
+	}
+.bara1{
+	text-align: center;
+	padding-top:10px;
+	height: 50px;
+	width:700px;
+	background-color: #2e3192;
+	color: #ffffff;
+	}
+.bara2{
+	text-align: center;
+	padding-top:10px;
+	height: 60px;
+	width:700px;
+	background-color: #2e3192;
+	color: #ffffff;
+	}
+.shead{
+	text-align: center;
+	padding-top:8px;
+	height: 75px;
+	width:900px;
+	background-color: #bdb6b6;
+	color: #FFFFFF;
+	
+}
+
+.termstxt2 {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    background-color: #A49E9C;
+    font-weight: bold;
+    margin: 5px;
+    line-height: normal;
+    padding: 5px;
+	}
+	
+.space{
+	background-color: #ffffff;
+	width: 700px;
+	margin:  1px;
+	overflow: hidden;
+	}
+
+.para{
+text-align:left;
+	padding-right: 30px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	overflow:none;
+	}
+
+.signature{
+	display: inline-block;
+	font-size: 15Px;
+	padding-right: 30px;
+	margin: 2px;
+	margin-top: 10px;
+
+	
+}	
+
+.sign{
+		
+	display: inline-block;
+	font-size: 15Px;
+   padding-left:200px;
+	   
+
+}
+.long-content{
+	padding: 1px 1px;
+	margin: 10px 0;
+	background-color: #D3D3D3;
+	border: none;
+	border-bottom: 2px solid black;
+	}
+
+
+
+.content{
+	content:right;
+	}
+
+.middle addr{
+	text-align: center
+	}
+.percent{
+	 position:relative;
+	
+	
+}
+.sidebar-brand-img{
+
+  display: flex;
+  justify-content: center;
+
+}
+.sidebar{
+padding-left:20px;
+	
+}
+.shoplogo{
+padding-left:400px;
+
+}
+.writing{
+	
+	marign-top:20;
+	
+	
+}
+.shopemetlogo {
+padding-left:30px;
+marign:90px;
+opacity:0.2;
+  position: absolute;
+ 
+  z-index: -1;
+	
+}
+.shopemetlogo1 {
+padding-left:30px;
+marign:90px;
+opacity:0.2;
+  position: absolute;
+ 
+  z-index: -1;
+	
+}
+.shopemetlogo2 {
+
+
+
+ 
+
+	
+}
+
+
+
+
+</style>
+</head>
+<body>
+
+
+
+
+
+
+<?php
+
+$image =  base_url()."web_files/img/logo.png";
+$type = pathinfo($image, PATHINFO_EXTENSION);
+$data = file_get_contents($image);
+$dataUri = 'data:image/' . $type . ';base64,' . base64_encode($data);
+
+
 ?>
-    
-    <!---  body  design  -->
-    
-    
-		<div class= "content w-100">
 	
-		<div class="middleboxtnc w-75">
-			<div class="middle w-100  text-white">
-				<h2 style="text-align:center"><b>AUCJUNCTION</b><h2>
-					<h6 style="text-align:center">Partner Agreement - Seller</h6> 
-										
-							</div>
-		<div class="blnkspc w-100">
-			<table width="100%" border="0" cellspacing="0" cellpadding="0">
-			<div class="bar w-100">
-				<p><strong>AGREEMENT FOR SELLER</strong></p>
-			</div>
-<div class="space w-100">
+<?php
+
+$image1 =  base_url()."web_files/img/maku.png";
+$type1 = pathinfo($image1, PATHINFO_EXTENSION);
+$data1 = file_get_contents($image1);
+$dataUri1 = 'data:image/' . $type . ';base64,' . base64_encode($data1);
+
+
+?>
+<div class="writing">
+
+<b>	SHOPEMET NETWORKS PVT LTD</b><br>
+
+<b>	CIN:</b>U74999KA2018PTC116853<br>
+</div>
+<div class="shoplogo">
+
+
+<img src="<?php echo $dataUri;?>" width="50%" height="70">
+<img src="<?php echo $dataUri1;?>" width="60%" height="60">
+
+
+
+</div>
+
+    <div class="bara1 ">            
+           <h2 style="text-align:center"><b>AUCJUNCTION</b>
+         
+             
+                 Partner Agreement - Seller</h2>     
+                
+                
+                
+      </div>
+	  <div class="bar w-80">
+<p><strong>AGREEMENT FOR SELLER</strong></p>
+ </div>
+       
 
 <p class="termstxt2">1. WELCOME TO AUCJUNCTION !</p>
 <P class= "para">Welcome to Aucjunction! Auctions related services will be provided on www.aucjunction.com
@@ -30,9 +271,14 @@ Aucjunction is most reputed private online auction portal operating in the speci
 
 <p class="para">
 
-This Agreement made on day of&nbsp; <span><b><?php echo $date; ?></b></span>&nbsp; Between 
-M/S  &nbsp; <span><b><?php echo $company;?></b></span><br>having its Registered office at <span><b><?php $comp = unserialize($saddresscount);
- echo  $comp[0].", ".$city.", ".$pin.".";?></b><span>
+This Agreement made on day of&nbsp; <span><b><?php echo $dat[0]->sagreementdate; ?></b></span>&nbsp; Between 
+M/S  &nbsp; <span><b><?php echo  $dat[0]->scomapnyname;?></b></span><br>having its Registered office at 
+
+<span><b><?php $comp = unserialize ( $dat[0]->saddresscount);
+ echo  $comp[0].", ".$dat[0]->scity.", ".$dat[0]->spin.".";?></b><span>
+
+
+
 herein called “ Partner Seller” AND  Aucjunction  ( Brand/Subsidary of Shopemet Networks Private Limited) having its Registered office at No 179, 2nd Floor, Mysore Road Cross, Bangalore 560002.
 
 The Contract will remain valid for 1 time sale/ 6 months/ 1 year of this Agreement which could be extended for such further period on such terms and conditions as mutually agreed upon by both the parties
@@ -55,8 +301,27 @@ The Contract will remain valid for 1 time sale/ 6 months/ 1 year of this Agreeme
 <b>3.	Code of conduct</b>
 	3.1	User is not supposed to share, store, transmit or collect any information on the aucjunction portal.
 	3.2	Aucjunction owns the patent, trademark, copyrights and trade secrets. Duplicacy of any such 			information is  considered as illegal.
-	3.3	Aucjunction does not pre-screen the content, But has the rights to move the content, evaluate, 			refuse or delete if not adhering to the General Policy of Aucjunction.
+	3.3	Aucjunction does not pre-screen the content, But has the rights to move the content, evaluate, refuse or delete if not adhering to the General Policy of Aucjunction.
 </p>
+ 
+<?php
+
+$image2 =  base_url()."web_files/img/maku.png";
+$type2 = pathinfo($image2, PATHINFO_EXTENSION);
+$data2 = file_get_contents($image2);
+$dataUri2 = 'data:image/' . $type . ';base64,' . base64_encode($data2);
+
+
+?>
+	
+
+
+
+
+	
+	
+
+		
 <p class="para">
 <b>4.	Auctioned Goods</b><br>
 4.1	All good sold are in “ as is where is” “No complaint basis” condition.<br>
@@ -64,11 +329,22 @@ The Contract will remain valid for 1 time sale/ 6 months/ 1 year of this Agreeme
 4.3	Proportionate value of the goods may differ during delivery based on the actual quantity or 	measurement. Quantity is measured in Metric Tons, KGS or Lot.<br>
 4.4	Buyer must settle all the balance amount before loading the materials from the auction site. Further 	delay than the date of removal of materials may attract penal charges or ground rent subjected to the terms and conditions of the seller at e auction.<br>
 </p>
+<div class="shopemetlogo">
+
+
+
+
+<img src="<?php echo $dataUri2;?>" width="80%" height="150">
+
+
+
+</div>
 <p class="para">
 <b>5.	Content Upload</b><br>
 5.1	Aucjunction is not responsible of the content posted by the Seller for the auction.<br>
 5.2	Seller authorises Aucjunction to reproduce, Modify, Change, Alter, Distribute or Delete with respect to the content, Photos, Graphics, Audio or Video posted on Auction Site.<br>
 </p>
+
 <p class="para">
 <b>6.	Termination</b><br>
 6.1	Aucjunction has all the rights to terminate the agreeement any time if the seller / buyer is not adhered to the General/Seller/Buyer policy.<br>
@@ -89,13 +365,11 @@ The Contract will remain valid for 1 time sale/ 6 months/ 1 year of this Agreeme
 <b>9.	Jurisdiction</b><br>
 9.1	Disputes between seller & bidder if any shall be within the jurisdiction of BANGALORE courts only <br>
 </p>
-<p class="para">
-<b>10.	Service Charge</b><br>
+<p class ="para">
+<b>10.	Service Charge</b> 
 <form action="./AgreementSellercharg" method="POST">
-10.1	The seller shall be entitled to a service charge of
-<input class="percent" type="text" value="%" name="servperc" maxlength="6" size="4">
-
- on the basis of the Delivery Order / sale invoice issued through this auction over the Aucjunction portal.<br>
+<p class ="para">
+10.1	The seller shall be entitled to a service charge of % on the basis of the Delivery Order / sale invoice<br> issued through this auction over the Aucjunction portal.<br>
 10.2	The service charge is exclusive of any other taxes and duties levied by the Statutory Authorities of different States and Central Government. Service Charge will be calculated on the amount realised excluding Excise Duty and Sales Tax<br>
 </p>
 <p class="termstxt2">SELLER TERMS AND CONDITIONS</p>
@@ -111,6 +385,25 @@ The Contract will remain valid for 1 time sale/ 6 months/ 1 year of this Agreeme
 <p class="para">
 14.	The seller has to inform rate of tax for each lot in order for Aucjunction to collect the relevant documents and forward the same to Buyer/ Bidder for their action on the portal. If the seller misses any other taxes seller himself would be responsible to bear all other related statutory duties and taxes, Seller to update Aucjunction on item/Goods which has duties and also amount/rate of duties leviable.
 </p>
+<?php
+
+$image3 =  base_url()."web_files/img/maku.png";
+$type3 = pathinfo($image3, PATHINFO_EXTENSION);
+$data3 = file_get_contents($image3);
+$dataUri3 = 'data:image/' . $type . ';base64,' . base64_encode($data3);
+
+
+?>
+<div class="shopemetlogo1">
+
+
+
+
+<img src="<?php echo $dataUri3;?>" width="80%" height="150">
+
+
+
+</div>
 <p class="para">
 15.	Aucjunction will provide standard terms and conditions for sale of materials to the seller. Seller is abide by the terms and conditions of Aucjunction.
 </p>
@@ -123,6 +416,8 @@ The Contract will remain valid for 1 time sale/ 6 months/ 1 year of this Agreeme
 <p class="para">
 18.	The order booked within the agreed contract time, Aucjucntion continue to operate as if this Agreement continues till the execution of those orders.
 </p>
+
+	
 <p class="para">
 19.	Since Aucjunction works/Acts as an agent, the seller has to reimburse the legal expenses incurred in connection with any litigation arising out of any Sale/Tender/Auction under this Agreement.
 </p>
@@ -132,42 +427,82 @@ The Contract will remain valid for 1 time sale/ 6 months/ 1 year of this Agreeme
 <p class="para">
 21.	Any amendment to this Agreement would be enforceable only if made in writing and duly signed by authorised representatives of both the parties.
 </p>
+<br>
 <p class="para">
 22.	Difference & Dispute arising between bidder/buyer & Aucjunction with respect to interpretation or implementation of policies shall be referred to a Sole Arbitrator to be appointed by CEO of Aucjunction India.
 </p>
-<br><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 
 <div class="signature">
-<div>
-For and On Behalf of <br>                                                                                               
-M/S&nbsp;<span><b><?php echo $company;?></b></span><br>	                                                                    
-By its  &nbsp;<span><b><?php echo $designation;?>&nbsp;</b></span>Mr./Mrs./Miss. &nbsp;<span><b><?php echo $sname;?></b></span>                      
-<br><br><br>
-Signature with Seal.
-</div>
 
+For and On Behalf of <br>                                                                                               
+M/S&nbsp;<span><b> <?php echo $dat[0]->scomapnyname;?></b></span><br>	                                                                    
+By its  &nbsp;<span><b><?php echo $dat[0]->sdesignation;?>&nbsp;</b></span>Mr./Mrs./Miss. &nbsp;<span><b><?php echo $dat[0]->scontactperson;?></b></span>  <br> <br>
+<br>
+<br>
+<br>                   
+Signature with Seal.
+
+</div>
 
 <div class="sign">
+
 For and On Behalf  of<br>
 Aucjunction ( Subsidary of Shopemet)<br>
-By Its President Shri Charith Dev M<br><br><br><br><br>
-Signature and Seal.
+By Its President Shri Charith Dev M<br><br><br>
+
+
+<?php
+
+$image4 =  base_url()."web_files/img/Invoice3.png";
+$type4 = pathinfo($image4, PATHINFO_EXTENSION);
+$data4 = file_get_contents($image4);
+$dataUri4 = 'data:image/' . $type . ';base64,' . base64_encode($data4);
+
+
+?>
+<img src="<?php echo $dataUri4;?>" width="20.5%" height="60" style="padding-left:50px">
+
+<br>
+Signature and Seal.<br>
+
+
+
+
+
+
+
 
 </div>
-</div>
+
+
+
+ <div class="bara2 ">            
+           <strong>Reg Office: No.23,3rd Floor,
+Behind Asha sweets, Binnamangala
+1st stage, Indiranagar <br>
+Bangalore-560 002.<br>
+
+E:info@shopemet.com
+W:shopmet.com </strong>     
+                
+                
+                
+      </div>
+
+
 
 
 </table>
 
 
-		<div class="text-center" style="position:relative;background-color:#2e3192;">
-		<a href="<?php echo base_url()."registration/index/".$username."/".$date;?>"><button type="button" class="btn btn-primary mt-2">Agree</button></a>
-		<a href="<?php echo base_url();?>home"><button type="button" class="btn btn-primary mt-2">Disagree</button></a>
-	
-	
-	
-						</div>
-		      
+		
         
 			 
 			
@@ -185,18 +520,8 @@ Signature and Seal.
 </form>
 	
 
-</div> 
-     <!---  body  design  -->
-	
-	 
-</div>
 
-             
-	
-             
-   <!-- <a href="<?php //echo base_url() . 'Agreementforsellerpdf_gen/auc_no/'.$date."/".urldecode($comp[0])."/".urlencode($city)."/".urlencode($pin)."/".urlencode($company)."/".urlencode($designation)."/".urlencode($sname);?>" target="_blank">
-
-                                                    <i class="fa fa-download" style="color:white;" aria-hidden="true"></i></a>   -->       
+   
              
              
          
@@ -207,8 +532,23 @@ Signature and Seal.
              
                 
    
-</div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
 
         <!---  footer  -->
 <script>

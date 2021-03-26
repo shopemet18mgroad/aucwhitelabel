@@ -46,6 +46,15 @@ th, td {
 	font-size: 14px;
 	text-align: center;
 }
+.small{
+word-wrap:break-word;
+table-layout:fixed;
+
+padding:2px;
+
+text-align:justify-all;
+
+}
 </style>
 <body>
 
@@ -160,7 +169,7 @@ No.</b>
   <tr>
     <td><?php echo $sqldat->slotno; ?></td>
     <td><?php echo $sqldat->slotname; ?></td>
-	<td><?php echo $sqldat->sdescription; ?></td>
+	<td class = "small"><?php echo $sqldat->sdescription; ?></td>
 	<td><?php echo $sqldat->sqty?></td>
 	<td><?php echo $sqldat->sunitmeasurment; ?></td>
 	<td><?php echo $sqldat->sbidbase; ?></td>

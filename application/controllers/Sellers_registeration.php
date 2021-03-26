@@ -68,7 +68,7 @@ class Sellers_registeration extends CI_Controller
 			// Checking the captcha
 			if ($captcha === $sessCaptcha) {
 				$this->load->model('Admin_model');
-				$data = array('scomapnyname' => $scomapnyname, 'sname' => $sname, 'ssellertype' => $ssellertype, 'scontactperson' => $scontactperson, 'sdesignation' => $sdesignation, 'span' => $span, 'saddress' => $saddress2, 'saddresscount' => $saddresscount, 'scity' => $scity, 'sgst' => $sgst, 'semail' => $semail, 'sphone' => $sphone, 'slocation' => $slocation, 'spin' => $spin, 'sstate' => $sstate, 'spcb' => $spcb, 'scin' => $scin, 'scountry' => $scountry, 'susername' => $susername, 'spassword' => $spassword, 'servperc' => $servperc);
+				$data = array('scomapnyname' => $scomapnyname, 'sname' => $sname, 'ssellertype' => $ssellertype, 'scontactperson' => $scontactperson, 'sdesignation' => $sdesignation, 'span' => $span, 'saddress' => $saddress2, 'saddresscount' => $saddresscount, 'scity' => $scity, 'sgst' => $sgst, 'semail' => $semail, 'sphone' => $sphone, 'slocation' => $slocation, 'spin' => $spin, 'sstate' => $sstate, 'spcb' => $spcb, 'scin' => $scin, 'scountry' => $scountry, 'susername' => $susername, 'spassword' => $spassword);
 				// check if company name exist before storing
 
 				$status = $this->Admin_model->insert('sellerprofile', $data);

@@ -4,7 +4,7 @@
 	<div class="row">
 		<div class="col-md-3">
 			<div class="newsbox-containertray mt-1">
-				<div class="newsbox-header ">
+				<div class="newsbox-header">
 					<h4>Latest News</h4>
 				</div>
 				<div class="wrapper">
@@ -30,7 +30,7 @@
 		</div>
 		<!-- End of Marquee  -->
 		<!-- Start of AUCTION EVENTS  -->
-		<div class="col-md-9 pl-5">
+		<div class="col-md-9 pl-3">
 			<div class="auclist-containertray mt-1">
 				<div class="auclisting-header">
 					<h4>AUCTION EVENTS</h4>
@@ -39,23 +39,23 @@
 					<ul class="nav nav-tabs border-0" id="myTab" role="tablist">
 
 						<li class="nav-item">
-							<a class="nav-link active border border-primary border-bottom-0" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Upcoming Auctions</a>
+							<a class="nav-link active border border-primary border-bottom-0" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Upcoming<br>Auctions</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link border border-primary border-bottom-0" id="home2-tab" data-toggle="tab" href="#home2" role="tab" aria-controls="home2" aria-selected="false">Today's
-								Auctions</a>
+								<br>Auctions</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link border border-primary border-bottom-0" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">ALL</a>
+							<a class="nav-link border border-primary border-bottom-0" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">ALL<br>Auctions</a>
 						</li>
 					</ul>
 
-					<div class="tab-content w-100">
+					<div class="tab-content w-auto">
 						<div class="tab-pane h-100 p-3 active border border-primary" id="home" role="tabpanel" aria-labelledby="home-tab" onclick="one()">
 							<div class="table-holder">
 							<font size="4" face="Arial" >
 
-								<table class="table table-bordered display w-auto small" id="">
+								<table class="table table-bordered display w-auto small"  id="">
 									<thead class="thead-auc">
 										<tr>
 
@@ -75,10 +75,10 @@
 
 
 													<td data-label="AUCTION ID"><?php echo $sqldat->sauctionid; ?></td>
-													<td><?php echo $sqldat->slotno; ?></td>
-													<td><?php echo $sqldat->sdescription; ?></td>
-													<td><?php echo $sqldat->sqty; ?><br><?php echo $sqldat->sunitmeasurment; ?></td>
-													<td><?php $aucstarttime = $sqldat->			saucstartdate_time;
+													<td data-label="Lot No"><?php echo $sqldat->slotno; ?></td>
+													<td data-label="DESCRIPTION"><?php echo $sqldat->sdescription; ?></td>
+													<td data-label="QUANTITY"><?php echo $sqldat->sqty; ?><br><?php echo $sqldat->sunitmeasurment; ?></td>
+													<td data-label="AUCTION ID"><?php $aucstarttime = $sqldat->			saucstartdate_time;
 													$tmp = explode('.',$aucstarttime);
 													$aucstarttime = $tmp[0];
 													echo $aucstarttime;
@@ -100,7 +100,7 @@
 								</table></font>
 							</div>
 						</div>
-						<div class="tab-pane h-100 p-3 border border-primary" id="home2" role="tabpanel" aria-labelledby="home-tab">
+						<div class="tab-pane h-100 w-100 p-3 border border-primary" id="home2" role="tabpanel" aria-labelledby="home-tab">
 							<div class="table-holder">
 							<font size="4" face="Arial" >
 								<table class="table table-bordered display w-auto small" id="">
@@ -120,11 +120,11 @@
 										<?php if (isset($sqldata)) {
 											foreach ($sqldata as $s) { ?>
 												<tr>
-													<td><?php echo $s->sauctionid; ?></td>
-													<td><?php echo $s->slotno; ?></td>
-													<td><?php echo $s->sdescription; ?></td>
-													<td><?php echo $s->sqty; ?><br><?php echo $s->sunitmeasurment; ?></td>
-													<td><?php $aucstarttime = $s->			saucstartdate_time;
+													<td data-label="AUCTION ID"><?php echo $s->sauctionid; ?></td>
+													<td data-label="Lot No"><?php echo $s->slotno; ?></td>
+													<td data-label="DESCRIPTION"><?php echo $s->sdescription; ?></td>
+													<td data-label="QUANTITY"><?php echo $s->sqty; ?><br><?php echo $s->sunitmeasurment; ?></td>
+													<td data-label="DATE & TIME"><?php $aucstarttime = $s->			saucstartdate_time;
 													$tmp = explode('.',$aucstarttime);
 													$aucstarttime = $tmp[0];
 													echo $aucstarttime;
@@ -148,7 +148,7 @@
 						<div class="tab-pane h-100 p-3 border border-primary" id="all" role="tabpanel" aria-labelledby="all-tab">
 							<div class="table-holder">
 							<font size="4" face="Arial" >
-								<table class="table table-bordered text-center display w-auto small" id="">
+								<table class="table table-bordered text-center display w-auto small table-fixed" style="overflow-y:hidden;" id="">
 									<thead class="thead-auc">
 										<tr>
 
@@ -166,11 +166,11 @@
 											foreach ($all as $sql) { ?>
 												<tr>
 
-													<td><?php echo $sql->sauctionid; ?></td>
-													<td><?php echo $sql->slotno; ?></td>
-													<td><?php echo $sql->sdescription; ?></td>
-													<td><?php echo $sql->sqty; ?><br><?php echo $sql->sunitmeasurment; ?></td>
-													<td><?php $aucstarttime = $sql->			saucstartdate_time;
+													<td data-label="AUCTION ID"><?php echo $sql->sauctionid; ?></td>
+													<td data-label="Lot No"><?php echo $sql->slotno; ?></td>
+													<td data-label="DESCRIPTION"><?php echo $sql->sdescription; ?></td>
+													<td data-label="QUANTITY"><?php echo $sql->sqty; ?><br><?php echo $sql->sunitmeasurment; ?></td>
+													<td data-label="DATE & TIME"><?php $aucstarttime = $sql->			saucstartdate_time;
 													$tmp = explode('.',$aucstarttime);
 													$aucstarttime = $tmp[0];
 													echo $aucstarttime;
@@ -220,6 +220,7 @@
 					<li class="nav-item">
 						<a class="nav-link border border-primary border-bottom-0" id="deals-tab" data-toggle="tab" href="#deals" role="tab" aria-controls="profile" aria-selected="false">Deals of The Day</a>
 					</li>
+					
 				</ul>
 
 				<div class="tab-content w-100">

@@ -50,6 +50,7 @@ class Admin_buyereditprofile extends CI_Controller {
 			echo '<th>City</th>';
 			echo '<th>Date</th>';
 			echo '<th>Status</th>';
+			echo '<th>Agreement Download</th>';
 			echo '<th>Action</th>';
 			echo '</tr>';
 			echo '</thead>';
@@ -69,6 +70,11 @@ class Admin_buyereditprofile extends CI_Controller {
 				echo '<td style="color:green;"><b>'."ACTIVE".'</b></td>';
 				}else{
 				echo '<td style="color:red;"><b>'."INACTIVE".'</b></td>';	
+				}
+				if($dat['adaction'] == 1){
+				echo '<td><a href="'.base_url().'Agreementforbuyerpdf_gen/auc_no/'.$dat['bcompany'].'" target="_blank"><i class="fa fa-download"></i></a></td>';
+				}else{
+					echo '<td>'.'</td>';
 				}
 				echo '<td width="12%"><a href="'.base_url().'admin_editbuyer/edit_buyer/'.$dat['bcompany'].'">';
 				echo '<i class="fa fa-edit"></i>';

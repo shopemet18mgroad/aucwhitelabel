@@ -55,6 +55,7 @@ class Admin_sellereditprofile extends CI_Controller {
 			echo '<th>City</th>';
 			echo '<th>Date</th>';
 			echo '<th>Status</th>';
+			echo '<th> Agreement Download</th>';
 			echo '<th>Action</th>';
 			echo '</tr>';
 			echo '</thead>';
@@ -74,6 +75,11 @@ class Admin_sellereditprofile extends CI_Controller {
 				echo '<td style="color:green;"><b>'."ACTIVE".'</b></td>';
 				}else{
 				echo '<td style="color:red;"><b>'."INACTIVE".'</b></td>';	
+				}
+				if($dat['adaction'] == 1){
+				echo '<td><a href="'.base_url().'Agreementforsellerpdf_gen/auc_no/'.$dat['scomapnyname'].'" target="_blank"><i class="fa fa-download"></i></a></td>';
+				}else{
+					echo '<td>'.'</td>';
 				}
 				echo '<td width="10%"><a href="'.base_url().'admin_editseller/edit_seller/'.$dat['scomapnyname'].'">';	
 				echo '<i class="fa fa-edit"></i>';

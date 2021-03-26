@@ -136,4 +136,12 @@ class Admin_buyer_basicinfo_add extends CI_Controller {
 	  return $datar;
     }
 	
+	
+	
+	
+	
+
+    
+		
+	
 }
