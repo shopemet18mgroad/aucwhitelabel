@@ -31,8 +31,11 @@ class Enquiry_Form extends CI_Controller
 		$time =  Date('Y-m-d H:i:s');
 		//Loading Admin Model
 		$this->load->model('Admin_model');
+		$query = $this->Admin_model->gettable('spocs');
+		//echo '<pre>'; print_r($data); die; echo '</pre>';
+		$adac['sqldata']= $query;
+		//print_r($adac['sqldata']);die;
 		
-		 
-		$this->load->view('Enquiry Form');
+		$this->load->view('Enquiry Form',$adac);
 	}
 }
