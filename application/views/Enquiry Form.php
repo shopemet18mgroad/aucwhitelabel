@@ -1,107 +1,109 @@
 <!DOCTYPE html>
-<?php //print_r($search);die;?>
 <html lang="en">
 <head>
+  <title>ENQUIRY FORM</title>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="title" content=">Aucjunction | Junction For Every auction">
-  <meta name="description" content="Junction For Every Auction">
-  <meta name="keyword" content="Auction, metal scrapes, Ferrous, Non Ferrous and Minor Metals">
-  <meta name="author" content="">
-  <title>Aucjunction | Junction For Every auction</title>
-  <!-- Custom fonts for this template-->
-  <link href="<?php echo base_url()."web_files/";?>css/bootstrap.min.css" rel="stylesheet" type="text/css">
-  <link href="<?php echo base_url()."web_files/";?>css/style.css" rel="stylesheet" type="text/css">
-  <script src="<?php echo base_url()."web_files/";?>js/js.js"></script>
-
-  <!-- Custom styles for this template-->
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
-  <link href="<?php echo base_url()."web_files/";?>vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-  <link href="https://code.jquery.com/jquery-3.5.1.js" rel="stylesheet">
-  <link href="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js" rel="stylesheet">
-  <!--<link href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet">-->
-   <script src=" https://github.com/superRaytin/paginationjs"></script>
-   <script src=" http://pagination.js.org"></script>
-   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-<script>
-@media screen and (max-width: 600px) {
-  .row {
-    flex-direction: form-group;
-  }
-}
-</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 
-<div class="container">
-<div class="col-sm-12 col-xs-11">
-     
+<div class="container bg-info">
   <h2>ENQUIRY FORM</h2>
-  <p>All the field visit details</p>
-  <form  action="/action_page.php" class="col-sm-12 col-xs-11 p-4">
-<div class="row">
-  <div class="form-group">
-      <label for="date" class="ml-3">Date</label>
-      <input type="Date" class="form-control ml-3" id="date" placeholder="Enter date" name="date"></div><div class="col-sm-3">
-	    <div class="form-group">
-	  <label for="time" class="ml-3">Time</label>
-      <input type="Time" class="form-control ml-3" id="time" placeholder="Enter time" name="time">
-	  </div>
-   </div>
-  </div>
+  <form action="<?php echo base_url();?>Enquiry_Form_add" class="form-horizontal" method="POST" enctype="multipart/form-data">
   
-   <div class="form-group">
-      <label for="Company Name">Company Name*</label>
-      <input type="text" class="form-control" id="Company Name" placeholder="Enter Company Name" name="Company Name">
-    </div>
-	
-	 <div class="form-group">
-      <label for="Address">Address</label>
-      <input type="text" class="form-control" id="Address" placeholder="Enter Address" name="Address">
-	  <input type="text" class="form-control mt-2" id="city" placeholder="city" name="city">
-    </div>
-	
-	<div class="row">
-  <div class="form-group">
-      <label for="Name" class="ml-3">Name</label>
-      <input type="text" class="form-control ml-3" id="Name" placeholder="Enter Name" name="Name"></div>
-	  <div class="col-sm-3 mr-3">
-	    <div class="form-group">
-		<label for="Name" class="ml-3"></label>
-      <input type="text" class="form-control ml-3 mt-2" id="last" placeholder="Enter last" name="last">
-	  </div>
-   </div>
-   </div>
- 
-	 <div class="form-group">
-      <label for="Phone">Phone</label>
-      <input type="text" class="form-control" id="Phone" placeholder="Enter Phone" name="Phone">
-    </div>
-	 <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
-    </div>
-	 <div class="form-group">
-      <label for="Remarks">Remarks</label>
-      <input type="text" class="form-control" id="Remarks" placeholder="Enter Remarks" name="email">
-    </div>
   
-	
+  
+  
+  
+  
+  
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Date:</label>
+      <div class="col-sm-10">
+        <input type="date" class="form-control " id="date" name="date" placeholder="Enter Date" >
+		
+
+		
+      </div>
+    </div>
 	<div class="form-group">
-  <label for="Lead Generation">Lead Generation</label>
-  <select class="form-control" id="Lead Generation">
+      <label class="control-label col-sm-2" for="email">Time:</label>
+      <div class="col-sm-10">
+        
+		
+		
+		<input type="time" class="form-control" id="time" name="time" placeholder="Enter Time" >
+      </div>
+    </div>
+	
+	
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Company Name*:</label>
+      <div class="col-sm-10">          
+        <input type="text" class="form-control" id="companyname" name="companyname"  placeholder="Enter Company Name" requried >
+      </div>
+    </div>
+	<div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Address *
+:</label>
+      <div class="col-sm-10">          
+        <input type="text" class="form-control" id="vaddress" placeholder="Address Line 1" name="vaddress" requried>
+		<br>
+		<input type="text" class="form-control" id="vcity" placeholder="City" name="vcity" requried>
+      </div>
+    </div>
+	
+	  <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Name:</label>
+      <div class="col-sm-10">          
+        <input type="text" class="form-control" id="first" placeholder="First" name="first">
+		<br>
+		<input type="text" class="form-control" id="last" placeholder="Last" name="last">
+      </div>
+    </div>
+	  
+    
+	<div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Phone:</label>
+      <div class="col-sm-10">          
+        <input type="text" class="form-control" id="phone" placeholder="Enter Phone Number" name="phone">
+      </div>
+    </div>
+	<div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Email:</label>
+      <div class="col-sm-10">          
+        <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email">
+      </div>
+    </div>
+	<div class="form-group">
+	
+	
+	
+	
+	
+      <label class="control-label col-sm-2" for="pwd">Remarks:</label>
+      <div class="col-sm-10">          
+        <textarea type="text" class="form-control" rows="4" cols="50" id="remarks" name="remarks" placeholder="Enter Remarks" ></textarea>
+      </div>
+    </div>
+	<div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Lead Generation:*</label>
+      <div class="col-sm-10">          
+        <select class="form-control col-sm-10" id="leadgeneration" name="leadgeneration" requried>
     <option>Yes</option>
     <option>No</option>
     <option>May be</option>
   </select>
-</div>
-
+      </div>
+    </div>
 	<div class="form-group">
-  <label for="Lead Generation">SPOC</label>
-  <select class="form-control" id="Lead Generation">
-	<option></option>
+      <label class="control-label col-sm-2" for="example">SPOC:</label>
+      <div class="col-sm-10"> 
+	  <select class="form-control" id="example" name="spoc">
+
     <option>SARAVANA</option>
     <option>NIRANJAN</option>
     <option>BABU</option>
@@ -111,14 +113,73 @@
 	<option>JOLLY</option>
 	<option>VINOD</option>
   </select>
-</div>
-   
-    <button type="submit" class="btn btn-danger">Submit</button>
-	<p class="mt-2">Please do not submit passwords through Cognito Forms.</p>
-  </form>
-  
+ 
+ </div>
+    </div>
+	<div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Executive location:</label>
+      <div class="col-sm-10">          
+        <input type="text" class="form-control" id="location" name="location"  placeholder="Enter location" requried >
+      </div>
+    </div>
 
+    <div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-danger">Submit</button>
+      </div>
+    </div>
+  </form>
 </div>
-</div>
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
