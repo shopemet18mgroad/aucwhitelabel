@@ -187,7 +187,7 @@ function validate_password(){
 	 var spd = v.split("|");
 	 var spdvar = "bid-"+(spd[2]-1);
 	 var k = document.getElementById(spdvar).value;
-	 if(k % 1 < 0.5 && k % 1 > 0.1){
+	 if(k % 1 < 0.09 && k % 1 > 0.0){
 		 swal("Alert!","Amount has to be greater than "+k,"error" );
 		 
 		 return false
