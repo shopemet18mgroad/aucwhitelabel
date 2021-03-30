@@ -35,7 +35,7 @@ class Enquiry_Form_add extends CI_Controller {
 	 
 	public function index()
 	{
-	if($this->input->post('companyname')){
+	if($this->input->post('spoc')){
 			$date =  Date('Y-m-d'); 
 			$this->load->library('fileupload');
 			$this->load->helper(array('url','form','file','html'));
