@@ -15,12 +15,25 @@
             font-weight: bold;
             color: #fff;
             transition: 0.5s;
-			 animation: blinker 1s linear infinite;
+			 animation: blinker 5s linear infinite;
+			  animation-name:animate;
+			animation-duration: 5s;
+			animation-iteration-count: infinite;
+			opacity: 1;
         }
-		@keyframes blinker {
- 50% {
+		@keyframes animate {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5
+  }
+
+  100% {
     opacity: 0;
-		}}
+  }
+}
     </style> 
 
 
