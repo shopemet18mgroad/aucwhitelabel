@@ -22,8 +22,7 @@ class Enquiryform_login extends CI_Controller
 	public function index()
 	{
 	$this->load->helper('url');
-	echo urldecode($this->uri->segment(2));
-	echo urldecode($this->uri->segment(3));die;
+
 		if($this->input->post('user')){
 			if($this->input->post('optradio')=="enquiry"){
 				$table = "enquriyform_login";
