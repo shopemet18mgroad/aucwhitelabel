@@ -87,6 +87,7 @@ class Admin_buyereditprofile extends CI_Controller {
 				echo '</a>';
 				echo '</td>';
 				echo '</td>';
+
 				echo '</tr>';
 		$row_count++;	}
 			echo '</tbody>';

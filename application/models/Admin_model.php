@@ -552,4 +552,13 @@ class Admin_model extends CI_Model
 		$q = $this->db->get();
 		return $q->result_array();
 	}
+	
+	public function getenquirydataDetails($table){
+		$this->db->select('date	,time,companyname,vaddress,vcity,first,last
+		,phone,email,remarks,leadgeneration,spoc,location');
+		$q = $this->db->get($table);
+		return $q->result_array();
+	}
+	
+	
 }
