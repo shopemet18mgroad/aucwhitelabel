@@ -19,12 +19,27 @@
             font-weight: bold;
             color: #fff;
             transition: 0.5s;
-			 animation: blinker 1s linear infinite;
-        }
-		@keyframes blinker {
- 50% {
+			 animation: blinker 5s linear infinite;
+			  animation-name:animate;
+			animation-duration: 5s;
+			animation-iteration-count: infinite;
+			opacity: 1;
+				}
+	
+  
+  @keyframes animate {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5
+  }
+
+  100% {
     opacity: 0;
-		}}
+  }
+}
     </style>
         <!-- End of Topbar -->
 
@@ -289,9 +304,9 @@ $(document).ready(function() {
   <!-- Scroll to Top Button-->
  
 <script type="text/javascript">
-        //var blink = document.getElementById('blink');
+       // var blink = document.getElementById('blink');
         //setInterval(function() {
-           // blink.style.opacity = (blink.style.opacity == 0 ? 1 : 0);
+         //  blink.style.opacity = (blink.style.opacity == 0 ? 1 : 0);
         //}, 1000);
     </script>
 
