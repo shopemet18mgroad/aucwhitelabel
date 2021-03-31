@@ -130,6 +130,7 @@
 			<a class="collapse-item" href="<?php echo base_url();?>admin_salesreport">Sales Report</a>
             <a class="collapse-item" href="<?php echo base_url();?>admin_unsoldproduct">Unsold Products</a>
 			<a class="collapse-item" href="<?php echo base_url();?>admin_bidwinner">Bid Winner</a>
+            <a class="collapse-item" href="<?php echo base_url();?>admin_enquriyform">Enquriy Form</a>
            </div>
         </div>
       </li>
