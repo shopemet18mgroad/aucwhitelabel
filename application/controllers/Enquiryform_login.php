@@ -62,6 +62,6 @@ class Enquiryform_login extends CI_Controller
 
 		
 		
-		$this->load->view('Enquiryform login');
+		$this->load->view('enquiry_app/Enquiryform login');
 			  }
 			  }

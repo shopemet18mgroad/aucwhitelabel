@@ -36,6 +36,6 @@ class Enquiry_Form extends CI_Controller
 		$adac['sqldata']= $query;
 		//print_r($adac['sqldata']);die;
 		
-		$this->load->view('Enquiry Form',$adac);
+		$this->load->view('enquiry_app/Enquiry Form',$adac);
 	}
 }
