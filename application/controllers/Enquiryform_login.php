@@ -65,4 +65,9 @@ class Enquiryform_login extends CI_Controller
 		
 		$this->load->view('enquiry_app/Enquiryform login');
 			  }
+			  public function loc(){
+				  $this->load->helper('url');
+				  echo $this->uri->segment(3);
+			  }
+				
 			  }
