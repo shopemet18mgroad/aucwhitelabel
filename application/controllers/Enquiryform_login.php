@@ -24,18 +24,18 @@ class Enquiryform_login extends CI_Controller
 	$this->load->helper('url');
 
 		if($this->input->post('user')){
-			if($this->input->post('optradio')=="enquiry"){
+		
 				$table = "enquriyform_login";
 				$colname = "enqusername";
 				$colname2 = "enqpassword";
-				 $status ="enqoptions";
+				 
 			   
-			}
+			
 			$user = $this->input->post('user');
 			$pass = $this->input->post('pass');
 			$pass = base64_encode($pass);
 		
-			$check_db = array($colname => $user, $colname2 => $pass, $status=>true);
+			$check_db = array($colname => $user, $colname2 => $pass);
 			//print_r($check_db);die;
 			$this->load->model('Admin_model');
 		

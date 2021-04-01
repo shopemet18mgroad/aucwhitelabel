@@ -35,15 +35,22 @@
   
   
     <div class="form-group">
-      <label class="control-label col-sm-2" for="email">Date:</label>
+      <label class="control-label col-sm-2" for="email">Date and Time</label>
       <div class="col-sm-10">
-        <input type="date" class="form-control " id="date" name="date" placeholder="Enter Date" >
+	
+	
+	
+	
+       <input type="text" class="form-control " id="date" name="date" <?php  echo date("Y-m-d h:i:sa");?>
+	   value="<?php  echo date("Y-m-d h:i:sa");?>"
+
+	  readonly placeholder="Enter Date" >
 		
 
 		
       </div>
     </div>
-	<div class="form-group">
+	<!--<div class="form-group">
       <label class="control-label col-sm-2" for="email">Time:</label>
       <div class="col-sm-10">
         
@@ -51,7 +58,7 @@
 		
 		<input type="time" class="form-control" id="time" name="time" placeholder="Enter Time" >
       </div>
-    </div>
+    </div>-->
 	
 	
     <div class="form-group">
@@ -139,15 +146,15 @@
  </div>
     </div>
 	<div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Executive location:</label>
+   <!--   <label class="control-label col-sm-2" for="pwd">Executive location:</label>-->
       <div class="col-sm-10">          
-        <input type="text" class="form-control" id="location" name="location"  placeholder="Enter location" >
+        <input type="hidden" class="form-control" id="location" name="location"  placeholder="Enter location" >
       </div>
     </div>
 
     <div class="form-group">        
       <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit"  onclick="return validatebuyer()"   class="btn btn-danger">Submit</button>
+      <center>  <button type="submit"  onclick="return validatebuyer()"   class="btn btn-danger">Submit</button></center>
       </div>
     </div>
   </form>
