@@ -146,7 +146,7 @@ table th {
 					<div class="social pull-right">
 						<ul>
 							<li><a href="<?php echo base_url()."login"?>"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp Dashboard Login</a></li>
-							<li><i class="fa fa-mobile" aria-hidden="true"></i>&nbsp Helpline No: +91 9945454505 <i class="fa fa-phone" aria-hidden="true"></i>&nbsp Landline No:080 423322722</li>
+							<li><i class="fa fa-mobile" aria-hidden="true"></i>&nbsp Helpline No: +91 9945454505 <i class="fa fa-phone" aria-hidden="true"></i>&nbsp Landline No:080 42332722</li>
 							<li></li>
 							<li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
 							<li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
