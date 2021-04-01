@@ -120,7 +120,7 @@
         <div class="col-sm-6 col-md-4 col-md-offset-4">
           
             <div class="account-wall">
-                <img class="profile-img"  src="<?php echo base_url()."web_files/";?>img/maku.png" alt="Chania" width="50%" height="50%"
+                <img class="profile-img"  src="<?php echo base_url()."web_files/";?>img/Maku.png" alt="Chania" width="50%" height="50%"
                     alt="">
     
                     
