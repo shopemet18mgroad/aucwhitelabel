@@ -55,6 +55,7 @@ class Enquiry_Form_add extends CI_Controller {
 			$leadgeneration = $this->input->post('leadgeneration');
 			$spoc = $this->input->post('spoc');
 			$location = $this->input->post('location');
+			$website = $this->input->post('website');
 			
 			
 		
@@ -65,7 +66,7 @@ class Enquiry_Form_add extends CI_Controller {
 			'vcity' => $vcity, 'first' => $first,
 			'last' => $last,'phone' => $phone, 'email'=> $email,
 			'remarks' => $remarks,'leadgeneration'=>$leadgeneration,
-			'spoc'=>$spoc ,'location'=>$location);
+			'spoc'=>$spoc ,'location'=>$location,'website'=>$website);
 
 	$datainserr = "Data Inserted Successfully";
 		$status = $this->Admin_model->insert('enquiry_form', $data);

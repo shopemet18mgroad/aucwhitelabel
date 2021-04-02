@@ -21,9 +21,7 @@ class Enquiry_Form extends CI_Controller
 	 */
 	public function index()
 	{
-
-		$this->load->helper('url');
-
+ echo $this->uri->segment(3);echo "maku"; die;
 		$this->load->helper(array('url', 'html', 'date'));
 		//Setting  default time zone
 		date_default_timezone_set('Asia/Kolkata');

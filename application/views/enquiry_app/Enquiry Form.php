@@ -111,6 +111,12 @@
       </div>
     </div>
 	<div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Spoc:</label>
+      <div class="col-sm-10">          
+        <input type="text" class="form-control"  id="spoc" name="spoc" placeholder="Enter spoc" ></input>
+      </div>
+    </div>
+	<div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Lead Generation:*</label>
       <div class="col-sm-10">          
         <select class="form-control col-sm-10" id="leadgeneration" name="leadgeneration" >
@@ -120,7 +126,18 @@
   </select>
       </div>
     </div>
-	<div class="form-group">
+		<div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Website:*</label>
+      <div class="col-sm-10">          
+        <select class="form-control col-sm-10" id="website" name="website" >
+		 <option></option>
+    <option>Rawmet</option>
+    <option>Aucjunction</option>
+  
+  </select>
+      </div>
+    </div>
+	<!--<div class="form-group">
       <label class="control-label col-sm-2" for="example">SPOC:</label>
       <div class="col-sm-10"> 
 	  
@@ -128,14 +145,14 @@
 	  <select class="form-control" id="example" name="spoc">
 	  
 	  
-	   <?php foreach($sqldata as $row){?>
+	   <?php// foreach($sqldata as $row){?>
 	     
        <option></option>
-	   <option value="<?php echo $row->spoc;?>"><?php echo $row->spoc;?></option>
+	   <option value="<?php //echo $row->spoc;?>"><?php// echo $row->spoc;?></option>
 
 
 	
-  <?php }?>	
+  <?php// }?>	
 
         
 
@@ -144,7 +161,7 @@
   </select>
 
  </div>
-    </div>
+    </div>-->
 	<div class="form-group">
    <!--   <label class="control-label col-sm-2" for="pwd">Executive location:</label>-->
       <div class="col-sm-10">          
