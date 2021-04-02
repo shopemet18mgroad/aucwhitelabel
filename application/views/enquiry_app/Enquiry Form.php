@@ -280,7 +280,7 @@ if(companyname == '' || vaddress == '' || vcity == '' || first == '' || last == 
   function validate_buyerid(){
 	  var val = document.getElementById("spoc").value;
 		if(val.length == 4){
-			 $.get('<?php echo base_url() .'enquiry_form/validate_enquiry/'; ?>'+val, function(data2){				 
+			 $.get('<?php echo base_url() .'Enquiry_Form/validate_enquiry/'; ?>'+val, function(data2){				 
 				 if($.trim(data2) == "HI"){
 					swal("Alert!",  "Unique Id Does not Exists", "error");
 					document.getElementById("spoc").value = "";
