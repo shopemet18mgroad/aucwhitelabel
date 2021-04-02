@@ -21,8 +21,9 @@ class Enquiry_Form extends CI_Controller
 	 */
 	public function index()
 	{
- echo $this->uri->segment(3);echo "maku"; die;
+ 
 		$this->load->helper(array('url', 'html', 'date'));
+		$loc = urldecode($this->uri->segment(3));
 		//Setting  default time zone
 		date_default_timezone_set('Asia/Kolkata');
 		//initaliazing the current time 
@@ -32,6 +33,7 @@ class Enquiry_Form extends CI_Controller
 		$query = $this->Admin_model->gettable('spocs');
 		//echo '<pre>'; print_r($data); die; echo '</pre>';
 		$adac['sqldata']= $query;
+		$adac['loc']= $loc;
 		//print_r($adac['sqldata']);die;
 		
 		$this->load->view('enquiry_app/Enquiry Form',$adac);

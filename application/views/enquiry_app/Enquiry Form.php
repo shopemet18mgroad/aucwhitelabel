@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <title>ENQUIRY FORM</title>
@@ -32,7 +33,8 @@
   
   
   
-  
+  <input type="hidden" class="form-control " id="loc" name="loc" 
+	   value="<?php echo $loc;?>">
   
     <div class="form-group">
       <label class="control-label col-sm-2" for="email">Date and Time</label>
@@ -42,9 +44,7 @@
 	
 	
        <input type="text" class="form-control " id="date" name="date" <?php  echo date("Y-m-d h:i:sa");?>
-	   value="<?php  echo date("Y-m-d h:i:sa");?>"
-
-	  readonly placeholder="Enter Date" >
+	   value="<?php  echo date("Y-m-d h:i:sa");?>" readonly placeholder="Enter Date" >
 		
 
 		
@@ -248,18 +248,18 @@ function validatebuyer(){
 	var email = document.getElementById("email").value;
 	var remarks = document.getElementById("remarks").value;
 
-	var location = document.getElementById("location").value;
+	//var location = document.getElementById("location").value;
 	
 	
 
-if(companyname == '' || vaddress == '' || vcity == '' || first == '' || last == '' || phone == '' || email == '' || remarks == '' || location == ''){
+if(companyname == '' || vaddress == '' || vcity == '' || first == '' || last == '' || phone == '' || email == '' || remarks == '' || ){
 		swal("Alert!",  " Company Name, Name, Address, Remarks, Executive Location, cannot leave any field blank!", "error");
 		return false;
 	}
 	else{
         $.ajax({
             type:'submit',
-            data: {companyname:companyname,vaddress:vaddress,vcity:vcity,first:first,last:last,phone:phone,email:email,remarks:remarks,location:location},
+            data: {companyname:companyname,vaddress:vaddress,vcity:vcity,first:first,last:last,phone:phone,email:email,remarks:remarks},
            success:function(data){
                 swal("Success", "Data Saved Successfully", "success");
             },

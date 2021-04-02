@@ -54,7 +54,7 @@ class Enquiry_Form_add extends CI_Controller {
 			$remarks = $this->input->post('remarks');
 			$leadgeneration = $this->input->post('leadgeneration');
 			$spoc = $this->input->post('spoc');
-			$location = $this->input->post('location');
+			$location = $this->input->post('loc');
 			$website = $this->input->post('website');
 			
 			
