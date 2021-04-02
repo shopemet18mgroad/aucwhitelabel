@@ -298,9 +298,9 @@ The Contract will remain valid for 1 time sale/ 6 months/ 1 year of this Agreeme
 	2.4	Aucjunction is not responsible for any damages or loss in case of non compliance with the policy.<br>
 </p>
 <p class="para">
-<b>3.	Code of conduct</b>
-	3.1	User is not supposed to share, store, transmit or collect any information on the aucjunction portal.
-	3.2	Aucjunction owns the patent, trademark, copyrights and trade secrets. Duplicacy of any such 			information is  considered as illegal.
+<b>3.	Code of conduct</b><br>
+	3.1	User is not supposed to share, store, transmit or collect any information on the aucjunction portal.<br>
+	3.2	Aucjunction owns the patent, trademark, copyrights and trade secrets. Duplicacy of any such information is  considered as illegal.<br>
 	3.3	Aucjunction does not pre-screen the content, But has the rights to move the content, evaluate, refuse or delete if not adhering to the General Policy of Aucjunction.
 </p>
  

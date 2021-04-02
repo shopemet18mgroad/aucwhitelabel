@@ -67,6 +67,13 @@ class Enquiryform_login extends CI_Controller
 			  }
 			  public function loc(){
 				  $this->load->helper('url');
+				  echo urldecode($this->uri->segment(3));
+				  die;
+			  }
+			   public function loc2(){
+				  $this->load->helper('url');
+				  echo $test = $this->input->post('test');
+				  die;
 				  //uri
 				  echo urldecode($this->uri->segment(3));
 			  }
