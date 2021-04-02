@@ -43,7 +43,7 @@ class Enquiry_Form_add extends CI_Controller {
 			
 			
 			$date = $this->input->post('date');
-			$time = $this->input->post('time');
+			
 			$companyname = $this->input->post('companyname');
 			$vaddress = $this->input->post('vaddress');
 			$vcity = $this->input->post('vcity');
@@ -61,8 +61,7 @@ class Enquiry_Form_add extends CI_Controller {
 		
 		   
 		  
-			$data = array('date'=>$date,
-			'time' => $time,'companyname' => $companyname, 'vaddress' => $vaddress,
+			$data = array('date'=>$date,'companyname' => $companyname, 'vaddress' => $vaddress,
 			'vcity' => $vcity, 'first' => $first,
 			'last' => $last,'phone' => $phone, 'email'=> $email,
 			'remarks' => $remarks,'leadgeneration'=>$leadgeneration,
