@@ -262,6 +262,7 @@ if(companyname == '' || vaddress == '' || vcity == '' || first == '' || last == 
             data: {companyname:companyname,vaddress:vaddress,vcity:vcity,first:first,last:last,phone:phone,email:email,remarks:remarks},
            success:function(data){
                 swal("Success", "Data Saved Successfully", "success");
+				return false;
             },
             error:function(xhr, thrownError, ajaxOptions){
 
