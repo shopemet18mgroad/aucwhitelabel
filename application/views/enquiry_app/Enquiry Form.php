@@ -111,9 +111,9 @@
       </div>
     </div>
 	<div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Spoc:</label>
+      <label class="control-label col-sm-2" for="pwd">Unique Id:</label>
       <div class="col-sm-10">          
-        <input type="text" class="form-control"  id="spoc" name="spoc" placeholder="Enter spoc" ></input>
+        <input type="text" class="form-control"  id="spoc" name="spoc" placeholder="Enter spoc" onkeyup="validate_buyerid()"></input>
       </div>
     </div>
 	<div class="form-group">
@@ -252,7 +252,7 @@ function validatebuyer(){
 	
 	
 
-if(companyname == '' || vaddress == '' || vcity == '' || first == '' || last == '' || phone == '' || email == '' || remarks == '' || ){
+if(companyname == '' || vaddress == '' || vcity == '' || first == '' || last == '' || phone == '' || email == '' || remarks == '' ){
 		swal("Alert!",  " Company Name, Name, Address, Remarks, Executive Location, cannot leave any field blank!", "error");
 		return false;
 	}
@@ -273,6 +273,25 @@ if(companyname == '' || vaddress == '' || vcity == '' || first == '' || last == 
 
 	
 }
+  </script>
+  
+  
+<script>
+  function validate_buyerid(){
+	  var val = document.getElementById("spoc").value;
+		if(val.length == 4){
+			 $.get('<?php echo base_url() .'enquiry_form/validate_enquiry/'; ?>'+val, function(data2){				 
+				 if($.trim(data2) == "HI"){
+					swal("Alert!",  "Unique Id Does not Exists", "error");
+					document.getElementById("spoc").value = "";
+					return false;
+				}else{
+					return true;
+				}
+			 });
+			
+		}
+  }
   </script>
  
 

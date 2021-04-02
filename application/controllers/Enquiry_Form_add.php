@@ -69,7 +69,7 @@ class Enquiry_Form_add extends CI_Controller {
 
 	$datainserr = "Data Inserted Successfully";
 		$status = $this->Admin_model->insert('enquiry_form', $data);
-		header('location: '.base_url().'Enquiry_Form/index/'.$datainserr);
+		header('location: '.base_url().'Enquiry_Form/succ/');
 			
 			
 			 
