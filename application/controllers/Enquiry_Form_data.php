@@ -57,7 +57,7 @@ public function export_csvenquiry(){
 		//print_r($usersData); die;
 		// file creation 
 		$file = fopen('php://output','w');
-		$header = array("DATE","TIME","COMPANY NAME","ADDRESS","CITY","FIRST NAME","LAST NAME","PHONE","EMAIL","REMARK","LEAD GENERATION","SPOC","lOCATION"); 
+		$header = array("DATE","COMPANY NAME","ADDRESS","CITY","FIRST NAME","LAST NAME","PHONE","EMAIL","REMARK","LEAD GENERATION","SPOC","lOCATION"); 
 		fputcsv($file, $header);
 		foreach ($usersData as $key=>$line){ 
 			fputcsv($file,$line); 

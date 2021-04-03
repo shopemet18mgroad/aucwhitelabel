@@ -37,8 +37,8 @@
 	  <tr>
 		<th colspan="13" class="bg-info">Enquiry</th></tr>
      <tr>
-		<th>Date</th>
-		<th>Time</th>
+		<th>Date & Time</th>
+		
 		<th>Company Name</th>
 		<th>Address</th>
 		<th>City</th>
@@ -62,7 +62,7 @@
 					<tr>												
 						
 						<td><?php echo $sqldat->date; ?></td>
-						<td><?php echo $sqldat->time; ?></td>
+						
 						<td><?php echo $sqldat->companyname; ?></td>
 						<td><?php echo $sqldat->vaddress; ?></td>
 						<td><?php echo $sqldat->vcity; ?></td>

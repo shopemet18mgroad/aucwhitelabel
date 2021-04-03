@@ -107,20 +107,19 @@
   
 </head>
 <body>
+<br>
+<br>
+<br>
 
+<br>
+<br>
 
 <div class="container">
-<br>
-<br>
-<br>
-
-<br>
-<br>
     <div class="row">
         <div class="col-sm-6 col-md-4 col-md-offset-4">
           
             <div class="account-wall">
-                <img class="profile-img"  src="<?php echo base_url()."web_files/";?>img/Maku.png" alt="Chania" width="50%" height="50%"
+                <img class="profile-img"  src="<?php echo base_url()."web_files/";?>img/maku.png" alt="Chania" width="50%" height="100%"
                     alt="">
     
                     
@@ -138,12 +137,12 @@
                 
 
                     
-                  <!-- <div class="form-group pl-3">
+                   <div class="form-group pl-3">
 						  <div class="custom-control custom-checkbox small">
 							<input type="checkbox" class="custom-control-input" id="customCheck" name="optradio" value="enquiry">
 							<label class="custom-control-label" for="customCheck">Enquriy</label>
 							 </div>
-						</div>-->
+						</div>
                                         <button class="btn btn-lg btn-primary btn-block" type="submit">
                     Sign in</button>
              
@@ -153,8 +152,8 @@
            
         </div>
     </div>
-
 </div>
+
 
 
 
@@ -171,7 +170,6 @@
 
   </form>
 </div>
-
 <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

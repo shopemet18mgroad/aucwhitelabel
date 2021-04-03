@@ -212,7 +212,7 @@ $dataUri = 'data:image/' . $type . ';base64,' . base64_encode($data);
 	
 <?php
 
-$image1 =  base_url()."web_files/img/maku.png";
+$image1 =  base_url()."web_files/img/Maku.png";
 $type1 = pathinfo($image1, PATHINFO_EXTENSION);
 $data1 = file_get_contents($image1);
 $dataUri1 = 'data:image/' . $type . ';base64,' . base64_encode($data1);
@@ -320,7 +320,7 @@ Buyer Agreement</h3>-->
 					
 					<?php
 
-$image2 =  base_url()."web_files/img/maku.png";
+$image2 =  base_url()."web_files/img/Maku.png";
 $type2 = pathinfo($image2, PATHINFO_EXTENSION);
 $data2 = file_get_contents($image2);
 $dataUri2 = 'data:image/' . $type . ';base64,' . base64_encode($data2);
@@ -418,7 +418,7 @@ $dataUri2 = 'data:image/' . $type . ';base64,' . base64_encode($data2);
                     </p>
 					<?php
 
-$image3 =  base_url()."web_files/img/maku.png";
+$image3 =  base_url()."web_files/img/Maku.png";
 $type3 = pathinfo($image3, PATHINFO_EXTENSION);
 $data3 = file_get_contents($image3);
 $dataUri3 = 'data:image/' . $type . ';base64,' . base64_encode($data3);

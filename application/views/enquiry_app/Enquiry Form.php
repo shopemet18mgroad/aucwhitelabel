@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <title>ENQUIRY FORM</title>
@@ -32,18 +33,24 @@
   
   
   
-  
+  <input type="hidden" class="form-control " id="loc" name="loc" 
+	   value="<?php echo $loc;?>">
   
     <div class="form-group">
-      <label class="control-label col-sm-2" for="email">Date:</label>
+      <label class="control-label col-sm-2" for="email">Date and Time</label>
       <div class="col-sm-10">
-        <input type="date" class="form-control " id="date" name="date" placeholder="Enter Date" >
+	
+	
+	
+	
+       <input type="text" class="form-control " id="date" name="date" <?php  echo date("Y-m-d h:i:sa");?>
+	   value="<?php  echo date("Y-m-d h:i:sa");?>" readonly placeholder="Enter Date" >
 		
 
 		
       </div>
     </div>
-	<div class="form-group">
+	<!--<div class="form-group">
       <label class="control-label col-sm-2" for="email">Time:</label>
       <div class="col-sm-10">
         
@@ -51,7 +58,7 @@
 		
 		<input type="time" class="form-control" id="time" name="time" placeholder="Enter Time" >
       </div>
-    </div>
+    </div>-->
 	
 	
     <div class="form-group">
@@ -104,6 +111,12 @@
       </div>
     </div>
 	<div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Unique Id:</label>
+      <div class="col-sm-10">          
+        <input type="text" class="form-control"  id="spoc" name="spoc" placeholder="Enter spoc" onkeyup="validate_buyerid()"></input>
+      </div>
+    </div>
+	<div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Lead Generation:*</label>
       <div class="col-sm-10">          
         <select class="form-control col-sm-10" id="leadgeneration" name="leadgeneration" >
@@ -113,7 +126,18 @@
   </select>
       </div>
     </div>
-	<div class="form-group">
+		<div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Website:*</label>
+      <div class="col-sm-10">          
+        <select class="form-control col-sm-10" id="website" name="website" >
+		 <option></option>
+    <option>Rawmet</option>
+    <option>Aucjunction</option>
+  
+  </select>
+      </div>
+    </div>
+	<!--<div class="form-group">
       <label class="control-label col-sm-2" for="example">SPOC:</label>
       <div class="col-sm-10"> 
 	  
@@ -121,14 +145,14 @@
 	  <select class="form-control" id="example" name="spoc">
 	  
 	  
-	   <?php foreach($sqldata as $row){?>
+	   <?php// foreach($sqldata as $row){?>
 	     
        <option></option>
-	   <option value="<?php echo $row->spoc;?>"><?php echo $row->spoc;?></option>
+	   <option value="<?php //echo $row->spoc;?>"><?php// echo $row->spoc;?></option>
 
 
 	
-  <?php }?>	
+  <?php// }?>	
 
         
 
@@ -137,17 +161,17 @@
   </select>
 
  </div>
-    </div>
+    </div>-->
 	<div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Executive location:</label>
+   <!--   <label class="control-label col-sm-2" for="pwd">Executive location:</label>-->
       <div class="col-sm-10">          
-        <input type="text" class="form-control" id="location" name="location"  placeholder="Enter location" >
+        <input type="hidden" class="form-control" id="location" name="location"  placeholder="Enter location" >
       </div>
     </div>
 
     <div class="form-group">        
       <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit"  onclick="return validatebuyer()"   class="btn btn-danger">Submit</button>
+      <center>  <button type="submit"  onclick="return validatebuyer()"   class="btn btn-danger">Submit</button></center>
       </div>
     </div>
   </form>
@@ -224,20 +248,21 @@ function validatebuyer(){
 	var email = document.getElementById("email").value;
 	var remarks = document.getElementById("remarks").value;
 
-	var location = document.getElementById("location").value;
+	//var location = document.getElementById("location").value;
 	
 	
 
-if(companyname == '' || vaddress == '' || vcity == '' || first == '' || last == '' || phone == '' || email == '' || remarks == '' || location == ''){
+if(companyname == '' || vaddress == '' || vcity == '' || first == '' || last == '' || phone == '' || email == '' || remarks == '' ){
 		swal("Alert!",  " Company Name, Name, Address, Remarks, Executive Location, cannot leave any field blank!", "error");
 		return false;
 	}
 	else{
         $.ajax({
             type:'submit',
-            data: {companyname:companyname,vaddress:vaddress,vcity:vcity,first:first,last:last,phone:phone,email:email,remarks:remarks,location:location},
+            data: {companyname:companyname,vaddress:vaddress,vcity:vcity,first:first,last:last,phone:phone,email:email,remarks:remarks},
            success:function(data){
                 swal("Success", "Data Saved Successfully", "success");
+				return false;
             },
             error:function(xhr, thrownError, ajaxOptions){
 
@@ -249,6 +274,25 @@ if(companyname == '' || vaddress == '' || vcity == '' || first == '' || last == 
 
 	
 }
+  </script>
+  
+  
+<script>
+  function validate_buyerid(){
+	  var val = document.getElementById("spoc").value;
+		if(val.length == 4){
+			 $.get('<?php echo base_url() .'Enquiry_Form/validate_enquiry/'; ?>'+val, function(data2){				 
+				 if($.trim(data2) == "HI"){
+					swal("Alert!",  "Unique Id Does not Exists", "error");
+					document.getElementById("spoc").value = "";
+					return false;
+				}else{
+					return true;
+				}
+			 });
+			
+		}
+  }
   </script>
  
 

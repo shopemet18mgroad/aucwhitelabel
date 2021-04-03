@@ -21,20 +21,21 @@ class Enquiryform_login extends CI_Controller
 	 */
 	public function index()
 	{
-
+	$this->load->helper('url');
+  		
 		if($this->input->post('user')){
-			if($this->input->post('optradio')=="enquiry"){
+		
 				$table = "enquriyform_login";
 				$colname = "enqusername";
 				$colname2 = "enqpassword";
-				 $status ="enqoptions";
+				 
 			   
-			}
+			
 			$user = $this->input->post('user');
 			$pass = $this->input->post('pass');
 			$pass = base64_encode($pass);
 		
-			$check_db = array($colname => $user, $colname2 => $pass, $status=>true);
+			$check_db = array($colname => $user, $colname2 => $pass);
 			//print_r($check_db);die;
 			$this->load->model('Admin_model');
 		
@@ -64,4 +65,17 @@ class Enquiryform_login extends CI_Controller
 		
 		$this->load->view('enquiry_app/Enquiryform login');
 			  }
+			  public function loc(){
+				  $this->load->helper('url');
+				  echo urldecode($this->uri->segment(3));
+				  die;
+			  }
+			   public function loc2(){
+				  $this->load->helper('url');
+				  echo $test = $this->input->get('p');
+				  die;
+				  //uri
+				  echo urldecode($this->uri->segment(3));
+			  }
+				
 			  }

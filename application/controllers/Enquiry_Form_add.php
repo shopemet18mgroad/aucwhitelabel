@@ -43,7 +43,7 @@ class Enquiry_Form_add extends CI_Controller {
 			
 			
 			$date = $this->input->post('date');
-			$time = $this->input->post('time');
+			
 			$companyname = $this->input->post('companyname');
 			$vaddress = $this->input->post('vaddress');
 			$vcity = $this->input->post('vcity');
@@ -54,22 +54,22 @@ class Enquiry_Form_add extends CI_Controller {
 			$remarks = $this->input->post('remarks');
 			$leadgeneration = $this->input->post('leadgeneration');
 			$spoc = $this->input->post('spoc');
-			$location = $this->input->post('location');
+			$location = $this->input->post('loc');
+			$website = $this->input->post('website');
 			
 			
 		
 		   
 		  
-			$data = array('date'=>$date,
-			'time' => $time,'companyname' => $companyname, 'vaddress' => $vaddress,
+			$data = array('date'=>$date,'companyname' => $companyname, 'vaddress' => $vaddress,
 			'vcity' => $vcity, 'first' => $first,
 			'last' => $last,'phone' => $phone, 'email'=> $email,
 			'remarks' => $remarks,'leadgeneration'=>$leadgeneration,
-			'spoc'=>$spoc ,'location'=>$location);
+			'spoc'=>$spoc ,'location'=>$location,'website'=>$website);
 
 	$datainserr = "Data Inserted Successfully";
 		$status = $this->Admin_model->insert('enquiry_form', $data);
-		header('location: '.base_url().'Enquiry_Form/index/'.$datainserr);
+		header('location: '.base_url().'Enquiry_Form/index/na');die;
 			
 			
 			 

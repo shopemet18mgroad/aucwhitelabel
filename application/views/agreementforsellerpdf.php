@@ -227,7 +227,7 @@ $dataUri = 'data:image/' . $type . ';base64,' . base64_encode($data);
 	
 <?php
 
-$image1 =  base_url()."web_files/img/maku.png";
+$image1 =  base_url()."web_files/img/Maku.png";
 $type1 = pathinfo($image1, PATHINFO_EXTENSION);
 $data1 = file_get_contents($image1);
 $dataUri1 = 'data:image/' . $type . ';base64,' . base64_encode($data1);
@@ -298,15 +298,15 @@ The Contract will remain valid for 1 time sale/ 6 months/ 1 year of this Agreeme
 	2.4	Aucjunction is not responsible for any damages or loss in case of non compliance with the policy.<br>
 </p>
 <p class="para">
-<b>3.	Code of conduct</b>
-	3.1	User is not supposed to share, store, transmit or collect any information on the aucjunction portal.
-	3.2	Aucjunction owns the patent, trademark, copyrights and trade secrets. Duplicacy of any such 			information is  considered as illegal.
+<b>3.	Code of conduct</b><br>
+	3.1	User is not supposed to share, store, transmit or collect any information on the aucjunction portal.<br>
+	3.2	Aucjunction owns the patent, trademark, copyrights and trade secrets. Duplicacy of any such information is  considered as illegal.<br>
 	3.3	Aucjunction does not pre-screen the content, But has the rights to move the content, evaluate, refuse or delete if not adhering to the General Policy of Aucjunction.
 </p>
  
 <?php
 
-$image2 =  base_url()."web_files/img/maku.png";
+$image2 =  base_url()."web_files/img/Maku.png";
 $type2 = pathinfo($image2, PATHINFO_EXTENSION);
 $data2 = file_get_contents($image2);
 $dataUri2 = 'data:image/' . $type . ';base64,' . base64_encode($data2);
@@ -387,7 +387,7 @@ $dataUri2 = 'data:image/' . $type . ';base64,' . base64_encode($data2);
 </p>
 <?php
 
-$image3 =  base_url()."web_files/img/maku.png";
+$image3 =  base_url()."web_files/img/Maku.png";
 $type3 = pathinfo($image3, PATHINFO_EXTENSION);
 $data3 = file_get_contents($image3);
 $dataUri3 = 'data:image/' . $type . ';base64,' . base64_encode($data3);
