@@ -54,7 +54,7 @@ class Enquiry_Form extends CI_Controller
 	$this->load->helper(array('url', 'html', 'date'));
 	echo $maku = $this->input->post('maku');die;
 		//$dat = urldecode($this->uri->segment(3));
-		$/* check_db = array('slno' => $dat);
+		/* $check_db = array('slno' => $dat);
 		$this->load->model('Admin_model');
 			  if($this->Admin_model->check('spocs', $check_db)){
 				  echo "BYE"; 
