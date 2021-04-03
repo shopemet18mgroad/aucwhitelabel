@@ -112,7 +112,28 @@ class Admin_buyereditbyref extends CI_Controller {
 
 	}
 	
-	
+	public function export_csv1(){ 
+		// file name 
+		$datatoquerydb = $this->uri->segment(3);
+		$this->load->model('Admin_model');
+		$filename = 'users_'.date('Ymd').'.csv'; 
+		header("Content-Description: File Transfer"); 
+		header("Content-Disposition: attachment; filename=$filename"); 
+		header("Content-Type: application/csv; ");
+	   // get data 
+	   $usersData = $this->Admin_model->getbuyerUserDetails1('buyerprofile','bref',$datatoquerydb);
+		//$usersData = $this->Admin_model->getSellerUserDetails();
+		//print_r($usersData); die;
+		// file creation 
+		$file = fopen('php://output','w');
+		$header = array("COMPANY NAME","CONTACT PERSON","CONTACT NO.","EMAIL ID","CITY","REFERENCE","DATE"); 
+		fputcsv($file, $header);
+		foreach ($usersData as $key=>$line){ 
+			fputcsv($file,$line); 
+		}
+		fclose($file); 
+		exit; 
+	}
 	
 }
 

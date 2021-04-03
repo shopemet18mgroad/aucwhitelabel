@@ -553,6 +553,29 @@ class Admin_model extends CI_Model
 		return $q->result_array();
 	}
 	
+	public function getSellerUserDetails1($table, $col, $query){
+		$this->db->select('scomapnyname	,scontactperson,sphone,semail,scity,sagreementdate');
+		$this->db->from($table);
+		$this->db->like($col, $query);
+		$q = $this->db->get();
+		return $q->result_array();
+	}
+	
+	public function getBuyerUserDetails($table, $col, $query){
+		$this->db->select('bcompany	,bcontactperson,bphone,bemail,bcity,bagreementdate');
+		$this->db->from($table);
+		$this->db->like($col, $query);
+		$q = $this->db->get();
+		return $q->result_array();
+	}
+	public function getbuyerUserDetails1($table, $col, $query){
+		$this->db->select('bcompany	,bcontactperson,bphone,bemail,bcity,bref,bagreementdate');
+		$this->db->from($table);
+		$this->db->like($col, $query);
+		$q = $this->db->get();
+		return $q->result_array();
+	}
+	
 	public function getenquirydataDetails($table){
 		$this->db->select('date	,time,companyname,vaddress,vcity,first,last
 		,phone,email,remarks,leadgeneration,spoc,location');
