@@ -158,7 +158,7 @@ echo "</script>\n";
 		header("Content-Disposition: attachment; filename=$filename"); 
 		header("Content-Type: application/csv; ");
 	   // get data 
-	   $usersData = $this->Admin_model->getSellerUserDetails('sellerprofile','scomapnyname',$datatoquerydb);
+	   $usersData = $this->Admin_model->getSellerUserDetails1('sellerprofile','scomapnyname',$datatoquerydb);
 		//$usersData = $this->Admin_model->getSellerUserDetails();
 		//print_r($usersData); die;
 		// file creation 

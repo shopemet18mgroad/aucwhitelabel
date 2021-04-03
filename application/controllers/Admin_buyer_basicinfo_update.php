@@ -23,6 +23,7 @@ class Admin_buyer_basicinfo_update extends CI_Controller {
 	 	public function index()
 	{
 		$this->load->library('fileupload');
+		$date =  Date('Y-m-d');
 		$this->load->helper(array('url','form','file','html'));
 		$this->load->model('Admin_model');
 		$bname = $this->input->post('bname');
@@ -53,6 +54,12 @@ class Admin_buyer_basicinfo_update extends CI_Controller {
 		$datacomp = array();
 		$dataact = $this->input->post('bsigneddocumentex');
 		$datacomp = $this->input->post('bsigneddocumentexcom');
+		$subscription_amount = $this->input->post('subscription_amount');
+		$subscription_type = $this->input->post('subscription_type');
+		$comment = $this->input->post('comment');
+		$subscription_fromdate = $this->input->post('subscription_fromdate');
+		$subscription_todate = date("Y-m-d", strtotime(date("Y-m-d", strtotime($subscription_fromdate)) . " + 365 day"));
+		$subscription = $this->input->post('subscription');
 		$bref  = $this->input->post('bref');
 		
 		if($dataact && $datacomp){
@@ -112,7 +119,7 @@ class Admin_buyer_basicinfo_update extends CI_Controller {
 		
 		
 		//==================================================================
-		$data2 = array('bname' => $bname,'bcompany' => $bcompany, 'bcomptype' => $bcomptype, 'bcontactperson' => $bcontactperson, 'bcin' => $bcin, 'bgst' => $bgst,'bpan' => $bpan,'bpcb' => $bpcb, 'bemail' => $bemail, 'bphone' => $bphone,'baddress' => $baddress, 'bpin' => $bpin, 'bstate' => $bstate, 'bcountry' => $bcountry, 'bbankname' => $bbankname, 'baccountnumber' => $baccountnumber, 'bbranch' => $bbranch, 'bifsccode' => $bifsccode, 'buploadimagepic' => $pic_array, 'bsigneddocument' => $doc_array, 'bref' => $bref);
+		$data2 = array('bname' => $bname,'bcompany' => $bcompany, 'bcomptype' => $bcomptype, 'bcontactperson' => $bcontactperson, 'bcin' => $bcin, 'bgst' => $bgst,'bpan' => $bpan,'bpcb' => $bpcb, 'bemail' => $bemail, 'bphone' => $bphone,'baddress' => $baddress, 'bpin' => $bpin, 'bstate' => $bstate, 'bcountry' => $bcountry, 'bbankname' => $bbankname, 'baccountnumber' => $baccountnumber, 'bbranch' => $bbranch, 'bifsccode' => $bifsccode, 'buploadimagepic' => $pic_array, 'bsigneddocument' => $doc_array,'subscription_amount'=>$subscription_amount,'subscription_type'=>$subscription_type,'comment'=>$comment,'subscription_fromdate'=>$subscription_fromdate,'subscription_todate'=>$subscription_todate,'subscription'=>$subscription, 'bref' => $bref);
 		//$this->load->view('xya', $data);
 		$datainserr = "Data Inserted Successfully";
 		$updatech = array('bcompany' => $bcompany);
