@@ -52,7 +52,8 @@ class Enquiry_Form extends CI_Controller
 	}
 	public function post_data(){//
 	$this->load->helper(array('url', 'html', 'date'));
-	echo $maku = $this->input->post('maku');die;
+	echo $maku = $this->input->post('maku');
+	echo $alfa = $this->input->post('alfa');die;
 		//$dat = urldecode($this->uri->segment(3));
 		/* $check_db = array('slno' => $dat);
 		$this->load->model('Admin_model');
