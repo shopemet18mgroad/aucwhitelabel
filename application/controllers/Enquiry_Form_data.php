@@ -47,14 +47,14 @@ class Enquiry_Form_data extends CI_Controller {
 	
 public function export_csvenquiry(){ 
 		// file name 
-	
+		$slno = $this->uri->segment(3);
 		$this->load->model('Admin_model');
 		$filename = 'users_'.date('Ymd').'.csv'; 
 		header("Content-Description: File Transfer"); 
 		header("Content-Disposition: attachment; filename=$filename"); 
 		header("Content-Type: application/csv; ");
 	   // get data 
-	   $usersData = $this->Admin_model->getenquirydataDetails('6888');
+	   $usersData = $this->Admin_model->getenquirydataDetails($slno);
 	  
 		//$usersData = $this->Admin_model->getSellerUserDetails();
 		//print_r($usersData); die;

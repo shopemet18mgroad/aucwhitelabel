@@ -44,11 +44,11 @@
 	 
 	  <select class="form-control"  id="myInput" name="myInput">
 	  
-	  
+	  <option value="">SELECT</option>
 	   <?php foreach( $sqldata1 as $row){?>
 	     
   
-	   <option value="<?php echo $row->spoc;?>">
+	   <option value="<?php echo $row->slno;?>">
 	   <?php echo $row->spoc;?>
 	   
 	   
@@ -63,95 +63,20 @@
 
 
      </select>
-
+		<br><a  id="mylink" href="" type="button" class="btn btn-info btn-sm ml-3 mylink"><b>Download Excel</b></a><br><br>
     </div>
     </div></center>
 
-	
-	
-	
-	  <tr>
-		<th colspan="13" class="bg-info">Enquiry</th></tr>
-     <tr>
-		<th>Date & Time</th>
-		
-		<th>Company Name</th>
-		<th>Address</th>
-		<th>City</th>
-		<th>First Name</th>
-		<th>Last Name</th>
-		<th>Phone</th>
-		<th>Email</th>
-		<th>Remark</th>
-		<th>Lead Generation</th>
-		<th>Spoc</th>
-		<th>Location</th>
-		
-	
-	</tr>
-    </thead>
-    <tbody id="myTable">
-	
-  <?php if (isset($sqldata)) {
-			foreach ($sqldata as $sqldat) { ?>
-	
-					<tr>												
-						
-						<td><?php echo $sqldat->date; ?></td>
-						
-						<td><?php echo $sqldat->companyname; ?></td>
-						<td><?php echo $sqldat->vaddress; ?></td>
-						<td><?php echo $sqldat->vcity; ?></td>
-						<td><?php echo $sqldat->first; ?></td>
-						<td><?php echo $sqldat->last; ?></td>
-						<td><?php echo $sqldat->phone; ?></td>
-						<td><?php echo $sqldat->email; ?></td>	
-						<td><?php echo $sqldat->remarks; ?></td>
-						<td><?php echo $sqldat->leadgeneration; ?></td>
-						<td><?php if(($sqldat->spoc) == 2456){
-							echo "Niranjan";
-						}
-						else if(($sqldat->spoc) == 1345){
-							echo "sarvana";
-						}
-						else if(($sqldat->spoc) == 3566 ){
-							echo "babu";
-						}
-						else if(($sqldat->spoc) == 4677){
-							echo "kiran";
-						}
-						else if(($sqldat->spoc) == 5788){
-							echo "naveen";
-						}
-						else if(($sqldat->spoc) == 6888){
-							echo "sitaram";
-						}
-						else if(($sqldat->spoc) == 5896){
-							echo "jolly";
-						}
-						else if(($sqldat->spoc) == 3278){
-							echo "vinod";
-						}
-						else if(($sqldat->spoc) == 1796){
-							echo "charith_dev";
-						}
-						?></td>
-						<td><?php echo $sqldat->location; ?></td>
-						
-					</tr>
-					
-					
- 		<?php }
-										} ?>
-				
 
-    </tbody>
+    </thead>
+    
   </table>
 <script>
+
 $(document).ready(function(){
   $("#myInput").on("change", function() {
     var value = $(this).val().toLowerCase();
-	
+	$("a.mylink").attr("href", "<?php echo base_url();?>Enquiry_Form_data/export_csvenquiry/" +value);
     $("#myTable tr").filter(function() {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
@@ -159,7 +84,7 @@ $(document).ready(function(){
 });
 </script>
 	
-	<a  href="<?php echo base_url()."Enquiry_Form_data/export_csvenquiry/"?>" type="button" class="btn btn-info btn-sm ml-3"><b>Export</b></a><br><br>
+
 		
 	
 	
