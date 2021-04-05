@@ -553,6 +553,15 @@ class Admin_model extends CI_Model
 		return $q->result_array();
 	}
 	
+
+	public function getenquirydataDetails($spoc){
+		
+		$this->db->select('*');
+		$this->db->from('enquiry_form');
+		$this->db->where('spoc', $spoc);
+		$query = $this->db->get();
+		return $query->result();
+	}	
 	public function getSellerUserDetails1($table, $col, $query){
 		$this->db->select('scomapnyname	,scontactperson,sphone,semail,scity,sagreementdate');
 		$this->db->from($table);
@@ -576,12 +585,8 @@ class Admin_model extends CI_Model
 		return $q->result_array();
 	}
 	
-	public function getenquirydataDetails($table){
-		$this->db->select('date	,time,companyname,vaddress,vcity,first,last
-		,phone,email,remarks,leadgeneration,spoc,location');
-		$q = $this->db->get($table);
-		return $q->result_array();
-	}
+	
+
 	
 	
 }
