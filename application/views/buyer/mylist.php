@@ -2,35 +2,7 @@
 	//include('./header.php');
 ?>
 
- <style>
-        #blink {
-            font-size: 12px;
-            font-weight: bold;
-            color: red;
-			  margin-left:300px;
-            transition: 0.5s;
-			 animation: blinker 1s linear infinite;
-			  animation-name:animate;
-			animation-duration: 1s;
-			animation-iteration-count: infinite;
-			opacity: 1;
-				}
-	
-  
-  @keyframes animate {
-  0% {
-    opacity: 0;
-  }
-
-  50% {
-    opacity: 0.5
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-    </style>
+ 
         <!-- End of Topbar -->
 	
         <!-- Begin Page Content -->
@@ -49,10 +21,7 @@
 			<div class="col-xl-12 col-lg-7">
           <div class="card shadow mb-4">
             <div class="card-body">
-			<div class="row marqueebox">
 			
-			 <div><p id="blink"><i class="fa fa-bell mr-2" aria-hidden="true"></i><b>Note: To Use our services please Pay the Subscription Amount.</b></p></div>
-			</div>
               <div class="table-responsive">
 
 			<table class="table table-striped table-bordered table-sm text-center mt-5 w-auto small ml-4" id="datatable" width="100%" cellspacing="0">
@@ -96,7 +65,7 @@
 					<td><?php  if($sqldata->emdpaid == 0) {echo 'Emd Not Paid';}else{echo 'Emd Paid';} ?></td>
 				
 					<td><a href="" data-toggle="modal" data-target="#myModal<?php echo"$k";?>">
-					<button type="submit" class="btn btn-info btn-sm w-75" disabled>
+					<button type="submit" class="btn btn-info btn-sm w-75" >
 					<i class="fa fa-eye" aria-hidden="true"></i>
 					</button>
 					</a>
@@ -126,48 +95,18 @@
 					</div>
 				  </div>
 					</td>
-					<td><a href="#" data-toggle="modal" data-target="#myModal1"><button type="button" class="btn btn-primary btn-sm">Pay</button></a>
+					<td><a href="#" data-toggle="modal" data-target="#myModal1"><button type="button" class="btn btn-primary btn-sm" disabled>Pay</button></a>
 					
-					
-					 <?php if (isset($sql)){ foreach($sql as $s){?>
-					<div class="modal" id="myModal1">
-					<div class="modal-dialog modal-lg">
-					  <div class="modal-content">
-					  
-						<!-- Modal Header -->
-						
-						
-						<!-- Modal body -->
-						<div class="modal-body">
-						<h3>Subscription Amount <br>
-					<?php if(($sql[0]->subscription)== false){ echo $sql[0]->subscription_amount; 
-					echo '<br><button type="submit" class="btn btn-danger w-auto small" >Subscribe</button>';} 
-					 else {
-						echo "Paid";
-					}?>
-					</h3>
-						</div>
-						
-						<!-- Modal footer -->
-						<div class="modal-footer">
-						  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-						</div>
-						
-					  </div>
-					</div>
-				  </div>
-							<?php }
-								} ?>
 				</td>
 					<td><input class="form-group w-auto"  multiple="multiple"  type="file" name="upload_dd[]">
 					<input type="hidden" name="auc[]" value="<?php echo $sessi.'|'.$aucencode.'|'.$sqldata->lotno;?>"> 
-					<input type="submit" id="" class="btn btn-primary " name="submit" value="Upload" disabled>
+					<input type="submit" id="" class="btn btn-primary " name="submit" value="Upload" >
 		 
 					</td>
 					
 					<td>
-					<a href="<?php echo base_url()."Buyer_Mylist_dd_upload/emdreq/".$sessi."/".$aucencode."/".urlencode($sqldata->lotno);?>" data-toggle="modal" data-target="#myModal1">
-					<button type='submit2'  onclick="this.disabled=true" class="btn btn-primary w-auto small" disabled>Emd Request</button></a>
+					<a href="<?php echo base_url()."Buyer_Mylist_dd_upload/emdreq/".$sessi."/".$aucencode."/".urlencode($sqldata->lotno);?>" >
+					<button type='submit2'  onclick="this.disabled=true" class="btn btn-primary w-auto small">Emd Request</button></a>
 					
 					</td>
 				
