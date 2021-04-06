@@ -5,6 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
@@ -21,9 +22,25 @@
   <link href="<?php echo base_url()."web_files/";?>css/sb-admin-2.min.css" rel="stylesheet">
   <link href="<?php echo base_url()."web_files/";?>vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 	<script src="<?php echo base_url()."web_files/";?>js/js.js"></script>
+    <style>
     
-   
+ @media only screen and (max-width: 600px) ,(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+
+	/*  Force table to not be like tables anymore  */
+    table, thead, tbody, th, td, tr {  
+		 display: block!important;  
+		 width:100%!important;
 	
+  } 
+    
+
+ }    
+    
+    
+ 
+   
+	</style>
 </head>
 
 <body id="page-top">
