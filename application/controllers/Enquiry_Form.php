@@ -53,18 +53,7 @@ class Enquiry_Form extends CI_Controller
 	public function post_data(){//
 	$this->load->helper(array('url', 'html', 'date'));
 	echo $company = $this->input->post('company');
-	echo $address = $this->input->post('address');
-	echo $address2 = $this->input->post('address2');
-	echo $name = $this->input->post('name');
-	echo $phone = $this->input->post('phone');
-	echo $optionalph = $this->input->post('optionalph');
-	echo $email = $this->input->post('email');
-	echo $uid = $this->input->post('uid');
-	echo $website = $this->input->post('website');
-	echo $leadgen = $this->input->post('leadgen');
-	echo $remarks = $this->input->post('remarks');
-	echo $location = $this->input->post('location');
-	echo $latlong = $this->input->post('latlong'); die;
+	die;
 	
 	
 	
