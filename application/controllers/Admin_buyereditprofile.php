@@ -67,7 +67,6 @@ class Admin_buyereditprofile extends CI_Controller {
 				echo '<td>'.$dat['bcity'].'</td>';
 				echo '<td>'.$dat['bagreementdate'].'</td>';
 				$status = $dat['adaction'];
-				$subscription = $dat['subscription'];
 				if($status == 1){
 				echo '<td style="color:green;"><b>'."ACTIVE".'</b></td>';
 				}else{
