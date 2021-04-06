@@ -1,6 +1,8 @@
  <?php 
 	//include('./header.php');
 ?>
+
+ 
         <!-- End of Topbar -->
 	
         <!-- Begin Page Content -->
@@ -19,6 +21,7 @@
 			<div class="col-xl-12 col-lg-7">
           <div class="card shadow mb-4">
             <div class="card-body">
+			
               <div class="table-responsive">
 
 			<table class="table table-striped table-bordered table-sm text-center mt-5 w-auto small ml-4" id="datatable" width="100%" cellspacing="0">
@@ -52,7 +55,7 @@
 			  <form action="<?php echo base_url();?>Buyer_Mylist_dd_upload" method="POST" id="upload-form" enctype="multipart/form-data">
 			  <?php $k=0;?>
         <?php foreach($sqldat as $sqldata){?>  
-       
+     
 				<tr>
 					
 					<td><b><a href="<?php echo base_url();?>'buyer_mylist/index/'.urlencode($sqldata['auctionid'])
@@ -62,7 +65,7 @@
 					<td><?php  if($sqldata->emdpaid == 0) {echo 'Emd Not Paid';}else{echo 'Emd Paid';} ?></td>
 				
 					<td><a href="" data-toggle="modal" data-target="#myModal<?php echo"$k";?>">
-					<button type="submit" class="btn btn-info btn-sm w-75">
+					<button type="submit" class="btn btn-info btn-sm w-75" >
 					<i class="fa fa-eye" aria-hidden="true"></i>
 					</button>
 					</a>
@@ -92,24 +95,22 @@
 					</div>
 				  </div>
 					</td>
-					<td><a href="#"><button type="button" class="btn btn-primary btn-sm"disabled>Pay</button></a></td>
+					<td><a href="#" data-toggle="modal" data-target="#myModal1"><button type="button" class="btn btn-primary btn-sm" disabled>Pay</button></a>
 					
-					<td>
-					
-			
-					<input class="form-group w-auto"  multiple="multiple"  type="file" name="upload_dd[]">
+				</td>
+					<td><input class="form-group w-auto"  multiple="multiple"  type="file" name="upload_dd[]">
 					<input type="hidden" name="auc[]" value="<?php echo $sessi.'|'.$aucencode.'|'.$sqldata->lotno;?>"> 
-					<input type="submit" id="" class="btn btn-primary " name="submit" value="Upload">
+					<input type="submit" id="" class="btn btn-primary " name="submit" value="Upload" >
 		 
 					</td>
 					
 					<td>
-					<a href="<?php echo base_url()."Buyer_Mylist_dd_upload/emdreq/".$sessi."/".$aucencode."/".urlencode($sqldata->lotno);?>">
-					<button type='submit2'  onclick="this.disabled=true" class="btn btn-primary w-auto small" >Emd Request</button></a>
+					<a href="<?php echo base_url()."Buyer_Mylist_dd_upload/emdreq/".$sessi."/".$aucencode."/".urlencode($sqldata->lotno);?>" >
+					<button type='submit2'  onclick="this.disabled=true" class="btn btn-primary w-auto small">Emd Request</button></a>
 					
 					</td>
 				
-					 <?php $k++;}?> 
+		<?php $k++;}?> 
 
 				</tr>
 		

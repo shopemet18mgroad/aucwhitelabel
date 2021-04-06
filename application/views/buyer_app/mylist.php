@@ -1,6 +1,7 @@
  <?php 
 	//include('./header.php');
 ?>
+ 
         <!-- End of Topbar -->
 	
         <!-- Begin Page Content -->
@@ -19,9 +20,10 @@
 			<div class="col-xl-12 col-lg-7">
           <div class="card shadow mb-4">
             <div class="card-body">
+			
               <div class="table-responsive">
 
-			<table class="table table-bordered table-center table-sm text-center mt-5" id="datatable" width="100%" cellspacing="0">
+			<table class="table table-bordered table-center table-sm text-center mt-2" id="datatable" width="100%" cellspacing="0">
 			<thead>
 					<tr class="bg-info  text-white text-center"><th colspan="13"><b>EMD</b></th></tr>
 	
@@ -82,7 +84,9 @@
 					</div>
 				  </div>
 					</td>
-					<td data-label="EMD Payment"><a href="#"><button type="button" class="btn btn-primary btn-sm"disabled>Pay</button></a></td>
+					<td data-label="EMD Payment"><a href="#" data-toggle="modal" data-target="#myModal1"><button type="button" class="btn btn-primary btn-sm" disabled>Pay</button></a>
+					
+					</td>
 					
 					<td data-label="EMD Pay By DD">
 					
@@ -95,7 +99,7 @@
 					
 					<td data-label="EMD Payment">
 					<a href="<?php echo base_url()."Buyer_app_Mylist_dd_upload/emdreq/".$sessi."/".$aucencode."/".urlencode($sqldata->lotno);?>">
-					<button type='submit2'  onclick="this.disabled=true" class="btn btn-primary w-auto small" >Emd Request</button></a>
+					<button type='submit2'  onclick="this.disabled=true" class="btn btn-primary w-auto small">Emd Request</button></a>
 					
 					</td>
 				

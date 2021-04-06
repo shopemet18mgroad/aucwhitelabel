@@ -35,6 +35,7 @@ class Enquiry_Form_data extends CI_Controller {
 		
 		
 		$data['sqldata'] = $this->Admin_model->gettable('enquiry_form'); 
+		$data['sqldata1'] = $this->Admin_model->gettable('spocs');
 	
 	//print_r($data['sqldata'] ); die;
 		$sess = array('sessi'=>$this->session->userdata('username'));
@@ -46,26 +47,30 @@ class Enquiry_Form_data extends CI_Controller {
 	
 public function export_csvenquiry(){ 
 		// file name 
+		$slno = $this->uri->segment(3);
 		$this->load->model('Admin_model');
 		$filename = 'users_'.date('Ymd').'.csv'; 
 		header("Content-Description: File Transfer"); 
 		header("Content-Disposition: attachment; filename=$filename"); 
 		header("Content-Type: application/csv; ");
 	   // get data 
-	   $usersData = $this->Admin_model->getenquirydataDetails(' enquiry_form');
+	   $usersData = $this->Admin_model->getenquirydataDetails($slno);
+	  
 		//$usersData = $this->Admin_model->getSellerUserDetails();
 		//print_r($usersData); die;
 		// file creation 
 		$file = fopen('php://output','w');
-		$header = array("DATE","COMPANY NAME","ADDRESS","CITY","FIRST NAME","LAST NAME","PHONE","EMAIL","REMARK","LEAD GENERATION","SPOC","lOCATION"); 
+		$header = array("DATE","COMPANY NAME","ADDRESS","CITY","FIRST NAME","LAST NAME","PHONE","EMAIL","REMARK","LEAD GENERATION","SPOC","lOCATION","WEBSITE"); 
 		fputcsv($file, $header);
-		foreach ($usersData as $key=>$line){ 
-			fputcsv($file,$line); 
+		$i = 0;
+		foreach ($usersData as $line){ 
+			
+			fputcsv($file,array($line->date,$line->companyname,$line->vaddress,$line->vcity,$line->first,$line->last,$line->phone,$line->email,$line->remarks,$line->leadgeneration,$line->spoc,$line->location,$line->website)); 
 		}
 		fclose($file); 
 		exit; 
 	}	
-	
+
 	
 	
 }

@@ -52,6 +52,7 @@ class Admin_buyereditprofile extends CI_Controller {
 			echo '<th>Status</th>';
 			echo '<th>Agreement Download</th>';
 			echo '<th>Action</th>';
+			
 			echo '</tr>';
 			echo '</thead>';
 			echo '<tbody>';
@@ -85,9 +86,9 @@ class Admin_buyereditprofile extends CI_Controller {
 				echo '<a href="'.base_url().'Admin_buyereditprofile/INACTIVE/'.$dat['bcompany'].'" class="btn btn-sm text-white ">';
 				echo '<i class="fa fa-window-close" aria-hidden="true"  style="color:red"></i>';
 				echo '</a>';
+				
 				echo '</td>';
 				echo '</td>';
-
 				echo '</tr>';
 		$row_count++;	}
 			echo '</tbody>';
@@ -125,11 +126,48 @@ class Admin_buyereditprofile extends CI_Controller {
 			echo '</tbody>';
 			echo '</table>';
 		}
-
+echo "<script>\n";
+echo "$('.delete-confirm').on('click', function (event) {\n";
+echo "    event.preventDefault();\n";
+echo "    const url = $(this).attr('href');\n";
+echo "    swal({\n";
+echo "        title: 'Are you sure?',\n";
+echo "        text: 'This record and it`s details will be permanantly deleted!',\n";
+echo "        icon: 'warning',\n";
+echo "        buttons: [\"Cancel\", \"Yes!\"],\n";
+echo "    }).then(function(value) {\n";
+echo "        if (value) {\n";
+echo "            window.location.href = url;\n";
+echo "        }\n";
+echo "    });\n";
+echo "});\n";
+echo "</script>\n";
 
 
 	}
 	
+	public function export_csv1(){ 
+		// file name 
+		$datatoquerydb = $this->uri->segment(3);
+		$this->load->model('Admin_model');
+		$filename = 'users_'.date('Ymd').'.csv'; 
+		header("Content-Description: File Transfer"); 
+		header("Content-Disposition: attachment; filename=$filename"); 
+		header("Content-Type: application/csv; ");
+	   // get data 
+	   $usersData = $this->Admin_model->getBuyerUserDetails('buyerprofile','bcompany',$datatoquerydb);
+		//$usersData = $this->Admin_model->getSellerUserDetails();
+		//print_r($usersData); die;
+		// file creation 
+		$file = fopen('php://output','w');
+		$header = array("COMPANY NAME","CONTACT PERSON","CONTACT NO.","EMAIL ID","CITY","DATE"); 
+		fputcsv($file, $header);
+		foreach ($usersData as $key=>$line){ 
+			fputcsv($file,$line); 
+		}
+		fclose($file); 
+		exit; 
+	}
 	public function INACTIVE(){
 		$this->load->helper('url');
 		$this->load->library('session');
@@ -152,20 +190,49 @@ class Admin_buyereditprofile extends CI_Controller {
 		die;
 	}
 	
+	
+	public function Subscribed(){
+		$this->load->helper('url');
+		$this->load->library('session');
+		$dat = urldecode($this->uri->segment(3));
+		$data = array('bcompany'=>$dat);
+		$this->load->model('Admin_model');
+		$dat4 = $this->Admin_model->getdatafromtable('buyerprofile',$data);
+			
+		$Buyername = $dat4[0]->bname;	
+		$companyname = $dat4[0]->bcompany;
+		$username = $dat4[0]->busername;
+		
+		$update = array('subscription' => true);
+		
+		$updatecheck = array('bname'=>$Buyername,'bcompany'=>$companyname,'busername'=>$username);
+		$status = $this->Admin_model->update_custom('buyerprofile',$update,$updatecheck,$updatecheck);
+		
+		
+		header('location: '.base_url().'Admin_buyereditprofile/index/');
+		die;
+	}
+	
+	public function Unsubscribed(){
+		$this->load->helper('url');
+		$this->load->library('session');
+		$dat = urldecode($this->uri->segment(3));
+		$data = array('bcompany'=>$dat);
+		$this->load->model('Admin_model');
+		$dat4 = $this->Admin_model->getdatafromtable('buyerprofile',$data);
+			
+		$Buyername = $dat4[0]->bname;	
+		$companyname = $dat4[0]->bcompany;
+		$username = $dat4[0]->busername;
+		
+		$update = array('subscription' => false);
+		
+		$updatecheck = array('bname'=>$Buyername,'bcompany'=>$companyname,'busername'=>$username);
+		$status = $this->Admin_model->update_custom('buyerprofile',$update,$updatecheck,$updatecheck);
+		
+		
+		header('location: '.base_url().'Admin_buyereditprofile/index/');
+		die;
+	}
 }
-echo "<script>\n";
-echo "$('.delete-confirm').on('click', function (event) {\n";
-echo "    event.preventDefault();\n";
-echo "    const url = $(this).attr('href');\n";
-echo "    swal({\n";
-echo "        title: 'Are you sure?',\n";
-echo "        text: 'This record and it`s details will be permanantly deleted!',\n";
-echo "        icon: 'warning',\n";
-echo "        buttons: [\"Cancel\", \"Yes!\"],\n";
-echo "    }).then(function(value) {\n";
-echo "        if (value) {\n";
-echo "            window.location.href = url;\n";
-echo "        }\n";
-echo "    });\n";
-echo "});\n";
-echo "</script>\n";
+
