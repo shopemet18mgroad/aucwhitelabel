@@ -52,7 +52,7 @@ class Enquiry_Form extends CI_Controller
 	}
 	public function post_data(){
 	$this->load->helper(array('url', 'html', 'date'));
-	echo $company = $this->input->post('company');
+	echo $company = $this->input->post('cy');
 	echo "hi";
 	die;
 	}
