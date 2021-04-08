@@ -51,7 +51,10 @@ class Enquiry_Form extends CI_Controller
 		
 	}
 	public function Post_data(){
-	$this->load->helper('url');
+	$this->load->helper(array('url', 'html', 'date'));
+	date_default_timezone_set('Asia/Kolkata');
+		//initaliazing the current time 
+	$date =  Date('Y-m-d H:i:s');
 	$company = $this->input->post('company');
 	$address = $this->input->post('address');
 	$address2 = $this->input->post('address2');
@@ -67,7 +70,7 @@ class Enquiry_Form extends CI_Controller
 	$latlong = $this->input->post('latlong');
 	$check_db = array('slno' => $uid);
 		$this->load->model('Admin_model');
-		if($this->Admin_model->check('spocs', $check_db)){
+		if(!$this->Admin_model->check('spocs', $check_db)){
 			$data = array('date'=>$date,'companyname' => $company, 'vaddress' => $address,
 		'vcity' => $address2, 'first' => $name,
 		'last' => $optionalph,'phone' => $phone, 'email'=> $email,
@@ -78,6 +81,5 @@ class Enquiry_Form extends CI_Controller
 		}else{
 		 echo "INV";
 	  }
-	die;
 	}
 }
