@@ -68,16 +68,17 @@ class Enquiry_Form extends CI_Controller
 	$check_db = array('slno' => $uid);
 		$this->load->model('Admin_model');
 		if($this->Admin_model->check('spocs', $check_db)){
-		   echo "INV";
-		}else{
-		
-		 data = array('date'=>$date,'companyname' => $company, 'vaddress' => $address,
+			$data = array('date'=>$date,'companyname' => $company, 'vaddress' => $address,
 		'vcity' => $address2, 'first' => $name,
 		'last' => $optionalph,'phone' => $phone, 'email'=> $email,
 		'remarks' => $remarks,'leadgeneration'=>$leadgen,
 		'spoc'=>$uid ,'location'=>$location,'website'=>$website,'latlong'=>$latlong);
 		$status = $this->Admin_model->insert('enquiry_form', $data);
 		echo "OK";
+		die;
+		}else{
+		 echo "INV";
+		 
 	  }
 	die;
 	}
