@@ -53,7 +53,7 @@ class Enquiry_Form extends CI_Controller
 	public function Post_data(){
 	$this->load->helper(array('url', 'html', 'date'));
 	date_default_timezone_set('Asia/Kolkata');
-		//initaliazing the current time 
+		//initaliazing the current ti//me 
 	$date =  Date('Y-m-d H:i:s');
 	$company = $this->input->post('company');
 	$address = $this->input->post('address');
