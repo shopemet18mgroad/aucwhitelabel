@@ -66,6 +66,7 @@ class Enquiry_Form extends CI_Controller
 	$location = $this->input->post('location');
 	$latlong = $this->input->post('latlong');
 	$check_db = array('slno' => $uid);
+	print_r($check_db);die;
 		$this->load->model('Admin_model');
 		if($this->Admin_model->check('spocs', $check_db)){
 			$data = array('date'=>$date,'companyname' => $company, 'vaddress' => $address,
@@ -75,10 +76,9 @@ class Enquiry_Form extends CI_Controller
 		'spoc'=>$uid ,'location'=>$location,'website'=>$website,'latlong'=>$latlong);
 		$status = $this->Admin_model->insert('enquiry_form', $data);
 		echo "OK";
-		die;
+		  
 		}else{
 		 echo "INV";
-		 
 	  }
 	die;
 	}
