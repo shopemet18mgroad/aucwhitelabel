@@ -52,19 +52,32 @@ class Enquiry_Form extends CI_Controller
 	}
 	public function post_data(){
 	$this->load->helper('url');
-	echo $company = $this->input->post('company');
-	echo $address = $this->input->post('address');
-	echo $address2 = $this->input->post('address2');
-	echo $name = $this->input->post('name');
-	echo $phone = $this->input->post('phone');
-	echo $optionalph = $this->input->post('optionalph');
-	echo $email = $this->input->post('email');
-	echo $website = $this->input->post('website');
-	echo $leadgen = $this->input->post('leadgen');
-	echo $uid = $this->input->post('uid');
-	echo $remarks = $this->input->post('remarks');
-	echo $location = $this->input->post('location');
-	echo $latlong = $this->input->post('latlong');
+	$company = $this->input->post('company');
+	$address = $this->input->post('address');
+	$address2 = $this->input->post('address2');
+	$name = $this->input->post('name');
+	$phone = $this->input->post('phone');
+	$optionalph = $this->input->post('optionalph');
+	$email = $this->input->post('email');
+	$website = $this->input->post('website');
+	$leadgen = $this->input->post('leadgen');
+	$uid = $this->input->post('uid');
+	$remarks = $this->input->post('remarks');
+	$location = $this->input->post('location');
+	$latlong = $this->input->post('latlong');
+	$check_db = array('slno' => $uid);
+		$this->load->model('Admin_model');
+		if($this->Admin_model->check('spocs', $check_db)){
+		  data = array('date'=>$date,'companyname' => $company, 'vaddress' => $address,
+		'vcity' => $address2, 'first' => $name,
+		'last' => $optionalph,'phone' => $phone, 'email'=> $email,
+		'remarks' => $remarks,'leadgeneration'=>$leadgen,
+		'spoc'=>$uid ,'location'=>$location,'website'=>$website,'latlong'=>$latlong);
+		$status = $this->Admin_model->insert('enquiry_form', $data);
+		echo "OK";
+		}else{
+		 echo "INV";
+	  }
 	die;
 	}
 }

@@ -42,7 +42,8 @@ class Enquiry_Form_data extends CI_Controller {
 		$this->load->view('admin/header',$sess);
 		$this->load->view('admin/Enquiry_Form',$data);
 		$this->load->view('admin/footer');
-}}
+}
+}
 	
 	
 public function export_csvenquiry(){ 
