@@ -60,6 +60,7 @@ class Sellers_registeration extends CI_Controller
 			$spcb = $this->input->post('spcb');
 			$scountry = $this->input->post('scountry');
 			$susername = $this->input->post('susername');
+			$servperc = $this->input->post('servperc');
 			$spassword = base64_encode($this->input->post('spassword'));
 			$captcha = $this->input->post('captcha');
 			$sessCaptcha = $this->session->userdata('captchaCode');
@@ -68,11 +69,11 @@ class Sellers_registeration extends CI_Controller
 			// Checking the captcha
 			if ($captcha === $sessCaptcha) {
 				$this->load->model('Admin_model');
-				$data = array('scomapnyname' => $scomapnyname, 'sname' => $sname, 'ssellertype' => $ssellertype, 'scontactperson' => $scontactperson, 'sdesignation' => $sdesignation, 'span' => $span, 'saddress' => $saddress2, 'saddresscount' => $saddresscount, 'scity' => $scity, 'sgst' => $sgst, 'semail' => $semail, 'sphone' => $sphone, 'slocation' => $slocation, 'spin' => $spin, 'sstate' => $sstate, 'spcb' => $spcb, 'scin' => $scin, 'scountry' => $scountry, 'susername' => $susername, 'spassword' => $spassword);
+				$data = array('scomapnyname' => $scomapnyname, 'sname' => $sname, 'ssellertype' => $ssellertype, 'scontactperson' => $scontactperson, 'sdesignation' => $sdesignation, 'span' => $span, 'saddress' => $saddress2,'saddresscount' => $saddresscount, 'scity' => $scity, 'sgst' => $sgst, 'semail' => $semail, 'sphone' => $sphone, 'slocation' => $slocation, 'spin' => $spin, 'sstate' => $sstate, 'spcb' => $spcb, 'scin' => $scin, 'scountry' => $scountry, 'susername' => $susername, 'spassword' => $spassword,'servperc'=>$servperc);
 				// check if company name exist before storing
 
 				$status = $this->Admin_model->insert('sellerprofile', $data);
-				$transfer = array('company' => $scomapnyname, 'sname' => $sname, 'designation' => $sdesignation, 'saddresscount' => $saddresscount, 'city' => $scity, 'pin' => $spin, 'username' => $susername, 'location' => $slocation, 'date' => $date);
+				$transfer = array('company' => $scomapnyname, 'sname' => $sname, 'designation' => $sdesignation, 'saddresscount' => $saddresscount, 'city' => $scity, 'pin' => $spin, 'username' => $susername, 'location' => $slocation, 'date' => $date,'servperc'=>$servperc);
 				if ($status) {
 					$this->session->set_flashdata('txdata', $transfer);
 					redirect('../Agreementforseller');

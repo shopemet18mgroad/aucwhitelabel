@@ -89,6 +89,10 @@
 							<td><input class="form-control w-50" type="text" id="sphone" name="sphone" value="<?php echo $sqldata[0]->sphone; ?>"></td>
 						</tr>
 						<tr>
+							<td class="btxt">Percentage:</td>
+							<td><input class="form-control w-50" type="text" id="servperc" name="servperc" value="<?php echo $sqldata[0]->servperc; ?>"></td>
+						</tr>
+						<tr>
 								<td>Address</td>
 								<td>
 								<?php

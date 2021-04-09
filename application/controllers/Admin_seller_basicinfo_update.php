@@ -55,6 +55,7 @@ class Admin_seller_basicinfo_update extends CI_Controller {
 		$scountry  = $this->input->post('scountry');
 		$sbankername  = $this->input->post('sbankername');
 		$saccountnumber  = $this->input->post('saccountnumber');
+		$servperc  = $this->input->post('servperc');
 		$sbranch  = $this->input->post('sbranch');
 		$sifsccode  = $this->input->post('sifsccode');
 		$profileimage[] = $this->input->post('profileimage');
@@ -115,7 +116,7 @@ class Admin_seller_basicinfo_update extends CI_Controller {
 		
 		
 		//==================================================================
-		$data2 = array('sname' => $sname,'scomapnyname' => $scomapnyname, 'ssellertype' => $ssellertype, 'scontactperson' => $scontactperson, 'sdesignation' => $sdesignation, 'scin' => $scin, 'sgst' => $sgst, 'span' => $span,'spcb' => $spcb, 'semail' => $semail, 'sphone' => $sphone , 'saddress' => $saddress2, 'saddresscount' => $saddresscount, 'spin' => $spin, 'sstate' => $sstate, 'scountry' => $scountry, 'sbankername' => $sbankername, 'saccountnumber' => $saccountnumber, 'sbranch' => $sbranch, 'sifsccode' => $sifsccode, 'suploadprofilepic' => $pic_array, 'ssigneddocument' => $doc_array, 'sref' => $sref);
+		$data2 = array('servperc' => $servperc,'sname' => $sname,'scomapnyname' => $scomapnyname, 'ssellertype' => $ssellertype, 'scontactperson' => $scontactperson, 'sdesignation' => $sdesignation, 'scin' => $scin, 'sgst' => $sgst, 'span' => $span,'spcb' => $spcb, 'semail' => $semail, 'sphone' => $sphone , 'saddress' => $saddress2, 'saddresscount' => $saddresscount, 'spin' => $spin, 'sstate' => $sstate, 'scountry' => $scountry, 'sbankername' => $sbankername, 'saccountnumber' => $saccountnumber, 'sbranch' => $sbranch, 'sifsccode' => $sifsccode, 'suploadprofilepic' => $pic_array, 'ssigneddocument' => $doc_array, 'sref' => $sref);
 		//$this->load->view('xya', $data);
 		$datainserr = "Data Inserted Successfully";
 		$updatech = array('scomapnyname' => $scomapnyname);

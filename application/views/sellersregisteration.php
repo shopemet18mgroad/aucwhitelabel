@@ -167,6 +167,10 @@
                   <td><b>PCB License Number</b></td>
                   <td><input class="form-control w-100" type="text" id="spcb" name="spcb" size="50"></td>
                 </tr>
+                <tr>
+                  <td><b>Percentage</b></td>
+                  <td><input class="form-control w-100" type="text" id="servperc" name="servperc" size="50"></td>
+                </tr>
                 <!-- CAPATCHA -->
                 <tr>
                   <td><b>CAPATCHA : </b><span id="captImg" class="captImg">&nbsp; <img src="<?php echo base_url() . "web_files/captcha_images/" . $ImgFileName; ?>"></span><a href="javascript:void(0);" class="refreshCaptcha">&nbsp;&nbsp;&nbsp;<br>Refresh Captacha</a></td>

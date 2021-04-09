@@ -259,7 +259,8 @@ The Contract will remain valid for 1 time sale/ 6 months/ 1 year of this Agreeme
 <b>10.	Service Charge</b><br>
 <form action="./AgreementSellercharg" method="POST">
 10.1	The seller shall be entitled to a service charge of
-<input class="percent" type="text" value="%" name="servperc" maxlength="3" size="4">
+<?php echo  $dat[0]->$servperc;?>
+<!--<input class="percent" type="text" value="%" name="servperc" maxlength="3" size="4">-->
 on the basis of the Delivery Order / sale invoice issued through this auction over the Aucjunction portal.<br>
 10.2	The service charge is exclusive of any other taxes and duties levied by the Statutory Authorities of different States and Central Government. Service Charge will be calculated on the amount realised excluding Excise Duty and Sales Tax<br>
 </p>

@@ -24,8 +24,9 @@ class Registration extends CI_Controller {
 		
 		$dataw = $this->uri->segment(3);
 		$datad = $this->uri->segment(4);
+		$datas = $this->uri->segment(5);
 		$uname = array('username'=>$dataw);
-		$update = array('sagreement'=>true,'sagreementdate'=>$datad);
+		$update = array('sagreement'=>true,'sagreementdate'=>$datad,'servperc'=>$datas);
 		//$update2 = array('bagreement'=>true,'bagreementdate'=>$datad);
 
 		$this->load->model('Admin_model');

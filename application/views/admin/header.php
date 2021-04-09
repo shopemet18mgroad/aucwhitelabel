@@ -30,7 +30,7 @@
 	/*  Force table to not be like tables anymore  */
     table, thead, tbody, th, td, tr {  
 		 display: block!important;  
-		 width:100%!important;
+		 width:auto;
 	
   } 
     

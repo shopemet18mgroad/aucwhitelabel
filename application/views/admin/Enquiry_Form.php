@@ -45,6 +45,7 @@
 	  <select class="form-control"  id="myInput" name="myInput">
 	  
 	  <option value="">SELECT</option>
+	  <option value="">All</option>
 	   <?php foreach( $sqldata1 as $row){?>
 	     
   
@@ -67,10 +68,14 @@
     </div>
     </div></center>
 
-
     </thead>
+	 
     
   </table>
+  
+  
+  
+  
 <script>
 
 $(document).ready(function(){

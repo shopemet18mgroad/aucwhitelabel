@@ -130,7 +130,7 @@ text-align:left;
 		
 	display: inline-block;
 	font-size: 15Px;
-   padding-left:200px;
+   padding-left:160px;
 	   
 
 }
@@ -369,7 +369,7 @@ $dataUri2 = 'data:image/' . $type . ';base64,' . base64_encode($data2);
 <b>10.	Service Charge</b> 
 <form action="./AgreementSellercharg" method="POST">
 <p class ="para">
-10.1	The seller shall be entitled to a service charge of % on the basis of the Delivery Order / sale invoice<br> issued through this auction over the Aucjunction portal.<br>
+10.1	The seller shall be entitled to a service charge of <?php echo $dat[0]->servperc; ?> % on the basis of the Delivery Order / sale invoice<br> issued through this auction over the Aucjunction portal.<br>
 10.2	The service charge is exclusive of any other taxes and duties levied by the Statutory Authorities of different States and Central Government. Service Charge will be calculated on the amount realised excluding Excise Duty and Sales Tax<br>
 </p>
 <p class="termstxt2">SELLER TERMS AND CONDITIONS</p>
@@ -467,7 +467,7 @@ $dataUri4 = 'data:image/' . $type . ';base64,' . base64_encode($data4);
 
 
 ?>
-<img src="<?php echo $dataUri4;?>" width="20.5%" height="60" style="padding-left:50px">
+<img src="<?php echo $dataUri4;?>" width="30%" height="60" style="padding-left:40px">
 
 <br>
 Signature and Seal.<br>
