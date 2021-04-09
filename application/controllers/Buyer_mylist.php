@@ -72,9 +72,9 @@ class Buyer_mylist extends CI_Controller {
 		$aucclosetime = $tmp[0];
 		$data['ct'] = $aucclosetime;
 		}
-		$paysub = array('busername'=>$sess2,'subscription'=>false);
-		$q = $this->Admin_model->getdatafromtable('buyerprofile', $paysub);
-		$data['sql']= $q;
+		//$paysub = array('busername'=>$sess2,'subscription'=>false);
+		//$q = $this->Admin_model->getdatafromtable('buyerprofile', $paysub);
+		//$data['sql']= $q;
 		//print_r($q); die;
 		$data['sessi']= $sess2;
 		$this->load->view('buyer/header',$sess);

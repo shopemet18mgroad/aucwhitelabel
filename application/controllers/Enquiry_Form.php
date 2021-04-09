@@ -50,19 +50,36 @@ class Enquiry_Form extends CI_Controller
 			  }
 		
 	}
-	public function post_data(){//
+	public function Post_data(){
 	$this->load->helper(array('url', 'html', 'date'));
-	echo $maku = $this->input->post('maku');
-	echo $alfa = $this->input->post('alfa');die;
-		//$dat = urldecode($this->uri->segment(3));
-		/* $check_db = array('slno' => $dat);
+	date_default_timezone_set('Asia/Kolkata');
+		//initaliazing the current ti//me 
+	$date =  Date('Y-m-d H:i:s');
+	$company = $this->input->post('company');
+	$address = $this->input->post('address');
+	$address2 = $this->input->post('address2');
+	$name = $this->input->post('name');
+	$phone = $this->input->post('phone');
+	$optionalph = $this->input->post('optionalph');
+	$email = $this->input->post('email');
+	$website = $this->input->post('website');
+	$leadgen = $this->input->post('leadgen');
+	$uid = $this->input->post('uid');
+	$remarks = $this->input->post('remarks');
+	$location = $this->input->post('location');
+	$latlong = $this->input->post('latlong');
+	$check_db = array('slno' => $uid);
 		$this->load->model('Admin_model');
-			  if($this->Admin_model->check('spocs', $check_db)){
-				  echo "BYE"; 
-			  }else{
-				 echo "HI";
-			  } */
-			  
-		
+		if(!$this->Admin_model->check('spocs', $check_db)){
+			$data = array('date'=>$date,'companyname' => $company, 'vaddress' => $address,
+		'vcity' => $address2, 'first' => $name,
+		'last' => $optionalph,'phone' => $phone, 'email'=> $email,
+		'remarks' => $remarks,'leadgeneration'=>$leadgen,
+		'spoc'=>$uid ,'location'=>$location,'website'=>$website,'latlong'=>$latlong);
+		$status = $this->Admin_model->insert('enquiry_form', $data);
+		echo "OK";
+		}else{
+		 echo "INV";
+	  }
 	}
 }
