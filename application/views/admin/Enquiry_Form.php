@@ -33,7 +33,7 @@
 				</div>
 			</form>
 			
-         <table class="table table-striped text-center table-sm table-bordered mt-5" id="dataTable"  width="100%" cellspacing="0">	
+         <table class="table table-striped text-center table-sm table-bordered mt-5"   width="100%" cellspacing="0">	
     <thead class="bg-primary text-white">
 	
 	<center> <div class="form-group">
@@ -44,8 +44,9 @@
 	 
 	  <select class="form-control"  id="myInput" name="myInput">
 	  
-	  <option value="">SELECT</option>
-	  <option value="">All</option>
+	  
+	  <option  value="">ALL</option>
+	   
 	   <?php foreach( $sqldata1 as $row){?>
 	     
   
@@ -67,8 +68,58 @@
 		<br><a  id="mylink" href="" type="button" class="btn btn-info btn-sm ml-3 mylink"><b>Download Excel</b></a><br><br>
     </div>
     </div></center>
+ <tr style="font-size:12px;">
+	<th>SL.NO</th>
+	<th>Date and Time</th>
+	<th>Companyname Name</th>
+	<th>Multiple Address </th>
+	<th>Name</th>
+	<th>Multiple Phn.no </th>
+	<th>email</th>
+	<th>Unique Id</th>
+	<th>Website</th>
+	<th>Lead Generation</th>
+	<th>Remarks</th>
+	<th>location</th>
+	</tr>
 
     </thead>
+	
+	
+	  
+    <tbody id = "myTable">
+ 
+	<?php  $count = 1;?>
+	<?php foreach($sqldata as $row){?>
+      
+	  <tr style="font-size:12px;">
+	           <td><?php echo $count; ?></td>
+		  <td ><?php echo $row->date; ?></td>
+		  <td><?php echo $row->companyname; ?></td>
+		  <td ><?php echo $row->vaddress; ?>/<br><?php echo $row->vcity; ?></td>
+		  <td><?php echo $row->first; ?></td>
+		  
+		  <td><?php echo $row->last; ?>/<br><?php echo $row->phone; ?></td>
+		
+		  <td><?php echo $row->email; ?></td>
+		   <td><?php echo $row->spoc;
+		   
+		   
+		   
+		   ?>
+		   
+		   </td>
+		   <td><?php echo $row->website; ?></td>
+		  
+		  <td><?php echo $row->leadgeneration; ?></td>
+		  <td style="font-size:10px;"><?php echo $row->remarks; ?></td>
+		  <td style="font-size:10px;"><?php echo $row->location; ?></td>
+		  <?php $count++;?>
+	  </tr>
+	  
+	
+  <?php }?>
+    </tbody>
 	 
     
   </table>
@@ -88,6 +139,7 @@ $(document).ready(function(){
   });
 });
 </script>
+	
 	
 
 		
