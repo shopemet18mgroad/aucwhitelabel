@@ -163,13 +163,14 @@
                   <td><input class="form-control w-100" onkeyup="validate_sgst()" type="text" id="scin" name="scin" size="50"></td>
                 </tr>
                 <!-- PCB License Number -->
-                <tr>
-                  <td><b>PCB License Number</b></td>
-                  <td><input class="form-control w-100" type="text" id="spcb" name="spcb" size="50"></td>
-                </tr>
+                
                 <tr>
                   <td><b>Percentage</b></td>
                   <td><input class="form-control w-100" type="text" id="servperc" name="servperc" size="50"></td>
+                </tr>
+                <tr>
+                  <td><b>PCB License Number</b></td>
+                  <td><input class="form-control w-100" type="text" id="spcb" name="spcb" size="50"></td>
                 </tr>
                 <!-- CAPATCHA -->
                 <tr>

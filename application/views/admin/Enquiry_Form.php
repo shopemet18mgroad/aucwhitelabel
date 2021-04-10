@@ -45,27 +45,24 @@
 	  <select class="form-control"  id="myInput" name="myInput">
 	  
 	  
-	  <option  value="">ALL</option>
+	  
 	   
 	   <?php foreach( $sqldata1 as $row){?>
 	     
   
-	   <option value="<?php echo $row->slno;?>">
-	   <?php echo $row->spoc;?>
+	   <option value="<?php echo $row->slno;?>"> <?php echo $row->spoc;?></option>
+	   <?php }?>
 	   
+	   <option value="">ALL</option>
 	   
-	    </option>
 
-
-	
-  <?php }?>	
 
         
 
 
 
      </select>
-		<br><a  id="mylink" href="" type="button" class="btn btn-info btn-sm ml-3 mylink"><b>Download Excel</b></a><br><br>
+		<br><a id="mylink" href="" type="button" class="btn btn-info btn-sm ml-3 mylink"><b>Download Excel</b></a><br><br>
     </div>
     </div></center>
  <tr style="font-size:12px;">
@@ -75,12 +72,13 @@
 	<th>Multiple Address </th>
 	<th>Name</th>
 	<th>Multiple Phn.no </th>
-	<th>email</th>
+	<th>Email</th>
 	<th>Unique Id</th>
 	<th>Website</th>
 	<th>Lead Generation</th>
 	<th>Remarks</th>
-	<th>location</th>
+	<th>Location</th>
+	<th>Live Location</th>
 	</tr>
 
     </thead>
@@ -114,6 +112,21 @@
 		  <td><?php echo $row->leadgeneration; ?></td>
 		  <td style="font-size:10px;"><?php echo $row->remarks; ?></td>
 		  <td style="font-size:10px;"><?php echo $row->location; ?></td>
+		  <?php 
+		  if($row->latlong != "" && $row->latlong != "NA" && $row->latlong != NULL){
+			  $loca = explode('|',$row->latlong);
+			  if($loca[0] == "na"||$loca[0] == NULL|| $loca[0] == "NA"){
+				   $latlong="#";
+			  }else{
+				  $latlong = "https://www.google.com/maps/?q=".$loca[0].",".$loca[1];
+			  }
+			 
+		  }else{
+			   $latlong="#";
+		  } 
+			  
+		  ?>
+		  <td style="font-size:10px;"><a href="<?php echo $latlong; ?>"><?php echo $latlong; ?></a></td>
 		  <?php $count++;?>
 	  </tr>
 	  

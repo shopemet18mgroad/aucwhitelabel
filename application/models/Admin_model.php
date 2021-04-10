@@ -561,7 +561,16 @@ class Admin_model extends CI_Model
 		$this->db->where('spoc', $spoc);
 		$query = $this->db->get();
 		return $query->result();
-	}	
+	}
+	
+	public function getenquirydataDetails1(){
+		
+		$this->db->select('*');
+		$this->db->from('enquiry_form');
+		$query = $this->db->get();
+		return $query->result();
+	}
+	
 	public function getSellerUserDetails1($table, $col, $query){
 		$this->db->select('scomapnyname	,scontactperson,sphone,semail,scity,sagreementdate');
 		$this->db->from($table);
