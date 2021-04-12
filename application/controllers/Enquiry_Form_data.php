@@ -56,10 +56,11 @@ public function export_csvenquiry(){
 		header("Content-Type: application/csv; ");
 	   // get data 
 	   $usersData = $this->Admin_model->getenquirydataDetails($slno);
-	  
+	   $usersData1 = $this->Admin_model->getenquirydataDetails1();
 		//$usersData = $this->Admin_model->getSellerUserDetails();
 		//print_r($usersData); die;
 		// file creation 
+		if($slno){
 		$file = fopen('php://output','w');
 		$header = array("DATE","COMPANY NAME","ADDRESS","CITY","FIRST NAME","LAST NAME","PHONE","EMAIL","REMARK","LEAD GENERATION","SPOC","lOCATION","WEBSITE"); 
 		fputcsv($file, $header);
@@ -70,7 +71,21 @@ public function export_csvenquiry(){
 		}
 		fclose($file); 
 		exit; 
-	}	
+}	
+else {
+		$file = fopen('php://output','w');
+		$header = array("DATE","COMPANY NAME","ADDRESS","CITY","FIRST NAME","LAST NAME","PHONE","EMAIL","REMARK","LEAD GENERATION","SPOC","lOCATION","WEBSITE"); 
+		fputcsv($file, $header);
+		$i = 0;
+		foreach ($usersData1 as $line){ 
+			
+			fputcsv($file,array($line->date,$line->companyname,$line->vaddress,$line->vcity,$line->first,$line->last,$line->phone,$line->email,$line->remarks,$line->leadgeneration,$line->spoc,$line->location,$line->website)); 
+		}
+		fclose($file); 
+		exit; 
+}
+
+}
 
 	
 	

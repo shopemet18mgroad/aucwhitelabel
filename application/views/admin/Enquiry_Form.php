@@ -33,7 +33,7 @@
 				</div>
 			</form>
 			
-         <table class="table table-striped text-center table-sm table-bordered mt-5"   width="100%" cellspacing="0">	
+         <table class="table table-striped text-center table-sm table-bordered w-auto small"   width="100%" cellspacing="0">	
     <thead class="bg-primary text-white">
 	
 	<center> <div class="form-group">
@@ -43,35 +43,23 @@
 	  
 	 
 	  <select class="form-control"  id="myInput" name="myInput">
-	  
-	  
-	  <option  value="">ALL</option>
-	   
+		<option  value="">SELECT</option>
 	   <?php foreach( $sqldata1 as $row){?>
 	     
-  
-	   <option value="<?php echo $row->slno;?>">
-	   <?php echo $row->spoc;?>
-	   
-	   
-	    </option>
-
-
-	
-  <?php }?>	
-
-        
-
-
+		
+	   <option value="<?php echo $row->slno;?>"><?php echo $row->spoc;}?></option>
+	  
+		
+	   <option  value="">ALL</option>
 
      </select>
 		<br><a  id="mylink" href="" type="button" class="btn btn-info btn-sm ml-3 mylink"><b>Download Excel</b></a><br><br>
     </div>
     </div></center>
- <tr style="font-size:12px;">
-	<th>SL.NO</th>
+ <tr>
+	<th>S.No.</th>
 	<th>Date and Time</th>
-	<th>Companyname Name</th>
+	<th>Company Name</th>
 	<th>Multiple Address </th>
 	<th>Name</th>
 	<th>Multiple Phn.no </th>
@@ -92,11 +80,11 @@
 	<?php  $count = 1;?>
 	<?php foreach($sqldata as $row){?>
       
-	  <tr style="font-size:12px;">
+	  <tr>
 	           <td><?php echo $count; ?></td>
 		  <td ><?php echo $row->date; ?></td>
 		  <td><?php echo $row->companyname; ?></td>
-		  <td ><?php echo $row->vaddress; ?>/<br><?php echo $row->vcity; ?></td>
+		  <td><?php echo $row->vaddress; ?>/<br><?php echo $row->vcity; ?></td>
 		  <td><?php echo $row->first; ?></td>
 		  
 		  <td><?php echo $row->last; ?>/<br><?php echo $row->phone; ?></td>
@@ -112,8 +100,8 @@
 		   <td><?php echo $row->website; ?></td>
 		  
 		  <td><?php echo $row->leadgeneration; ?></td>
-		  <td style="font-size:10px;"><?php echo $row->remarks; ?></td>
-		  <td style="font-size:10px;"><?php echo $row->location; ?></td>
+		  <td><?php echo $row->remarks; ?></td>
+		  <td><?php echo $row->location; ?></td>
 		  <?php $count++;?>
 	  </tr>
 	  

@@ -145,10 +145,10 @@
 
 						</div>
 
-						<div class="tab-pane h-100 p-3 border border-primary" id="all" role="tabpanel" aria-labelledby="all-tab">
+						<div class="tab-pane h-100 p-3 w-75 border border-primary" id="all" role="tabpanel" aria-labelledby="all-tab">
 							<div class="table-holder">
 							<font size="4" face="Arial" >
-								<table class="table table-bordered text-center display w-auto small table-fixed" style="overflow-y:hidden;" id="">
+								<table class="table table-bordered display w-auto small text-center" id="">
 									<thead class="thead-auc">
 										<tr>
 
@@ -156,7 +156,7 @@
 											<th width="1%">Lot No</th>
 											<th width="1%">DESCRIPTION</th>
 											<th width="1%">QUANTITY</th>
-											<th width="86%">DATE & TIME</th>
+											<th class="86%">DATE & TIME</th>
 
 
 										</tr>

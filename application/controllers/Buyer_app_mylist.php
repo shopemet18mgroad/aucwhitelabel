@@ -61,6 +61,10 @@ class Buyer_app_mylist extends CI_Controller {
 		$emdpaid = array('bidderusername'=>$sess2,'emdpaid'=>false, 'emdrequest' =>false);
 		$query = $this->Admin_model->getdatafromtable('biddercart', $emdpaid);
 		$data['sqldat']= $query;
+		
+		$q = $this->Admin_model->buyersubscriptionfetch('buyerprofile', $sess['sessi']);
+		$data['sql']= $q;
+		
 		if(count($data['sqldat'])){
 		$aucstarttime = $data['sqldat'][0]->aucstartdate_time;
 		$tmp1 = explode('.',$aucstarttime);

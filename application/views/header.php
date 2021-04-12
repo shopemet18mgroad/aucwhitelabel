@@ -72,15 +72,7 @@ table th {
     border: 0;
   }
 
-    
- 
-  
-  
-  
-  
-  
-  
-  
+
   @media only screen and (max-width: 768px) {
     table caption {
 		font-size: 1.3em;

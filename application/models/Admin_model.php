@@ -562,6 +562,15 @@ class Admin_model extends CI_Model
 		$query = $this->db->get();
 		return $query->result();
 	}	
+	
+	public function getenquirydataDetails1(){
+		
+		$this->db->select('*');
+		$this->db->from('enquiry_form');
+		$query = $this->db->get();
+		return $query->result();
+	}
+	
 	public function getSellerUserDetails1($table, $col, $query){
 		$this->db->select('scomapnyname	,scontactperson,sphone,semail,scity,sagreementdate');
 		$this->db->from($table);
@@ -585,6 +594,16 @@ class Admin_model extends CI_Model
 		return $q->result_array();
 	}
 	
+	public function buyersubscriptionfetch($table, $sessi)
+	{
+		$this->db->select('*');
+		$this->db->from($table);
+		$this->db->where('subscription =', 0);
+		$this->db->or_where('subscription =', 1);
+		$this->db->where('busername =',$sessi);
+		$query = $this->db->get();
+		return $query->result();
+	}
 	
 
 	

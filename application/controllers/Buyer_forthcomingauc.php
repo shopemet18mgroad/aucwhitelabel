@@ -56,6 +56,7 @@ class Buyer_forthcomingauc extends CI_Controller {
 	
 	public function get_table(){
 		$time =  Date('Y-m-d H:i:s');
+		$sess = array('sessi'=>$this->session->userdata('username'));
 		$datatoquerydb = $this->uri->segment(3);
 		$this->load->model('Admin_model');
 		$data = $this->Admin_model->get_lookalike2('addlot','sdescription',$datatoquerydb);
@@ -89,6 +90,8 @@ class Buyer_forthcomingauc extends CI_Controller {
 				$sauc = str_ireplace('-','/',$dat['sauctionid']);
 				$saucqarray = array('sauctionid'=>$sauc,'saucclosedate_time >'=>$time);
 				$respdata = $this->Admin_model->getdatafromtable('auction',$saucqarray);
+				$q = $this->Admin_model->buyersubscriptionfetch('buyerprofile', $sess['sessi']);
+				$subscription = $q[0]->subscription;
 			
 				if($respdata){
 					echo '<tr>';
@@ -109,11 +112,18 @@ class Buyer_forthcomingauc extends CI_Controller {
 				echo '<td>'.$st.'</td>';
 				echo '<td>'.$dat['scategory'].'</td>';
 				echo '<td>'.$dat['sdescription'].'</td>';
+				if($subscription == true){
 				echo '<td>'.$dat['sname'].'</td>';
+				}
+				else{
+				echo '<td style="color:red">'."Pay Subscription".'</td>';	
+				}
 				echo '<td>'.$dat['sqty'].'</td>';
 				echo '<td>'.$dat['sgst'].'</td>';
 				echo '<td>'.$dat['slotlocation'].'</td>';
+				if($subscription == true){
 				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$aucencode.'/'.($dat['sname']).'" target="_blank"><i class="fa fa-download"></i></a></td>';
+				}else{echo '<td></td>';}
 				echo '';
 
 				echo '<td>';
