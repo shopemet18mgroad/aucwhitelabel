@@ -116,7 +116,7 @@ function validate1(){
 	var spassword = document.getElementById("spassword").value;
 	var sconfirmpassword = document.getElementById("sconfirmpassword").value;
 	var sgst = document.getElementById("sgst").value;
-	var servperc = document.getElementById("servperc").value;
+	
 	var scapcha = document.getElementById("captcha").value;
 	
 	
@@ -125,7 +125,7 @@ function validate1(){
 	//var AnswerInput = document.getElementsByName("saddresscount");
 	
 	
-if(scomapnyname == '' || ssellertype == '' || scontactperson == '' || span == '' || sstreet == '' || scity == '' || spin == '' || sstate == '' || scountry == '' || slocation == '' || semail == '' || phoneNo == '' || susername == '' || spassword == '' || sconfirmpassword == '' || sgst == '' ||  servperc == '' || scapcha == ''){
+if(scomapnyname == '' || ssellertype == '' || scontactperson == '' || span == '' || sstreet == '' || scity == '' || spin == '' || sstate == '' || scountry == '' || slocation == '' || semail == '' || phoneNo == '' || susername == '' || spassword == '' || sconfirmpassword == '' || sgst == '' ||  scapcha == ''){
 		swal("Alert!",  "Company Name, Type of seller, Contact Person, Pan, Street, City, Pin, State/Union Ter., Location, E-Mail, Phone No, User Name, Password , Confirm Password , GST No, Security Code  cannot leave any feild blank!", "error");
 		return false;
 	}
@@ -145,6 +145,18 @@ if(scomapnyname == '' || ssellertype == '' || scontactperson == '' || span == ''
 	
 }
   </script>
+	  
+<script>
+function validate_percentage(){
+var servperc = document.getElementById("servperc").value;
+alert(servperc);return false;
+	if(servperc == ''){
+			swal("Alert!",  "Percentage cannot leave any feild blank!", "error");
+		return false;
+		
+	}
+	}
+</script>
   <script>
   
     $('.refreshCaptcha').on('click', function(){

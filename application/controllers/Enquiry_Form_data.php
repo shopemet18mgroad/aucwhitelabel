@@ -62,24 +62,56 @@ public function export_csvenquiry(){
 		// file creation 
 		if($slno){
 		$file = fopen('php://output','w');
-		$header = array("DATE","COMPANY NAME","ADDRESS","CITY","FIRST NAME","LAST NAME","PHONE","EMAIL","REMARK","LEAD GENERATION","SPOC","lOCATION","WEBSITE"); 
+		
+		$header = array("DATE","COMPANY NAME","ADDRESS","CITY","FIRST NAME","LAST NAME","PHONE","EMAIL","REMARK","LEAD GENERATION","SPOC","lOCATION","WEBSITE","LATLONG"); 
 		fputcsv($file, $header);
 		$i = 0;
 		foreach ($usersData as $line){ 
+			 if($line->latlong != "" && $line->latlong != "NA" && $line->latlong != NULL){
+			  $loca = explode('|',$line->latlong);
+			  if($loca[0] == "na"||$loca[0] == NULL|| $loca[0] == "NA"){
+				   $latlong="#";
+			  }else{
+				  $latlong = "https://www.google.com/maps/?q=".$loca[0].",".$loca[1];
+			  }
+			 
+		  }else{
+			   $latlong="#";
+		  } 
 			
-			fputcsv($file,array($line->date,$line->companyname,$line->vaddress,$line->vcity,$line->first,$line->last,$line->phone,$line->email,$line->remarks,$line->leadgeneration,$line->spoc,$line->location,$line->website)); 
+			fputcsv($file,array($line->date,$line->companyname,$line->vaddress,$line->vcity,$line->first,$line->last,$line->phone,$line->email,$line->remarks,$line->leadgeneration,$line->spoc,$line->location,$line->website,$latlong)); 
 		}
 		fclose($file); 
 		exit; 
 }	
 else {
 		$file = fopen('php://output','w');
+
 		$header = array("DATE","COMPANY NAME","ADDRESS","CITY","FIRST NAME","LAST NAME","PHONE","EMAIL","REMARK","LEAD GENERATION","SPOC","lOCATION","WEBSITE"); 
 		fputcsv($file, $header);
 		$i = 0;
 		foreach ($usersData1 as $line){ 
 			
 			fputcsv($file,array($line->date,$line->companyname,$line->vaddress,$line->vcity,$line->first,$line->last,$line->phone,$line->email,$line->remarks,$line->leadgeneration,$line->spoc,$line->location,$line->website)); 
+
+		$header = array("DATE","COMPANY NAME","ADDRESS","CITY","FIRST NAME","LAST NAME","PHONE","EMAIL","REMARK","LEAD GENERATION","SPOC","lOCATION","WEBSITE","LATLONG"); 
+		fputcsv($file, $header);
+		$i = 0;
+		foreach ($usersData1 as $line){ 
+			 if($line->latlong != "" && $line->latlong != "NA" && $line->latlong != NULL){
+			  $loca = explode('|',$line->latlong);
+			  if($loca[0] == "na"||$loca[0] == NULL|| $loca[0] == "NA"){
+				   $latlong="#";
+			  }else{
+				   $latlong = "https://www.google.com/maps/?q=".$loca[0].",".$loca[1];
+			  }
+			 
+		  }else{
+			   $latlong="#";
+		  }
+			
+			fputcsv($file,array($line->date,$line->companyname,$line->vaddress,$line->vcity,$line->first,$line->last,$line->phone,$line->email,$line->remarks,$line->leadgeneration,$line->spoc,$line->location,$line->website,$latlong)); 
+
 		}
 		fclose($file); 
 		exit; 

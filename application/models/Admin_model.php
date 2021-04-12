@@ -561,7 +561,10 @@ class Admin_model extends CI_Model
 		$this->db->where('spoc', $spoc);
 		$query = $this->db->get();
 		return $query->result();
+
 	}	
+
+	}
 	
 	public function getenquirydataDetails1(){
 		
