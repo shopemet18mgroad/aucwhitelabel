@@ -33,11 +33,11 @@
 				</div>
 			</form>
 			
-         <table class="table table-striped text-center table-sm table-bordered w-auto small"   width="100%" cellspacing="0">	
+         <table class="table table-striped text-center table-sm table-bordered w-auto small"   width="100%" cellspacing="0"  id ="dataTable">	
     <thead class="bg-primary text-white">
 	
 	<center> <div class="form-group">
-      <label class="control-label col-sm-2" >SPOC:</label>
+      <label class="control-label col-sm-2">SPOC:</label>
 	  
       <div class="col-sm-4"> 
 	  
@@ -133,10 +133,7 @@
 	 
     
   </table>
-  
-  
-  
-  
+
 <script>
 
 $(document).ready(function(){

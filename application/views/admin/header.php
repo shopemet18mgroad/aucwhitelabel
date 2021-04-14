@@ -24,7 +24,7 @@
 	<script src="<?php echo base_url()."web_files/";?>js/js.js"></script>
     <style>
     
- @media only screen and (max-width: 600px) ,(min-device-width: 768px) and (max-device-width: 1024px)  {
+ @media only screen and (max-width: 600px),(min-device-width: 768px) and (max-device-width: 1024px)  {
 
 
 	/*  Force table to not be like tables anymore  */
