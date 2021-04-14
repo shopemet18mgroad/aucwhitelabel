@@ -104,8 +104,7 @@
 		  
 		  <td><?php echo $row->leadgeneration; ?></td>
 
-		  <td><?php echo $row->remarks; ?></td>
-		  <td><?php echo $row->location; ?></td>
+		 
 
 		  <td style="font-size:10px;"><?php echo $row->remarks; ?></td>
 		  <td style="font-size:10px;"><?php echo $row->location; ?></td>
