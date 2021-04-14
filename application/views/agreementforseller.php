@@ -147,7 +147,7 @@ The Contract will remain valid for 1 time sale/ 6 months/ 1 year of this Agreeme
 <div>
 For and On Behalf of <br>                                                                                               
 M/S&nbsp;<span><b><?php echo $company;?></b></span><br>	                                                                    
-By its  &nbsp;<span><b><?php echo $designation;?>&nbsp;</b></span>Mr./Mrs./Miss. &nbsp;<span><b><?php echo $sname;?></b></span>                      
+By its  &nbsp;<span><b><?php echo $designation;?>&nbsp;</b></span>Mr./Mrs./Miss. &nbsp;<span><b><?php echo $scontactperson;?></b></span>                      
 <br><br><br>
 Signature with Seal.
 </div>

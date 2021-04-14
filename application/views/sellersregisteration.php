@@ -135,7 +135,7 @@
                 <!-- Phone -->
                 <tr>
                   <td><b>Phone *</b></td>
-                  <td><input class="form-control w-100" type="text" id="sphone" name="sphone" size="50" title="Enter 10 digit mobile number" required></td>
+                  <td><input class="form-control w-100 sphn" type="text" id="sphone" name="sphone" size="50" title="Enter 10 digit mobile number" required></td>
                 </tr>
                 <!-- User Name -->
                 <tr>
@@ -170,7 +170,7 @@
                 </tr>
                 <tr>
                   <td><b>PCB License Number</b></td>
-                  <td><input class="form-control w-100" type="text" id="spcb" name="spcb" size="50"></td>
+                  <td><input class="form-control w-100" type="text" onkeyup="return validate_percentage()" id="spcb" name="spcb" size="50"></td>
                 </tr>
                 <!-- CAPATCHA -->
                 <tr>
@@ -180,7 +180,7 @@
               </tbody>
           </table>
           <div class="text-center">
-            <input type="submit" name="submit2" id="btn1" onclick="return validate1()" value=" Proceed" class="btn btn-primary col-3 mt-2 w-25">
+            <input type="submit" name="submit2" id="btn1" onclick="return validate1()" value="Proceed" class="btn btn-primary col-3 mt-2 w-25">
             <button type="reset" class="btn btn-primary col-3 mt-2">Reset</button>
           </div>
           </form>
@@ -220,6 +220,32 @@
 
   });
 </script>
+    <script type="text/javascript">    
+$(document).ready(function(){     
+        
+$(".sphn").change(function () {      
+var inputvalues = $(this).val();      
+  var regex =/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;    
+  if(!regex.test(inputvalues)){      
+  $(".sphn").val("");    
+  swal("Alert!","Invalid Phone Number", "error");    
+  return regex.test(inputvalues);    
+  }    
+});      
+    
+});    
+</script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 <script type="text/javascript">
   $(document).ready(function() {
 

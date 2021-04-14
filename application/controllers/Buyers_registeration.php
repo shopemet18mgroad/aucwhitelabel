@@ -65,7 +65,7 @@ class Buyers_registeration extends CI_Controller {
 			  // check if company name exisyt before storing
 			  
 			  $status = $this->Admin_model->insert('buyerprofile', $data);
-			  $transfer = array('company'=> $bcompany, 'bname'=>$bname,'designation'=>$bdesignation, 'address'=>$baddress, 'city' => $bcity, 'pin'=>$bpin, 'username'=>$busername, 'gst'=>$bgst, 'date'=>$date);
+			  $transfer = array('company'=> $bcompany, 'bname'=>$bname,'designation'=>$bdesignation, 'address'=>$baddress, 'city' => $bcity, 'pin'=>$bpin, 'username'=>$busername, 'gst'=>$bgst, 'date'=>$date, 'bcontactperson' => $bcontactperson);
 			  if($status){
 				  $this->session->set_flashdata('txdata',$transfer);
 				  redirect('../agreementforbuyer');

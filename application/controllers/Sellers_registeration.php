@@ -73,7 +73,7 @@ class Sellers_registeration extends CI_Controller
 				// check if company name exist before storing
 
 				$status = $this->Admin_model->insert('sellerprofile', $data);
-				$transfer = array('company' => $scomapnyname, 'sname' => $sname, 'designation' => $sdesignation, 'saddresscount' => $saddresscount, 'city' => $scity, 'pin' => $spin, 'username' => $susername, 'location' => $slocation, 'date' => $date,'servperc'=>$servperc);
+				$transfer = array('company' => $scomapnyname, 'sname' => $sname, 'designation' => $sdesignation, 'saddresscount' => $saddresscount, 'city' => $scity, 'pin' => $spin, 'username' => $susername, 'location' => $slocation, 'date' => $date,'servperc'=>$servperc,'scontactperson' => $scontactperson);
 				if ($status) {
 					$this->session->set_flashdata('txdata', $transfer);
 					redirect('../Agreementforseller');

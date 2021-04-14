@@ -97,66 +97,80 @@
  
   
  <script>
-  
-function validate1(){
-
-	var scomapnyname = document.getElementById("scomapnyname").value;
-	var ssellertype = document.getElementById("ssellertype").value;
-	var scontactperson = document.getElementById("scontactperson").value;
-	var span = document.getElementById("span").value;
-	var sstreet = document.getElementById("sstreet").value;
-	var scity = document.getElementById("scity").value;
-	var spin = document.getElementById("spin").value;
-	var sstate = document.getElementById("sstate").value;
+ 
+ function validate1(){
+ 
+    var scomapnyname = document.getElementById("scomapnyname").value;
+    var scontactperson = document.getElementById("scontactperson").value;
+	var sname = document.getElementById("sname").value;
+   	var span = document.getElementById("span").value;
+    var scity = document.getElementById("scity").value;
+    var spin = document.getElementById("spin").value;
 	var scountry = document.getElementById("scountry").value;
 	var slocation = document.getElementById("slocation").value;
 	var semail = document.getElementById("semail").value;
-	var phoneNo = document.getElementById("sphone").value;
+	var sphone = document.getElementById("sphone").value;
 	var susername = document.getElementById("susername").value;
 	var spassword = document.getElementById("spassword").value;
 	var sconfirmpassword = document.getElementById("sconfirmpassword").value;
 	var sgst = document.getElementById("sgst").value;
-	
-	var scapcha = document.getElementById("captcha").value;
-	
-	
-	//var saddress = document.getElementsByName("saddress");
-	//var ssigneddocument = document.getElementsByName("ssigneddocument");
-	//var AnswerInput = document.getElementsByName("saddresscount");
+	 var captcha = document.getElementById("captcha").value;
+	  var ssellertype = document.getElementById("ssellertype").value;
+	  var saddress = document.getElementById("saddress").value;
+	   var sstate = document.getElementById("sstate").value;
+	    var spcb = document.getElementById("spcb").value;
 	
 	
-if(scomapnyname == '' || ssellertype == '' || scontactperson == '' || span == '' || sstreet == '' || scity == '' || spin == '' || sstate == '' || scountry == '' || slocation == '' || semail == '' || phoneNo == '' || susername == '' || spassword == '' || sconfirmpassword == '' || sgst == '' ||  scapcha == ''){
+	 
+	 if(scomapnyname == '' || scontactperson == '' || span == '' || scity == '' || spin == '' || scountry == '' || slocation == '' || semail == '' || sphone == '' || susername == '' || spassword == '' || sconfirmpassword == '' || sgst == '' ||  captcha == '' || ssellertype=='' ||saddress == '' || sstate == ''|| spcb == '' ||sname == ''){
 		swal("Alert!",  "Company Name, Type of seller, Contact Person, Pan, Street, City, Pin, State/Union Ter., Location, E-Mail, Phone No, User Name, Password , Confirm Password , GST No, Security Code  cannot leave any feild blank!", "error");
 		return false;
 	}
-	if (phoneNo.value.length < 10 || phoneNo.value.length > 10) {
-    swal("Alert!", "Mobile No. is not valid, Please Enter 10 Digit Mobile No.", "error");
-    return false;
-  }
-  else if (phoneNo.value == "") {
-    swal("Alert!","Please enter your Mobile No.","error");
-    return false;
-  }
-	
-	if(spassword != sconfirmpassword){
-		swal("Alert!",  "Password and Confirm Password Should Match!", "error");
+	 if(spassword != sconfirmpassword){
+		swal("Alert!", "Password and Confirm Password Should Match!", "error");
 		return false;
 	}
-	
-}
+
+ 
+ }
+ 
+
   </script>
 	  
 <script>
 function validate_percentage(){
+	
 var servperc = document.getElementById("servperc").value;
-alert(servperc);return false;
+
 	if(servperc == ''){
-			swal("Alert!",  "Percentage cannot leave any feild blank!", "error");
+			swal("Alert!",  "Percentage Field cannot be blank!", "error");
 		return false;
 		
 	}
 	}
 </script>
+	
+		<script type="text/javascript">    
+$(document).ready(function(){     
+        
+$(".bphn").change(function () {      
+var inputvalues = $(this).val();      
+  var regex =/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;    
+  if(!regex.test(inputvalues)){      
+  $(".bphn").val("");    
+  swal("Alert!","Invalid Phone Number ", "error");    
+  return regex.test(inputvalues);    
+  }    
+});      
+    
+});    
+</script>
+	
+	
+	
+	
+	
+	
   <script>
   
     $('.refreshCaptcha').on('click', function(){
@@ -295,8 +309,7 @@ alert(servperc);return false;
 function validate(){
 
 	var bcompany = document.getElementById("bcompany").value;
-	var bcomptype = document.getElementById("bcomptype").value;
-	var bbuyertype = document.getElementById("bbuyertype").value;
+	var bname = document.getElementById("bname").value;
 	var bbuyerlocation = document.getElementById("bbuyerlocation").value;
 	var bcontactperson = document.getElementById("bcontactperson").value;
 	var bdesignation = document.getElementById("bdesignation").value;
@@ -306,30 +319,26 @@ function validate(){
 	var bstate = document.getElementById("bstate").value;
 	var bcountry = document.getElementById("bcountry").value;
 	var bemail = document.getElementById("bemail").value;
-	var phoneNo = document.getElementById("bphone").value;
+	var bphone = document.getElementById("bphone").value;
 	var bpan = document.getElementById("bpan").value;
 	var busername = document.getElementById("busername").value;
 	var bpassword = document.getElementById("bpassword").value;
 	var bconfirmpassword = document.getElementById("bconfirmpassword").value;
 	var bgst = document.getElementById("bgst").value;
-	var bcapcha = document.getElementById("captcha").value; 
-	//var saddress = document.getElementsByName("saddress");
-	//var ssigneddocument = document.getElementsByName("ssigneddocument");
-	//var AnswerInput = document.getElementsByName("saddresscount");
+	var captcha = document.getElementById("captcha").value; 
+	var bcin = document.getElementById("bcin").value; 
+	var bpcb = document.getElementById("bpcb").value; 
+	var bstate = document.getElementById("bstate").value; 
+	var bcomptype = document.getElementById("bcomptype").value; 
 	
-if( bcompany == '' || bcomptype == '' || bbuyertype == '' || bbuyerlocation == '' || bcontactperson == '' || bdesignation == ''|| baddress == '' || bcity == '' || bpin == '' || bstate == '' || bcountry == '' || bemail == '' || phoneNo == '' || bpan == '' || busername == '' || bpassword == '' || bconfirmpassword == '' || bgst == ''|| bcapcha == '' ){
-		swal("Alert!",  "Company, Company Type, Buyer Type, Buyer's Location, Contact Person, Postal Address, City, Pin, State/Union Ter, E-Mail, Phone No, Pan No, User Name, Password , Confirm Password , GST No, Security Code  cannot leave any feild blank!", "error");
+
+	
+if( bcompany == '' || bbuyerlocation == '' || bcontactperson == '' || bdesignation == ''|| baddress == '' || bcity == '' || bpin == '' || bstate == '' || bcountry == '' || bemail == '' || bphone == '' || bpan == '' || busername == '' || bpassword == '' || bconfirmpassword == '' || bgst == ''|| captcha == ''|| bcin == '' || bpcb == '' || bstate == '' || bcomptype == ''){
+		swal("Alert!",  "Company, Buyer's Location, Contact Person, Postal Address, City, Pin, State/Union Ter, E-Mail, Phone No, Pan No, User Name, Password , Confirm Password,PCB,CIN , GST No, Security Code  cannot leave any feild blank!", "error");
 		return false;
 	}
 	
-	if (phoneNo.value.length < 10 || phoneNo.value.length > 10) {
-    swal("Alert!", "Mobile No. is not valid, Please Enter 10 Digit Mobile No.", "error");
-    return false;
-  }
-  else if (phoneNo.value == "") {
-    swal("Alert!","Please enter your Mobile No.","error");
-    return false;
-  }
+
 	
 	if(bpassword != bconfirmpassword){
 		swal("Alert!",  "Password and Confirm Password Should Match!", "error");

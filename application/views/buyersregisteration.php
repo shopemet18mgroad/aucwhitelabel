@@ -116,7 +116,7 @@
 								<!-- Phone No -->
 								<tr>
 									<td><b>Phone No. *</b></td>
-									<td><input class="form-control w-100" type="text" id="bphone" name="bphone" size="50" required></td>
+									<td><input class="form-control bphn w-100" type="text" id="bphone" name="bphone" size="50"></td>
 								</tr>
 								<!-- Pan No -->
 								<tr>
@@ -146,12 +146,12 @@
 								<!-- PCB Licence NO -->
 								<tr>
 									<td><b>PCB Licence NO</b></td>
-									<td><input class="form-control w-50" onkeyup="validate_bgst()" type="text" id="bpcb" name="bpcb" required></td>
+									<td><input class="form-control w-50" onkeyup="validate_bgst()" type="text" id="bpcb" name="bpcb" ></td>
 								</tr>
 								<!-- CIN Number -->
 								<tr>
 									<td><b>CIN Number</b></td>
-									<td><input class="form-control w-50" type="text" id="bcin" name="bcin" required></td>
+									<td><input class="form-control w-50" type="text" id="bcin" name="bcin" ></td>
 								</tr>
 								<!-- CAPATCHA -->
 								<tr>
@@ -202,6 +202,18 @@
 
 	});
 </script>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 
 <script>
