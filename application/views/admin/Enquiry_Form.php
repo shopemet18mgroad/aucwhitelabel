@@ -53,24 +53,6 @@
 		
 	   <option  value="">ALL</option>
 
-	  
-	  
-	  
-	   
-	   <?php foreach( $sqldata1 as $row){?>
-	     
-  
-	   <option value="<?php echo $row->slno;?>"> <?php echo $row->spoc;?></option>
-	   <?php }?>
-	   
-	   <option value="">ALL</option>
-	   
-
-
-        
-
-
-
 
      </select>
 		<br><a id="mylink" href="" type="button" class="btn btn-info btn-sm ml-3 mylink"><b>Download Excel</b></a><br><br>
