@@ -561,7 +561,10 @@ class Admin_model extends CI_Model
 		$this->db->where('spoc', $spoc);
 		$query = $this->db->get();
 		return $query->result();
-	}
+
+	}	
+
+	
 	
 	public function getenquirydataDetails1(){
 		
@@ -594,6 +597,16 @@ class Admin_model extends CI_Model
 		return $q->result_array();
 	}
 	
+	public function buyersubscriptionfetch($table, $sessi)
+	{
+		$this->db->select('*');
+		$this->db->from($table);
+		$this->db->where('subscription =', 0);
+		$this->db->or_where('subscription =', 1);
+		$this->db->where('busername =',$sessi);
+		$query = $this->db->get();
+		return $query->result();
+	}
 	
 
 	

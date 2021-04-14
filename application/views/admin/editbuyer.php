@@ -186,7 +186,32 @@
 							
 							
 							?>
-						
+							<?php $subscription_amount = 1000;?>
+							<tr><td class="btxt">Subscription Amount</td><td><input class="form-control w-50" type="text" id="subscription_amount" name="subscription_amount" value="<?php echo $subscription_amount; ?>"></td>
+							
+							</tr>
+							<tr>  
+							<td>Subscription Type</td>
+							<td><select class="form-control w-50" name="subscription_type" id="subscription_type">
+							<option value="Cash">Cash</option>
+							<option value="DD">DD</option>
+							<option value="Cheque">Cheque</option>
+							<option value="Online">Online</option>
+							</select><textarea class="form-control w-50 mt-2" rows="5" id="comment" name="comment"></textarea></td>
+							</tr>  
+							<tr>  											<td>Subscription Date</td>
+							<td>
+							From: 	
+							<input class="form-control w-50" type="date" id="subscription_fromdate" name="subscription_fromdate" required>
+							</td>
+								</tr>
+								<tr>  
+							<td>Subscription Staus</td>
+							<td><select class="form-control w-50" name="subscription" id="subscription">
+							<option value="1">Subscribed</option>
+							<option value="0">Unsubscribed</option>
+							</select></td>
+							</tr>
 							<tr><td class="btxt">Reference</td><td><input class="form-control w-50" type="text" id="bref" name="bref" required></td></tr>			
 						</tbody>
 					</table>					

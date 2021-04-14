@@ -52,7 +52,12 @@ class Admin_buyereditprofile extends CI_Controller {
 			echo '<th>Status</th>';
 			echo '<th>Agreement Download</th>';
 			echo '<th>Action</th>';
-			
+			echo '<th>Subscription Status</th>';
+			echo '<th>Subscription Amount</th>';
+			echo '<th>Subscription Type</th>';
+			echo '<th>Comment</th>';
+			echo '<th>Subscription Date</th>';
+			echo '<th>Subscription Action</th>';
 			echo '</tr>';
 			echo '</thead>';
 			echo '<tbody>';
@@ -67,6 +72,7 @@ class Admin_buyereditprofile extends CI_Controller {
 				echo '<td>'.$dat['bcity'].'</td>';
 				echo '<td>'.$dat['bagreementdate'].'</td>';
 				$status = $dat['adaction'];
+				$subscription = $dat['subscription'];
 				if($status == 1){
 				echo '<td style="color:green;"><b>'."ACTIVE".'</b></td>';
 				}else{
@@ -87,6 +93,26 @@ class Admin_buyereditprofile extends CI_Controller {
 				echo '<i class="fa fa-window-close" aria-hidden="true"  style="color:red"></i>';
 				echo '</a>';
 				
+				echo '</td>';
+				echo '</td>';
+				$subscription = $dat['subscription'];
+				if($subscription == 1){
+				echo '<td style="color:green;"><b>'."Subscribed".'</b></td>';
+				}else{
+				echo '<td style="color:red;"><b>'."Unsubscribed".'</b></td>';	
+				}
+				echo '<td>'.$dat['subscription_amount'].'</td>';
+				echo '<td>'.$dat['subscription_type'].'</td>';
+				echo '<td>'.$dat['comment'].'</td>';
+				echo '<td>From<br>'.$dat['subscription_fromdate'].'<br>To<br>'.$dat['subscription_todate'].'</td>';
+				
+				echo '<td width="12%">';
+				echo '<a href="'.base_url().'Admin_buyereditprofile/Subscribed/'.$dat['bcompany'].'" class="btn btn-sm text-white ">';
+				echo '<i class="fa fa-check-circle" aria-hidden="true"  style="color:green"></i>';
+				echo '</a>';
+				echo '<a href="'.base_url().'Admin_buyereditprofile/Unsubscribed/'.$dat['bcompany'].'" class="btn btn-sm text-white ">';
+				echo '<i class="fas fa-times-circle" aria-hidden="true"  style="color:red"></i>';
+				echo '</a>';
 				echo '</td>';
 				echo '</td>';
 				echo '</tr>';

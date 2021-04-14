@@ -1,7 +1,35 @@
  <?php 
 	//include('./header.php');
 ?>
- 
+ <style>
+        #blink {
+            font-size: 12px;
+            font-weight: bold;
+            color: red;
+			  margin-left:300px;
+            transition: 0.5s;
+			 animation: blinker 1s linear infinite;
+			  animation-name:animate;
+			animation-duration: 1s;
+			animation-iteration-count: infinite;
+			opacity: 1;
+				}
+	
+  
+  @keyframes animate {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.5
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+    </style>
         <!-- End of Topbar -->
 	
         <!-- Begin Page Content -->
@@ -20,7 +48,10 @@
 			<div class="col-xl-12 col-lg-7">
           <div class="card shadow mb-4">
             <div class="card-body">
+			<div class="row marqueebox">
 			
+			 <div><p id="blink"><i class="fa fa-bell mr-2" aria-hidden="true"></i><b>Note: To Use our services please Pay the Subscription Amount.</b></p></div>
+			</div>
               <div class="table-responsive">
 
 			<table class="table table-bordered table-center table-sm text-center mt-2" id="datatable" width="100%" cellspacing="0">
@@ -84,23 +115,86 @@
 					</div>
 				  </div>
 					</td>
-					<td data-label="EMD Payment"><a href="#" data-toggle="modal" data-target="#myModal1"><button type="button" class="btn btn-primary btn-sm" disabled>Pay</button></a>
+					<td data-label="EMD Payment">
 					
-					</td>
+					 <?php if (isset($sql)){ foreach($sql as $s){
+						 
+						 if($s->subscription == 0){
+					echo '<a href="#" data-toggle="modal" data-target="#myModalmy">';
+					echo'<button type="button" class="btn btn-primary btn-sm">Pay</button></a>';
+						}
+						else{
+						echo '<a href="#" data-toggle="modal" data-target="#myModalmy">';
+					echo'<button type="button" class="btn btn-primary btn-sm" disabled>Pay</button></a>';	
+							
+						} 
+						 
+						 ?>
+					<div class="modal" id="myModalmy">
+					<div class="modal-dialog modal-lg">
+					  <div class="modal-content">
+					  
+						<!-- Modal Header -->
+						
+						
+						<!-- Modal body -->
+						<div class="modal-body">
+						<h3>Subscription Amount <br>
+					<?php if(($sql[0]->subscription)== false){ echo $sql[0]->subscription_amount; 
+					echo '<br><button type="submit" class="btn btn-danger w-auto small" >Subscribe</button>';} 
+					 else {
+						echo "Paid";
+					}?>
+					</h3>
+						</div>
+						
+						<!-- Modal footer -->
+						<div class="modal-footer">
+						  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+						</div>
+						
+					  </div>
+					</div>
+				  </div>
+							<?php }
+								}?>
+				</td>
 					
 					<td data-label="EMD Pay By DD">
 					
 			
-					<input class="form-group w-auto" style="position:relative;" multiple="multiple"  type="file" name="upload_dd[]">
-					<input type="hidden" name="auc[]" value="<?php echo $sessi.'|'.$aucencode.'|'.$sqldata->lotno;?>"> 
-					<input type="submit" id="" class="btn btn-primary"  name="submit" value="Upload">
+					<?php
+						if (isset($sql)){ foreach($sql as $s){
+					if($s->subscription == 0){
+					echo '<input class="form-group w-auto"  multiple="multiple"  type="file" name="upload_dd[]">';
+					 '<input type="hidden" name="auc[]" value="'.$sessi.'|'.$aucencode.'|'.$sqldata->lotno;'">';
+					echo '<input type="submit" id="" class="btn btn-primary" name="submit" value="Upload">';
+					
+
+						}else{
+							
+							echo '<input class="form-group w-auto"  multiple="multiple"  type="file" name="upload_dd[]">';
+					 '<input type="hidden" name="auc[]" value="'.$sessi.'|'.$aucencode.'|'.$sqldata->lotno;'">';
+					echo '<input type="submit" id="" class="btn btn-primary" name="submit" value="Upload" disabled>';
+						}}}?>
 		 
 					</td>
 					
 					<td data-label="EMD Payment">
-					<a href="<?php echo base_url()."Buyer_app_Mylist_dd_upload/emdreq/".$sessi."/".$aucencode."/".urlencode($sqldata->lotno);?>">
-					<button type='submit2'  onclick="this.disabled=true" class="btn btn-primary w-auto small">Emd Request</button></a>
 					
+					
+					<?php
+					if (isset($sql)){ foreach($sql as $s){
+					if($s->subscription == 1){
+					echo '<a href="'.base_url()."Buyer_app_Mylist_dd_upload/emdreq/".$sessi."/".$aucencode."/".urlencode($sqldata->lotno).'" >';
+					echo '<button type="submit2"  onclick="this.disabled=true" class="btn btn-primary w-auto small" >Emd Request</button></a>';
+					}
+					
+					else{
+					echo '<a href="'.base_url()."Buyer_app_Mylist_dd_upload/emdreq/".$sessi."/".$aucencode."/".urlencode($sqldata->lotno).'" >';
+					echo '<button type="submit2"  onclick="this.disabled=true" class="btn btn-primary w-auto small" disabled>Emd Request</button></a>';
+					}
+					}}?>
 					</td>
 				
 					 <?php $k++;}?> 
