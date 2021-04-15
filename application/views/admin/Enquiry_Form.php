@@ -33,7 +33,7 @@
 				</div>
 			</form>
 			
-         <table class="table table-striped text-center table-sm table-bordered w-auto small"   width="100%" cellspacing="0">	
+         <table class="table table-striped text-center table-sm table-bordered w-auto small"  id="dataTable" width="100%" cellspacing="0">	
     <thead class="bg-primary text-white">
 	
 	<center> <div class="form-group">
@@ -55,7 +55,7 @@
 
 
      </select>
-		<br><a id="mylink" href="" type="button" class="btn btn-info btn-sm ml-3 mylink"><b>Download Excel</b></a><br><br>
+		<br><a id="mylink" href="" type="button" class="btn btn-info btn-sm ml-3 mylink display"><b>Download Excel</b></a><br><br>
     </div>
     </div></center>
  <tr>
@@ -149,7 +149,7 @@ $(document).ready(function(){
   });
 });
 </script>
-	
+
 	
 
 		

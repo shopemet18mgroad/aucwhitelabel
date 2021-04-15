@@ -176,8 +176,7 @@
 					
 
 						}else{
-							'<input type="hidden" name="auc[]" value="'.$sessi.'|'.$aucencode.'|'.$sqldata->lotno;'">';
-							echo '<input class="form-group w-auto"  multiple="multiple"  type="file" name="upload_dd[]">';
+						
 					echo '<input type="submit" id="" class="btn btn-primary" name="submit" value="Upload" disabled>';
 						}}}?>
 					</td>
