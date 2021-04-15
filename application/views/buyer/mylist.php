@@ -88,7 +88,6 @@
         <?php foreach($sqldat as $sqldata){?>  
      
 				<tr>
-					
 					<td><b><a href="<?php echo base_url();?>'buyer_mylist/index/'.urlencode($sqldata['auctionid'])
 				"><?php echo $aucencode = str_ireplace('/','-',$sqldata->auctionid); ?></b></a></td>
 					<td><?php echo $sqldata->lotno; ?></td>
@@ -110,11 +109,9 @@
 						
 						<!-- Modal body -->
 						<div class="modal-body">
-
 						<img src="<?php $im = unserialize($sqldata->upload_dd); 
 						if($im){
 						echo base_url().'web_files/uploads/'.$im[0];?>" class="img-fluid" alt="<?php echo $im[0];}?>">
-
 						</div>
 						
 						<!-- Modal footer -->
@@ -152,7 +149,7 @@
 						<div class="modal-body">
 						<h3>Subscription Amount <br>
 					<?php if(($sql[0]->subscription)== false){ echo $sql[0]->subscription_amount; 
-					echo '<br><button type="submit" class="btn btn-danger w-auto small" >Subscribe</button>';} 
+					echo '<br><button type="submit3" class="btn btn-danger w-auto small" >Subscribe</button>';} 
 					 else {
 						echo "Paid";
 					}?>
@@ -170,18 +167,23 @@
 							<?php }
 								}?>
 				</td>
-					<td><?php
+					<td>
+					<input type="hidden" name="auc[]" value="<?php echo $sessi.'|'.$aucencode.'|'.$sqldata->lotno;?>"> 
+					<input class="form-group w-auto"  multiple="multiple"  type="file" name="upload_dd[]">
+					
+					<?php
+					
+					$aucencode = str_ireplace('/','-',$sqldata->auctionid);
 						if (isset($sql)){ foreach($sql as $s){
 					if($s->subscription == 0){
-					echo '<input class="form-group w-auto"  multiple="multiple"  type="file" name="upload_dd[]">';
-					 '<input type="hidden" name="auc[]" value="'.$sessi.'|'.$aucencode.'|'.$sqldata->lotno;'">';
+					
+					
 					echo '<input type="submit" id="" class="btn btn-primary" name="submit" value="Upload">';
 					
 
 						}else{
-							
+							'<input type="hidden" name="auc[]" value="'.$sessi.'|'.$aucencode.'|'.$sqldata->lotno;'">';
 							echo '<input class="form-group w-auto"  multiple="multiple"  type="file" name="upload_dd[]">';
-					 '<input type="hidden" name="auc[]" value="'.$sessi.'|'.$aucencode.'|'.$sqldata->lotno;'">';
 					echo '<input type="submit" id="" class="btn btn-primary" name="submit" value="Upload" disabled>';
 						}}}?>
 		 

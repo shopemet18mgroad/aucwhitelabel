@@ -162,22 +162,24 @@
 					
 					<td data-label="EMD Pay By DD">
 					
-			
+			<input type="hidden" name="auc[]" value="<?php echo $sessi.'|'.$aucencode.'|'.$sqldata->lotno;?>"> 
+					<input class="form-group w-auto"  multiple="multiple"  type="file" name="upload_dd[]">
+					
 					<?php
+					
+					$aucencode = str_ireplace('/','-',$sqldata->auctionid);
 						if (isset($sql)){ foreach($sql as $s){
 					if($s->subscription == 0){
-					echo '<input class="form-group w-auto"  multiple="multiple"  type="file" name="upload_dd[]">';
-					 '<input type="hidden" name="auc[]" value="'.$sessi.'|'.$aucencode.'|'.$sqldata->lotno;'">';
+					
+					
 					echo '<input type="submit" id="" class="btn btn-primary" name="submit" value="Upload">';
 					
 
 						}else{
-							
+							'<input type="hidden" name="auc[]" value="'.$sessi.'|'.$aucencode.'|'.$sqldata->lotno;'">';
 							echo '<input class="form-group w-auto"  multiple="multiple"  type="file" name="upload_dd[]">';
-					 '<input type="hidden" name="auc[]" value="'.$sessi.'|'.$aucencode.'|'.$sqldata->lotno;'">';
 					echo '<input type="submit" id="" class="btn btn-primary" name="submit" value="Upload" disabled>';
 						}}}?>
-		 
 					</td>
 					
 					<td data-label="EMD Payment">

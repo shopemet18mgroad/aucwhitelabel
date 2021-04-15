@@ -27,11 +27,13 @@ class Buyer_Mylist_dd_upload extends CI_Controller {
 
 	public function index()
 	{
-		if($this->input->post('submit'))
-		{
-		$this->load->helper(array('url','html'));
+		$this->load->library('fileupload');
+		$this->load->helper(array('url','form','file','html'));
 		$this->load->model('Admin_model');
 		$this->load->library('session');
+		if($this->input->post('submit'))
+		{
+		
 		//$data1 = $this->session->flashdata('txdata');
 		//$this->input->post('auc');
 		$auc = $this->input->post('auc');
@@ -52,31 +54,7 @@ class Buyer_Mylist_dd_upload extends CI_Controller {
 		$username =  urlencode($datexp[0]);
 		$auctionid = str_ireplace('-','/',$datexp[1]);
 		$lotno = $datexp[2];
-		/* $data = array('sauctionid'=>$auctionid);
-		$data2 = array('sauctionid'=>$auctionid,'slotno'=>$lotno);	
 		
-		$dat4 = $this->Admin_model->getdatafromtable('addlot',$data2);
-		$dat3 = $this->Admin_model->getdatafromtable('auction',$data);
-		
-		$aucstart = $dat3[0]->saucstartdate_time;
-	
-		$aucend = $dat3[0]->saucclosedate_time; */
-		//$aucstartbid = $dat4[0]->sstartbidprice;
-		//$aucstartbidprice = $dat4[0]->sprice;
-		
-		/* 
-		 $dataact = array();
-		$datacomp = array();
-		$dataact = $this->input->post('bsigneddocumentex');
-		$datacomp = $this->input->post('bsigneddocumentexcom');
-		if($dataact && $datacomp){
-			$result = array_diff($dataact,$datacomp);
-			$result2 = array_intersect($dataact,$datacomp);
-		if(count($result)){
-			foreach($result as $res){
-			unlink(base_url()."web_files/uploads/".$res);
-			}
-		} */
 			 if(!$_FILES['upload_dd']['name'][$kab]){
 				$datainserr = "Atleast One Signed Document Has To Uploaded";
 				header('location: '.base_url().'buyer_mylist/index/'.$auctionid.'/'.$datainserr);
@@ -84,27 +62,28 @@ class Buyer_Mylist_dd_upload extends CI_Controller {
 			}else{
 				$doc_array = self::upload_files('upload_dd');
 			}  
+			
+
+			
 			if(!count($doc_array)){
 			echo '<script language="javascript">';
 			echo 'alert("Documents Upload Failed")';  //not showing an alert box.
 			echo '</script>';
 			}else{
 				$doc_array = serialize($doc_array);
-			}
+		}
 			
 			
 				
-			$data4 = array ('upload_dd' => $doc_array);
+			$data4 = array('upload_dd' => $doc_array);
 			$datainserr = "Data Inserted Successfully";
 			$username = urldecode($username);
 		//$sess = array('sessi'=>$this->session->userdata('username'));
 			$updatech = array('bidderusername'=>$username,'auctionid'=>$auctionid,'lotno' => $lotno);
 			$status = $this->Admin_model->update_custom('biddercart',$data4,$updatech,$updatech); 
-			if($status){
-				
-			} 
-			 header('location: '.base_url().'buyer_mylist/index/'.$datainserr);
 		
+			 header('location: '.base_url().'buyer_mylist/index/'.$datainserr);
+			
 		}
 		//=================================================================================================
 		//==================================================================

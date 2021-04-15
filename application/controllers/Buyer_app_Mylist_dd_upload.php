@@ -26,12 +26,13 @@ class Buyer_app_Mylist_dd_upload extends CI_Controller {
 
 
 	public function index()
-	{
-		if($this->input->post('submit'))
-		{
-		$this->load->helper(array('url','html'));
+	{	
+		$this->load->library('fileupload');
+		$this->load->helper(array('url','form','file','html'));
 		$this->load->model('Admin_model');
 		$this->load->library('session');
+		if($this->input->post('submit'))
+		{
 		//$data1 = $this->session->flashdata('txdata');
 		//$this->input->post('auc');
 		$auc = $this->input->post('auc');
