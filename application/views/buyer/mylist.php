@@ -1,13 +1,11 @@
  <?php 
 	//include('./header.php');
 ?>
-
+<link href="<?php echo base_url()."web_files/";?>css/tablestyle.css" rel="stylesheet" type="text/css">
  <style>
         #blink {
             font-size: 12px;
             font-weight: bold;
-            color: red;
-			  margin-left:300px;
             transition: 0.5s;
 			 animation: blinker 1s linear infinite;
 			  animation-name:animate;
@@ -49,10 +47,8 @@
 			<div class="col-xl-12 col-lg-7">
           <div class="card shadow mb-4">
             <div class="card-body">
-			<div class="row marqueebox">
 			
-			 <div><p id="blink"><i class="fa fa-bell mr-2" aria-hidden="true"></i><b>Note: To Use our services please Pay the Subscription Amount.</b></p></div>
-			</div>
+			 <p style="color:red;text-align:center;" id="blink"><i class="fa fa-bell mr-2" aria-hidden="true"></i>Note: To Use our services please Pay the Subscription Amount.</p>
               <div class="table-responsive">
 
 			<table class="table table-striped table-bordered table-sm text-center mt-5 w-auto small ml-4" id="datatable" width="100%" cellspacing="0">
@@ -66,7 +62,7 @@
 					<td>Auction Start/Close date/time</td>
 					<td>Status</td>
 					 <td>View DD Image</td>
-					 <td>EMD Payment</td>
+					 <td>Subscription Payment</td>
 					 <td>EMD Pay By DD</td>
 					 <td>EMD Request</td>
 					
@@ -88,15 +84,14 @@
         <?php foreach($sqldat as $sqldata){?>  
      
 				<tr>
-					
-					<td><b><a href="<?php echo base_url();?>'buyer_mylist/index/'.urlencode($sqldata['auctionid'])
+					<td data-label="Auction Id"><b><a href="<?php echo base_url();?>'buyer_mylist/index/'.urlencode($sqldata['auctionid'])
 				"><?php echo $aucencode = str_ireplace('/','-',$sqldata->auctionid); ?></b></a></td>
-					<td><?php echo $sqldata->lotno; ?></td>
-					<td><?php echo $st;?><br><?php echo $ct;?></td>
-					<td><?php  if($sqldata->emdpaid == 0) {echo 'Emd Not Paid';}else{echo 'Emd Paid';} ?></td>
+					<td data-label="Lot No"><?php echo $sqldata->lotno; ?></td>
+					<td data-label="Auction Start/Close date/time"><?php echo $st;?><br><?php echo $ct;?></td>
+					<td data-label="Status"><?php  if($sqldata->emdpaid == 0) {echo 'Emd Not Paid';}else{echo 'Emd Paid';} ?></td>
 				
-					<td><a href="" data-toggle="modal" data-target="#myModal<?php echo"$k";?>">
-					<button type="submit" class="btn btn-info btn-sm w-75" >
+					<td data-label="View DD Image"><a href="" data-toggle="modal" data-target="#myModal<?php echo"$k";?>">
+					<button type="submit" class="btn btn-info btn-sm w-auto small" >
 					<i class="fa fa-eye" aria-hidden="true"></i>
 					</button>
 					</a>
@@ -110,11 +105,9 @@
 						
 						<!-- Modal body -->
 						<div class="modal-body">
-
 						<img src="<?php $im = unserialize($sqldata->upload_dd); 
 						if($im){
 						echo base_url().'web_files/uploads/'.$im[0];?>" class="img-fluid" alt="<?php echo $im[0];}?>">
-
 						</div>
 						
 						<!-- Modal footer -->
@@ -126,13 +119,13 @@
 					</div>
 				  </div>
 					</td>
-					<td>
+					<td data-label="EMD Payment">
 					
 					 <?php if (isset($sql)){ foreach($sql as $s){
 						 
 						 if($s->subscription == 0){
 					echo '<a href="#" data-toggle="modal" data-target="#myModalmy">';
-					echo'<button type="button" class="btn btn-primary btn-sm">Pay</button></a>';
+					echo'<button type="button" class="btn btn-primary btn-sm w-auto small">Pay</button></a>';
 						}
 						else{
 						echo '<a href="#" data-toggle="modal" data-target="#myModalmy">';
@@ -152,7 +145,7 @@
 						<div class="modal-body">
 						<h3>Subscription Amount <br>
 					<?php if(($sql[0]->subscription)== false){ echo $sql[0]->subscription_amount; 
-					echo '<br><button type="submit" class="btn btn-danger w-auto small" >Subscribe</button>';} 
+					echo '<br><button type="submit3" class="btn btn-danger w-auto small" >Subscribe</button>';} 
 					 else {
 						echo "Paid";
 					}?>
@@ -170,24 +163,27 @@
 							<?php }
 								}?>
 				</td>
-					<td><?php
+					<td data-label="EMD Pay By DD">
+					<input type="hidden" name="auc[]" value="<?php echo $sessi.'|'.$aucencode.'|'.$sqldata->lotno;?>"> 
+					<input class="form-group w-auto"  multiple="multiple"  type="file" name="upload_dd[]">
+					
+					<?php
+					
+					$aucencode = str_ireplace('/','-',$sqldata->auctionid);
 						if (isset($sql)){ foreach($sql as $s){
-					if($s->subscription == 0){
-					echo '<input class="form-group w-auto"  multiple="multiple"  type="file" name="upload_dd[]">';
-					 '<input type="hidden" name="auc[]" value="'.$sessi.'|'.$aucencode.'|'.$sqldata->lotno;'">';
+					if($s->subscription == 1){
+					
+					
 					echo '<input type="submit" id="" class="btn btn-primary" name="submit" value="Upload">';
 					
 
 						}else{
-							
-							echo '<input class="form-group w-auto"  multiple="multiple"  type="file" name="upload_dd[]">';
-					 '<input type="hidden" name="auc[]" value="'.$sessi.'|'.$aucencode.'|'.$sqldata->lotno;'">';
 					echo '<input type="submit" id="" class="btn btn-primary" name="submit" value="Upload" disabled>';
 						}}}?>
 		 
 					</td>
 					
-					<td>
+					<td data-label="EMD Request">
 					<?php
 					if (isset($sql)){ foreach($sql as $s){
 					if($s->subscription == 1){

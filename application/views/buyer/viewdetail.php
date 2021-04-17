@@ -1,7 +1,8 @@
  <?php 
 	//include('./header.php');
 ?>
-        <!-- End of Topbar -->
+  <link href="<?php echo base_url()."web_files/";?>css/tablestyle.css" rel="stylesheet" type="text/css">      
+  <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
@@ -40,14 +41,14 @@
 				<?php foreach($sqldata as $sqldata[0]){?>
 				<tr>
 				
-					<td><b><?php echo $sqldata[0]->sauctionid; ?></b></td>
-					<td><?php echo $sqldata[0]->slotno; ?></td>
-					<td><?php $aucclosetime = $sqldata[0]->Date_time;
+					<td data-label="Auction Id"><b><?php echo $sqldata[0]->sauctionid; ?></b></td>
+					<td data-label="Lot No"><?php echo $sqldata[0]->slotno; ?></td>
+					<td data-label="Close Time"><?php $aucclosetime = $sqldata[0]->Date_time;
 							  $tmp = explode('.',$aucclosetime);
 							  $aucclosetime = $tmp[0];
 		
 		                  echo $aucclosetime; ?></td>
-					<td><?php echo $sqldata[0]->bidamount; ?></td>
+					<td data-label="Bidding Amount"><?php echo $sqldata[0]->bidamount; ?></td>
 				</tr>
 			<?php }?>
 				</tbody>

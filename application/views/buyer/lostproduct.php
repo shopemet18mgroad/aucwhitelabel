@@ -1,6 +1,7 @@
  <?php 
 	//include('./header.php');
 ?>
+<link href="<?php echo base_url()."web_files/";?>css/tablestyle.css" rel="stylesheet" type="text/css">
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -48,16 +49,16 @@
 		<tbody>
 				<?php if(isset($sqldatarec)){ foreach($sqldatarec as $sqldata){ $datareciver = explode('|',$sqldata);?>
 					<tr>												
-						<td><?php echo $datareciver[0]; ?></td>
-						<td><?php echo $datareciver[1]; ?></td>
-						<td><?php $aucclosetime = $datareciver[3];
+						<td data-label="Auction Id"><?php echo $datareciver[0]; ?></td>
+						<td data-label="Lot No"><?php echo $datareciver[1]; ?></td>
+						<td data-label="Date/Time"><?php $aucclosetime = $datareciver[3];
 							  $tmp = explode('.',$aucclosetime);
 							  $aucclosetime = $tmp[0];
 						echo $aucclosetime	; ?>
 						</td>
-						<td><?php echo $datareciver[2];?>
+						<td data-label="Bid Price"><?php echo $datareciver[2];?>
 						</td>
-						<td><?php echo "Lost"?></td>
+						<td data-label="Status"><?php echo "Lost"?></td>
 					</tr>
 				<?php  }} ?>
 						

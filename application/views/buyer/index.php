@@ -2,6 +2,7 @@
 	//include('./header.php');
 
 ?>
+<link href="<?php echo base_url()."web_files/";?>css/mediaform.css" rel="stylesheet" type="text/css">
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -42,7 +43,6 @@
 						 
 							<tr>
 								<td>Buyer Name:</td>
-								
 								<td><?php echo $sqldata[0]->bname; ?></td>
 							
 							</tr> 

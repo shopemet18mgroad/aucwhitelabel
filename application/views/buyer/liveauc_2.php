@@ -2,17 +2,8 @@
 	//include('./header.php');
 	//print_r($sqldata); die;
 ?>
-<style>
-.square {
-  height: 40%;
-  width: 100%;
-  color: #fff;
-  text-align: center;
-  margin-left:150px;
-  margin-bottom:4px;
-  
-}
-</style>
+<link href="<?php echo base_url()."web_files/";?>css/tablestyle.css" rel="stylesheet" type="text/css">
+
  <style>
         #blink {
             font-size: 12px;
@@ -52,18 +43,14 @@
           </div>
 
           <!-- Content Row -->
-          <div class="row">
+          <div class="row w-100">
 
             <!-- Earnings (Monthly) Card Example -->
 			<div class="col-xl-12 col-lg-7">
           <div class="card shadow mb-4">
             <div class="card-body">
-			<div class="row marqueebox">
-			
-			 <div class="square bg-primary w-auto small"><p id="blink"><i class="fa fa-bell mr-2" aria-hidden="true"></i><b>Note: Bidders should give their bids for basic price exclusive of all taxes, All statutory taxes, charges, duties and any other levies<br> as application will have to be paid over and above the quoted price.<br> By Participating in bidding I agree to all the Terms & Conditions Of AUCJUNCTION, Seller and Buyer of the auction.</b></p></div>
-			</div>
-	
               <div class="table-responsive">
+			   <div  style="width:auto;color:white;align-center;text-align:center;" class="bg-primary"><p id="blink"><i class="fa fa-bell mr-2" aria-hidden="true"></i><b>Note: Bidders should give their bids for basic price exclusive of all taxes, All statutory taxes, charges, duties and any other levies<br> as application will have to be paid over and above the quoted price.<br> By Participating in bidding I agree to all the Terms & Conditions Of AUCJUNCTION, Seller and Buyer of the auction.</b></p></div>
 			  <input type="hidden" id="total-lot" value="<?php echo count($sqldata2);?>">
 		<?php $lottimesync = 0; if(isset($sqldata)){foreach($sqldata as $sqld){?>	  
 	<input type="hidden" id="ref-<?php echo $lottimesync;?>" value="<?php echo str_ireplace('/','-',$sqld->auctionid)."|".$sqldata2[$lottimesync]->slotno; ?>">
@@ -93,13 +80,13 @@
 				<form action="<?php echo base_url();?>" method="POST"  enctype="multipart/form-data">
 				<tr>
 				
-					<td><a href="#"><?php echo $sqld->auctionid; ?></a> </td>
+					<td data-label="Auction Id"><a href="#"><?php echo $sqld->auctionid; ?></a> </td>
 					
-					<td><?php echo $sqld->bidderusername; ?></td>
-					<td><h6 id="timer-<?php echo $lottimesync;?>" style="color:red">Synchronizing Time</h6></td>
-					<td><?php echo $st[$lottimesync]; ?></td>
-					<td><?php echo $ct[$lottimesync]; ?></td>
-					<td><a href="#"><u>Click here</u></a></td>
+					<td data-label="User Name"><?php echo $sqld->bidderusername; ?></td>
+					<td data-label="Time Elasped"><h6 id="timer-<?php echo $lottimesync;?>" style="color:red">Synchronizing Time</h6></td>
+					<td data-label="Auction Start Date"><?php echo $st[$lottimesync]; ?></td>
+					<td data-label="Auction Close Date"><?php echo $ct[$lottimesync]; ?></td>
+					<td data-label="Seller Terms & Condition"><a href="#"><u>Click here</u></a></td>
 				</tr>
 				</tbody>
 			</table>
@@ -151,19 +138,19 @@ if($diff <= 0){
 				
 				<input type="hidden" id="telapsed-<?php echo $lottimesync;?>" value="<?php echo $diff;?>">
 				<?php if($condtion){?>
-				<tr><td><?php $lot = $sqldata2[$lottimesync]->slotno - 1;
+				<tr><td data-label="Lot No"><?php $lot = $sqldata2[$lottimesync]->slotno - 1;
 				echo $sqldata2[$lottimesync]->slotno; ?></td>												
-					<td><?php echo $sqldata2[$lottimesync]->slotname; ?> </td>
-					<td><?php echo $sqldata2[$lottimesync]->slotlocation; ?></td>
-					<td><?php echo $ct[$lottimesync]; ?></td>
+					<td data-label="Lot Name"><?php echo $sqldata2[$lottimesync]->slotname; ?> </td>
+					<td data-label="Location"><?php echo $sqldata2[$lottimesync]->slotlocation; ?></td>
+					<td data-label="Close Time"><?php echo $ct[$lottimesync]; ?></td>
 					<!-- <td><?php echo $Remaining; ?></td> -->
-					<td><?php echo $sqldata2[$lottimesync]->sqty; ?></td>
-					<td><?php echo $sqldata2[$lottimesync]->sunitmeasurment; ?></td>
-					<td><?php echo $sqldata2[$lottimesync]->sstartbidprice; ?></td>
-					<td><?php echo $sqld->mybid_val; ?></td>
-					<td><?php echo $sqldata2[$lottimesync]->cbidval; ?></td>
+					<td data-label="Quantity"><?php echo $sqldata2[$lottimesync]->sqty; ?></td>
+					<td data-label="Unit"><?php echo $sqldata2[$lottimesync]->sunitmeasurment; ?></td>
+					<td data-label="Start Price"><?php echo $sqldata2[$lottimesync]->sstartbidprice; ?></td>
+					<td data-label="My Bid"><?php echo $sqld->mybid_val; ?></td>
+					<td data-label="Live Status"><?php echo $sqldata2[$lottimesync]->cbidval; ?></td>
 					
-					<td><div class="form-group row ml-2">
+					<td data-label="Bid"><div class="form-group row ml-2">
 					<?php
 					if($sqldata2[$lottimesync]->sstartbidprice >= $sqldata2[$lottimesync]->cbidval){
 					
@@ -186,7 +173,7 @@ $sessa2 = str_ireplace('@','%40',$sessi);
 					
 				  </td>
 				  <?php if($sqld->abidding){?>
-					<td>
+					<td data-label="Autobid">
 				  <a href="<?php echo base_url().'Buyer_liveauc_2/buyer_autobid_disable/'.str_ireplace('/','-',$sqld->auctionid)."|".$sqldata2[$lottimesync]->slotno;?>"><button type="button" class="btn btn-info" >Disable AutoBid</button></a></td><?php }else{?><td>
 				  <a href="<?php echo base_url().'Buyer_liveauc_2/buyer_autobid/'.str_ireplace('/','-',$sqld->auctionid)."|".$sqldata2[$lottimesync]->slotno;?>"><button type="button" class="btn btn-info" disabled>AutoBid</button></a></td><?php }?>
 					

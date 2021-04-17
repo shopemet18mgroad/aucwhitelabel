@@ -3,6 +3,7 @@
 	//print_r($sqldatarec);die;
 	
 ?>
+<link href="<?php echo base_url()."web_files/";?>css/tablestyle.css" rel="stylesheet" type="text/css">
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -42,11 +43,11 @@
 				<thead class="bg-primary text-white" role="rowgroup">
 				<tr><th colspan="8" class="bg-info">Occupied Bidding Products</th></tr>
 				<tr>
-					<th scope="col">Auction Id</th>
-					<th scope="col">Lot No</th>
-					<th scope="col">date/Time</th>
-					<th scope="col">My Bid Value</th>
-					<th scope="col">Status</th>
+					<th>Auction Id</th>
+					<th>Lot No</th>
+					<th>date/Time</th>
+					<th>My Bid Value</th>
+					<th>Status</th>
 					
 					
 				</tr>

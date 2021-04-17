@@ -64,7 +64,7 @@
 					<td>Auction Start/Close date/time</td>
 					<td>Status</td>
 					<td>View DD Image</td>
-					<td>EMD Payment</td>
+					<td>Subscription Payment</td>
 					<td>EMD Pay By DD</td>
 					<td>EMD Request</td>
 					
@@ -162,22 +162,23 @@
 					
 					<td data-label="EMD Pay By DD">
 					
-			
+			<input type="hidden" name="auc[]" value="<?php echo $sessi.'|'.$aucencode.'|'.$sqldata->lotno;?>"> 
+					<input class="form-group w-auto"  multiple="multiple"  type="file" name="upload_dd[]">
+					
 					<?php
+					
+					$aucencode = str_ireplace('/','-',$sqldata->auctionid);
 						if (isset($sql)){ foreach($sql as $s){
-					if($s->subscription == 0){
-					echo '<input class="form-group w-auto"  multiple="multiple"  type="file" name="upload_dd[]">';
-					 '<input type="hidden" name="auc[]" value="'.$sessi.'|'.$aucencode.'|'.$sqldata->lotno;'">';
+					if($s->subscription == 1){
+					
+					
 					echo '<input type="submit" id="" class="btn btn-primary" name="submit" value="Upload">';
 					
 
 						}else{
-							
-							echo '<input class="form-group w-auto"  multiple="multiple"  type="file" name="upload_dd[]">';
-					 '<input type="hidden" name="auc[]" value="'.$sessi.'|'.$aucencode.'|'.$sqldata->lotno;'">';
+						
 					echo '<input type="submit" id="" class="btn btn-primary" name="submit" value="Upload" disabled>';
 						}}}?>
-		 
 					</td>
 					
 					<td data-label="EMD Payment">

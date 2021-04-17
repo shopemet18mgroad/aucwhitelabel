@@ -1,6 +1,7 @@
  <?php 
 	//include('./header.php');
 ?>
+<link href="<?php echo base_url()."web_files/";?>css/tablestyle.css" rel="stylesheet" type="text/css">
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -32,9 +33,9 @@
 				<?php $count = 1;?>
 			 <?php foreach ($sqldata as $sqldat){?>
 					<tr>												
-					<td><a href="<?php echo base_url()."Buyer_liveauc_2/index/".str_ireplace('/','-',$sqldat->auctionid);?>" data-toggle="modal" data-target="#myModal-<?php echo $count; ?>"><?php echo $sqldat->auctionid;?></a>
+					<td data-label="Auction Id"><a href="<?php echo base_url()."Buyer_liveauc_2/index/".str_ireplace('/','-',$sqldat->auctionid);?>" data-toggle="modal" data-target="#myModal-<?php echo $count; ?>"><?php echo $sqldat->auctionid;?></a>
 					</td>
-					<td><?php echo $sqldat->sname; ?></td>
+					<td data-label="Seller Name"><?php echo $sqldat->sname; ?></td>
 					</tr>
 							 <!-- The Modal -->
 <div class="modal" id="myModal-<?php echo $count;?>">
