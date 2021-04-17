@@ -64,26 +64,26 @@ class Admin_buyereditprofile extends CI_Controller {
 			$row_count = 1;
 			foreach($data as $dat){
 				echo '<tr>';
-				echo '<td>'.$row_count.'</td>';
-				echo '<td>'.$dat['bcompany'].'</td>';
-				echo '<td>'.$dat['bcontactperson'].'</td>';
-				echo '<td>'.$dat['bphone'].'</td>';
-				echo '<td>'.$dat['bemail'].'</td>';
-				echo '<td>'.$dat['bcity'].'</td>';
-				echo '<td>'.$dat['bagreementdate'].'</td>';
+				echo '<td data-label="S.No.">'.$row_count.'</td>';
+				echo '<td data-label="Company Name">'.$dat['bcompany'].'</td>';
+				echo '<td data-label="Contact Person">'.$dat['bcontactperson'].'</td>';
+				echo '<td data-label="Contact No.">'.$dat['bphone'].'</td>';
+				echo '<td data-label="Email Id">'.$dat['bemail'].'</td>';
+				echo '<td data-label="City">'.$dat['bcity'].'</td>';
+				echo '<td data-label="Date">'.$dat['bagreementdate'].'</td>';
 				$status = $dat['adaction'];
 				$subscription = $dat['subscription'];
 				if($status == 1){
-				echo '<td style="color:green;"><b>'."ACTIVE".'</b></td>';
+				echo '<td style="color:green; data-label="Status"><b>'."ACTIVE".'</b></td>';
 				}else{
-				echo '<td style="color:red;"><b>'."INACTIVE".'</b></td>';	
+				echo '<td style="color:red;" data-label= "Status"><b>'."INACTIVE".'</b></td>';	
 				}
 				if($dat['adaction'] == 1){
-				echo '<td><a href="'.base_url().'Agreementforbuyerpdf_gen/auc_no/'.$dat['bcompany'].'" target="_blank"><i class="fa fa-download"></i></a></td>';
+				echo '<td data-label="Agreement Download"><a href="'.base_url().'Agreementforbuyerpdf_gen/auc_no/'.$dat['bcompany'].'" target="_blank"><i class="fa fa-download"></i></a></td>';
 				}else{
-					echo '<td>'.'</td>';
+					echo '<td data-label="Agreement Download">'.'</td>';
 				}
-				echo '<td width="12%"><a href="'.base_url().'admin_editbuyer/edit_buyer/'.$dat['bcompany'].'">';
+				echo '<td width="12%" data-label="Action"><a href="'.base_url().'admin_editbuyer/edit_buyer/'.$dat['bcompany'].'">';
 				echo '<i class="fa fa-edit"></i>';
 				echo '</a>';
 				echo '<a href="'.base_url().'admin_editbuyer/delete_buyer/'.$dat['bcompany'].'" class="btn btn-sm text-white delete-confirm">';
@@ -97,16 +97,16 @@ class Admin_buyereditprofile extends CI_Controller {
 				echo '</td>';
 				$subscription = $dat['subscription'];
 				if($subscription == 1){
-				echo '<td style="color:green;"><b>'."Subscribed".'</b></td>';
+				echo '<td style="color:green;" data-label = "Subscription Status"><b>'."Subscribed".'</b></td>';
 				}else{
-				echo '<td style="color:red;"><b>'."Unsubscribed".'</b></td>';	
+				echo '<td style="color:red;" data-label= "Subscription Status"><b>'."Unsubscribed".'</b></td>';	
 				}
-				echo '<td>'.$dat['subscription_amount'].'</td>';
-				echo '<td>'.$dat['subscription_type'].'</td>';
-				echo '<td>'.$dat['comment'].'</td>';
-				echo '<td>From<br>'.$dat['subscription_fromdate'].'<br>To<br>'.$dat['subscription_todate'].'</td>';
+				echo '<td data-label= "Subscription Amount">'.$dat['subscription_amount'].'</td>';
+				echo '<td data-label ="Subscription Type">'.$dat['subscription_type'].'</td>';
+				echo '<td data-label ="Comment">'.$dat['comment'].'</td>';
+				echo '<td data-label ="Subscription Date">From<br>'.$dat['subscription_fromdate'].'<br>To<br>'.$dat['subscription_todate'].'</td>';
 				
-				echo '<td width="12%">';
+				echo '<td width="12%" data-label=" Subscription Action">';
 				echo '<a href="'.base_url().'Admin_buyereditprofile/Subscribed/'.$dat['bcompany'].'" class="btn btn-sm text-white ">';
 				echo '<i class="fa fa-check-circle" aria-hidden="true"  style="color:green"></i>';
 				echo '</a>';

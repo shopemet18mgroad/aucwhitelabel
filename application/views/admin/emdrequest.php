@@ -55,15 +55,15 @@
 					<tr>
 				<?php foreach($sqldat as $sqldata){?>	
 
-				<td><b><?php echo $sqldata->auctionid; ?></b></td>
-				 <td><?php echo $sqldata->lotno; ?></td>
-				 <td><?php echo $sqldata->bidderusername; ?></td>
-				 <td><?php echo $sqldata->aucstartdate_time;?><br><?php echo $sqldata->aucclosedate_time;?></td>
+				<td data-label="Auction Id"><b><?php echo $sqldata->auctionid; ?></b></td>
+				 <td data-label="Lot No"><?php echo $sqldata->lotno; ?></td>
+				 <td data-label="Buyer Name"><?php echo $sqldata->bidderusername; ?></td>
+				 <td data-label="Date/Time"><?php echo $sqldata->aucstartdate_time;?><br><?php echo $sqldata->aucclosedate_time;?></td>
 			
 				
-				<td><?php  if($sqldata->emdrequest == 3 ) {echo 'Pending';}				?></td>
+				<td data-label="EMD Status"><?php  if($sqldata->emdrequest == 3 ) {echo 'Pending';}				?></td>
 				
-				<td><button type="submit" name="submit" id="<?php echo $sqldata->lotno.'|'.str_ireplace('/','-',$sqldata->auctionid).'|'.$sqldata->bidderusername;?>" onclick="buyer_set_deactive_emd(this.id)" class="btn btn-info btn-sm">Approve</button></td>	
+				<td data-label="Action"><button type="submit" name="submit" id="<?php echo $sqldata->lotno.'|'.str_ireplace('/','-',$sqldata->auctionid).'|'.$sqldata->bidderusername;?>" onclick="buyer_set_deactive_emd(this.id)" class="btn btn-info btn-sm">Approve</button></td>	
 				
 				</tr>
 				

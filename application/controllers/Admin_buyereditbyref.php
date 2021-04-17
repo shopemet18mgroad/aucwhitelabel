@@ -57,15 +57,15 @@ class Admin_buyereditbyref extends CI_Controller {
 			 $row_count = 1;
 			foreach($data as $dat){
 				echo '<tr>';
-				echo '<td>'.$row_count.'</td>';
-				echo '<td>'.$dat['bcompany'].'</td>';
-				echo '<td>'.$dat['bcontactperson'].'</td>';
-				echo '<td>'.$dat['bphone'].'</td>';
-				echo '<td>'.$dat['bemail'].'</td>';
-				echo '<td>'.$dat['bcity'].'</td>';
-				echo '<td>'.$dat['bref'].'</td>';
-				echo '<td  width="10%">'.$dat['bagreementdate'].'</td>';
-				echo '<td width="10%"><a href="'.base_url().'admin_editbuyer/edit_buyer/'.$dat['bcompany'].'">';
+				echo '<td data-label="S.No.">'.$row_count.'</td>';
+				echo '<td data-label="Company Name">'.$dat['bcompany'].'</td>';
+				echo '<td data-label="Contact Person" >'.$dat['bcontactperson'].'</td>';
+				echo '<td data-label="Contact No.">'.$dat['bphone'].'</td>';
+				echo '<td data-label="Email Id">'.$dat['bemail'].'</td>';
+				echo '<td data-label="City">'.$dat['bcity'].'</td>';
+				echo '<td data-label="Reference">'.$dat['bref'].'</td>';
+				echo '<td data-label="Date"  width="10%">'.$dat['bagreementdate'].'</td>';
+				echo '<td data-label="Action" width="10%"><a href="'.base_url().'admin_editbuyer/edit_buyer/'.$dat['bcompany'].'">';
 				echo '<i class="fa fa-edit"></i>';
 				echo '</a>';
 				echo '</td>';

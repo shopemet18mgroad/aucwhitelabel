@@ -85,7 +85,7 @@ class Buyer_mylist extends CI_Controller {
 		$this->load->view('buyer/footer');
 	}
 	}
-	 /* if($this->input->post('submit')){
+	 if($this->input->post('submit')){
 			$date =  Date('Y-m-d'); 
 			$this->load->library('fileupload');
 			$this->load->helper(array('url','form','file','html'));
@@ -117,7 +117,7 @@ class Buyer_mylist extends CI_Controller {
 			  }else{
 				   header('location: ./Buyer_mylist/');
 			  } 
-			   */
+			  
 		
 		
 
