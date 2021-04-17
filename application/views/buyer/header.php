@@ -170,6 +170,7 @@
 
         <!-- Topbar -->
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+	
 			<a class="sidebar-brand d-flex align-items-center justify-content-center" href="buyer_dashboard">
         <div class="sidebar-brand-img rotate-n-20 ">
          <img src="<?php echo base_url()."web_files/";?>img/aucjunction.jpg" class="img-fluid" alt="" width="40%;">
@@ -289,3 +290,6 @@
           </ul>
 
         </nav>
+	
+		
+		

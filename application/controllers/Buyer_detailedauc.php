@@ -62,14 +62,14 @@ class Buyer_detailedauc extends CI_Controller {
 				$t = explode('.',$aucclosetime);
 				$aucclosetime = $t[0];
 				$ct = $aucclosetime;
-				echo '<td><a href="'.base_url().'buyer_viewdetail/viewdetail/'.$passaucid.
+				echo '<td data-label="Auction Id"><a href="'.base_url().'buyer_viewdetail/viewdetail/'.$passaucid.
 				"/".$dat['lotno'].'">';
 				echo $dat['auctionid'];
 				$passaucid = str_ireplace('/','-',$dat['auctionid']);
 				echo '</a>';
 				echo '</td>';
-				echo '<td>'.$dat['lotno'].'</td>';
-				echo '<td>'.$ct.'</td>';
+				echo '<td data-label="Lot No">'.$dat['lotno'].'</td>';
+				echo '<td data-label="Closing Date">'.$ct.'</td>';
 			
 				echo '</tr>';
 			}

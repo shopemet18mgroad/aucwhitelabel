@@ -64,7 +64,7 @@
 					<td>Auction Start/Close date/time</td>
 					<td>Status</td>
 					<td>View DD Image</td>
-					<td>EMD Payment</td>
+					<td>Subscription Payment</td>
 					<td>EMD Pay By DD</td>
 					<td>EMD Request</td>
 					
@@ -169,7 +169,7 @@
 					
 					$aucencode = str_ireplace('/','-',$sqldata->auctionid);
 						if (isset($sql)){ foreach($sql as $s){
-					if($s->subscription == 0){
+					if($s->subscription == 1){
 					
 					
 					echo '<input type="submit" id="" class="btn btn-primary" name="submit" value="Upload">';

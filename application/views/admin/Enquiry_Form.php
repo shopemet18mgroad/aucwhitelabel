@@ -33,7 +33,7 @@
 				</div>
 			</form>
 			
-         <table class="table table-striped text-center table-sm table-bordered w-auto small"  id="dataTable" width="100%" cellspacing="0">	
+         <table class="table table-striped text-center table-sm table-bordered w-auto small tablesorter"  id="dataTable" width="100%" cellspacing="0">	
     <thead class="bg-primary text-white">
 	
 	<center> <div class="form-group">

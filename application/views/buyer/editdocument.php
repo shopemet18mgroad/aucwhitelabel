@@ -1,6 +1,7 @@
 <?php 
 	//include('./header.php');
 ?>
+<link href="<?php echo base_url()."web_files/";?>css/mediaform.css" rel="stylesheet" type="text/css">
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -17,10 +18,10 @@
 
           <!-- Content Row -->
 
-          <div class="row">
+          <div class="row w-100">
 
             <!-- Area Chart -->
-            <div class="col-xl-12 col-lg-7">
+            <div class="col-md-10 offset-sm-1 p-2">
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">

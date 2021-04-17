@@ -96,37 +96,37 @@ class Buyer_forthcomingauc extends CI_Controller {
 				if($respdata){
 					echo '<tr>';
 
-				 echo '<td style="color:blue">'; 
+				 echo '<td style="color:blue" data-label="Auction Id">'; 
 
 
 				//echo $dat['sauctionid'];	
 				echo $aucencode = str_ireplace('/','-',$dat['sauctionid']);
 				//echo '</a>'; 
 				echo '</td>'; 
-				echo '<td>'.$dat['slotno'].'</td>';
-				echo '<td>'.$dat['slotname'].'</td>';
+				echo '<td data-label="Lot No">'.$dat['slotno'].'</td>';
+				echo '<td data-label="Lot Name">'.$dat['slotname'].'</td>';
 				$aucstarttime = $respdata[0]->saucstartdate_time;
 				$tm = explode('.',$aucstarttime);
 				$aucstarttime = $tm[0];
 				$st = $aucstarttime;
-				echo '<td>'.$st.'</td>';
-				echo '<td>'.$dat['scategory'].'</td>';
-				echo '<td>'.$dat['sdescription'].'</td>';
+				echo '<td data-label="Auction Start Time">'.$st.'</td>';
+				echo '<td data-label="Category">'.$dat['scategory'].'</td>';
+				echo '<td data-label="Lot Description">'.$dat['sdescription'].'</td>';
 				if($subscription == true){
-				echo '<td>'.$dat['sname'].'</td>';
+				echo '<td data-label="Seller / Company Name">'.$dat['sname'].'</td>';
 				}
 				else{
 				echo '<td style="color:red">'."Pay Subscription".'</td>';	
 				}
-				echo '<td>'.$dat['sqty'].'</td>';
-				echo '<td>'.$dat['sgst'].'</td>';
-				echo '<td>'.$dat['slotlocation'].'</td>';
+				echo '<td  data-label="Quantity">'.$dat['sqty'].'</td>';
+				echo '<td data-label="GST">'.$dat['sgst'].'</td>';
+				echo '<td data-label="Location">'.$dat['slotlocation'].'</td>';
 				if($subscription == true){
 				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$aucencode.'/'.($dat['sname']).'" target="_blank"><i class="fa fa-download"></i></a></td>';
 				}else{echo '<td></td>';}
 				echo '';
 
-				echo '<td>';
+				echo '<td data-label="Add to Mylist">';
 				$desc = str_ireplace(',','%2C',$dat['sdescription']);
 				$desc2 = str_ireplace('(','%28',$desc );
 				$desc3 = str_ireplace(')','%29',$desc2 );
