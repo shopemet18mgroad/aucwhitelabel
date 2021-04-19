@@ -64,8 +64,8 @@ class Admin_buyereditbyref extends CI_Controller {
 				echo '<td data-label="Email Id">'.$dat['bemail'].'</td>';
 				echo '<td data-label="City">'.$dat['bcity'].'</td>';
 				echo '<td data-label="Reference">'.$dat['bref'].'</td>';
-				echo '<td data-label="Date"  width="10%">'.$dat['bagreementdate'].'</td>';
-				echo '<td data-label="Action" width="10%"><a href="'.base_url().'admin_editbuyer/edit_buyer/'.$dat['bcompany'].'">';
+				echo '<td data-label="Date">'.$dat['bagreementdate'].'</td>';
+				echo '<td data-label="Action"><a href="'.base_url().'admin_editbuyer/edit_buyer/'.$dat['bcompany'].'">';
 				echo '<i class="fa fa-edit"></i>';
 				echo '</a>';
 				echo '</td>';

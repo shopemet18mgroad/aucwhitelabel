@@ -1,6 +1,16 @@
 <?php 
 	//include('./header.php');
 ?>
+	
+	<link href="<?php echo base_url()."web_files/";?>css/tablestyle.css" rel="stylesheet" type="text/css">
+	
+	
+	
+	
+	
+	
+	
+	
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -13,10 +23,10 @@
           </div>
 
           <!-- Content Row -->
-          <div class="row">
+          <div class="row w-100">
 
             <!-- Earnings (Monthly) Card Example -->
-			<div class="col-xl-12 col-lg-7">
+			<div class="col-md-10 offset-sm-1">
           <div class="card shadow mb-4">
             <div class="card-body">
               <div class="table-responsive">
@@ -55,7 +65,7 @@
 					<tr>
 				<?php foreach($sqldat as $sqldata){?>	
 
-				<td data-label="Auction Id"><b><?php echo $sqldata->auctionid; ?></b></td>
+				<b><td data-label="Auction Id"> &nbsp </b> <?php echo $sqldata->auctionid; ?></td>
 				 <td data-label="Lot No"><?php echo $sqldata->lotno; ?></td>
 				 <td data-label="Buyer Name"><?php echo $sqldata->bidderusername; ?></td>
 				 <td data-label="Date/Time"><?php echo $sqldata->aucstartdate_time;?><br><?php echo $sqldata->aucclosedate_time;?></td>

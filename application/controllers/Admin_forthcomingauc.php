@@ -23,7 +23,7 @@ class Admin_forthcomingauc extends CI_Controller {
 		$this->load->helper(array('url','html'));
 		$this->load->library('session');
 		//echo $this->session->userdata('auth');
-		if(!$this->session->has_userdata('username')  || $this->session->userdata('auth') != "ADMIN"){
+		if(!$this->session->has_userdata('username') || $this->session->userdata('auth') != "ADMIN"){
 			$datainserr = "Invalid Login Session";
 			header('location: '.base_url().'login/index_error/'.$datainserr);
 			die;

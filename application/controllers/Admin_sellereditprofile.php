@@ -69,7 +69,7 @@ class Admin_sellereditprofile extends CI_Controller {
 				echo '<td data-label= "Contact No.">'.$dat['sphone'].'</td>';
 				echo '<td data-label= "Email Id">'.$dat['semail'].'</td>';
 				echo '<td data-label= "City">'.$dat['scity'].'</td>';
-				echo '<td width="10%" data-label= "Date">'.$dat['sagreementdate'].'</td>';
+				echo '<td data-label= "Date">'.$dat['sagreementdate'].'</td>';
 				$status = $dat['adaction'];
 				if($status == 1){
 				echo '<td style="color:green;" data-label= "Status"><b>'."ACTIVE".'</b></td>';
@@ -81,7 +81,7 @@ class Admin_sellereditprofile extends CI_Controller {
 				}else{
 					echo '<td>'.'</td>';
 				}
-				echo '<td width="10%" data-label= "S.No."><a href="'.base_url().'admin_editseller/edit_seller/'.$dat['scomapnyname'].'">';	
+				echo '<td  data-label= "S.No."><a href="'.base_url().'admin_editseller/edit_seller/'.$dat['scomapnyname'].'">';	
 				echo '<i class="fa fa-edit"></i>';
 				echo '</a>';
 				echo '<a href="'.base_url().'admin_editseller/delete_seller/'.$dat['scomapnyname'].'" class="btn btn-sm text-white delete-confirm">';

@@ -83,7 +83,7 @@ class Admin_buyereditprofile extends CI_Controller {
 				}else{
 					echo '<td data-label="Agreement Download">'.'</td>';
 				}
-				echo '<td width="12%" data-label="Action"><a href="'.base_url().'admin_editbuyer/edit_buyer/'.$dat['bcompany'].'">';
+				echo '<td data-label="Action"><a href="'.base_url().'admin_editbuyer/edit_buyer/'.$dat['bcompany'].'">';
 				echo '<i class="fa fa-edit"></i>';
 				echo '</a>';
 				echo '<a href="'.base_url().'admin_editbuyer/delete_buyer/'.$dat['bcompany'].'" class="btn btn-sm text-white delete-confirm">';
@@ -93,7 +93,6 @@ class Admin_buyereditprofile extends CI_Controller {
 				echo '<i class="fa fa-window-close" aria-hidden="true"  style="color:red"></i>';
 				echo '</a>';
 				
-				echo '</td>';
 				echo '</td>';
 				$subscription = $dat['subscription'];
 				if($subscription == 1){
@@ -106,14 +105,13 @@ class Admin_buyereditprofile extends CI_Controller {
 				echo '<td data-label ="Comment">'.$dat['comment'].'</td>';
 				echo '<td data-label ="Subscription Date">From<br>'.$dat['subscription_fromdate'].'<br>To<br>'.$dat['subscription_todate'].'</td>';
 				
-				echo '<td width="12%" data-label=" Subscription Action">';
+				echo '<td data-label=" Subscription Action">';
 				echo '<a href="'.base_url().'Admin_buyereditprofile/Subscribed/'.$dat['bcompany'].'" class="btn btn-sm text-white ">';
 				echo '<i class="fa fa-check-circle" aria-hidden="true"  style="color:green"></i>';
 				echo '</a>';
 				echo '<a href="'.base_url().'Admin_buyereditprofile/Unsubscribed/'.$dat['bcompany'].'" class="btn btn-sm text-white ">';
 				echo '<i class="fas fa-times-circle" aria-hidden="true"  style="color:red"></i>';
 				echo '</a>';
-				echo '</td>';
 				echo '</td>';
 				echo '</tr>';
 		$row_count++;	}
