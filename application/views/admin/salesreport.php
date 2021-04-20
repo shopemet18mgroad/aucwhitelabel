@@ -20,7 +20,7 @@
           <div class="row w-100">
 
             <!-- Earnings (Monthly) Card Example -->
-			<div class="col-md-10 offset-sm-1 p-2">
+			<div class="col-md-10 offset-sm-1 p-1">
           <div class="card shadow mb-4">
             <div class="card-body">
               <div class="table-responsive">
@@ -57,7 +57,7 @@
 		
 					<tr>												
 						
-						<td data-label="Auction Id" ><?php echo $datareciver[0]; ?></td>
+						<td data-label="Auction Id"><?php echo $datareciver[0]; ?></td>
 						<td data-label="Lot No"><?php echo $datareciver[1];	?></td>
 						<td data-label="Lot Name"><?php echo $datareciver[5]; ?></td>
 						<td data-label="Buyer"><?php echo $datareciver[2]; ?></td>
