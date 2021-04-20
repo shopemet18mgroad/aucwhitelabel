@@ -29,6 +29,19 @@
 #heartstyle {
   color: red;  
 }
+.img {
+  background-image: url(<?php echo base_url()."web_files/";?>img/aucjunction.jpg);
+}
+/* Only override this if one of the conditions for the 1500w image is met */
+@media 
+  (min-width: 375px) and (max-width: 400px),
+  (min-width: 468px),
+  (-webkit-min-device-pixel-ratio: 2), 
+  (min-resolution: 192dpi) {
+  .img {
+    background-image: url(large.jpg);
+  }
+}
 
 </style>
 
@@ -173,14 +186,14 @@
 	
 			<a class="sidebar-brand d-flex align-items-center justify-content-center" href="buyer_dashboard">
         <div class="sidebar-brand-img rotate-n-20 ">
-         <img src="<?php echo base_url()."web_files/";?>img/aucjunction.jpg" class="img-fluid" alt="" width="40%;">
+         <img src="<?php echo base_url()."web_files/";?>img/aucjunction.jpg"  alt="" width="40%;">
         </div>
         
       </a>
-          <!-- Sidebar Toggle (Topbar) -->
-<!--           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+          <!-- Sidebar Toggle (Topbar) -->        
+		  <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
-          </button> -->
+          </button>
 
           <!-- Topbar Search 
           <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">

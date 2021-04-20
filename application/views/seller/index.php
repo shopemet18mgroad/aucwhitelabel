@@ -2,6 +2,8 @@
    // include('./header');
    
 	?>
+	
+	<link href="<?php echo base_url()."web_files/";?>css/mediaform.css" rel="stylesheet" type="text/css">
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->

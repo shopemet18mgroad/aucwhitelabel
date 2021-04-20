@@ -1,6 +1,7 @@
  <?php
    // include('./header');
 	?>
+	<link href="<?php echo base_url()."web_files/";?>css/mediaform.css" rel="stylesheet" type="text/css">
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -17,10 +18,10 @@
 
           <!-- Content Row -->
 
-          <div class="row">
+          <div class="row w-100">
 
             <!-- Area Chart -->
-            <div class="col-xl-12 col-lg-7">
+            <div class="col-md-10 offset-sm-1 p-2">
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -37,19 +38,19 @@
 						<form action = "<?php echo base_url();?>Seller_basicaccount_update" method="POST" enctype="multipart/form-data">
 							<tr>
 								<td>Banker's Name</td>
-								<td><input class="form-control w-50" type="text" id="sbankername" name="sbankername" value="<?php echo $sqldata[0]->sbankername; ?>"></td>
+								<td><input class="form-control w-100" type="text" id="sbankername" name="sbankername" value="<?php echo $sqldata[0]->sbankername; ?>"></td>
 							</tr> 
 							<tr>
 								<td>Account Number</td>
-								<td><input class="form-control w-50" type="text" id="saccountnumber" name="saccountnumber" value="<?php echo $sqldata[0]->saccountnumber; ?>"></td>
+								<td><input class="form-control w-100" type="text" id="saccountnumber" name="saccountnumber" value="<?php echo $sqldata[0]->saccountnumber; ?>"></td>
 							</tr> 
 							<tr>
 								<td>Branch</td>
-								<td><input class="form-control w-50" type="text" id="sbranch" name="sbranch" value="<?php echo $sqldata[0]->sbranch; ?>"></td>
+								<td><input class="form-control w-100" type="text" id="sbranch" name="sbranch" value="<?php echo $sqldata[0]->sbranch; ?>"></td>
 							</tr> 
 							<tr>
 								<td>IFSC Code</td>
-								<td><input class="form-control w-50" type="text" id="sifsccode" name="sifsccode" value="<?php echo $sqldata[0]->sifsccode; ?>"></td>
+								<td><input class="form-control w-100" type="text" id="sifsccode" name="sifsccode" value="<?php echo $sqldata[0]->sifsccode; ?>"></td>
 							</tr> 							
 											
 						</tbody>

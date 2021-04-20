@@ -1,6 +1,8 @@
 <?php 
 	//include('./header.php');
-?><head> <meta http-equiv="refresh" content="30; url=<?php echo base_url()."seller_liveauc_2/index/".str_ireplace('/','-',$sqldata[0]->sauctionid); ?>"></head>
+?>
+<link href="<?php echo base_url()."web_files/";?>css/tablestyle.css" rel="stylesheet" type="text/css">
+<head> <meta http-equiv="refresh" content="30; url=<?php echo base_url()."seller_liveauc_2/index/".str_ireplace('/','-',$sqldata[0]->sauctionid); ?>"></head>
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -12,10 +14,10 @@
           </div>
 
           <!-- Content Row -->
-          <div class="row">
+          <div class="row w-100">
 
             <!-- Earnings (Monthly) Card Example -->
-			<div class="col-xl-12 col-lg-7">
+			<div class="col-md-10 offset-sm-1 p-2">
           <div class="card shadow mb-4">
             <div class="card-body">
               <div class="table-responsive">
@@ -37,17 +39,17 @@
 				<tbody>
 				<tr>
 					
-					<td><a href="#"></a><?php echo $sqldata[0]->sauctionid; ?></td>
-					<td><?php echo $sqldata[0]->scompanyname; ?></td>
-					<td><?php $aucstarttime = $sqldata[0]->saucstartdate_time;
+					<td data-label="Auction Id"><a href="#"></a><?php echo $sqldata[0]->sauctionid; ?></td>
+					<td data-label="Seller / Company Name"><?php echo $sqldata[0]->scompanyname; ?></td>
+					<td data-label="Auction Start Date"><?php $aucstarttime = $sqldata[0]->saucstartdate_time;
 							  $tmp = explode('.',$aucstarttime);
 							  $aucstarttime = $tmp[0];
 							  echo $aucstarttime; ?></td>
-					<td><?php $aucclosetime = $sqldata[0]->saucclosedate_time;
+					<td data-label="Auction Close Date"><?php $aucclosetime = $sqldata[0]->saucclosedate_time;
 							  $tmp = explode('.',$aucclosetime);
 							  $aucclosetime = $tmp[0];
 							  echo $aucclosetime; ?></td>
-					<td><a href="#"><u>Click here</u></a></td>
+					<td data-label="Auction Terms"><a href="#"><u>Click here</u></a></td>
 					<?php 
 					date_default_timezone_set('Asia/Kolkata');
 					$time =  Date('Y-m-d H:i:s');
@@ -102,22 +104,22 @@ if($diff <= 0){
 				?>
 				
 				<tr>												
-					<td><?php echo $sqlot->slotname; ?></td>
-					<td><?php echo $sqlot->slotlocation; ?></td>
-					<td><?php $aucclosetime = $sqlot->aucclosedate_time;
+					<td data-label="LOT Name"><?php echo $sqlot->slotname; ?></td>
+					<td data-label="Location"><?php echo $sqlot->slotlocation; ?></td>
+					<td data-label="Close Time"><?php $aucclosetime = $sqlot->aucclosedate_time;
 							  $tmp = explode('.',$aucclosetime);
 							  $aucclosetime = $tmp[0];
 							  echo $aucclosetime; ?></td>
-					<td><?php
+					<td data-label="Time Left"><?php
 							  if(($sqlot->aucclosedate_time)> $time ) {
 							  echo $Remaining;
 							  } else{
 								  echo "Auction Closed";
 							  }?></td>
-					<td><?php echo $sqlot->sqty; ?></td>
-					<td><?php echo $sqlot->sunitmeasurment; ?></td>
-					<td><?php echo $sqlot->sstartbidprice; ?></td>
-					<td><?php  echo $sqlot->cbidval; ?></td>
+					<td data-label="Quantity"><?php echo $sqlot->sqty; ?></td>
+					<td data-label="Unit"><?php echo $sqlot->sunitmeasurment; ?></td>
+					<td data-label="Start Price"><?php echo $sqlot->sstartbidprice; ?></td>
+					<td data-label="Final Bid"><?php  echo $sqlot->cbidval; ?></td>
 					
 				</tr>
 				<?php }?>
