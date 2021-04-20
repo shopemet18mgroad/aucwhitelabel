@@ -2,6 +2,10 @@
    // include('./header');
  //print_r($mybitvalref); die;
 	?>
+		
+		
+		<link href="<?php echo base_url()."web_files/";?>css/tablestyle.css" rel="stylesheet" type="text/css">
+	
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -56,17 +60,17 @@
 		
 					<tr>												
 						
-						<td><?php echo $datareciver[0]; ?></td>
-						<td><?php echo $datareciver[1];	?></td>
-						<td><?php echo $datareciver[2]; ?></td>
-						<td><?php echo $datareciver[6]; ?></td>
-						<td><?php echo $datareciver[3]; ?></td>
-						<td><?php $aucclosetime = $datareciver[5];
+						<td data-label ="Auction Id"><?php echo $datareciver[0]; ?></td>
+						<td data-label ="Lot No"><?php echo $datareciver[1];	?></td>
+						<td data-label ="Lot Name"><?php echo $datareciver[2]; ?></td>
+						<td data-label="Bid Base"><?php echo $datareciver[6]; ?></td>
+						<td data-label="Buyer"><?php echo $datareciver[3]; ?></td>
+						<td data-label="date/Time"><?php $aucclosetime = $datareciver[5];
 							  $tmp = explode('.',$aucclosetime);
 							  $aucclosetime = $tmp[0];
 							  echo $aucclosetime;?></td>
-						<td><?php echo $datareciver[4]; ?></td>
-						<td style="color:green;"><b><?php if($datareciver[3]){
+						<td data-label="Bid Amount"><?php echo $datareciver[4]; ?></td>
+						<td style="color:green;" data-label="Status"><b><?php if($datareciver[3]){
 						echo "Winner"	;
 						}
 						else{
@@ -75,7 +79,7 @@
 						 ?></b></td>
 						
 					
-						<td><a type="submit" name="submit" id="<?php echo $datareciver[1].'|'.str_ireplace('/','-', $datareciver[0]).'|'.$datareciver[3].'|'.$datareciver[4];?>" onclick="winner_set_deactive(this.id)"><button  class="btn btn-info btn-sm">Approve</button></a></td>	
+						<td data-label="Action"><a type="submit" name="submit" id="<?php echo $datareciver[1].'|'.str_ireplace('/','-', $datareciver[0]).'|'.$datareciver[3].'|'.$datareciver[4];?>" onclick="winner_set_deactive(this.id)"><button  class="btn btn-info btn-sm">Approve</button></a></td>	
 
 					</tr>
 					

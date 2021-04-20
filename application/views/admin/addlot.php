@@ -19,6 +19,7 @@ font_formats:
    
 
 	  <!-- End of Topbar -->
+	 <link href="<?php echo base_url()."web_files/";?>css/mediaform.css" rel="stylesheet" type="text/css">
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
@@ -30,10 +31,10 @@ font_formats:
           </div>
 
           <!-- Content Row -->
-          <div class="row p-2">
+          <div class="row w-100 p-2">
 
             <!-- Earnings (Monthly) Card Example -->
-			<div class="col-xl-12 col-lg-7">
+			<div class="col-md-10 offset-sm-1 p-2">
           <div class="card shadow mb-4">
             <div class="card-body">
               <div class="table-responsive">
@@ -47,11 +48,11 @@ font_formats:
 	<form name="myForm"  action="<?php echo base_url();?>Admin_addlot_info" method="POST" enctype="multipart/form-data">
 	<tr>
 		  <td width="2%">Auction Id</td>
-		  <td width="4%" style="text-color:blue;"> <input type="text" class="form-control w-50" id="sauctionid" name="sauctionid" value="<?php echo $auctionid; ?>" readonly></td>
+		  <td width="4%" style="text-color:blue;"> <input type="text" class="form-control w-100" id="sauctionid" name="sauctionid" value="<?php echo $auctionid; ?>" readonly></td>
 	  </tr>
 	  <tr>
 		  <td>Seller</td>
-		  <td><input class="form-control w-50"  type="text" id="sname" name="sname" placeholder="Search" value="<?php echo $sname; ?>" aria-label="Search" readonly>
+		  <td><input class="form-control w-100"  type="text" id="sname" name="sname" placeholder="Search" value="<?php echo $sname; ?>" aria-label="Search" readonly>
 		</td>
 	  </tr>
 	  
@@ -59,7 +60,7 @@ font_formats:
 		  <td>Lot No.</td>
 		  
 		  <td style="color:blue;">
-		  <input class="form-control float-left w-50"  type="number" id="slotno" name="slotno" aria-label="Search" >
+		  <input class="form-control float-left w-100"  type="number" id="slotno" name="slotno" aria-label="Search" >
 		
 		 </td>
 	  </tr> -->
@@ -67,11 +68,11 @@ font_formats:
 	  <tr>
 	   
 		  <td>Lot Name</td>
-		  <td><input class="form-control w-50" type="text" id="slotname" name="slotname" onkeyup="validate_lotno()"></td>
+		  <td><input class="form-control w-100" type="text" id="slotname" name="slotname" onkeyup="validate_lotno()"></td>
 	  </tr>
 	  <tr>
 		  <td width="11%">Category</td>
-		  <td width="4%"><select class="form-control w-50" id="scategory" name="scategory">
+		  <td width="4%"><select class="form-control w-100" id="scategory" name="scategory">
 				<option value="Select" selected>Select</option>
 				<option value="Ferrous">Ferrous</option>
 				<option value="Non Ferrous">Non Ferrous</option>
@@ -97,17 +98,17 @@ font_formats:
 	  </tr>
 	   <tr>
 		  <td>Description</td>
-		  <td><textarea class="form-control w-75" type="text" id="sdescription" name="sdescription" ></textarea>
+		  <td><textarea class="form-control w-100" type="text" id="sdescription" name="sdescription" ></textarea>
 	  </tr>
 	  <tr>  												
 		<td>Location Of Lot</td>
-		<td><input class="form-control w-50" type="text" id="slotlocation" name="slotlocation">
+		<td><input class="form-control w-100" type="text" id="slotlocation" name="slotlocation">
 		</td>
 	</tr>
 	
 	<tr>
 		<td>Unit Of Measurement</td>
-		<td><select class="form-control w-50"  onchange="change();" id="sunitmeasurment" name="sunitmeasurment">
+		<td><select class="form-control w-100"  onchange="change();" id="sunitmeasurment" name="sunitmeasurment">
 				<option value="KG" selected>KG</option>
 				<option value="Metric Ton">Metric Ton</option>
 				<option value="Lot">Lot</option>
@@ -118,12 +119,12 @@ font_formats:
 	</tr>
 	<tr>
 		<td>Qty</td>
-		<td><input class="form-control w-50" type="text" id="sqty" name="sqty"></td>
+		<td><input class="form-control w-100" type="text" id="sqty" name="sqty"></td>
 	</tr>
 	
 	<tr>
 		<td>Bid Base</td>
-		<td><select class="form-control w-50" id="sbidbase" name="sbidbase">
+		<td><select class="form-control w-100" id="sbidbase" name="sbidbase">
 				<option value="KG" selected>KG</option>
 				<option value="Metric Ton">Metric Ton</option>
 				<option value="Lot">Lot</option>
@@ -135,41 +136,41 @@ font_formats:
 	<tr>
 	<td>GST</td>
 
-	<td><input class="form-control w-50" type="text" id="sgst" name="sgst" placeholder="Exp. Max 28%"></td>
+	<td><input class="form-control w-100" type="text" id="sgst" name="sgst" placeholder="Exp. Max 28%"></td>
 
 	<tr>
 		<td>HSN Code.</td>
-		<td><input class="form-control w-50" type="text" id="shsncode" name="shsncode"></td>
+		<td><input class="form-control w-100" type="text" id="shsncode" name="shsncode"></td>
     </tr>
   
      <tr>
 		<td>Other Tax</td>
-		<td><input class="form-control w-50" type="text" id="sothertax" name="sothertax"></td>
+		<td><input class="form-control w-100" type="text" id="sothertax" name="sothertax"></td>
     </tr>
 	<tr>
 		<td>EMD Amount</td>
-		<td><input class="form-control w-50" type="text" id="semdamount" name="semdamount"></td>
+		<td><input class="form-control w-100" type="text" id="semdamount" name="semdamount"></td>
     </tr>	
 	<tr>
 
 		<td>Minimum Increament</td>
-		<td><input class="form-control w-50" type="text" id="sminincre" name="sminincre"></td>
+		<td><input class="form-control w-100" type="text" id="sminincre" name="sminincre"></td>
 	</tr>
 	<tr>
 
 		<td>Expected Price</td>
-		<td><input class="form-control w-50" type="text" id="sprice" name="sprice"></td>
+		<td><input class="form-control w-100" type="text" id="sprice" name="sprice"></td>
 	</tr>
 	
 	<tr>
 		<td>Starting Bid Price</td>
-		<td><input class="form-control w-50" type="text" id="sstartbidprice" name="sstartbidprice"></td>
+		<td><input class="form-control w-100" type="text" id="sstartbidprice" name="sstartbidprice"></td>
 	</tr>
 	
 	<tr>
 		<td>Lifting Period</td>
-		<td><input class="form-control w-75" type="datetime-local" id="sliftingperiod2" name="sliftingperiod2">
-		<input class="form-control w-50 mt-2" type="text" id="sliftingperiod" name="sliftingperiod" placeholder="Exp.15 days"></td>
+		<td><input class="form-control w-100" type="datetime-local" id="sliftingperiod2" name="sliftingperiod2">
+		<input class="form-control w-100 mt-2" type="text" id="sliftingperiod" name="sliftingperiod" placeholder="Exp.15 days"></td>
     </tr>
 	<tr>
 		<td>PCB Certificate</td>

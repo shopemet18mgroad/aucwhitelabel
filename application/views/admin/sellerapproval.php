@@ -3,6 +3,7 @@
 	
 
 ?>
+	<link href="<?php echo base_url()."web_files/";?>css/tablestyle.css" rel="stylesheet" type="text/css">
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -15,15 +16,16 @@
           </div> -->
 
           <!-- Content Row -->
-          <div class="row">
+          <div class="row w-100">
 
             <!-- Earnings (Monthly) Card Example -->
-			<div class="col-xl-12 col-lg-7">
+			<div class="col-md-9 offset-sm-1 p-2">
           <div class="card shadow mb-4">
             <div class="card-body">
               <div class="table-responsive">
 		
-		<table class="table table-striped table-bordered table-sm text-center mt-5" id="dataTable" width="100%" cellspacing="0">
+		<!--<table class="table table-striped table-bordered table-sm text-center mt-5" id="dataTable" width="100%" cellspacing="0">-->
+		<table class="table table-striped table-bordered table-sm w-auto small text-center table-center mt-5" id="dataTable" width="100%" cellspacing="0">
 				<thead class="bg-primary text-white">
 				<tr>
 					<th>Seller Name</th>
@@ -38,12 +40,12 @@
 				
 				<?php foreach($activestat as $activesta){?>
 				<tr>												
-					<td><?php echo $activesta->sname; ?></td>
-					<td><?php echo $activesta->ssellertype; ?></td>
-					<td><?php  echo $activesta->scity; ?></td>
-					<td><?php echo $activesta->scomapnyname; ?></td>
-					<td><?php echo "DEACTIVE";?></td>
-					<td><button type="submit" name="submit" id="<?php echo $activesta->scomapnyname;?>" onclick="seller_set_deactive(this.id)" class="btn btn-info btn-sm">Approve</button></td>	
+					<td data-label="Seller Name"><?php echo $activesta->sname; ?></td>
+					<td data-label="Seller Type"><?php echo $activesta->ssellertype; ?></td>
+					<td data-label="Location"><?php  echo $activesta->scity; ?></td>
+					<td data-label="Company Name"><?php echo $activesta->scomapnyname; ?></td>
+					<td data-label="Status"><?php echo "DEACTIVE";?></td>
+					<td data-label="Action"><button type="submit" name="submit" id="<?php echo $activesta->scomapnyname;?>" onclick="seller_set_deactive(this.id)" class="btn btn-info btn-sm">Approve</button></td>	
 				</tr>
 				<?php }?>
 	

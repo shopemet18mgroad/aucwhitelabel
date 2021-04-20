@@ -3,6 +3,7 @@
 	?>
 
         <!-- End of Topbar -->
+		<link href="<?php echo base_url()."web_files/";?>css/tablestyle.css" rel="stylesheet" type="text/css">
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
@@ -37,7 +38,7 @@
     <thead class="bg-primary text-white">
 	
 	<center> <div class="form-group">
-      <label class="control-label col-sm-2" >SPOC:</label>
+      <label class="control-label col-sm-2">SPOC:</label>
 	  
       <div class="col-sm-4"> 
 	  
@@ -133,10 +134,7 @@
 	 
     
   </table>
-  
-  
-  
-  
+
 <script>
 
 $(document).ready(function(){

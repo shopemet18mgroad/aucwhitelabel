@@ -3,7 +3,7 @@
 	
 ?>
         <!-- End of Topbar -->
-
+                                        
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
@@ -37,16 +37,16 @@
 <?php if($sqldata){?>
 				<tbody>
 				<tr>
-					<td><b><?php echo $sqldata[0]->sauctionid; ?></b></td>
-					<td><?php $aucstarttime = $sqldata[0]->saucstartdate_time;
+					<td data-label = "Auction Details"><b><?php echo $sqldata[0]->sauctionid; ?></b></td>
+					<td data-label = "Auction Id"><?php $aucstarttime = $sqldata[0]->saucstartdate_time;
 							  $tmp = explode('.',$aucstarttime);
 							  $aucstarttime = $tmp[0];
 							  echo $aucstarttime; ?></td>
-					<td><?php $aucclosetime = $sqldata[0]->saucclosedate_time;
+					<td data-label ="Opening Date/Time"><?php $aucclosetime = $sqldata[0]->saucclosedate_time;
 							  $tmp = explode('.',$aucclosetime);
 							  $aucclosetime = $tmp[0];
 							  echo $aucclosetime; ?></td>
-<td><?php echo $sqldata[0]->semdamount;} ?></td>
+                 <td data-label="Closing Date/Time"><?php echo $sqldata[0]->semdamount;} ?></td>
 				</tr>
 				</tbody>
 		 </table>
@@ -69,17 +69,17 @@
 
 				<tbody>
 				<tr>
-					<td><?php echo $sellerinfo[0]->sname; ?></td>
-					<td><?php echo $sellerinfo[0]->scomapnyname; ?></td>
-					<td><?php if($sellerinfo[0]->saddress == NULL){
+					<td  data-label = "Seller Name"><?php echo $sellerinfo[0]->sname; ?></td>
+					<td  data-label = "Company Name"><?php echo $sellerinfo[0]->scomapnyname; ?></td>
+					<td  data-label = "Location"><?php if($sellerinfo[0]->saddress == NULL){
 						ECHO "No Address found";
 					}?>
 					</td>
-					<td><?php echo $sellerinfo[0]->sstreet; ?></td>
-					<td><?php echo $sellerinfo[0]->scity; ?></td>
-					<td><?php echo $sellerinfo[0]->sphone; ?></td>
-					<td><?php echo $sellerinfo[0]->semail; ?></td>
-					<td><?php echo $sellerinfo[0]->scontactperson; ?></td>
+					<td  data-label = "Street"><?php echo $sellerinfo[0]->sstreet; ?></td>
+					<td  data-label = "City"><?php echo $sellerinfo[0]->scity; ?></td>
+					<td  data-label = "Phone Number"><?php echo $sellerinfo[0]->sphone; ?></td>
+					<td  data-label = "Email"><?php echo $sellerinfo[0]->semail; ?></td>
+					<td  data-label = "Contact Person"><?php echo $sellerinfo[0]->scontactperson; ?></td>
 				</tr>
 				</tbody>
 		 </table>
