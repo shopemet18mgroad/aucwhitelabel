@@ -47,7 +47,7 @@
 
             <!-- Earnings (Monthly) Card Example -->
 			<div class="col-xl-12 col-lg-7">
-          <div class="card shadow mb-4">
+          <div class="card shadow mb-4 ml-3">
             <div class="card-body">
               <div class="table-responsive">
 			   <div  style="width:auto;color:white;align-center;text-align:center;" class="bg-primary"><p id="blink"><i class="fa fa-bell mr-2" aria-hidden="true"></i><b>Note: Bidders should give their bids for basic price exclusive of all taxes, All statutory taxes, charges, duties and any other levies<br> as application will have to be paid over and above the quoted price.<br> By Participating in bidding I agree to all the Terms & Conditions Of AUCJUNCTION, Seller and Buyer of the auction.</b></p></div>
@@ -60,7 +60,7 @@
 	$time =  Date('Y-m-d H:i:s');
 	if(($sqld->aucclosedate_time)>$time){?>
 	<div id="ajaxauc" class="ajaxauc">
-		<table class="table table-striped table-bordered table-sm text-center w-auto small ml-5" width="100%" cellspacing="0" >
+		<table class="table table-striped table-bordered table-sm text-center w-auto small" width="100%" cellspacing="0" >
 				<thead class="bg-info text-white text-center">
 					<th colspan="7">Auction Details</th>
 				</thead>
@@ -167,7 +167,7 @@ if($diff <= 0){
 //$sessa2 = urlencode($sess['sessi']);
 $sessa2 = str_ireplace('@','%40',$sessi);
 					?> 
-					<input class="form-control col-sm-7 mr-2" type="number" value="<?php echo $datbid; ?>" min="0" step="<?php echo $sqldata2[$lottimesync]->sminincre; ?>" id="bid-<?php echo $lot;?>" name="bid" <?php if($sqld->abidding){echo "readonly";}else{echo "";} ?>>
+					<input class="form-control col-sm-5 mr-2" type="number" value="<?php echo $datbid; ?>" min="0" step="<?php echo $sqldata2[$lottimesync]->sminincre; ?>" id="bid-<?php echo $lot;?>" name="bid" <?php if($sqld->abidding){echo "readonly";}else{echo "";} ?>>
 					<button type="submit" id="<?php echo $sessa2.'|'.str_ireplace('/','-',$sqld->auctionid)."|".$sqldata2[$lottimesync]->slotno; ?>" class="btn btn-info" onclick="bid_manual(this.id)" <?php if($sqld->abidding){echo "disabled";}else{echo "";} ?>>Bid</button></div>
 							
 					

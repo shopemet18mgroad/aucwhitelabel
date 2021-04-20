@@ -2,6 +2,7 @@
 	//include('./header.php');
 
 ?>
+<link href="<?php echo base_url()."web_files/";?>css/tablestyle.css" rel="stylesheet" type="text/css">
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -22,25 +23,22 @@
             <div class="card-body">
               <div class="table-responsive">
 			     <table class="table table-striped w-auto small table-bordered mt-4 text-center" id="dataTable" width="100%" cellspacing="0">
-				<thead class="bg-warning  text-white text-center">
-					<th colspan="21"><b>Auction Details</b></th>
-				</thead>
-				<thead class="bg-primary text-white">
-				
-				<tr>
-					<td>Auction Id</td>
-					<td>Seller</td>
-					<td>Category</td>
-					 <td>Seller Company Name</td>
-					 <td>Venue Of Inspection</td>
-					 <td>Inspection Date & Time</td>
-					 <td>EMD Details</td>
-					<td>Last Date Of Submiting EMD</td>
-					<td>Online Auction Start And Close Date</td>
-					<td>Aucjunction Terms & Conditions</td>
-					<td>Upload Terms & Conditions	</td>
-					<td>Download</td>
-					<td>Action</td>
+				<thead >
+					<tr class="bg-warning  text-white text-center"><th colspan="21"><b>Auction Details</b></th></tr>
+				<tr class="bg-primary text-white">
+					<th>Auction Id</th>
+					<th>Seller</th>
+					<th>Category</th>
+					 <th>Seller Company Name</th>
+					 <th>Venue Of Inspection</th>
+					 <th>Inspection Date & Time</th>
+					 <th>EMD Details</th>
+					<th>Last Date Of Submiting EMD</th>
+					<th>Online Auction Start And Close Date</th>
+					<th>Aucjunction Terms & Conditions</th>
+					<th>Upload Terms & Conditions</th>
+					<th>Download</th>
+					<th>Action</th>
 				</tr>
 				</thead>
 
@@ -49,15 +47,15 @@
 				<tr>
 				<?php $passaucid = str_ireplace('/','-',$sqldat->sauctionid);
 				$aucfl = unserialize ($sqldat->sterms_condiupload);?>
-					<td><a href="<?php echo base_url()."Seller_editforthcom_2/editforthcom_2/".$passaucid;?>"><b><?php echo str_ireplace("/","-",$sqldat->sauctionid);?></b></a></td>
-					<td><?php echo $sqldat->sname; ?></td>
-					<td><?php echo $sqldat->scategory; ?></td>
-					<td><?php echo $sqldat->scompanyname; ?></td>
-					<td><?php echo $sqldat->svinspection; ?></td>
-					<td><?php echo $sqldat->sfrominpectdate_time; ?><br><br><?php echo $sqldat->stoinpectdate_time; ?></td>
-					<td><?php echo $sqldat->semddetail; ?></td>
-					<td><?php echo $sqldat->slastdateemdsub; ?></td>
-					<td><?php $aucstarttime = $sqldat->saucstartdate_time;
+					<td data-label="Auction Id"><a href="<?php echo base_url()."Seller_editforthcom_2/editforthcom_2/".$passaucid;?>"><b><?php echo str_ireplace("/","-",$sqldat->sauctionid);?></b></a></td>
+					<td data-label="Seller"><?php echo $sqldat->sname; ?></td>
+					<td data-label="Category"><?php echo $sqldat->scategory; ?></td>
+					<td data-label="Seller Company Name"><?php echo $sqldat->scompanyname; ?></td>
+					<td data-label="Venue Of Inspection"><?php echo $sqldat->svinspection; ?></td>
+					<td data-label="Inspection Date & Time"><?php echo $sqldat->sfrominpectdate_time; ?><br><br><?php echo $sqldat->stoinpectdate_time; ?></td>
+					<td data-label="EMD Details"><?php echo $sqldat->semddetail; ?></td>
+					<td data-label="Last Date Of Submiting EMD"><?php echo $sqldat->slastdateemdsub; ?></td>
+					<td data-label="Online Auction Start And Close Date"><?php $aucstarttime = $sqldat->saucstartdate_time;
 							  $tmp = explode('.',$aucstarttime);
 							  $aucstarttime = $tmp[0];
 							  echo $aucstarttime; ?><br><br>
@@ -66,22 +64,22 @@
 							  $tmp = explode('.',$aucclosetime);
 							  $aucclosetime = $tmp[0];
 							  echo $aucclosetime; ?></td>
-					<td><?php if ($sqldat->sterms_condiaccept == 1){
+					<td data-label="Aucjunction Terms & Conditions"><?php if ($sqldat->sterms_condiaccept == 1){
 									echo 'Accepted';}?>
 									</td>
 					
 				
-				<td>
+				<td data-label="Upload Terms & Conditions">
 					<?php if(isset($aucfl[0])){?>	
 				<a href="<?php echo base_url().'/web_files/uploads/'.$aucfl[0];?>" target="_blank"  ><?php echo '<i class="fa fa-download"></i>' ; ?>
 					</a></td>
 					<?php }?>
 			
-					<td><a href="<?php echo base_url()."/pdf_gen/auc_no/".$passaucid.'/'.($sqldat->sname);?>" target="_blank"><i class="fa fa-download"></i></a></td>			
+					<td data-label="Download"><a href="<?php echo base_url()."/pdf_gen/auc_no/".$passaucid.'/'.($sqldat->sname);?>" target="_blank"><i class="fa fa-download"></i></a></td>			
 					
 
 
-					<td><a href="<?php echo base_url()."Seller_editauction/editauction/".$passaucid;?>" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a>
+					<td data-label="Action"><a href="<?php echo base_url()."Seller_editauction/editauction/".$passaucid;?>" class="btn btn-primary btn-sm text-white"><i class="fa fa-edit fa-sm"></i></a>
 
 						<a href="<?php echo base_url()."Seller_editauction/delete_auction/".$passaucid;?>"  class="btn btn-danger btn-sm text-white delete-confirm"><i class="fa fa-trash fa-sm"></i></a></td>	
 				</tr>

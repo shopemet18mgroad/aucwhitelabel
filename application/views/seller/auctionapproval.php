@@ -2,6 +2,7 @@
    // include('./header');
  //print_r($sqldatarec); die;
 	?>
+	<link href="<?php echo base_url()."web_files/";?>css/tablestyle.css" rel="stylesheet" type="text/css">
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -33,11 +34,12 @@
 				</div>
 			</form>-->
 			
-         <table class="table table-striped text-center table-sm table-bordered mt-5"  width="100%" cellspacing="0">		
-    <thead class="bg-primary text-white">
+         <table class="table table-striped text-center table-sm table-bordered mt-5"  id="dataTable" width="100%" cellspacing="0">		
+    <thead>
 	  <tr>
-		<th colspan="13" class="bg-info">Auctions</th></tr>
-     <tr>
+		<th colspan="13" class="bg-info text-white">Auctions</th>
+		</tr>
+     <tr class="bg-primary text-white">
 		<th>Auction Id</th>
 		<th>Lot No</th>
 		<th>Lot Name</th>
@@ -55,21 +57,21 @@
    	<?php if(isset($sqldatarec)){ foreach($sqldatarec as $sqldata){ $datareciver = explode('|',$sqldata);?>
 		<?php /*  print_r($datareciver[4]); die;  */ ?>
 					<tr>												
-						<td><?php echo $datareciver[0]; ?></td>
-						<td><?php echo $datareciver[1]; ?></td>
-						<td><?php echo $datareciver[2];?></td>
-						<td><?php echo $datareciver[6];?></td>
-						<td><?php echo $datareciver[3];?></td>
-						<td><?php $aucclosetime = $datareciver[5];
+						<td data-label="Auction Id"><?php echo $datareciver[0]; ?></td>
+						<td data-label="Lot No"><?php echo $datareciver[1]; ?></td>
+						<td data-label="Lot Name"><?php echo $datareciver[2];?></td>
+						<td data-label="Bid Base"><?php echo $datareciver[6];?></td>
+						<td data-label="Buyer Name"><?php echo $datareciver[3];?></td>
+						<td data-label="Date/Time"><?php $aucclosetime = $datareciver[5];
 								  $tmp = explode('.',$aucclosetime);
 							      $aucclosetime = $tmp[0];
 						          echo $aucclosetime; ?></td>
-						<td><?php echo $datareciver[4]; ?></td>
+						<td data-label="My Bid Value"><?php echo $datareciver[4]; ?></td>
 						
-						<td style="color:green;"><b><?php echo "Winner"?></b></td>
+						<td data-label="Status" style="color:green;"><b><?php echo "Winner"?></b></td>
 						
 						
-						<td><button type="submit" name="submit" id="<?php echo $datareciver[1].'|'.str_ireplace('/','-', $datareciver[0]).'|'.$datareciver[3].'|'.$datareciver[4];?>" onclick="seller_set(this.id)" class="btn btn-info btn-sm">Approve</button></td>	
+						<td data-label="Action"><button type="submit" name="submit" id="<?php echo $datareciver[1].'|'.str_ireplace('/','-', $datareciver[0]).'|'.$datareciver[3].'|'.$datareciver[4];?>" onclick="seller_set(this.id)" class="btn btn-info btn-sm">Approve</button></td>	
 
 					</tr>
 	<?php  }} ?>

@@ -127,7 +127,7 @@ if(($quer->aucclosedate_time)>$time){
 		
 echo '<input type="hidden" id="telapsed-'.$lottimesync.'" value="'.$diff.'">';	
 //foreach($query2 as $que){
-echo '<table class="table table-striped table-bordered table-sm text-center w-auto small ml-5" width="100%" cellspacing="0" >';
+echo '<table class="table table-striped table-bordered table-sm text-center w-auto small" width="100%" cellspacing="0" >';
 
 echo '<thead class="bg-info text-white text-center">';
 echo '<tr>';
@@ -414,8 +414,8 @@ echo '</table>';
 			$auclink = str_ireplace('/','-',$datamenu->auctionid);
 			$auclink = str_ireplace(' ','%20',$auclink);
 			echo "<tr>\n";
-			echo "<td data-label="'Auction Id'"><a href=".base_url()."Buyer_liveauc_2/index/".$auclink." data-toggle='modal' data-target='#myModal-1'>".$datamenu->auctionid."</a></td>\n";
-			echo "<td data-label="'Seller Name'">".$datamenu->sname."</td>\n";
+			echo "<td data-label='Auction Id'><a href=".base_url()."Buyer_liveauc_2/index/".$auclink." data-toggle='modal' data-target='#myModal-1'>".$datamenu->auctionid."</a></td>\n";
+			echo "<td data-label='Seller Name'>".$datamenu->sname."</td>\n";
 			//echo "<td>".$datamenu->description."</td>\n";
 			echo "</tr>";
 echo '<div class="modal" id="myModal-1>';
