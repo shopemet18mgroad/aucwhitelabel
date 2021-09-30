@@ -13,11 +13,18 @@
           </div> -->
 
           <!-- Content Row -->
+		
+		  
+		  
+		 
+		  <a href='<?php echo base_url();?>Admin_bidhistory/export_csv10' type="button" class="btn btn-info btn-sm ml-3"><b>Export</b></a>
+		  
           <div class="row">
 
             <!-- Earnings (Monthly) Card Example -->
 			<div class="col-xl-12 col-lg-7">
           <div class="card shadow mb-4">
+		 
             <div class="card-body">
               <div class="table-responsive">
 		

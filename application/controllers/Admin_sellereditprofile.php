@@ -152,6 +152,7 @@ echo "</script>\n";
 	public function export_csv1(){ 
 		// file name 
 		$datatoquerydb = $this->uri->segment(3);
+		
 		$this->load->model('Admin_model');
 		$filename = 'users_'.date('Ymd').'.csv'; 
 		header("Content-Description: File Transfer"); 
@@ -164,6 +165,7 @@ echo "</script>\n";
 		// file creation 
 		$file = fopen('php://output','w');
 		$header = array("COMPANY NAME","CONTACT PERSON","CONTACT NO.","EMAIL ID","CITY","DATE"); 
+		
 		fputcsv($file, $header);
 		foreach ($usersData as $key=>$line){ 
 			fputcsv($file,$line); 

@@ -67,4 +67,29 @@ class Admin_bidhistory extends CI_Controller {
 		$this->load->view('admin/bidhistory',$data);
 		$this->load->view('admin/footer');
 	} 
+	 	public function export_csv10(){ 
+		$retrivevaltmp = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
+		$retrivevaltmp2 = urldecode($this->uri->segment(4));
+		$retriveval = array('sauctionid'=>$retrivevaltmp,'slotno'=>$retrivevaltmp2);
+	
+		$this->load->model('Admin_model');
+	     $filename = 'users_'.date('Ymd').'.csv'; 
+		header("Content-Description: File Transfer"); 
+		header("Content-Disposition: attachment; filename=$filename"); 
+		header("Content-Type: application/csv; ");
+		
+	
+	    $usersData = $this->Admin_model->getenquirydataDetails123();
+	  
+		
+		$file = fopen('php://output','w');
+		$header = array("AUCTION ID","LOT N0","LOT NAME","BIDDER USER NAME","BID BASE","BIDDING AMOUNT"); 
+		fputcsv($file, $header);
+		foreach ($line->sauctionid,){ 
+			fputcsv($file,$line); 
+		}
+		fclose($file); 
+		exit; 
+	}
 }
+$file,array($line->date,$line->companyname,$line->vaddress,$line->vcity,$line->first,$line->last,$line->phone,$line->email,$line->remarks,$line->leadgeneration,$line->spoc,$line->location,$line->website,$latlong
