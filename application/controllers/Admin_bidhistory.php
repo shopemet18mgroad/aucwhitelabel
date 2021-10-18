@@ -61,10 +61,68 @@ class Admin_bidhistory extends CI_Controller {
 		$this->load->model('Admin_model');
 		$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
 		$this->load->helper('url');
-	$this->load->library('session');
+	    $this->load->library('session');
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$this->load->view('admin/header',$sess);
 		$this->load->view('admin/bidhistory',$data);
 		$this->load->view('admin/footer');
 	} 
+	 	public function export_csvbiddata(){ 
+		$sauctionid = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
+		$slotno = urldecode($this->uri->segment(4));
+		$retriveval = array('sauctionid'=>$sauctionid,'slotno'=>$slotno);
+		
+		$this->load->model('Admin_model');
+		
+		$usersData = $this->Admin_model->getdataDSC('biddingdata',$sauctionid,$slotno);
+		if($usersData){
+		$filename = 'users_'.date('Ymd').'.csv'; 
+		header("Content-Description: File Transfer"); 
+		header("Content-Disposition: attachment; filename=$filename"); 
+		header("Content-Type: application/csv; ");
+	   // get data 
+	  
+		$file = fopen('php://output','w');
+		$header = array("AUCTION ID","LOT NO","LOT NAME" ,"BID BASE","BIDDER USER NAME","CLOSE TIME","BIDDING AMOUNT");
+	    fputcsv($file,$header);
+		foreach ($usersData as $line){ 
+			fputcsv($file,array($line->sauctionid,$line->slotno,$line->slotname,$line->sbidbase,$line->bidderusername,$line->Date_time,$line->bidamount)); 
+		}
+		
+		fclose($file); 
+		exit; 
+	
+		}
 }
+		public function export_csvbiddata1(){ 
+		$sauctionid = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
+		$slotno = urldecode($this->uri->segment(4));
+		$retriveval = array('sauctionid'=>$sauctionid,'slotno'=>$slotno);
+		
+	
+		
+		$usersData = $this->Admin_model->getdataDSC('biddingdata',$sauctionid,$slotno);
+		
+		$this->load->model('Admin_model');
+		
+		
+		if($usersData){
+		$filename = 'users_'.date('Ymd').'.csv'; 
+		header("Content-Description: File Transfer"); 
+		header("Content-Disposition: attachment; filename=$filename"); 
+		header("Content-Type: application/csv; ");
+	   // get data 
+	  
+		$file = fopen('php://output','w');
+		$header = array("AUCTION ID","LOT NO","LOT NAME" ,"BID BASE","CLOSE TIME","BIDDING AMOUNT");
+	    fputcsv($file,$header);
+		foreach ($usersData as $line){ 
+			fputcsv($file,array($line->sauctionid,$line->slotno,$line->slotname,$line->sbidbase,$line->Date_time,$line->bidamount)); 
+		}
+		
+		fclose($file); 
+		exit; 
+	
+		}
+}
+		}

@@ -80,6 +80,29 @@ class Admin_emdrequest extends CI_Controller {
 		}else{
 			echo "BYE";
 		}
+		}
+		
+		public function setdeactive_buyer_emd1(){
+		
+		$lotno = urldecode($this->uri->segment(3));
+		$auctionid = urldecode(str_ireplace('-','/',$this->uri->segment(4)));
+		//$auctionid = urldecode($this->uri->segment(4));
+		$bidderusername = urldecode($this->uri->segment(5));
+		
+		$this->load->model('Admin_model');
+		$adaction2 = array('lotno'=>$lotno,'auctionid'=>$auctionid,'bidderusername'=>$bidderusername);
+		
+		//print_r($adaction2);die;
+		$query = $this->Admin_model->delete_data('biddercart',$adaction2);
+		$this->load->helper('url');
+		$this->load->library('session');
+		
+		
+		if($lotno){
+			header('location: '.base_url().'admin_emdrequest/index/');
+		}else{
+			echo "BYE";
+		}
 	
 	}
 	

@@ -24,11 +24,27 @@
    <script src=" https://github.com/superRaytin/paginationjs"></script>
    <script src=" http://pagination.js.org"></script>
    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-   <script>
+   
+   
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ephesis&display=swap" rel="stylesheet">
    div.dataTables_wrapper {
         margin-bottom: 3em;
-    }
-</script> 
+    
+	<style>
+	#typedtext {
+
+  font-size:10px; 
+marign-top:2px;
+
+ 
+  letter-spacing:2px; 
+  font-weight: bold;
+  color: black;
+
+}
+	</style>
 </head>
 
 
@@ -38,18 +54,74 @@
 				<div class="col-md-12 contact-header">
 					<div class="social pull-right">
 						<ul>
+
+  
+ 
+						
 							<li><a href="<?php echo base_url()."login"?>"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp Dashboard Login</a></li>
 							<li><i class="fa fa-mobile" aria-hidden="true"></i>&nbsp Helpline No: +91 9945454505 <i class="fa fa-phone" aria-hidden="true"></i>&nbsp Landline No:080 42332722</li>
 							<li></li>
 							<li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
 							<li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
 							<li><a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+							
+
+							
 						</ul>
 					</div>		
 				</div>
 						
 		</div>	
 	</div>
+				 <div id="typedtext" class="ml-5">
+  
+  </div>
+  
+   <script>
+	
+// set up text to print, each item in array is new line
+var aText = new Array(
+"Be INFORMED , Be PREPARED , Be SMART , be SAFE ,be READY to fight #COVID19"
+
+);
+var iSpeed = 100; // time delay of print out
+var iIndex = 0; // start printing array at this posision
+var iArrLength = aText[0].length; // the length of the text array
+var iScrollAt = 20; // start scrolling up at this many lines
+ 
+var iTextPos = 0; // initialise text position
+var sContents = ''; // initialise contents variable
+var iRow; // initialise current row
+ 
+function typewriter()
+{
+ sContents =  ' ';
+ iRow = Math.max(0, iIndex-iScrollAt);
+ var destination = document.getElementById("typedtext");
+ 
+ while ( iRow < iIndex ) {
+  sContents += aText[iRow++] + '<br />';
+ }
+ destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos) ;
+ if ( iTextPos++ == iArrLength ) {
+  iTextPos = 0;
+  iIndex++;
+  if ( iIndex != aText.length ) {
+   iArrLength = aText[iIndex].length;
+   setTimeout("typewriter()", 500);
+  }
+ } else {
+  setTimeout("typewriter()", iSpeed);
+ }
+}
+
+
+typewriter();
+
+
+</script>
+	
+	
 		<div class="container">
 			<div class="row branding">
 				<div class="col-md-6 col-sm-12 pt-4">

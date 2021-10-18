@@ -47,23 +47,38 @@
 						<th>Buyer Name</th>
 						<!--<th>Location</th>-->
 						<th>Date/Time</th>
+						
+						<th>EMD Sent Time</th>
 						<th>EMD Status</th>
 						<th>Action</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
+					
+				
+					
+					
 				<?php foreach($sqldat as $sqldata){?>	
+					
+					<?php $proid = urldecode( str_ireplace('/','-',$sqldata->auctionid));
+				?>
 
-				<td><b><?php echo $sqldata->auctionid; ?></b></td>
+				<td><b><?php echo $sqldata->auctionid;?></b></td>
 				 <td><?php echo $sqldata->lotno; ?></td>
 				 <td><?php echo $sqldata->bidderusername; ?></td>
 				 <td><?php echo $sqldata->aucstartdate_time;?><br><?php echo $sqldata->aucclosedate_time;?></td>
+				 <td><?php echo $sqldata->datatime;?></td>
 			
 				
 				<td><?php  if($sqldata->emdrequest == 3 ) {echo 'Pending';}				?></td>
 				
-				<td><button type="submit" name="submit" id="<?php echo $sqldata->lotno.'|'.str_ireplace('/','-',$sqldata->auctionid).'|'.$sqldata->bidderusername;?>" onclick="buyer_set_deactive_emd(this.id)" class="btn btn-info btn-sm">Approve</button></td>	
+				<td><button  type="submit" name="submit" id="<?php echo $sqldata->lotno.'|'.str_ireplace('/','-',$sqldata->auctionid).'|'.$sqldata->bidderusername;?>" onclick="buyer_set_deactive_emd(this.id)" class="btn btn-info btn-sm">Approve</button>
+				
+				
+				<a style="margin:2px" class="btn btn-danger btn-sm text-white" href="<?php echo base_url()."Admin_emdrequest/setdeactive_buyer_emd1/".$sqldata->lotno."/".$proid."/". $sqldata->bidderusername;?>"><i class="fa fa-trash"></i></a>
+				
+		
 				
 				</tr>
 				
