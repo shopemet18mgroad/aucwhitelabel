@@ -29,9 +29,11 @@
    <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Ephesis&display=swap" rel="stylesheet">
+   <script>
    div.dataTables_wrapper {
         margin-bottom: 3em;
-    
+    }
+</script> 
 	<style>
 	#typedtext {
 
