@@ -145,7 +145,7 @@
 
 						</div>
 
-						<div class="tab-pane h-100 p-3 w-75 border border-primary" id="all" role="tabpanel" aria-labelledby="all-tab">
+						<div class="tab-pane h-100 p-3 w-100 border border-primary" id="all" role="tabpanel" aria-labelledby="all-tab">
 							<div class="table-holder">
 							<font size="4" face="Arial" >
 								<table class="table table-bordered display w-auto small text-center" id="">
