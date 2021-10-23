@@ -29,6 +29,7 @@
    <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Ephesis&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
    <script>
    div.dataTables_wrapper {
         margin-bottom: 3em;
@@ -46,6 +47,14 @@ marign-top:2px;
   color: black;
 
 }
+.errspan {
+        float: right;
+        margin-right:10px;
+        margin-top: -30px;
+        position: relative;
+        z-index: 2;
+        color: black;
+    }
 	</style>
 </head>
 
@@ -138,8 +147,20 @@ typewriter();
 							<form  class="user" action="<?php echo base_url()."Home_Login";?>" method="POST" id="bidder" name="myform">
 								<input type="text" class="form-control" id="exampleInputEmail" name="user" placeholder="User Name" size="50">
 							</div>
+					
 						  <div class="form-group p-1">
-							<input type="password" class="form-control" id="exampleInputPassword" name="pass" placeholder="Password" size="50">
+							<input type="password" class="form-control" id="exampleInputPassword" name="pass" placeholder="Password" size="50"><i class="bi bi-eye-slash errspan" id="togglePassword"></i>
+							<script>
+const togglePassword = document.querySelector('#togglePassword');
+const password = document.querySelector('#exampleInputPassword');
+togglePassword.addEventListener('click', function (e) {
+    // toggle the type attribute
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    // toggle the eye / eye slash icon
+    this.classList.toggle('bi-eye');
+});
+</script>
 						  </div>
 						  <div class="form-group p-1">
 							<button type="submit" name="submit" onclick="return userid4()" class="btn btn-primary"><i class="fa fa-sign-in"></i> Login</button>	

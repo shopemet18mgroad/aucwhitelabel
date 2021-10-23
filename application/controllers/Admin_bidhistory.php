@@ -99,11 +99,11 @@ class Admin_bidhistory extends CI_Controller {
 		$slotno = urldecode($this->uri->segment(4));
 		$retriveval = array('sauctionid'=>$sauctionid,'slotno'=>$slotno);
 		
-	
+	 $this->load->model('Admin_model');
 		
 		$usersData = $this->Admin_model->getdataDSC('biddingdata',$sauctionid,$slotno);
 		
-		$this->load->model('Admin_model');
+		
 		
 		
 		if($usersData){
