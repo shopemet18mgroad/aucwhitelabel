@@ -54,7 +54,7 @@
 			<input type="checkbox" class="form-check-input" id="liveaucterms_condi" name="liveaucterms_condi" value="0">
 			<label class="form-check-label" for="exampleCheck1"></label>
 			</div>
-	  <b>I fully agree with the BUYER, SELLER and AUCJUNCTION Terma & Conditions of this e-Auction.</b>
+	  <b>I fully agree with the BUYER, SELLER and AUCJUNCTION Terms & Conditions of this e-Auction.</b>
        
       </div>
 

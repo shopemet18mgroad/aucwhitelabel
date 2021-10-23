@@ -44,6 +44,7 @@
   <script src="<?php echo base_url()."web_files/";?>vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="<?php echo base_url()."web_files/";?>vendor/datatables/dataTables.bootstrap4.min.js"></script>
  <script src="<?php echo base_url()."web_files/";?>js/demo/datatables-demo.js"></script>
+
  
   <script>
  function validatearry(){
@@ -247,6 +248,18 @@
 		});
 	
  </script>
+	  <script>
+
+$(document).ready(function(){
+  $("#myInput").on("change", function() {
+    var value = $(this).val().toLowerCase();
+	$("a.mylink").attr("href", "<?php echo base_url();?>Admin_manageseller/export_csvenquiry/" +value);
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script> 
 
 
 <script>
@@ -529,6 +542,19 @@
 		}
 	
  </script>
+ <script>
+		function buyer_set_deactive_emd1(varab3){
+			$.get('<?php echo base_url() .'Admin_emdrequest/setdeactive_buyer_emd1/'; ?>'+varab3, function(data3){			
+				 if($.trim(data3) == "HI"){
+					 window.location.href = '<?php echo base_url().'Admin_emdrequest';?>'
+					return true;
+				}
+			 });
+			
+		}
+	
+ </script>	 
+	 
  
  <script>
 		function buyer_set_deactive_emd_dd(varab2){

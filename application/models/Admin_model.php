@@ -556,7 +556,7 @@ class Admin_model extends CI_Model
 
 	public function getenquirydataDetails($spoc){
 		
-		$this->db->select('*');
+		$this->db->select('sauctionid ,slotno,bidderusername,bidamount');
 		$this->db->from('enquiry_form');
 		$this->db->where('spoc', $spoc);
 		$query = $this->db->get();
@@ -575,6 +575,47 @@ class Admin_model extends CI_Model
 	}
 
 	
+		
+		public function getbiddingdata($sauctionid) {
+				$this->db->select('
+					a.*,
+					b.*');
+				    
+					$this->db->where('a.sauctionid',$sauctionid);
+					$this->db->where('b.sauctionid',$sauctionid);	
+					$this->db->join('addlot b', 'a.sauctionid=b.sauctionid',
+					'left outer');
+				    $this->db->order_by('slotname','ASC');
+					$this->db->order_by('bidamount','DESC');
+				  
+				
+						     			
+					$query = $this->db->get("biddingdata a");
+					return $query->result();
+		     }
+		
+				public function getbiddingdata1($sauctionid,$slotname) {
+				$this->db->select('
+					a.*,
+					b.*');
+				    
+					$this->db->where('a.sauctionid',$sauctionid);
+					$this->db->where('b.sauctionid',$sauctionid);	
+					$this->db->join('addlot b', 'a.sauctionid=b.sauctionid',
+					'left outer');
+				    $this->db->order_by('slotname','ASC');
+					$this->db->order_by('bidamount','DESC');
+				  
+				
+						     			
+					$query = $this->db->get("biddingdata a");
+					return $query->result();
+		     }
+		
+		
+		
+		
+		
 	
 	public function getenquirydataDetails1(){
 		
