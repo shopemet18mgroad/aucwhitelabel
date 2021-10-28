@@ -9,7 +9,7 @@
             transition: 0.5s;
 			 animation: blinker 1s linear infinite;
 			  animation-name:animate;
-			animation-duration: 1s;
+			animation-duration: 10s;
 			animation-iteration-count: infinite;
 			opacity: 1;
 				}
@@ -17,7 +17,7 @@
   
   @keyframes animate {
   0% {
-    opacity: 0;
+    opacity: 1;
   }
 
   50% {

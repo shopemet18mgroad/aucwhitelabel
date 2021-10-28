@@ -12,7 +12,7 @@
             transition: 0.5s;
 			 animation: blinker 5s linear infinite;
 			  animation-name:animate;
-			animation-duration: 5s;
+			animation-duration: 10s;
 			animation-iteration-count: infinite;
 			opacity: 1;
 				}
@@ -24,7 +24,7 @@
   }
 
   50% {
-    opacity: 0.5
+    opacity: 1;
   }
 
   100% {
