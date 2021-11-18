@@ -9,10 +9,10 @@
             font-size: 12px;
             font-weight: bold;
             color: #fff;
-            transition: 0.5s;
+            transition: 10.5s;
 			 animation: blinker 5s linear infinite;
 			  animation-name:animate;
-			animation-duration: 10s;
+			animation-duration: 10.5s;
 			animation-iteration-count: infinite;
 			opacity: 1;
 				}

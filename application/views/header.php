@@ -189,9 +189,9 @@ only screen and (max-width: 760px),
 							<li><a href="<?php echo base_url()."login"?>"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp Dashboard Login</a></li>
 							<li><i class="fa fa-mobile" aria-hidden="true"></i>&nbsp Helpline No: +91 9945454505 <i class="fa fa-phone" aria-hidden="true"></i>&nbsp Landline No:080 42332722</li>
 							<li></li>
-							<li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-							<li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-							<li><a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+							<li><a href="https://twitter.com/aucjunction?s=11"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+							<li><a href="https://www.facebook.com/Aucjunction-101838502251408/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+							<li><a href="https://www.linkedin.com/company/shopemet"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
 							
 
 							

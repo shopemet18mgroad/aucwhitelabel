@@ -50,14 +50,14 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+			<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
 				
 					<ul class="list-unstyled list-inline social text-center">
-						<li class="list-inline-item"><a href=""><i class="fa fa-facebook"></i></a></li>
-						<li class="list-inline-item"><a href=""><i class="fa fa-twitter"></i></a></li>
-						<li class="list-inline-item"><a href=""><i class="fa fa-instagram"></i></a></li>
-						<li class="list-inline-item"><a href=""><i class="fa fa-google-plus"></i></a></li>
-						<li class="list-inline-item"><a href="" target="_blank"><i class="fa fa-envelope"></i></a></li>
+						<li class="list-inline-item"><a href="https://www.facebook.com/Aucjunction-101838502251408/"><i class="fa fa-facebook"></i></a></li>
+						<li class="list-inline-item"><a href="https://twitter.com/aucjunction?s=11"><i class="fa fa-twitter"></i></a></li>
+						<li class="list-inline-item"><a href="https://instagram.com/aucjunction?utm_medium=copy_link"><i class="fa fa-instagram"></i></a></li>
+						<li class="list-inline-item"><a href="https://www.linkedin.com/company/shopemet"><i class="fa fa-linkedin-square"></i></a></li>
+						<!--<li class="list-inline-item"><a href="" target="_blank"><i class="fa fa-envelope"></i></a></li>-->
 						
 					</ul>
 						
