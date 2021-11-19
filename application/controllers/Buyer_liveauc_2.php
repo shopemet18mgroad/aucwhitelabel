@@ -220,8 +220,13 @@ echo '<td><a href="'.base_url().'Buyer_liveauc_2/buyer_autobid_disable/'.str_ire
 	echo '<input class="form-control col-sm-7 mr-2" type="number" value="'.$datbid.'" min="0" step="'.$query2[$lottimesync]->sminincre.'" id="bid-'.$lot.'" name="bid">';
 	echo '<button type="submit" class="btn btn-info" id="'.$id.'" onclick="bid_manual(this.id)">Bid</button></div>';
 	echo '';
-	echo '</td>';
-echo '<td><a href="'.base_url().'Buyer_liveauc_2/buyer_autobid/'.str_ireplace('/','-',$quer->auctionid).'|'.$query2[$lottimesync]->slotno.'"><button type="button" class="btn btn-info" disabled>AutoBid</button></a></td>';
+	echo '<input type="hidden" id="cbidvalue" name="cbidvalue" value="'. $query2[$lottimesync]->cbidval.'">';
+    echo '<input type="hidden" id="abidding" name="abidding" value="'.$query2[$lottimesync]->sminincre.'">';
+	
+	
+	
+echo '</td>';
+    echo '<td><a href="'.base_url().'Buyer_liveauc_2/buyer_autobid/'.str_ireplace('/','-',$quer->auctionid).'|'.$query2[$lottimesync]->slotno.'"><button type="button" class="btn btn-info" disabled>AutoBid</button></a></td>';
 }
 
 

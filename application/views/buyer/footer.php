@@ -183,15 +183,30 @@ function validate_password(){
  
  <script>
  function  bid_manual(v){
-	
+	//alert(v);return false;
 	 var spd = v.split("|");
+	 
 	 var spdvar = "bid-"+(spd[2]-1);
+	 var minbidvalue = parseInt(document.getElementById("cbidvalue").value);
+	 var currentbid = parseInt(document.getElementById("abidding").value);
+	 //alert(currentbid); return false;
+	 var newmaxvalue = (currentbid*10)+minbidvalue;
+	  //newmaxvalue = (newmaxvalue+currentbid);
+	 //alert(newmaxvalue);return false;
 	 var k = document.getElementById(spdvar).value;
+	 //alert(k + '|' + newmaxvalue);return false;
+	 if(k>newmaxvalue){
+		  swal("Alert!","Max Bid Value Cannot exceed "+newmaxvalue,"error" );
+		  return false
+	 }
 	 if(k % 1 < 0.09 && k % 1 > 0.0){
 		 swal("Alert!","Amount has to be greater than "+k,"error" );
 		 
 		 return false
 	 }
+	 
+	 
+	 
 	 //alert(k); return false;
 	 // alert(k);return false;
 
