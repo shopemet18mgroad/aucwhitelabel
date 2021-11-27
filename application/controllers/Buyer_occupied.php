@@ -51,7 +51,7 @@ class Buyer_occupied extends CI_Controller {
 	 
 		$datap = $this->Admin_model->maxbidvalue($auctmp, $auclottmp);
 		$aucbidamount = $datap[0]->bidamount;
-		$maxvalue = array('bidamount'=>$aucbidamount);
+		$maxvalue = array('bidamount'=>$aucbidamount,'sauctionid'=>$auctmp);
 			
 		$bidder = $this->Admin_model->getdatafromtable('biddingdata',$maxvalue);
 		if(count($bidder)){

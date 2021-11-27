@@ -57,7 +57,7 @@ class Buyer_lostproduct extends CI_Controller {
 		//$data['tmpbidamt'] = $data['bidamt'][0]->bidamount; 
 		$datap = $this->Admin_model->maxbidvalue($auctmp, $auclottmp);
 		$aucbidamount = $datap[0]->bidamount;
-		$maxvalue = array('bidamount'=>$aucbidamount);
+		$maxvalue = array('bidamount'=>$aucbidamount,'sauctionid'=>$auctmp);
 			
 		$bidder = $this->Admin_model->getdatafromtable('biddingdata',$maxvalue);
 		if(count($bidder)){
