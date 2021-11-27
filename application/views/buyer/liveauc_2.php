@@ -170,8 +170,9 @@ $sessa2 = str_ireplace('@','%40',$sessi);
 					<input class="form-control col-sm-7 mr-2" type="number" value="<?php echo $datbid; ?>" min="0" step="<?php echo $sqldata2[$lottimesync]->sminincre; ?>" id="bid-<?php echo $lot;?>" name="bid" <?php if($sqld->abidding){echo "readonly";}else{echo "";} ?>>
 					<button type="submit" id="<?php echo $sessa2.'|'.str_ireplace('/','-',$sqld->auctionid)."|".$sqldata2[$lottimesync]->slotno; ?>" class="btn btn-info" onclick="bid_manual(this.id)" <?php if($sqld->abidding){echo "disabled";}else{echo "";} ?>>Bid</button></div>
 					
-					<input type="hidden" id="cbidvalue" name="cbidvalue" value="<?php echo $sqldata2[$lottimesync]->cbidval;?>">
-					<input type="hidden" id="abidding" name="abidding" value="<?php echo $sqldata2[$lottimesync]->sminincre;?>">	
+					<input type="hidden" id="cbidvalue-<?php echo $lot;?>" name="cbidvalue-<?php echo $lot;?>" value="<?php echo $sqldata2[$lottimesync]->cbidval;?>">
+					<input type="hidden" id="abidding-<?php echo $lot;?>" name="abidding-<?php echo $lot;?>" value="<?php echo $sqldata2[$lottimesync]->sminincre;?>">
+					<input type="hidden" id="bidding-<?php echo $lot;?>" name="bidding-<?php echo $lot;?>" value="<?php echo $sqldata2[$lottimesync]->sstartbidprice;?>">
 					
 				  </td>
 				  <?php if($sqld->abidding){?>

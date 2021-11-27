@@ -174,41 +174,60 @@ function validate_password(){
 			 }); 
  }
  </script>
-<script>
 
-
-
-</script>
  
  
  <script>
  function  bid_manual(v){
-	//alert(v);return false;
+	
 	 var spd = v.split("|");
-	 
+	 //alert(spd[2]-1);return false;
 	 var spdvar = "bid-"+(spd[2]-1);
-	 var minbidvalue = parseInt(document.getElementById("cbidvalue").value);
-	 var currentbid = parseInt(document.getElementById("abidding").value);
-	 //alert(currentbid); return false;
-	 var newmaxvalue = (currentbid*10)+minbidvalue;
-	  //newmaxvalue = (newmaxvalue+currentbid);
-	 //alert(newmaxvalue);return false;
-	 var k = document.getElementById(spdvar).value;
-	 //alert(k + '|' + newmaxvalue);return false;
-	 if(k>newmaxvalue){
-		  swal("Alert!","Max Bid Value Cannot exceed "+newmaxvalue,"error" );
-		  return false
-	 }
-	 if(k % 1 < 0.09 && k % 1 > 0.0){
-		 swal("Alert!","Amount has to be greater than "+k,"error" );
+	 var minbidvalue = parseInt(document.getElementById("cbidvalue-"+(spd[2]-1)).value);
+	 
+ 
+	 var currentbid = parseInt( document.getElementById("abidding-"+(spd[2]-1)).value) ;
+	 
+	 
+	 var sbid = parseInt(document.getElementById("bidding-" +(spd[2]-1)).value) ;
+	 
+	//alert(sbid); return false;
+	 
+	 var newmaxvalue1 = parseInt ((currentbid*10)+minbidvalue);
+	
+	 
+	
+	 
+	
+	 
+	 
+      var newmaxvalue = parseInt((currentbid*10)+sbid);
+	
+	 
+	 
+	 
+	var k = document.getElementById(spdvar).value;
+	 
+	
+	 
+ 
+ 
+            if (( minbidvalue == 0 && k > newmaxvalue)){
+		        swal("Alert!","Max Bid Value Cannot exceed "+newmaxvalue,"error" );
+		     return false;
+                  }
+ 
+
+            if ((minbidvalue > 0 && k > newmaxvalue1)){
+          swal("Alert!","Max Bid Value Cannot exceed "+newmaxvalue1,"error" );
+		  return false;
+                }
+
+              if(k % 1 < 0.09 && k % 1 > 0.0){
+		      swal("Alert!","Amount has to be greater than "+k,"error" );
 		 
-		 return false
-	 }
-	 
-	 
-	 
-	 //alert(k); return false;
-	 // alert(k);return false;
+		      return false;
+	           }
 
 	 $.get('<?php echo base_url() .'Buyer_liveauc_2/get_currency/'; ?>'+k, function(data){
 
