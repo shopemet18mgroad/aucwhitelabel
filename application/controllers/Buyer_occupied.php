@@ -32,7 +32,7 @@ class Buyer_occupied extends CI_Controller {
 		}else{
 		$sess = array('sessi'=>$this->session->userdata('username'));
 
-		
+		//a
 		$data['sqldat'] = $this->Admin_model->datebetweensess2('biddercart',$time,$sess['sessi']);
 		
 		   $xr = 0;

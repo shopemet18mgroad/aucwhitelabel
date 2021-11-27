@@ -31,7 +31,7 @@ class Buyer_lostproduct extends CI_Controller {
 			die;
 		}else{
 		$sess = array('sessi'=>$this->session->userdata('username'));
-
+//a
 //print_r($sess['sessi']);die;
 		$data['sqldat'] = $this->Admin_model->datebetweensess2('biddercart',$time,$sess['sessi']);
 		//$active3 = array();

@@ -68,7 +68,7 @@
 		 	<div class="ajaxrslt" id="ajaxrslt_detailedauc">
 			<!----Insert Ajax Table Here------>
 			
-			<!---- ------>
+			<!---- aa------>
 		</div>
 		</div>
 		</div>
