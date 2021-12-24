@@ -556,7 +556,7 @@ class Admin_model extends CI_Model
 
 	public function getenquirydataDetails($spoc){
 		
-		$this->db->select('sauctionid ,slotno,bidderusername,bidamount');
+		$this->db->select('*');
 		$this->db->from('enquiry_form');
 		$this->db->where('spoc', $spoc);
 		$query = $this->db->get();

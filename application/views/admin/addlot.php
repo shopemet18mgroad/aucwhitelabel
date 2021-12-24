@@ -182,6 +182,18 @@ font_formats:
 			<label class="form-check-label" for="exampleCheck1">No</label>
 			</div></td>
     </tr>
+	
+	
+	
+	
+	
+		<tr>
+                 <td>Upload Image</td>
+								<td><div class="input_fields_wrap m-3" >
+								
+								<input type="file" id="uploadproductimage" name="uploadproductimage">
+								</div></td>
+								</tr>
   
     </tbody>
   </table>

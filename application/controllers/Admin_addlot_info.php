@@ -19,19 +19,21 @@ class Admin_addlot_info extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	
-	function __construct() {
-        parent::__construct();
-        
-        // Load session library
-        $this->load->library('session');
-        // Load the captcha helper
-		//$this->load->helper('captcha');
-		$this->load->helper('url');
-		$this->load->helper('date');
-		
-		date_default_timezone_set("Asia/Kolkata");
-    }
-    
+function __construct() {
+    parent::__construct();
+			// Load session library
+			$this->load->library('session');
+			// Load the captcha helper
+			$this->load->helper('captcha');
+			$this->load->library('fileupload');
+			$this->load->helper('url');
+			$this->load->helper('form');
+			$this->load->helper('file');
+			$this->load->helper('html');
+			$this->load->helper('date');
+			
+			date_default_timezone_set("Asia/Kolkata");
+}
 	
     public function index(){
         // If captcha form is submitted
@@ -63,13 +65,29 @@ class Admin_addlot_info extends CI_Controller {
 			$sliftingperiod2 = $this->input->post('sliftingperiod2');
 			$sliftingperiod = $this->input->post('sliftingperiod');
 			$spcbcertificate = $this->input->post('spcbcertificate');
+			
+	           $a= $_FILES['uploadproductimage']['name']; 
+			   
+			   
+	
+		       $pic_array1 = self::upload_files('uploadproductimage');
+		
+	    
+			
+	               if(!count($pic_array1)){
+			         echo '<script language="javascript">';
+			         echo 'alert("Documents Upload Failed")';  //not showing an alert box.
+			         echo '</script>';
+		             }else{
+			       $pic_array1 = serialize($pic_array1);
+		         }
+			
+			
+			
+			
+		
 				
-			/* if($this->input->post('spcbcertificate')){
-					$spcbcertificate = true;
-			}else {
-				$spcbcertificate = false;
-			} */			
-					
+	
 			
 			$this->load->model('Admin_model');
 			
@@ -83,7 +101,10 @@ class Admin_addlot_info extends CI_Controller {
 					$slotno = 1;
 				}
 			
-			$data = array('sauctionid' => $sauctionid, 'sname' => $sname, 'slotno' => $slotno, 'slotname' => $slotname, 'scategory' => $scategory, 'sdescription' => $sdescription, 'slotlocation'=> $slotlocation,'sminincre' => $sminincre, 'sprice' => $sprice,'sstartbidprice' => $sstartbidprice, 'sqty' => $sqty, 'sunitmeasurment' => $sunitmeasurment, 'sbidbase' => $sbidbase, 'sgst' => $sgst,'shsncode' => $shsncode, 'sothertax' => $sothertax, 'semdamount' => $semdamount,'sliftingperiod2' => $sliftingperiod2, 'sliftingperiod' => $sliftingperiod,  'spcbcertificate' => $spcbcertificate);
+			$data = array('sauctionid' => $sauctionid, 'sname' => $sname, 'slotno' => $slotno, 'slotname' => $slotname, 'scategory' => $scategory, 'sdescription' => $sdescription, 'slotlocation'=> $slotlocation,'sminincre' => $sminincre, 'sprice' => $sprice,'sstartbidprice' => $sstartbidprice, 'sqty' => $sqty, 'sunitmeasurment' => $sunitmeasurment, 'sbidbase' => $sbidbase, 'sgst' => $sgst,'shsncode' => $shsncode, 'sothertax' => $sothertax, 'semdamount' => $semdamount,'sliftingperiod2' => $sliftingperiod2, 'sliftingperiod' => $sliftingperiod,  'spcbcertificate' => $spcbcertificate ,'uploadproductimage' =>$pic_array1);
+			
+			//print_r($data); die;
+		
 			
 			$status = $this->Admin_model->insert('addlot', $data);
 			
@@ -136,6 +157,19 @@ class Admin_addlot_info extends CI_Controller {
 			$sliftingperiod = $this->input->post('sliftingperiod');
 			
 			$spcbcertificate = $this->input->post('spcbcertificate');
+		    $a= $_FILES['uploadproductimage']['name']; 
+		      $pic_array1 = self::upload_files('uploadproductimage');
+		
+	   if(!count($pic_array1)){
+			echo '<script language="javascript">';
+			echo 'alert("Documents Upload Failed")';  //not showing an alert box.
+			echo '</script>';
+		}else{
+			$pic_array1 = serialize($pic_array1);
+		}
+		
+	
+			
 			 
 			 $this->load->model('Admin_model');
 			 
@@ -150,7 +184,8 @@ class Admin_addlot_info extends CI_Controller {
 				}
 			 
 			 
-			 $data5 = array('sauctionid' => $sauctionid,'sname' => $sname, 'slotno' => $slotno, 'slotname' => $slotname, 'scategory' => $scategory, 'sdescription' => $sdescription, 'slotlocation'=> $slotlocation,'sminincre' => $sminincre, 'sprice' => $sprice,'sstartbidprice' => $sstartbidprice, 'sqty' => $sqty, 'sunitmeasurment' => $sunitmeasurment, 'sbidbase' => $sbidbase, 'sgst' => $sgst,'shsncode' => $shsncode, 'sothertax' => $sothertax, 'semdamount' => $semdamount,'sliftingperiod2' => $sliftingperiod2, 'sliftingperiod' => $sliftingperiod,  'spcbcertificate' => $spcbcertificate);
+			 $data5 = array('sauctionid' => $sauctionid,'sname' => $sname, 'slotno' => $slotno, 'slotname' => $slotname, 'scategory' => $scategory, 'sdescription' => $sdescription, 'slotlocation'=> $slotlocation,'sminincre' => $sminincre, 'sprice' => $sprice,'sstartbidprice' => $sstartbidprice, 'sqty' => $sqty, 'sunitmeasurment' => $sunitmeasurment, 'sbidbase' => $sbidbase, 'sgst' => $sgst,'shsncode' => $shsncode, 'sothertax' => $sothertax, 'semdamount' => $semdamount,'sliftingperiod2' => $sliftingperiod2, 'sliftingperiod' => $sliftingperiod,  'spcbcertificate' => $spcbcertificate,'uploadproductimage' =>$pic_array1);
+			 
 			 $status1 = $this->Admin_model->insert('addlot', $data5);
 			 
 			 	 $transfer1 = array('auctionid' => $sauctionid, 'category' => $scategory,'sname' => $sname, 'lotno' => $slotno);
@@ -180,6 +215,13 @@ class Admin_addlot_info extends CI_Controller {
 		
 	}
 	
+	
+	
+	
+	
+	
+	
+	
 public function validate_lotno(){
 		
 		$this->load->model('Admin_model');
@@ -197,7 +239,53 @@ public function validate_lotno(){
 				  echo "HI";
 			  }
 		
-	}	
+	}
+
+private function upload_files($nameid){
+    	
+ 
+	$countfiles=1;
+      // Looping all files
+      for($i=0;$i<$countfiles;$i++){
+        if(!empty($_FILES[$nameid]['name'][$i])){
+ 
+          // Define new $_FILES array - $_FILES['file']
+          $_FILES['file']['name'] = $_FILES[$nameid]['name'];
+          $_FILES['file']['type'] = $_FILES[$nameid]['type'];
+          $_FILES['file']['tmp_name'] = $_FILES[$nameid]['tmp_name'];
+          $_FILES['file']['error'] = $_FILES[$nameid]['error'];
+          $_FILES['file']['size'] = $_FILES[$nameid]['size'];
+
+          // Set preference
+           $config['upload_path'] = 'web_files/uploads/';
+			$config['allowed_types'] = 'doc|docx|pdf|xlsx|jpg|png|gif|jpeg';
+          $config['max_size'] = '50000000'; // max_size in kb
+          $config['file_name'] = $_FILES[$nameid]['name'][$i];
+ 
+          //Load upload library
+          $this->load->library('upload',$config); 
+		$this->upload->initialize($config);
+          // File upload
+          if($this->upload->do_upload('file')){
+            // Get data about the file
+            $uploadData = $this->upload->data();
+		//print_r( $uploadData ); die;
+            $filename = $uploadData['file_name'];
+            // Initialize array
+            $datar[] = $filename;
+          }
+        }
+ 
+      }
+	return $datar;
+    }	
+
+
+
+
+
+
+
 
 }
             

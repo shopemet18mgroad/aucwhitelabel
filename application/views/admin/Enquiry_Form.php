@@ -3,6 +3,7 @@
 	?>
 
         <!-- End of Topbar -->
+		<link href="<?php echo base_url()."web_files/";?>css/tablestyle.css" rel="stylesheet" type="text/css">
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
@@ -42,7 +43,7 @@
       <div class="col-sm-4"> 
 	  
 	 
-	  <select class="form-control"  id="myInput" name="myInput">
+	  <select class="form-control"  id="myInput1" name="myInput1">
 
 		<option  value="">SELECT</option>
 	   <?php foreach( $sqldata1 as $row){?>
@@ -133,14 +134,11 @@
 	 
     
   </table>
-  
-  
-  
-  
+
 <script>
 
 $(document).ready(function(){
-  $("#myInput").on("change", function() {
+  $("#myInput1").on("change", function() {
     var value = $(this).val().toLowerCase();
 	$("a.mylink").attr("href", "<?php echo base_url();?>Enquiry_Form_data/export_csvenquiry/" +value);
     $("#myTable tr").filter(function() {

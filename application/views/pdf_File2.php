@@ -55,6 +55,22 @@ padding:2px;
 text-align:justify-all;
 
 }
+.megha{
+marign:10px;
+marign-top:10px;
+
+width:100%;
+height:350px;
+}
+.megha1{
+text-align:right;
+marign-top:10px;
+	
+}
+.sign{
+font-size:14px;
+}
+
 </style>
 <body>
 
@@ -419,7 +435,75 @@ in applicable tax rates that are promulgated by the Government from time to time
 </td>
    
   </tr>
-  </table >
+  </table ><br><br><br>
+  
+  
+  
+       
+<?php foreach($sqldata as $sqldat){?>  
+  
+  
+  <?php $img = unserialize($sqldat->uploadproductimage); ?>
+  
+  
+    <?php
+
+$image =  base_url()."web_files/uploads/".$img[0];
+$type = pathinfo($image, PATHINFO_EXTENSION);
+$data = file_get_contents($image);
+$dataUri = 'data:image/' . $type . ';base64,' . base64_encode($data);
+
+
+?>
+	
+
+
+<div class="signature">
+
+<img src="<?php echo $dataUri;?>" class="megha"></img>
+
+</div>
+
+<div class="sign">
+
+<h4>Auction Details</h4>
+ <b>lot number:</b> <?php echo $sqldat->slotno; ?> &nbsp;||
+ <b> lot Name : </b><?php echo $sqldat->slotname;?>&nbsp;||
+ <b>Lot Quantity: </b> <?php echo $sqldat->sqty?>&nbsp;||
+ <b>Bid Base:</b><?php echo $sqldat->sbidbase; ?><br><br><br>
+
+
+
+
+
+
+</div>
+
+
+
+ 
+
+
+<?php } ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			
 <!--
 </body>

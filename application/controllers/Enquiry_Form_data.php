@@ -48,19 +48,26 @@ class Enquiry_Form_data extends CI_Controller {
 	
 public function export_csvenquiry(){ 
 		// file name 
-		$slno = $this->uri->segment(3);
-		$this->load->model('Admin_model');
+		
+		
+		
+	   // get data 
+	    $this->load->model('Admin_model');
+	  
+	    $slno = $this->uri->segment(3); 
+	    $usersData = $this->Admin_model->getenquirydataDetails($slno);
+		$usersData1 = $this->Admin_model->getenquirydataDetails1();
+	   
+		
+		// file creation 
+		if($slno){
+			
+			
+			
 		$filename = 'users_'.date('Ymd').'.csv'; 
 		header("Content-Description: File Transfer"); 
 		header("Content-Disposition: attachment; filename=$filename"); 
-		header("Content-Type: application/csv; ");
-	   // get data 
-	   $usersData = $this->Admin_model->getenquirydataDetails($slno);
-	   $usersData1 = $this->Admin_model->getenquirydataDetails1();
-		//$usersData = $this->Admin_model->getSellerUserDetails();
-		//print_r($usersData); die;
-		// file creation 
-		if($slno){
+		header("Content-Type: application/csv; ");	
 		$file = fopen('php://output','w');
 		
 		$header = array("DATE","COMPANY NAME","ADDRESS","CITY","FIRST NAME","LAST NAME","PHONE","EMAIL","REMARK","LEAD GENERATION","SPOC","lOCATION","WEBSITE","LATLONG"); 
@@ -84,8 +91,13 @@ public function export_csvenquiry(){
 		fclose($file); 
 		exit; 
 }	
-else {
+else{
+        $filename = 'users_'.date('Ymd').'.csv'; 
+		header("Content-Description: File Transfer"); 
+		header("Content-Disposition: attachment; filename=$filename"); 
+		header("Content-Type: application/csv; ");	
 		$file = fopen('php://output','w');
+		
 		$header = array("DATE","COMPANY NAME","ADDRESS","CITY","FIRST NAME","LAST NAME","PHONE","EMAIL","REMARK","LEAD GENERATION","SPOC","lOCATION","WEBSITE","LATLONG"); 
 		fputcsv($file, $header);
 		$i = 0;
