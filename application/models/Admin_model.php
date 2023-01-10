@@ -129,13 +129,13 @@ class Admin_model extends CI_Model
 		return $query->result();
 		}
 		
-		public function getemdlot($table, $auctionid,$sessi) {
+		public function getemdlot($table, $auctionid, $sessi) {
 			$this->db->select('*');			
 			$this->db->from('addlot');
 			$this->db->join('biddercart', 'biddercart.auctionid = addlot.sauctionid');
 			$this->db->where('emdrequest =', 1 <> 'emd_paid_dd =', 1);
-			$this->db->where('auctionid =', $auctionid);
-			$this->db->where('bidderusername =', $sessi);
+			$this->db->where('auctionid =',$auctionid);
+			$this->db->where('bidderusername =',$sessi);
 			$this->db->where('biddercart.lotno = addlot.slotno');
 			 $query = $this->db->get(); 
 			 return $query->result();
@@ -267,10 +267,19 @@ class Admin_model extends CI_Model
 	public function get($table, $data)
 	{
 		$this->db->where('emdrequest =', 1 <> 'emd_paid_dd =', 1);
+		$this->db->order_by('id','DESC');
 		$query = $this->db->get_where($table, $data);
 		return $query->result();
 	}
-
+	public function get_new2022($table, $data , $tctr)
+	{
+		$this->db->where('emdrequest =', 1 <> 'emd_paid_dd =', 1);
+		if($tctr > 4){
+			$this->db->order_by('id','DESC');
+		}
+		$query = $this->db->get_where($table, $data);
+		return $query->result();
+	}
 	public function totalmaxvaluebuyer($busername)
 	{
 		$this->db->select('*');

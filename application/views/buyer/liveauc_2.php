@@ -147,7 +147,7 @@ if($diff <= 0){
 					<td data-label="Quantity"><?php echo $sqldata2[$lottimesync]->sqty; ?></td>
 					<td data-label="Unit"><?php echo $sqldata2[$lottimesync]->sunitmeasurment; ?></td>
 					<td data-label="Start Price"><?php echo $sqldata2[$lottimesync]->sstartbidprice; ?></td>
-					<td data-label="My Bid"><?php echo $sqld->mybid_val; ?></td>
+					<td data-label="My Bid"><?php echo $sqldata2[$lottimesync]->mybid_val?></td>
 					<td data-label="Live Status"><?php echo $sqldata2[$lottimesync]->cbidval; ?></td>
 					
 					<td data-label="Bid"><div class="form-group row ml-2">

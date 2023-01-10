@@ -38,13 +38,12 @@ class Buyer_liveauc_2 extends CI_Controller {
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$active = array('bidderusername'=>$sess['sessi'],'auctionid'=>$auctionid);
 		$active2 = array('auctionid'=>$auctionid);
-		$query = $this->Admin_model->get('biddercart', $active);
-		
-		$query2 = $this->Admin_model->getemdlot('biddercart', $auctionid,$sess['sessi']);
-		//echo '<pre>';print_r($query2);die;  echo '</pre>';
+		$queryb = $this->Admin_model->get('biddercart', $active);
+		$tctr = count($queryb);
+		$query = $this->Admin_model->get_new2022('biddercart', $active, $tctr);
+		$query2 = $this->Admin_model->getemdlot('biddercart', $auctionid, $sess['sessi']);
+		//echo '<pre>';print_r($query);  echo '</pre>';
 		$data['sqldata'] = $query;
-		
-		
 		$jk = count($query);
 		for($i=0;$i<$jk;$i++){
 		$aucstarttime = $data['sqldata'][$i]->aucstartdate_time;
@@ -58,9 +57,9 @@ class Buyer_liveauc_2 extends CI_Controller {
 		$data['ct'][$i] = $aucclosetime;
 		}
 		$data['sqldata2'] = $query2;
-		//echo '<pre>';
-		//print_r($data['sqldata2']); die;
-		//echo '</pre>';
+		// echo '<pre>';
+		// print_r($data['sqldata2']); 
+		// echo '</pre>';
 		$data['sessi'] = $sess['sessi'];
 		
 		$data2 = array('liveaucterms_condi'=>true);
@@ -90,7 +89,9 @@ class Buyer_liveauc_2 extends CI_Controller {
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$active = array('bidderusername'=>$sess['sessi'],'auctionid'=>$auctionid/*, 'lotno'=>$lotno, */);
 		$active2 = array('sauctionid'=>$auctionid/* ,'slotno'=>$lotno, */);
-		$query = $this->Admin_model->get('biddercart', $active);
+		$queryb = $this->Admin_model->get('biddercart', $active);
+		$tctr = count($queryb);
+		$query = $this->Admin_model->get_new2022('biddercart', $active, $tctr);
 		$query2 = $this->Admin_model->getemdlot('biddercart', $auctionid,$sess['sessi']);
 		$lottimesync = 0;
 		
@@ -197,7 +198,7 @@ echo '<td data-label="Close Time">'.$ct.'</td>';
 echo '<td data-label="Quantity">'.$query2[$lottimesync]->sqty.'</td>';
 echo '<td data-label="Unit">'.$query2[$lottimesync]->sunitmeasurment.'</td>';
 echo '<td data-label="Start Price">'.$query2[$lottimesync]->sstartbidprice.'</td>';
-echo '<td data-label="My Bid">'.$quer->mybid_val.'</td>';
+echo '<td data-label="My Bid">'.$query2[$lottimesync]->mybid_val.'</td>';
 echo '<td data-label="Live Status">'.$query2[$lottimesync]->cbidval.'</td>';
 if($query2[$lottimesync]->sstartbidprice >= $query2[$lottimesync]->cbidval){
 	$datbid = $query2[$lottimesync]->sstartbidprice;
