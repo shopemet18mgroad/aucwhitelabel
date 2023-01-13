@@ -7,7 +7,7 @@
 	text-align: center;
 	padding-top:1px;
 	height: 40px;
-	background-color: green;
+	background-color: #4e73df!important;
 	color: #ffffff;
 	font-size: 14px;
 	
@@ -74,7 +74,7 @@ font-size:14px;
 </style>
 <body>
 
-	<h2><u><?php echo $sqldata2[0]->scompanyname; ?></u></h2>
+	<h2 style="color:#000137";><u><?php echo $sqldata2[0]->scompanyname; ?></u></h2>
 	<?php $companyltype = unserialize($sql[0]->saddress);
 	$companyaddress = unserialize($sql[0]->saddresscount);?>
 
@@ -92,7 +92,7 @@ by the Seller and Buyer/s (Bidder/s).
 </p>
 
 <p><b><?php echo $sqldata2[0]->scompanyname; ?>&nbsp;</b>will sell <b>&nbsp; <?php echo $sqldata[0]->slotname; ?>&nbsp; available at &nbsp; <?php echo $sqldata2[0]->scompanyname; ?>&nbsp;,&nbsp;<?php echo $sqldata[0]->slotlocation; ?>&nbsp;</b> through Online Auction subject to terms and conditions
-annexed hereto and as per schedule of programme given below. </p>
+annexed hereto and as per dddschedule of programme given below. </p>
 
 
 	<div class="bara w-100">
@@ -103,7 +103,7 @@ annexed hereto and as per schedule of programme given below. </p>
 	<table style="width:100%">
   <tr>
     
-    <th colspan="2" style="color:red;text-align:center;margin-top:70px;">Online
+    <th colspan="2" style="color:#00172d;text-align:center;margin-top:70px;">Online
 </th> 
 
   </tr>
@@ -115,13 +115,18 @@ annexed hereto and as per schedule of programme given below. </p>
   </tr>
   <tr>
     <td>Inspection Date/Time</td>
-    <td><?php echo $sqldata2[0]->sfrominpectdate_time; ?>&nbsp; to &nbsp; <?php echo $sqldata2[0]->stoinpectdate_time; ?></td>
+    
+    <td><?php echo date("d-m-Y H:i:s",strtotime ($sqldata2[0]->sfrominpectdate_time)); ?>&nbsp; to &nbsp; <?php echo date("d-m-Y H:i:s",strtotime ($sqldata2[0]->stoinpectdate_time)); ?></td>
     
   </tr>
   <tr>
     <td>Venue of Inspection</td>
-    <td>Contact To Aucjunction<br>
-Helpline No:+91 9945454505,08042332722
+    <td>	<?php $companyltype = unserialize($sql[0]->saddress);
+	$companyaddress = unserialize($sql[0]->saddresscount);?>
+
+<pre class="wrapbox auto"><?php echo $companyltype[0] ;?><br>
+<?php echo $companyaddress[0] ;?><br><br>
+Helpline No: 08042332722 / +91 9606400461 
 </td>
    
   </tr>
@@ -134,20 +139,21 @@ Helpline No:+91 9945454505,08042332722
  
   <tr>
     <td>Last Date and time to receive EMD</td>
-    <td><?php echo $sqldata2[0]->slastdateemdsub ?></td>
- 
+    <td><?php echo date("d-m-Y", strtotime($sqldata2[0]->slastdateemdsub));?></td>
+
   </tr>
   
   <tr>
     <td>On-Line Auction Date and time</td>
-    <td><?php echo $sqldata2[0]->saucstartdate_time; ?><br>
-	<?php echo $sqldata2[0]->saucclosedate_time; ?>
+    <td> <?php echo date("d-m-Y H:i:s",strtotime($sqldata2[0]->saucstartdate_time));?><br>
+    <?php echo date("d-m-Y H:i:s",strtotime($sqldata2[0]->saucclosedate_time));?>
+    
 </td>
  
   </tr>
    
   <tr>
-    <td>Participation Fee - (compulsory for all new
+    <td>Membership Fee - (compulsory for all new
 participants and for those existing members
 whose validity has expired)</td>
     <td id="lrow"><a href="#"> Rs 8,850/- (inclusive of GST ) payable online through
@@ -163,21 +169,21 @@ whose validity has expired)</td>
 	<tr><th colspan="10" class="bara w-100"><p><strong>DETAILS OF AUCTION PROPERTY</strong></p></th></tr>
   <tr>
   
-    <th style="background:#ffff"><b>Lot
+    <th style="color:#00172d"><b>Lot
 No.</b>
 </th>
 </th>
-    <th style="color:red"><b>Lot Name</b>
+    <th style="color:#00172d"><b>Lot Name</b>
 </th> 
 <th style="width:70%;"><b>Material Description</b>
 </th> 
-<th><b>Quantity<br>(Approx.)</th>
-<th><b>UOM</b></th>
-<th><b>Bid Basis(Per UOM </b></th>
-<th><b>GST(%)</b></th>
-<th><b>ITTCS(%)</b></th>
-<th><b>PCB Certificate Required (Y/N)</b></th>
-<th><b>EMD Value (Rs.)</b></th>
+<th style="color:#00172d"><b>Quantity<br>(Approx.)</th>
+<th style="color:#00172d"><b>UOM</b></th>
+<th style="color:#00172d"><b>Bid Basis(Per UOM </b></th>
+<th style="color:#00172d"><b>GST(%)</b></th>
+<th style="color:#00172d"><b>ITTCS(%)</b></th>
+<th style="color:#00172d"><b>PCB Certificate Required (Y/N)</b></th>
+<th style="color:#00172d"><b>EMD Value (Rs.)</b></th>
   
  <tbody> 
 </tr>
@@ -200,7 +206,6 @@ No.</b>
          ?> 
 </tbody>		 
   </table>
-
 <br>
  <h2 class="bara">TERMS AND CONDITIONS</h2>
  <p class="aboutus-text">Welcome to AucJunction.com website (here in after referred to as &quot;the website&quot;).
@@ -425,9 +430,7 @@ in applicable tax rates that are promulgated by the Government from time to time
 
  <table style="width:100%">
   <tr>
-    <th style="background-color:green;color:white;"><center>Special Terms & Conditions</center></th>
- 
-
+  <th style="background-color:#4e73df!important;color:white;"><center>Special Terms & Conditions</center></th>
   </tr>
 
    <tr>
