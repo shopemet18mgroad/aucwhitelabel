@@ -84,6 +84,18 @@ class Admin_model extends CI_Model
 		$query = $this->db->get();
 		return $query->result();
 	}
+	public function datebetweenhome2($date)
+	{
+		$this->db->select('*');
+		$this->db->from('auction');
+		//Fetching the data by joining addlot and auction  where status is 1 (Approved auctions)
+		$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid');
+		$this->db->where('saucstartdate_time ==', $date);
+		$this->db->where('saucclosedate_time ==', $date);
+		$this->db->where('status =', 1);
+		$query = $this->db->get();
+		return $query->result();
+	}
 	
 	public function datebetweenhomemarquee($date)
 	{

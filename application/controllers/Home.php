@@ -35,7 +35,7 @@ class Home extends CI_Controller
 		//sqldata1 is for passing data from auction table using getdatafromtablehomejoin model
 		$data['sqldata1'] = $this->Admin_model->getdatafromtablehomejoin($time);
 		//fetching todays auction from datebetweenhome. 
-		$data['sqldata'] = $this->Admin_model->datebetweenhome($time);
+		$data['sqldata'] = $this->Admin_model->datebetweenhome2($time);
 		//print_r($data['sqldata']); die;
 		//Fetching  news from database from latestnews.
 		$data['lnews'] = $this->Admin_model->gettablenews('latestnews');
