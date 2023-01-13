@@ -3,6 +3,7 @@
 ?>        <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
+		<link href="<?php echo base_url()."web_files/";?>css/tablestyle.css" rel="stylesheet" type="text/css">
         <div class="container-fluid">
 
           <!-- Page Heading -->
@@ -29,6 +30,7 @@
 								<!--<button class="form-control" type="submit"><i class="fa fa-search"></i></button>-->
 					
 						<!-- </form> -->
+						<br>
 					</td><a href='<?php echo base_url();?>Admin_sellereditprofile/export_csv1' type="button" class="btn btn-info btn-sm ml-3"><b>Export</b></a><br><br>
 				</div>
 			

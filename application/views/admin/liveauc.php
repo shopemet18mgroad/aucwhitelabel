@@ -1,6 +1,11 @@
 <?php 
 	//include('./header.php');
 ?>
+	
+<link href="<?php echo base_url()."web_files/";?>css/tablestyle.css" rel="stylesheet" type="text/css">	
+	
+	
+	
 <head> <meta http-equiv="refresh" content="30; url=<?php echo base_url()."admin_liveauc"; ?>">
 </head>
         <!-- End of Topbar -->
@@ -15,10 +20,10 @@
           </div>
 
           <!-- Content Row -->
-          <div class="row">
+          <div class="row w-100">
 
             <!-- Earnings (Monthly) Card Example -->
-			<div class="col-xl-12 col-lg-7">
+			<div class="col-md-12 offset-sm-1 p-2">
           <div class="card shadow mb-4">
             <div class="card-body">
               <div class="table-responsive">
@@ -32,7 +37,7 @@
 				<?php foreach($sqldata as $sqldat){?>
 				<tr>
 <input type="hidden" id="ref-0" value="<?php echo str_ireplace('/','-',$sqldat->sauctionid); ?>">				
-					<td><a href="<?php  echo base_url()."Admin_liveauc_2/index/".str_ireplace('/','-',$sqldat->sauctionid);?>"><?php echo $sqldat->sauctionid;?></a></td>
+					<td  data-label="Click for Auction"><a href="<?php  echo base_url()."Admin_liveauc_2/index/".str_ireplace('/','-',$sqldat->sauctionid);?>"><?php echo $sqldat->sauctionid;?></a></td>
 				</tr>
 				<?php }?>
 				</tbody>

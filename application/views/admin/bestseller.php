@@ -1,6 +1,7 @@
 <?php 
 	//include('./header.php');
 ?>
+	<link href="<?php echo base_url()."web_files/";?>css/tablestyle.css" rel="stylesheet" type="text/css">
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -13,10 +14,10 @@
           </div> 
 
           <!-- Content Row -->
-          <div class="row">
+          <div class="row w-100">
 
             <!-- Earnings (Monthly) Card Example -->
-			<div class="col-xl-12 col-lg-7">
+			<div class="col-md-10 offset-sm-1 p-2">
           <div class="card shadow mb-4">
             <div class="card-body">
               <div class="table-responsive">
@@ -43,14 +44,14 @@
 		
 					<tr>												
 						
-						<td><?php echo $datareciver[0]; ?></td>
-						<td><?php $eventdate = $datareciver[1];
+						<td data-label="Company Name"><?php echo $datareciver[0]; ?></td>
+						<td data-label="Event Date"><?php $eventdate = $datareciver[1];
 								  $tmp = explode('.',$eventdate);
 								  $eventdate = $tmp[0];
 									echo $eventdate;?></td>
-						<td></td>
-						<td><?php echo $datareciver[2]; ?></td>
-						<td><?php echo $datareciver[3]; ?></td>
+						<td data-label="Total Revenue"></td>
+						<td data-label="Total Number Of Auctions"><?php echo $datareciver[2]; ?></td>
+						<td data-label="Total Amount"><?php echo $datareciver[3]; ?></td>
 						 </tr>
 						 <?php  }} ?>
 				</tbody>

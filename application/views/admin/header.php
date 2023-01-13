@@ -24,27 +24,16 @@
   <link href="<?php echo base_url()."web_files/";?>css/sb-admin-2.min.css" rel="stylesheet">
   <link href="<?php echo base_url()."web_files/";?>vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 	<script src="<?php echo base_url()."web_files/";?>js/js.js"></script>
-	
-    <style>
-    
- @media only screen and (max-width: 600px) ,(min-device-width: 768px) and (max-device-width: 1024px)  {
+	<style>
+  @media screen and (max-width: 600px) {
+ img {
+  position: absolute;
 
+}
+}  
 
-	/*  Force table to not be like tables anymore  */
-    table, thead, tbody, th, td, tr {  
-		 display: block!important;  
-		 width:auto;
-	
-  } 
-    
-
- }    
-
-    
-    
- 
+    </style>
    
-	</style>
 </head>
 
 <body id="page-top">
@@ -202,9 +191,9 @@
         
       </a>
           <!-- Sidebar Toggle (Topbar) -->
-<!--       <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+      <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
-          </button> -->
+          </button>
 
           <!-- Topbar Search 
           <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">

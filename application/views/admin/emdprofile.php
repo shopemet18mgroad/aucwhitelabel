@@ -1,6 +1,7 @@
 <?php 
 	//include('./header.php');
 ?>
+	<link href="<?php echo base_url()."web_files/";?>css/tablestyle.css" rel="stylesheet" type="text/css">
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -13,10 +14,10 @@
           </div>
 
           <!-- Content Row -->
-          <div class="row">
+          <div class="row w-1100">
 
             <!-- Earnings (Monthly) Card Example -->
-			<div class="col-xl-12 col-lg-7">
+			<div class="col-md-10 offset-sm-1 p-2">
           <div class="card shadow mb-4">
             <div class="card-body">
               <div class="table-responsive">

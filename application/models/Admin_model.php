@@ -571,7 +571,17 @@ class Admin_model extends CI_Model
 		$query = $this->db->get();
 		return $query->result();
 
-	}	
+	}
+	
+	public function getenquirydataDetails123(){
+		
+		$this->db->select('*');
+		$this->db->from('biddercart');
+		
+		$query = $this->db->get();
+		return $query->result();
+
+	}
 
 	
 		
@@ -628,6 +638,15 @@ class Admin_model extends CI_Model
 		$this->db->select('scomapnyname	,scontactperson,sphone,semail,scity,sagreementdate');
 		$this->db->from($table);
 		$this->db->like($col, $query);
+		$q = $this->db->get();
+		return $q->result_array();
+	}
+	
+	
+	public function getSellerUserDetails111($table,$query){
+		$this->db->select('sauctionid,slotno,slotname,bidderusername,sbidbase,bidamount');
+		$this->db->from($table);
+		$this->db->like($query);
 		$q = $this->db->get();
 		return $q->result_array();
 	}

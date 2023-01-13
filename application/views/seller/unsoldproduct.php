@@ -1,6 +1,7 @@
 <?php
   //  include('./header');
 	?>
+	<link href="<?php echo base_url()."web_files/";?>css/tablestyle.css" rel="stylesheet" type="text/css">
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -41,7 +42,6 @@
 
 	<th>Auction Id</th>
 	<th>Lot Name</th>
-	
 	<th>Lot Description</th>
 	<th>Quantity</th>
 	<th>GST</th>
@@ -55,13 +55,13 @@
 	<tbody>
 	<?php foreach($sqldat as $sqldata){?>	
 		<tr>
-        <td><?php echo $sqldata->sauctionid; ?></td>
-		<td><?php echo $sqldata->slotno; ?></td>
-		<td><?php echo $sqldata->sdescription; ?></td>
-		<td><?php echo $sqldata->sqty; ?></td>
-		<td><?php echo $sqldata->sgst; ?></td>
-		<td><?php echo $sqldata->slotlocation; ?></td>
-		<td><a href="<?php  echo base_url()."Seller_reauction/index/".str_ireplace('/','-',$sqldata->sauctionid).'/'.$sqldata->slotno;?>"><input type="button" class="btn btn-primary btn-sm" value="Reauction"></a></td>
+        <td data-label="Auction Id"><?php echo $sqldata->sauctionid; ?></td>
+		<td data-label="Lot Name"><?php echo $sqldata->slotno; ?></td>
+		<td data-label="Lot Description"><?php echo $sqldata->sdescription; ?></td>
+		<td data-label="Quantity"><?php echo $sqldata->sqty; ?></td>
+		<td data-label="GST"><?php echo $sqldata->sgst; ?></td>
+		<td data-label="Location"><?php echo $sqldata->slotlocation; ?></td>
+		<td data-label="Option"><a href="<?php  echo base_url()."Seller_reauction/index/".str_ireplace('/','-',$sqldata->sauctionid).'/'.$sqldata->slotno;?>"><input type="button" class="btn btn-primary btn-sm" value="Reauction"></a></td>
 		
 			
 		</tr>

@@ -1,6 +1,16 @@
 <?php 
 	//include('./header.php');
 ?>
+	
+	<link href="<?php echo base_url()."web_files/";?>css/tablestyle.css" rel="stylesheet" type="text/css">
+	
+	
+	
+	
+	
+	
+	
+	
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -13,10 +23,10 @@
           </div>
 
           <!-- Content Row -->
-          <div class="row">
+          <div class="row w-100">
 
             <!-- Earnings (Monthly) Card Example -->
-			<div class="col-xl-12 col-lg-7">
+			<div class="col-md-10 offset-sm-1">
           <div class="card shadow mb-4">
             <div class="card-body">
               <div class="table-responsive">
@@ -64,14 +74,15 @@
 					<?php $proid = urldecode( str_ireplace('/','-',$sqldata->auctionid));
 				?>
 
-				<td><b><?php echo $sqldata->auctionid;?></b></td>
+<td><b><?php echo $sqldata->auctionid;?></b></td>
 				 <td><?php echo $sqldata->lotno; ?></td>
 				 <td><?php echo $sqldata->bidderusername; ?></td>
 				 <td><?php echo $sqldata->aucstartdate_time;?><br><?php echo $sqldata->aucclosedate_time;?></td>
 				 <td><?php echo $sqldata->datatime;?></td>
 			
 				
-				<td><?php  if($sqldata->emdrequest == 3 ) {echo 'Pending';}				?></td>
+				<td><?php  if($sqldata->emdrequest == 3 ) {echo 'Pending';}?></td>
+			
 				
 				<td><button  type="submit" name="submit" id="<?php echo $sqldata->lotno.'|'.str_ireplace('/','-',$sqldata->auctionid).'|'.$sqldata->bidderusername;?>" onclick="buyer_set_deactive_emd(this.id)" class="btn btn-info btn-sm">Approve</button>
 				
