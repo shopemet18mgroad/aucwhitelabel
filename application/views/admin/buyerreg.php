@@ -2,7 +2,7 @@
 	//include('./header.php');
 ?>
         <!-- End of Topbar -->
-
+<link href="<?php echo base_url()."web_files/";?>css/mediaform.css" rel="stylesheet" type="text/css">
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
@@ -17,10 +17,10 @@
 
           <!-- Content Row -->
 
-          <div class="row">
-
+         <div class="row w-100">
+    
             <!-- Area Chart -->
-            <div class="col-xl-12 col-lg-7">
+           <div class="col-md-10 offset-sm-1 p-2">
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -37,15 +37,15 @@
 						<tr><td><img class="img-fluid" src="<?php echo base_url()."web_files/";?>img/manimg.jpg" alt="Chania" width="40" height="35"></td></tr>
 						<tr>
 							<td class="btxt">Buyer Name:</td>
-							<td><input class="form-control w-50" type="text" id="bname" name="bname" readonly></td>
+							<td><input class="form-control w-100" type="text" id="bname" name="bname" readonly></td>
 	 							 </tr>
 						<tr>												
 							<td class="btxt">Company Name:</td>
-							<td><input class="form-control w-50" type="text" onkeyup="validate_adminbname()" id="bcompany" name="bcompany" required></td>
+							<td><input class="form-control w-100" type="text" onkeyup="validate_adminbname()" id="bcompany" name="bcompany" required></td>
 							</tr>
 						<tr>
 							<td class="btxt">Company Type:</td>
-							<td><input class="form-control w-50" onkeyup="validate_adminbcompany()" type="text" id="bcomptype" name="bcomptype" required></td>
+							<td><input class="form-control w-100" onkeyup="validate_adminbcompany()" type="text" id="bcomptype" name="bcomptype" required></td>
 						</tr>
 						
 						
@@ -56,48 +56,48 @@
 						<!-- Buyer's Location -->
 								<tr>
 									<td>Buyer's Location</td>
-									<td><input class="form-control w-50" type="text" id="bbuyerlocation" name="bbuyerlocation" size="50" required></td>
+									<td><input class="form-control w-100" type="text" id="bbuyerlocation" name="bbuyerlocation" size="50" required></td>
 								</tr>						
 						<tr>
 							<td class="btxt">Contact Person:</td>
-							<td><input class="form-control w-50" type="text" id="bcontactperson" name="bcontactperson" required></td>
+							<td><input class="form-control w-100" type="text" id="bcontactperson" name="bcontactperson" required></td>
 						</tr>
 						
 						<!-- Contact Person Designation -->
 								<tr>
 									<td>Contact Person Designation</td>
-									<td><input class="form-control w-50" type="text" id="bdesignation" name="bdesignation" size="50"required></td>
+									<td><input class="form-control w-100" type="text" id="bdesignation" name="bdesignation" size="50"required></td>
 								</tr>
 						<tr>
 							<td class="btxt">UserName:</td>
-							<td><input class="form-control w-50" type="text" id="busername" name="busername" required></td>
+							<td><input class="form-control w-100" type="text" id="busername" name="busername" required></td>
 						</tr>
 						
 						<!-- Password -->
 								<tr>
 									<td>Password </td>
-									<td><input class="form-control w-50" type="password" id="bpassword" name="bpassword" size="50" onkeyup="validate_username1()"><span id="message1" style="color:black"> </span></td>
+									<td><input class="form-control w-100" type="password" id="bpassword" name="bpassword" size="50" onkeyup="validate_username1()"><span id="message1" style="color:black"> </span></td>
 								</tr>
 								<!-- Confirm Password  -->
 								<tr>
 									<td>Confirm Password</td>
-									<td><input class="form-control w-50" type="password" id="bconfirmpassword" name="bconfirmpassword" size="50"><span id="message2" style="color:black"> </span></td>
+									<td><input class="form-control w-100" type="password" id="bconfirmpassword" name="bconfirmpassword" size="50"><span id="message2" style="color:black"> </span></td>
 								</tr>
 						<tr>
 							<td class="btxt">CIN Number:</td>
-							<td><input class="form-control w-50" type="text" id="bcin" name="bcin" onkeyup="validate_user2()" required></td>
+							<td><input class="form-control w-100" type="text" id="bcin" name="bcin" onkeyup="validate_user2()" required></td>
 						</tr>  
 						<tr>
 							<td class="btxt">GST:</td>
-							<td><input class="form-control w-50 gst" type="text" id="bgst" name="bgst" onkeyup="validate_company2()"  required></td>
+							<td><input class="form-control w-100 gst" type="text" id="bgst" name="bgst" onkeyup="validate_company2()"  required></td>
 						</tr> 
 						<tr>
 							<td class="btxt">Pan Number</td>		
-							<td><input class="form-control w-50 pan" type="text" id="bpan" name="bpan" required></td>
+							<td><input class="form-control w-100 pan" type="text" id="bpan" name="bpan" required></td>
 						</tr> 
 						<tr>
 							<td class="btxt">PCB Licence NO:</td>
-							<td><input class="form-control w-50" type="text" id="bpcb" name="bpcb" required></td>
+							<td><input class="form-control w-100" type="text" id="bpcb" name="bpcb" required></td>
 						</tr> 
 					</tbody>
 					</table>
@@ -108,29 +108,29 @@
 						<tbody>
 						<tr>
 							<td class="btxt">Email:</td>
-							<td><input class="form-control w-50" type="email" id="bemail" name="bemail" required></td>
+							<td><input class="form-control w-100" type="email" id="bemail" name="bemail" required></td>
 						</tr>
 						<tr>
 							<td class="btxt">Phone:</td>
-							<td><input class="form-control w-50" type="text" id="bphone" name="bphone" required></td>
+							<td><input class="form-control w-100" type="text" id="bphone" name="bphone" required></td>
 						</tr>
 						<tr>
 							<td class="btxt">Postal Address:</td>
-							<td><textarea class="form-control w-50" type="text" id="baddress" 	name="baddress" required></textarea></td>
+							<td><textarea class="form-control w-100" type="text" id="baddress" 	name="baddress" required></textarea></td>
 						</tr> 
 						<!-- City -->
 								<tr>
 									<td>City</td>
-									<td><input class="form-control w-50" type="text" id="bcity" name="bcity" size="50" required></td>
+									<td><input class="form-control w-100" type="text" id="bcity" name="bcity" size="50" required></td>
 								</tr>
 						 
 						<tr>
 							<td class="btxt">Pincode:</td>
-							<td><input class="form-control w-50" type="text" id="bpin" name="bpin" required></td>
+							<td><input class="form-control w-100" type="text" id="bpin" name="bpin" required></td>
 						</tr> 
 						<tr>
 							<td class="btxt">State /Union Ter.:</td>
-							<td><select class="form-control w-50" style="text-align-last:center;" id="bstate" name="bstate">
+							<td><select class="form-control w-100" style="text-align-last:center;" id="bstate" name="bstate">
 											<option value="Andra Pradesh" selected>Andra Pradesh</option>
 											<option value="Arunachal Pradesh">Arunachal Pradesh</option>
 											<option value="Assam">Assam</option>
@@ -164,7 +164,7 @@
 						</tr> 
 						<tr>
 							<td class="btxt">Country:</td>
-							<td><input class="form-control w-50" type="text" id="bcountry" name="bcountry" value="INDIA" readonly></td>
+							<td><input class="form-control w-100" type="text" id="bcountry" name="bcountry" value="INDIA" readonly></td>
 						</tr>	 
 						</tbody>
 					</table>	
@@ -175,19 +175,19 @@
 					<tbody>
 							<tr>
 								<td class="btxt">Banker's Name:</td>
-								<td><input class="form-control w-50" type="text" id="bbankname" name="bbankname" required></td>
+								<td><input class="form-control w-100" type="text" id="bbankname" name="bbankname" required></td>
 							</tr> 
 							<tr>
 								<td class="btxt">Account Number:</td>
-								<td><input class="form-control w-50" type="text" id="baccountnumber" name="baccountnumber" required></td>
+								<td><input class="form-control w-100" type="text" id="baccountnumber" name="baccountnumber" required></td>
 							</tr> 
 							<tr>
 								<td class="btxt">Branch:</td>
-								<td><input class="form-control w-50" type="text" id="bbranch" name="bbranch" required></td>
+								<td><input class="form-control w-100" type="text" id="bbranch" name="bbranch" required></td>
 							</tr> 
 							<tr>
 								<td class="btxt">IFSC Code:</td>
-								<td><input class="form-control w-50" type="text" id="bifsccode" name="bifsccode" required></td>
+								<td><input class="form-control w-100" type="text" id="bifsccode" name="bifsccode" required></td>
 							</tr>
 						</tbody>
 					</table>
@@ -208,7 +208,7 @@
 								<input type="file" multiple="multiple" id="bsigneddocument" name="bsigneddocument[]">
 								</div></td>
 							</tr> 
-							<tr><td class="btxt">Reference</td><td><input class="form-control w-50" type="text" id="bref" name="bref" required></td></tr>	
+							<tr><td class="btxt">Reference</td><td><input class="form-control w-100" type="text" id="bref" name="bref" required></td></tr>	
 									
 						</tbody>
 					</table>				
@@ -227,12 +227,12 @@
 						
 						<tr>
 							<td class="btxt">Category Type:</td>
-							<td><input class="form-control w-50" type="text" id="name" name="name" required></td> 
+							<td><input class="form-control w-100" type="text" id="name" name="name" required></td> 
 						</tr>
 						
 						</tbody>
 						</table>
-						<div class="col-md-12 text-center">
+						<div class="col-md-10 text-center mb-2">
             				<a href="#"><button type="submit" name="sb3" class="btn btn-info offset-sm-3 mt-2">Add</button></a>
            
         </div>

@@ -3,6 +3,10 @@
 ?>        <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
+		
+	<link href="<?php echo base_url()."web_files/";?>css/tablestyle.css" rel="stylesheet" type="text/css">	
+		
+		
         <div class="container-fluid">
 
           <!-- Page Heading -->

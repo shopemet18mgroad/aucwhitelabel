@@ -67,7 +67,7 @@ class Admin_bidhistory extends CI_Controller {
 		$this->load->view('admin/bidhistory',$data);
 		$this->load->view('admin/footer');
 	} 
-	 	public function export_csvbiddata(){ 
+public function export_csvbiddata(){ 
 		$sauctionid = urldecode(str_ireplace('-','/',$this->uri->segment(3)));
 		$slotno = urldecode($this->uri->segment(4));
 		$retriveval = array('sauctionid'=>$sauctionid,'slotno'=>$slotno);

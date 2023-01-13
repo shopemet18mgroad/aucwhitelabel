@@ -83,7 +83,7 @@ class Admin_editforthcom extends CI_Controller {
 			foreach($data as $dat){
 				$uploadfl = unserialize($dat['sterms_condiupload']);
 				echo '<tr>';
-				echo '<td><a href="'.base_url().'admin_editforthcom_2/editforthcom_2/'.str_ireplace('/','-',$dat['sauctionid']).
+				echo '<td data-label=" Auction Id"><a href="'.base_url().'admin_editforthcom_2/editforthcom_2/'.str_ireplace('/','-',$dat['sauctionid']).
 				'">';
 				echo $dat['sauctionid'];
 				$aucfl = unserialize($dat['sterms_condiupload']);
@@ -91,14 +91,14 @@ class Admin_editforthcom extends CI_Controller {
 					
 				echo '</a>';
 				echo '</td>';
-				echo '<td>'.$dat['sname'].'</td>';
+				echo '<td data-label="Seller">'.$dat['sname'].'</td>';
 				$snm = urlencode($dat['sname']);
-				echo '<td>'.$dat['scategory'].'</td>';
-				echo '<td>'.$dat['scompanyname'].'</td>';
-				echo '<td>'.$dat['svinspection'].'</td>';
-				echo '<td>'.$dat['sfrominpectdate_time'].'<br>'.'<br>'.$dat['stoinpectdate_time'].'</td>';
-				echo '<td>'.$dat['semddetail'].'</td>';
-				echo '<td>'.$dat['slastdateemdsub'].'</td>';
+				echo '<td data-label="Category">'.$dat['scategory'].'</td>';
+				echo '<td data-label="Seller Company Name" >'.$dat['scompanyname'].'</td>';
+				echo '<td data-label="Venue Of Inspection">'.$dat['svinspection'].'</td>';
+				echo '<td data-label="Inspection Date & Time">'.$dat['sfrominpectdate_time'].'<br>'.'<br>'.$dat['stoinpectdate_time'].'</td>';
+				echo '<td data-label=" EMD Details">'.$dat['semddetail'].'</td>';
+				echo '<td data-label=" Last Date Of Submiting EMD">'.$dat['slastdateemdsub'].'</td>';
 				$aucstarttime = $dat['saucstartdate_time'];
 		$tmp1 = explode('.',$aucstarttime);
 		$aucstarttime = $tmp1[0];
@@ -108,14 +108,14 @@ class Admin_editforthcom extends CI_Controller {
 		$tmp = explode('.',$aucclosetime);
 		$aucclosetime = $tmp[0];
 		$data['ct'] = $aucclosetime;
-				echo '<td>'.$aucstarttime.'<br>'.'<br>'.$aucclosetime.'</td>';
-				echo '<td>';
+				echo '<td data-label="Online Auction Start And Close Date">'.$aucstarttime.'<br>'.'<br>'.$aucclosetime.'</td>';
+				echo '<td data-label="Aucjunction Terms & Conditions">';
 				if ($dat['sterms_condiaccept'] == 1){
 				echo 'Accepted';
 				}
 				echo '</td>';
 				 
-				echo '<td>';
+				echo '<td data-label="Upload Terms & Conditions">';
 				if(isset($aucfl[0])){
 				echo '<a href="'.base_url().'web_files/uploads/'. $aucfl[0].'" target="_blank">';
 				echo '<i class="fa fa-download"></i>';
@@ -125,13 +125,13 @@ class Admin_editforthcom extends CI_Controller {
 				//$aucfl = unserialize ($dat['sterms_condiupload']);
 				//echo '<td>'.implode (",",$aucfl).'</td>';
 				//echo '<td><a href="'.base_url().'Admin_editauction/editauction/'.urlencode($dat['sname']).'">';
-				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$passaucid.'/'.($dat['sname']).'" target="_blank"><i class="fa fa-download"></i></a></td>';
+				echo '<td data-label="Download"><a href="'.base_url().'/pdf_gen/auc_no/'.$passaucid.'/'.($dat['sname']).'" target="_blank"><i class="fa fa-download"></i></a></td>';
 				//echo '</a>';
 				//echo '</td>';
 
 				//echo '<td><a href="'.base_url().'Admin_editauction/editauction/'.$dat['sname'].'($sqldat->sauctionid)">';
 
-				echo '<td><a href="'.base_url().'Admin_editauction/editauction/'.$passaucid.'">';
+				echo '<td data-label="Action"><a href="'.base_url().'Admin_editauction/editauction/'.$passaucid.'">';
 				echo '<i class="fa fa-edit"></i>';
 				echo '</a>';
 				

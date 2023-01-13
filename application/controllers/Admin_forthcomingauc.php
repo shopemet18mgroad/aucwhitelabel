@@ -23,7 +23,7 @@ class Admin_forthcomingauc extends CI_Controller {
 		$this->load->helper(array('url','html'));
 		$this->load->library('session');
 		//echo $this->session->userdata('auth');
-		if(!$this->session->has_userdata('username')  || $this->session->userdata('auth') != "ADMIN"){
+		if(!$this->session->has_userdata('username') || $this->session->userdata('auth') != "ADMIN"){
 			$datainserr = "Invalid Login Session";
 			header('location: '.base_url().'login/index_error/'.$datainserr);
 			die;
@@ -56,19 +56,19 @@ class Admin_forthcomingauc extends CI_Controller {
 			foreach($data as $dat){
 				echo '<tr>';
 				$passaucid2 = str_ireplace('/','-',$dat['sauctionid']);
-				echo '<td><a href="'.base_url().'admin_forthcomingauc_2/forthcomingauc_2/'.($dat['sname']).'/'.$passaucid2.
+				echo '<td data-label="Auction Id"><a href="'.base_url().'admin_forthcomingauc_2/forthcomingauc_2/'.($dat['sname']).'/'.$passaucid2.
 				'">';
 				echo $dat['sauctionid'];
 				$passaucid = str_ireplace('/','-',$dat['sauctionid']);
 				echo '</a>';
 				echo '</td>';
-				echo '<td>'.$dat['scompanyname'].'</td>';
-				echo '<td><a href="'.base_url().'/pdf_gen/auc_no/'.$passaucid.'/'.($dat['sname']).'" target="_blank"><i class="fa fa-download"></i></a></td>';
+				echo '<td data-label="Company Name">'.$dat['scompanyname'].'</td>';
+				echo '<td data-label="Download"><a href="'.base_url().'/pdf_gen/auc_no/'.$passaucid.'/'.($dat['sname']).'" target="_blank"><i class="fa fa-download"></i></a></td>';
 				$aucstarttime = $dat['saucstartdate_time'];
 				$tmp1 = explode('.',$aucstarttime);
 				$aucstarttime = $tmp1[0];
 				//$data['st'] = $aucstarttime;
-				echo '<td>'.$aucstarttime.'</td>';
+				echo '<td data-label="Start Date/Time">'.$aucstarttime.'</td>';
 				
 				echo '</tr>';
 			}

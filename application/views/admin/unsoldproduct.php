@@ -2,6 +2,16 @@
 	//include('./header.php');
 ?>        <!-- End of Topbar -->
 
+	<link href="<?php echo base_url()."web_files/";?>css/tablestyle.css" rel="stylesheet" type="text/css">
+	
+	
+	
+	
+	
+	
+	
+	
+	
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
@@ -12,10 +22,10 @@
           </div>
 
           <!-- Content Row -->
-          <div class="row">
+          <div class="row w-100">
 
             <!-- Earnings (Monthly) Card Example -->
-			<div class="col-xl-12 col-lg-7">
+			<div class="col-md-10 offset-sm-1 p-2">
           <div class="card shadow mb-4">
             <div class="card-body">
               <div class="table-responsive">
@@ -49,13 +59,13 @@
 				<tbody>
 	<?php foreach($sqldat as $sqldata){?>	
 		<tr>
-        <td><?php echo $sqldata->sauctionid; ?></td>
-		<td><?php echo $sqldata->slotno; ?></td>
-		<td><?php echo $sqldata->sdescription; ?></td>
-		<td><?php echo $sqldata->sqty; ?></td>
-		<td><?php echo $sqldata->sgst; ?></td>
-		<td><?php echo $sqldata->slotlocation; ?></td>
-		<td><a href="<?php  echo base_url()."Admin_sellerreauction/index/".str_ireplace('/','-',$sqldata->sauctionid);?>"><input type="button" class="btn btn-primary btn-sm" value="Reauction"></a></td>
+        <td data-label="Auction Id"><?php echo $sqldata->sauctionid; ?></td>
+		<td data-label="Lot No"><?php echo $sqldata->slotno; ?></td>
+		<td data-label="Lot Name"><?php echo $sqldata->sdescription; ?></td>
+		<td data-label="Location"><?php echo $sqldata->sqty; ?></td>
+		<td data-label="Date"><?php echo $sqldata->sgst; ?></td>
+		<td data-label="Amount"><?php echo $sqldata->slotlocation; ?></td>
+		<td data-label="Reauction"><a href="<?php  echo base_url()."Admin_sellerreauction/index/".str_ireplace('/','-',$sqldata->sauctionid);?>"><input type="button" class="btn btn-primary btn-sm" value="Reauction"></a></td>
 			
 		</tr>
 				<?php }  

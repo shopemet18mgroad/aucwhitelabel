@@ -1,6 +1,7 @@
 <?php
 //  include('./header');
 ?>
+<link href="<?php echo base_url()."web_files/";?>css/mediaform.css" rel="stylesheet" type="text/css">
 <!-- End of Topbar -->
 
 <!-- Begin Page Content -->
@@ -12,10 +13,10 @@
 
 	<!-- Content Row -->
 
-	<div class="row">
+	<div class="row w-100">
 
 		<!-- Area Chart -->
-		<div class="col-xl-12 col-lg-7">
+		<div class="col-md-10 offset-sm-1 p-2">
 			<div class="card shadow mb-4">
 				<!-- Card Header - Dropdown -->
 				<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -62,25 +63,25 @@
 									if ($companyltype != NULL) {
 										for ($i = 0; $i < $companyltypecnt; $i++) {
 											echo '<div class="input_fields_wrap1">';
-											echo '<select class="form-control w-50  p-1" name="saddress[]">';
+											echo '<select class="form-control w-75  p-1" name="saddress[]">';
 											echo '<option value="' . $companyltype[$i] . '">' . $companyltype[$i] . '</option>';
 											echo '<option value="Corporate-Office">Corporate Office</option>';
 											echo '<option value="Headquarter">Headquarter</option>';
 											echo '</select>';
 											echo '';
-											echo '<textarea class="form-control float-left mt-2 p-2 w-50" type="text" name="saddresscount[]">' . $companyaddress[$i] . '</textarea>';
+											echo '<textarea class="form-control float-left mt-2 p-2 w-75" type="text" name="saddresscount[]">' . $companyaddress[$i] . '</textarea>';
 											echo '<a class="add_field_button1"><button type="button" class="btn btn-sm btn-primary ml-1 mb-5 mt-3">  <i class="fa fa-plus text-white"></i></button></a>';
 											echo '</div>';
 										}
 									} else {
 										echo '<div class="input_fields_wrap1">';
-										echo '<select class="form-control w-50  p-1" name="saddress[]">';
+										echo '<select class="form-control w-75  p-1" name="saddress[]">';
 										echo '<option value="Corporate-Office">Corporate Office</option>';
 										echo '<option value="Manufacturing Unit">Manufacturing Unit</option>';
 										echo '<option value="Headquarter">Headquarter</option>';
 										echo '</select>';
 										echo '';
-										echo '<textarea class="form-control float-left mt-2 p-2 w-50" type="text" name="saddresscount[]"></textarea>';
+										echo '<textarea class="form-control float-left mt-2 p-2 w-75" type="text" name="saddresscount[]"></textarea>';
 										echo '<a class="add_field_button1"><button type="button" class="btn btn-sm btn-primary ml-1 mb-5 mt-3">  <i class="fa fa-plus text-white"></i></button></a>';
 										echo '</div>';
 									}
@@ -92,11 +93,11 @@
 							</tr>
 							<tr>
 								<td>City</td>
-								<td><input class="form-control w-50" type="text" id="scity" name="scity" value="<?php echo $sqldata[0]->scity; ?>"></td>
+								<td><input class="form-control w-75" type="text" id="scity" name="scity" value="<?php echo $sqldata[0]->scity; ?>"></td>
 							</tr>
 							<tr>
 								<td>Pincode</td>
-								<td><input class="form-control w-50" type="text" id="spin" name="spin" value="<?php echo $sqldata[0]->spin; ?>"></td>
+								<td><input class="form-control w-75" type="text" id="spin" name="spin" value="<?php echo $sqldata[0]->spin; ?>"></td>
 							</tr>
 							<tr>
 								<td>State /Union Ter.</td>

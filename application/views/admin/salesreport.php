@@ -1,6 +1,10 @@
 <?php 
 	//include('./header.php');
 ?>
+	
+<link href="<?php echo base_url()."web_files/";?>css/tablestyle.css" rel="stylesheet" type="text/css">	
+	
+	
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -13,10 +17,10 @@
           </div>
 
           <!-- Content Row -->
-          <div class="row">
+          <div class="row w-100">
 
             <!-- Earnings (Monthly) Card Example -->
-			<div class="col-xl-12 col-lg-7">
+			<div class="col-md-10 offset-sm-1 p-1">
           <div class="card shadow mb-4">
             <div class="card-body">
               <div class="table-responsive">
@@ -53,17 +57,17 @@
 		
 					<tr>												
 						
-						<td><?php echo $datareciver[0]; ?></td>
-						<td><?php echo $datareciver[1];	?></td>
-						<td><?php echo $datareciver[5]; ?></td>
-						<td><?php echo $datareciver[2]; ?></td>
-						<td><?php $aucclosetime = $datareciver[4];
+						<td data-label="Auction Id"><?php echo $datareciver[0]; ?></td>
+						<td data-label="Lot No"><?php echo $datareciver[1];	?></td>
+						<td data-label="Lot Name"><?php echo $datareciver[5]; ?></td>
+						<td data-label="Buyer"><?php echo $datareciver[2]; ?></td>
+						<td data-label="date/Time"><?php $aucclosetime = $datareciver[4];
 							  $tmp = explode('.',$aucclosetime);
 							  $aucclosetime = $tmp[0];
 							  echo $aucclosetime;
 						?></td>
-						<td><?php echo $datareciver[3]; ?></td>
-						<td style="color:Blue;"><b><?php if($datareciver[3]){
+						<td data-label="Bid Amount"><?php echo $datareciver[3]; ?></td>
+						<td style="color:Blue;" data-label="Status"><b><?php if($datareciver[3]){
 						echo "Sold"	;
 						}
 						else{

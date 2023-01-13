@@ -63,25 +63,25 @@ class Admin_sellereditprofile extends CI_Controller {
 			$row_count = 1;
 			foreach($data as $dat){
 				echo '<tr>';
-				echo '<td>'.$row_count.'</td>';				
-				echo '<td>'.$dat['scomapnyname'].'</td>';
-				echo '<td>'.$dat['scontactperson'].'</td>';
-				echo '<td>'.$dat['sphone'].'</td>';
-				echo '<td>'.$dat['semail'].'</td>';
-				echo '<td>'.$dat['scity'].'</td>';
-				echo '<td width="10%">'.$dat['sagreementdate'].'</td>';
+				echo '<td data-label= "S.No.">'.$row_count.'</td>';				
+				echo '<td data-label= "Company Name">'.$dat['scomapnyname'].'</td>';
+				echo '<td data-label= "Contact Person">'.$dat['scontactperson'].'</td>';
+				echo '<td data-label= "Contact No.">'.$dat['sphone'].'</td>';
+				echo '<td data-label= "Email Id">'.$dat['semail'].'</td>';
+				echo '<td data-label= "City">'.$dat['scity'].'</td>';
+				echo '<td data-label= "Date">'.$dat['sagreementdate'].'</td>';
 				$status = $dat['adaction'];
 				if($status == 1){
-				echo '<td style="color:green;"><b>'."ACTIVE".'</b></td>';
+				echo '<td style="color:green;" data-label= "Status"><b>'."ACTIVE".'</b></td>';
 				}else{
-				echo '<td style="color:red;"><b>'."INACTIVE".'</b></td>';	
+				echo '<td style="color:red;" data-label= "Agreement Download"><b>'."INACTIVE".'</b></td>';	
 				}
 				if($dat['adaction'] == 1){
-				echo '<td><a href="'.base_url().'Agreementforsellerpdf_gen/auc_no/'.$dat['scomapnyname'].'" target="_blank"><i class="fa fa-download"></i></a></td>';
+				echo '<td data-label= "Action"><a href="'.base_url().'Agreementforsellerpdf_gen/auc_no/'.$dat['scomapnyname'].'" target="_blank"><i class="fa fa-download"></i></a></td>';
 				}else{
 					echo '<td>'.'</td>';
 				}
-				echo '<td width="10%"><a href="'.base_url().'admin_editseller/edit_seller/'.$dat['scomapnyname'].'">';	
+				echo '<td  data-label= "S.No."><a href="'.base_url().'admin_editseller/edit_seller/'.$dat['scomapnyname'].'">';	
 				echo '<i class="fa fa-edit"></i>';
 				echo '</a>';
 				echo '<a href="'.base_url().'admin_editseller/delete_seller/'.$dat['scomapnyname'].'" class="btn btn-sm text-white delete-confirm">';
@@ -152,6 +152,7 @@ echo "</script>\n";
 	public function export_csv1(){ 
 		// file name 
 		$datatoquerydb = $this->uri->segment(3);
+		
 		$this->load->model('Admin_model');
 		$filename = 'users_'.date('Ymd').'.csv'; 
 		header("Content-Description: File Transfer"); 
@@ -164,6 +165,7 @@ echo "</script>\n";
 		// file creation 
 		$file = fopen('php://output','w');
 		$header = array("COMPANY NAME","CONTACT PERSON","CONTACT NO.","EMAIL ID","CITY","DATE"); 
+		
 		fputcsv($file, $header);
 		foreach ($usersData as $key=>$line){ 
 			fputcsv($file,$line); 

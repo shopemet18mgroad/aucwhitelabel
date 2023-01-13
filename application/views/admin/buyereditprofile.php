@@ -1,9 +1,11 @@
 <?php 
 	//include('./header.php');
 ?>
+	<link href="<?php echo base_url()."web_files/";?>css/tablestyle.css" rel="stylesheet" type="text/css">
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
+		
         <div class="container-fluid">
 
           <!-- Page Heading -->

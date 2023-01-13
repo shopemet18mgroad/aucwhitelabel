@@ -1,6 +1,7 @@
 <?php 
 	//include('./header.php');
 ?>
+<link href="<?php echo base_url()."web_files/";?>css/tablestyle.css" rel="stylesheet" type="text/css">
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -39,9 +40,9 @@
 				<?php foreach($sqldata as $sqldata[0]){?>
 				<tr>
 				
-					<td><b><a href="<?php echo base_url()."Seller_biddingdatadetail/biddetail2/".str_ireplace('/','-',$sqldata[0]->sauctionid)."/".$sqldata[0]->slotno;?>"><?php echo $sqldata[0]->sauctionid; ?></b></td>
-					<td><?php echo $sqldata[0]->slotno; ?></td>
-					<td><?php $aucclosetime = $sqldata[0]->saucclosedate_time;
+					<td data-label="Auction Id"><b><a href="<?php echo base_url()."Seller_biddingdatadetail/biddetail2/".str_ireplace('/','-',$sqldata[0]->sauctionid)."/".$sqldata[0]->slotno;?>"><?php echo $sqldata[0]->sauctionid; ?></b></td>
+					<td data-label="Lot No"><?php echo $sqldata[0]->slotno; ?></td>
+					<td data-label="Close Time"><?php $aucclosetime = $sqldata[0]->saucclosedate_time;
 							  $tmp = explode('.',$aucclosetime);
 							  $aucclosetime = $tmp[0];
 					
