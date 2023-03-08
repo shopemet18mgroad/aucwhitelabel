@@ -164,6 +164,21 @@
            </div>
         </div>
       </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="<?php echo base_url();?>admin_bestbuyer" data-toggle="collapse" data-target="#settings" aria-expanded="true" aria-controls="collapseProduct">
+          <i class="fa fa-cog"></i>
+          <span>Settings</span>
+        </a>
+        <div id="settings" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+        <a class="collapse-item" href="<?php echo base_url();?>Admin_auc_timing"> <i class="fas fa-clock"></i>&nbsp;Change Timings</a>
+            <!--<a class="collapse-item" href="nonperfbuyer.php">Non Performing Buyer</a>-->
+			 <a class="collapse-item" href="<?php echo base_url();?>Admin_lot_parameters"><i class="fa fa-cog"></i>&nbsp;Lot Parameters</a>
+            <!--<a class="collapse-item" href="nonperfseller.php">Non Performing Seller</a>-->
+      
+           </div>
+        </div>
+      </li>
    	
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">

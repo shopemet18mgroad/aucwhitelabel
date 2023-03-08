@@ -86,12 +86,15 @@ class Admin_model extends CI_Model
 	}
 	public function datebetweenhome2($date)
 	{
+		$date2 = $date+86380;
+		$time3 = Date('Y-m-d H:i:s', $date2);
+		$time4 = Date('Y-m-d H:i:s', $date);
 		$this->db->select('*');
 		$this->db->from('auction');
 		//Fetching the data by joining addlot and auction  where status is 1 (Approved auctions)
 		$this->db->join('addlot', 'addlot.sauctionid = auction.sauctionid');
-		$this->db->where('saucstartdate_time ==', $date);
-		$this->db->where('saucclosedate_time ==', $date);
+		$this->db->where('saucstartdate_time >=', $time4);
+		$this->db->where('saucstartdate_time <=', $time3);
 		$this->db->where('status =', 1);
 		$query = $this->db->get();
 		return $query->result();

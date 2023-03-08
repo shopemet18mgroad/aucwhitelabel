@@ -132,6 +132,7 @@ public function get_seller_table(){
 private function upload_files($nameid)
     {	
 	$countfiles = count($_FILES[$nameid]['name']);
+	$datar;
       // Looping all files
       for($i=0;$i<$countfiles;$i++){
         if(!empty($_FILES[$nameid]['name'][$i])){

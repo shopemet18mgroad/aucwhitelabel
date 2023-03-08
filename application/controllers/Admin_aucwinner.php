@@ -80,7 +80,7 @@ class Admin_aucwinner extends CI_Controller {
 		$this->load->view('admin/footer');
 		}
 	}
-}
+	
 	public function setdeactive_seller(){
 		
 		$compnameurl = $this->uri->segment(3);

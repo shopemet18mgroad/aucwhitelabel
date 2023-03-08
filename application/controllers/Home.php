@@ -29,13 +29,14 @@ class Home extends CI_Controller
 		date_default_timezone_set('Asia/Kolkata');
 		//initaliazing the current time 
 		$time =  Date('Y-m-d H:i:s');
+		$time2 = strtotime(Date('Y-m-d'));
 		//Loading Admin Model
 		$this->load->model('Admin_model');
 		//Fetching the apporved forthcoming auctions lot using  getdatafromtablehomejoin model
 		//sqldata1 is for passing data from auction table using getdatafromtablehomejoin model
 		$data['sqldata1'] = $this->Admin_model->getdatafromtablehomejoin($time);
 		//fetching todays auction from datebetweenhome. 
-		$data['sqldata'] = $this->Admin_model->datebetweenhome2($time);
+		$data['sqldata'] = $this->Admin_model->datebetweenhome2($time2);
 		//print_r($data['sqldata']); die;
 		//Fetching  news from database from latestnews.
 		$data['lnews'] = $this->Admin_model->gettablenews('latestnews');
