@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Seller_startauction extends CI_Controller
+class Seller_starttender extends CI_Controller
 {
 
 	/**
@@ -88,9 +88,9 @@ class Seller_startauction extends CI_Controller
 				//transfering the data and flashing the data 
 				$this->session->set_flashdata('txdata', $transfer);
 				//redirect to seller _addlot  for adding the lots
-				redirect('../seller_addlot');
+				redirect('../seller_addtenders');
 			} else {
-				header('location: ./Seller_startauction/');
+				header('location: ./Seller_starttender/');
 			}
 		}
 
@@ -106,7 +106,7 @@ class Seller_startauction extends CI_Controller
 			$data['scomp'] = $this->Admin_model->get1datafromtable('sellerprofile', $active1);
 			//print_r($data['scomp']); die;
 			$this->load->view('seller/header', $sess);
-			$this->load->view('seller/startauction', $data);
+			$this->load->view('seller/startender', $data);
 			$this->load->view('seller/footer');
 		}
 	}

@@ -207,6 +207,37 @@
 						</tbody>
 						
 					</table>
+					<table class="table table-sm table-borderless" id="section6">
+					 <thead><th width="45%">DashBoard Logo</th>
+					 <th style="text-align:right"><a href="<?php echo base_url();?>seller_updateboard_logo"><u>Upload/Update Logo</u></a></th>
+					 </thead>
+						<tbody>
+							<tr>
+								<td class="btxt">My Logo</td>
+								<td class="">
+								<?php 
+										$img_link = base_url()."web_files/img/logo.jpg";
+										if (@getimagesize($img_link)) {
+										?>
+								<img src="<?php echo base_url()."web_files/";?>img/logo.jpg" class="img-fluid" alt="" width="20%;">
+								<?php
+										}else{
+								?> 
+										<img src="<?php echo base_url()."web_files/";?>img/Maku.png" class="img-fluid" alt="" width="20%;">   
+									<?php       
+										}
+        							?>
+								</td>
+							</tr> 
+								<?php 
+								
+							
+							?>			
+							</form>	
+						
+						</tbody>
+						
+					</table>
               
               </div>
             </div>

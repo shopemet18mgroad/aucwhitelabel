@@ -284,7 +284,52 @@ Bidders participating in AucJunction Auctions should verify with the selling com
 			</div>
 			</td>
   </tr>
-  
+  <tr>
+	<td>OPT-IN For External Buyers</td>
+	<td>
+	<button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#myModalExBuy">
+    Terms & Conditions
+  </button>
+
+  <!-- The Modal -->
+  <div class="modal" id="myModalExBuy">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title"><center><b>Terms and Conditions To Opt For EXTERNAL BUYERS</b>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          <p><strong>The auctions and related services are provided by Shopemet Networks Pvt ltd.(hereinafter referred to as "AucJunction") on the website.</strong><br>
+
+AucJunction is an e-commerce service provider mandated by the seller/buyer to facilitate virtual auctions by the seller/buyer. The website is an online auction platform, a virtual marketplace/venue for sellers/buyers to conduct sale/purchase of assets, and for bidders to make/place bids/offers on such assets. AucJunction is considered as third party not particularly interested in the item/s being sold/bought on behalf of the seller/buyer.<br><br>
+
+
+<strong>DEFINITIONS</strong><br>
+
+<strong>7.1</strong> This agreement is governed and construed in accordance with the laws of the Union of India. Users hereby irrevocably consent to the exclusive jurisdiction and venue of courts in Bangalore, Karnataka, India in all disputes arising out of or relating to the use of the services and the website.<br>
+
+Bidders participating in AucJunction Auctions should verify with the selling companies about the tax structure and ascertain themselves of the tax rates and other statutes in place. Any disputes shall be clarified by the Bidders directly with the selling clients and AucJunction is not responsible for any form of misunderstanding or dispute on the applicable taxes. AucJunction is only an E-Commerce Service Provider and has minimal knowledge arising out of any changes in applicable tax rates that are promulgated by the Government from time to time.</p>
+ </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <br><br>
+  <div class="form-check form-check-inline ">
+			<input type="checkbox" class="form-check-input" id="sterms_condexbuyers" name="sterms_condexbuyers" required>
+			<label class="form-check-label" for="exampleCheck1">I agree to the Terms and Conditions</label>
+			</div></td>
+  </tr>
  
   
     </tbody>

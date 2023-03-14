@@ -79,10 +79,11 @@
 		<div id="myScrollspy" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
              <a class="collapse-item" href="<?php echo base_url();?>seller_dashboard">Profile</a>
-            <a class="collapse-item" href="#section2">contact</a>
-			<a class="collapse-item" href="#section3">Account</a>
-			<a class="collapse-item" href="#section4">Password</a>
-			<a class="collapse-item" href="#section5">Document</a>
+            <a class="collapse-item" href="<?php echo base_url();?>seller_dashboard#section2">contact</a>
+			<a class="collapse-item" href="<?php echo base_url();?>seller_dashboard#section3">Account</a>
+			<a class="collapse-item" href="<?php echo base_url();?>seller_dashboard#section4">Password</a>
+			<a class="collapse-item" href="<?php echo base_url();?>seller_dashboard#section5">Document</a>
+      <a class="collapse-item" href="<?php echo base_url();?>seller_dashboard#section6">Upload/Update Logo</a>
           </div>
         </div>
       </li>
@@ -100,7 +101,24 @@
           <i class="fas fa-hand-point-up"></i>
           <span>Start Auction</span></a>
       </li>
-	  
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url();?>seller_starttender">
+          <i class="fas fa-hand-point-up"></i>
+          <span>Start Reverse Tender</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="<?php echo base_url();?>seller_liveauc" data-toggle="collapse" data-target="#reversetender" aria-expanded="true" aria-controls="collapseProduct">
+          <i class="fas fa-fw fa-gavel"></i>
+          <span>Reverse Tender info</span>
+        </a>
+        <div id="reversetender" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="<?php echo base_url();?>seller_tenderresults">Tender Results</a>
+           
+			 <a class="collapse-item" href="<?php echo base_url();?>seller_tenderresults">Edit Tender</a>
+           </div>
+        </div>
+      </li>
 	  	  
 	    <li class="nav-item">
         <a class="nav-link collapsed" href="<?php echo base_url();?>seller_liveauc" data-toggle="collapse" data-target="#auction" aria-expanded="true" aria-controls="collapseProduct">
@@ -171,7 +189,19 @@
 			<a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url();?>seller_dashboard">
 			
         <div class="sidebar-brand-img rotate-n-20 ">
-         <img src="<?php echo base_url()."web_files/";?>img/aucjunction.jpg" class="img-fluid" alt="" width="20%;">
+          <?php 
+        $img_link = base_url()."web_files/img/logo.jpg";
+          if (@getimagesize($img_link)) {
+        ?>
+ <img src="<?php echo base_url()."web_files/";?>img/logo.jpg" class="img-fluid" alt="" width="20%;">
+ <?php
+          }else{
+   ?> 
+         <img src="<?php echo base_url()."web_files/";?>img/Maku.png" class="img-fluid" alt="" width="20%;">   
+    <?php       
+          }
+        ?>
+        
 		
         </div>
         
@@ -223,7 +253,7 @@
               <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw"></i>
                 <!-- Counter - Alerts -->
-                <span class="badge badge-danger badge-counter">3+</span>
+                <span class="badge badge-danger badge-counter">1+</span>
               </a>
               <!-- Dropdown - Alerts -->
               <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
@@ -241,28 +271,8 @@
                     <span class="font-weight-bold">No Alert.</span>
                   </div>
                 </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-success">
-                      <i class="fas fa-donate text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500"></div>
-                    No Alert.
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-warning">
-                      <i class="fas fa-exclamation-triangle text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500"></div>
-                    No Alert.
-                  </div>
-                </a>
+                
+               
                 <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
               </div>
             </li>

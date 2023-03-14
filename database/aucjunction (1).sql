@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.5deb2
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Mar 03, 2023 at 12:32 PM
--- Server version: 8.0.32-0ubuntu0.20.04.2
--- PHP Version: 7.4.3-4ubuntu2.17
+-- Host: 127.0.0.1
+-- Generation Time: Mar 14, 2023 at 09:30 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -29,12 +28,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `addlot` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `sauctionid` varchar(225) DEFAULT NULL,
   `slotno` varchar(100) DEFAULT NULL,
   `slotname` varchar(200) DEFAULT NULL,
   `scategory` varchar(200) DEFAULT NULL,
-  `sdescription` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `sdescription` text DEFAULT NULL,
   `slotlocation` varchar(225) DEFAULT NULL,
   `sfrominpectdate_time` datetime DEFAULT NULL,
   `stoinpectdate_time` datetime DEFAULT NULL,
@@ -47,20 +46,20 @@ CREATE TABLE `addlot` (
   `sbidbase` varchar(200) DEFAULT NULL,
   `sgst` varchar(200) DEFAULT NULL,
   `sothertax` varchar(225) DEFAULT NULL,
-  `semdamount` int DEFAULT NULL,
+  `semdamount` int(11) DEFAULT NULL,
   `sliftingperiod` varchar(200) DEFAULT NULL,
   `sliftingperiod2` datetime DEFAULT NULL,
   `spcbcertificate` tinyint(1) DEFAULT NULL,
   `sname` varchar(100) DEFAULT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '0',
+  `status` tinyint(1) NOT NULL DEFAULT 0,
   `shsncode` varchar(200) DEFAULT NULL,
   `cbidval` varchar(20) DEFAULT '0',
-  `cbidtime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `cbidtime` datetime NOT NULL DEFAULT current_timestamp(),
   `scompanyname` varchar(200) DEFAULT NULL,
-  `lotno` int DEFAULT '0',
-  `sminincre` int DEFAULT NULL,
-  `uploadproductimage` tinytext
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `lotno` int(11) DEFAULT 0,
+  `sminincre` int(11) DEFAULT NULL,
+  `uploadproductimage` tinytext DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `addlot`
@@ -543,7 +542,8 @@ INSERT INTO `addlot` (`id`, `sauctionid`, `slotno`, `slotname`, `scategory`, `sd
 (1067, 'AUC/TES/Ferrous/9/47/51', '1', 'IRON', 'Ferrous', '<p>GOOD</p>', 'BANGALORE', NULL, NULL, NULL, NULL, '1500', '30', '5000', 'KG', 'KG', '56JYGFJHRDNNB', '1', 2000, '5DAYS', '2023-03-06 09:51:00', 0, 'TESTING PVT LTD', 1, '5667', '25', '2023-03-01 04:21:56', NULL, 0, 2, NULL),
 (1068, 'AUC/TES/Ferrous/10/0/21', '1', 'IRON', 'Ferrous', '<p>GOOD QUALITY</p>', 'BANGALORE', NULL, NULL, NULL, NULL, '300', '200', '6000', 'KG', 'KG', '56JYGFJHRDNNB', '1', 4000, '5DAYS', '2023-03-06 10:03:00', 0, 'TESTING PVT LTD', 1, '5667', '0', '2023-03-01 04:33:25', NULL, 0, 1, NULL),
 (1069, 'AUC/MAL3/Ferrous/17/11/52', '1', ' MS Turning &  Boring Scrap ', 'Ferrous', '<p><span style=\"color: #2c363a; font-family: Helvetica, Arial, sans-serif; font-size: 12px; background-color: #ffffff;\">&nbsp;MS Turning &amp;&nbsp; Boring Scrap&nbsp;</span></p>\r\n<p><span style=\"color: #2c363a; font-family: Helvetica, Arial, sans-serif; font-size: 12px; background-color: #ffffff;\">QTY: 50MT +/-10%</span></p>', 'Malur', NULL, NULL, NULL, NULL, '36', '31', '50000', 'KG', 'KG', '18%', '0', 20000, '1', '2023-03-03 16:30:00', 0, 'MODERN AUTOMOTIVES LTD', 1, '0', '35.5', '2023-03-01 12:06:37', NULL, 0, 1, NULL),
-(1070, 'AUC/MAL3/Ferrous/17/11/52', '2', 'MS SolidScrap ', 'Ferrous', '<p><span style=\"color: #2c363a; font-family: Helvetica, Arial, sans-serif; font-size: 12px; background-color: #ffffff;\">MS SolidScrap&nbsp;</span></p>\r\n<p><span style=\"color: #2c363a; font-family: Helvetica, Arial, sans-serif; font-size: 12px; background-color: #ffffff;\">QTY: 10MT +/-10%</span></p>', 'Malur', NULL, NULL, NULL, NULL, '40', '34', '10000', 'KG', 'KG', '18%', '0', 20000, '1', '2023-03-01 16:30:00', 0, 'MODERN AUTOMOTIVES LTD', 1, '0', '38.4', '2023-03-01 12:12:38', NULL, 0, 1, NULL);
+(1070, 'AUC/MAL3/Ferrous/17/11/52', '2', 'MS SolidScrap ', 'Ferrous', '<p><span style=\"color: #2c363a; font-family: Helvetica, Arial, sans-serif; font-size: 12px; background-color: #ffffff;\">MS SolidScrap&nbsp;</span></p>\r\n<p><span style=\"color: #2c363a; font-family: Helvetica, Arial, sans-serif; font-size: 12px; background-color: #ffffff;\">QTY: 10MT +/-10%</span></p>', 'Malur', NULL, NULL, NULL, NULL, '40', '34', '10000', 'KG', 'KG', '18%', '0', 20000, '1', '2023-03-01 16:30:00', 0, 'MODERN AUTOMOTIVES LTD', 1, '0', '38.4', '2023-03-01 12:12:38', NULL, 0, 1, NULL),
+(1071, 'AUC/alfabeta/Ferrous/14/27/50', '1', 'Alfa Metals', 'Non Ferrous', '<p>zc</p>', 'bangalore', NULL, NULL, NULL, NULL, '66', '55', '22', 'KG', 'KG', '18', '56', 22, '10', '2023-03-14 14:32:00', 1, 'SURYA HYDRAULICS', 0, '56575BY', '0', '2023-03-13 14:34:09', NULL, 0, 7, NULL);
 
 -- --------------------------------------------------------
 
@@ -552,12 +552,12 @@ INSERT INTO `addlot` (`id`, `sauctionid`, `slotno`, `slotname`, `scategory`, `sd
 --
 
 CREATE TABLE `adminprofile` (
-  `sl_no` int NOT NULL,
+  `sl_no` int(11) NOT NULL,
   `ausername` varchar(200) NOT NULL,
   `apassword` varchar(40) NOT NULL,
   `aname` varchar(200) NOT NULL,
   `adaction` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `adminprofile`
@@ -573,22 +573,23 @@ INSERT INTO `adminprofile` (`sl_no`, `ausername`, `apassword`, `aname`, `adactio
 --
 
 CREATE TABLE `auction` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `sname` varchar(100) DEFAULT NULL,
   `srefid` varchar(200) DEFAULT NULL,
   `scompanyname` varchar(100) DEFAULT NULL,
-  `scompanyid` int DEFAULT NULL,
+  `scompanyid` int(11) DEFAULT NULL,
   `scategory` varchar(200) DEFAULT NULL,
   `sauctionid` varchar(225) DEFAULT NULL,
   `svinspection` varchar(200) DEFAULT NULL,
   `sonlineaucdate_time` datetime DEFAULT NULL,
   `sterms_condiaccept` tinyint(1) DEFAULT NULL,
-  `sterms_condiupload` text,
+  `sterms_condexbuyers` tinyint(1) NOT NULL DEFAULT 0,
+  `sterms_condiupload` text DEFAULT NULL,
   `sterms_text` varchar(225) DEFAULT NULL,
   `sterms_conditype` varchar(225) DEFAULT NULL,
   `adminapprovalstatus` tinyint(1) DEFAULT NULL,
   `sapproval` varchar(200) DEFAULT NULL,
-  `sdownload` blob,
+  `sdownload` blob DEFAULT NULL,
   `saction` varchar(1) DEFAULT NULL,
   `sauctionstatus` tinyint(1) DEFAULT NULL,
   `saucstartdate_time` datetime DEFAULT NULL,
@@ -596,179 +597,181 @@ CREATE TABLE `auction` (
   `adstatus` tinyint(1) DEFAULT NULL,
   `adaction` tinyint(1) DEFAULT NULL,
   `reauction` varchar(225) DEFAULT NULL,
-  `stotalauction` int DEFAULT NULL,
+  `stotalauction` int(11) DEFAULT NULL,
   `bwishlist` tinyint(1) DEFAULT NULL,
-  `bemdstatus` int DEFAULT NULL,
+  `bemdstatus` int(11) DEFAULT NULL,
   `sstartbidprice` varchar(225) DEFAULT NULL,
   `sfrominpectdate_time` datetime DEFAULT NULL,
   `stoinpectdate_time` datetime DEFAULT NULL,
   `slastdateemdsub` date DEFAULT NULL,
   `semddetail` varchar(200) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `auction`
 --
 
-INSERT INTO `auction` (`id`, `sname`, `srefid`, `scompanyname`, `scompanyid`, `scategory`, `sauctionid`, `svinspection`, `sonlineaucdate_time`, `sterms_condiaccept`, `sterms_condiupload`, `sterms_text`, `sterms_conditype`, `adminapprovalstatus`, `sapproval`, `sdownload`, `saction`, `sauctionstatus`, `saucstartdate_time`, `saucclosedate_time`, `adstatus`, `adaction`, `reauction`, `stotalauction`, `bwishlist`, `bemdstatus`, `sstartbidprice`, `sfrominpectdate_time`, `stoinpectdate_time`, `slastdateemdsub`, `semddetail`) VALUES
-(7, 'RP Metals Section Pvt Ltd', 'RP', 'RP Metals Section Pvt Ltd', NULL, 'Ferrous', 'AUC/RP/Ferrous/12/44/28', '	Plot no 25, P5 P6 P7, Bidadi Industrial Area, Opp Toyota Gate No 4, Bidadi', NULL, 1, 'N;', 'Precautions for COVID 19\r\nMasks and Sanitizers are mandatory.\r\nVisiting hours are 10 am to 1.30 pm and 2.30 pm to 5 pm only.  Sundays holidays.\r\n', NULL, NULL, NULL, NULL, NULL, NULL, '2021-02-26 13:00:00', '2021-02-26 15:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-02-18 10:00:00', '2021-02-25 17:00:00', '2021-02-25', 'EMD Details - \r\nDD in the name of RP METAL SECTIONS PVT LTD.\r\nDD to be handed over to Aucjunction '),
-(29, 'RP Metals Section Pvt Ltd', 'RPMETALS', 'RP Metals Section Pvt Ltd', NULL, 'Ferrous', 'AUC/RPMETALS/Ferrous/15/55/43', 'Plot 25-P5,P6,P7, Bidadi Industrial Area, Ramnagar Taluk, Bidadi, Karnataka 562109', NULL, 1, NULL, 'CoVid19 \r\nAll buyers for inspection to wear mask and use sanitizers.\r\n\r\nWe have cancelled EMD for all lots. \r\n\r\nBuyers are suggested to participate and bid and lift the materials as an when the  material scrap is accumulated.', NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-11 13:45:00', '2021-03-11 16:15:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-05 11:00:00', '2021-03-10 16:00:00', '2021-03-11', 'No EMD '),
-(30, 'AS ENGINEERING', 'ASENGG', 'AS ENGINEERING', NULL, 'Ferrous', 'AUC/ASENGG/Ferrous/11/36/50', 'D27, DR BR AMBEDKAR , KSSIDC INDUSTRIAL AREA PHASE 1 JIGANI', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-16 14:00:00', '2021-03-16 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-09 11:00:00', '2021-03-15 16:00:00', '2021-03-15', 'NO EMD'),
-(31, 'UMA INDUSTRIES', 'UMAINDUSTRIES', 'UMA INDUSTRIES', NULL, 'Ferrous', 'AUC/UMAINDUSTRIES/Ferrous/12/19/47', 'SPL-12, Road No 4, KSSIDC Industrial Area, Jigani Phase 2', NULL, 1, NULL, 'Cross Verification on weigh bridge if necessery.', NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-17 14:00:00', '2021-03-17 16:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-10 11:00:00', '2021-03-16 16:32:00', '2021-03-16', 'NO EMD'),
-(41, 'IFB INDUSTRIES LIMITED', 'IFBBLR', 'IFB INDUSTRIES LIMITED', NULL, 'Non Ferrous', 'AUC/IFBBLR/Non Ferrous/8/27/13', '16/17, VISVESVARIAH INDUSTRIAL ESTATE, 1ST MAIN, OFF WHITEFIELD ROAD, MAHADEVPURA, BANGALORE', NULL, 1, 'N;', '.', NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-22 14:31:00', '2021-03-22 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-17 08:28:00', '2021-03-19 08:28:00', '2021-03-22', 'EMD TO BE PAID ON IFB INDUSTRIES LIMITED'),
-(44, 'ROYAL IRON TRADERS', 'ROYAL', 'ROYAL IRON TRADERS', NULL, 'Ferrous', 'AUC/ROYAL/Ferrous/22/43/15', 'A36/1, Mayapuri Phase 1, New Delhi - 110064', NULL, 1, 'N;', 'IMMEDIATE PAYMENT ONCE APPROVAL RECEIVED FROM SELLER', NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-31 14:46:00', '2021-03-31 16:46:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-24 11:00:00', '2021-03-30 16:45:00', '2021-03-30', 'No EMD'),
-(50, 'MAHINDRA CIE AUTOMOTIVE LTD', 'MAHINDRA', 'MAHINDRA CIE AUTOMOTIVE LTD', NULL, 'Machineries', 'AUC/MAHINDRA/Machineries/8/10/43', 'MAHINDRA CIE AUTOMOTIVE LTD\r\n(BILL FORGE DIVISION - PLANT 3)\r\n7C, KIADB INDUSTRIAL AREA, ATTIBELE', NULL, 1, 'N;', 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-06 14:15:00', '2021-04-06 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-25 11:00:00', '2021-04-05 16:00:00', '2021-04-03', 'No EMD'),
-(52, 'DK Grindings', 'DKGRINDINGS', 'DK Grindings', NULL, 'Machineries', 'AUC/DKGRINDINGS/Machineries/13/44/53', '73/25, 24TH CROSS, DODDANNA INDUSTRIAL ESTATE, VISHWANEEDAM POST, NEAR PEENYA 2ND STAGE, BANGALORE - 91', NULL, 1, 'N;', 'ALL COVID19 PRECAUTIONARY TO BE TAKEN', NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-06 14:15:00', '2021-04-06 16:45:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-27 13:45:00', '2021-04-02 13:46:00', '2021-04-01', 'NO EMD'),
-(55, 'Anagha Precision Components', 'ANAGHAPC', 'Anagha Precision Components', NULL, 'Ferrous', 'AUC/ANAGHAPC/Ferrous/13/53/33', '434, 4th Main, Kaveripura, Kamakshipalya, Bangalore - 560079', NULL, 1, 'N;', 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-07 14:30:00', '2021-04-07 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-01 10:30:00', '2021-04-06 16:30:00', '2021-04-06', 'No EMD'),
-(57, 'IFB INDUSTRIES LIMITED', 'IFBBLR', 'IFB INDUSTRIES LIMITED', NULL, 'Miscellaneous', 'AUC/IFBBLR/Miscellaneous/10/3/49', 'IFB( Motor Division) No. 16, Visveswariah Industrial Estate, 1st Main Road, Off Whitefield Road, Mahadevpura, Bengaluru, Karnataka 560048', NULL, 1, 'a:1:{i:0;s:31:\"DECLARATION_FOR_E_AUCTION1.docx\";}', '', NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-07 15:00:00', '2021-04-07 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-01 11:00:00', '2021-04-06 16:30:00', '2021-04-07', 'EMD TO BE PAID IN THE NAME OF IFB INDUSTRIES LTD'),
-(58, 'BLUE STAR MICROMATIC', 'BLUE', 'BLUE STAR MICROMATIC', NULL, 'Plastic', 'AUC/BLUE/Plastic/17/59/59', 'No 23, 10th Cross, Doddanna Industrial Estate, Peenya 2nd Stage, Near Shanti Dhama School, Bangalore - 560091', NULL, 1, 'N;', 'ALL PAYMENTS TO BE SETTLED BEFORE LEAVING THE PREMISES WITH MATERIALS', NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-10 15:00:00', '2021-04-10 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-06 11:01:00', '2021-04-08 16:30:00', '2021-04-10', 'NO EMD'),
-(62, 'MAHINDRA CIE AUTOMOTIVE LTD', 'CIE', 'MAHINDRA CIE AUTOMOTIVE LTD', NULL, 'Machineries', 'AUC/CIE/Machineries/17/14/39', 'Mahindra CIE\r\nBill Forge Plant 3', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-06 18:15:00', '2021-04-06 18:45:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-06 17:15:00', '2021-04-06 17:15:00', '2021-04-06', 'NO EMD'),
-(63, 'MAHINDRA CIE AUTOMOTIVE LTD', 'CIE', 'MAHINDRA CIE AUTOMOTIVE LTD', NULL, 'Machineries', 'AUC/CIE/Machineries/19/2/29', 'BILL FORGE\r\nPLANT 3', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-06 19:11:00', '2021-04-06 19:18:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-06 19:03:00', '2021-04-06 19:03:00', '2021-04-06', 'NO EMD'),
-(64, 'ANAGHA ENGINEERING SYSTEMS', 'ANAGHA', 'ANAGHA ENGINEERING SYSTEMS', NULL, 'Ferrous', 'AUC/ANAGHA/Ferrous/17/18/14', 'MAGADI ROAD', NULL, 1, NULL, 'no', NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-07 17:30:00', '2021-04-07 17:50:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-06 17:18:00', '2021-04-06 17:18:00', '2021-04-07', 'NO EMD'),
-(69, 'SRI MANJUNATHA ENGINEERING WORKS', 'SMEWBLR', 'SRI MANJUNATHA ENGINEERING WORKS', NULL, 'Ferrous', 'AUC/SMEWBLR/Ferrous/18/56/57', 'B215, 5TH MAIN, PEENYA 2ND STAGE, BANGALORE 58', NULL, 1, 'N;', 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-26 14:45:00', '2021-04-26 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-19 10:30:00', '2021-04-23 16:30:00', '2021-04-23', 'NO EMD'),
-(70, 'CNC AUTOMOTIVE GROUP', 'CNCBLR', 'CNC AUTOMOTIVE GROUP', NULL, 'Ferrous', 'AUC/CNCBLR/Ferrous/19/6/25', 'B444, IST STAGE,1 A MAIN, PEENYA INDUSTRIAL ESTATE, opp Aravind Motors', NULL, 1, 'N;', 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-26 14:45:00', '2021-04-26 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-19 19:07:00', '2021-04-24 19:07:00', '2021-04-24', 'NO EMD'),
-(84, 'REWARD360 GLOBAL SERVICES PRIVATE LIMITED', 'RGSPL', 'REWARD360 GLOBAL SERVICES PRIVATE LIMITED', NULL, 'General', 'AUC/RGSPL/General/18/53/57', 'GROUND FLOOR NO\r\n2 2 NEW NO 158\r\nLAVELLE ROAD\r\nLAVELLE ROAD', NULL, 1, 'N;', 'Special Terms by Reward 360 - \r\n\r\nAll the products for the auction are in \" as is where is\" condition.\r\n\r\nThis includes returned stock, damaged stock, dead stock, expired stock etc.\r\n\r\nProducts does not contain warranty or gu', NULL, NULL, NULL, NULL, NULL, NULL, '2021-09-08 13:00:00', '2021-09-08 14:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-08-30 10:30:00', '2021-09-07 16:30:00', '2021-09-07', 'DD in favour of Reward 360 Global Services Private Limited'),
-(85, 'REWARD360 GLOBAL SERVICES PRIVATE LIMITED', 'RGSPL1', 'REWARD360 GLOBAL SERVICES PRIVATE LIMITED', NULL, 'General', 'AUC/RGSPL1/General/12/53/59', 'NO 13 C 3RD PHASE PEENYA INDUSTRIAL AREA Bengaluru (Bangalore) Urban Karnataka\r\n560058', NULL, 1, NULL, 'Special Terms by Reward 360 - \r\n\r\nAll the products for the auction are in \" as is where is\" condition.\r\n\r\nThis includes returned stock, damaged stock, dead stock, expired stock etc.\r\n\r\nProducts does not contain warranty or gu', NULL, NULL, NULL, NULL, NULL, NULL, '2021-09-08 15:00:00', '2021-09-08 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-09-01 10:00:00', '2021-09-07 16:00:00', '2021-09-07', 'DD in favour of Reward 360 global services pvt ltd'),
-(88, 'IFB INDUSTRIES LIMITED', 'IFB', 'IFB INDUSTRIES LIMITED', NULL, 'Non Ferrous', 'AUC/IFB/Non Ferrous/14/35/47', '16/17, ( MOTOR DIVISION)\r\nVISHVESHWARAIAH\r\nINDUSTRIAL\r\nESTATE, 1ST\r\nMAIN, OFF\r\nWHITEFIELD\r\nROAD,\r\nMAHADEVPURA\r\nPOST, BANGALORE', NULL, 1, 'N;', 'All Covid19 Precautions to be taken, Safety Mask and Shoes for Inspection of materials.\r\n Vendor Employees lifting the materials to have insurance.\r\nPayment to be made in advance and then lift the material.', NULL, NULL, NULL, NULL, NULL, NULL, '2021-09-28 15:30:00', '2021-09-28 16:45:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-09-22 10:30:00', '2021-09-27 16:30:00', '2021-09-27', 'EMD will be paid in the name of IFB INDUSTRIES LIMITED'),
-(90, 'SRI LAKSHMI PROFILE', 'SLP', 'SRI LAKSHMI PROFILE', NULL, 'Ferrous', 'AUC/SLP/Ferrous/12/20/35', 'No 417, D-2, 4th Phase, \r\nPeenya Industrial Area, \r\nNear Brindavan Bus Stop,\r\nBangalore 58', NULL, 1, 'N;', 'COVID19 Safety measures.\r\nAll payments to be done before lifting the material', NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-04 14:45:00', '2021-10-04 15:45:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-09-28 11:00:00', '2021-10-01 15:30:00', '2021-10-01', 'NO EMD'),
-(92, 'OMKAR ENGINEERING  FABRICATION', 'OEF', 'OMKAR ENGINEERING  FABRICATION', NULL, 'Machineries', 'AUC/OEF/Machineries/12/55/54', '111-H2, Bommasandra Indl Area, Attibele Hobli, Bangalore', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-06 15:00:00', '2021-10-06 15:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-09-28 11:00:00', '2021-10-05 16:00:00', '2021-10-05', 'NO EMD'),
-(93, 'Anagha Precision Components', 'APC', 'Anagha Precision Components', NULL, 'Ferrous', 'AUC/APC/Ferrous/13/30/10', '434, 4th Main Road, Basaveshwara Nagar, Kaveripura Kamakshipalya', NULL, 1, 'N;', 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-07 15:00:00', '2021-10-07 16:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-09-28 11:31:00', '2021-10-06 16:31:00', '2021-10-07', 'NO EMD'),
-(94, 'G L N Technologies', 'GLN', 'G L N Technologies', NULL, 'Machineries', 'AUC/GLN/Machineries/13/46/8', 'No 24, Doddanna Indl Estate Main Road,  Near 16th Cross, Hegganahalli, Srigandhakavalu, Bangalore', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 15:00:00', '2021-10-11 16:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-09-28 11:00:00', '2021-10-09 16:00:00', '2021-10-09', 'No EMD'),
-(102, 'MAGCORE LAMINATION', 'MAGCORE', 'MAGCORE LAMINATION', NULL, 'Machineries', 'AUC/MAGCORE/Machineries/16/13/47', 'NA', NULL, 1, NULL, 'na', NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-01 16:40:00', '2021-10-01 17:15:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-09-30 16:14:00', '2021-10-01 16:14:00', '2021-10-01', 'NA'),
-(103, 'MAGCORE LAMINATION', 'MAGCORE1', 'MAGCORE LAMINATION', NULL, 'Machineries', 'AUC/MAGCORE1/Machineries/17/21/35', 'NA', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-01 17:30:00', '2021-10-01 17:45:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-01 17:21:00', '2021-10-01 17:22:00', '2021-10-01', 'NA'),
-(104, 'SRI LAKSHMI PROFILE', 'SLP1', 'SRI LAKSHMI PROFILE', NULL, 'Ferrous', 'AUC/SLP1/Ferrous/16/40/12', 'NA', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-04 16:50:00', '2021-10-04 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-04 16:40:00', '2021-10-04 16:41:00', '2021-10-04', 'NA'),
-(114, 'KANVA COOL INDUSTRIES', 'KCI', 'KANVA COOL INDUSTRIES', NULL, 'Ferrous', 'AUC/KCI/Ferrous/18/55/31', 'Peenya Industrial Area', NULL, 1, NULL, 'IMMEDIATE PAYMENT BEFORE LIFTING MATERIALS.\r\n', NULL, NULL, NULL, NULL, NULL, NULL, '2021-11-22 15:45:00', '2021-11-22 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-11-19 11:00:00', '2021-11-20 16:45:00', '2021-11-22', 'DD in name of KANVA COOL INDUSTRIES or NEFT to Shopemet Networks Pvt Ltd'),
-(120, 'KANVA COOL INDUSTRIES', 'KCIRE', 'KANVA COOL INDUSTRIES', NULL, 'Ferrous', 'AUC/KCIRE/Ferrous/16/43/20', 'Bangalore', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2021-11-23 16:50:00', '2021-11-23 17:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-11-23 16:43:00', '2021-11-23 16:44:00', '2021-11-23', 'EMD '),
-(126, 'KANVA COOL INDUSTRIES', 'KCI4', 'KANVA COOL INDUSTRIES', NULL, 'Ferrous', 'AUC/KCI4/Ferrous/15/30/5', 'Peenya 2nd Stage', NULL, 1, NULL, 'NA ', NULL, NULL, NULL, NULL, NULL, NULL, '2021-11-24 16:00:00', '2021-11-24 16:45:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-11-22 15:31:00', '2021-11-24 15:31:00', '2021-11-24', '3000'),
-(127, 'HITECH METALS AND ALLOYS', 'HMA', 'HITECH METALS AND ALLOYS', NULL, 'Non Ferrous', 'AUC/HMA/Non Ferrous/15/25/59', 'Kumbalgudu Industrial Area', NULL, 1, NULL, 'Electronic Weighment at Godown. Payment immediate.', NULL, NULL, NULL, NULL, NULL, NULL, '2021-11-25 16:30:00', '2021-11-25 17:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-11-25 15:26:00', '2021-11-25 15:27:00', '2021-11-25', '50000/- to Hitech Metals'),
-(129, 'BHUVANESHWARI ENGINEERING ENTERPRISES', 'BHU', 'BHUVANESHWARI ENGINEERING ENTERPRISES', NULL, 'Ferrous', 'AUC/BHU/Ferrous/12/38/14', 'A D halli Industrial Town Extension \r\nBangalore 560079', NULL, 1, 'N;', 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-02 16:30:00', '2021-12-02 17:10:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-11-29 12:40:00', '2021-12-02 12:43:00', '2021-12-02', '10000'),
-(130, 'UNIQUE PUNCH SYSTEMS PVT LTD', 'UPSPL', 'UNIQUE PUNCH SYSTEMS PVT LTD', NULL, 'Ferrous', 'AUC/UPSPL/Ferrous/17/57/42', '14th Cross, Phase 4, Peenya Industrial Area, Bangalore', NULL, 1, NULL, 'Payment on weighment.\r\nPlease follow Covid Norms\r\nMaterials to be lifted within 2 days from the Date of Approval.', NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-06 16:00:00', '2021-12-06 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-02 18:00:00', '2021-12-04 18:00:00', '2021-12-06', 'EMD TO BE PAID UNIQUE PUNCH SYSTEMS PVT LTD OR NEFT TO SHOPEMET NETWORKS PVT LTD ON BEHALF OF THE COMPANY'),
-(136, 'HITECH METALS AND ALLOYS', 'HMA1', 'HITECH METALS AND ALLOYS', NULL, 'Non Ferrous', 'AUC/HMA1/Non Ferrous/15/59/6', 'Kumbalgudu Industrial Area .', NULL, 1, 'N;', '', NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-16 16:00:00', '2021-12-16 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-13 11:00:00', '2021-12-16 16:01:00', '2021-12-16', 'EMD to be paid to Hitech Metals And Alloys. or Shopemet Networks Private Limited'),
-(139, 'SRI BALAJI ENTERPRISES', 'BAL', 'SRI BALAJI ENTERPRISES', NULL, 'Ferrous', 'AUC/BAL/Ferrous/13/54/58', 'NO  c-114 , Industrial suburb, Opposite peenya Metro Station  Next to Dr.Prabhakar  kore convention hall, peenya , Bangalore 560058', NULL, 1, NULL, 'NA ', NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-27 16:00:00', '2021-12-27 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-22 13:57:00', '2021-12-27 16:00:00', '2021-12-27', 'EMD Payable '),
-(140, 'SAKSHI STEEL N ALLOYS', 'SAK', 'SAKSHI STEEL N ALLOYS', NULL, 'Ferrous', 'AUC/SAK/Ferrous/14/20/0', 'C-343/344 , 1st Stage , Main Road, Peenya Industrial area , Bangalore 560058', NULL, 1, NULL, 'NA ', NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-24 16:00:00', '2021-12-24 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-22 14:21:00', '2021-12-24 16:00:00', '2021-12-24', 'EMD payable '),
-(141, 'IFB INDUSTRIES LIMITED', 'BLRFB', 'IFB INDUSTRIES LIMITED', NULL, 'General', 'AUC/BLRFB/General/15/31/7', '16/17, Vishvehwaraih Industrial Area, Mahadevpura', NULL, 1, 'N;', 'All materials to be inspected and bid. Once the bid is placed and stands as H1, Has to buy the materials before 5 days from the day of Auction.\r\nFollow COVID precautions during Inspection.', NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-29 16:30:00', '2021-12-29 17:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-27 11:00:00', '2021-12-29 16:30:00', '2021-12-29', 'EMD Amount to be paid Via DD to IFB or NEFT to shopemet networks pvt ltd'),
-(145, 'SAKSHI STEEL N ALLOYS', 'SAKSHI', 'SAKSHI STEEL N ALLOYS', NULL, 'Ferrous', 'AUC/SAKSHI/Ferrous/13/31/3', 'C- 343/344 , 1st Stage , Main Road , Peenya Industrial area , Bangalore 560058', NULL, 1, NULL, 'Follow Covid Precautions during inspection', NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-28 16:00:00', '2021-12-28 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-27 15:00:00', '2021-12-28 15:00:00', '2021-12-28', 'NO EMD'),
-(146, 'HITECH METALS AND ALLOYS', 'HMA2', 'HITECH METALS AND ALLOYS', NULL, 'Non Ferrous', 'AUC/HMA2/Non Ferrous/13/39/22', 'Kumbalgudu Indl Area, \r\nMysore Road', NULL, 1, NULL, 'Follow Covid Norms during Inspection.\r\nPayment to be cleared immediately during lifting  materials', NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-30 16:30:00', '2021-12-30 17:15:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-27 10:30:00', '2021-12-30 16:00:00', '2021-12-30', 'EMD DD in name of HITECH METALS AND ALLOYS or NEFT/PayU to Shopemet Networks Pvt Ltd'),
-(147, 'NEHA TRADERS', 'TRADE', 'NEHA TRADERS', NULL, 'E Waste', 'AUC/TRADE/E Waste/18/5/56', '04, 12th Cross, Magadi Main Road, Bangalore', NULL, 1, 'N;', 'Follow Covid Rules\r\nPayment on Weighment', NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-29 15:30:00', '2021-12-29 16:20:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-27 12:00:00', '2021-12-29 14:00:00', '2021-12-29', 'EMD to be paid to Shopemet Networks Pvt Ltd'),
-(148, 'IMRAN STEELS', 'IMRAN', 'IMRAN STEELS', NULL, 'Ferrous', 'AUC/IMRAN/Ferrous/13/55/28', '# A-144/1, 3rd Cross 1st Stage peenya Industrial area Bangalore  ', NULL, 1, NULL, 'Follow covid rules ', NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-28 16:00:00', '2021-12-28 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-28 13:56:00', '2021-12-28 15:00:00', '2021-12-28', 'No EMD'),
-(149, 'DEV ENTERPRISES', 'DEV', 'DEV ENTERPRISES', NULL, 'Non Ferrous', 'AUC/DEV/Non Ferrous/15/8/50', 'No. 23, 3rd Floor , Behind Asha Sweets , Binnamangala 1st stage , Indra Nagar Bangalore - 560002', NULL, 1, 'N;', 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-17 16:30:00', '2022-01-17 17:15:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-10 15:11:00', '2022-01-17 15:12:00', '2022-01-17', 'shopemet'),
-(150, '3D PRODUCT DEVELOPMENT PVT LTD', 'PRO', '3D PRODUCT DEVELOPMENT PVT LTD', NULL, 'Plastic', 'AUC/PRO/Plastic/13/43/4', 'shopemet', NULL, 1, NULL, 'Follow Covid Rules .', NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-17 15:00:00', '2022-01-17 16:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-13 13:43:00', '2022-01-17 15:00:00', '2022-01-17', 'No EMD'),
-(151, '3D PRODUCT DEVELOPMENT PVT LTD', 'PRO', '3D PRODUCT DEVELOPMENT PVT LTD', NULL, 'Plastic', 'AUC/PRO/Plastic/13/52/3', 'Shopemet', NULL, 1, 'N;', 'Follow Covid Rules', NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-17 16:45:00', '2022-01-17 17:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-13 15:00:00', '2022-01-17 17:00:00', '2022-01-17', 'No EMD'),
-(154, 'IFB INDUSTRIES LIMITED', 'MSIFB', 'IFB INDUSTRIES LIMITED', NULL, 'Ferrous', 'AUC/MSIFB/Ferrous/9/28/31', 'Plot No 5, 4A,4B,3B, \r\nMalur Industrial Area, \r\nKurandanahalli Village, \r\nKolar', NULL, 1, 'N;', 'FOLLOW COVID POLICY', NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-21 15:45:00', '2022-01-21 16:45:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-18 09:30:00', '2022-01-21 16:00:00', '2022-01-21', 'DD or RTGS in favour of IFB INDUSTRIES LTD.'),
-(160, 'MAHINDRA CIE AUTOMOTIVE LTD', 'MCIEA', 'MAHINDRA CIE AUTOMOTIVE LTD', NULL, 'Machineries', 'AUC/MCIEA/Machineries/7/58/48', 'Mahindra CIE Automotive Ltd ( Bill Forge)\r\nPlant 2, Jigani Indl Area,', NULL, 1, 'N;', 'Follow Covid', NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-02 15:45:00', '2022-02-02 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-24 11:00:00', '2022-02-01 16:00:00', '2022-02-01', 'EMD- DD in name of Mahindra CIE Automotive Ltd to be handed over to Shopemet Networks Pvt Ltd'),
-(162, 'MAHINDRA CIE AUTOMOTIVE LTD', 'MCIEP9', 'MAHINDRA CIE AUTOMOTIVE LTD', NULL, 'Machineries', 'AUC/MCIEP9/Machineries/15/9/32', 'Mahindra CIE Automotive Ltd, ( Bill Forge)\r\nPlant 9, Bommasandra Indl Area, ', NULL, 1, NULL, 'Covid Norms', NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-01 14:45:00', '2022-02-01 15:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-24 11:30:00', '2022-02-01 16:30:00', '2022-02-01', 'EMD - DD in the name of Mahindra CIE Automotive Ltd. Handed over to Shopemet Networks Pvt Ltd'),
-(163, 'MAHINDRA CIE AUTOMOTIVE LTD', 'MCIEP4', 'MAHINDRA CIE AUTOMOTIVE LTD', NULL, 'Machineries', 'AUC/MCIEP4/Machineries/15/36/59', 'Mahindra CIE Automotive Ltd  - Bill Forge\r\nPlant 4, Pollachi Main Road, Ganesh Nagar, Malumachampatti Post, \r\nCoimbatore', NULL, 1, NULL, 'COVID POLICY', NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-02 16:30:00', '2022-02-02 17:45:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-24 11:30:00', '2022-01-25 16:29:00', '2022-02-01', 'EMD - DD in favour of Mahindra CIE Automotive Ltd, Handed over to Shopemet Networks Pvt Ltd'),
-(167, '3D PRODUCT DEVELOPMENT PVT LTD', '3DPDPL', '3D PRODUCT DEVELOPMENT PVT LTD', NULL, 'General', 'AUC/3DPDPL/General/17/54/48', 'BANGALORE ', NULL, 1, 'N;', 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-09 16:00:00', '2022-02-09 16:45:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-04 10:00:00', '2022-02-07 15:00:00', '2022-02-07', 'NA                                                                                                                                                                                                      '),
-(168, 'REWARD360 GLOBAL SERVICES PRIVATE LIMITED', 'R360PL', 'REWARD360 GLOBAL SERVICES PRIVATE LIMITED', NULL, 'General', 'AUC/R360PL/General/11/15/37', 'Peenya', NULL, 1, 'N;', 'FOLLOW COVID PRECAUTIONS', NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-11 16:00:00', '2022-02-11 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-04 11:00:00', '2022-02-10 16:00:00', '2022-02-10', 'EMD in favour of Reward360, handed over to Shopemet Networks Pvt Ltd'),
-(169, 'R AND M CORROSION PREVENTORS', 'RMC', 'R AND M CORROSION PREVENTORS', NULL, 'Machineries', 'AUC/RMC/Machineries/17/31/24', 'PEENYA ', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-14 16:30:00', '2022-02-14 17:15:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-07 09:30:00', '2022-02-12 18:30:00', '2022-02-14', 'NA'),
-(170, 'S A STELL INDUSTRIAL INC', 'SAS', 'S A STELL INDUSTRIAL INC', NULL, 'Machineries', 'AUC/SAS/Machineries/11/38/56', 'Malur ', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-07 15:45:00', '2022-02-07 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-24 11:39:00', '2022-02-02 11:39:00', '2022-02-07', '200000'),
-(173, 'Distribution Logistics Infrastructure Pvt Ltd', 'DLI', 'Distribution Logistics Infrastructure Pvt Ltd', NULL, 'Machineries', 'AUC/DLI/Machineries/10/54/43', 'Anekal', NULL, 1, 'N;', 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-12 15:30:00', '2022-02-12 16:15:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-08 10:55:00', '2022-02-12 10:55:00', '2022-02-12', '100000'),
-(176, 'IFB INDUSTRIES LIMITED', 'IFB', 'IFB INDUSTRIES LIMITED', NULL, 'Ferrous', 'AUC/IFB/Ferrous/12/4/24', 'Malur ', NULL, 1, 'N;', 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-08 15:45:00', '2022-02-08 16:45:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-05 11:56:00', '2022-02-08 11:56:00', '2022-02-08', '400000'),
-(194, 'DEV ENTERPRISES', 'DEV', 'DEV ENTERPRISES', NULL, 'Ferrous', 'AUC/DEV/Ferrous/12/50/1', 'TIRCHY,TAMILNADU', NULL, 1, 'a:1:{i:0;s:6:\"12.jpg\";}', '', NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-19 16:00:00', '2022-05-19 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-13 10:00:00', '2022-05-18 17:00:00', '2022-05-19', '20000'),
-(201, 'DEV ENTERPRISES', 'DEV', 'DEV ENTERPRISES', NULL, 'Ferrous', 'AUC/DEV/Ferrous/17/33/12', 'COIMBATORE ', NULL, 1, NULL, 'FOLLOW COVID RULES ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-21 14:30:00', '2022-05-21 15:15:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-19 10:00:00', '2022-05-20 18:00:00', '2022-05-20', 'NA '),
-(202, 'MAHINDRA CIE AUTOMOTIVE LTD', 'CIE P2 ', 'MAHINDRA CIE AUTOMOTIVE LTD', NULL, 'Ferrous', 'AUC/CIE P2 /Ferrous/10/49/42', 'JIGANI ', NULL, 1, NULL, 'FOLLOW COVID RULES AND WEAR MASK ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-25 16:00:00', '2022-05-25 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-20 09:00:00', '2022-05-24 16:00:00', '2022-05-24', '50000'),
-(203, 'OMKAR ENGINEERING  FABRICATION', 'OMKAR ', 'OMKAR ENGINEERING  FABRICATION', NULL, 'Machineries', 'AUC/OMKAR /Machineries/11/6/48', 'BOMMASANDRA ', NULL, 1, NULL, 'FOLLOW COVID RULES AND DO WEAR   SAFETY SHOES FOR VISIT ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-26 16:00:00', '2022-05-26 18:15:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-20 10:00:00', '2022-05-25 18:30:00', '2022-05-26', 'NA '),
-(204, 'MAGCORE LAMINATION', 'Magcor  ', 'MAGCORE LAMINATION', NULL, 'Machineries', 'AUC/Magcor  /Machineries/11/47/0', 'BOMMASANDRA ', NULL, 1, NULL, 'Follow Covid rules \r\n', NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-26 14:30:00', '2022-05-26 15:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-20 10:00:00', '2022-05-25 17:00:00', '2022-05-25', 'NA'),
-(205, 'BROTHERS TRADERS', 'BRO', 'BROTHERS TRADERS', NULL, 'Machineries', 'AUC/BRO/Machineries/14/38/32', 'Electronic city ', NULL, 1, NULL, 'Follow covid rules ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-02 16:00:00', '2022-06-02 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-25 09:00:00', '2022-05-31 18:30:00', '2022-05-31', '30000'),
-(206, 'Swas Industries', 'SWAS', 'Swas Industries', NULL, 'Ferrous', 'AUC/SWAS/Ferrous/16/40/7', 'HOSUR ', NULL, 1, NULL, 'FOLLOW COVID RULES ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-31 16:00:00', '2022-05-31 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-25 09:30:00', '2022-05-27 18:30:00', '2022-05-31', 'NA '),
-(209, 'Ak Enterprises', 'A K ', 'Ak Enterprises', NULL, 'Ferrous', 'AUC/A K /Ferrous/12/25/37', 'Chennai ', NULL, 1, NULL, 'Follow Covid rules ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-30 16:00:00', '2022-05-30 17:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-25 09:30:00', '2022-05-28 18:30:00', '2022-05-30', 'NA '),
-(210, 'HITECH METALS AND ALLOYS', 'Hitech ', 'HITECH METALS AND ALLOYS', NULL, 'Non Ferrous', 'AUC/Hitech /Non Ferrous/9/56/22', ' Kumbolgudu', NULL, 1, NULL, 'Follow Covid rules ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-28 14:30:00', '2022-05-28 15:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-26 10:00:00', '2022-05-27 06:57:00', '2022-05-27', '50000'),
-(211, 'AS ENGINEERING', 'A S', 'AS ENGINEERING', NULL, 'Ferrous', 'AUC/A S/Ferrous/17/6/10', 'Jigani ', NULL, 1, NULL, 'Follow Covid rules ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-11 14:30:00', '2022-06-11 15:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-08 09:30:00', '2022-06-10 18:31:00', '2022-06-10', '10000'),
-(214, 'PAC METAL INDUSTRIES', 'PAC', 'PAC METAL INDUSTRIES', NULL, 'Ferrous', 'AUC/PAC/Ferrous/11/17/55', 'HOSUR ', NULL, 1, NULL, 'Follow Covid rules \r\nOnce after the auction if the H1 bidder is not lifting the materials then there Emd amount will be forfeited ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-24 04:00:00', '2022-06-24 05:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-21 09:00:00', '2022-06-24 06:00:00', '2022-06-24', '20000'),
-(220, 'IFB INDUSTRIES LIMITED', 'IFB BLR', 'IFB INDUSTRIES LIMITED', NULL, 'Non Ferrous', 'AUC/IFB BLR/Non Ferrous/14/59/47', 'White Field ', NULL, 1, NULL, 'Follow Covid Rules \r\n', NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-27 15:00:00', '2022-06-27 16:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-22 15:00:00', '2022-06-25 15:00:00', '2022-06-27', '65000'),
-(223, 'DEV ENTERPRISES', 'DEV/IRON', 'DEV ENTERPRISES', NULL, 'Ferrous', 'AUC/DEV/IRON/Ferrous/10/47/17', 'TRICHY ', NULL, 1, NULL, '1.Buyers need to follow COVID19 precautions and measures strictly while entering the premises for inspection of Scrap.\r\n2.Buyers should avoid interaction with Seller directly on pricing or auction. Such buyers will be blackli', NULL, NULL, NULL, NULL, NULL, NULL, '2022-07-25 15:00:00', '2022-07-25 16:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-07-19 10:00:00', '2022-07-23 05:00:00', '2022-07-23', '20000'),
-(224, 'BHUVANESHWARI ENGINEERING ENTERPRISES', 'BHU', 'BHUVANESHWARI ENGINEERING ENTERPRISES', NULL, 'Ferrous', 'AUC/BHU/Ferrous/14/58/37', 'Rajaji Nagar', NULL, 1, NULL, 'Buyers need to follow COVID19 precautions and measures strictly while entering the premises for inspection of Scrap.\r\nBuyers should avoid interaction with Seller directly on pricing or auction. Such buyers will be blacklisted', NULL, NULL, NULL, NULL, NULL, NULL, '2022-07-23 14:00:00', '2022-07-22 15:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-07-19 14:59:00', '2022-07-23 14:59:00', '2022-07-22', 'NA'),
-(225, 'LG ENTERPRISES', 'L.G', 'LG ENTERPRISES', NULL, 'Ferrous', 'AUC/L.G/Ferrous/15/6/19', 'Hosur', NULL, 1, NULL, 'Buyers need to follow COVID19 precautions and measures strictly while entering the premises for inspection of Scrap.\r\nBuyers should avoid interaction with Seller directly on pricing or auction. Such buyers will be blacklisted', NULL, NULL, NULL, NULL, NULL, NULL, '2022-07-22 16:00:00', '2022-07-22 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-07-19 15:06:00', '2022-07-23 15:06:00', '2022-07-23', '20000'),
-(226, 'DEV ENTERPRISES', 'DEV/Al', 'DEV ENTERPRISES', NULL, 'Non Ferrous', 'AUC/DEV/Al/Non Ferrous/15/24/5', 'Trichy ', NULL, 1, NULL, 'Buyers need to follow COVID19 precautions and measures strictly while entering the premises for inspection of Scrap.\r\nSafety shoes, Mask, Using Sanitizers, PCB Documents, ID proof are mandatory before inspection.\r\nPricing wil', NULL, NULL, NULL, NULL, NULL, NULL, '2022-07-28 15:00:00', '2022-07-28 16:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-07-22 15:24:00', '2022-07-27 15:24:00', '2022-07-28', '50000'),
-(228, '', 'ELQ', 'ELOQUENT TECHNOLOGY', NULL, 'Ferrous', '', 'PEENYA ', NULL, 1, NULL, 'Follow Covid Rules \r\n', NULL, NULL, NULL, NULL, NULL, NULL, '2022-07-22 16:30:00', '2022-07-22 17:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-07-18 17:28:00', '2022-07-24 17:28:00', '2022-07-21', 'NA'),
-(230, 'ELOQUENT TECHNOLOGY', 'ELQ', 'ELOQUENT TECHNOLOGY', NULL, 'Ferrous', 'AUC/ELQ/Ferrous/17/42/34', 'PEENYA', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-07-22 18:00:00', '2022-07-22 18:15:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-07-22 17:42:00', '2022-07-22 20:45:00', '2022-07-22', 'NA'),
-(231, 'KMK CORPORATION', 'KMK', 'KMK CORPORATION', NULL, 'Non Ferrous', 'AUC/KMK/Non Ferrous/10/44/30', ' Davanagere', NULL, 1, NULL, 'Follow covid rules ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-07-29 16:00:00', '2022-07-29 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-07-23 10:00:00', '2022-07-28 18:00:00', '2022-07-28', '50000'),
-(233, 'DYNASPEDE INTEGRATED SYSTEMA PVT LTD', 'DSP', 'DYNASPEDE INTEGRATED SYSTEMA PVT LTD', NULL, 'Non Ferrous', 'AUC/DSP/Non Ferrous/14/36/51', 'Hosur ', NULL, 1, NULL, 'Follow Covis ruels ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-08-16 16:00:00', '2022-08-16 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-08-09 10:00:00', '2022-08-15 18:30:00', '2022-08-15', '10000'),
-(234, 'BALAJI STEELS AND SCRAPS', 'BAL', 'BALAJI STEELS AND SCRAPS', NULL, 'Ferrous', 'AUC/BAL/Ferrous/17/54/0', 'PEENYA', NULL, 1, NULL, 'FOLLOW COVID RULES ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-08-19 16:00:00', '2022-08-19 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-08-16 09:30:00', '2022-08-18 17:30:00', '2022-08-18', '20000'),
-(235, 'NEW CENTURY ENTERPRISES', 'NEW', 'NEW CENTURY ENTERPRISES', NULL, 'Non Ferrous', 'AUC/NEW/Non Ferrous/10/38/45', 'HYDERABAD', NULL, 1, NULL, 'FOLLOW COVID RULES ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-08-23 16:00:00', '2022-08-23 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-08-16 09:00:00', '2022-08-22 18:00:00', '2022-08-22', '500000'),
-(236, 'MIND TREE FAB TECHNOLOGIES', 'MIND', 'MIND TREE FAB TECHNOLOGIES', NULL, 'Ferrous', 'AUC/MIND/Ferrous/12/1/52', 'Peenya', NULL, 1, NULL, 'Follow Covid Rules ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-08-22 15:46:00', '2022-08-22 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-08-16 10:00:00', '2022-08-20 12:02:00', '2022-08-20', '10000'),
-(256, 'PRITHVI POWER SOLUTIONS', 'PPS', 'PRITHVI POWER SOLUTIONS', NULL, 'E Waste', 'AUC/PPS/E Waste/15/44/46', 'NO 825, BEML LAYOUT, RR NAGAR, BANGALORE', NULL, 1, NULL, 'Materials to be lifted the next day of auction.\r\npayment on weighment\r\nas is basis ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-08-24 16:00:00', '2022-08-24 16:45:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-08-23 15:45:00', '2022-08-24 15:45:00', '2022-08-24', 'EMD TO BE PAID TO SHOPEMET \r\nNEFT OR DD'),
-(257, 'DYNASPEDE INTEGRATED SYSTEMA PVT LTD', 'DSP1', 'DYNASPEDE INTEGRATED SYSTEMA PVT LTD', NULL, 'Ferrous', 'AUC/DSP1/Ferrous/11/37/42', 'HOSUR', NULL, 1, NULL, 'FOLLOW COVID RULES ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-02 16:00:00', '2022-09-02 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-08-29 09:30:00', '2022-09-01 04:30:00', '2022-09-01', '10000'),
-(258, 'DYNASPEDE INTEGRATED SYSTEMA PVT LTD', 'DSP1', 'DYNASPEDE INTEGRATED SYSTEMA PVT LTD', NULL, 'Ferrous', 'AUC/DSP1/Ferrous/17/33/4', 'Hosur', NULL, 1, NULL, 'Follow covid rules ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-02 16:00:00', '2022-09-02 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-08-29 09:30:00', '2022-09-01 18:30:00', '2022-09-01', '10000'),
-(261, 'MAHINDRA CIE AUTOMOTIVE LTD', 'MCIE p2', 'MAHINDRA CIE AUTOMOTIVE LTD', NULL, 'Machineries', 'AUC/MCIE p2/Machineries/11/35/36', 'JIGANI', NULL, 1, NULL, 'COVID RULES ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-14 15:00:00', '2022-09-14 16:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-07 10:00:00', '2022-09-13 16:00:00', '2022-09-14', '25000'),
-(264, 'SRI RAMAKRISHNA ENGINEERING WORKS', 'rama', 'SRI RAMAKRISHNA ENGINEERING WORKS', NULL, 'Ferrous', 'AUC/rama/Ferrous/11/34/10', 'RAJAJINAGAR', NULL, 1, NULL, 'Follow covid rules', NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-20 15:00:00', '2022-09-20 16:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-16 11:35:00', '2022-09-19 11:38:00', '2022-09-19', '5000'),
-(266, 'Astra Pack', 'PACK', 'Astra Pack', NULL, 'General', 'AUC/PACK/General/11/25/55', 'JIGANI', NULL, 1, NULL, 'COVID ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-20 16:00:00', '2022-09-20 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-17 11:26:00', '2022-09-19 11:26:00', '2022-09-19', 'NA'),
-(267, 'SRI RAMAKRISHNA ENGINEERING WORKS', 'rama', 'SRI RAMAKRISHNA ENGINEERING WORKS', NULL, 'Ferrous', 'AUC/rama/Ferrous/10/16/25', 'RAJAJI NAGAR', NULL, 1, NULL, 'FOLLOW COVID RULES', NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-22 16:00:00', '2022-09-22 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-21 10:16:00', '2022-09-22 10:16:00', '2022-09-22', '5000'),
-(268, 'ALFA REALITY', 'alfa', 'ALFA REALITY', NULL, 'Machineries', 'AUC/alfa/Machineries/17/15/31', 'Pune', NULL, 1, NULL, 'Follow covid rules\r\n', NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-29 16:00:00', '2022-09-29 16:45:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-23 17:16:00', '2022-09-28 17:16:00', '2022-09-29', '50000'),
-(269, 'SEALTITE DICHTUNGS PVT LTD', 'SEA', 'SEALTITE DICHTUNGS PVT LTD', NULL, 'Ferrous', 'AUC/SEA/Ferrous/17/24/11', 'BOMMASANDRDA', NULL, 1, NULL, 'Follow covid rkl ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-10-13 15:00:00', '2022-10-13 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-10-11 10:00:00', '2022-10-12 18:00:00', '2022-10-13', '20000'),
-(271, 'Accuratte Engineering', 'AccEngg', 'Accuratte Engineering', NULL, 'Ferrous', 'AUC/AccEngg/Ferrous/15/43/54', 'Hosur', NULL, 1, NULL, 'Follow covid Guidelines ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-10-28 16:00:00', '2022-10-28 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-10-18 15:00:00', '2022-10-27 12:00:00', '2022-10-28', '10000'),
-(274, 'KAIZENS AUTO PRODUCTS', 'KAZ', 'KAIZENS AUTO PRODUCTS', NULL, 'Ferrous', 'AUC/KAZ/Ferrous/18/38/38', 'Hosur', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-10-31 14:30:00', '2022-10-31 15:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-10-21 11:00:00', '2022-10-29 13:00:00', '2022-10-31', '50000'),
-(294, 'MONIER ROOFING PRIVATE LIMITED', 'MRpvtltd', 'MONIER ROOFING PRIVATE LIMITED', NULL, 'Miscellaneous', 'AUC/MRpvtltd/Miscellaneous/17/12/19', 'Bommasandra', NULL, 1, NULL, 'As per Catalog', NULL, NULL, NULL, NULL, NULL, NULL, '2022-10-31 17:30:00', '2022-10-31 18:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-10-27 17:12:00', '2022-10-31 17:12:00', '2022-10-31', 'As per Catalog'),
-(296, 'MONIER ROOFING PRIVATE LIMITED', 'MR1', 'MONIER ROOFING PRIVATE LIMITED', NULL, 'Ferrous', 'AUC/MR1/Ferrous/17/22/30', 'Bommasandra', NULL, 1, NULL, 'As per catalog', NULL, NULL, NULL, NULL, NULL, NULL, '2022-10-31 18:02:00', '2022-10-31 18:45:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-10-24 17:22:00', '2022-10-30 17:22:00', '2022-10-31', 'EMD'),
-(304, 'MONIER ROOFING PRIVATE LIMITED', 'MONR', 'MONIER ROOFING PRIVATE LIMITED', NULL, 'Miscellaneous', 'AUC/MONR/Miscellaneous/10/46/51', 'Bommasandra', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-02 11:15:00', '2022-11-02 12:15:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-10-26 10:48:00', '2022-11-01 10:48:00', '2022-11-02', '10000'),
-(309, 'SEALTITE DICHTUNGS PVT LTD', 'Seal', 'SEALTITE DICHTUNGS PVT LTD', NULL, 'Ferrous', 'AUC/Seal/Ferrous/18/17/25', 'Bommasandra', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-07 15:00:00', '2022-11-07 16:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-03 12:00:00', '2022-11-05 15:00:00', '2022-11-07', '20000'),
-(315, 'SUMA MANAGEMENT PVT LTD', 'SUM', 'SUMA MANAGEMENT PVT LTD', NULL, 'Ferrous', 'AUC/SUM/Ferrous/12/0/41', 'WS', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-05 12:06:00', '2022-11-05 12:17:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-04 12:00:00', '2022-11-04 14:00:00', '2022-11-12', '20000'),
-(318, 'IFB INDUSTRIES LIMITED', 'IFB', 'IFB INDUSTRIES LIMITED', NULL, 'Ferrous', 'AUC/IFB/Ferrous/10/12/58', 'Malur', NULL, 1, NULL, 'SELLER TERMS AND CONDITIONS\r\n1. All buyers need for follow COVID19 precautions and measures strictly while entering the premises for inspection of\r\nmaterials.\r\n2. Safety shoes, Masks and using of Sanitizers are mandatory befo', NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-11 15:30:00', '2022-11-11 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-08 09:30:00', '2022-11-11 15:30:00', '2022-11-11', '5,00,000'),
-(320, 'DISTINCT PRODUCTIVITY SOLUTION', 'DPS', 'DISTINCT PRODUCTIVITY SOLUTION', NULL, 'Non Ferrous', 'AUC/DPS/Non Ferrous/11/26/23', 'Kumbalgodu', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-16 15:30:00', '2022-11-16 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-14 09:30:00', '2022-11-16 12:30:00', '2022-11-16', '10000'),
-(321, 'MODERN AUTOMOTIVES LTD', 'MAL', 'MODERN AUTOMOTIVES LTD', NULL, 'Ferrous', 'AUC/MAL/Ferrous/11/41/10', 'Malur', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-17 15:30:00', '2022-11-17 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-14 11:30:00', '2022-11-17 12:30:00', '2022-11-17', '10000'),
-(322, 'MODERN AUTOMOTIVES LTD', 'MAL', 'MODERN AUTOMOTIVES LTD', NULL, 'Ferrous', 'AUC/MAL/Ferrous/16/21/2', 'Malur', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-18 15:30:00', '2022-11-18 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-16 11:00:00', '2022-11-18 14:30:00', '2022-11-18', '15000'),
-(324, 'SRI LAKSHMI PROFILE', 'SLP', 'SRI LAKSHMI PROFILE', NULL, 'Ferrous', 'AUC/SLP/Ferrous/12/34/55', 'Peenya', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-21 15:30:00', '2022-11-21 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-16 11:00:00', '2022-11-21 12:00:00', '2022-11-21', '15000'),
-(325, 'RAMSAL MOTORS', 'RMs', 'RAMSAL MOTORS', NULL, 'Ferrous', 'AUC/RMs/Ferrous/11/13/11', 'Hosur', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-22 15:00:00', '2022-11-22 16:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-18 11:00:00', '2022-11-22 12:30:00', '2022-11-22', '10000'),
-(328, 'MODEL INFRA CORPORATION PVT LTD', 'MIC', 'MODEL INFRA CORPORATION PVT LTD', NULL, 'Ferrous', 'AUC/MIC/Ferrous/11/46/42', 'Doddaballapura', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-06 15:30:00', '2022-12-06 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-28 11:00:00', '2022-12-06 11:00:00', '2022-12-06', '100000'),
-(333, 'MINTRA MANAGEMENT', 'MIN', 'MINTRA MANAGEMENT', NULL, 'Ferrous', 'AUC/MIN/Ferrous/12/3/5', 'MALLUR', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-02 17:10:00', '2023-01-02 17:15:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-30 12:03:00', '2022-12-06 12:03:00', '2022-12-06', '20000'),
-(335, '3D PRODUCT DEVELOPMENT PVT LTD', '3DPD', '3D PRODUCT DEVELOPMENT PVT LTD', NULL, 'Miscellaneous', 'AUC/3DPD/Miscellaneous/12/19/51', 'Veerasandra', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-14 15:30:00', '2022-12-14 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-09 12:00:00', '2022-12-14 15:00:00', '2022-12-14', '10000'),
-(337, 'KN POLYMERS', 'KNP', 'KN POLYMERS', NULL, 'Non Ferrous', 'AUC/KNP/Non Ferrous/17/30/38', 'Mysore Road', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-16 15:30:00', '2022-12-16 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-14 12:31:00', '2022-12-15 16:31:00', '2022-12-16', '500000'),
-(338, 'MAHINDRA CIE AUTOMOTIVE LTD', 'MCIE', 'MAHINDRA CIE AUTOMOTIVE LTD', NULL, 'Machineries', 'AUC/MCIE/Machineries/19/21/17', 'Bommasandra', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-20 15:30:00', '2022-12-20 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-15 11:00:00', '2022-12-20 13:00:00', '2022-12-20', '50000'),
-(339, 'MODERN AUTOMOTIVES LTD', 'MAL', 'MODERN AUTOMOTIVES LTD', NULL, 'Ferrous', 'AUC/MAL/Ferrous/17/19/53', 'Malur', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-19 15:00:00', '2022-12-19 16:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-16 10:00:00', '2022-12-19 12:30:00', '2022-12-19', '15000'),
-(341, 'Verga Attachments Pvt Ltd', 'VAP', 'Verga Attachments Pvt Ltd', NULL, 'Ferrous', 'AUC/VAP/Ferrous/12/4/27', 'Malur', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-22 15:30:00', '2022-12-22 17:11:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-19 10:00:00', '2022-12-21 12:00:00', '2022-12-22', '100000'),
-(342, 'Dharani Industries', 'DI', 'Dharani Industries', NULL, 'Ferrous', 'AUC/DI/Ferrous/18/29/23', 'Hosur', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-19 16:00:00', '2022-12-19 16:45:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-16 18:29:00', '2022-12-19 15:30:00', '2022-12-19', '10000'),
-(343, 'Mitra Metal Finishers', 'MIS', 'Mitra Metal Finishers', NULL, 'Ferrous', 'AUC/MIS/Ferrous/14/25/42', 'MALLUR', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-19 14:30:00', '2022-12-19 14:39:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-13 14:25:00', '2022-12-19 14:25:00', '2022-12-19', '20000'),
-(344, 'Distribution Logistics Infrastructure Pvt Ltd', 'DLIPL', 'Distribution Logistics Infrastructure Pvt Ltd', NULL, 'Ferrous', 'AUC/DLIPL/Ferrous/16/37/14', 'Hosur', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-30 16:38:00', '2022-12-30 17:38:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-19 16:38:00', '2022-12-26 16:38:00', '2022-12-30', '50000'),
-(346, 'MAHINDRA CIE AUTOMOTIVE LTD', 'MCIE', 'MAHINDRA CIE AUTOMOTIVE LTD', NULL, 'Machineries', 'AUC/MCIE/Machineries/17/20/14', 'Hosur', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-21 15:30:00', '2022-12-21 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-15 10:00:00', '2022-12-21 16:00:00', '2022-12-21', '50000'),
-(347, 'Seon Roofings', 'SR', 'Seon Roofings', NULL, 'Ferrous', 'AUC/SR/Ferrous/11/7/32', 'Hosur', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-26 14:30:00', '2022-12-26 15:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-21 10:00:00', '2022-12-26 15:00:00', '2022-12-26', '10000'),
-(349, 'Swas Industries', 'SI', 'Swas Industries', NULL, 'Non Ferrous', 'AUC/SI/Non Ferrous/18/21/22', 'HOSUR', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-22 15:45:00', '2022-12-22 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-28 10:01:00', '2022-12-26 14:30:00', '2022-12-26', '10000'),
-(350, 'Swas Industries', 'SI', 'Swas Industries', NULL, 'Non Ferrous', 'AUC/SI/Non Ferrous/10/46/13', 'HOSUR', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-26 15:45:00', '2022-12-26 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-21 10:00:00', '2022-12-26 15:30:00', '2022-12-26', '10000'),
-(353, 'BHANSALI AGRO INDUSTRIES', 'BAI', 'BHANSALI AGRO INDUSTRIES', NULL, 'Machineries', 'AUC/BAI/Machineries/10/52/22', 'DABASPET', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-29 15:30:00', '2022-12-29 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-23 11:00:00', '2022-12-29 12:00:00', '2022-12-29', '20000'),
-(358, 'QUINTESSENCE EXTRACTS INDIA PRIVATE LIMITED', 'QEIPL', 'QUINTESSENCE EXTRACTS INDIA PRIVATE LIMITED', NULL, 'Machineries', 'AUC/QEIPL/Machineries/13/22/15', 'MALUR', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-30 04:45:00', '2022-12-30 17:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-26 10:15:00', '2022-12-30 16:30:00', '2022-12-30', '10000'),
-(359, 'BRASS BRONZE  AND COPPER CAST INDIA PVT LTD', 'BCIPL', 'BRASS BRONZE  AND COPPER CAST INDIA PVT LTD', NULL, 'Non Ferrous', 'AUC/BCIPL/Non Ferrous/14/56/24', 'Bommasandra', NULL, 1, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-30 15:30:00', '2022-12-30 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-27 10:00:00', '2022-12-30 15:00:00', '2022-12-30', '20000'),
-(360, 'SEP India Pvt Ltd', 'SEP', 'SEP India Pvt Ltd', NULL, 'Machineries', 'AUC/SEP/Machineries/16/47/21', 'Hosur', NULL, 1, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-03 15:30:00', '2023-01-03 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-28 11:00:00', '2023-01-03 15:00:00', '2023-01-03', '50000'),
-(363, 'BRASS BRONZE  AND COPPER CAST INDIA PVT LTD', 'BCIP', 'BRASS BRONZE  AND COPPER CAST INDIA PVT LTD', NULL, 'Machineries', 'AUC/BCIP/Machineries/12/11/50', 'Bommasandra', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-06 15:30:00', '2023-01-06 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-03 12:12:00', '2023-01-06 15:12:00', '2023-01-06', '20000'),
-(368, 'AKSHAYA VIPRA EL-MEC PRIVATE LIMITED', 'AVPL', 'AKSHAYA VIPRA EL-MEC PRIVATE LIMITED', NULL, 'Machineries', 'AUC/AVPL/Machineries/11/13/29', 'MALUR', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-09 15:30:00', '2023-01-09 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-05 10:15:00', '2023-01-09 16:00:00', '2023-01-09', '15000'),
-(372, 'SHANRAG MACHINE TOOLS', 'SMT', 'SHANRAG MACHINE TOOLS', NULL, 'Machineries', 'AUC/SMT/Machineries/10/34/58', 'Coimbatore', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-10 15:30:00', '2023-01-10 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-07 10:30:00', '2023-01-10 16:00:00', '2023-01-10', '25000'),
-(376, 'Vignesh Sewing Machine', 'VSM', 'Vignesh Sewing Machine', NULL, 'Non Ferrous', 'AUC/VSM/Non Ferrous/13/23/25', 'Tirupur', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-09 15:30:00', '2023-01-09 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-06 10:00:00', '2023-01-09 13:00:00', '2023-01-09', '25000');
-INSERT INTO `auction` (`id`, `sname`, `srefid`, `scompanyname`, `scompanyid`, `scategory`, `sauctionid`, `svinspection`, `sonlineaucdate_time`, `sterms_condiaccept`, `sterms_condiupload`, `sterms_text`, `sterms_conditype`, `adminapprovalstatus`, `sapproval`, `sdownload`, `saction`, `sauctionstatus`, `saucstartdate_time`, `saucclosedate_time`, `adstatus`, `adaction`, `reauction`, `stotalauction`, `bwishlist`, `bemdstatus`, `sstartbidprice`, `sfrominpectdate_time`, `stoinpectdate_time`, `slastdateemdsub`, `semddetail`) VALUES
-(383, 'PAANAYIL HEAVY ENGINEERING AND FABRICATIONS', 'PHEF', 'PAANAYIL HEAVY ENGINEERING AND FABRICATIONS', NULL, 'Non Ferrous', 'AUC/PHEF/Non Ferrous/16/1/8', 'Coimbatore', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-12 15:30:00', '2023-01-12 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-07 10:30:00', '2023-01-12 16:00:00', '2023-01-12', '125000'),
-(388, 'SHOPEMET NETWORKS PRIVATE LIMITED', 'SHO', 'SHOPEMET NETWORKS PRIVATE LIMITED', NULL, 'Machineries', 'AUC/SHO/Machineries/17/14/12', 'WD', NULL, 1, NULL, 'EWF', NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-14 17:14:00', '2023-02-05 17:14:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-07 17:14:00', '2023-01-21 17:14:00', '2023-01-19', 'EW'),
-(389, 'BHANSALI AGRO INDUSTRIES', 'BAI', 'BHANSALI AGRO INDUSTRIES', NULL, 'Machineries', 'AUC/BAI/Machineries/15/11/23', 'Dabaspet', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-18 15:30:00', '2023-01-18 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-12 10:00:00', '2023-01-18 16:00:00', '2023-01-18', '20000'),
-(390, 'SHOPEMET NETWORKS PRIVATE LIMITED', 'SHO', 'SHOPEMET NETWORKS PRIVATE LIMITED', NULL, 'Ferrous', 'AUC/SHO/Ferrous/17/31/47', 'as', NULL, 1, NULL, 'na', NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-15 17:40:00', '2023-01-17 17:47:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-17 17:31:00', '2023-01-20 17:31:00', '2023-01-14', 'ds'),
-(391, 'Shri Manjunatha Industries', 'SMI', 'Shri Manjunatha Industries', NULL, 'Ferrous', 'AUC/SMI/Ferrous/14/29/13', 'JIGANI', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-19 15:30:00', '2023-01-19 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-16 10:30:00', '2023-01-19 16:00:00', '2023-01-19', '20000'),
-(393, 'SHOPEMET NETWORKS PRIVATE LIMITED', 'SHO', 'SHOPEMET NETWORKS PRIVATE LIMITED', NULL, 'Ferrous', 'AUC/SHO/Ferrous/14/36/37', 'MALLUR', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-19 14:42:00', '2023-01-19 14:44:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-10 14:38:00', '2023-01-11 14:38:00', '2023-01-20', 'ZDF'),
-(394, 'MICROTECH EXPORTS', 'ME', 'MICROTECH EXPORTS', NULL, 'Ferrous', 'AUC/ME/Ferrous/14/47/19', 'JIGNI', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-19 14:55:00', '2023-01-19 15:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-19 14:16:00', '2023-01-19 14:50:00', '2023-01-19', '10000'),
-(395, 'SREE BALAMURUGAN INDUSTRIES', 'SBI', 'SREE BALAMURUGAN INDUSTRIES', NULL, 'Ferrous', 'AUC/SBI/Ferrous/12/11/46', 'Chennai', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-25 15:30:00', '2023-01-25 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-20 12:13:00', '2023-01-25 15:00:00', '2023-01-25', '500000'),
-(396, 'Devi Industries', 'DI', 'Devi Industries', NULL, 'Ferrous', 'AUC/DI/Ferrous/15/54/38', 'Coimbatore', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-27 15:30:00', '2023-01-27 16:45:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-21 12:00:00', '2023-01-27 15:00:00', '2023-01-27', '10000'),
-(400, 'Larsen Toubro Limited', 'LTCEL', 'Larsen Toubro Limited', NULL, 'Miscellaneous', 'AUC/LTCEL/Miscellaneous/12/14/22', 'Doddaballapura', NULL, 1, 'N;', 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-31 16:00:00', '2023-01-31 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-27 12:00:00', '2023-01-31 15:00:00', '2023-01-31', '20000'),
-(405, 'MODERN AUTOMOTIVES LTD', 'MAL2', 'MODERN AUTOMOTIVES LTD', NULL, 'Ferrous', 'AUC/MAL2/Ferrous/15/24/31', 'Malur', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-06 15:00:00', '2023-02-06 16:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-03 11:00:00', '2023-02-06 16:00:00', '2023-02-06', '15000'),
-(407, 'REWARD360 GLOBAL SERVICES PRIVATE LIMITED', 'R360', 'REWARD360 GLOBAL SERVICES PRIVATE LIMITED', NULL, 'Miscellaneous', 'AUC/R360/Miscellaneous/15/1/0', 'Peenya', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-08 15:00:00', '2023-02-08 17:55:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-03 11:00:00', '2023-02-08 14:00:00', '2023-02-08', '200000'),
-(408, 'VIPS Engineering Works', 'VEW', 'VIPS Engineering Works', NULL, 'Machineries', 'AUC/VEW/Machineries/15/30/2', 'Peenya 3rd Phase', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-09 15:30:00', '2023-02-09 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-06 15:30:00', '2023-02-09 12:00:00', '2023-02-09', '30000'),
-(409, 'Microo Machine Tools', 'MMT', 'Microo Machine Tools', NULL, 'Miscellaneous', 'AUC/MMT/Miscellaneous/12/8/32', 'Peenya 2nd Stage ', NULL, 1, 'N;', 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-14 15:30:00', '2023-02-14 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-07 11:00:00', '2023-02-14 15:00:00', '2023-02-14', '30000'),
-(411, 'Microo Machine Tools', 'MMT', 'Microo Machine Tools', NULL, 'Machineries', 'AUC/MMT/Machineries/14/33/3', 'Peenya 2nd Stage', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-10 15:30:00', '2023-02-10 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-07 11:00:00', '2023-02-10 16:00:00', '2023-02-10', '20000'),
-(412, 'SHOPEMET NETWORKS PRIVATE LIMITED', 'SHO', 'SHOPEMET NETWORKS PRIVATE LIMITED', NULL, 'Ferrous', 'AUC/SHO/Ferrous/16/55/54', 's', NULL, 1, NULL, 'na', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-08 17:05:00', '2023-02-08 17:10:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-06 16:55:00', '2023-02-08 16:56:00', '2023-02-08', '20000'),
-(413, 'Ravimax Engineering Pvt Ltd', 'REPL', 'Ravimax Engineering Pvt Ltd', NULL, 'Ferrous', 'AUC/REPL/Ferrous/15/38/1', 'Doddaballapur', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-13 15:30:00', '2023-02-13 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-09 11:00:00', '2023-02-13 16:30:00', '2023-02-13', '15000'),
-(414, 'TESTING PVT LTD', 'TES', 'TESTING PVT LTD', NULL, 'Ferrous', 'AUC/TES/Ferrous/15/28/28', 'jsw', NULL, 1, NULL, 'sds', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-10 15:29:00', '2023-02-10 15:29:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-10 15:28:00', '2023-02-10 15:30:00', '2023-02-10', 'mmm'),
-(415, 'TESTING PVT LTD', 'TES', 'TESTING PVT LTD', NULL, 'Ferrous', 'AUC/TES/Ferrous/16/16/41', 'ds', NULL, 1, NULL, 'na', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-10 16:25:00', '2023-02-10 23:55:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-08 16:16:00', '2023-02-10 16:16:00', '2023-02-10', '20000'),
-(417, 'DINESH GROUPS', 'DG', 'DINESH GROUPS', NULL, 'Ferrous', 'AUC/DG/Ferrous/17/51/8', 'Peenya 3rd Phase', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-16 15:30:00', '2023-02-16 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-14 11:30:00', '2023-02-16 02:00:00', '2023-02-16', '100000'),
-(419, 'TESTING PVT LTD', 'TES', 'TESTING PVT LTD', NULL, 'Ferrous', 'AUC/TES/Ferrous/18/27/52', 'MALLUR', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-14 18:33:00', '2023-02-14 18:38:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-07 18:28:00', '2023-02-14 18:28:00', '2023-02-14', '20000'),
-(420, 'TESTING PVT LTD', 'TES', 'TESTING PVT LTD', NULL, 'Ferrous', 'AUC/TES/Ferrous/17/2/29', 'ax', NULL, 1, NULL, 'na', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-16 12:38:00', '2023-02-16 12:45:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-08 17:02:00', '2023-02-15 17:02:00', '2023-02-15', '20000'),
-(421, 'Naachaiar Paper Boards pvt Ltd', 'NPB', 'Naachaiar Paper Boards pvt Ltd', NULL, 'Ferrous', 'AUC/NPB/Ferrous/11/59/59', 'Sivakasi', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-17 15:12:00', '2023-02-17 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-15 11:00:00', '2023-02-17 15:00:00', '2023-02-17', '2000000'),
-(422, 'TESTING PVT LTD', 'TES', 'TESTING PVT LTD', NULL, 'Ferrous', 'AUC/TES/Ferrous/12/42/30', 'MALLUR', NULL, 1, NULL, 'N A', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-16 12:49:00', '2023-02-16 12:55:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-14 12:42:00', '2023-02-16 12:42:00', '2023-02-16', '20000'),
-(423, 'CNC AUTOMOTIVE GROUP', 'CNCA', 'CNC AUTOMOTIVE GROUP', NULL, 'Ferrous', 'AUC/CNCA/Ferrous/18/51/13', 'Peenya', NULL, 1, 'N;', 'Na', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-22 14:30:00', '2023-02-22 15:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-17 11:00:00', '2023-02-22 16:00:00', '2023-02-22', '20000'),
-(424, 'Instant Engineering', 'IE', 'Instant Engineering', NULL, 'Machineries', 'AUC/IE/Machineries/18/57/20', 'Peenya 3rd phase', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-21 15:30:00', '2023-02-21 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-17 11:30:00', '2023-02-21 16:30:00', '2023-02-21', '10000'),
-(425, 'REWARD360 GLOBAL SERVICES PRIVATE LIMITED', 'R360', 'REWARD360 GLOBAL SERVICES PRIVATE LIMITED', NULL, 'Miscellaneous', 'AUC/R360/Miscellaneous/10/52/26', 'Peenya', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-22 16:00:00', '2023-02-22 16:45:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-20 11:00:00', '2023-02-22 16:30:00', '2023-02-22', '200000'),
-(427, 'ROHYS CNC TECHNOLOGY', 'RCT', 'ROHYS CNC TECHNOLOGY', NULL, 'Machineries', 'AUC/RCT/Machineries/17/25/29', 'Peenya', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-24 15:30:00', '2023-02-24 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-21 11:00:00', '2023-02-24 16:30:00', '2023-02-24', '50000'),
-(428, 'SRI GURU ENGINEERING WORKS', 'SGEW', 'SRI GURU ENGINEERING WORKS', NULL, 'Machineries', 'AUC/SGEW/Machineries/18/33/32', 'Peenya 3rd Phase', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-24 14:30:00', '2023-02-24 15:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-21 10:30:00', '2023-02-24 16:00:00', '2023-02-24', '10000'),
-(429, 'Ferrum Extreme  Engineering Pvt ltd', 'FEEPL', 'Ferrum Extreme  Engineering Pvt ltd', NULL, 'Ferrous', 'AUC/FEEPL/Ferrous/18/25/31', 'Hoskote', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-27 15:00:00', '2023-02-27 16:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-23 11:00:00', '2023-02-27 15:00:00', '2023-02-27', '20000'),
-(433, '', 'TES', 'TESTING PVT LTD', NULL, 'Ferrous', 'AUC/TES/Ferrous/11/36/50', 'BANGALORE', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-27 11:45:00', '2023-02-27 12:05:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-26 11:37:00', '2023-02-27 11:37:00', '2023-02-27', '20000'),
-(434, 'TESTING PVT LTD', 'TES', 'TESTING PVT LTD', NULL, 'Ferrous', '', 'BANGALORE', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-27 11:45:00', '2023-02-27 12:05:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-26 11:37:00', '2023-02-27 11:37:00', '2023-02-27', '20000'),
-(435, 'TESTING PVT LTD', 'TES', 'TESTING PVT LTD', NULL, 'Ferrous', 'AUC/TES/Ferrous/11/42/26', 'BANGALORE', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-27 11:45:00', '2023-02-27 12:15:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-26 11:42:00', '2023-02-27 11:42:00', '2023-02-27', '20000'),
-(437, 'TESTING PVT LTD', 'TES', 'TESTING PVT LTD', NULL, 'Ferrous', 'AUC/TES/Ferrous/9/47/51', 'BANGALORE', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-03-01 09:55:00', '2023-03-01 10:15:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-28 09:48:00', '2023-03-01 09:48:00', '2023-03-01', '300000'),
-(438, 'TESTING PVT LTD', 'TES', 'TESTING PVT LTD', NULL, 'Ferrous', 'AUC/TES/Ferrous/10/0/21', 'BANGALORE', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-03-01 10:20:00', '2023-03-01 10:45:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-28 10:00:00', '2023-03-01 10:00:00', '2023-03-01', '35000'),
-(439, 'MODERN AUTOMOTIVES LTD', 'MAL3', 'MODERN AUTOMOTIVES LTD', NULL, 'Ferrous', 'AUC/MAL3/Ferrous/17/11/52', 'Malur', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-03-03 15:30:00', '2023-03-03 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-03-01 10:30:00', '2023-03-03 14:30:00', '2023-03-03', '20000'),
-(440, 'ADITYA AUTO PRODUCTS AND ENGINEERING INDIA PRIVATE', 'AAP', 'ADITYA AUTO PRODUCTS AND ENGINEERING INDIA PRIVATE LIMITED', NULL, 'Ferrous', 'AUC/AAP/Ferrous/17/41/54', 'Doddaballapur', NULL, 1, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-03-06 15:30:00', '2023-03-06 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-03-04 11:00:00', '2023-03-06 14:00:00', '2023-03-06', '50000');
+INSERT INTO `auction` (`id`, `sname`, `srefid`, `scompanyname`, `scompanyid`, `scategory`, `sauctionid`, `svinspection`, `sonlineaucdate_time`, `sterms_condiaccept`, `sterms_condexbuyers`, `sterms_condiupload`, `sterms_text`, `sterms_conditype`, `adminapprovalstatus`, `sapproval`, `sdownload`, `saction`, `sauctionstatus`, `saucstartdate_time`, `saucclosedate_time`, `adstatus`, `adaction`, `reauction`, `stotalauction`, `bwishlist`, `bemdstatus`, `sstartbidprice`, `sfrominpectdate_time`, `stoinpectdate_time`, `slastdateemdsub`, `semddetail`) VALUES
+(7, 'RP Metals Section Pvt Ltd', 'RP', 'RP Metals Section Pvt Ltd', NULL, 'Ferrous', 'AUC/RP/Ferrous/12/44/28', '	Plot no 25, P5 P6 P7, Bidadi Industrial Area, Opp Toyota Gate No 4, Bidadi', NULL, 1, 0, 'N;', 'Precautions for COVID 19\r\nMasks and Sanitizers are mandatory.\r\nVisiting hours are 10 am to 1.30 pm and 2.30 pm to 5 pm only.  Sundays holidays.\r\n', NULL, NULL, NULL, NULL, NULL, NULL, '2021-02-26 13:00:00', '2021-02-26 15:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-02-18 10:00:00', '2021-02-25 17:00:00', '2021-02-25', 'EMD Details - \r\nDD in the name of RP METAL SECTIONS PVT LTD.\r\nDD to be handed over to Aucjunction '),
+(29, 'RP Metals Section Pvt Ltd', 'RPMETALS', 'RP Metals Section Pvt Ltd', NULL, 'Ferrous', 'AUC/RPMETALS/Ferrous/15/55/43', 'Plot 25-P5,P6,P7, Bidadi Industrial Area, Ramnagar Taluk, Bidadi, Karnataka 562109', NULL, 1, 0, NULL, 'CoVid19 \r\nAll buyers for inspection to wear mask and use sanitizers.\r\n\r\nWe have cancelled EMD for all lots. \r\n\r\nBuyers are suggested to participate and bid and lift the materials as an when the  material scrap is accumulated.', NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-11 13:45:00', '2021-03-11 16:15:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-05 11:00:00', '2021-03-10 16:00:00', '2021-03-11', 'No EMD '),
+(30, 'AS ENGINEERING', 'ASENGG', 'AS ENGINEERING', NULL, 'Ferrous', 'AUC/ASENGG/Ferrous/11/36/50', 'D27, DR BR AMBEDKAR , KSSIDC INDUSTRIAL AREA PHASE 1 JIGANI', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-16 14:00:00', '2021-03-16 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-09 11:00:00', '2021-03-15 16:00:00', '2021-03-15', 'NO EMD'),
+(31, 'UMA INDUSTRIES', 'UMAINDUSTRIES', 'UMA INDUSTRIES', NULL, 'Ferrous', 'AUC/UMAINDUSTRIES/Ferrous/12/19/47', 'SPL-12, Road No 4, KSSIDC Industrial Area, Jigani Phase 2', NULL, 1, 0, NULL, 'Cross Verification on weigh bridge if necessery.', NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-17 14:00:00', '2021-03-17 16:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-10 11:00:00', '2021-03-16 16:32:00', '2021-03-16', 'NO EMD'),
+(41, 'IFB INDUSTRIES LIMITED', 'IFBBLR', 'IFB INDUSTRIES LIMITED', NULL, 'Non Ferrous', 'AUC/IFBBLR/Non Ferrous/8/27/13', '16/17, VISVESVARIAH INDUSTRIAL ESTATE, 1ST MAIN, OFF WHITEFIELD ROAD, MAHADEVPURA, BANGALORE', NULL, 1, 0, 'N;', '.', NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-22 14:31:00', '2021-03-22 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-17 08:28:00', '2021-03-19 08:28:00', '2021-03-22', 'EMD TO BE PAID ON IFB INDUSTRIES LIMITED'),
+(44, 'ROYAL IRON TRADERS', 'ROYAL', 'ROYAL IRON TRADERS', NULL, 'Ferrous', 'AUC/ROYAL/Ferrous/22/43/15', 'A36/1, Mayapuri Phase 1, New Delhi - 110064', NULL, 1, 0, 'N;', 'IMMEDIATE PAYMENT ONCE APPROVAL RECEIVED FROM SELLER', NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-31 14:46:00', '2021-03-31 16:46:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-24 11:00:00', '2021-03-30 16:45:00', '2021-03-30', 'No EMD'),
+(50, 'MAHINDRA CIE AUTOMOTIVE LTD', 'MAHINDRA', 'MAHINDRA CIE AUTOMOTIVE LTD', NULL, 'Machineries', 'AUC/MAHINDRA/Machineries/8/10/43', 'MAHINDRA CIE AUTOMOTIVE LTD\r\n(BILL FORGE DIVISION - PLANT 3)\r\n7C, KIADB INDUSTRIAL AREA, ATTIBELE', NULL, 1, 0, 'N;', 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-06 14:15:00', '2021-04-06 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-25 11:00:00', '2021-04-05 16:00:00', '2021-04-03', 'No EMD'),
+(52, 'DK Grindings', 'DKGRINDINGS', 'DK Grindings', NULL, 'Machineries', 'AUC/DKGRINDINGS/Machineries/13/44/53', '73/25, 24TH CROSS, DODDANNA INDUSTRIAL ESTATE, VISHWANEEDAM POST, NEAR PEENYA 2ND STAGE, BANGALORE - 91', NULL, 1, 0, 'N;', 'ALL COVID19 PRECAUTIONARY TO BE TAKEN', NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-06 14:15:00', '2021-04-06 16:45:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-27 13:45:00', '2021-04-02 13:46:00', '2021-04-01', 'NO EMD'),
+(55, 'Anagha Precision Components', 'ANAGHAPC', 'Anagha Precision Components', NULL, 'Ferrous', 'AUC/ANAGHAPC/Ferrous/13/53/33', '434, 4th Main, Kaveripura, Kamakshipalya, Bangalore - 560079', NULL, 1, 0, 'N;', 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-07 14:30:00', '2021-04-07 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-01 10:30:00', '2021-04-06 16:30:00', '2021-04-06', 'No EMD'),
+(57, 'IFB INDUSTRIES LIMITED', 'IFBBLR', 'IFB INDUSTRIES LIMITED', NULL, 'Miscellaneous', 'AUC/IFBBLR/Miscellaneous/10/3/49', 'IFB( Motor Division) No. 16, Visveswariah Industrial Estate, 1st Main Road, Off Whitefield Road, Mahadevpura, Bengaluru, Karnataka 560048', NULL, 1, 0, 'a:1:{i:0;s:31:\"DECLARATION_FOR_E_AUCTION1.docx\";}', '', NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-07 15:00:00', '2021-04-07 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-01 11:00:00', '2021-04-06 16:30:00', '2021-04-07', 'EMD TO BE PAID IN THE NAME OF IFB INDUSTRIES LTD'),
+(58, 'BLUE STAR MICROMATIC', 'BLUE', 'BLUE STAR MICROMATIC', NULL, 'Plastic', 'AUC/BLUE/Plastic/17/59/59', 'No 23, 10th Cross, Doddanna Industrial Estate, Peenya 2nd Stage, Near Shanti Dhama School, Bangalore - 560091', NULL, 1, 0, 'N;', 'ALL PAYMENTS TO BE SETTLED BEFORE LEAVING THE PREMISES WITH MATERIALS', NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-10 15:00:00', '2021-04-10 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-06 11:01:00', '2021-04-08 16:30:00', '2021-04-10', 'NO EMD'),
+(62, 'MAHINDRA CIE AUTOMOTIVE LTD', 'CIE', 'MAHINDRA CIE AUTOMOTIVE LTD', NULL, 'Machineries', 'AUC/CIE/Machineries/17/14/39', 'Mahindra CIE\r\nBill Forge Plant 3', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-06 18:15:00', '2021-04-06 18:45:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-06 17:15:00', '2021-04-06 17:15:00', '2021-04-06', 'NO EMD'),
+(63, 'MAHINDRA CIE AUTOMOTIVE LTD', 'CIE', 'MAHINDRA CIE AUTOMOTIVE LTD', NULL, 'Machineries', 'AUC/CIE/Machineries/19/2/29', 'BILL FORGE\r\nPLANT 3', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-06 19:11:00', '2021-04-06 19:18:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-06 19:03:00', '2021-04-06 19:03:00', '2021-04-06', 'NO EMD'),
+(64, 'ANAGHA ENGINEERING SYSTEMS', 'ANAGHA', 'ANAGHA ENGINEERING SYSTEMS', NULL, 'Ferrous', 'AUC/ANAGHA/Ferrous/17/18/14', 'MAGADI ROAD', NULL, 1, 0, NULL, 'no', NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-07 17:30:00', '2021-04-07 17:50:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-06 17:18:00', '2021-04-06 17:18:00', '2021-04-07', 'NO EMD'),
+(69, 'SRI MANJUNATHA ENGINEERING WORKS', 'SMEWBLR', 'SRI MANJUNATHA ENGINEERING WORKS', NULL, 'Ferrous', 'AUC/SMEWBLR/Ferrous/18/56/57', 'B215, 5TH MAIN, PEENYA 2ND STAGE, BANGALORE 58', NULL, 1, 0, 'N;', 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-26 14:45:00', '2021-04-26 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-19 10:30:00', '2021-04-23 16:30:00', '2021-04-23', 'NO EMD'),
+(70, 'CNC AUTOMOTIVE GROUP', 'CNCBLR', 'CNC AUTOMOTIVE GROUP', NULL, 'Ferrous', 'AUC/CNCBLR/Ferrous/19/6/25', 'B444, IST STAGE,1 A MAIN, PEENYA INDUSTRIAL ESTATE, opp Aravind Motors', NULL, 1, 0, 'N;', 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-26 14:45:00', '2021-04-26 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-19 19:07:00', '2021-04-24 19:07:00', '2021-04-24', 'NO EMD'),
+(84, 'REWARD360 GLOBAL SERVICES PRIVATE LIMITED', 'RGSPL', 'REWARD360 GLOBAL SERVICES PRIVATE LIMITED', NULL, 'General', 'AUC/RGSPL/General/18/53/57', 'GROUND FLOOR NO\r\n2 2 NEW NO 158\r\nLAVELLE ROAD\r\nLAVELLE ROAD', NULL, 1, 0, 'N;', 'Special Terms by Reward 360 - \r\n\r\nAll the products for the auction are in \" as is where is\" condition.\r\n\r\nThis includes returned stock, damaged stock, dead stock, expired stock etc.\r\n\r\nProducts does not contain warranty or gu', NULL, NULL, NULL, NULL, NULL, NULL, '2021-09-08 13:00:00', '2021-09-08 14:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-08-30 10:30:00', '2021-09-07 16:30:00', '2021-09-07', 'DD in favour of Reward 360 Global Services Private Limited'),
+(85, 'REWARD360 GLOBAL SERVICES PRIVATE LIMITED', 'RGSPL1', 'REWARD360 GLOBAL SERVICES PRIVATE LIMITED', NULL, 'General', 'AUC/RGSPL1/General/12/53/59', 'NO 13 C 3RD PHASE PEENYA INDUSTRIAL AREA Bengaluru (Bangalore) Urban Karnataka\r\n560058', NULL, 1, 0, NULL, 'Special Terms by Reward 360 - \r\n\r\nAll the products for the auction are in \" as is where is\" condition.\r\n\r\nThis includes returned stock, damaged stock, dead stock, expired stock etc.\r\n\r\nProducts does not contain warranty or gu', NULL, NULL, NULL, NULL, NULL, NULL, '2021-09-08 15:00:00', '2021-09-08 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-09-01 10:00:00', '2021-09-07 16:00:00', '2021-09-07', 'DD in favour of Reward 360 global services pvt ltd'),
+(88, 'IFB INDUSTRIES LIMITED', 'IFB', 'IFB INDUSTRIES LIMITED', NULL, 'Non Ferrous', 'AUC/IFB/Non Ferrous/14/35/47', '16/17, ( MOTOR DIVISION)\r\nVISHVESHWARAIAH\r\nINDUSTRIAL\r\nESTATE, 1ST\r\nMAIN, OFF\r\nWHITEFIELD\r\nROAD,\r\nMAHADEVPURA\r\nPOST, BANGALORE', NULL, 1, 0, 'N;', 'All Covid19 Precautions to be taken, Safety Mask and Shoes for Inspection of materials.\r\n Vendor Employees lifting the materials to have insurance.\r\nPayment to be made in advance and then lift the material.', NULL, NULL, NULL, NULL, NULL, NULL, '2021-09-28 15:30:00', '2021-09-28 16:45:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-09-22 10:30:00', '2021-09-27 16:30:00', '2021-09-27', 'EMD will be paid in the name of IFB INDUSTRIES LIMITED'),
+(90, 'SRI LAKSHMI PROFILE', 'SLP', 'SRI LAKSHMI PROFILE', NULL, 'Ferrous', 'AUC/SLP/Ferrous/12/20/35', 'No 417, D-2, 4th Phase, \r\nPeenya Industrial Area, \r\nNear Brindavan Bus Stop,\r\nBangalore 58', NULL, 1, 0, 'N;', 'COVID19 Safety measures.\r\nAll payments to be done before lifting the material', NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-04 14:45:00', '2021-10-04 15:45:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-09-28 11:00:00', '2021-10-01 15:30:00', '2021-10-01', 'NO EMD'),
+(92, 'OMKAR ENGINEERING  FABRICATION', 'OEF', 'OMKAR ENGINEERING  FABRICATION', NULL, 'Machineries', 'AUC/OEF/Machineries/12/55/54', '111-H2, Bommasandra Indl Area, Attibele Hobli, Bangalore', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-06 15:00:00', '2021-10-06 15:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-09-28 11:00:00', '2021-10-05 16:00:00', '2021-10-05', 'NO EMD'),
+(93, 'Anagha Precision Components', 'APC', 'Anagha Precision Components', NULL, 'Ferrous', 'AUC/APC/Ferrous/13/30/10', '434, 4th Main Road, Basaveshwara Nagar, Kaveripura Kamakshipalya', NULL, 1, 0, 'N;', 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-07 15:00:00', '2021-10-07 16:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-09-28 11:31:00', '2021-10-06 16:31:00', '2021-10-07', 'NO EMD'),
+(94, 'G L N Technologies', 'GLN', 'G L N Technologies', NULL, 'Machineries', 'AUC/GLN/Machineries/13/46/8', 'No 24, Doddanna Indl Estate Main Road,  Near 16th Cross, Hegganahalli, Srigandhakavalu, Bangalore', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 15:00:00', '2021-10-11 16:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-09-28 11:00:00', '2021-10-09 16:00:00', '2021-10-09', 'No EMD'),
+(102, 'MAGCORE LAMINATION', 'MAGCORE', 'MAGCORE LAMINATION', NULL, 'Machineries', 'AUC/MAGCORE/Machineries/16/13/47', 'NA', NULL, 1, 0, NULL, 'na', NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-01 16:40:00', '2021-10-01 17:15:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-09-30 16:14:00', '2021-10-01 16:14:00', '2021-10-01', 'NA'),
+(103, 'MAGCORE LAMINATION', 'MAGCORE1', 'MAGCORE LAMINATION', NULL, 'Machineries', 'AUC/MAGCORE1/Machineries/17/21/35', 'NA', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-01 17:30:00', '2021-10-01 17:45:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-01 17:21:00', '2021-10-01 17:22:00', '2021-10-01', 'NA'),
+(104, 'SRI LAKSHMI PROFILE', 'SLP1', 'SRI LAKSHMI PROFILE', NULL, 'Ferrous', 'AUC/SLP1/Ferrous/16/40/12', 'NA', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-04 16:50:00', '2021-10-04 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-04 16:40:00', '2021-10-04 16:41:00', '2021-10-04', 'NA'),
+(114, 'KANVA COOL INDUSTRIES', 'KCI', 'KANVA COOL INDUSTRIES', NULL, 'Ferrous', 'AUC/KCI/Ferrous/18/55/31', 'Peenya Industrial Area', NULL, 1, 0, NULL, 'IMMEDIATE PAYMENT BEFORE LIFTING MATERIALS.\r\n', NULL, NULL, NULL, NULL, NULL, NULL, '2021-11-22 15:45:00', '2021-11-22 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-11-19 11:00:00', '2021-11-20 16:45:00', '2021-11-22', 'DD in name of KANVA COOL INDUSTRIES or NEFT to Shopemet Networks Pvt Ltd'),
+(120, 'KANVA COOL INDUSTRIES', 'KCIRE', 'KANVA COOL INDUSTRIES', NULL, 'Ferrous', 'AUC/KCIRE/Ferrous/16/43/20', 'Bangalore', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2021-11-23 16:50:00', '2021-11-23 17:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-11-23 16:43:00', '2021-11-23 16:44:00', '2021-11-23', 'EMD '),
+(126, 'KANVA COOL INDUSTRIES', 'KCI4', 'KANVA COOL INDUSTRIES', NULL, 'Ferrous', 'AUC/KCI4/Ferrous/15/30/5', 'Peenya 2nd Stage', NULL, 1, 0, NULL, 'NA ', NULL, NULL, NULL, NULL, NULL, NULL, '2021-11-24 16:00:00', '2021-11-24 16:45:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-11-22 15:31:00', '2021-11-24 15:31:00', '2021-11-24', '3000'),
+(127, 'HITECH METALS AND ALLOYS', 'HMA', 'HITECH METALS AND ALLOYS', NULL, 'Non Ferrous', 'AUC/HMA/Non Ferrous/15/25/59', 'Kumbalgudu Industrial Area', NULL, 1, 0, NULL, 'Electronic Weighment at Godown. Payment immediate.', NULL, NULL, NULL, NULL, NULL, NULL, '2021-11-25 16:30:00', '2021-11-25 17:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-11-25 15:26:00', '2021-11-25 15:27:00', '2021-11-25', '50000/- to Hitech Metals'),
+(129, 'BHUVANESHWARI ENGINEERING ENTERPRISES', 'BHU', 'BHUVANESHWARI ENGINEERING ENTERPRISES', NULL, 'Ferrous', 'AUC/BHU/Ferrous/12/38/14', 'A D halli Industrial Town Extension \r\nBangalore 560079', NULL, 1, 0, 'N;', 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-02 16:30:00', '2021-12-02 17:10:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-11-29 12:40:00', '2021-12-02 12:43:00', '2021-12-02', '10000'),
+(130, 'UNIQUE PUNCH SYSTEMS PVT LTD', 'UPSPL', 'UNIQUE PUNCH SYSTEMS PVT LTD', NULL, 'Ferrous', 'AUC/UPSPL/Ferrous/17/57/42', '14th Cross, Phase 4, Peenya Industrial Area, Bangalore', NULL, 1, 0, NULL, 'Payment on weighment.\r\nPlease follow Covid Norms\r\nMaterials to be lifted within 2 days from the Date of Approval.', NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-06 16:00:00', '2021-12-06 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-02 18:00:00', '2021-12-04 18:00:00', '2021-12-06', 'EMD TO BE PAID UNIQUE PUNCH SYSTEMS PVT LTD OR NEFT TO SHOPEMET NETWORKS PVT LTD ON BEHALF OF THE COMPANY'),
+(136, 'HITECH METALS AND ALLOYS', 'HMA1', 'HITECH METALS AND ALLOYS', NULL, 'Non Ferrous', 'AUC/HMA1/Non Ferrous/15/59/6', 'Kumbalgudu Industrial Area .', NULL, 1, 0, 'N;', '', NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-16 16:00:00', '2021-12-16 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-13 11:00:00', '2021-12-16 16:01:00', '2021-12-16', 'EMD to be paid to Hitech Metals And Alloys. or Shopemet Networks Private Limited'),
+(139, 'SRI BALAJI ENTERPRISES', 'BAL', 'SRI BALAJI ENTERPRISES', NULL, 'Ferrous', 'AUC/BAL/Ferrous/13/54/58', 'NO  c-114 , Industrial suburb, Opposite peenya Metro Station  Next to Dr.Prabhakar  kore convention hall, peenya , Bangalore 560058', NULL, 1, 0, NULL, 'NA ', NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-27 16:00:00', '2021-12-27 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-22 13:57:00', '2021-12-27 16:00:00', '2021-12-27', 'EMD Payable '),
+(140, 'SAKSHI STEEL N ALLOYS', 'SAK', 'SAKSHI STEEL N ALLOYS', NULL, 'Ferrous', 'AUC/SAK/Ferrous/14/20/0', 'C-343/344 , 1st Stage , Main Road, Peenya Industrial area , Bangalore 560058', NULL, 1, 0, NULL, 'NA ', NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-24 16:00:00', '2021-12-24 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-22 14:21:00', '2021-12-24 16:00:00', '2021-12-24', 'EMD payable '),
+(141, 'IFB INDUSTRIES LIMITED', 'BLRFB', 'IFB INDUSTRIES LIMITED', NULL, 'General', 'AUC/BLRFB/General/15/31/7', '16/17, Vishvehwaraih Industrial Area, Mahadevpura', NULL, 1, 0, 'N;', 'All materials to be inspected and bid. Once the bid is placed and stands as H1, Has to buy the materials before 5 days from the day of Auction.\r\nFollow COVID precautions during Inspection.', NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-29 16:30:00', '2021-12-29 17:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-27 11:00:00', '2021-12-29 16:30:00', '2021-12-29', 'EMD Amount to be paid Via DD to IFB or NEFT to shopemet networks pvt ltd'),
+(145, 'SAKSHI STEEL N ALLOYS', 'SAKSHI', 'SAKSHI STEEL N ALLOYS', NULL, 'Ferrous', 'AUC/SAKSHI/Ferrous/13/31/3', 'C- 343/344 , 1st Stage , Main Road , Peenya Industrial area , Bangalore 560058', NULL, 1, 0, NULL, 'Follow Covid Precautions during inspection', NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-28 16:00:00', '2021-12-28 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-27 15:00:00', '2021-12-28 15:00:00', '2021-12-28', 'NO EMD'),
+(146, 'HITECH METALS AND ALLOYS', 'HMA2', 'HITECH METALS AND ALLOYS', NULL, 'Non Ferrous', 'AUC/HMA2/Non Ferrous/13/39/22', 'Kumbalgudu Indl Area, \r\nMysore Road', NULL, 1, 0, NULL, 'Follow Covid Norms during Inspection.\r\nPayment to be cleared immediately during lifting  materials', NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-30 16:30:00', '2021-12-30 17:15:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-27 10:30:00', '2021-12-30 16:00:00', '2021-12-30', 'EMD DD in name of HITECH METALS AND ALLOYS or NEFT/PayU to Shopemet Networks Pvt Ltd'),
+(147, 'NEHA TRADERS', 'TRADE', 'NEHA TRADERS', NULL, 'E Waste', 'AUC/TRADE/E Waste/18/5/56', '04, 12th Cross, Magadi Main Road, Bangalore', NULL, 1, 0, 'N;', 'Follow Covid Rules\r\nPayment on Weighment', NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-29 15:30:00', '2021-12-29 16:20:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-27 12:00:00', '2021-12-29 14:00:00', '2021-12-29', 'EMD to be paid to Shopemet Networks Pvt Ltd'),
+(148, 'IMRAN STEELS', 'IMRAN', 'IMRAN STEELS', NULL, 'Ferrous', 'AUC/IMRAN/Ferrous/13/55/28', '# A-144/1, 3rd Cross 1st Stage peenya Industrial area Bangalore  ', NULL, 1, 0, NULL, 'Follow covid rules ', NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-28 16:00:00', '2021-12-28 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-28 13:56:00', '2021-12-28 15:00:00', '2021-12-28', 'No EMD'),
+(149, 'DEV ENTERPRISES', 'DEV', 'DEV ENTERPRISES', NULL, 'Non Ferrous', 'AUC/DEV/Non Ferrous/15/8/50', 'No. 23, 3rd Floor , Behind Asha Sweets , Binnamangala 1st stage , Indra Nagar Bangalore - 560002', NULL, 1, 0, 'N;', 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-17 16:30:00', '2022-01-17 17:15:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-10 15:11:00', '2022-01-17 15:12:00', '2022-01-17', 'shopemet'),
+(150, '3D PRODUCT DEVELOPMENT PVT LTD', 'PRO', '3D PRODUCT DEVELOPMENT PVT LTD', NULL, 'Plastic', 'AUC/PRO/Plastic/13/43/4', 'shopemet', NULL, 1, 0, NULL, 'Follow Covid Rules .', NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-17 15:00:00', '2022-01-17 16:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-13 13:43:00', '2022-01-17 15:00:00', '2022-01-17', 'No EMD'),
+(151, '3D PRODUCT DEVELOPMENT PVT LTD', 'PRO', '3D PRODUCT DEVELOPMENT PVT LTD', NULL, 'Plastic', 'AUC/PRO/Plastic/13/52/3', 'Shopemet', NULL, 1, 0, 'N;', 'Follow Covid Rules', NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-17 16:45:00', '2022-01-17 17:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-13 15:00:00', '2022-01-17 17:00:00', '2022-01-17', 'No EMD'),
+(154, 'IFB INDUSTRIES LIMITED', 'MSIFB', 'IFB INDUSTRIES LIMITED', NULL, 'Ferrous', 'AUC/MSIFB/Ferrous/9/28/31', 'Plot No 5, 4A,4B,3B, \r\nMalur Industrial Area, \r\nKurandanahalli Village, \r\nKolar', NULL, 1, 0, 'N;', 'FOLLOW COVID POLICY', NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-21 15:45:00', '2022-01-21 16:45:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-18 09:30:00', '2022-01-21 16:00:00', '2022-01-21', 'DD or RTGS in favour of IFB INDUSTRIES LTD.'),
+(160, 'MAHINDRA CIE AUTOMOTIVE LTD', 'MCIEA', 'MAHINDRA CIE AUTOMOTIVE LTD', NULL, 'Machineries', 'AUC/MCIEA/Machineries/7/58/48', 'Mahindra CIE Automotive Ltd ( Bill Forge)\r\nPlant 2, Jigani Indl Area,', NULL, 1, 0, 'N;', 'Follow Covid', NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-02 15:45:00', '2022-02-02 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-24 11:00:00', '2022-02-01 16:00:00', '2022-02-01', 'EMD- DD in name of Mahindra CIE Automotive Ltd to be handed over to Shopemet Networks Pvt Ltd'),
+(162, 'MAHINDRA CIE AUTOMOTIVE LTD', 'MCIEP9', 'MAHINDRA CIE AUTOMOTIVE LTD', NULL, 'Machineries', 'AUC/MCIEP9/Machineries/15/9/32', 'Mahindra CIE Automotive Ltd, ( Bill Forge)\r\nPlant 9, Bommasandra Indl Area, ', NULL, 1, 0, NULL, 'Covid Norms', NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-01 14:45:00', '2022-02-01 15:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-24 11:30:00', '2022-02-01 16:30:00', '2022-02-01', 'EMD - DD in the name of Mahindra CIE Automotive Ltd. Handed over to Shopemet Networks Pvt Ltd'),
+(163, 'MAHINDRA CIE AUTOMOTIVE LTD', 'MCIEP4', 'MAHINDRA CIE AUTOMOTIVE LTD', NULL, 'Machineries', 'AUC/MCIEP4/Machineries/15/36/59', 'Mahindra CIE Automotive Ltd  - Bill Forge\r\nPlant 4, Pollachi Main Road, Ganesh Nagar, Malumachampatti Post, \r\nCoimbatore', NULL, 1, 0, NULL, 'COVID POLICY', NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-02 16:30:00', '2022-02-02 17:45:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-24 11:30:00', '2022-01-25 16:29:00', '2022-02-01', 'EMD - DD in favour of Mahindra CIE Automotive Ltd, Handed over to Shopemet Networks Pvt Ltd'),
+(167, '3D PRODUCT DEVELOPMENT PVT LTD', '3DPDPL', '3D PRODUCT DEVELOPMENT PVT LTD', NULL, 'General', 'AUC/3DPDPL/General/17/54/48', 'BANGALORE ', NULL, 1, 0, 'N;', 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-09 16:00:00', '2022-02-09 16:45:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-04 10:00:00', '2022-02-07 15:00:00', '2022-02-07', 'NA                                                                                                                                                                                                      '),
+(168, 'REWARD360 GLOBAL SERVICES PRIVATE LIMITED', 'R360PL', 'REWARD360 GLOBAL SERVICES PRIVATE LIMITED', NULL, 'General', 'AUC/R360PL/General/11/15/37', 'Peenya', NULL, 1, 0, 'N;', 'FOLLOW COVID PRECAUTIONS', NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-11 16:00:00', '2022-02-11 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-04 11:00:00', '2022-02-10 16:00:00', '2022-02-10', 'EMD in favour of Reward360, handed over to Shopemet Networks Pvt Ltd'),
+(169, 'R AND M CORROSION PREVENTORS', 'RMC', 'R AND M CORROSION PREVENTORS', NULL, 'Machineries', 'AUC/RMC/Machineries/17/31/24', 'PEENYA ', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-14 16:30:00', '2022-02-14 17:15:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-07 09:30:00', '2022-02-12 18:30:00', '2022-02-14', 'NA'),
+(170, 'S A STELL INDUSTRIAL INC', 'SAS', 'S A STELL INDUSTRIAL INC', NULL, 'Machineries', 'AUC/SAS/Machineries/11/38/56', 'Malur ', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-07 15:45:00', '2022-02-07 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-24 11:39:00', '2022-02-02 11:39:00', '2022-02-07', '200000'),
+(173, 'Distribution Logistics Infrastructure Pvt Ltd', 'DLI', 'Distribution Logistics Infrastructure Pvt Ltd', NULL, 'Machineries', 'AUC/DLI/Machineries/10/54/43', 'Anekal', NULL, 1, 0, 'N;', 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-12 15:30:00', '2022-02-12 16:15:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-08 10:55:00', '2022-02-12 10:55:00', '2022-02-12', '100000'),
+(176, 'IFB INDUSTRIES LIMITED', 'IFB', 'IFB INDUSTRIES LIMITED', NULL, 'Ferrous', 'AUC/IFB/Ferrous/12/4/24', 'Malur ', NULL, 1, 0, 'N;', 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-08 15:45:00', '2022-02-08 16:45:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-05 11:56:00', '2022-02-08 11:56:00', '2022-02-08', '400000'),
+(194, 'DEV ENTERPRISES', 'DEV', 'DEV ENTERPRISES', NULL, 'Ferrous', 'AUC/DEV/Ferrous/12/50/1', 'TIRCHY,TAMILNADU', NULL, 1, 0, 'a:1:{i:0;s:6:\"12.jpg\";}', '', NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-19 16:00:00', '2022-05-19 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-13 10:00:00', '2022-05-18 17:00:00', '2022-05-19', '20000'),
+(201, 'DEV ENTERPRISES', 'DEV', 'DEV ENTERPRISES', NULL, 'Ferrous', 'AUC/DEV/Ferrous/17/33/12', 'COIMBATORE ', NULL, 1, 0, NULL, 'FOLLOW COVID RULES ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-21 14:30:00', '2022-05-21 15:15:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-19 10:00:00', '2022-05-20 18:00:00', '2022-05-20', 'NA '),
+(202, 'MAHINDRA CIE AUTOMOTIVE LTD', 'CIE P2 ', 'MAHINDRA CIE AUTOMOTIVE LTD', NULL, 'Ferrous', 'AUC/CIE P2 /Ferrous/10/49/42', 'JIGANI ', NULL, 1, 0, NULL, 'FOLLOW COVID RULES AND WEAR MASK ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-25 16:00:00', '2022-05-25 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-20 09:00:00', '2022-05-24 16:00:00', '2022-05-24', '50000'),
+(203, 'OMKAR ENGINEERING  FABRICATION', 'OMKAR ', 'OMKAR ENGINEERING  FABRICATION', NULL, 'Machineries', 'AUC/OMKAR /Machineries/11/6/48', 'BOMMASANDRA ', NULL, 1, 0, NULL, 'FOLLOW COVID RULES AND DO WEAR   SAFETY SHOES FOR VISIT ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-26 16:00:00', '2022-05-26 18:15:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-20 10:00:00', '2022-05-25 18:30:00', '2022-05-26', 'NA '),
+(204, 'MAGCORE LAMINATION', 'Magcor  ', 'MAGCORE LAMINATION', NULL, 'Machineries', 'AUC/Magcor  /Machineries/11/47/0', 'BOMMASANDRA ', NULL, 1, 0, NULL, 'Follow Covid rules \r\n', NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-26 14:30:00', '2022-05-26 15:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-20 10:00:00', '2022-05-25 17:00:00', '2022-05-25', 'NA'),
+(205, 'BROTHERS TRADERS', 'BRO', 'BROTHERS TRADERS', NULL, 'Machineries', 'AUC/BRO/Machineries/14/38/32', 'Electronic city ', NULL, 1, 0, NULL, 'Follow covid rules ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-02 16:00:00', '2022-06-02 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-25 09:00:00', '2022-05-31 18:30:00', '2022-05-31', '30000'),
+(206, 'Swas Industries', 'SWAS', 'Swas Industries', NULL, 'Ferrous', 'AUC/SWAS/Ferrous/16/40/7', 'HOSUR ', NULL, 1, 0, NULL, 'FOLLOW COVID RULES ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-31 16:00:00', '2022-05-31 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-25 09:30:00', '2022-05-27 18:30:00', '2022-05-31', 'NA '),
+(209, 'Ak Enterprises', 'A K ', 'Ak Enterprises', NULL, 'Ferrous', 'AUC/A K /Ferrous/12/25/37', 'Chennai ', NULL, 1, 0, NULL, 'Follow Covid rules ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-30 16:00:00', '2022-05-30 17:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-25 09:30:00', '2022-05-28 18:30:00', '2022-05-30', 'NA '),
+(210, 'HITECH METALS AND ALLOYS', 'Hitech ', 'HITECH METALS AND ALLOYS', NULL, 'Non Ferrous', 'AUC/Hitech /Non Ferrous/9/56/22', ' Kumbolgudu', NULL, 1, 0, NULL, 'Follow Covid rules ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-28 14:30:00', '2022-05-28 15:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-26 10:00:00', '2022-05-27 06:57:00', '2022-05-27', '50000'),
+(211, 'AS ENGINEERING', 'A S', 'AS ENGINEERING', NULL, 'Ferrous', 'AUC/A S/Ferrous/17/6/10', 'Jigani ', NULL, 1, 0, NULL, 'Follow Covid rules ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-11 14:30:00', '2022-06-11 15:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-08 09:30:00', '2022-06-10 18:31:00', '2022-06-10', '10000'),
+(214, 'PAC METAL INDUSTRIES', 'PAC', 'PAC METAL INDUSTRIES', NULL, 'Ferrous', 'AUC/PAC/Ferrous/11/17/55', 'HOSUR ', NULL, 1, 0, NULL, 'Follow Covid rules \r\nOnce after the auction if the H1 bidder is not lifting the materials then there Emd amount will be forfeited ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-24 04:00:00', '2022-06-24 05:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-21 09:00:00', '2022-06-24 06:00:00', '2022-06-24', '20000'),
+(220, 'IFB INDUSTRIES LIMITED', 'IFB BLR', 'IFB INDUSTRIES LIMITED', NULL, 'Non Ferrous', 'AUC/IFB BLR/Non Ferrous/14/59/47', 'White Field ', NULL, 1, 0, NULL, 'Follow Covid Rules \r\n', NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-27 15:00:00', '2022-06-27 16:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-22 15:00:00', '2022-06-25 15:00:00', '2022-06-27', '65000'),
+(223, 'DEV ENTERPRISES', 'DEV/IRON', 'DEV ENTERPRISES', NULL, 'Ferrous', 'AUC/DEV/IRON/Ferrous/10/47/17', 'TRICHY ', NULL, 1, 0, NULL, '1.Buyers need to follow COVID19 precautions and measures strictly while entering the premises for inspection of Scrap.\r\n2.Buyers should avoid interaction with Seller directly on pricing or auction. Such buyers will be blackli', NULL, NULL, NULL, NULL, NULL, NULL, '2022-07-25 15:00:00', '2022-07-25 16:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-07-19 10:00:00', '2022-07-23 05:00:00', '2022-07-23', '20000'),
+(224, 'BHUVANESHWARI ENGINEERING ENTERPRISES', 'BHU', 'BHUVANESHWARI ENGINEERING ENTERPRISES', NULL, 'Ferrous', 'AUC/BHU/Ferrous/14/58/37', 'Rajaji Nagar', NULL, 1, 0, NULL, 'Buyers need to follow COVID19 precautions and measures strictly while entering the premises for inspection of Scrap.\r\nBuyers should avoid interaction with Seller directly on pricing or auction. Such buyers will be blacklisted', NULL, NULL, NULL, NULL, NULL, NULL, '2022-07-23 14:00:00', '2022-07-22 15:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-07-19 14:59:00', '2022-07-23 14:59:00', '2022-07-22', 'NA'),
+(225, 'LG ENTERPRISES', 'L.G', 'LG ENTERPRISES', NULL, 'Ferrous', 'AUC/L.G/Ferrous/15/6/19', 'Hosur', NULL, 1, 0, NULL, 'Buyers need to follow COVID19 precautions and measures strictly while entering the premises for inspection of Scrap.\r\nBuyers should avoid interaction with Seller directly on pricing or auction. Such buyers will be blacklisted', NULL, NULL, NULL, NULL, NULL, NULL, '2022-07-22 16:00:00', '2022-07-22 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-07-19 15:06:00', '2022-07-23 15:06:00', '2022-07-23', '20000'),
+(226, 'DEV ENTERPRISES', 'DEV/Al', 'DEV ENTERPRISES', NULL, 'Non Ferrous', 'AUC/DEV/Al/Non Ferrous/15/24/5', 'Trichy ', NULL, 1, 0, NULL, 'Buyers need to follow COVID19 precautions and measures strictly while entering the premises for inspection of Scrap.\r\nSafety shoes, Mask, Using Sanitizers, PCB Documents, ID proof are mandatory before inspection.\r\nPricing wil', NULL, NULL, NULL, NULL, NULL, NULL, '2022-07-28 15:00:00', '2022-07-28 16:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-07-22 15:24:00', '2022-07-27 15:24:00', '2022-07-28', '50000'),
+(228, '', 'ELQ', 'ELOQUENT TECHNOLOGY', NULL, 'Ferrous', '', 'PEENYA ', NULL, 1, 0, NULL, 'Follow Covid Rules \r\n', NULL, NULL, NULL, NULL, NULL, NULL, '2022-07-22 16:30:00', '2022-07-22 17:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-07-18 17:28:00', '2022-07-24 17:28:00', '2022-07-21', 'NA'),
+(230, 'ELOQUENT TECHNOLOGY', 'ELQ', 'ELOQUENT TECHNOLOGY', NULL, 'Ferrous', 'AUC/ELQ/Ferrous/17/42/34', 'PEENYA', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-07-22 18:00:00', '2022-07-22 18:15:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-07-22 17:42:00', '2022-07-22 20:45:00', '2022-07-22', 'NA'),
+(231, 'KMK CORPORATION', 'KMK', 'KMK CORPORATION', NULL, 'Non Ferrous', 'AUC/KMK/Non Ferrous/10/44/30', ' Davanagere', NULL, 1, 0, NULL, 'Follow covid rules ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-07-29 16:00:00', '2022-07-29 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-07-23 10:00:00', '2022-07-28 18:00:00', '2022-07-28', '50000'),
+(233, 'DYNASPEDE INTEGRATED SYSTEMA PVT LTD', 'DSP', 'DYNASPEDE INTEGRATED SYSTEMA PVT LTD', NULL, 'Non Ferrous', 'AUC/DSP/Non Ferrous/14/36/51', 'Hosur ', NULL, 1, 0, NULL, 'Follow Covis ruels ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-08-16 16:00:00', '2022-08-16 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-08-09 10:00:00', '2022-08-15 18:30:00', '2022-08-15', '10000'),
+(234, 'BALAJI STEELS AND SCRAPS', 'BAL', 'BALAJI STEELS AND SCRAPS', NULL, 'Ferrous', 'AUC/BAL/Ferrous/17/54/0', 'PEENYA', NULL, 1, 0, NULL, 'FOLLOW COVID RULES ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-08-19 16:00:00', '2022-08-19 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-08-16 09:30:00', '2022-08-18 17:30:00', '2022-08-18', '20000'),
+(235, 'NEW CENTURY ENTERPRISES', 'NEW', 'NEW CENTURY ENTERPRISES', NULL, 'Non Ferrous', 'AUC/NEW/Non Ferrous/10/38/45', 'HYDERABAD', NULL, 1, 0, NULL, 'FOLLOW COVID RULES ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-08-23 16:00:00', '2022-08-23 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-08-16 09:00:00', '2022-08-22 18:00:00', '2022-08-22', '500000'),
+(236, 'MIND TREE FAB TECHNOLOGIES', 'MIND', 'MIND TREE FAB TECHNOLOGIES', NULL, 'Ferrous', 'AUC/MIND/Ferrous/12/1/52', 'Peenya', NULL, 1, 0, NULL, 'Follow Covid Rules ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-08-22 15:46:00', '2022-08-22 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-08-16 10:00:00', '2022-08-20 12:02:00', '2022-08-20', '10000'),
+(256, 'PRITHVI POWER SOLUTIONS', 'PPS', 'PRITHVI POWER SOLUTIONS', NULL, 'E Waste', 'AUC/PPS/E Waste/15/44/46', 'NO 825, BEML LAYOUT, RR NAGAR, BANGALORE', NULL, 1, 0, NULL, 'Materials to be lifted the next day of auction.\r\npayment on weighment\r\nas is basis ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-08-24 16:00:00', '2022-08-24 16:45:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-08-23 15:45:00', '2022-08-24 15:45:00', '2022-08-24', 'EMD TO BE PAID TO SHOPEMET \r\nNEFT OR DD'),
+(257, 'DYNASPEDE INTEGRATED SYSTEMA PVT LTD', 'DSP1', 'DYNASPEDE INTEGRATED SYSTEMA PVT LTD', NULL, 'Ferrous', 'AUC/DSP1/Ferrous/11/37/42', 'HOSUR', NULL, 1, 0, NULL, 'FOLLOW COVID RULES ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-02 16:00:00', '2022-09-02 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-08-29 09:30:00', '2022-09-01 04:30:00', '2022-09-01', '10000'),
+(258, 'DYNASPEDE INTEGRATED SYSTEMA PVT LTD', 'DSP1', 'DYNASPEDE INTEGRATED SYSTEMA PVT LTD', NULL, 'Ferrous', 'AUC/DSP1/Ferrous/17/33/4', 'Hosur', NULL, 1, 0, NULL, 'Follow covid rules ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-02 16:00:00', '2022-09-02 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-08-29 09:30:00', '2022-09-01 18:30:00', '2022-09-01', '10000'),
+(261, 'MAHINDRA CIE AUTOMOTIVE LTD', 'MCIE p2', 'MAHINDRA CIE AUTOMOTIVE LTD', NULL, 'Machineries', 'AUC/MCIE p2/Machineries/11/35/36', 'JIGANI', NULL, 1, 0, NULL, 'COVID RULES ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-14 15:00:00', '2022-09-14 16:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-07 10:00:00', '2022-09-13 16:00:00', '2022-09-14', '25000'),
+(264, 'SRI RAMAKRISHNA ENGINEERING WORKS', 'rama', 'SRI RAMAKRISHNA ENGINEERING WORKS', NULL, 'Ferrous', 'AUC/rama/Ferrous/11/34/10', 'RAJAJINAGAR', NULL, 1, 0, NULL, 'Follow covid rules', NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-20 15:00:00', '2022-09-20 16:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-16 11:35:00', '2022-09-19 11:38:00', '2022-09-19', '5000'),
+(266, 'Astra Pack', 'PACK', 'Astra Pack', NULL, 'General', 'AUC/PACK/General/11/25/55', 'JIGANI', NULL, 1, 0, NULL, 'COVID ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-20 16:00:00', '2022-09-20 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-17 11:26:00', '2022-09-19 11:26:00', '2022-09-19', 'NA'),
+(267, 'SRI RAMAKRISHNA ENGINEERING WORKS', 'rama', 'SRI RAMAKRISHNA ENGINEERING WORKS', NULL, 'Ferrous', 'AUC/rama/Ferrous/10/16/25', 'RAJAJI NAGAR', NULL, 1, 0, NULL, 'FOLLOW COVID RULES', NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-22 16:00:00', '2022-09-22 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-21 10:16:00', '2022-09-22 10:16:00', '2022-09-22', '5000'),
+(268, 'ALFA REALITY', 'alfa', 'ALFA REALITY', NULL, 'Machineries', 'AUC/alfa/Machineries/17/15/31', 'Pune', NULL, 1, 0, NULL, 'Follow covid rules\r\n', NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-29 16:00:00', '2022-09-29 16:45:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-23 17:16:00', '2022-09-28 17:16:00', '2022-09-29', '50000'),
+(269, 'SEALTITE DICHTUNGS PVT LTD', 'SEA', 'SEALTITE DICHTUNGS PVT LTD', NULL, 'Ferrous', 'AUC/SEA/Ferrous/17/24/11', 'BOMMASANDRDA', NULL, 1, 0, NULL, 'Follow covid rkl ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-10-13 15:00:00', '2022-10-13 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-10-11 10:00:00', '2022-10-12 18:00:00', '2022-10-13', '20000'),
+(271, 'Accuratte Engineering', 'AccEngg', 'Accuratte Engineering', NULL, 'Ferrous', 'AUC/AccEngg/Ferrous/15/43/54', 'Hosur', NULL, 1, 0, NULL, 'Follow covid Guidelines ', NULL, NULL, NULL, NULL, NULL, NULL, '2022-10-28 16:00:00', '2022-10-28 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-10-18 15:00:00', '2022-10-27 12:00:00', '2022-10-28', '10000'),
+(274, 'KAIZENS AUTO PRODUCTS', 'KAZ', 'KAIZENS AUTO PRODUCTS', NULL, 'Ferrous', 'AUC/KAZ/Ferrous/18/38/38', 'Hosur', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-10-31 14:30:00', '2022-10-31 15:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-10-21 11:00:00', '2022-10-29 13:00:00', '2022-10-31', '50000'),
+(294, 'MONIER ROOFING PRIVATE LIMITED', 'MRpvtltd', 'MONIER ROOFING PRIVATE LIMITED', NULL, 'Miscellaneous', 'AUC/MRpvtltd/Miscellaneous/17/12/19', 'Bommasandra', NULL, 1, 0, NULL, 'As per Catalog', NULL, NULL, NULL, NULL, NULL, NULL, '2022-10-31 17:30:00', '2022-10-31 18:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-10-27 17:12:00', '2022-10-31 17:12:00', '2022-10-31', 'As per Catalog'),
+(296, 'MONIER ROOFING PRIVATE LIMITED', 'MR1', 'MONIER ROOFING PRIVATE LIMITED', NULL, 'Ferrous', 'AUC/MR1/Ferrous/17/22/30', 'Bommasandra', NULL, 1, 0, NULL, 'As per catalog', NULL, NULL, NULL, NULL, NULL, NULL, '2022-10-31 18:02:00', '2022-10-31 18:45:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-10-24 17:22:00', '2022-10-30 17:22:00', '2022-10-31', 'EMD'),
+(304, 'MONIER ROOFING PRIVATE LIMITED', 'MONR', 'MONIER ROOFING PRIVATE LIMITED', NULL, 'Miscellaneous', 'AUC/MONR/Miscellaneous/10/46/51', 'Bommasandra', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-02 11:15:00', '2022-11-02 12:15:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-10-26 10:48:00', '2022-11-01 10:48:00', '2022-11-02', '10000'),
+(309, 'SEALTITE DICHTUNGS PVT LTD', 'Seal', 'SEALTITE DICHTUNGS PVT LTD', NULL, 'Ferrous', 'AUC/Seal/Ferrous/18/17/25', 'Bommasandra', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-07 15:00:00', '2022-11-07 16:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-03 12:00:00', '2022-11-05 15:00:00', '2022-11-07', '20000'),
+(315, 'SUMA MANAGEMENT PVT LTD', 'SUM', 'SUMA MANAGEMENT PVT LTD', NULL, 'Ferrous', 'AUC/SUM/Ferrous/12/0/41', 'WS', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-05 12:06:00', '2022-11-05 12:17:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-04 12:00:00', '2022-11-04 14:00:00', '2022-11-12', '20000'),
+(318, 'IFB INDUSTRIES LIMITED', 'IFB', 'IFB INDUSTRIES LIMITED', NULL, 'Ferrous', 'AUC/IFB/Ferrous/10/12/58', 'Malur', NULL, 1, 0, NULL, 'SELLER TERMS AND CONDITIONS\r\n1. All buyers need for follow COVID19 precautions and measures strictly while entering the premises for inspection of\r\nmaterials.\r\n2. Safety shoes, Masks and using of Sanitizers are mandatory befo', NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-11 15:30:00', '2022-11-11 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-08 09:30:00', '2022-11-11 15:30:00', '2022-11-11', '5,00,000'),
+(320, 'DISTINCT PRODUCTIVITY SOLUTION', 'DPS', 'DISTINCT PRODUCTIVITY SOLUTION', NULL, 'Non Ferrous', 'AUC/DPS/Non Ferrous/11/26/23', 'Kumbalgodu', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-16 15:30:00', '2022-11-16 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-14 09:30:00', '2022-11-16 12:30:00', '2022-11-16', '10000'),
+(321, 'MODERN AUTOMOTIVES LTD', 'MAL', 'MODERN AUTOMOTIVES LTD', NULL, 'Ferrous', 'AUC/MAL/Ferrous/11/41/10', 'Malur', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-17 15:30:00', '2022-11-17 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-14 11:30:00', '2022-11-17 12:30:00', '2022-11-17', '10000'),
+(322, 'MODERN AUTOMOTIVES LTD', 'MAL', 'MODERN AUTOMOTIVES LTD', NULL, 'Ferrous', 'AUC/MAL/Ferrous/16/21/2', 'Malur', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-18 15:30:00', '2022-11-18 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-16 11:00:00', '2022-11-18 14:30:00', '2022-11-18', '15000'),
+(324, 'SRI LAKSHMI PROFILE', 'SLP', 'SRI LAKSHMI PROFILE', NULL, 'Ferrous', 'AUC/SLP/Ferrous/12/34/55', 'Peenya', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-21 15:30:00', '2022-11-21 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-16 11:00:00', '2022-11-21 12:00:00', '2022-11-21', '15000'),
+(325, 'RAMSAL MOTORS', 'RMs', 'RAMSAL MOTORS', NULL, 'Ferrous', 'AUC/RMs/Ferrous/11/13/11', 'Hosur', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-22 15:00:00', '2022-11-22 16:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-18 11:00:00', '2022-11-22 12:30:00', '2022-11-22', '10000'),
+(328, 'MODEL INFRA CORPORATION PVT LTD', 'MIC', 'MODEL INFRA CORPORATION PVT LTD', NULL, 'Ferrous', 'AUC/MIC/Ferrous/11/46/42', 'Doddaballapura', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-06 15:30:00', '2022-12-06 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-28 11:00:00', '2022-12-06 11:00:00', '2022-12-06', '100000'),
+(333, 'MINTRA MANAGEMENT', 'MIN', 'MINTRA MANAGEMENT', NULL, 'Ferrous', 'AUC/MIN/Ferrous/12/3/5', 'MALLUR', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-02 17:10:00', '2023-01-02 17:15:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-30 12:03:00', '2022-12-06 12:03:00', '2022-12-06', '20000'),
+(335, '3D PRODUCT DEVELOPMENT PVT LTD', '3DPD', '3D PRODUCT DEVELOPMENT PVT LTD', NULL, 'Miscellaneous', 'AUC/3DPD/Miscellaneous/12/19/51', 'Veerasandra', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-14 15:30:00', '2022-12-14 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-09 12:00:00', '2022-12-14 15:00:00', '2022-12-14', '10000'),
+(337, 'KN POLYMERS', 'KNP', 'KN POLYMERS', NULL, 'Non Ferrous', 'AUC/KNP/Non Ferrous/17/30/38', 'Mysore Road', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-16 15:30:00', '2022-12-16 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-14 12:31:00', '2022-12-15 16:31:00', '2022-12-16', '500000'),
+(338, 'MAHINDRA CIE AUTOMOTIVE LTD', 'MCIE', 'MAHINDRA CIE AUTOMOTIVE LTD', NULL, 'Machineries', 'AUC/MCIE/Machineries/19/21/17', 'Bommasandra', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-20 15:30:00', '2022-12-20 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-15 11:00:00', '2022-12-20 13:00:00', '2022-12-20', '50000'),
+(339, 'MODERN AUTOMOTIVES LTD', 'MAL', 'MODERN AUTOMOTIVES LTD', NULL, 'Ferrous', 'AUC/MAL/Ferrous/17/19/53', 'Malur', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-19 15:00:00', '2022-12-19 16:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-16 10:00:00', '2022-12-19 12:30:00', '2022-12-19', '15000'),
+(341, 'Verga Attachments Pvt Ltd', 'VAP', 'Verga Attachments Pvt Ltd', NULL, 'Ferrous', 'AUC/VAP/Ferrous/12/4/27', 'Malur', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-22 15:30:00', '2022-12-22 17:11:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-19 10:00:00', '2022-12-21 12:00:00', '2022-12-22', '100000'),
+(342, 'Dharani Industries', 'DI', 'Dharani Industries', NULL, 'Ferrous', 'AUC/DI/Ferrous/18/29/23', 'Hosur', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-19 16:00:00', '2022-12-19 16:45:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-16 18:29:00', '2022-12-19 15:30:00', '2022-12-19', '10000'),
+(343, 'Mitra Metal Finishers', 'MIS', 'Mitra Metal Finishers', NULL, 'Ferrous', 'AUC/MIS/Ferrous/14/25/42', 'MALLUR', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-19 14:30:00', '2022-12-19 14:39:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-13 14:25:00', '2022-12-19 14:25:00', '2022-12-19', '20000'),
+(344, 'Distribution Logistics Infrastructure Pvt Ltd', 'DLIPL', 'Distribution Logistics Infrastructure Pvt Ltd', NULL, 'Ferrous', 'AUC/DLIPL/Ferrous/16/37/14', 'Hosur', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-30 16:38:00', '2022-12-30 17:38:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-19 16:38:00', '2022-12-26 16:38:00', '2022-12-30', '50000'),
+(346, 'MAHINDRA CIE AUTOMOTIVE LTD', 'MCIE', 'MAHINDRA CIE AUTOMOTIVE LTD', NULL, 'Machineries', 'AUC/MCIE/Machineries/17/20/14', 'Hosur', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-21 15:30:00', '2022-12-21 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-15 10:00:00', '2022-12-21 16:00:00', '2022-12-21', '50000'),
+(347, 'Seon Roofings', 'SR', 'Seon Roofings', NULL, 'Ferrous', 'AUC/SR/Ferrous/11/7/32', 'Hosur', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-26 14:30:00', '2022-12-26 15:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-21 10:00:00', '2022-12-26 15:00:00', '2022-12-26', '10000'),
+(349, 'Swas Industries', 'SI', 'Swas Industries', NULL, 'Non Ferrous', 'AUC/SI/Non Ferrous/18/21/22', 'HOSUR', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-22 15:45:00', '2022-12-22 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-28 10:01:00', '2022-12-26 14:30:00', '2022-12-26', '10000'),
+(350, 'Swas Industries', 'SI', 'Swas Industries', NULL, 'Non Ferrous', 'AUC/SI/Non Ferrous/10/46/13', 'HOSUR', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-26 15:45:00', '2022-12-26 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-21 10:00:00', '2022-12-26 15:30:00', '2022-12-26', '10000'),
+(353, 'BHANSALI AGRO INDUSTRIES', 'BAI', 'BHANSALI AGRO INDUSTRIES', NULL, 'Machineries', 'AUC/BAI/Machineries/10/52/22', 'DABASPET', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-29 15:30:00', '2022-12-29 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-23 11:00:00', '2022-12-29 12:00:00', '2022-12-29', '20000'),
+(358, 'QUINTESSENCE EXTRACTS INDIA PRIVATE LIMITED', 'QEIPL', 'QUINTESSENCE EXTRACTS INDIA PRIVATE LIMITED', NULL, 'Machineries', 'AUC/QEIPL/Machineries/13/22/15', 'MALUR', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-30 04:45:00', '2022-12-30 17:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-26 10:15:00', '2022-12-30 16:30:00', '2022-12-30', '10000'),
+(359, 'BRASS BRONZE  AND COPPER CAST INDIA PVT LTD', 'BCIPL', 'BRASS BRONZE  AND COPPER CAST INDIA PVT LTD', NULL, 'Non Ferrous', 'AUC/BCIPL/Non Ferrous/14/56/24', 'Bommasandra', NULL, 1, 0, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-30 15:30:00', '2022-12-30 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-27 10:00:00', '2022-12-30 15:00:00', '2022-12-30', '20000'),
+(360, 'SEP India Pvt Ltd', 'SEP', 'SEP India Pvt Ltd', NULL, 'Machineries', 'AUC/SEP/Machineries/16/47/21', 'Hosur', NULL, 1, 0, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-03 15:30:00', '2023-01-03 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-28 11:00:00', '2023-01-03 15:00:00', '2023-01-03', '50000'),
+(363, 'BRASS BRONZE  AND COPPER CAST INDIA PVT LTD', 'BCIP', 'BRASS BRONZE  AND COPPER CAST INDIA PVT LTD', NULL, 'Machineries', 'AUC/BCIP/Machineries/12/11/50', 'Bommasandra', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-06 15:30:00', '2023-01-06 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-03 12:12:00', '2023-01-06 15:12:00', '2023-01-06', '20000'),
+(368, 'AKSHAYA VIPRA EL-MEC PRIVATE LIMITED', 'AVPL', 'AKSHAYA VIPRA EL-MEC PRIVATE LIMITED', NULL, 'Machineries', 'AUC/AVPL/Machineries/11/13/29', 'MALUR', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-09 15:30:00', '2023-01-09 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-05 10:15:00', '2023-01-09 16:00:00', '2023-01-09', '15000'),
+(372, 'SHANRAG MACHINE TOOLS', 'SMT', 'SHANRAG MACHINE TOOLS', NULL, 'Machineries', 'AUC/SMT/Machineries/10/34/58', 'Coimbatore', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-10 15:30:00', '2023-01-10 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-07 10:30:00', '2023-01-10 16:00:00', '2023-01-10', '25000');
+INSERT INTO `auction` (`id`, `sname`, `srefid`, `scompanyname`, `scompanyid`, `scategory`, `sauctionid`, `svinspection`, `sonlineaucdate_time`, `sterms_condiaccept`, `sterms_condexbuyers`, `sterms_condiupload`, `sterms_text`, `sterms_conditype`, `adminapprovalstatus`, `sapproval`, `sdownload`, `saction`, `sauctionstatus`, `saucstartdate_time`, `saucclosedate_time`, `adstatus`, `adaction`, `reauction`, `stotalauction`, `bwishlist`, `bemdstatus`, `sstartbidprice`, `sfrominpectdate_time`, `stoinpectdate_time`, `slastdateemdsub`, `semddetail`) VALUES
+(376, 'Vignesh Sewing Machine', 'VSM', 'Vignesh Sewing Machine', NULL, 'Non Ferrous', 'AUC/VSM/Non Ferrous/13/23/25', 'Tirupur', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-09 15:30:00', '2023-01-09 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-06 10:00:00', '2023-01-09 13:00:00', '2023-01-09', '25000'),
+(383, 'PAANAYIL HEAVY ENGINEERING AND FABRICATIONS', 'PHEF', 'PAANAYIL HEAVY ENGINEERING AND FABRICATIONS', NULL, 'Non Ferrous', 'AUC/PHEF/Non Ferrous/16/1/8', 'Coimbatore', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-12 15:30:00', '2023-01-12 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-07 10:30:00', '2023-01-12 16:00:00', '2023-01-12', '125000'),
+(388, 'SHOPEMET NETWORKS PRIVATE LIMITED', 'SHO', 'SHOPEMET NETWORKS PRIVATE LIMITED', NULL, 'Machineries', 'AUC/SHO/Machineries/17/14/12', 'WD', NULL, 1, 0, NULL, 'EWF', NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-14 17:14:00', '2023-02-05 17:14:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-07 17:14:00', '2023-01-21 17:14:00', '2023-01-19', 'EW'),
+(389, 'BHANSALI AGRO INDUSTRIES', 'BAI', 'BHANSALI AGRO INDUSTRIES', NULL, 'Machineries', 'AUC/BAI/Machineries/15/11/23', 'Dabaspet', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-18 15:30:00', '2023-01-18 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-12 10:00:00', '2023-01-18 16:00:00', '2023-01-18', '20000'),
+(390, 'SHOPEMET NETWORKS PRIVATE LIMITED', 'SHO', 'SHOPEMET NETWORKS PRIVATE LIMITED', NULL, 'Ferrous', 'AUC/SHO/Ferrous/17/31/47', 'as', NULL, 1, 0, NULL, 'na', NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-15 17:40:00', '2023-01-17 17:47:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-17 17:31:00', '2023-01-20 17:31:00', '2023-01-14', 'ds'),
+(391, 'Shri Manjunatha Industries', 'SMI', 'Shri Manjunatha Industries', NULL, 'Ferrous', 'AUC/SMI/Ferrous/14/29/13', 'JIGANI', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-19 15:30:00', '2023-01-19 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-16 10:30:00', '2023-01-19 16:00:00', '2023-01-19', '20000'),
+(393, 'SHOPEMET NETWORKS PRIVATE LIMITED', 'SHO', 'SHOPEMET NETWORKS PRIVATE LIMITED', NULL, 'Ferrous', 'AUC/SHO/Ferrous/14/36/37', 'MALLUR', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-19 14:42:00', '2023-01-19 14:44:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-10 14:38:00', '2023-01-11 14:38:00', '2023-01-20', 'ZDF'),
+(394, 'MICROTECH EXPORTS', 'ME', 'MICROTECH EXPORTS', NULL, 'Ferrous', 'AUC/ME/Ferrous/14/47/19', 'JIGNI', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-19 14:55:00', '2023-01-19 15:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-19 14:16:00', '2023-01-19 14:50:00', '2023-01-19', '10000'),
+(395, 'SREE BALAMURUGAN INDUSTRIES', 'SBI', 'SREE BALAMURUGAN INDUSTRIES', NULL, 'Ferrous', 'AUC/SBI/Ferrous/12/11/46', 'Chennai', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-25 15:30:00', '2023-01-25 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-20 12:13:00', '2023-01-25 15:00:00', '2023-01-25', '500000'),
+(396, 'Devi Industries', 'DI', 'Devi Industries', NULL, 'Ferrous', 'AUC/DI/Ferrous/15/54/38', 'Coimbatore', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-27 15:30:00', '2023-01-27 16:45:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-21 12:00:00', '2023-01-27 15:00:00', '2023-01-27', '10000'),
+(400, 'Larsen Toubro Limited', 'LTCEL', 'Larsen Toubro Limited', NULL, 'Miscellaneous', 'AUC/LTCEL/Miscellaneous/12/14/22', 'Doddaballapura', NULL, 1, 0, 'N;', 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-31 16:00:00', '2023-01-31 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-27 12:00:00', '2023-01-31 15:00:00', '2023-01-31', '20000'),
+(405, 'MODERN AUTOMOTIVES LTD', 'MAL2', 'MODERN AUTOMOTIVES LTD', NULL, 'Ferrous', 'AUC/MAL2/Ferrous/15/24/31', 'Malur', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-06 15:00:00', '2023-02-06 16:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-03 11:00:00', '2023-02-06 16:00:00', '2023-02-06', '15000'),
+(407, 'REWARD360 GLOBAL SERVICES PRIVATE LIMITED', 'R360', 'REWARD360 GLOBAL SERVICES PRIVATE LIMITED', NULL, 'Miscellaneous', 'AUC/R360/Miscellaneous/15/1/0', 'Peenya', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-08 15:00:00', '2023-02-08 17:55:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-03 11:00:00', '2023-02-08 14:00:00', '2023-02-08', '200000'),
+(408, 'VIPS Engineering Works', 'VEW', 'VIPS Engineering Works', NULL, 'Machineries', 'AUC/VEW/Machineries/15/30/2', 'Peenya 3rd Phase', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-09 15:30:00', '2023-02-09 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-06 15:30:00', '2023-02-09 12:00:00', '2023-02-09', '30000'),
+(409, 'Microo Machine Tools', 'MMT', 'Microo Machine Tools', NULL, 'Miscellaneous', 'AUC/MMT/Miscellaneous/12/8/32', 'Peenya 2nd Stage ', NULL, 1, 0, 'N;', 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-14 15:30:00', '2023-02-14 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-07 11:00:00', '2023-02-14 15:00:00', '2023-02-14', '30000'),
+(411, 'Microo Machine Tools', 'MMT', 'Microo Machine Tools', NULL, 'Machineries', 'AUC/MMT/Machineries/14/33/3', 'Peenya 2nd Stage', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-10 15:30:00', '2023-02-10 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-07 11:00:00', '2023-02-10 16:00:00', '2023-02-10', '20000'),
+(412, 'SHOPEMET NETWORKS PRIVATE LIMITED', 'SHO', 'SHOPEMET NETWORKS PRIVATE LIMITED', NULL, 'Ferrous', 'AUC/SHO/Ferrous/16/55/54', 's', NULL, 1, 0, NULL, 'na', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-08 17:05:00', '2023-02-08 17:10:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-06 16:55:00', '2023-02-08 16:56:00', '2023-02-08', '20000'),
+(413, 'Ravimax Engineering Pvt Ltd', 'REPL', 'Ravimax Engineering Pvt Ltd', NULL, 'Ferrous', 'AUC/REPL/Ferrous/15/38/1', 'Doddaballapur', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-13 15:30:00', '2023-02-13 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-09 11:00:00', '2023-02-13 16:30:00', '2023-02-13', '15000'),
+(414, 'TESTING PVT LTD', 'TES', 'TESTING PVT LTD', NULL, 'Ferrous', 'AUC/TES/Ferrous/15/28/28', 'jsw', NULL, 1, 0, NULL, 'sds', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-10 15:29:00', '2023-02-10 15:29:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-10 15:28:00', '2023-02-10 15:30:00', '2023-02-10', 'mmm'),
+(415, 'TESTING PVT LTD', 'TES', 'TESTING PVT LTD', NULL, 'Ferrous', 'AUC/TES/Ferrous/16/16/41', 'ds', NULL, 1, 0, NULL, 'na', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-10 16:25:00', '2023-02-10 23:55:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-08 16:16:00', '2023-02-10 16:16:00', '2023-02-10', '20000'),
+(417, 'DINESH GROUPS', 'DG', 'DINESH GROUPS', NULL, 'Ferrous', 'AUC/DG/Ferrous/17/51/8', 'Peenya 3rd Phase', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-16 15:30:00', '2023-02-16 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-14 11:30:00', '2023-02-16 02:00:00', '2023-02-16', '100000'),
+(419, 'TESTING PVT LTD', 'TES', 'TESTING PVT LTD', NULL, 'Ferrous', 'AUC/TES/Ferrous/18/27/52', 'MALLUR', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-14 18:33:00', '2023-02-14 18:38:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-07 18:28:00', '2023-02-14 18:28:00', '2023-02-14', '20000'),
+(420, 'TESTING PVT LTD', 'TES', 'TESTING PVT LTD', NULL, 'Ferrous', 'AUC/TES/Ferrous/17/2/29', 'ax', NULL, 1, 0, NULL, 'na', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-16 12:38:00', '2023-02-16 12:45:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-08 17:02:00', '2023-02-15 17:02:00', '2023-02-15', '20000'),
+(421, 'Naachaiar Paper Boards pvt Ltd', 'NPB', 'Naachaiar Paper Boards pvt Ltd', NULL, 'Ferrous', 'AUC/NPB/Ferrous/11/59/59', 'Sivakasi', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-17 15:12:00', '2023-02-17 17:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-15 11:00:00', '2023-02-17 15:00:00', '2023-02-17', '2000000'),
+(422, 'TESTING PVT LTD', 'TES', 'TESTING PVT LTD', NULL, 'Ferrous', 'AUC/TES/Ferrous/12/42/30', 'MALLUR', NULL, 1, 0, NULL, 'N A', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-16 12:49:00', '2023-02-16 12:55:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-14 12:42:00', '2023-02-16 12:42:00', '2023-02-16', '20000'),
+(423, 'CNC AUTOMOTIVE GROUP', 'CNCA', 'CNC AUTOMOTIVE GROUP', NULL, 'Ferrous', 'AUC/CNCA/Ferrous/18/51/13', 'Peenya', NULL, 1, 0, 'N;', 'Na', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-22 14:30:00', '2023-02-22 15:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-17 11:00:00', '2023-02-22 16:00:00', '2023-02-22', '20000'),
+(424, 'Instant Engineering', 'IE', 'Instant Engineering', NULL, 'Machineries', 'AUC/IE/Machineries/18/57/20', 'Peenya 3rd phase', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-21 15:30:00', '2023-02-21 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-17 11:30:00', '2023-02-21 16:30:00', '2023-02-21', '10000'),
+(425, 'REWARD360 GLOBAL SERVICES PRIVATE LIMITED', 'R360', 'REWARD360 GLOBAL SERVICES PRIVATE LIMITED', NULL, 'Miscellaneous', 'AUC/R360/Miscellaneous/10/52/26', 'Peenya', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-22 16:00:00', '2023-02-22 16:45:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-20 11:00:00', '2023-02-22 16:30:00', '2023-02-22', '200000'),
+(427, 'ROHYS CNC TECHNOLOGY', 'RCT', 'ROHYS CNC TECHNOLOGY', NULL, 'Machineries', 'AUC/RCT/Machineries/17/25/29', 'Peenya', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-24 15:30:00', '2023-02-24 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-21 11:00:00', '2023-02-24 16:30:00', '2023-02-24', '50000'),
+(428, 'SRI GURU ENGINEERING WORKS', 'SGEW', 'SRI GURU ENGINEERING WORKS', NULL, 'Machineries', 'AUC/SGEW/Machineries/18/33/32', 'Peenya 3rd Phase', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-24 14:30:00', '2023-02-24 15:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-21 10:30:00', '2023-02-24 16:00:00', '2023-02-24', '10000'),
+(429, 'Ferrum Extreme  Engineering Pvt ltd', 'FEEPL', 'Ferrum Extreme  Engineering Pvt ltd', NULL, 'Ferrous', 'AUC/FEEPL/Ferrous/18/25/31', 'Hoskote', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-27 15:00:00', '2023-02-27 16:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-23 11:00:00', '2023-02-27 15:00:00', '2023-02-27', '20000'),
+(433, '', 'TES', 'TESTING PVT LTD', NULL, 'Ferrous', 'AUC/TES/Ferrous/11/36/50', 'BANGALORE', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-27 11:45:00', '2023-02-27 12:05:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-26 11:37:00', '2023-02-27 11:37:00', '2023-02-27', '20000'),
+(434, 'TESTING PVT LTD', 'TES', 'TESTING PVT LTD', NULL, 'Ferrous', '', 'BANGALORE', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-27 11:45:00', '2023-02-27 12:05:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-26 11:37:00', '2023-02-27 11:37:00', '2023-02-27', '20000'),
+(435, 'TESTING PVT LTD', 'TES', 'TESTING PVT LTD', NULL, 'Ferrous', 'AUC/TES/Ferrous/11/42/26', 'BANGALORE', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-27 11:45:00', '2023-02-27 12:15:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-26 11:42:00', '2023-02-27 11:42:00', '2023-02-27', '20000'),
+(437, 'TESTING PVT LTD', 'TES', 'TESTING PVT LTD', NULL, 'Ferrous', 'AUC/TES/Ferrous/9/47/51', 'BANGALORE', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-03-01 09:55:00', '2023-03-01 10:15:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-28 09:48:00', '2023-03-01 09:48:00', '2023-03-01', '300000'),
+(438, 'TESTING PVT LTD', 'TES', 'TESTING PVT LTD', NULL, 'Ferrous', 'AUC/TES/Ferrous/10/0/21', 'BANGALORE', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-03-01 10:20:00', '2023-03-01 10:45:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-28 10:00:00', '2023-03-01 10:00:00', '2023-03-01', '35000'),
+(439, 'MODERN AUTOMOTIVES LTD', 'MAL3', 'MODERN AUTOMOTIVES LTD', NULL, 'Ferrous', 'AUC/MAL3/Ferrous/17/11/52', 'Malur', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-03-03 15:30:00', '2023-03-03 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-03-01 10:30:00', '2023-03-03 14:30:00', '2023-03-03', '20000'),
+(440, 'ADITYA AUTO PRODUCTS AND ENGINEERING INDIA PRIVATE', 'AAP', 'ADITYA AUTO PRODUCTS AND ENGINEERING INDIA PRIVATE LIMITED', NULL, 'Ferrous', 'AUC/AAP/Ferrous/17/41/54', 'Doddaballapur', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-03-06 15:30:00', '2023-03-06 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-03-04 11:00:00', '2023-03-06 14:00:00', '2023-03-06', '50000'),
+(442, 'SURYA HYDRAULICS', 'alfa', 'SURYA HYDRAULICS', NULL, 'Ferrous', '', 'asda', NULL, 1, 0, NULL, 'dsd', NULL, NULL, NULL, NULL, NULL, NULL, '2023-03-12 13:34:00', '2023-03-12 13:34:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-03-12 13:34:00', '2023-03-12 13:34:00', '2023-03-12', 'sds'),
+(443, 'SURYA HYDRAULICS', 'alfabeta', 'SURYA HYDRAULICS', NULL, 'Ferrous', 'AUC/alfabeta/Ferrous/14/27/50', 'alfalocv', NULL, 1, 1, NULL, 'ss', NULL, NULL, NULL, NULL, NULL, NULL, '2023-03-15 14:29:00', '2023-03-15 14:29:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-03-14 14:28:00', '2023-03-14 14:28:00', '2023-03-15', 'wss');
 
 -- --------------------------------------------------------
 
@@ -777,7 +780,7 @@ INSERT INTO `auction` (`id`, `sname`, `srefid`, `scompanyname`, `scompanyid`, `s
 --
 
 CREATE TABLE `biddercart` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `bidderusername` varchar(100) DEFAULT NULL,
   `auctiontype` tinyint(1) DEFAULT NULL,
   `auctionid` varchar(200) DEFAULT NULL,
@@ -789,18 +792,18 @@ CREATE TABLE `biddercart` (
   `bidmaxvalue` varchar(100) DEFAULT NULL,
   `bidamount` varchar(100) DEFAULT NULL,
   `emdpaid` tinyint(1) NOT NULL,
-  `emdrequest` tinyint(1) NOT NULL DEFAULT '0',
+  `emdrequest` tinyint(1) NOT NULL DEFAULT 0,
   `emd_paid_dd` tinyint(1) NOT NULL,
-  `upload_dd` text,
-  `mybid_val` float DEFAULT '0',
+  `upload_dd` text DEFAULT NULL,
+  `mybid_val` float DEFAULT 0,
   `abidmaxvalue` varchar(50) DEFAULT NULL,
   `abidslab` varchar(50) DEFAULT NULL,
-  `abidding` tinyint(1) NOT NULL DEFAULT '0',
+  `abidding` tinyint(1) NOT NULL DEFAULT 0,
   `sapproval` tinyint(1) NOT NULL,
   `description` varchar(225) DEFAULT NULL,
-  `liveaucterms_condi` tinyint(1) NOT NULL DEFAULT '0',
-  `datatime` datetime DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `liveaucterms_condi` tinyint(1) NOT NULL DEFAULT 0,
+  `datatime` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `biddercart`
@@ -3621,15 +3624,15 @@ INSERT INTO `biddercart` (`id`, `bidderusername`, `auctiontype`, `auctionid`, `l
 --
 
 CREATE TABLE `biddingdata` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `bidderusername` varchar(200) DEFAULT NULL,
   `sauctionid` varchar(200) DEFAULT NULL,
   `slotno` varchar(200) DEFAULT NULL,
-  `bidvalue` int DEFAULT NULL,
+  `bidvalue` int(11) DEFAULT NULL,
   `Date_time` datetime(6) DEFAULT NULL,
   `bidamount` double DEFAULT NULL,
   `sapproval` tinyint(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `biddingdata`
@@ -10532,7 +10535,7 @@ INSERT INTO `biddingdata` (`id`, `bidderusername`, `sauctionid`, `slotno`, `bidv
 --
 
 CREATE TABLE `buyerprofile` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `bname` varchar(50) DEFAULT NULL,
   `bcompany` varchar(100) DEFAULT NULL,
   `bcomptype` varchar(100) DEFAULT NULL,
@@ -10546,7 +10549,7 @@ CREATE TABLE `buyerprofile` (
   `bcin` varchar(225) DEFAULT NULL,
   `baddress` varchar(225) DEFAULT NULL,
   `bcity` varchar(50) DEFAULT NULL,
-  `bpin` int DEFAULT NULL,
+  `bpin` int(11) DEFAULT NULL,
   `bstate` varchar(50) DEFAULT NULL,
   `bcountry` varchar(11) DEFAULT NULL,
   `bemail` varchar(100) DEFAULT NULL,
@@ -10557,7 +10560,7 @@ CREATE TABLE `buyerprofile` (
   `boldpassword` varchar(200) DEFAULT NULL,
   `bnewpassword` varchar(200) DEFAULT NULL,
   `bconfirmpassword` varchar(200) DEFAULT NULL,
-  `bgst` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `bgst` varchar(20) DEFAULT NULL,
   `bpcb` varchar(225) DEFAULT NULL,
   `bcapcha` varchar(50) DEFAULT NULL,
   `bbankname` varchar(50) DEFAULT NULL,
@@ -10569,13 +10572,13 @@ CREATE TABLE `buyerprofile` (
   `bemd` tinyint(1) DEFAULT NULL,
   `adaction` tinyint(1) NOT NULL,
   `bref` varchar(255) DEFAULT NULL,
-  `subscription` tinyint(1) NOT NULL DEFAULT '1',
-  `subscription_amount` int DEFAULT NULL,
+  `subscription` tinyint(1) NOT NULL DEFAULT 1,
+  `subscription_amount` int(11) DEFAULT NULL,
   `subscription_fromdate` date DEFAULT NULL,
   `subscription_todate` date DEFAULT NULL,
   `subscription_type` varchar(225) DEFAULT NULL,
   `comment` varchar(225) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `buyerprofile`
@@ -11560,9 +11563,9 @@ INSERT INTO `buyerprofile` (`id`, `bname`, `bcompany`, `bcomptype`, `bbuyertype`
 --
 
 CREATE TABLE `categories` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `name` varchar(200) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `categories`
@@ -11583,22 +11586,22 @@ INSERT INTO `categories` (`id`, `name`) VALUES
 --
 
 CREATE TABLE `enquiry_form` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `date` varchar(200) DEFAULT NULL,
   `companyname` varchar(225) DEFAULT NULL,
-  `vaddress` tinytext,
+  `vaddress` tinytext DEFAULT NULL,
   `vcity` varchar(225) DEFAULT NULL,
   `first` varchar(225) DEFAULT NULL,
   `last` varchar(225) DEFAULT NULL,
   `phone` varchar(100) DEFAULT NULL,
   `email` varchar(225) DEFAULT NULL,
-  `remarks` tinytext,
+  `remarks` tinytext DEFAULT NULL,
   `leadgeneration` varchar(225) DEFAULT NULL,
   `spoc` varchar(4) DEFAULT NULL,
-  `location` text,
+  `location` text DEFAULT NULL,
   `website` varchar(200) DEFAULT NULL,
   `latlong` varchar(200) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `enquiry_form`
@@ -14538,11 +14541,11 @@ INSERT INTO `enquiry_form` (`id`, `date`, `companyname`, `vaddress`, `vcity`, `f
 --
 
 CREATE TABLE `enquriyform_login` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `enqusername` varchar(225) DEFAULT NULL,
   `enqpassword` varchar(225) DEFAULT NULL,
-  `enqoptions` tinyint(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `enqoptions` tinyint(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `enquriyform_login`
@@ -14566,11 +14569,11 @@ INSERT INTO `enquriyform_login` (`id`, `enqusername`, `enqpassword`, `enqoptions
 --
 
 CREATE TABLE `latestnews` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `tittle` varchar(225) NOT NULL,
   `description` text NOT NULL,
   `content` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `latestnews`
@@ -14589,14 +14592,14 @@ INSERT INTO `latestnews` (`id`, `tittle`, `description`, `content`) VALUES
 --
 
 CREATE TABLE `liveauction` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `sauctionid` varchar(225) DEFAULT NULL,
   `closetime` time(6) DEFAULT NULL,
   `timeleft` time(6) DEFAULT NULL,
-  `livestatus` int DEFAULT NULL,
-  `bidvalue` int DEFAULT NULL,
-  `bidamount` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `livestatus` int(11) DEFAULT NULL,
+  `bidvalue` int(11) DEFAULT NULL,
+  `bidamount` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -14605,15 +14608,15 @@ CREATE TABLE `liveauction` (
 --
 
 CREATE TABLE `resetpassword` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `name` varchar(200) DEFAULT NULL,
   `username` varchar(200) DEFAULT NULL,
   `email` varchar(200) DEFAULT NULL,
   `date_time` datetime DEFAULT NULL,
-  `otp` int DEFAULT NULL,
+  `otp` int(11) DEFAULT NULL,
   `newpassword` varchar(200) DEFAULT NULL,
   `confirmpassword` varchar(200) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `resetpassword`
@@ -14648,7 +14651,7 @@ INSERT INTO `resetpassword` (`id`, `name`, `username`, `email`, `date_time`, `ot
 --
 
 CREATE TABLE `sellerprofile` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `sname` varchar(50) DEFAULT NULL,
   `scomapnyname` varchar(225) DEFAULT NULL,
   `ssellertype` varchar(220) DEFAULT NULL,
@@ -14659,12 +14662,12 @@ CREATE TABLE `sellerprofile` (
   `sterms_condi` tinyint(1) DEFAULT NULL,
   `scin` varchar(225) DEFAULT NULL,
   `scompanytype` varchar(50) DEFAULT NULL,
-  `saddress` tinytext,
-  `saddresscount` tinytext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `saddress` tinytext DEFAULT NULL,
+  `saddresscount` tinytext DEFAULT NULL,
   `sstreet` varchar(100) DEFAULT NULL,
   `scity` varchar(100) DEFAULT NULL,
   `span` varchar(225) DEFAULT NULL,
-  `spin` int DEFAULT NULL,
+  `spin` int(11) DEFAULT NULL,
   `sstate` varchar(100) DEFAULT NULL,
   `scountry` varchar(100) DEFAULT NULL,
   `slocation` varchar(225) DEFAULT NULL,
@@ -14675,7 +14678,7 @@ CREATE TABLE `sellerprofile` (
   `soldpassword` varchar(50) DEFAULT NULL,
   `snewpassword` varchar(50) DEFAULT NULL,
   `sconfirmpassword` varchar(10) DEFAULT NULL,
-  `sgst` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `sgst` varchar(20) DEFAULT NULL,
   `spcb` varchar(225) DEFAULT NULL,
   `scapcha` varchar(12) DEFAULT NULL,
   `sbankername` varchar(200) DEFAULT NULL,
@@ -14687,7 +14690,7 @@ CREATE TABLE `sellerprofile` (
   `adaction` tinyint(1) NOT NULL,
   `servperc` varchar(200) DEFAULT NULL,
   `sref` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `sellerprofile`
@@ -14872,10 +14875,10 @@ INSERT INTO `sellerprofile` (`id`, `sname`, `scomapnyname`, `ssellertype`, `scon
 --
 
 CREATE TABLE `spocs` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `spoc` varchar(225) DEFAULT NULL,
-  `slno` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `slno` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `spocs`
@@ -14917,10 +14920,10 @@ INSERT INTO `spocs` (`id`, `spoc`, `slno`) VALUES
 --
 
 CREATE TABLE `subcategories` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `name` varchar(200) DEFAULT NULL,
   `description` varchar(225) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `subcategories`
@@ -15075,91 +15078,91 @@ ALTER TABLE `subcategories`
 -- AUTO_INCREMENT for table `addlot`
 --
 ALTER TABLE `addlot`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1071;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1072;
 
 --
 -- AUTO_INCREMENT for table `adminprofile`
 --
 ALTER TABLE `adminprofile`
-  MODIFY `sl_no` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `sl_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `auction`
 --
 ALTER TABLE `auction`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=441;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=444;
 
 --
 -- AUTO_INCREMENT for table `biddercart`
 --
 ALTER TABLE `biddercart`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3451;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3451;
 
 --
 -- AUTO_INCREMENT for table `biddingdata`
 --
 ALTER TABLE `biddingdata`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7003;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7003;
 
 --
 -- AUTO_INCREMENT for table `buyerprofile`
 --
 ALTER TABLE `buyerprofile`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1035;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1035;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `enquiry_form`
 --
 ALTER TABLE `enquiry_form`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2955;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2955;
 
 --
 -- AUTO_INCREMENT for table `enquriyform_login`
 --
 ALTER TABLE `enquriyform_login`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `latestnews`
 --
 ALTER TABLE `latestnews`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `liveauction`
 --
 ALTER TABLE `liveauction`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `resetpassword`
 --
 ALTER TABLE `resetpassword`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `sellerprofile`
 --
 ALTER TABLE `sellerprofile`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=226;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=226;
 
 --
 -- AUTO_INCREMENT for table `spocs`
 --
 ALTER TABLE `spocs`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `subcategories`
 --
 ALTER TABLE `subcategories`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

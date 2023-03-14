@@ -45,9 +45,8 @@ function validatestart(){
 	   var saucclosedate_time = document.getElementById("saucclosedate_time").value;
 	var sterms_text = document.getElementById("sterms_text").value;
  var fileInput =  document.getElementById('sterms_condiupload1');
+ //var fileExternalBuyers =  document.getElementById('sterms_condexbuyers');
   var Yes =  document.getElementById('firstCheckBox');
-  
- 	
 	
 	
 	if(srefid == '' || scompanyname == ''|| svinspection == ''  || sfrominpectdate_time == '' || stoinpectdate_time == '' || semddetail == '' || slastdateemdsub == '' || saucstartdate_time == '' || saucclosedate_time == '' ){
