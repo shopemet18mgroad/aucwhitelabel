@@ -108,6 +108,26 @@ function validate_password_seller(){
 	 }
  }
  </script>
+ <script>
+ function tender_id(){
+	 var cat = document.getElementById('scategory').value;
+	  var cat2 = document.getElementById('srefid').value;
+	  var res = cat2.replace(" ", "");
+	  res = res.replace("-", "");
+	   var d = new Date();
+	   var m = d.getHours();
+	   var n = d.getMinutes();
+	   var s = d.getSeconds();
+	 if(cat == 'Select'){
+		 swal("Alert!", "Please Select Categoery First", "error");
+		 return false;
+	 }
+	 
+	 if(cat2.length<21){
+		  document.getElementById('sauctionid').value = "TEN/"+res+"/"+cat+"/"+m+"/"+n+"/"+s;
+	 }
+ }
+ </script>
  
   <script>
 		$('#gettable_auction_seller').on('keyup', function(){

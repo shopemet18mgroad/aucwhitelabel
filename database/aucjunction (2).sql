@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 14, 2023 at 09:30 PM
+-- Generation Time: Mar 17, 2023 at 05:23 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -771,7 +771,12 @@ INSERT INTO `auction` (`id`, `sname`, `srefid`, `scompanyname`, `scompanyid`, `s
 (439, 'MODERN AUTOMOTIVES LTD', 'MAL3', 'MODERN AUTOMOTIVES LTD', NULL, 'Ferrous', 'AUC/MAL3/Ferrous/17/11/52', 'Malur', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-03-03 15:30:00', '2023-03-03 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-03-01 10:30:00', '2023-03-03 14:30:00', '2023-03-03', '20000'),
 (440, 'ADITYA AUTO PRODUCTS AND ENGINEERING INDIA PRIVATE', 'AAP', 'ADITYA AUTO PRODUCTS AND ENGINEERING INDIA PRIVATE LIMITED', NULL, 'Ferrous', 'AUC/AAP/Ferrous/17/41/54', 'Doddaballapur', NULL, 1, 0, NULL, 'NA', NULL, NULL, NULL, NULL, NULL, NULL, '2023-03-06 15:30:00', '2023-03-06 16:30:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-03-04 11:00:00', '2023-03-06 14:00:00', '2023-03-06', '50000'),
 (442, 'SURYA HYDRAULICS', 'alfa', 'SURYA HYDRAULICS', NULL, 'Ferrous', '', 'asda', NULL, 1, 0, NULL, 'dsd', NULL, NULL, NULL, NULL, NULL, NULL, '2023-03-12 13:34:00', '2023-03-12 13:34:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-03-12 13:34:00', '2023-03-12 13:34:00', '2023-03-12', 'sds'),
-(443, 'SURYA HYDRAULICS', 'alfabeta', 'SURYA HYDRAULICS', NULL, 'Ferrous', 'AUC/alfabeta/Ferrous/14/27/50', 'alfalocv', NULL, 1, 1, NULL, 'ss', NULL, NULL, NULL, NULL, NULL, NULL, '2023-03-15 14:29:00', '2023-03-15 14:29:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-03-14 14:28:00', '2023-03-14 14:28:00', '2023-03-15', 'wss');
+(443, 'SURYA HYDRAULICS', 'alfabeta', 'SURYA HYDRAULICS', NULL, 'Ferrous', 'AUC/alfabeta/Ferrous/14/27/50', 'alfalocv', NULL, 1, 1, NULL, 'ss', NULL, NULL, NULL, NULL, NULL, NULL, '2023-03-15 14:29:00', '2023-03-15 14:29:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-03-14 14:28:00', '2023-03-14 14:28:00', '2023-03-15', 'wss'),
+(444, 'SURYA HYDRAULICS', 'desds', 'SURYA HYDRAULICS', NULL, 'Ferrous', 'AUC/desds/Ferrous/16/7/13', NULL, NULL, NULL, 1, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'dsf'),
+(445, 'SURYA HYDRAULICS', 'ddd', 'SURYA HYDRAULICS', NULL, 'Ferrous', 'TEN/ddd/Ferrous/20/4/50', NULL, NULL, 1, 1, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, '2023-03-15 20:04:00', '2023-03-15 20:04:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'sdsd'),
+(446, 'SURYA HYDRAULICS', 'sd', 'SURYA HYDRAULICS', NULL, 'Ferrous', 'TEN/sd/Ferrous/20/5/50', NULL, NULL, 1, 1, NULL, 'dfgvf', NULL, NULL, NULL, NULL, NULL, NULL, '2023-03-15 20:05:00', '2023-03-15 20:05:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'dszd'),
+(447, 'SURYA HYDRAULICS', 'fd', 'SURYA HYDRAULICS', NULL, 'Ferrous', 'TEN/fd/Ferrous/20/8/13', NULL, NULL, 1, 1, NULL, 'xcfvdsfedrsf', NULL, NULL, NULL, NULL, NULL, NULL, '2023-03-15 20:08:00', '2023-03-16 20:08:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'dsfe'),
+(448, 'SURYA HYDRAULICS', 'asxsd', 'SURYA HYDRAULICS', NULL, 'Timbers', 'AUC/asxsd/Timbers/17/19/1', 'sadxdws', NULL, 1, 1, NULL, 'xccvdv', NULL, NULL, NULL, NULL, NULL, NULL, '2023-03-16 17:19:00', '2023-03-16 17:19:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-03-16 17:19:00', '2023-03-16 17:19:00', '2023-03-16', 'asdxsaq');
 
 -- --------------------------------------------------------
 
@@ -14976,6 +14981,60 @@ INSERT INTO `subcategories` (`id`, `name`, `description`) VALUES
 (44, 'PLUMBING and CERAMICS', 'Type: Flats, Sheets, Rods Etc\r\nUsage/Application: Industrial & Constructions\r\nState of Matter: Solid/Semi Solid\r\nForm: Meters / Square Ft, Pieces / Nos.'),
 (45, 'OTHERS', 'Type: Decorative, Pop\'s, Sheets, Designing, Electrical Etc\r\nUsage/Application: Industrial & Construction.\r\nState of Matter : Solid\r\nForm: Nos, Meters, Pieces, Kilograms Etc.');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tender`
+--
+
+CREATE TABLE `tender` (
+  `sl_no` int(10) NOT NULL,
+  `category` varchar(100) DEFAULT NULL,
+  `sname` varchar(100) DEFAULT NULL,
+  `trefid` varchar(200) DEFAULT NULL,
+  `tenderid` varchar(100) DEFAULT NULL,
+  `tenderdesc` tinytext DEFAULT NULL,
+  `tenderstartdate` datetime NOT NULL DEFAULT current_timestamp(),
+  `tenderenddate` datetime NOT NULL DEFAULT current_timestamp(),
+  `tterms_condiaccept` tinyint(1) NOT NULL DEFAULT 0,
+  `tterms_condiupload` text DEFAULT NULL,
+  `ttermsandcond_own` varchar(500) DEFAULT NULL,
+  `exttender_optin` tinyint(1) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tender`
+--
+
+INSERT INTO `tender` (`sl_no`, `category`, `sname`, `trefid`, `tenderid`, `tenderdesc`, `tenderstartdate`, `tenderenddate`, `tterms_condiaccept`, `tterms_condiupload`, `ttermsandcond_own`, `exttender_optin`) VALUES
+(20, 'TENDER', 'SURYA HYDRAULICS', 'asd', 'TEN/asd/TENDER/23/57/40', 'asdfd', '2023-03-16 23:57:00', '2023-03-17 23:57:00', 1, NULL, 'sdws', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tender_batch`
+--
+
+CREATE TABLE `tender_batch` (
+  `sl_no` int(10) NOT NULL,
+  `tenderid` varchar(200) DEFAULT NULL,
+  `tenderer` varchar(200) DEFAULT NULL,
+  `tslotno` int(10) DEFAULT NULL,
+  `batchname` varchar(100) DEFAULT NULL,
+  `category` varchar(100) DEFAULT NULL,
+  `batchdes` text DEFAULT NULL,
+  `batchunits` varchar(10) DEFAULT NULL,
+  `batchreqqty` varchar(10) DEFAULT NULL,
+  `batchhsncode` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tender_batch`
+--
+
+INSERT INTO `tender_batch` (`sl_no`, `tenderid`, `tenderer`, `tslotno`, `batchname`, `category`, `batchdes`, `batchunits`, `batchreqqty`, `batchhsncode`) VALUES
+(17, 'TEN/asd/TENDER/23/57/40', 'SURYA HYDRAULICS', 1, 'Alfa Romeo', 'Transformers', '<p>Saxsa</p>', 'KG', '5465', '26GHBN6');
+
 --
 -- Indexes for dumped tables
 --
@@ -15071,6 +15130,18 @@ ALTER TABLE `subcategories`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tender`
+--
+ALTER TABLE `tender`
+  ADD PRIMARY KEY (`sl_no`);
+
+--
+-- Indexes for table `tender_batch`
+--
+ALTER TABLE `tender_batch`
+  ADD PRIMARY KEY (`sl_no`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -15090,7 +15161,7 @@ ALTER TABLE `adminprofile`
 -- AUTO_INCREMENT for table `auction`
 --
 ALTER TABLE `auction`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=444;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=449;
 
 --
 -- AUTO_INCREMENT for table `biddercart`
@@ -15163,6 +15234,18 @@ ALTER TABLE `spocs`
 --
 ALTER TABLE `subcategories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+
+--
+-- AUTO_INCREMENT for table `tender`
+--
+ALTER TABLE `tender`
+  MODIFY `sl_no` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `tender_batch`
+--
+ALTER TABLE `tender_batch`
+  MODIFY `sl_no` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

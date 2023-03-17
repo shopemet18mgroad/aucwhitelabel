@@ -51,16 +51,15 @@ class Seller_logo_update extends CI_Controller {
 		// 		die;
 		// 	}
 		// }
-		
+		$dir = str_replace('http://','',base_url());
 	   
 		if($_FILES['ssigneddocument']['tmp_name'][0]){
             if(!@getimagesize(base_url()."web_files/img/logo.jpg")){
-                echo "file does not exists";die;
                 $doc_array = self::upload_files('ssigneddocument');
             }else{
                 echo "file does exists";
-                rename(base_url()."web_files/img/logo.jpg", base_url()."web_files/img/".rand().".jpg");
-                die;
+                unlink("./web_files/img/logo.jpg");
+				$doc_array = self::upload_files('ssigneddocument');
             }
 			
 		}

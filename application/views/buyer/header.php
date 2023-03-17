@@ -186,7 +186,18 @@
 	
 			<a class="sidebar-brand d-flex align-items-center justify-content-center" href="buyer_dashboard">
         <div class="sidebar-brand-img rotate-n-20 ">
-         <img src="<?php echo base_url()."web_files/";?>img/aucjunction.jpg"  alt="" width="40%;">
+        <?php 
+        $img_link = base_url()."web_files/img/logo.jpg";
+          if (@getimagesize($img_link)) {
+        ?>
+ <img src="<?php echo base_url()."web_files/";?>img/logo.jpg" class="img-fluid" alt="" width="45%;">
+ <?php
+          }else{
+   ?> 
+         <img src="<?php echo base_url()."web_files/";?>img/Maku.png" class="img-fluid" alt="" width="45%;">   
+    <?php       
+          }
+        ?>
         </div>
         
       </a>

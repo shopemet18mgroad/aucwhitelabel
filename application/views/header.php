@@ -337,7 +337,7 @@ togglePassword.addEventListener('click', function (e) {
 						  Registration
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						  <a class="dropdown-item" href="<?php echo base_url();?>sellers_registeration">Seller's Registration</a>
+						  <!-- <a class="dropdown-item" href="<?php echo base_url();?>sellers_registeration">Seller's Registration</a> -->
 						  <a class="dropdown-item" href="<?php echo base_url();?>buyers_registeration">Buyer's Registration</a>
 						</div>
 					  </li>

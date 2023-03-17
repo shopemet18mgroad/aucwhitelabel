@@ -128,7 +128,100 @@ function validatestart(){
 
 	
 	}
-          
+ 
+	function validatestart_tender(){
+	
+		var cat = document.getElementById('scategory').value;
+		var srefid = document.getElementById("srefid").value;
+		var scompanyname = document.getElementById("scompanyname").value;
+		var semddetail = document.getElementById("semddetail").value;
+		  var saucstartdate_time = document.getElementById("saucstartdate_time").value;
+		  var saucclosedate_time = document.getElementById("saucclosedate_time").value;
+	   var sterms_text = document.getElementById("sterms_text").value;
+	var fileInput =  document.getElementById('sterms_condiupload1');
+	var fileExternalBuyers =  document.getElementById('sterms_condexbuyers');
+	 var Yes =  document.getElementById('firstCheckBox');
+	   
+	   
+	   if(srefid == '' || scompanyname == '' || semddetail == '' || saucstartdate_time == '' || saucclosedate_time == '' ){
+		   swal("Alert!",  "Cannot leave any field blank!", "error");
+		   return false;
+	   }
+	   
+	   if(cat == 'Select'){
+			swal("Alert!", "Please Select Categoery First", "error");
+			return false;
+		}
+	   
+		   
+	   
+	   
+			   if( $('input[name="sterms_condiaccept"]:checked').length == 0 )
+			   {
+				   swal("Alert!",  "I agree to the Terms and Conditions Should Be Selected", "error");
+				   return false;
+			   }
+				
+				if( $('input[name="sterms_condiupload1[]"]:checked').length == 0 )  
+			   { 
+				   swal("Alert!",  "Please select one checkbox ", "error");
+				   return false;
+			   } 
+				
+				if(Yes.checked){
+						if (!document.getElementById("sterms_condiupload").value) {
+				   event.preventDefault();
+				   swal("Alert!","Please choose a file!", "error");
+				   return false; 			
+				   }else{
+					   var filePath = fileInput.value; 
+			 
+			  // Allowing file type 
+			   var allowedExtensions =  /(\.doc|\.docx|\.png|\.pdf|\.jpg|\.xlsx|\.gif)$/i; 
+				 
+			   if (!allowedExtensions.exec(filePath)) { 
+				   swal("Alert!","Invalid file type","error"); 
+				   fileInput.value = ''; 
+				   return false; 
+			   }
+				   }
+				   
+				}else{
+					 if (!document.getElementById("sterms_text").value) {
+				   event.preventDefault();
+				   swal("Alert!","Text Area Cannot Be Left Blank!", "error");
+				   return false; 			
+				   }
+				}
+				
+				
+				
+   
+				   
+					
+   
+				   /* else if(sterms_text == ''){
+			swal("Alert!", "Please write", "error");
+			return false;
+		}
+			   else{
+				   return true;
+			   } */
+				   /* if (!document.getElementById("sterms_text").value) {
+			   event.preventDefault();
+			   swal("Alert!","Please writessss!", "error");
+			   return false; 			
+		   }  */
+			   
+			
+	   
+			   
+						
+			   
+	   
+   
+	   
+	   }
 	
 			
 	

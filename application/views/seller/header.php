@@ -115,7 +115,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="<?php echo base_url();?>seller_tenderresults">Tender Results</a>
            
-			 <a class="collapse-item" href="<?php echo base_url();?>seller_tenderresults">Edit Tender</a>
+			 <a class="collapse-item" href="<?php echo base_url();?>Seller_editforthcomtenders">Edit Tender</a>
            </div>
         </div>
       </li>
@@ -193,11 +193,11 @@
         $img_link = base_url()."web_files/img/logo.jpg";
           if (@getimagesize($img_link)) {
         ?>
- <img src="<?php echo base_url()."web_files/";?>img/logo.jpg" class="img-fluid" alt="" width="20%;">
+ <img src="<?php echo base_url()."web_files/";?>img/logo.jpg" class="img-fluid" alt="" width="45%;">
  <?php
           }else{
    ?> 
-         <img src="<?php echo base_url()."web_files/";?>img/Maku.png" class="img-fluid" alt="" width="20%;">   
+         <img src="<?php echo base_url()."web_files/";?>img/Maku.png" class="img-fluid" alt="" width="45%;">   
     <?php       
           }
         ?>
