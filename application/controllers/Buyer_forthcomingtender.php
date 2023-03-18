@@ -128,7 +128,7 @@ class Buyer_forthcomingtender extends CI_Controller {
 				$desc = str_ireplace(',','%2C',$dat['batchdes']);
 				$desc2 = str_ireplace('(','%28',$desc );
 				$desc3 = str_ireplace(')','%29',$desc2 );
-				echo'<button type="button" id="'.$aucencode.'|'.$dat['tslotno'].'" onClick="addtocart(this.id)">';
+				echo'<button type="button" id="'.$aucencode.'|'.$dat['tslotno'].'" onClick="addtocarttend(this.id)">';
 				echo'<i class="fas fa-heart" id="'.$aucencode.'|'.$dat['tslotno'].'"></i>';
 				echo'</button>';
 				echo '</td>';

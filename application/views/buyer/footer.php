@@ -121,6 +121,13 @@
 	
 	$('#gettable_forth').on('keyup', function(){
 			var contents = $('#gettable_forth').val(); 
+			$.get('<?php echo base_url() .'buyer_forthcomingauc/get_table/'; ?>'+contents, function(data){
+				$('#ajaxrslt_forthcomingauc').html(data);
+			});
+		});
+
+		$('#gettable_forth_ten').on('keyup', function(){
+			var contents = $('#gettable_forth_ten').val(); 
 			$.get('<?php echo base_url() .'buyer_forthcomingtender/get_table/'; ?>'+contents, function(data){
 				$('#ajaxrslt_forthcomingauc').html(data);
 			});

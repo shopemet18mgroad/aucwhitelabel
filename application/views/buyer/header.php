@@ -152,6 +152,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="<?php echo base_url();?>buyer_occupied">Occupied Product</a>
             <a class="collapse-item" href="<?php echo base_url();?>buyer_lostproduct">Lost Product</a>
+            <a class="collapse-item" href="<?php echo base_url();?>buyer_tender_result">Product</a>
            </div>
         </div>
       </li>
@@ -167,7 +168,9 @@
 	  <li class="nav-item">
 	  	<a class="nav-link" href="<?php echo base_url();?>buyer_liveauc"><i class="fas fa-fw fa-gavel"></i><span><b>Live Auction</b></span></a>
 	   	 </li>
-	   	
+        <li class="nav-item">
+	  	<a class="nav-link" href="<?php echo base_url();?>buyer_livetend"><i class="fas fa-fw fa-gavel"></i><span><b>Live Tender</b></span></a>
+	   	 </li>
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
