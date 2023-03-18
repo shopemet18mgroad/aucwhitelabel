@@ -516,7 +516,13 @@ class Admin_model extends CI_Model
 		$q = $this->db->get();
 		return $q->result_array();
 	}
-
+	public function get_lookalike_ted($table, $col, $query)
+	{
+		$this->db->from($table);
+		$this->db->like($col, $query);
+		$q = $this->db->get();
+		return $q->result_array();
+	}
 	public function get_lookalike5($table, $col, $query, $date)
 	{
 		$this->db->from($table);

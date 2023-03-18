@@ -121,7 +121,7 @@
 	
 	$('#gettable_forth').on('keyup', function(){
 			var contents = $('#gettable_forth').val(); 
-			$.get('<?php echo base_url() .'buyer_forthcomingauc/get_table/'; ?>'+contents, function(data){
+			$.get('<?php echo base_url() .'buyer_forthcomingtender/get_table/'; ?>'+contents, function(data){
 				$('#ajaxrslt_forthcomingauc').html(data);
 			});
 		});
@@ -142,7 +142,21 @@ function addtocart(v){
 	});
 }
 </script>
- 
+<script>
+
+function addtocarttend(v){
+  $.get('<?php echo base_url() .'buyer_forthcomingtender/Addtocart/'; ?>'+v, function(data){
+	  if($.trim(data)=="EX"){
+		  document.getElementById(v).style.color="blue";
+		  return false;
+	  }else{
+		  document.getElementById(v).style.color="red";
+		  return false;
+	  }
+				
+	});
+}
+</script>
  <script>
  function validate_user_password(){
 	 

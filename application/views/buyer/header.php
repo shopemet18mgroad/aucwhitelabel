@@ -132,7 +132,11 @@
           <i class="fas fa-fw fa-gavel"></i>
           <span>Forthcoming Auction</span></a>
       </li>
-	  
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url();?>buyer_forthcomingtender">
+          <i class="fas fa-fw fa-gavel"></i>
+          <span>Forthcoming Tender</span></a>
+      </li>
 	  	  <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url();?>buyer_detailedauc">
           <i class="fas fa-chart-bar"></i>

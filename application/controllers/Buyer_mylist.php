@@ -84,7 +84,7 @@ class Buyer_mylist extends CI_Controller {
 		$this->load->view('buyer/mylist', $data);
 		$this->load->view('buyer/footer');
 	}
-	}
+	
 	 if($this->input->post('submit')){
 			$date =  Date('Y-m-d'); 
 			$this->load->library('fileupload');
@@ -120,7 +120,8 @@ class Buyer_mylist extends CI_Controller {
 			  
 		
 		
-
+			}
+		}
 	
 	private function upload_files($nameid)
     {	
