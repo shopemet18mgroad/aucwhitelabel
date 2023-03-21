@@ -27,12 +27,12 @@
 						<div class="text-center col-sm-12">
 						<!-- <form action="/action_page.php"> -->
 								
-								<label for="gettable" ><strong>Category:</strong></label>
+								<!-- <label for="gettable" ><strong>Category:</strong></label>
 								
 								<select class="form-control gettable" id="gettable_forthcomingauc" name="scategory" >
 							<option>SELECT</option>
 							<option value="">All</option>
-								</select>
+								</select> -->
 								
 								<!--<button class="form-control" type="submit"><i class="fa fa-search"></i></button>-->
 					

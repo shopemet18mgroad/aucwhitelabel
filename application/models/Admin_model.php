@@ -143,7 +143,19 @@ class Admin_model extends CI_Model
 		$query = $this->db->get(); 
 		return $query->result();
 		}
-		
+		public function datebetweensess_ted($table, $date, $sessi)
+		{
+			$this->db->select('*');
+			//$this->db->group_by('sl_no');
+			$this->db->from('tendercart');
+			$this->db->join('tender', 'tender.tenderid = tendercart.tenderid');
+			$this->db->where('tendercart.tenderstartdate <=', $date);
+			$this->db->where('tendercart.tenderenddate >=', $date);
+			$this->db->where('bidderusername =', $sessi);
+			//$this->db->where('emdrequest =', 1 <> 'emd_paid_dd =', 1);
+			$query = $this->db->get(); 
+			return $query->result();
+			}	
 		public function getemdlot($table, $auctionid, $sessi) {
 			$this->db->select('*');			
 			$this->db->from('addlot');
@@ -283,6 +295,12 @@ class Admin_model extends CI_Model
 	{
 		$this->db->where('emdrequest =', 1 <> 'emd_paid_dd =', 1);
 		$this->db->order_by('id','DESC');
+		$query = $this->db->get_where($table, $data);
+		return $query->result();
+	}
+	public function get_ted($table, $data)
+	{
+		$this->db->order_by('sl_no','DESC');
 		$query = $this->db->get_where($table, $data);
 		return $query->result();
 	}
@@ -518,8 +536,12 @@ class Admin_model extends CI_Model
 	}
 	public function get_lookalike_ted($table, $col, $query)
 	{
+		$date = Date('Y-m-d H:i:s');
 		$this->db->from($table);
+		$this->db->join('tender', 'tendercart.tenderid = tender_batch.tenderid');
 		$this->db->like($col, $query);
+		$this->db->where('tenderstartdate <=', $date);
+		$this->db->where('tenderenddate >=', $date);
 		$q = $this->db->get();
 		return $q->result_array();
 	}
