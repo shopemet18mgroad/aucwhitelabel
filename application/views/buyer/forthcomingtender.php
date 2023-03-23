@@ -40,8 +40,8 @@
 					</div><br><br><br>
 						<div class="text-center col-sm-12">
 						<!-- <form action="/action_page.php"> -->
-								<label for="gettable"></label>
-								<input type="text" class="form-control gettable " id="gettable_forth_ten" placeholder="Enter Lot Description To Fetch Result"  size="60" name="search">
+								<label for="gettable_2"></label>
+								<input type="text" class="form-control gettable_2 " id="gettable_forth_ten" placeholder="Enter Lot Description To Fetch Result"  size="60" name="search">
 								
 								<!--<button class="form-control" type="submit"><i class="fa fa-search"></i></button>-->
 					

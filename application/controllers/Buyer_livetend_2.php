@@ -38,36 +38,37 @@ class Buyer_livetend_2 extends CI_Controller {
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		$active = array('bidderusername'=>$sess['sessi'],'tenderid'=>$auctionid);
 		$active2 = array('tenderid'=>$auctionid);
-		$queryb = $this->Admin_model->get_ted('tendercart', $active);
+		$queryb = $this->Admin_model->get_ted_join($sess['sessi'], $auctionid);
 		$tctr = count($queryb);
-		print_r($queryb);die;
-		$query = $this->Admin_model->get_new2022('biddercart', $active, $tctr);
-		$query2 = $this->Admin_model->getemdlot('biddercart', $auctionid, $sess['sessi']);
+		
+		//$query = $this->Admin_model->get_new2022('tendercart', $active, $tctr);
+		//print_r($queryb);die;
+		//$query2 = $this->Admin_model->getemdlot('biddercart', $auctionid, $sess['sessi']);
 		//echo '<pre>';print_r($query);  echo '</pre>';
-		$data['sqldata'] = $query;
-		$jk = count($query);
+		$data['sqldata'] = $queryb;
+		$jk = count($queryb);
 		for($i=0;$i<$jk;$i++){
-		$aucstarttime = $data['sqldata'][$i]->aucstartdate_time;
+		$aucstarttime = $data['sqldata'][$i]->tenderstartdate;
 		$tmp1 = explode('.',$aucstarttime);
 		$aucstarttime = $tmp1[0];
 		$data['st'][$i] = $aucstarttime;
 		
-		$aucclosetime = $data['sqldata'][$i]->aucclosedate_time;
+		$aucclosetime = $data['sqldata'][$i]->tenderenddate;
 		$tmp = explode('.',$aucclosetime);
 		$aucclosetime = $tmp[0];
 		$data['ct'][$i] = $aucclosetime;
 		}
-		$data['sqldata2'] = $query2;
+		$data['sqldata2'] = $queryb;
 		// echo '<pre>';
 		// print_r($data['sqldata2']); 
 		// echo '</pre>';
 		$data['sessi'] = $sess['sessi'];
-		
-		$data2 = array('liveaucterms_condi'=>true);
-		$updatech = array('bidderusername'=>$sess['sessi'],'auctionid'=>$auctionid);
-		$this->load->model('Admin_model');
-		//$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
-		$status = $this->Admin_model->update_custom('biddercart',$data2,$updatech,$updatech);
+		//print_r($data);
+		// $data2 = array('liveaucterms_condi'=>true);
+		// $updatech = array('bidderusername'=>$sess['sessi'],'auctionid'=>$auctionid);
+		// $this->load->model('Admin_model');
+		// //$data['sqldata'] = $this->Admin_model->getdatafromtable('auction',$retriveval);
+		// $status = $this->Admin_model->update_custom('biddercart',$data2,$updatech,$updatech);
 		
 		
 		$this->load->view('buyer/header',$sess);

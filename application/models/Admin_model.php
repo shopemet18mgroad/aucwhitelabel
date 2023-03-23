@@ -304,6 +304,15 @@ class Admin_model extends CI_Model
 		$query = $this->db->get_where($table, $data);
 		return $query->result();
 	}
+	public function get_ted_join($busername, $tenderid){
+		$this->db->select('*');
+		$this->db->from('tendercart');
+		$this->db->join('tender_batch', 'tendercart.tenderid = tender_batch.tenderid');
+		$this->db->where('tendercart.bidderusername =', $busername);
+		$this->db->where('tendercart.tenderid =', $tenderid);
+		$query = $this->db->get();
+		return $query->result();
+	}
 	public function get_new2022($table, $data , $tctr)
 	{
 		$this->db->where('emdrequest =', 1 <> 'emd_paid_dd =', 1);
@@ -538,9 +547,9 @@ class Admin_model extends CI_Model
 	{
 		$date = Date('Y-m-d H:i:s');
 		$this->db->from($table);
-		$this->db->join('tender', 'tendercart.tenderid = tender_batch.tenderid');
+		$this->db->join('tender', 'tender.tenderid = tender_batch.tenderid');
 		$this->db->like($col, $query);
-		$this->db->where('tenderstartdate <=', $date);
+		//$this->db->where('tenderstartdate >=', $date);
 		$this->db->where('tenderenddate >=', $date);
 		$q = $this->db->get();
 		return $q->result_array();

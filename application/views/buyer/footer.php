@@ -58,7 +58,7 @@
  
  <script>
 		$('.gettable').on('keyup', function(){
-			var contents = $('#gettable').val(); 
+			var contents = $('#gettable_2').val(); 
 			$.get('<?php echo base_url() .'buyer_liveauc2/get_table/'; ?>'+contents, function(data){
 				$('#ajaxrslt').html(data);
 			});
@@ -104,6 +104,23 @@
 		var contents = $('#gettable_forthcomingauc').val(); 
 			 $.get('<?php echo base_url() .'buyer_forthcomingauc/get_table/'; ?>'+contents, function(data){
 				$('#ajaxrslt_forthcomingauc').html(data);
+			});
+
+      var selection = $(this).val();
+	  
+      var dataset = $('#myTable').find('tr');
+	 
+         $.each(dataset, function(index, item) {
+            help
+          });
+		  
+
+  });
+  $('#gettable_forthcomingtend').change( function(){
+		
+		var contents = $('#gettable_forthcomingtend').val(); 
+			 $.get('<?php echo base_url() .'buyer_forthcomingtender/get_table/'; ?>'+contents, function(data){
+				$('#ajaxrslt_forthcomingtend').html(data);
 			});
 
       var selection = $(this).val();
