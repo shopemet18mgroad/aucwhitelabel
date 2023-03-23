@@ -216,17 +216,31 @@ function validate_password(){
  
  
  <script>
+function bid_manual_ted(v){
+	
+	var spd = v.split("|");
+	var spdvar = "bid-"+(spd[2]);
+	var cbidvar = "cbidvalue-"+(spd[2]);
+	var abidvar = "abidding-"+(spd[2]);
+	var bidval =  parseFloat(document.getElementById(cbidvar).value);
+	var mybidval = parseFloat(document.getElementById(abidvar).value);
+	var pbidval = parseFloat(document.getElementById(spdvar).value);
+
+	if (( bidval < pbidval)){
+		        swal("Alert!","Max Bid Value Should be less than "+bidval,"error" );
+		     return false;
+        }
+		$.get('<?php echo base_url() .'Buyer_liveauc_2/get_currency/'; ?>'+pbidval, function(data){
+			alert(data);
+		});
+}
  function  bid_manual(v){
 	
 	 var spd = v.split("|");
 	 //alert(spd[2]-1);return false;
 	 var spdvar = "bid-"+(spd[2]-1);
 	 var minbidvalue = parseInt(document.getElementById("cbidvalue-"+(spd[2]-1)).value);
-	 
- 
 	 var currentbid = parseInt( document.getElementById("abidding-"+(spd[2]-1)).value) ;
-	 
-	 
 	 var sbid = parseInt(document.getElementById("bidding-" +(spd[2]-1)).value) ;
 	 
 	//alert(sbid); return false;

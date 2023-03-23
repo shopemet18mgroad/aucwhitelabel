@@ -1,6 +1,6 @@
  <?php 
 	//include('./header.php');
-	//print_r($sqldata); die;
+	//print_r($sqldata2); die;
 ?>
 <link href="<?php echo base_url()."web_files/";?>css/tablestyle.css" rel="stylesheet" type="text/css">
 
@@ -50,7 +50,6 @@
           <div class="card shadow mb-4 ml-3">
             <div class="card-body">
               <div class="table-responsive">
-			   <div  style="width:auto;color:white;align-center;text-align:center;" class="bg-primary"><p id="blink"><i class="fa fa-bell mr-2" aria-hidden="true"></i><b>Note: Bidders should give their bids for basic price exclusive of all taxes, All statutory taxes, charges, duties and any other levies<br> as application will have to be paid over and above the quoted price.<br> By Participating in bidding I agree to all the Terms & Conditions Of AUCJUNCTION, Seller and Buyer of the auction.</b></p></div>
 			  <input type="hidden" id="total-lot" value="<?php echo count($sqldata2);?>">
 		<?php $lottimesync = 0; if(isset($sqldata)){foreach($sqldata as $sqld){?>	  
 	<input type="hidden" id="ref-<?php echo $lottimesync;?>" value="<?php echo str_ireplace('/','-',$sqld->tenderid)."|".$sqldata2[$lottimesync]->tslotno; ?>">
@@ -73,7 +72,7 @@
 					<th>Time Elasped</th>
 					<th>Auction Start Date</th>
 					<th>Auction Close Date</th>
-					<th>Seller Terms & Condition</th>
+					<th>Tenderer Terms & Condition</th>
 				</tr>
 				</thead>
 
@@ -87,7 +86,7 @@
 					<td data-label="Time Elasped"><h6 id="timer-<?php echo $lottimesync;?>" style="color:red">Synchronizing Time</h6></td>
 					<td data-label="Auction Start Date"><?php echo $st[$lottimesync]; ?></td>
 					<td data-label="Auction Close Date"><?php echo $ct[$lottimesync]; ?></td>
-					<td data-label="Tenderer Terms & Condition"><a href="#"><u>Click here</u></a></td>
+					<td data-label="Tenderer Terms & Condition"><a href="<?php echo base_url()."/pdf_gen/auc_no/".str_ireplace('/','-',$sqld->tenderid).'/'.($sqldata2[$lottimesync]->tslotno);?>" target="_blank"><u>Click here</u></a></td>
 				</tr>
 				</tbody>
 			</table>
@@ -106,6 +105,7 @@
 					<!--<th>Time Left</th> -->
 					<th>Quantity</th>
 					<th>Unit</th>
+					<th>Download</th>
 					<th>My Bid</th>
 					<th>Live Status</th>					
 					<th width="18%">Bid</th>
@@ -143,9 +143,11 @@ if($diff <= 0){
 					<td data-label="Close Time"><?php echo $ct[$lottimesync]; ?></td>
 					<!-- <td><?php echo $Remaining; ?></td> -->
 					<td data-label="Quantity"><?php echo $sqldata2[$lottimesync]->batchreqqty; ?></td>
+				
 					<td data-label="Unit"><?php echo $sqldata2[$lottimesync]->batchunits; ?></td>
-					<td data-label="My Bid"><?php echo 20;?></td>
-					<td data-label="Live Status"><?php echo 20;; ?></td>
+					<td data-label="Download"><a href="<?php echo base_url()."/pdf_gen/auc_no/".str_ireplace('/','-',$sqld->tenderid).'/'.($sqldata2[$lottimesync]->tslotno);?>" target="_blank"><i class="fa fa-download"></i></a></td>
+					<td data-label="My Bid"><?php echo $sqldata2[$lottimesync]->mybid;?></td>
+					<td data-label="Live Status"><?php echo $sqldata2[$lottimesync]->cbid; ?></td>
 					
 					<td data-label="Bid"><div class="form-group row ml-2">
 					<?php
@@ -164,12 +166,12 @@ if($diff <= 0){
 //$sessa2 = urlencode($sess['sessi']);
 $sessa2 = str_ireplace('@','%40',$sessi);
 					?> 
-					<input class="form-control col-sm-5 mr-2" type="number" value="<?php echo 2; ?>" min="0" step="<?php echo 2; ?>" id="bid-<?php echo 1;?>" name="bid" <?php if(false){echo "readonly";}else{echo "";} ?>>
-					<button type="submit" id="<?php echo $sessa2.'|'.str_ireplace('/','-',$sqld->tenderid)."|".$sqldata2[$lottimesync]->tslotno; ?>" class="btn btn-info" onclick="bid_manual(this.id)" <?php if(false){echo "disabled";}else{echo "";} ?>>Bid</button></div>
+					<input class="form-control col-sm-5 mr-2" type="number" value="<?php echo $sqldata2[$lottimesync]->cbid; ?>" min="0" step="1" id="bid-<?php echo $sqldata2[$lottimesync]->tslotno;?>" name="bid-<?php echo $sqldata2[$lottimesync]->tslotno;?>" <?php if(false){echo "readonly";}else{echo "";} ?>>
+					<button type="submit" id="<?php echo $sessa2.'|'.str_ireplace('/','-',$sqld->tenderid)."|".$sqldata2[$lottimesync]->tslotno; ?>" class="btn btn-info" onclick="bid_manual_ted(this.id)" <?php if(false){echo "disabled";}else{echo "";} ?>>Bid</button></div>
 					
-					<input type="hidden" id="cbidvalue-<?php echo $lot;?>" name="cbidvalue-<?php echo $lot;?>" value="<?php echo 2?>">
-					<input type="hidden" id="abidding-<?php echo $lot;?>" name="abidding-<?php echo $lot;?>" value="<?php echo 2;?>">
-					<input type="hidden" id="bidding-<?php echo $lot;?>" name="bidding-<?php echo $lot;?>" value="<?php echo 2;?>">
+					<input type="hidden" id="cbidvalue-<?php echo $sqldata2[$lottimesync]->tslotno;?>" name="cbidvalue-<?php echo $sqldata2[$lottimesync]->tslotno;?>" value="<?php echo $sqldata2[$lottimesync]->mybid;?>">
+					<input type="hidden" id="abidding-<?php echo $sqldata2[$lottimesync]->tslotno;?>" name="abidding-<?php echo $sqldata2[$lottimesync]->tslotno;?>" value="<?php echo $sqldata2[$lottimesync]->cbid;?>">
+					<!-- <input type="hidden" id="bidding-<?php echo $lot;?>" name="bidding-<?php echo $sqldata2[$lottimesync]->tslotno;?>" value="<?php echo 2;?>"> -->
 					
 				  </td>
 				  <?php if(true){?>

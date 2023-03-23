@@ -42,7 +42,10 @@ class Buyer_livetend_2 extends CI_Controller {
 		$tctr = count($queryb);
 		
 		//$query = $this->Admin_model->get_new2022('tendercart', $active, $tctr);
-		//print_r($queryb);die;
+		// echo "<pre>";
+		// print_r($queryb);
+		// echo "<pre>";
+		// die;
 		//$query2 = $this->Admin_model->getemdlot('biddercart', $auctionid, $sess['sessi']);
 		//echo '<pre>';print_r($query);  echo '</pre>';
 		$data['sqldata'] = $queryb;

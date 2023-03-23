@@ -145,13 +145,20 @@ class Admin_model extends CI_Model
 		}
 		public function datebetweensess_ted($table, $date, $sessi)
 		{
-			$this->db->select('*');
+			$this->db->distinct();
+			$this->db->select('tender.tenderid');
+			$this->db->select('tender.sname');
+			$this->db->select('tender.tenderdesc');
+			$this->db->select('tender.tenderstartdate');
+			$this->db->select('tender.tenderenddate');
+
 			//$this->db->group_by('sl_no');
 			$this->db->from('tendercart');
 			$this->db->join('tender', 'tender.tenderid = tendercart.tenderid');
 			$this->db->where('tendercart.tenderstartdate <=', $date);
 			$this->db->where('tendercart.tenderenddate >=', $date);
 			$this->db->where('bidderusername =', $sessi);
+			
 			//$this->db->where('emdrequest =', 1 <> 'emd_paid_dd =', 1);
 			$query = $this->db->get(); 
 			return $query->result();
@@ -306,6 +313,7 @@ class Admin_model extends CI_Model
 	}
 	public function get_ted_join($busername, $tenderid){
 		$this->db->select('*');
+		$this->db->group_by('tender_batch.sl_no');
 		$this->db->from('tendercart');
 		$this->db->join('tender_batch', 'tendercart.tenderid = tender_batch.tenderid');
 		$this->db->where('tendercart.bidderusername =', $busername);

@@ -33,8 +33,10 @@ class Buyer_livetend extends CI_Controller {
 		$sess = array('sessi'=>$this->session->userdata('username'));
 		//print_r($sess['sessi']);die;
 		$data['sqldata'] = $this->Admin_model->datebetweensess_ted('tendercart',$time,$sess['sessi']);
-		//print_r($data2['sqldata']); 
-		//die;
+		// echo "<pre>";
+		// print_r($data['sqldata']); 
+		// echo "<pre>";
+		// die;
 		//$check_array = array('dat'=>);
 		$this->load->view('buyer/header',$sess);
 		$this->load->view('buyer/livetend',$data);
