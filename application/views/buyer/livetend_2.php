@@ -174,7 +174,7 @@ $sessa2 = str_ireplace('@','%40',$sessi);
 					<!-- <input type="hidden" id="bidding-<?php echo $lot;?>" name="bidding-<?php echo $sqldata2[$lottimesync]->tslotno;?>" value="<?php echo 2;?>"> -->
 					
 				  </td>
-				  <?php if(true){?>
+				  <?php if(false){?>
 					<?php }?>
 					
 				</tr>
@@ -272,16 +272,16 @@ function telapsed() {
 	 //alert(totallot);
   var contents = $('#ref-0').val(); 
   
-			$.get('<?php echo base_url() .'Buyer_liveauc_2/get_table_ajax/'; ?>'+contents, function(data){
+			$.get('<?php echo base_url() .'Buyer_livetend_2/get_table_ajax/'; ?>'+contents, function(data){
 				$('#ajaxauc').html(data);
 	});
-  setTimeout(executeQuery, 120000); // you could choose not to continue on failure...
+  setTimeout(executeQuery, 30000); // you could choose not to continue on failure...
 }
 
 $(document).ready(function() {
 	setTimeout(telapsed, 1000)
   // run the first time; all subsequent calls will take care of themselves
-  setTimeout(executeQuery, 120000);
+  setTimeout(executeQuery, 30000);
   
 });
  </script>

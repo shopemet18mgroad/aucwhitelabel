@@ -32,7 +32,6 @@ class Buyer_livetend_2 extends CI_Controller {
 		$vararray2 = explode('|',$vararray);
 		$auctionid = str_ireplace('-','/',$vararray2[0]);
 		//$lotno = $vararray2[1];
-		
 		$sess = $this->session->userdata('username');
 		$this->load->model('Admin_model');
 		$sess = array('sessi'=>$this->session->userdata('username'));
@@ -92,27 +91,29 @@ class Buyer_livetend_2 extends CI_Controller {
 		$sess = $this->session->userdata('username');
 		$this->load->model('Admin_model');
 		$sess = array('sessi'=>$this->session->userdata('username'));
-		$active = array('bidderusername'=>$sess['sessi'],'auctionid'=>$auctionid/*, 'lotno'=>$lotno, */);
-		$active2 = array('sauctionid'=>$auctionid/* ,'slotno'=>$lotno, */);
-		$queryb = $this->Admin_model->get('biddercart', $active);
+		$active = array('bidderusername'=>$sess['sessi'],'tenderid'=>$auctionid);
+		$active2 = array('tenderid'=>$auctionid);
+		$queryb = $this->Admin_model->get_ted_join($sess['sessi'], $auctionid);
 		$tctr = count($queryb);
-		$query = $this->Admin_model->get_new2022('biddercart', $active, $tctr);
-		$query2 = $this->Admin_model->getemdlot('biddercart', $auctionid,$sess['sessi']);
+
+
 		$lottimesync = 0;
-		
-		foreach($query as $quer){
-		$aucstarttime = $quer->aucstartdate_time;
+		$data['sqldata'] = $queryb;
+		$jk = count($queryb);
+
+		foreach($queryb as $quer){
+		$aucstarttime = $quer->tenderstartdate;
 		$tm = explode('.',$aucstarttime);
 		$aucstarttime = $tm[0];
 		$st = $aucstarttime;
-		$aucclosetime = $quer->aucclosedate_time;
+		$aucclosetime = $quer->tenderenddate;
 		$t = explode('.',$aucclosetime);
 		$aucclosetime = $t[0];
 		$ct = $aucclosetime;
 		
 		
 		
-		$diff = strtotime($quer->aucclosedate_time)-strtotime($time);
+		$diff = strtotime($quer->tenderenddate)-strtotime($time);
 		$years = floor($diff / (365*60*60*24));  
 			$months = floor(($diff - $years * 365*60*60*24)/ (30*60*60*24));   
 			$days = floor(($diff - $years * 365*60*60*24 -  $months*30*60*60*24)/ (60*60*24)); 
@@ -129,26 +130,23 @@ $Remaining =$hours." Hours ".$minutes." Minutes ".$seconds."Seconds";
 				//$diff = abs($time - $sqldata[0]->aucclosedate_time);  
 			
 		//$datfnl = floor($datediff / (3600)).":".floor($datediff / (60));
-if(($quer->aucclosedate_time)>$time){		
+if(($quer->tenderenddate)>$time){		
 		
 echo '<input type="hidden" id="telapsed-'.$lottimesync.'" value="'.$diff.'">';	
 //foreach($query2 as $que){
 echo '<table class="table table-striped table-bordered table-sm text-center w-auto small" width="100%" cellspacing="0" >';
-
 echo '<thead class="bg-info text-white text-center">';
-echo '<tr>';
-echo '<th colspan="7">Auction Details</th>';
-echo '</tr>';
+echo '<th colspan="7">Tender Details</th>';
 echo '</thead>';
 echo '<thead class="bg-primary text-white">';
 echo '<tr>';
 echo '';
-echo '<th width="22%">Auction Id</th>';
-echo '<th>User Name</th>';
-echo '<th>Time Elapsed</th>';
+echo '<th width="22%">Tender Id</th>';
+echo '<th>Tenderer Name</th>';
+echo '<th>Time Elasped</th>';
 echo '<th>Auction Start Date</th>';
 echo '<th>Auction Close Date</th>';
-echo '<th>Seller Terms & Condition</th>';
+echo '<th>Tenderer Terms & Condition</th>';
 echo '</tr>';
 echo '</thead>';
 echo '';
@@ -156,15 +154,13 @@ echo '<tbody>';
 echo '<form action="<?php echo base_url();?>" method="POST"  enctype="multipart/form-data">';
 echo '<tr>';
 echo '';
-echo '<td><a href="#" data-label="Auction Id">'.$quer->auctionid.'</a></td>';
+echo '<td data-label="Auction Id"><a href="#">'.$quer->tenderid.'</a> </td>';
 echo '';
-echo '<td data-label="User Name">'.$quer->bidderusername.'</td>';
-echo '';
+echo '<td data-label="User Name">'.$quer->tenderer.'</td>';
 echo '<td data-label="Time Elasped"><h6 id="timer-'.$lottimesync.'" style="color:red">Synchronizing Time</h6></td>';
-echo '';
-echo '<td data-label="Auction Start Date">'.$st.'</td>';
-echo '<td data-label="Auction Close Date">'.$ct.'</td>';
-echo '<td data-label="Seller Terms & Condition"><a href="#"><u>Click here</u></a></td>';
+echo '<td data-label="Auction Start Date">'.$quer->tenderstartdate.'</td>';
+echo '<td data-label="Auction Close Date">'.$quer->tenderenddate.'</td>';
+echo '<td data-label="Tenderer Terms & Condition"><a href="'.base_url()."/pdf_gen/auc_no/".str_ireplace('/','-',$quer->tenderid).'/'.($quer->tslotno).'" target="_blank"><u>Click here</u></a></td>';
 echo '</tr>';
 echo '</tbody>';
 echo '</table>';
@@ -179,68 +175,46 @@ echo '<thead class="bg-primary text-white">';
 echo '<tr>';
 echo '<th width="8%">Lot No</th>';
 echo '<th>Lot Name</th>';
-echo '<th>Location</th>';
 echo '<th>Close Time</th>';
-//echo '<th>Time Left</th>';
+echo '<!--<th>Time Left</th> -->';
 echo '<th>Quantity</th>';
 echo '<th>Unit</th>';
-echo '<th>Start Price</th>';
+echo '<th>Download</th>';
 echo '<th>My Bid</th>';
 echo '<th>Live Status</th>';
 echo '<th width="18%">Bid</th>';
-echo '<th>Autobid</th>';
+echo '<!-- <th>Autobid</th> -->';
+echo '';
 echo '</tr>';
 echo '</thead>';
 if($condtion){
 	echo '';
 echo '<tbody>';
-$lot = $query2[$lottimesync]->slotno - 1;
-echo '<tr><td data-label="Lot No">'.$query2[$lottimesync]->slotno.'</td>';
-echo '<td data-label="Lot Name">'.$query2[$lottimesync]->slotname.'</td>';
-echo '<td data-label="Location">'.$query2[$lottimesync]->slotlocation.'</td>';
-echo '<td data-label="Close Time">'.$ct.'</td>';
-//echo '<td>'.$Remaining.'</td>';
-echo '<td data-label="Quantity">'.$query2[$lottimesync]->sqty.'</td>';
-echo '<td data-label="Unit">'.$query2[$lottimesync]->sunitmeasurment.'</td>';
-echo '<td data-label="Start Price">'.$query2[$lottimesync]->sstartbidprice.'</td>';
-echo '<td data-label="My Bid">'.$query2[$lottimesync]->mybid_val.'</td>';
-echo '<td data-label="Live Status">'.$query2[$lottimesync]->cbidval.'</td>';
-if($query2[$lottimesync]->sstartbidprice >= $query2[$lottimesync]->cbidval){
-	$datbid = $query2[$lottimesync]->sstartbidprice;
-	$datbid = $query2[$lottimesync]->sstartbidprice + $query2[$lottimesync]->sminincre;
-}else{
-	$datbid = $query2[$lottimesync]->cbidval;
-}   
+$lot = $queryb[$lottimesync]->tslotno;
 
+echo '<td data-label="Lot No">'.$queryb[$lottimesync]->tslotno.'</td>';											
+echo '<td data-label="Lot Name">'.$queryb[$lottimesync]->batchname.'</td>';
+echo '<td data-label="Close Time">'.$ct.'</td>';
+echo '<!-- <td><?php echo $Remaining; ?></td> -->';
+echo '<td data-label="Quantity">'.$queryb[$lottimesync]->batchreqqty.'</td>';
+echo '';
+echo '<td data-label="Unit">'.$queryb[$lottimesync]->batchunits.'</td>';
+echo '<td data-label="Download"><a href="'.base_url()."/pdf_gen/auc_no/".str_ireplace('/','-',$queryb[$lottimesync]->tenderid).'/'.($queryb[$lottimesync]->tslotno).'" target="_blank"><i class="fa fa-download"></i></a></td>';
+echo '<td data-label="My Bid">'. $queryb[$lottimesync]->mybid.'</td>';
+echo '<td data-label="Live Status">'. $queryb[$lottimesync]->cbid.'</td>';
+echo '';
 //$sessa2 = urlencode($sess['sessi']);
 $sessa2 = str_ireplace('@','%40',$sess['sessi']);
-$id = $sessa2."|".str_ireplace('/','-',$quer->auctionid)."|".$query2[$lottimesync]->slotno;
+$id = $sessa2."|".str_ireplace('/','-',$quer->tenderid)."|".$queryb[$lottimesync]->tslotno;
 echo '<td data-label="Bid"><div class="form-group row ml-2">';
-if($quer->abidding){
-	echo '<input class="form-control col-sm-7 mr-2" type="number" value="'.$datbid.'" min="0" step="'.$query2[$lottimesync]->sminincre.'" id="bid-'.$lot.'" name="bid" readonly>';
-	echo '<button type="submit" class="btn btn-info" id="'.$id.'" onclick="bid_manual(this.id)" disabled>Bid</button></div>';
+echo '<input class="form-control col-sm-7 mr-2" type="number" value="'.$queryb[$lottimesync]->cbid.'" min="0" step="" id="bid-'.$lot.'" name="bid" >';
+	echo '<button type="submit" class="btn btn-info" id="'.$id.'" onclick="bid_manual_ted(this.id)" >Bid</button></div>';
 	echo '';
 	echo '</td>';
-echo '<td><a href="'.base_url().'Buyer_liveauc_2/buyer_autobid_disable/'.str_ireplace('/','-',$quer->auctionid).'|'.$query2[$lottimesync]->slotno.'"><button type="button" class="btn btn-info">Disable AutoBid</button></a></td>';
-}else{
-	echo '<input class="form-control col-sm-7 mr-2" type="number" value="'.$datbid.'" min="0" step="'.$query2[$lottimesync]->sminincre.'" id="bid-'.$lot.'" name="bid">';
-	echo '<button type="submit" class="btn btn-info" id="'.$id.'" onclick="bid_manual(this.id)">Bid</button></div>';
-	echo '';
-	
-    echo '<input type="hidden" id="cbidvalue-'. $lot.'" name="cbidvalue-'. $lot.'"; value="'. $query2[$lottimesync]->cbidval.'">';
-    echo '<input type="hidden" id="abidding-'.$lot.'" name="abidding-'.$lot.'" value="'. $query2[$lottimesync]->sminincre.'">';
-	
-	echo '<input type="hidden" id="bidding-'.$lot.'" name="bidding-'.$lot.'" value="'.$query2[$lottimesync]->sstartbidprice.'">';
-	
-	
-   // echo '<input type="text" id="bidding-'. $lot.'" name="bidding-'.$lot.' value="'. $query2[$lottimesync]->sstartbidprice.'">';
+echo '<input type="hidden" id="cbidvalue-'. $lot.'" name="cbidvalue-'. $lot.'"; value="'. $queryb[$lottimesync]->mybid.'">';
+echo '<input type="hidden" id="abidding-'.$lot.'" name="abidding-'.$lot.'" value="'. $queryb[$lottimesync]->cbid.'">';
 
-	
-	
-	
-    echo '</td>';
-    echo '<td><a href="'.base_url().'Buyer_liveauc_2/buyer_autobid/'.str_ireplace('/','-',$quer->auctionid).'|'.$query2[$lottimesync]->slotno.'"><button type="button" class="btn btn-info" disabled>AutoBid</button></a></td>';
-}
+
 
 
 echo '</tr>';
@@ -316,57 +290,75 @@ echo '</table>';
 		$auctionid = str_ireplace('-','/',$data2[1]);
 		$lotno = $data2[2];
 		$bitval = $data2[3];
-		$dataforupdate = array('cbidval' => $bitval);
-		$dataforupdate2 = array('mybid_val' => $bitval);
-		$active2 = array('sauctionid'=>$auctionid,'slotno'=>$lotno);
-		$active3 = array('bidderusername'=>$username,'auctionid'=>$auctionid,'lotno'=>$lotno);
-		$active4 = array('auctionid'=>$auctionid,'lotno'=>$lotno);
+		$dataforupdate = array('cbid' => $bitval);
+		$dataforupdate2 = array('mybid' => $bitval);
+		$dataforupdate3 = array('bidvalue' => $bitval);
+		$active2 = array('tenderid'=>$auctionid,'tslotno'=>$lotno);
+		$active3 = array('bidderusername'=>$username,'tenderid'=>$auctionid,'tslotno'=>$lotno);
+		$active4 = array('tenderid'=>$auctionid,'tslotno'=>$lotno);
+		$active5 = array('bidderusername'=>$username,'tenderid'=>$auctionid,'tslotno'=>$lotno,'bidvalue'=>$bitval);
 		//$query = $this->Admin_model->getdatafromtable('biddercart', $active);
-		$query2 = $this->Admin_model->getdatafromtable('addlot', $active2);
-		$query3 = $this->Admin_model->getdatafromtable('biddercart', $active3);
-		$diff = strtotime($query3[0]->aucclosedate_time)-strtotime($time);
-		$newtimestamp = strtotime($query3[0]->aucclosedate_time.'+ 5 minute');
+		$query2 = $this->Admin_model->getdatafromtable('tender_batch', $active2);
+		$query3 = $this->Admin_model->getdatafromtable('tendercart', $active3);
+		$query4 = $this->Admin_model->getdatafromtable('tenderdata', $active3);
+		
+		$diff = strtotime($query3[0]->tenderenddate)-strtotime($time);
+		$newtimestamp = strtotime($query3[0]->tenderenddate.'+ 5 minute');
 		$newtimestamp2 =  date('Y-m-d H:i:s', $newtimestamp);
-		$dataforupdate3 = array('aucclosedate_time' => $newtimestamp2);
-		$dataforupdate4 = array('saucclosedate_time' => $newtimestamp2);
-		$dataforupdate5 = array('bidderusername' => $username, 'sauctionid'=>$auctionid,'slotno'=>$lotno,'Date_time'=>$time,'bidamount'=>$bitval);
-			$sbid = $query2[0]->sstartbidprice;
-			 $inval = $query2[0]->sminincre;
-			 $total = $sbid + $inval; 
-		if($query2[0]->status){
-			if($query2[0]->cbidval >= $bitval || $bitval < $total){
-				echo "Higher Bid Value";
-				die;
+		if($query2[0]->cbid <= $bitval && $query2[0]->cbid != 0){
+			echo "Lower Bid Value";
+			die;
+		}else{
+			if($diff >= 5 && $diff < 180){
+				if($query4){
+					$this->Admin_model->update_custom('tenderdata',$dataforupdate3,$active3,$active3);
+				   }else{
+					$this->Admin_model->insert('tenderdata', $active5);
+				   }
+					$this->Admin_model->update_custom('tendercart',$dataforupdate2,$active3,$active3);
+					$this->Admin_model->update_custom('tender_batch',$dataforupdate,$active2,$active2);
+				//$this->Admin_model->update_custom('tendercart',$dataforupdate2,$active2,$active3);
+				// $this->Admin_model->insert('tenderdata', $dataforupdate5);
+				// $this->Admin_model->update_custom('addlot',$dataforupdate,$active2,$active2);
+				// $this->Admin_model->update_custom('biddercart',$dataforupdate2,$active3,$active3);
+				// $this->Admin_model->update_custom('biddercart',$dataforupdate3,$active4,$active4);
+				// $this->Admin_model->update_custom('auction',$dataforupdate4,$active2,$active4);				
+				//$this->Admin_model->update_custom('auction',$dataforupdate4,$active2,$active4);
 			}else{
-				if($diff >= 5 && $diff < 180){
-					$this->Admin_model->insert('biddingdata', $dataforupdate5);
-					$this->Admin_model->update_custom('addlot',$dataforupdate,$active2,$active2);
-					$this->Admin_model->update_custom('biddercart',$dataforupdate2,$active3,$active3);
-					$this->Admin_model->update_custom('biddercart',$dataforupdate3,$active4,$active4);
-					$this->Admin_model->update_custom('auction',$dataforupdate4,$active2,$active4);
-					
-					//$this->Admin_model->update_custom('auction',$dataforupdate4,$active2,$active4);
+				if($diff < 5){
+					echo "Bidding Closed";
+					die;
 				}else{
-					if($diff < 5){
-						echo "Bidding Closed";
-						die;
-					}else{
-						$this->Admin_model->update_custom('addlot',$dataforupdate,$active2,$active2);
-						$this->Admin_model->update_custom('biddercart',$dataforupdate2,$active3,$active3);
-						//$this->Admin_model->update_custom('biddingdata',$dataforupdate5,$active2,$active4);
-						$this->Admin_model->insert('biddingdata', $dataforupdate5);
-						
-					}
+					if($query4){
+						$this->Admin_model->update_custom('tenderdata',$dataforupdate3,$active3,$active3);
+					   }else{
+						$this->Admin_model->insert('tenderdata', $active5);
+					   }
+					$this->Admin_model->update_custom('tendercart',$dataforupdate2,$active2,$active3);
+					$this->Admin_model->update_custom('tender_batch',$dataforupdate,$active2,$active2);
+					///$this->Admin_model->update_custom('tendercart',$dataforupdate2,$active2,$active3);
+					// $this->Admin_model->update_custom('addlot',$dataforupdate,$active2,$active2);
+					// $this->Admin_model->update_custom('biddercart',$dataforupdate2,$active3,$active3);
+					// //$this->Admin_model->update_custom('biddingdata',$dataforupdate5,$active2,$active4);
+					// $this->Admin_model->insert('biddingdata', $dataforupdate5);
 					
 				}
-				echo "Done";
-				//header('location: '.base_url().'Buyer_liveauc_2/index/'.$auctionid.'|'.$lotno);
-				die;
+				
 			}
-		}else{
-			echo "Bidding Closed";
+			echo "Done";
+			//header('location: '.base_url().'Buyer_liveauc_2/index/'.$auctionid.'|'.$lotno);
 			die;
-		}die;
+		}
+
+
+
+
+
+
+
+		// $dataforupdate3 = array('tenderenddate' => $newtimestamp2);
+		// $dataforupdate4 = array('tenderenddate' => $newtimestamp2);
+		
 	}
 	public function buyer_autobid(){
 		$this->load->helper('url');

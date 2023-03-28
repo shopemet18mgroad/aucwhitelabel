@@ -259,7 +259,28 @@ class Admin_model extends CI_Model
 			$query = $this->db->get();
 			return $query->result();
 		} 
-		
+		public function datebetweensess2_tender($table, $date, $sessi){
+			$this->db->select('*');
+			$this->db->from($table);
+			//$this->db->where('aucstartdate_time <=', $date);
+			$this->db->where('tendercart.tenderenddate <', $date);
+			$this->db->where('tenderdata.bidderusername =', $sessi);
+			$this->db->where('tenderdata.approval =', 1);
+			$this->db->join('tender_batch', 'tender_batch.cbid = tendercart.mybid');
+			$this->db->join('tenderdata', 'tenderdata.bidvalue = tendercart.mybid');
+			$query = $this->db->get();
+			return $query->result();
+		} 
+		public function getdatafromtable_joinbatch($table, $sname){
+			$this->db->select('*');
+			$this->db->from($table);
+			//$this->db->where('tenderid =', $tenderid);
+			$this->db->where('tender.sname =', $sname);
+			$this->db->join('tender_batch', 'tender.tenderid = tender_batch.tenderid');
+			$query = $this->db->get();
+			return $query->result();
+
+		}
 		public function maxbidvalue($auction,$lot){
 			$this->db->select('*');
 			$this->db->select_max('bidamount');
@@ -271,7 +292,19 @@ class Admin_model extends CI_Model
 			$query = $this->db->get();
 			return $query->result();
 		}
-	
+		public function minbidvalueted($auction,$lot){
+			$this->db->select('*');
+			//$this->db->select_min('bidvalue');
+			$this->db->from('tenderdata');
+			$this->db->where('tenderdata.tenderid =', $auction);
+			$this->db->where('tenderdata.tslotno =',$lot);
+			$this->db->where('tenderdata.approval =',false);
+			$this->db->join('tender_batch', 'tenderdata.tenderid = tender_batch.tenderid AND tenderdata.tslotno = tender_batch.tslotno');
+			$this->db->group_by('tenderdata.bidvalue');
+			$this->db->limit(1);
+			$query = $this->db->get();
+			return $query->result();
+		}
 		
 		 public function maxbidlotno($sauctionid,$slotno){
 			$this->db->select('*');
@@ -315,7 +348,8 @@ class Admin_model extends CI_Model
 		$this->db->select('*');
 		$this->db->group_by('tender_batch.sl_no');
 		$this->db->from('tendercart');
-		$this->db->join('tender_batch', 'tendercart.tenderid = tender_batch.tenderid');
+		$this->db->join('tender_batch', 'tendercart.tenderid = tender_batch.tenderid AND tendercart.tslotno = tender_batch.tslotno');
+		//$this->db->join('tender_batch', 'tendercart.tslotno = tender_batch.tslotno');
 		$this->db->where('tendercart.bidderusername =', $busername);
 		$this->db->where('tendercart.tenderid =', $tenderid);
 		$query = $this->db->get();

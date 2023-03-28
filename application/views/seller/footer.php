@@ -162,6 +162,18 @@ function validate_password_seller(){
 		}
 	
  </script>
+ <script>
+		function tenderee_set(varab2){
+			$.get('<?php echo base_url() .'Seller_tenderresults/setdeactive/'; ?>'+varab2, function(data2){
+				 if($.trim(data2) == "HI"){
+					 window.location.href = '<?php echo base_url().'Seller_tenderresults';?>'
+					return true;
+				}
+			 });
+			
+		}
+	
+ </script>
 <script>
 		$('#gettable_biddata').on('keyup', function(){
 			var contents = $('#gettable_biddata').val(); 

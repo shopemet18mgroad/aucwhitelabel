@@ -152,7 +152,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="<?php echo base_url();?>buyer_occupied">Occupied Product</a>
             <a class="collapse-item" href="<?php echo base_url();?>buyer_lostproduct">Lost Product</a>
-            <a class="collapse-item" href="<?php echo base_url();?>buyer_tender_result">Product</a>
+            <a class="collapse-item" href="<?php echo base_url();?>buyer_tender_result">Tender Result</a>
            </div>
         </div>
       </li>

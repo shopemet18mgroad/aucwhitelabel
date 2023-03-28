@@ -219,6 +219,7 @@ function validate_password(){
 function bid_manual_ted(v){
 	
 	var spd = v.split("|");
+	var k = spd[2];
 	var spdvar = "bid-"+(spd[2]);
 	var cbidvar = "cbidvalue-"+(spd[2]);
 	var abidvar = "abidding-"+(spd[2]);
@@ -226,13 +227,57 @@ function bid_manual_ted(v){
 	var mybidval = parseFloat(document.getElementById(abidvar).value);
 	var pbidval = parseFloat(document.getElementById(spdvar).value);
 
-	if (( bidval < pbidval)){
+	if (( bidval < pbidval  && bidval != 0)){
 		        swal("Alert!","Max Bid Value Should be less than "+bidval,"error" );
 		     return false;
         }
 		$.get('<?php echo base_url() .'Buyer_liveauc_2/get_currency/'; ?>'+pbidval, function(data){
-			alert(data);
+								if(data){
+								swal({
+					title: "Are you sure?", 
+					text: "You Are about to bid a sum of "+ data,
+					icon: "warning",
+					buttons: true,
+					dangerMode: true,
+					})
+					.then((willDelete) => {
+					if (willDelete) {
+						$.get('<?php echo base_url() .'Buyer_livetend_2/storebidval/'; ?>'+v+'|'+pbidval, function(data2){
+							if($.trim(data2) == "Done"){
+								swal("You Bid Has Been Placed!", {
+									icon: "success",
+									});
+									var res = v.split("|");
+							var tvar = res[1]+'|'+res[2];
+									$.get('<?php echo base_url() .'Buyer_livetend_2/get_table_ajax/'; ?>'+tvar, function(data3){
+		
+									$('#ajaxauc').html(data3);
+									});
+									
+							}else if($.trim(data2) == "Higher Bid Value"){
+								swal("Higher Bid Value Exists!", {
+									icon: "error",
+									});
+								
+							}else{
+								swal("Auction Closed!", {
+									icon: "error",
+									});
+							}
+							
+							
+							});
+						
+						
+					} else {
+						swal("You Have Cancelled your request to bid!");
+					}
+					});
+							}
 		});
+
+
+
 }
  function  bid_manual(v){
 	
