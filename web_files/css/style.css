@@ -5,7 +5,7 @@ body{
 	width:100%;
 }
 .top-header{
-	background-color:#2e3192;
+	background-color:#2f9143;
 	width:100%;
 	height:28px;
 }
@@ -58,20 +58,20 @@ padding:5px;
 	float:right;
 }
 .small-user-dash-img{
-	color:#2e3192;
+	color:#2f9143;
 }
 .username-dashboard{
-	color:#2e3192;
+	color:#2f9143;
 	
 }
 .username-dashboard p{
-	color:#2e3192;
+	color:#2f9143;
 	font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
 	font-size:16px;
 	padding-top:2%;
 }
 .username-dashboard h6{
-	color:#2e3192;
+	color:#2f9143;
 	font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
 	font-size:8px;
 }
@@ -83,22 +83,22 @@ padding:5px;
 .branding-dashbord{
 	background-color:#ffffff;
 	margin-bottom:2%;
-	border-bottom: 2px solid #2e3192;
+	border-bottom: 2px solid #2f9143;
 	padding:2%;
 }
 .list-group-item.active{
-	background-color:#2e3192!important;
+	background-color:#2f9143!important;
 	color:#ffffff!important;
 	font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
 	font-weight:bold;
 }
 .list-group-item {
-	color:#2e3192!important;
+	color:#2f9143!important;
 	font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
 	
 }
 .list-group-item:hover{
-	color:#2e3192!important;
+	color:#2f9143!important;
 	font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
 	font-weight:bold;
 	
@@ -115,7 +115,7 @@ padding:5px;
 
 
 .navbar{
-   background-color:#2e3192 !important;
+   background-color:#2f9143 !important;
 }
 
 .navbar .navbar-nav{
@@ -134,7 +134,7 @@ padding:5px;
 }
 
 .navbar .dropdown-menu{
-    background-color: #2e3192;
+    background-color: #2f9143;
 	width:250px !important;
 }
 .dropdown-item:hover{
@@ -184,7 +184,7 @@ padding:5px;
 	}
 }
 .noticeboard{
-	background-color:#2e3192;
+	background-color:#2f9143;
 	width:100%;
 	height:30px;
 	display:inline-flex;
@@ -200,7 +200,7 @@ padding:5px;
 .imgsize-header{
 	width:100%;
 	height:auto;
-	max-height:300px;
+	max-height:350px;
 }
 .marqueebox{
 	width:85%;
@@ -217,7 +217,7 @@ padding:5px;
 	width:auto;
 	height:35px;
 	max-height:35px;
-	background-color:#2e3192;
+	background-color:#2f9143;
 	margin-top:3%;
 	border-radius:5px;
 }
@@ -259,7 +259,7 @@ padding:5px;
 	width: 100%;
 	padding: 2rem;
 	overflow-y: hidden;
-	border: 1px solid #2e3192;
+	border: 1px solid #2f9143;
 	border-radius: 5px;
 	
 }
@@ -284,7 +284,7 @@ padding:5px;
 .auclisting-header{
 	width:100%;
 	height:35px;
-	background-color:#2e3192;
+	background-color:#2f9143;
 	margin-top:8px;
 	margin-left:0px;
 	border-radius:5px;
@@ -308,7 +308,7 @@ overflow-y:scroll;
 
 .tab-holder .nav-tabs .nav-link:not(.active) {
     border-color: transparent !important;
-	color: #2e3192!important;
+	color: #2f9143!important;
 	
 	
 }
@@ -318,7 +318,7 @@ overflow-y:scroll;
 
 }
 .tab-holder .border-primary {
-    border-color: #2e3192!important;
+    border-color: #2f9143!important;
 }
 .table-holder td{
   word-break:break-all;
@@ -329,7 +329,7 @@ overflow-y:scroll;
 }
 .thead-auc th {
     color: #fff;
-    background-color: #2e3192;
+    background-color: #2f9143;
     border-color: #fff; 
 }
 .dealsbox{
@@ -338,7 +338,7 @@ overflow-y:scroll;
 .deals-header {
 	width:100%;
 	height:35px;
-	background-color:#2e3192;
+	background-color:#2f9143;
 	margin-top:8px;
 	border-radius:5px;
 	margin-bottom:10px;
@@ -357,7 +357,7 @@ overflow-y:scroll;
 }
 .deals-tab-table .nav-tabs .nav-link:not(.active) {
     border-color: transparent !important;
-	color: #2e3192!important;
+	color: #2f9143!important;
 }
 
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
@@ -367,7 +367,7 @@ overflow-y:scroll;
 }
 
 #footer {
-    background: #2e3192 !important;
+    background: #204c49 !important;
 }
 #footer h5{
 	padding-left: 10px;
@@ -452,7 +452,7 @@ overflow-y:scroll;
     color: #000;
 }
 .aboutus-title::after {
-    background: #2e3192 none repeat scroll 0 0;
+    background: #2f9143 none repeat scroll 0 0;
     bottom: 0;
     content: "";
     height: 2px;
@@ -485,7 +485,7 @@ a:hover, a:active {
     width: 18%;
 }
 .feature .feature-box .iconset::after {
-    background: #2e3192 none repeat scroll 0 0;
+    background: #2f9143 none repeat scroll 0 0;
     content: "";
     height: 150%;
     left: 43%;
@@ -535,23 +535,23 @@ a:hover, a:active {
 }
 .contact-tp{
 	display:inline-flex;
-	color: #2e3192;
+	color: #2f9143;
 }
 .contact-bt{
 	display:inline-flex;
-	color: #2e3192;
+	color: #2f9143;
 }
 .tspace{
 	padding-top:20px;
 }
 .card-header{
-	 background: #2e3192;
+	 background: #2f9143;
 }
 .btncl{
 	 color: #fff;
 }
 .testimonial-card{
-	border: 1px solid #2e3192;
+	border: 1px solid #2f9143;
 }
 .textsize{
 	 font-size:20px;
@@ -581,7 +581,7 @@ a:hover, a:active {
     height:auto;
 	width: 900px;
 	padding-right: 1px;
-    background-color: #2e3192;
+    background-color: #2f9143;
     margin-left: auto;
     margin-right: auto;
     top: 50%;
@@ -725,7 +725,7 @@ middle
 }
 
 /* #footer{ */
- /* background: #2e3192; */
+ /* background: #2f9143; */
  /* margin-top: 0px; */
  /* padding: 60px 0; */
  
@@ -780,7 +780,7 @@ option {
 
 
 .newswrapper {
-border: 1px solid #2e3192;
+border: 1px solid #2f9143;
 margin: 25px 0;
 max-height:500px;
 }
@@ -822,7 +822,7 @@ color: white;
 border: 1px solid black;
 }
 .border-primary {
-    border-color: #2e3192!important;
+    border-color: #2f9143!important;
 }
 
 

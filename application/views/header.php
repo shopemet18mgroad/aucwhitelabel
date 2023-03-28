@@ -36,10 +36,13 @@
     }
 </script> 
 	<style>
+		body{
+			font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+		}
 	#typedtext {
 
   font-size:10px; 
-marign-top:2px;
+margin-top:2px;
 
  
   letter-spacing:2px; 
@@ -60,10 +63,11 @@ marign-top:2px;
 
 
 	<body class="" data-spy="scroll" data-target="#myScrollspy">
-	<div class="container-fluid top-header">
+
+	<div class="container-fluid  top-header" style="background-color:#204c49">
 		<div class="row">
 				<div class="col-md-12 contact-header">
-					<div class="social pull-right">
+					<div class="social pull-right" >
 						<ul>
 
   
@@ -251,7 +255,7 @@ togglePassword.addEventListener('click', function (e) {
 		</div>
 		<div class="container-fluid">
 			 <div class="row">
-					<img class="imgsize-header" src="<?php echo base_url()."web_files/";?>images/aucjuntionbanner.png"></img>
+					<img class="imgsize-header" src="<?php echo base_url()."web_files/";?>images/banner.png"></img>
 			 </div>	
 		</div>
 		<div class="container-fluid noticeboard">

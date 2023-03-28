@@ -121,7 +121,10 @@ class Buyer_mylist extends CI_Controller {
 		
 		
 
-	
+			}
+			
+}
+}
 	private function upload_files($nameid)
     {	
 	$countfiles = count($_FILES[$nameid]['name']);
