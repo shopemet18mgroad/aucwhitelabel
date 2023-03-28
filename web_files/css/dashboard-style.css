@@ -6,7 +6,7 @@ body{
 	width:100%;
 }
 .top-header{
-	background-color:#2e3192;
+	background-color:#257c42;
 	width:100%;
 	height:28px;
 }
@@ -60,29 +60,29 @@ body{
 }
 
 .text-dark{
-	color:#2e3192!important;
+	color:#257c42!important;
 	font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
 	font-weight:bold;
 }
 .list-group-item.active{
-	background-color:#2e3192!important;
+	background-color:#257c42!important;
 	color:#ffffff!important;
 	font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
 	font-weight:bold;
 }
 .list-group-item.active:hover{
-	background-color:#2e3192!important;
+	background-color:#257c42!important;
 	color:#ffffff!important;
 	font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
 	font-weight:bold;
 }
 .list-group-item {
-	color:#2e3192!important;
+	color:#257c42!important;
 	font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
 	
 }
 .list-group-item:hover{
-	color:#2e3192!important;
+	color:#257c42!important;
 	font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
 	font-weight:bold;
 	
@@ -99,7 +99,7 @@ body{
 
 
 .navbar{
-   background-color:#2e3192 !important;
+   background-color:#257c42 !important;
 }
 
 .navbar .navbar-nav{
@@ -110,7 +110,7 @@ body{
 }
 
 .navbar .dropdown-menu{
-    background-color: #2e3192;
+    background-color: #257c42;
 	width:250px !important;
 }
 .dropdown-item:hover{
@@ -158,7 +158,7 @@ body{
 	}
 }
 .noticeboard{
-	background-color:#2e3192;
+	background-color:#257c42;
 	width:100%;
 	height:30px;
 	display:inline-flex;
@@ -191,7 +191,7 @@ body{
 	width:auto;
 	height:35px;
 	max-height:35px;
-	background-color:#2e3192;
+	background-color:#257c42;
 	margin-top:3%;
 	border-radius:5px;
 }
@@ -233,7 +233,7 @@ body{
 	width: 100%;
 	padding: 2rem;
 	overflow-y: hidden;
-	border: 1px solid #2e3192;
+	border: 1px solid #257c42;
 	border-radius: 5px;
 	
 }
@@ -241,7 +241,7 @@ body{
 	display:inline-table;
 }
 .btn-primary{
-	background-color:#2e3192 !important;
+	background-color:#257c42 !important;
 }			
 .btn-primary:hover{
 	background-color:#ffffff !important;
@@ -256,7 +256,7 @@ body{
 .auclisting-header{
 	width:100%;
 	height:35px;
-	background-color:#2e3192;
+	background-color:#257c42;
 	margin-top:8px;
 	border-radius:5px;
 	
@@ -269,7 +269,7 @@ body{
 	font-weight:400;
 }
 .border-primary {
-    border-color: #2e3192!important;
+    border-color: #257c42!important;
 }
 .tab-holder{
 margin-top:2%;
@@ -277,14 +277,14 @@ margin-top:2%;
 
 .tab-holder .nav-tabs .nav-link:not(.active) {
     border-color: transparent !important;
-	color: #2e3192!important;
+	color: #257c42!important;
 }
 .tab-holder .nav-tabs .nav-link {
 	color: #000!important;
 	font-weight:600;
 }
 .tab-holder .border-primary {
-    border-color: #2e3192!important;
+    border-color: #257c42!important;
 }
 .table-holder td{
   word-break:break-all;
@@ -295,7 +295,7 @@ margin-top:2%;
 }
 .thead-auc th {
     color: #fff;
-    background-color: #2e3192;
+    background-color: #257c42;
     border-color: #fff; 
 }
 .dealsbox{
@@ -304,7 +304,7 @@ margin-top:2%;
 .deals-header {
 	width:100%;
 	height:35px;
-	background-color:#2e3192;
+	background-color:#257c42;
 	margin-top:8px;
 	border-radius:5px;
 	margin-bottom:10px;
@@ -322,7 +322,7 @@ margin-top:2%;
 }
 .deals-tab-table .nav-tabs .nav-link:not(.active) {
     border-color: transparent !important;
-	color: #2e3192!important;
+	color: #257c42!important;
 }
 
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
@@ -332,7 +332,7 @@ margin-top:2%;
 }
 
 #footer {
-    background: #2e3192 !important;
+    background: #257c42 !important;
 }
 #footer h5{
 	padding-left: 10px;

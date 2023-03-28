@@ -37,7 +37,7 @@
          <table class="table table-striped text-center table-sm table-bordered mt-5"  id="dataTable" width="100%" cellspacing="0">		
     <thead>
 	  <tr>
-		<th colspan="13" class="bg-info text-white">Auctions</th>
+		<th colspan="13"style="background-color:#257c42" class=" text-white">Auctions</th>
 		</tr>
      <tr class="bg-primary text-white">
 		<th>Auction Id</th>

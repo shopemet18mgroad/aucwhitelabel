@@ -25,7 +25,7 @@
                <table class="table table-striped text-left table-sm p-4" id="dataTable" width="100%" cellspacing="0">
     <thead class="bg-success text-white">
       <tr>
-		<th colspan="10"><center>Start Tender</center></th>  
+		<th colspan="10" style="background-color:#163621"><center>Start Tender</center></th>  
       </tr>
     </thead>
     <tbody>

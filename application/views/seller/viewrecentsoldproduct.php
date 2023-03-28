@@ -36,7 +36,7 @@
          <table class="table table-striped text-center table-sm table-bordered  mt-5"  width="100%" cellspacing="0">		
     <thead class="bg-primary text-white">
       <tr>
-	<th colspan="15" class="bg-info text-center">Sold Products</th>
+	<th colspan="15" style="background-color:#257c42"  class="text-center">Sold Products</th>
 	</tr>
 	<tr>
 	 <tr>

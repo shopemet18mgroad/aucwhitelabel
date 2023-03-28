@@ -48,6 +48,12 @@
 						<li class="nav-item">
 							<a class="nav-link border border-primary border-bottom-0" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">ALL<br>Auctions</a>
 						</li>
+						<li class="nav-item">
+							<a class="nav-link border border-primary border-bottom-0" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">Today's<br>Procurement</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link border border-primary border-bottom-0" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">Upcoming<br>Procurement</a>
+						</li>
 					</ul>
 
 					<div class="tab-content w-auto">
