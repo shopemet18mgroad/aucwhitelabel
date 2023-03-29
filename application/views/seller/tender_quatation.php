@@ -13,7 +13,7 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Winner Approvals</h1>
+            <h1 class="h3 mb-0 text-gray-800">Tender Winner Quatation</h1>
             
           </div>
 
@@ -49,7 +49,7 @@
 		<th>Tenderee Name</th>
 		<th>Bid Value</th>
         <th>Status</th>
-		<th>Action</th>
+		<th>Download</th>
 		
 	
 	</tr>
@@ -66,11 +66,11 @@
 						
 						<td data-label="My Bid Value"><?php echo $sqldata[0]->bidvalue; ?></td>
 						
-						<td data-label="Status" style="color:green;"><b><?php echo "Winner"?></b></td>
+						<td data-label="Status" style="<?php if($sqldata[0]->quotation == NULL){echo "color:red;";}else{ echo "color:green;";}?>"><b><?php if($sqldata[0]->quotation == NULL){echo "Quotation Not Recived";}else{ echo "Quotation Recived";}?></b></td>
 						
 						
-						<td data-label="Action"><button type="submit" name="submit" id="<?php echo $sqldata[0]->bidderusername."|".str_ireplace('/','-', $sqldata[0]->tenderid)."|".$sqldata[0]->tslotno; ?>" onclick="tenderee_set(this.id)" class="btn btn-info btn-sm">Approve</button></td>	
-
+						<td data-label="Action"><a href="<?php if($sqldata[0]->quotation == NULL){echo "#";}else{ echo base_url()."/pdf_gen/auc_no/".str_ireplace('/','-',$sqldata[0]->tenderid).'/'.($sqldata[0]->tslotno);}?>" target="_blank"><u>Click here</u></a></td>	
+                       
 					</tr>
 	<?php  }} ?>
 	

@@ -5,8 +5,8 @@
 					<h5>WHAT WE DO</h5>
 					<ul class="list-unstyled quick-links">
 						<li><a href="<?php echo base_url();?>bidders_guide"><i class="fa fa-angle-double-right"></i>Buyer's Guide</a></li>
-						<li><a href="<?php echo base_url();?>sellers_guide"><i class="fa fa-angle-double-right"></i>Seller's Guide</a></li>
-						<li><a href="<?php echo base_url();?>testimonials"><i class="fa fa-angle-double-right"></i>Testimonial</a></li>
+						<!-- <li><a href="<?php echo base_url();?>sellers_guide"><i class="fa fa-angle-double-right"></i>Seller's Guide</a></li> -->
+						<li><a href="<?php echo base_url();?>#"><i class="fa fa-angle-double-right"></i>Testimonial</a></li>
 						<li><a href="<?php echo base_url();?>e_auction"><i class="fa fa-angle-double-right"></i>E-Auction Documents</a></li>
 						<li><a href="<?php echo base_url();?>auctioning_concept"><i class="fa fa-angle-double-right"></i>Auctioning Concept</a></li>
 					</ul>
@@ -17,7 +17,7 @@
 						<li><a href="<?php echo base_url();?>home"><i class="fa fa-angle-double-right"></i>Home</a></li>
 						<li><a href="<?php echo base_url();?>about_us"><i class="fa fa-angle-double-right"></i>About Us</a></li>
 						<li><a href="<?php echo base_url();?>contact_us"><i class="fa fa-angle-double-right"></i>Contact Us</a></li>
-						<li><a href="<?php echo base_url();?>faq"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+						<!-- <li><a href="<?php echo base_url();?>faq"><i class="fa fa-angle-double-right"></i>FAQ</a></li> -->
 						<li><a href="<?php echo base_url();?>terms_and_condition"><i class="fa fa-angle-double-right"></i>Terms & Condition</a></li>
 						
 					</ul>
@@ -66,8 +66,8 @@
 			</div>	
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
-					<p class="clf">Shopemet Networks Private Limited CIN NO :- U74999KA2018PTC116853</p>
-					<p class="h6">Aucjunction © All right Reversed.</p>
+					<!-- <p class="clf">Shopemet Networks Private Limited CIN NO :- U74999KA2018PTC116853</p> -->
+					<p class="h6">Powered by Aucjunction © All right Reversed.</p>
 				</div>
 				<hr>
 			</div>	

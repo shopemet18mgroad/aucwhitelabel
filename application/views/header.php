@@ -307,6 +307,12 @@ togglePassword.addEventListener('click', function (e) {
 						  </div>
 						</div>
 						<div class="form-group pl-3">
+						  <div class="custom-control custom-checkbox small ">
+							<input type="checkbox" class="custom-control-input ltype" id="customCheck3" name="ltype"  value="Aucjunction">
+							<label class="custom-control-label" for="customCheck3">Aucjunction</label>
+						  </div>
+						</div>
+						<div class="form-group pl-3">
 						  <div class="custom-control custom-checkbox small">
 							<input type="checkbox" class="custom-control-input ltype" id="customCheck" name="ltype" value="Bidder">
 							<label class="custom-control-label" for="customCheck">Bidder</label>
@@ -341,13 +347,13 @@ togglePassword.addEventListener('click', function (e) {
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						  <!-- <a class="dropdown-item" href="<?php echo base_url();?>sellers_registeration">Seller's Registration</a> -->
-						  <a class="dropdown-item" href="<?php echo base_url();?>buyers_registeration">Buyer's Registration</a>
+						  <a class="dropdown-item" href="<?php echo base_url();?>buyers_registeration">Vendor Registration</a>
 						</div>
 					  </li>
 					   <li class="nav-item">
-						<a class="nav-link" href="#">Press Release</a>
+						<a class="nav-link" href="<?php echo base_url();?>terms_and_condition">Terms & Condition</a>
 					  </li>
-					  <li class="nav-item dropdown">
+					  <!-- <li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						  Popular Categories
 						</a>
@@ -365,7 +371,7 @@ togglePassword.addEventListener('click', function (e) {
 						  <a class="dropdown-item" href="<?php echo base_url();?>categories/type/RA">RA</a>
 						   <a class="dropdown-item" href="<?php echo base_url();?>categories/type/Others">Others</a>
 						</div>
-					  </li>
+					  </li> -->
 					 
 					</ul>
 					<div class="srmfldnav">

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Seller_tenderresults extends CI_Controller {
+class Seller_tender_quatation extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -64,13 +64,13 @@ class Seller_tenderresults extends CI_Controller {
 				$auclottmp = $datsql->tslotno;
                 $datap = $this->Admin_model->minbidvalueted($auctmp, $auclottmp);
 				
-				if(!$datap[0]->approval){
+				if($datap[0]->approval){
 					$data2['sqldatarec'][$xr] = $datap;
 				}
                 
                
 		    }
-			if(!$datap[0]->approval){
+			if($datap[0]->approval){
 				$xr++;
 			}
             
@@ -87,7 +87,7 @@ class Seller_tenderresults extends CI_Controller {
 					
 		 
 		$this->load->view('seller/header',$sess);
-		$this->load->view('seller/tenderapproval',$data2);
+		$this->load->view('seller/tender_quatation',$data2);
 		$this->load->view('seller/footer');
 		
 	}

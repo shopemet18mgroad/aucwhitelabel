@@ -49,10 +49,10 @@
 							<a class="nav-link border border-primary border-bottom-0" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">ALL<br>Auctions</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link border border-primary border-bottom-0" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">Today's<br>Procurement</a>
+							<a class="nav-link border border-primary border-bottom-0" id="today-tender" data-toggle="tab" href="#tender2" role="tab" aria-controls="all" aria-selected="true">Today's<br>Procurement</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link border border-primary border-bottom-0" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">Upcoming<br>Procurement</a>
+							<a class="nav-link border border-primary border-bottom-0" id="upcoming-tender" data-toggle="tab" href="#tender2_up" role="tab" aria-controls="all" aria-selected="true">Upcoming<br>Procurement</a>
 						</li>
 					</ul>
 
@@ -196,6 +196,97 @@
 							</div>
 
 						</div>
+
+						<div class="tab-pane h-100 p-3 w-100 border border-primary" id="tender2" role="tabpanel" aria-labelledby="today-tender">
+							<div class="table-holder">
+							<font size="4" face="Arial" >
+								<table class="table table-bordered display w-auto small text-center" id="">
+									<thead class="thead-auc">
+										<tr>
+
+										<th width="2%">TENDER ID</th>
+											<th width="1%">TENDER BATCH No</th>
+											<th width="1%">DESCRIPTION</th>
+											<th width="1%">QUANTITY</th>
+											<th class="86%">START DATE & TIME</th>
+
+
+										</tr>
+									</thead>
+									<tbody>
+										<?php if (isset($tender_today)) {
+											foreach ($tender_today as $sql) { ?>
+												<tr>
+
+													<td data-label="AUCTION ID"><?php echo $sql->tenderid; ?></td>
+													<td data-label="Lot No"><?php echo $sql->tslotno; ?></td>
+													<td data-label="DESCRIPTION"><?php echo $sql->batchdes; ?></td>
+													<td data-label="QUANTITY"><?php echo $sql->batchreqqty; ?><br><?php echo $sql->batchunits; ?></td>
+													<td data-label="DATE & TIME"><?php $aucstarttime = $sql->tenderstartdate;
+													$tmp = explode('.',$aucstarttime);
+													$aucstarttime = $tmp[0];
+													echo $aucstarttime;
+													echo '<br>To<br>';
+													
+													$aucclosetime = $sql->tenderenddate;
+													$tmp = explode('.',$aucclosetime);
+													$aucclosetime = $tmp[0];
+													echo $aucclosetime;
+													
+													?></td>
+												</tr>
+										<?php }
+										} ?>
+									</tbody>
+								</table></font>
+							</div>
+
+						</div>
+						<div class="tab-pane h-100 p-3 w-100 border border-primary" id="tender2_up" role="tabpanel" aria-labelledby="upcoming-tender">
+							<div class="table-holder">
+							<font size="4" face="Arial" >
+								<table class="table table-bordered display w-auto small text-center" id="">
+									<thead class="thead-auc">
+										<tr>
+
+											<th width="2%">TENDER ID</th>
+											<th width="1%">TENDER BATCH No</th>
+											<th width="1%">DESCRIPTION</th>
+											<th width="1%">QUANTITY</th>
+											<th class="86%">START DATE & TIME</th>
+
+
+										</tr>
+									</thead>
+									<tbody>
+										<?php if (isset($upcoming_tender)) {
+											foreach ($upcoming_tender as $sql) { ?>
+												<tr>
+
+												<td data-label="AUCTION ID"><?php echo $sql->tenderid; ?></td>
+												<td data-label="Lot No"><?php echo $sql->tslotno; ?></td>
+												<td data-label="DESCRIPTION"><?php echo $sql->batchdes; ?></td>
+												<td data-label="QUANTITY"><?php echo $sql->batchreqqty; ?><br><?php echo $sql->batchunits; ?></td>
+												<td data-label="DATE & TIME"><?php $aucstarttime = $sql->tenderstartdate;
+												$tmp = explode('.',$aucstarttime);
+												$aucstarttime = $tmp[0];
+												echo $aucstarttime;
+												echo '<br>To<br>';
+
+												$aucclosetime = $sql->tenderenddate;
+												$tmp = explode('.',$aucclosetime);
+												$aucclosetime = $tmp[0];
+												echo $aucclosetime;
+
+												?></td>
+												</tr>
+										<?php }
+										} ?>
+									</tbody>
+								</table></font>
+							</div>
+
+							</div>
 						<div class="tab-pane h-100 p-3 border border-primary" id="profile" role="tabpanel" aria-labelledby="profile-tab">No Records Found</div>
 						<div class="tab-pane h-100 p-3 border border-primary" id="messages" role="tabpanel" aria-labelledby="messages-tab">Upcoming Events 3</div>
 						<div class="tab-pane h-100 p-3 border border-primary" id="settings" role="tabpanel" aria-labelledby="settings-tab">Upcoming Events 4</div>

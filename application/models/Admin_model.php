@@ -99,7 +99,33 @@ class Admin_model extends CI_Model
 		$query = $this->db->get();
 		return $query->result();
 	}
-	
+	public function getdatafromtablejoinalltentoday($date){
+		$date2 = $date+86380;
+		$time3 = Date('Y-m-d H:i:s', $date2);
+		$time4 = Date('Y-m-d H:i:s', $date);
+		$this->db->select('*');
+		$this->db->from('tender');
+		//Fetching the data by joining addlot and auction  where status is 1 (Approved auctions)
+		$this->db->join('tender_batch', 'tender_batch.tenderid = tender.tenderid');
+		$this->db->where('tender.tenderstartdate >=', $time4);
+		$this->db->where('tender.tenderstartdate <=', $time3);
+		$query = $this->db->get();
+		return $query->result();
+	}
+	public function getdatafromtablejoinalltenup($date){
+		$date2 = $date+86420;
+		$time3 = Date('Y-m-d H:i:s', $date2);
+		$time4 = Date('Y-m-d H:i:s', $date);
+		//die;
+		$this->db->select('*');
+		$this->db->from('tender');
+		//Fetching the data by joining addlot and auction  where status is 1 (Approved auctions)
+		$this->db->join('tender_batch', 'tender_batch.tenderid = tender.tenderid');
+		//$this->db->where('tender.tenderstartdate >=', $time4);
+		$this->db->where('tender.tenderstartdate >=', $time3);
+		$query = $this->db->get();
+		return $query->result();
+	}
 	public function datebetweenhomemarquee($date)
 	{
 		$this->db->select('*');
@@ -298,7 +324,7 @@ class Admin_model extends CI_Model
 			$this->db->from('tenderdata');
 			$this->db->where('tenderdata.tenderid =', $auction);
 			$this->db->where('tenderdata.tslotno =',$lot);
-			$this->db->where('tenderdata.approval =',false);
+			//$this->db->where('tenderdata.approval =',false);
 			$this->db->join('tender_batch', 'tenderdata.tenderid = tender_batch.tenderid AND tenderdata.tslotno = tender_batch.tslotno');
 			$this->db->group_by('tenderdata.bidvalue');
 			$this->db->limit(1);
@@ -457,6 +483,7 @@ class Admin_model extends CI_Model
 		$query = $this->db->get();
 		return $query->result();
 	}
+	
 	//Query for deleting the data from the database 
 	public function delete_data($table, $data)
 	{

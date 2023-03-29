@@ -27,7 +27,7 @@
         </div>
         <div class="card-body">
           <!--Name-->
-          <h4 class="font-weight-bold mb-4">ALFA</h4>
+          <h4 class="font-weight-bold mb-4">MEGHA</h4>
           <hr>
           <!--Quotation-->
           <p class="dark-grey-text mt-4"><i class="fa fa-pencil pr-2"></i>Lorem ipsum dolor sit amet eos
