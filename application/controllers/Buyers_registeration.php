@@ -102,7 +102,7 @@ class Buyers_registeration extends CI_Controller {
 		$data['ImgFileName'] = $captcha['filename'];
         // Load the view
 		//$this->load->helper('url');
-		$this->load->view('header2');
+		$this->load->view('header');
 		$this->load->view('buyersregisteration',$data);
 		$this->load->view('footer');
         

@@ -34,12 +34,17 @@ class Home_Login extends CI_Controller {
 				$table = "sellerprofile";
 				$colname = "susername";
 				$colname2 = "spassword";
+			}else if($this->input->post('ltype')=="Aucjunction"){
+				$table = "extsellerprofile";
+				$colname = "exsusername";
+				$colname2 = "exspassword";
 			}
 			
 			$user = $this->input->post('user');
 			$pass = $this->input->post('pass');
 			$pass = base64_encode($pass);
 			$check_db = array($colname => $user, $colname2 => $pass,'adaction' => true);
+			
 			$this->load->model('Admin_model');
 			  if($this->Admin_model->check($table, $check_db)){
 				  if($table == "buyerprofile"){
