@@ -24,7 +24,9 @@ class Home_Login extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('session');
 		$this->session->sess_expiration = '3600';
+	
 		if($this->input->post('user')){
+	
 			
 			if($this->input->post('ltype')=="Bidder"){
 				$table = "buyerprofile";
@@ -52,8 +54,10 @@ class Home_Login extends CI_Controller {
 						$this->session->set_userdata($newdata);
 					  header('location: '.base_url().'buyer_dashboard');
 					  die;
+		
 				  }else if($table == "sellerprofile"){
 					  $newdata = array('username'=>$user,'auth'=>'SELLER','logged_in' => TRUE);
+		
 						$this->session->set_userdata($newdata);
 					  header('location: '.base_url().'seller_dashboard');
 					  die;

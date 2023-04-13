@@ -54,7 +54,18 @@
   <script src="<?php echo base_url()."web_files/";?>vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="<?php echo base_url()."web_files/";?>vendor/datatables/dataTables.bootstrap4.min.js"></script>
  <script src="<?php echo base_url()."web_files/";?>js/demo/datatables-demo.js"></script>
-
+ <script>
+		function buyer_set_deactive_emd(varab2){
+			$.get('<?php echo base_url() .'Seller_emdrequest/setdeactive_buyer_emd/'; ?>'+varab2, function(data2){			
+				 if($.trim(data2) == "HI"){
+					 window.location.href = '<?php echo base_url().'Seller_emdrequest';?>'
+					return true;
+				}
+			 });
+			
+		}
+	
+ </script>
 
  <script>
  function validate_user_password_seller(){

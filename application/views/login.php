@@ -37,7 +37,7 @@
                   <div class="text-center">
                     <div class="form-check-inline">
                       <label class="form-check-label">
-                        <input type="radio" class="form-check-input" value="Buyer" name="optradio" checked>Buyer
+                        <input type="radio" class="form-check-input" value="Buyer" name="optradio" checked>Auctioneer
                       </label>
 
                     </div>
@@ -46,11 +46,11 @@
                         <input type="radio" class="form-check-input" value="Seller" name="optradio">Seller
                       </label>
                     </div>
-                    <div class="form-check-inline">
+                    <!-- <div class="form-check-inline">
                       <label class="form-check-label">
                         <input type="radio" class="form-check-input" value="Admin" name="optradio">Admin
-                      </label>
-                    </div>
+                      </label> 
+                    </div>-->
                   </div>
                 </form>
                 <div class="text-center">

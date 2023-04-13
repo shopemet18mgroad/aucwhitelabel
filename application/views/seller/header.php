@@ -119,7 +119,30 @@
            </div>
         </div>
       </li>
-	  	  
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="<?php echo base_url();?>seller_liveauc" data-toggle="collapse" data-target="#vendorsettings" aria-expanded="true" aria-controls="collapseProduct">
+          <i class="fas fa-fw fa-gavel"></i>
+          <span>Vendor Settings</span>
+        </a>
+        <div id="vendorsettings" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="<?php echo base_url();?>seller_vendoreditprofile">Edit Vendor</a>
+            <a class="collapse-item" href="<?php echo base_url();?>seller_vendorapproval">Vendor Approval</a>
+           </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="<?php echo base_url();?>seller_liveauc" data-toggle="collapse" data-target="#emdsettings" aria-expanded="true" aria-controls="collapseProduct">
+          <i class="fas fa-fw fa-gavel"></i>
+          <span>EMD</span>
+        </a>
+        <div id="emdsettings" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="<?php echo base_url();?>seller_emdrequest">EMD Request</a>
+            <a class="collapse-item" href="<?php echo base_url();?>seller_emdapproval">EMD Approval</a>
+           </div>
+        </div>
+      </li>
 	    <li class="nav-item">
         <a class="nav-link collapsed" href="<?php echo base_url();?>seller_liveauc" data-toggle="collapse" data-target="#auction" aria-expanded="true" aria-controls="collapseProduct">
           <i class="fas fa-fw fa-gavel"></i>
@@ -164,6 +187,20 @@
             <a class="collapse-item" href="<?php echo base_url();?>seller_unsoldproduct">Unsold Product</a>
           </div>
 		  </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="<?php echo base_url();?>seller_liveauc" data-toggle="collapse" data-target="#settings" aria-expanded="true" aria-controls="collapseProduct">
+          <i class="fas fa-fw fa-cog"></i>
+          <span>Settings</span>
+        </a>
+        <div id="settings" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="<?php echo base_url();?>seller_aboutus">About Us</a>
+            <a class="collapse-item" href="<?php echo base_url();?>seller_contactinfo">Contact Us</a>
+			      <a class="collapse-item" href="<?php echo base_url();?>Seller_termsandcond">Terms and Conditions</a>
+            <a class="collapse-item" href="<?php echo base_url();?>Seller_updateboard_logo">Update Logo</a>
+           </div>
+        </div>
       </li>
 	  
 	   <!-- Divider -->
