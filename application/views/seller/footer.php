@@ -66,7 +66,15 @@
 		}
 	
  </script>
-
+<script>
+		$('#gettable_buyer').on('keyup', function(){
+			var contents = $('#gettable_buyer').val(); 
+			$.get('<?php echo base_url() .'seller_vendoreditprofile/get_table/'; ?>'+contents, function(data){
+				$('#ajaxrslt_buyer').html(data);
+			});
+		});
+	
+ </script>
  <script>
  function validate_user_password_seller(){
 	 
@@ -211,6 +219,21 @@ $('.delete-confirm').on('click', function (event) {
     });
 });
 </script>
+<script>
+		function buyer_set_deactive(varab){
+			$.get('<?php echo base_url() .'seller_vendorapproval/setdeactive_buyer/'; ?>'+varab, function(data2){	
+				 if($.trim(data2) == "HI"){
+					 window.location.href = '<?php echo base_url().'seller_vendorapproval';?>'
+					return true;
+				}else{
+					swal("Alert!", "Company Name Already Exists", "error");
+					return false;
+				}
+			 });
+			
+		}
+	
+ </script>
 </body>
 
 </html>
